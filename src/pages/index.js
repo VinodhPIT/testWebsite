@@ -79,13 +79,13 @@ export default function Home({ locale }) {
                   <div className={styles.banner_inner}>
                     <video loop autoPlay muted className="mob_hidden">
                       <source
-                        src="/iStock-1370740824-home.mp4"
+                        src="/book-tattoo-video.mp4"
                         type="video/mp4"
                       />
                     </video>
                     <video loop autoPlay muted className="desk_hidden">
                       <source
-                        src="/iStock-1386481647-home-mob.mp4"
+                        src="/book-tattoo-video-small.mp4"
                         type="video/mp4"
                       />
                     </video>
