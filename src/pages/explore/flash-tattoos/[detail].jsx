@@ -189,7 +189,7 @@ export default function Detail({ data, status, locale }) {
                     </div>
                     <div className={styles.search_profile_link}>
                       <Link
-                        href={`/${router.locale}/explore/tattoo-artists/${data.artist.slug}`}
+                        href={`/${router.locale}/artists/${data.artist.slug}`}
                         className={styles.profile_getin}
                       >
                         {t("common:viewProfile")}
