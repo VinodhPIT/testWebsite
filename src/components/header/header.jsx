@@ -128,7 +128,7 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
           <div className="container">
             <nav className="header_navigation">
               <div className="header_logo">
-                <Link href={"/"} className="navbar_brand">
+                <Link href={`/${router.locale}`} className="navbar_brand">
                   <Image
                     src={logo}
                     alt="Logo"

@@ -147,6 +147,9 @@ export const GlobalStateProvider = ({ children }) => {
     dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
   };
 
+
+
+  
   const getAddress = async (payload) => {
     try {
       dispatch({ type: "GET_ADDRESS", payload: payload });
