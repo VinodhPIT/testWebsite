@@ -54,13 +54,19 @@ export default function Flash({ data }) {
                 
                 />
 
-                {item._source.min_price && (
-                  <div className={styles.priceBox}>
-                    <p style={{ margin: "0" }}>
-                      {item._source.min_price} {item._source.currency.code}
-                    </p>
-                  </div>
-                )}
+{item._source.min_price !== undefined && item._source.max_price !== undefined ? (
+  <div className={styles.priceBox}>
+    <p style={{ margin: "0" }}>
+    {item._source.currency.code} {item._source.min_price} - {item._source.max_price}
+    </p>
+  </div>
+) : item._source.min_price !== undefined ? (
+  <div className={styles.priceBox}>
+    <p style={{ margin: "0" }}>
+      {item._source.currency.code} {item._source.min_price}
+    </p>
+  </div>
+) : null}
 
 
 
