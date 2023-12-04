@@ -4,12 +4,20 @@ import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 
 function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
-  const { state, searchData } = useGlobalState();
-  const [searchState, setSearchState] = useState({
-    query: "",
-    showDropdown: false,
-    searchHistory: [],
-  });
+  const { state, searchData  ,setSearchState ,searchState } = useGlobalState();
+
+
+
+  // const [searchState, setSearchState] = useState({
+  //   query: "",
+  //   showDropdown: false,
+  //   searchHistory: [],
+  // });
+
+
+
+
+
 
   const inputRef = useRef(null);
   // const router = useRouter();
@@ -38,19 +46,9 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
   //   );
   // }, [searchState.searchHistory]);
 
-  useEffect(() => {
-    const searchQuery = localStorage.getItem("searchQuery");
-    if (searchQuery) {
-      setSearchState((prevSearchState) => ({
-        ...prevSearchState,
-        query: JSON.parse(searchQuery),
-      }));
-    }
-  }, []);
 
-  useEffect(() => {
-    localStorage.setItem("searchQuery", JSON.stringify(searchState.query));
-  }, [searchState.query]);
+
+
 
 
   const hintsToDisplay = [];
@@ -154,26 +152,11 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
     if (searchKey === "") {
       setSearchState({ query: "" });
     } else {
-      if (isDetail === true) {
         setSearchState({ query: "" });
-      } else {
         await getUrl(currentTab, "", selectedStyle, state.location, router);
-      }
-
-      setSearchState({ query: "" });
     }
-    localStorage.clear("searchQuery");
+    
   };
-
-  useEffect(() => {
-    const handleBackButton = () => {
-      clearText();
-    };
-    window.addEventListener('popstate', handleBackButton);
-    return () => {
-      window.removeEventListener('popstate', handleBackButton);
-    };
-  }, []);
 
 
 
@@ -187,6 +170,8 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
             type="text"
             required="required"
             className={style.input_txt}
+
+
             onChange={(event) => handleChange(event.target.value)}
             onFocus={() =>
               setSearchState((prevSearchState) => ({
@@ -195,12 +180,19 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
               }))
             }
             value={searchState.query}
+
+
+
+
+
+
+
           />
           <button type="submit" tabindex="-1" className={style.btn_search}>
             <img src="/tattoo-magnifer.svg" alt="search" />
           </button>
 
-          {searchState.showDropdown && (
+          {/* {searchState.showDropdown && (
             <div className={style.dropdown}>
               {hintsToDisplay.map((result, index) => (
                 <li onClick={(e) => handleItemClick(result, e)} key={index}>
@@ -238,10 +230,10 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
                 </div>
               )}
             </div>
-          )}
+          )} */}
         </div>
       </form>
-      {searchState.query && (
+       {searchState.query && (
         <button className={style.close_search} onClick={() => clearText()}>
           <img
             src="/search-close.svg"

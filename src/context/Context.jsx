@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext, useState } from "react";
+import React, { createContext, useReducer, useContext, useState ,useEffect } from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
@@ -128,12 +128,32 @@ export const useGlobalState = () => useContext(GlobalStateContext);
 
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   const [selectedIds, setSelectedIds] = useState([]);
+  const [searchState, setSearchState] = useState({
+    query: "",
+  });
+
+  useEffect(() => {
+    const searchQuery = localStorage.getItem("searchQuery");
+    if (searchQuery) {
+      setSearchState((prevSearchState) => ({
+        ...prevSearchState,
+        query: JSON.parse(searchQuery),
+      }));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("searchQuery", JSON.stringify(searchState.query));
+  }, [searchState.query]);
+
+
 
   const clearStyleId = async () => {
     dispatch({ type: "CLEARSTYLE_ID", payload: "" });
   };
+
+  
 
   const onSearch = async (router) => {
     await getUrl(
@@ -214,7 +234,7 @@ export const GlobalStateProvider = ({ children }) => {
         selectedIds,
         setSelectedIds,
         onSearch,
-        clearStyleId,
+        clearStyleId,setSearchState ,searchState
       }}
     >
       {children}

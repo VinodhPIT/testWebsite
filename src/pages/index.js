@@ -25,7 +25,7 @@ import setLanguage from "next-translate/setLanguage";
 
 export default function Home({ locale ,country }) {
   const { t } = useTranslation();
-  const { styleCollection, getLocale  ,getAddress ,setSelectedIds ,clearStyleId}  = useGlobalState();
+  const { styleCollection, getLocale  ,getAddress ,setSelectedIds ,clearStyleId   ,setSearchState}  = useGlobalState();
   const { isMobileView } = useWindowResize();
 
   const imagePaths = [
@@ -60,6 +60,11 @@ router.replace(`/${locale}`)
    
 
     getAddress('Location')
+
+    setSearchState((prevSearchState) => ({
+      ...prevSearchState,
+      query:'',
+    }));
 
 
 

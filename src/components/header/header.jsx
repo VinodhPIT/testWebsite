@@ -173,7 +173,7 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
                 >
                   {t("common:menus.forTattooArtists")}
                 </button>
-
+{router.pathname !==`/journal` &&
                  
                   <button   
                     className={`language_switcher ${
@@ -195,7 +195,7 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
                         ? "switchTextBlack"
                         : "switchTextWhite"
                     }`}> {getLanguage(router.locale)}</span>
-                  </button>               
+                  </button>    }            
 
                 <Image
                   className="nav_btn_toggle"
