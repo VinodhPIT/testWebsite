@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
 
-console.log(router.locale,)
+
 
 
 
@@ -67,7 +67,7 @@ console.log(router.locale,)
         />;
 
       case "/explore/[[...slug]]":
-      case "/explore/tattoo-artists/[detail]":
+      case "/artists/[detail]":
       case `/explore/tattoos/[detail]`:
       case "/explore/flash-tattoos/[detail]":
       case "/404":

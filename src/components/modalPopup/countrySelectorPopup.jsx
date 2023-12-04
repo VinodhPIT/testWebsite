@@ -42,12 +42,24 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   const chooseLanguage = async (id, domain, li) => {
     await setLanguage(`${domain}-${li}`);
     setCountryId(id);
+
+    localStorage.setItem('selectedCountryId', id);
+
     closeModal();
     const newUrl =`/${domain}-${li}${router.asPath}`;
     router.replace(newUrl);
   }
   
   
+
+
+useEffect(() => {
+  const storedCountryId = localStorage.getItem('selectedCountryId');
+  if (storedCountryId) {
+    setCountryId(parseInt(storedCountryId, 10));
+  }
+}, []);
+
 
 
 

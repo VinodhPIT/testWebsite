@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useReducer,
-  useContext,
-  useState,
-  useEffect,
-} from "react";
+import React, { createContext, useReducer, useContext, useState } from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
@@ -104,37 +98,6 @@ const reducer = (state, action) => {
             : [...state.categoryCollection, ...action.payload.rows.hits],
       };
 
-    // case "GET_HINTS":
-    //   return {
-    //     ...state,
-    //     hints:
-    //       state.currentTab === "all" || state.currentTab === ""
-    //         ? action.payload.data
-    //         : action.payload.rows.hits,
-    //     errorMessage: state.hints.length === 0 ? true : false,
-    //   };
-
-    // case "SEARCH_QUERY":
-    //   return {
-    //     ...state,
-    //     searchKey: action.payload,
-    //     loading: false,
-    //   };
-
-    // case "SEARCH_DATA":
-    //   return {
-    //     ...state,
-    //     categoryCollection:
-    //       state.currentTab === "all" || state.currentTab === ""
-    //         ? action.payload.data
-    //         : action.payload.rows.hits,
-    //     totalItems:
-    //       state.currentTab === "all" || state.currentTab === ""
-    //         ? action.payload.data.totalCount
-    //         : action.payload.rows.total.value,
-    //     pageNo: 0,
-    //   };
-
     case "STYLE_COLLECTION":
       return {
         ...state,
@@ -168,16 +131,9 @@ export const GlobalStateProvider = ({ children }) => {
 
   const [selectedIds, setSelectedIds] = useState([]);
 
-
-
-  
   const clearStyleId = async () => {
     dispatch({ type: "CLEARSTYLE_ID", payload: "" });
   };
-
-
-
-
 
   const onSearch = async (router) => {
     await getUrl(
@@ -191,6 +147,9 @@ export const GlobalStateProvider = ({ children }) => {
     dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
   };
 
+
+
+  
   const getAddress = async (payload) => {
     try {
       dispatch({ type: "GET_ADDRESS", payload: payload });
@@ -234,50 +193,6 @@ export const GlobalStateProvider = ({ children }) => {
       dispatch({ type: "LOAD_MORE", payload: responseData });
     } catch (error) {}
   };
-
-  // const getHintsBySearch = async (payload) => {
-  //   try {
-  //     const requestData = {
-  //       ...Parameters,
-  //       category: state.currentTab,
-  //       search_key: payload,
-  //     };
-  //     let responseData;
-  //     if (state.currentTab === "all" || state.currentTab === "") {
-  //       responseData = await fetchMultiData(requestData);
-  //     } else {
-  //       responseData = await fetchCategoryData(requestData);
-  //     }
-  //     dispatch({ type: "GET_HINTS", payload: responseData });
-  //   } catch (error) {}
-  // };
-
-  // const searchData = async (payload, router, load) => {
-  //   dispatch({ type: "IS_LOADING", payload: load });
-
-  //   let url = `/search?term=${payload}&category=${state.currentTab}`;
-  //   if (state.selectedStyle !== "") {
-  //     url += `&style=${state.selectedStyle}`;
-  //   }
-  //   router.push(url);
-
-  //   dispatch({ type: "SEARCH_QUERY", payload });
-  //   try {
-  //     const requestData = {
-  //       ...Parameters,
-  //       category: state.currentTab,
-  //       search_key: payload,
-  //     };
-
-  //     let responseData;
-  //     if (state.currentTab === "all" || state.currentTab == "") {
-  //       responseData = await fetchMultiData(requestData);
-  //     } else {
-  //       responseData = await fetchCategoryData(requestData);
-  //     }
-  //     dispatch({ type: "SEARCH_DATA", payload: responseData });
-  //   } catch (error) {}
-  // };
 
   const styleCollection = async () => {
     try {

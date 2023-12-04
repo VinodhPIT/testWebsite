@@ -12,6 +12,9 @@ import { useModal } from "@/utils/modalUtils";
 export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight }) {
   const router = useRouter();
 
+  const { getCountryIcon, getLanguage } = require('@/utils/localeFunctions');
+
+
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
@@ -67,7 +70,7 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
     case "de-de":
       linkComponent = (
         <Link
-          href={`${router.locale}/journal`}
+          href={`/${router.locale}/journal`}
           className={
             theme === "black"
               ? "textWhite"
@@ -89,36 +92,7 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
   
 
 
-  function getCountryIcon( locale) {
-    let countrySplit = locale.split('-')[0];
-    switch (countrySplit) {
-      case "ch":
-        return "/switzerland.svg";
-      case "de":
-        return "/germany.svg";
-        case "uk":
-          return "/united-kingdom.svg";
-        
-      default:
-        return null;
-    }
-  }
-
-  function getLanguage( locale) {
-    let languageSplit = locale.split('-')[1];
-    switch (languageSplit) {
-      case "en":
-        return "English";
-      case "de":
-        return "German";
-        case "it":
-          return "Italy";
-        
-      default:
-        return null;
-    }
-  }
-
+  
 
 
 
@@ -136,12 +110,12 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
               <span>{t("common:tattooNow")}</span>
               <span className="header_cookie_desktop">
                 {t("common:payLater")}
-                <Link href="/klarna">{t("common:learnmore")}</Link>
+                <Link href={`/${router.locale}/klarna`}>{t("common:learnmore")}</Link>
               </span>
 
               {isMobileView && (
                 <span className="header_cookie_mob">
-                  <Link href="/klarna">{t("common:learnmore")}</Link>
+                  <Link href={`/${router.locale}/klarna`}>{t("common:learnmore")}</Link>
                 </span>
               )}
             </p>
@@ -154,7 +128,7 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
           <div className="container">
             <nav className="header_navigation">
               <div className="header_logo">
-                <Link href={"/"} className="navbar_brand">
+                <Link href={`/${router.locale}`} className="navbar_brand">
                   <Image
                     src={logo}
                     alt="Logo"

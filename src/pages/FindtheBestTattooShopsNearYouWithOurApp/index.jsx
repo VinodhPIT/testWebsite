@@ -86,6 +86,7 @@ export default function TattooIdeasForMen() {
         />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
+        
       </Head>
 
       <div>

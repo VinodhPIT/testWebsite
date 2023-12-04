@@ -3,9 +3,7 @@ import Head from "next/head";
 
 import Banner from "@/landingComponents/banner/banner";
 import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
-import PartnerTattoos from "@/landingComponents/partnerTattoos/tattoos";
-import FindT from "@/landingComponents/findTattoos/findT";
-import TrendingArtist from "@/landingComponents/trendingArtist/trendingArtist";
+
 import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
 import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
 import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos";
@@ -13,8 +11,16 @@ import CarouselSection from "@/landingComponents/carouselSection/carosuelSection
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
 import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
 import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
+import { useRouter } from 'next/router'
+ 
+
+
 
 export default function TattooIdeasForMen() {
+
+  const router = useRouter()
+
+  
   const [crossTattoo, setCrossTattoo] = useState([
     {
       image:
@@ -330,117 +336,9 @@ const [trendingArtist, setTendingArtist] = useState([
 
 
 
-  const [data, setData] = useState([
-    {
-      id: 1,
-      tattooName: "Cross Tattoos",
-      description:
-        "Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages.",
-    },
-    {
-      id: 2,
-      tattooName: "Star Tattoo",
-      description:
-        " Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles",
-    },
-    {
-      id: 3,
-      tattooName: "Tattoo Design",
-      description:
-        "Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages.",
-    },
+  
 
-    {
-      id: 4,
-      tattooName: "Men’s Tattoos",
-      description:
-        "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity.",
-    },
-
-    {
-      id: 5,
-      tattooName: "Dragon Tattoo",
-      description:
-        " Embrace the mystique of dragon tattoos. These mythical creatures symbolize strength, wisdom, and good fortune. Dragon tattoos allow for artistic freedom, with variations ranging from fierce and bold to intricate and detailed.",
-    },
-
-    {
-      id: 6,
-      tattooName: "Geometric Tattoos",
-      description:
-        "Precision meets artistry in geometric tattoos. Explore the beauty of shapes and lines, creating visually stunning tattoos with a modern edge. Geometric tattoos are a playground for creativity, offering endless possibilities.",
-    },
-
-    {
-      id: 7,
-      tattooName: "Feather Tattoos",
-      description:
-        "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance.",
-    },
-
-    {
-      id: 8,
-      tattooName: "Sleeve Tattoo",
-      description:
-        "For those craving an extensive canvas, a sleeve tattoo is a masterpiece. Sleeve tattoos are like art on the arm. They have lots of space for detailed designs, stories, or a group of smaller tattoos that go together.",
-    },
-
-    {
-      id: 9,
-      tattooName: "Eagle Tattoo",
-      description:
-        "Soar to new heights with an eagle tattoo. Symbolizing freedom, power, and vision, eagle tattoos captivate with their majestic presence. From realistic portrayals to stylized designs, an eagle tattoo is a bold choice.",
-    },
-  ]);
-
-  const [tattooStyles, setTattooStyles] = useState([
-    {
-      id: 1,
-      tattooName: "Tattoo Artist",
-      description:
-        "Behind every remarkable tattoo is a skilled tattoo artist. Work with a skilled tattoo artist who gets your ideas and can turn them into an amazing tattoo. They have the technical skills and creativity to make your tattoo special and one-of-a-kind",
-    },
-    {
-      id: 2,
-      tattooName: "Rose Tattoo",
-      description:
-        "Choose a beautiful rose tattoo to symbolize love, beauty, and passion. Customize it in various styles, from realistic to artistic designs, for a romantic touch",
-    },
-    {
-      id: 3,
-      tattooName: "Forearm tattoos",
-      description:
-        "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.",
-    },
-
-    {
-      id: 4,
-      tattooName: "Tattoo Designs for Men",
-      description:
-        "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality.",
-    },
-
-    {
-      id: 5,
-      tattooName: "Lion Tattoo",
-      description:
-        "Roar with confidence with a lion tattoo. Symbolizing strength, courage, and leadership, lion tattoos command attention. Choose a regal mane or a fierce expression to capture the essence of the king of the jungle.",
-    },
-
-    {
-      id: 6,
-      tattooName: "Wolf Tattoo",
-      description:
-        " Embody the spirit of the wild with a wolf tattoo. Wolves symbolize loyalty, instinct, and freedom. A wolf tattoo has a mysterious appeal for those connected to their primal instincts.",
-    },
-
-    {
-      id: 7,
-      tattooName: "Religious Tattoos",
-      description:
-        "For those seeking spiritual expression, religious tattoos offer a profound way to showcase faith. From religious symbols to depictions of revered figures, religious tattoos are a timeless choice.",
-    },
-  ]);
+ 
 
   return (
     <>
@@ -468,7 +366,7 @@ const [trendingArtist, setTendingArtist] = useState([
         />
         <meta
           property="og:url"
-          content="https://www.inckd.com/tattoo/bc4c6538-7f5b-4e53-b71b-09d670a0b8fc"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoos/6063c826-8008-4164-9f96-53a6fa3f47a3`}
         />
         <meta
           property="og:image"

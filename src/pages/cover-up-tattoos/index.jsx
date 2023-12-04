@@ -5,8 +5,12 @@ import TrendinginckdArtist from "@/landingComponents-2/trendinginckdArtist/trend
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
 import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
 import YellowThreeCol from "@/landingComponents/yellowThreeeColumBlock/yellowThreeCol";
+import { useRouter } from 'next/router'
+
+
 
 export default function CoverUpTattoos() {
+  const router = useRouter()
   const [artist, setArtist] = useState([
     {
       image:
@@ -87,13 +91,16 @@ export default function CoverUpTattoos() {
           property="og:description"
           content="Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern."
         />
-        <meta
+     
+          <meta
           property="og:url"
-          content="https://www.yourwebsite.com/cover-up-tattoos"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoos/c15ed3ae-9a77-4922-9129-4c6d8920e010`}
         />
+
+
         <meta
           property="og:image"
-          content="https://www.yourwebsite.com/cover-up-tattoos-image.jpg"
+          content="https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6115_20221020231246277-medium.jpg"
         />
         <meta property="og:type" content="article" />
 
@@ -108,7 +115,7 @@ export default function CoverUpTattoos() {
         />
         <meta
           name="twitter:image"
-          content="https://www.yourwebsite.com/cover-up-tattoos-image.jpg"
+          content="https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6115_20221020231246277-medium.jpg"
         />
       </Head>
 

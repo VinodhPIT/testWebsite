@@ -104,7 +104,7 @@ export default function Footer() {
           <section class="footer_block">
             <div class="footer_left">
               <div class="footer_logo">
-                <Link href="/">
+                <Link href={`/${router.locale}`}>
                 <Image
                     src={"/Inckd-logo-footer-black.svg"}
                     alt="logo"

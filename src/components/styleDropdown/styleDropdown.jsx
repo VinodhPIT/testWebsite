@@ -9,12 +9,8 @@ export default function StyleDropdown({
   router,
   onToggle,
 }) {
-  const { state, selectedIds, setSelectedIds ,onSearch , clearStyleId } =
+  const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } =
     useGlobalState();
-
-
-
-
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
@@ -24,19 +20,17 @@ export default function StyleDropdown({
     }
   };
 
-
   const clearAll = async () => {
     setSelectedIds([]);
-    clearStyleId()
+    clearStyleId();
     await getUrl(currentTab, searchKey, "", state.location, router);
+    onToggle();
   };
 
-
-
-
-
-
-
+  const onSearchStyle = async () => {
+    await onSearch(router);
+    onToggle();
+  };
 
   return (
     <div className={styles.custom_dropdown}>
@@ -79,8 +73,7 @@ export default function StyleDropdown({
           Clear All
         </button>
         <button
-        
-          onClick={() => onSearch(router)}
+          onClick={() => onSearchStyle()}
           className="btn_secondary w_100pc"
         >
           Show Results

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "@/pages/explore/tattoo-artists/artistdetail.module.css";
+import styles from "@/pages/artists/artistdetail.module.css";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import{useNavigation} from '@/hooks/useRouter'

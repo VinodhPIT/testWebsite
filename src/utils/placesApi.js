@@ -33,6 +33,9 @@ const getPlaceDetails = async (location) => {
             latitude = geometry.location.lat;
             longitude = geometry.location.lng;
 
+            console.log(latitude ,"latt")
+            console.log(longitude ,"longitude")
+
             return {
               latitude,
               longitude,
