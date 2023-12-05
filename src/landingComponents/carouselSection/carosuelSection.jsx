@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 export default function CarouselSection({title ,content,datas ,buttonName ,isButtonVisible ,keyword}) {
+  console.log(datas ,"ecdjcod")
 
     const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -98,13 +99,13 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                   </div>
                 </div> */}
 
-<div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_25">
+<div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_10">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
-                                <h2 className="color_gray_550 text_left heading_h2 mb_20 m_mb_25 mr_0">
+                                <h2 className="color_gray_550 text_left heading_h2 mb_10 m_mb_20 mr_0">
                                     <span class="m_dis_inline">{title} </span>
                                     {/* <span class="textBlock m_dis_inline">inckd tattoo artists</span> */}
                                 </h2>
-                                <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35">{content}</p>
+                                
                             </div>
                             
                        {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
@@ -122,16 +123,25 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                                 />
                             </Link>}
                         </div>
+<div className="d_flex align_item_left flex_direction_column mb_20  m_max_100 container" >
+<p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35" style={{"width": "1090px" ,
+    "max-width": "100%",
+    "text-align": "left"}}>{content}</p>
+</div>
+                       
 
 
 
                 <div className="justify_content_start container w_100pc">                
-                    <div className={`${'mt_0 mb_80 m_mb_50'} ${styles.listing_pageContainer}`}>
+                    <div className={`${'mt_0 mb_20 m_mb_30'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          
-                            <Slider {...sliderSettings} className="custom_slick_slider">
+                            <Slider {...sliderSettings} className="custom_slick_slider custom_slick_container">
                                 {datas.map((imgPath, index) => (
-                                    <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index} >
-                                    <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
+                                    <div className={`${'listing_gridItem'} `} key={index} >
+
+<Link href={imgPath.url}>
+
+                                    <div className={`${'listing_grid_img_col'}`}>
                                         <Image
                                         src={imgPath.image}
                                         alt="Trending couple tattoos"
@@ -147,7 +157,11 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                                       
                                         />
                                     </div>
+
+
+                                    </Link>
                                     </div>
+
                                 ))}
                             </Slider>
                         </div>

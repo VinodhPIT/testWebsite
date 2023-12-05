@@ -22,7 +22,7 @@ export default function WhypartnerTattoos({mainTitle ,title1 , content1 ,title2 
 
         <div className="col_full">
             <div className="img_text_box_wrapper">
-                <div className={"text_box_wrap right block_bg_yellow pb_75 m_pb_0"}>                    
+                <div className={"text_box_wrap right block_bg_yellow pb_20 m_pb_0"}>                    
                     <div className="img_text_box_inner container">
                         <div className="text_box_content justify_content_start align_item_normal p_0 pr_40 text_left m_pr_0">
                             <div className="text_box_content_inner max_w_100pc">
@@ -34,10 +34,11 @@ export default function WhypartnerTattoos({mainTitle ,title1 , content1 ,title2 
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title2}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content2}</p>
                                 </div>
+                                {title3 &&
                                 <div className="d_flex flex_direction_column mb_65 m_mb_35">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title3}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content3}</p>
-                                </div>
+                                </div>}
                             </div>
                         </div>                        
 

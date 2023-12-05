@@ -4011,6 +4011,9 @@ button.language_switcher img {
 .switchTextBlack{color: #fff;}
 .switchTextWhite{color: #000;}
 
+.custom_slick_container .listing_gridItem .listing_grid_img_col {
+  height:230px;
+}
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
@@ -6049,5 +6052,28 @@ button.language_switcher img {
 @media screen and (min-width: 1480px) {
   .bg_drachen_tattoo .img_text_box_inner {
     min-height: 118vh;
+  }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1300px) {
+  .custom_slick_slider .listing_gridItem .listing_grid_img_col {
+      height:224px;
+  }
+  .custom_slick_container .listing_gridItem .listing_grid_img_col {
+    height:230px;
+  }
+}
+@media screen and (min-width: 1301px) and (max-width: 1650px) {
+  .custom_slick_slider .listing_gridItem .listing_grid_img_col {
+      height:300px;
+  }
+  .custom_slick_container .listing_gridItem .listing_grid_img_col {
+    height:230px;
+  }
+}
+ 
+@media screen and (min-width: 1651px) {
+  .custom_slick_container .listing_gridItem .listing_grid_img_col {
+    height: 250px;
   }
 }

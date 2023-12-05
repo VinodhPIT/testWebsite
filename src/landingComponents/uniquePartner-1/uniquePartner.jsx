@@ -10,7 +10,8 @@ export default function UniquePartner({title, subTitle,content ,img ,alt}) {
                 <div className={"text_box_wrap right block_bg_gray_150 pt_75 pb_75 m_pt_15 m_pb_0"}>
                     <div className="img_text_box_inner container m_switcher">
                         <div className="text_box_content justify_content_start pr_40 pl_0 pb_0 m_min_h_reset m_pb_35 m_pr_0 m_text_center">
-                            <div className="text_box_content_inner">
+                            <div className="text_box_content_inner max_w_100pc">
+
 
                                 <h2 className="color_gray_550 ,mb">{title}</h2>
 
@@ -26,12 +27,18 @@ export default function UniquePartner({title, subTitle,content ,img ,alt}) {
                                 priority
                                 alt={alt}
                                 src={img}
-                                fill
-                                objectFit="contain"
+                                width={570}
+                                height={650}
+                             
+                            
+                                objectFit="cover"
+                               
                                 objectPosition="center"
                                 blurDataURL={blurDataURL}
+                                style={{"borderRadius":"10px"}}
                                 
                                 placeholder="blur"
+                               
                             />
                         </div>
                     </div>
