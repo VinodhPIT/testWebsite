@@ -8,6 +8,7 @@ import TattooExperience from "@/landingComponents/tattooExperience/tattooExperie
 import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
 import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos";
 import CarouselSection from "@/landingComponents/carouselSection/carosuelSection";
+import FullWidthcarosuel from "@/landingComponents/fullwidthCarousel/fullwidthCarousel";
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
 import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
 import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
@@ -25,21 +26,54 @@ export default function TattooIdeasForMen() {
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg",
+
+        url : `${process.env.LIVE_URL}/tattoo/bc4c6538-7f5b-4e53-b71b-09d670a0b8fc`
+
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26135_20230818133129210-medium.jpg",
+        url : `${process.env.LIVE_URL}/tattoo/71ad5f69-2c05-4666-b44f-dce8d39a8c4d`
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17370_20230203132358438-medium.jpg",
+        url : `${process.env.LIVE_URL}/tattoo/107595cf-876b-4276-b575-c5b16bd3e2f0`
     },
    
     
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26845_20230917203559564-medium.jpg",
+        url : `${process.env.LIVE_URL}/tattoo/88c8e50d-37a6-4f6f-a75e-1a06cfc6d145`
     },
+
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17198_20230202162710159-medium.jpg",
+        url : `${process.env.LIVE_URL}/tattoo/bc4c6538-7f5b-4e53-b71b-09d670a0b8fc`
+    },
+
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10198_20221127194941968-medium.jpg",
+        url : `${process.env.LIVE_URL}/tattoo/bc4c6538-7f5b-4e53-b71b-09d670a0b8fc`
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/25236_20230712091107860-medium.jpg",
+        url : `${process.env.LIVE_URL}/tattoo/bc4c6538-7f5b-4e53-b71b-09d670a0b8fc`
+    },
+
+
+ 
+
+
+
+
   ]);
 
   const [dragonTattoo, setDragonTattoo] = useState([
@@ -55,10 +89,65 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12781_20221227153401323-medium.jpg",
     },
+   
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24936_20230607094237782-medium.jpg",
+
+        url : `${process.env.LIVE_URL}/tattoo/c456225-0624-4286-9991-e03fb1243bbc`
     },
+
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3556_20220924084528147-medium.jpg",
+
+        url : `${process.env.LIVE_URL}/tattoo/67121dcf-3043-4a22-bd5b-1e54be0650e7`
+    },
+
+
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10604_20221202071305458-medium.jpg",
+
+        url : `${process.env.LIVE_URL}/tattoo/e910526f-66d0-46c8-a9ce-319c46bb5124`
+    },
+
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10604_20221202071305458-medium.jpg",
+
+        url : `${process.env.LIVE_URL}/tattoo/e910526f-66d0-46c8-a9ce-319c46bb5124`
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10604_20221202071305458-medium.jpg",
+
+        url : `${process.env.LIVE_URL}/tattoo/e910526f-66d0-46c8-a9ce-319c46bb5124`
+    },
+
+
+   
+
+    
+
+
+
+
+
+    
+
+
+
+  
+
+
+
+
+
   ]);
 
   const [geometricTattoo, setGeometricTattoo] = useState([
@@ -404,13 +493,18 @@ const [trendingArtist, setTendingArtist] = useState([
           img="/pexels-cottonbro-studio-5320037.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
         />
-        <CarouselSection
+
+
+        <FullWidthcarosuel
           title={"Cross Tattoos"}
           content="Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages."
           datas={crossTattoo}
-          buttonName="Explore more"
+          
+          buttonName="Explore more tattoos "
           keyword={'Cross'}
         />
+
+
         <FourColumnSection
           title1={"Star Tattoo"}
           content1={

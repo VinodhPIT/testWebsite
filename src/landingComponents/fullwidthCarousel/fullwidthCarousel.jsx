@@ -17,8 +17,8 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
   sliderSettings = {
     infinite: true,
     speed: 300,
-    slidesToShow: isMobileView ? 1 :5,
-    slidesToScroll: isMobileView ? 1 : 4,
+    slidesToShow: isMobileView ? 1 :  4.65,
+    slidesToScroll: isMobileView ? 1 :4.65,
     responsive: [
       {
         breakpoint: 1290,
@@ -76,27 +76,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">
             <div className="img_text_box_inner flex_direction_column">
-                {/* <div className="justify_content_start container w_100pc">
-                  <div className="text_box_content_inner max_w_100pc pt_80 pb_65 m_pt_pb_50">
-                      <div className="d_flex align_item_center justify_space_between m_flex_direction_column">
-                        <h2 className="color_gray_550 mb_0 heading_h2 m_mb_25 mr_20 m_mr_0">{title}</h2>
-                        <Link href="/explore/tattoos"  className="btn_primary btn_img btn_xxl m_btn_custom_48">
-                          Explore more tattoos
-                          <Image
-                            src="/arow-white-right.svg"
-                            width={24}
-                            height={24}
-                            alt="logo"
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL={blurDataURL}
-                            className="ml-8 mt-2"
-                           
-                          />
-                        </Link>
-                      </div>
-                  </div>
-                </div> */}
+               
 
 <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_25">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
@@ -125,12 +105,14 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
 
 
 
-                <div className="justify_content_start container w_100pc">                
+                <div className="justify_content_start  w_100pc">                
                     <div className={`${'mt_0 mb_80 m_mb_50'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          
                             <Slider {...sliderSettings} className="custom_slick_slider">
                                 {datas.map((imgPath, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index} >
+                                      <Link href={imgPath.url}>
+                               
                                     <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={imgPath.image}
@@ -147,6 +129,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                                       
                                         />
                                     </div>
+                                    </Link>
                                     </div>
                                 ))}
                             </Slider>

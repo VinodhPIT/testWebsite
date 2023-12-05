@@ -3937,7 +3937,7 @@ li {
 }
 
 .custom_slick_slider .listing_gridItem .listing_grid_img_col {
-  height: 100%;
+   height:344px;
   width: calc(100% - 10px);
 }
 .custom_slick_slider .listing_gridItem .listing_grid_img_col img {

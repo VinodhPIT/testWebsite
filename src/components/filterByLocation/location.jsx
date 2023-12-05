@@ -35,12 +35,8 @@ export default function LocationSearch({
   };
 
   const searchLocation = async () => {
-    // const textBeforeComma = address.split(",")[0].trim();
-    const textBeforeComma = address.split(",").map(part => part.trim())[0];
-
-    console.log(textBeforeComma ,"textBeforeComma")
-    await getUrl(currentTab, searchKey, selectedStyle, textBeforeComma, router);
-    getAddress(textBeforeComma);
+    await getUrl(currentTab, searchKey, selectedStyle, address, router);
+    getAddress(address);
     onToggle();
   };
 
