@@ -115,8 +115,7 @@ const Search = ({
     await getUrl(tab, searchKey, selectedStyle, state.location, router);
   };
 
-console.log("latitude",lat)
-console.log("longitude",lon)
+
 
 
 
