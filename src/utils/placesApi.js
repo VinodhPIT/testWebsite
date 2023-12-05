@@ -18,6 +18,11 @@ const getPlaceDetails = async (location) => {
       };
     } else {
       const response = await axios.get(searchUrl);
+
+      console.log( "Logged Entire response",response.data); // Log the entire response object
+   
+
+
       const candidates = response.data.candidates;
 
       if (candidates && candidates.length > 0) {
@@ -44,6 +49,8 @@ const getPlaceDetails = async (location) => {
             return null;
           }
         } catch (detailsError) {
+
+          console.log("detailsError:" ,detailsError)
           return null;
         }
       } else {
@@ -51,6 +58,7 @@ const getPlaceDetails = async (location) => {
       }
     }
   } catch (error) {
+    console.log("Catch Error:",error)
     return null;
   }
 };

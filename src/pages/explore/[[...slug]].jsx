@@ -4,7 +4,7 @@ import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";
 
-import style from "@/pages/explore/search.module.css"
+import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { addAdsToResults } from "@/helpers/helper";
@@ -36,6 +36,7 @@ const Search = ({
     loadMore,
     styleCollection,
     getAddress,
+    setSearchState,
   } = useGlobalState();
 
   const { t } = useTranslation();
@@ -93,6 +94,17 @@ const Search = ({
     }
   }, [lat]);
 
+  
+  useEffect(() => {
+    if (searchKey === "") {
+      setSearchState((prevSearchState) => ({
+        ...prevSearchState,
+        query: "",
+      }));
+    }
+  }, [searchKey]);
+
+
   const collectionLength = state.categoryCollection.filter(
     (e) => e._index !== "ad"
   );
@@ -102,6 +114,13 @@ const Search = ({
   const updateTab = async (tab) => {
     await getUrl(tab, searchKey, selectedStyle, state.location, router);
   };
+
+console.log("latitude",lat)
+console.log("longitude",lon)
+
+
+
+
 
   return (
     <>
@@ -143,7 +162,7 @@ const Search = ({
                 currentTab={currentTab}
                 selectedStyle={selectedStyle}
                 lat={lat}
-                lon={lon}
+                lon={lon} 
                 router={router}
                 isDetail={false}
               />
@@ -215,6 +234,7 @@ export default Search;
 
 export async function getServerSideProps(context) {
   const { query, req, locale } = context;
+
   const { slug } = query;
 
   const userAgent = req.headers["user-agent"];
@@ -291,7 +311,10 @@ export async function getServerSideProps(context) {
         seed,
       });
 
+      // alert(placeDetails.latitude ?? "")
+
       let addData = await addAdsToResults(data.rows.hits, isMobile);
+
       return {
         props: {
           data: addData,
