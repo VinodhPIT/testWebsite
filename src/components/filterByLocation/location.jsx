@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { getUrl } from "@/utils/getUrl";
 import PlacesAutocomplete from "react-places-autocomplete";
-import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import useWindowResize from "@/hooks/useWindowSize";
 import styles from "../styleDropdown/dropdown.module.css";
 import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 
 export default function LocationSearch({
   currentTab,
@@ -16,40 +15,19 @@ export default function LocationSearch({
   router,
   onToggle,
 }) {
-// console.log( currentTab, "currentTab",
-//   searchKey,"searchKey",
-//   selectedStyle,"selectedStyle")
-
-
-
-
-  const notify = () => {
-    toast("Choose the location from the dropdown", {
-      position: "top-center", // Set the position of the toast
-      autoClose: 3000, // Auto-close the toast after 3000ms (3 seconds)
-      type: "error",
-    });
-  };
-
   const [address, setAddress] = useState("");
 
   const { isMobileView } = useWindowResize();
-  const { getAddress } = useGlobalState();
+  const { getAddress, state } = useGlobalState();
 
   const handleSelect = async (value) => {
-    const textBeforeComma = value.split(',')[0].trim();
-    getAddress(textBeforeComma);
-    setAddress(textBeforeComma);
-  
+    setAddress(value);
   };
-
-
-
-
 
   const clear = async () => {
     setAddress("");
-    await getUrl( currentTab,searchKey , selectedStyle, "", router);
+    getAddress("Location");
+    await getUrl(currentTab, searchKey, selectedStyle, "", router);
   };
 
   const onError = (status, clearSuggestions) => {
@@ -57,19 +35,13 @@ export default function LocationSearch({
   };
 
   const searchLocation = async () => {
-    if (address === null) {
-      notify();
-    } else {
-      await getUrl(
-        currentTab,
-        searchKey,
-        selectedStyle,
-        address,
-        router
-      );
-      // await getAddress("Location");
-      onToggle();
-    }
+    // const textBeforeComma = address.split(",")[0].trim();
+    const textBeforeComma = address.split(",").map(part => part.trim())[0];
+
+    console.log(textBeforeComma ,"textBeforeComma")
+    await getUrl(currentTab, searchKey, selectedStyle, textBeforeComma, router);
+    getAddress(textBeforeComma);
+    onToggle();
   };
 
   return (
@@ -156,7 +128,7 @@ export default function LocationSearch({
         <div className={styles.custom_dropdown_btn}>
           <button
             onClick={() => clear()}
-            disabled={address === ""}
+            disabled={state.location === "" ? true : false}
             className="btn_outline_secondary w_100pc"
           >
             Clear All
@@ -172,7 +144,7 @@ export default function LocationSearch({
         </div>
       </div>
 
-      <ToastContainer />
+     
     </div>
   );
 }

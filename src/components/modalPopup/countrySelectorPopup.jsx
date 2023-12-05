@@ -31,7 +31,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
   const router = useRouter()
   const [country, setCountry] = useState([])
-  const[countryId,setCountryId]= useState(1)
+
 
 
   useEffect(() => {
@@ -41,25 +41,12 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
   const chooseLanguage = async (id, domain, li) => {
     await setLanguage(`${domain}-${li}`);
-    setCountryId(id);
-
-    localStorage.setItem('selectedCountryId', id);
-
     closeModal();
     const newUrl =`/${domain}-${li}${router.asPath}`;
     router.replace(newUrl);
   }
   
   
-
-
-useEffect(() => {
-  const storedCountryId = localStorage.getItem('selectedCountryId');
-  if (storedCountryId) {
-    setCountryId(parseInt(storedCountryId, 10));
-  }
-}, []);
-
 
 
 
@@ -86,7 +73,7 @@ useEffect(() => {
                 {country.map((e) => {
                   return (                
                       <li key={e.id}>                  
-                        <button  className={countryId===e.id ? styles.activeCountry :styles.inActivecountry } onClick={()=>chooseLanguage(e.id  ,e.domain ,e.lng)}   >
+                        <button  className={router.locale===e.set ? styles.activeCountry :styles.inActivecountry } onClick={()=>chooseLanguage(e.id  ,e.domain ,e.lng)}   >
                           <Image
                             alt={`${e.country}${"-"}${e.language}`}
                             src={e.image}
