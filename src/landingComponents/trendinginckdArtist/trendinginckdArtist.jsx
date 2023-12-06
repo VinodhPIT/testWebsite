@@ -14,8 +14,8 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
     sliderSettings = {
         infinite: true,
         speed: 300,
-        slidesToShow: isMobileView ? 1.2 : 4,
-        slidesToScroll: isMobileView ? 1. : 4,
+        slidesToShow: isMobileView ? 1.2 : 3,
+        slidesToScroll: isMobileView ? 1. : 3,
         dots: true,
      
         responsive: [

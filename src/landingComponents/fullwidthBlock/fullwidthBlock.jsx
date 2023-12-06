@@ -10,12 +10,7 @@ export default function FullWidthBlock({title,content ,sectionBackgrounColor}) {
                     <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
                         <div className="text_box_content_inner max_w_100pc text_center">
                             <h2 className="color_gray_550">{title}</h2>
-                            <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0"
-                            
-                             style={{"width": "1090px",
-                            " max-width": "100% " ,"line-height": "30px!important" }}
-                            
-                            
+                            <p className="custom_fs_20 w_1090 max_w_100pc lh_30 custom_fs_m_16 color_gray_550 mb_0"
                             
                             >{content}</p>                       
                         </div>

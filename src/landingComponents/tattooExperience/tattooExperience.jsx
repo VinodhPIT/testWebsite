@@ -21,7 +21,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
             <div className="img_text_box_wrapper">
                 <div className={"text_box_wrap right block_bg_gray_150 pb_75 pt_75 m_pb_40"}>                    
                     <div className="img_text_box_inner container">
-                        <div className="text_box_content justify_content_start align_item_normal p_0 pr_40 m_pr_0 m_min_h_reset">
+                        <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset">
                             <div className="text_box_content_inner max_w_100pc  m_mt_35">
                                 <div className="d_flex flex_direction_column mb_65 mt_0 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title1}</h4>
@@ -34,9 +34,9 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                             </div>
                         </div>                        
 
-                        <div class="img_box_wrap justify_content_right">
-                            <ul>
-                                <li className="no_filter">
+                        <div class="img_box_wrap justify_content_center">
+                            <ul class="justify_content_center pl_0">
+                                <li className="img_box_shadow">
                                     <Image
                                         priority
                                         alt="Celebrate Your Love Journey with Unique Partner Tattoos"
@@ -44,7 +44,6 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                                         width={591}
                                         height={600}                                   
                                         blurDataURL={blurDataURL}
-                                        layout="responsive"
                                         placeholder="blur"
                                     />
                                 </li>
@@ -53,9 +52,9 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                     </div>
 
                     <div className="img_text_box_inner container m_switcher">
-                        <div class="img_box_wrap justify_content_right m_order_2">
-                            <ul class="app_download_img_list justify_content_start ml_10pc mt_0 h_inherit m_ml_0">
-                                <li className="no_filter">
+                        <div class="img_box_wrap justify_content_center m_order_2">
+                            <ul class="justify_content_center pl_0">
+                                <li className="img_box_shadow">
                                     <Image
                                         priority
                                         alt="Celebrate Your Love Journey with Unique Partner Tattoos"
@@ -63,19 +62,18 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                                         width={591}
                                         height={600}                                
                                         blurDataURL={blurDataURL}
-                                        layout="responsive"
                                         placeholder="blur"
                                     />
                                 </li>
                             </ul>
                         </div>
-                        <div className="text_box_content justify_content_start align_item_normal p_0 pr_40 m_pr_0 m_min_h_reset m_order_1">
+                        <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset m_order_1">
                             <div className="text_box_content_inner max_w_100pc">
-                                <div className="d_flex flex_direction_column mb_65 mt_10pc m_mt_15 m_mb_45">
+                                <div className="d_flex flex_direction_column mb_65 mt_0 m_mt_15 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title3}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33">{content3}</p>
                                 </div>
-                                <div className="d_flex flex_direction_column ">
+                                <div className="d_flex flex_direction_column mb_65 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title4}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content4}</p>
                                 </div>
