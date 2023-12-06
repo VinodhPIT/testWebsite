@@ -18,10 +18,10 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
     infinite: true,
     speed: 300,
     slidesToShow: isMobileView ? 1 :  4.65,
-    slidesToScroll: isMobileView ? 1 :4.65,
+    slidesToScroll: isMobileView ? 1 :4,
     responsive: [
       {
-        breakpoint: 1290,
+        breakpoint: 1099,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
@@ -75,16 +75,16 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
   return (
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">
-            <div className="img_text_box_inner flex_direction_column">
+            <div className="img_text_box_inner flex_direction_column mt_25">
                
 
-<div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_25">
+<div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_10">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
-                                <h2 className="color_gray_550 text_left heading_h2 mb_20 m_mb_25 mr_0">
+                                <h2 className="color_gray_550 text_left heading_h2 mb_15 m_mb_25 mr_0">
                                     <span class="m_dis_inline">{title} </span>
                                     {/* <span class="textBlock m_dis_inline">inckd tattoo artists</span> */}
                                 </h2>
-                                <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35">{content}</p>
+                                
                             </div>
                             
                        {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
@@ -103,6 +103,11 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                             </Link>}
                         </div>
 
+                        <div className="d_flex align_item_left flex_direction_column mb_20  m_max_100 container" >
+<p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35" style={{"width": "1090px" ,
+    "max-width": "100%",
+    "text-align": "left"}}>{content}</p>
+</div>
 
 
                 <div className="justify_content_start  w_100pc">                

@@ -76,14 +76,14 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
         <div className="text_box_wrap full-block-wrap">
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc">
-                    <div className="text_box_content_inner max_w_100pc pt_80 pb_65 m_pt_pb_50">
+                    <div className="text_box_content_inner max_w_100pc pt_80 pb_25 m_pt_pb_50">
                     <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
-                                <h2 className="color_gray_550 text_left heading_h2 mb_20 m_mb_25 mr_0">
+                                <h2 className="color_gray_550 text_left heading_h2 mb_35 m_mb_25 mr_0">
                                     <span class="m_dis_inline">{title} </span>
                                     <span class="textBlock m_dis_inline">{title_sub}</span>
                                 </h2>
-                                <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35">{content}</p>
+                             
                             </div>
                             
                             <Link href="/explore/tattoo-artists"
@@ -102,7 +102,9 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                             </Link>
                         </div>
 
-
+                        <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35" style={{"width": "1090px" ,
+    "max-width": "100%",
+    "text-align": "left"}}>{content}</p>
 
 
                     </div>                               
@@ -111,6 +113,9 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                             <Slider {...sliderSettings} className="custom_content_slick_slider">
                                 {trendingArtist.map((imgPath, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index}>
+
+                                      <Link href={imgPath.url}>
+                               
                                     <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={imgPath.image}
@@ -121,7 +126,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                         placeholder="blur"
                                         blurDataURL={blurDataURL}
                                         layout="responsive"
-                                        style={{"borderTopRightRadius":"20px","borderTopLeftRadius":"20px"}}
+                                        style={{"borderTopRightRadius":"9px","borderTopLeftRadius":"9px"}}
                                         className="imggg"
                                         />
                                     </div>
@@ -149,6 +154,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                         </span>
                                         </div>
                                     </div>
+                                    </Link>
                                     </div>
                                 ))}
                             </Slider>
