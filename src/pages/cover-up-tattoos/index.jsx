@@ -155,6 +155,9 @@ export default function CoverUpTattoos() {
           content6="Extremer Ansatz, ungeliebte Kunstwerke mit Schwarz zu überdecken."
         />
 
+
+        
+
         <TrendinginckdArtist
           title={"Finde die Beste Lösung mit unseren Tätowierern"}
           titleSub={"mit unseren Tätowierern"}

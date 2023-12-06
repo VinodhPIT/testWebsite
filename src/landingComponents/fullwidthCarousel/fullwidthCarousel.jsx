@@ -88,7 +88,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                             </div>
                             
                        {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48">
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
                                 {buttonName}
                                 <Image
                                 src="/arow-white-right.svg"
@@ -104,7 +104,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                         </div>
 
                         <div className="d_flex align_item_left flex_direction_column mb_20  m_max_100 container" >
-<p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35" style={{"width": "1090px" ,
+<p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15" style={{"width": "1090px" ,
     "max-width": "100%",
     "text-align": "left"}}>{content}</p>
 </div>
@@ -113,7 +113,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                 <div className="justify_content_start  w_100pc">                
                     <div className={`${'mt_0 mb_80 m_mb_50'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          
-                            <Slider {...sliderSettings} className="custom_slick_slider">
+                            <Slider {...sliderSettings} className="custom_slick_slider  fullwidthCarousel  ">
                                 {datas.map((imgPath, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index} >
                                       <Link href={imgPath.url}>

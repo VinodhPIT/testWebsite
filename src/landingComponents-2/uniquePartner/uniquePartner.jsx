@@ -24,8 +24,18 @@ export default function UniquePartner({img, alt, title, content}) {
                                         className="w_auto mb_35"
                                     />
                                 </div>
+
+<div  style={{"width": "900px",
+    "margin":" 0 auto",
+    "padding-bottom": "12px" ,"max-width": "100%",}}>
+
+
                                 <h2 className="color_gray_550">{title}</h2>
-                                <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0">{content}</p>                       
+
+                                </div>
+                                <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt_10" style={{"max-width": "100%",
+    "width": "900px","line-height":"32px!important" 
+}}>{content}</p>                       
                             </div>
                         </div>                        
                     </div>

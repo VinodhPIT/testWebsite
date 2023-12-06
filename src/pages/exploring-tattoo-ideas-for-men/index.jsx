@@ -6,16 +6,35 @@ import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
 
 import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
 import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos";
+// import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos"
+
+ import WhypartnerTattoos from "@/landingComponents-2/whypartnerTattoos/whypartnerTattoos";
+
 import CarouselSection from "@/landingComponents/carouselSection/carosuelSection";
 import FullWidthcarosuel from "@/landingComponents/fullwidthCarousel/fullwidthCarousel";
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
 import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
 import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
 import { useRouter } from "next/router";
+import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
+import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
+import OrangeTwoColumnBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
+import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
 
 export default function TattooIdeasForMen() {
   const router = useRouter();
+
+  const [carosuelForMen, setcarosuelForMen] = useState([
+    { image: "/TatooIdeasMen-2.jpg" },
+
+    {
+      image: "/TattooIdeasMen-3.jpg",
+    },
+
+    {
+      image: "/TattooIdeasMen-4.jpg",
+    },
+  ]);
 
   const [crossTattoo, setCrossTattoo] = useState([
     {
@@ -41,19 +60,11 @@ export default function TattooIdeasForMen() {
       url: `${process.env.LIVE_URL}/tattoo/88c8e50d-37a6-4f6f-a75e-1a06cfc6d145`,
     },
 
-
-
-
-
-
-
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3021_20220920181814962-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/4f42297e-2235-4973-89f1-abb7037f0c36`,
     },
-
-
 
     {
       image:
@@ -67,17 +78,11 @@ export default function TattooIdeasForMen() {
       url: `${process.env.LIVE_URL}/tattoo/f6acd94a-4ab6-4501-9159-970cf3410952`,
     },
 
-
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28270_20231030203112946-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/0d04f9ad-d3bf-493a-ab56-b3e47d6c2e8b`,
     },
-
-
-
-
-
   ]);
 
   const [dragonTattoo, setDragonTattoo] = useState([
@@ -275,8 +280,6 @@ export default function TattooIdeasForMen() {
     },
   ]);
 
-
-
   const [artist, setArtist] = useState([
     {
       artistImage:
@@ -284,10 +287,11 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/None_5F7922D5-EFD8-4BD9-988A-1B71AEF2BA33.jpg",
       name: "Delphin Musquet",
-      location: "London, United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/delphin-musquet_ja14on47`,
     },
-
 
     {
       artistImage:
@@ -295,7 +299,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8655_20221110125829007-medium.jpg",
       name: "Luciatattoos",
-      location: "London, United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
     },
     {
@@ -304,7 +310,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6363_20221023095949684-medium.jpg",
       name: "Alessandro Lanzafame",
-      location: "London, United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/alessandro-lanzafame_nts3jh4k`,
     },
     {
@@ -313,7 +321,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2162_20220831155619012-medium.jpg",
       name: "Barbara Nobody",
-      location: "London, United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/barbaranobody_e8w4uiq5`,
     },
     {
@@ -322,14 +332,12 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13142_20221229181240843-medium.jpg",
       name: "Orla Jessamine",
-      location: "EK, East Kilbride, United Kingdom",
+
+      city: "EK, East Kilbride",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/orla-jessamine_ngnc48i5`,
     },
   ]);
-
-
-
-
 
   const [roseTattoo, SetRoseTattoo] = useState([
     {
@@ -484,7 +492,6 @@ export default function TattooIdeasForMen() {
       url: `${process.env.LIVE_URL}/tattoo/4c7af161-15e3-42b6-a328-f0ec9aa2b1f8`,
     },
 
-
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5616_20221015095453238-medium.jpg",
@@ -528,7 +535,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4620_20221006100342954-medium.jpg",
       name: "Chris harvey",
-      location: "London, United Kingdom",
+      city: "London",
+      country: "United Kingdom",
+
       url: `${process.env.LIVE_URL}/artists/chrisharvey_bghfm1a3`,
     },
     {
@@ -537,7 +546,8 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2415_20220913092008354-medium.jpg",
       name: "Southgate SG Tattoo",
-      location: "London, United Kingdom",
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/southgatesgtattoo_x0xn3epc`,
     },
     {
@@ -546,7 +556,8 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4373_20221003072650823-medium.jpg",
       name: "pennygrit",
-      location: "Redhill, United Kingdom",
+      city: "Redhill",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/pennygrit_ufotb8kc`,
     },
     {
@@ -555,7 +566,10 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17570_20230204154920550-medium.jpg",
       name: "Nhong Niramit",
-      location: "Nottinghamshire, United Kingdom",
+
+      city: "Nottinghamshire",
+      country: "United Kingdom",
+
       url: `${process.env.LIVE_URL}/artists/nhong-niramit_oca540jq`,
     },
     {
@@ -564,7 +578,8 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8444_20221108224339907-medium.jpg",
       name: "Hugoink_bristol",
-      location: "Weston-super-Mare, United Kingdom",
+      city: "Weston-super-Mare",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/hugoink_bristol_mp015xjp`,
     },
   ]);
@@ -621,17 +636,26 @@ export default function TattooIdeasForMen() {
       <div>
         <Banner
           bannerTitle={"Exploring Tattoo Ideas for Men: From Concept to Canvas"}
-          subTitlte="Are you on the hunt for the perfect tattoo ideas for men? You're in the right place! Tattoos are a way to express yourself and tell a story. Our guide will help you explore the world of men's tattoos, whether you're new to it or already a fan."
           alt="Exploring Tattoo Ideas for Men"
           bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
           bannerButton={"Know more about inckd"}
         />
+
+        <FullWidthSecwithIcon
+          img="/UserHeartRounded.svg"
+          alt="Hearts"
+          title={"Exploring Tattoo Ideas for Men: From Concept to Canvas"}
+          content="Are you on the hunt for the perfect tattoo ideas for men? You're in the right place! Tattoos are a way to express yourself and tell a story. Our guide will help you explore the world of men's tattoos, whether you're new to it or already a fan."
+        />
+
         <UniquePartner
           title="Exploring Diverse Tattoo Styles"
           subTitle="Small Tattoo Ideas for Men"
-          content="Let's begin with the charm of small tattoos. These gems are perfect for those seeking subtle yet meaningful designs. From minimalist symbols to tiny icons, small tattoos can be a powerful expression of your personality.If you like cultural symbols, think about getting tribal tattoos. These designs have deep roots in various cultures, reflecting strength, heritage, and unity. From intricate patterns to bold lines, tribal tattoos make a bold statement."
+          content1="Let's begin with the charm of small tattoos. These gems are perfect for those seeking subtle yet meaningful designs. From minimalist symbols to tiny icons, small tattoos can be a powerful expression of your personality."
+          content2="If you like cultural symbols, think about getting tribal tattoos. These designs have deep roots in various cultures, reflecting strength, heritage, and unity. From intricate patterns to bold lines, tribal tattoos make a bold statement."
           img="/pexels-cottonbro-studio-5320037.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+          carousel={carosuelForMen}
         />
 
         <FullWidthcarosuel
@@ -691,14 +715,14 @@ export default function TattooIdeasForMen() {
           datas={eagleTattoo}
           keyword={"Eagle"}
         />
-<div className="pt_45">
-        <FullWidthBlock
-          title={"Navigating Tattoo Styles in 2023"}
-          content={
-            "Ideas for Men in 2023: As we step into a new year, fresh tattoo trends emerge. Stay ahead of the curve with innovative ideas for men's tattoos in 2023. Explore new styles, techniques, and concepts that resonate with the spirit of the times."
-          }
-          sectionBackgrounColor={"#f8f8f8"}
-        />
+        <div className="pt_45 m_pt_15">
+          <FullWidthBlock
+            title={"Navigating Tattoo Styles in 2023"}
+            content={
+              "Ideas for Men in 2023: As we step into a new year, fresh tattoo trends emerge. Stay ahead of the curve with innovative ideas for men's tattoos in 2023. Explore new styles, techniques, and concepts that resonate with the spirit of the times."
+            }
+            sectionBackgrounColor={"#eaffc0"}
+          />
         </div>
 
         {/* <CarouselSection
@@ -708,7 +732,7 @@ export default function TattooIdeasForMen() {
           datas={artist}
           isButtonVisible={false}
         /> */}
-        
+
         <TrendinginckdArtist
           title="Tattoo Artist "
           title_sub=""
@@ -716,9 +740,6 @@ export default function TattooIdeasForMen() {
           button="Explore more artists"
           trendingArtist={artist}
         />
-
-
-
 
         <FullWidthcarosuel
           title="Rose Tattoo"
@@ -761,16 +782,14 @@ export default function TattooIdeasForMen() {
           datas={religiousTatoo}
           keyword={"Religious"}
         />
-<div className="pt_45">
-
-
-        <FullWidthBlock
-          title={"Crafting Your Unique Tattoo Journey"}
-          content={
-            "Getting a tattoo is a personal and life-changing experience. Each tattoo represents a story and important moments in your life. Whether you prefer religious, eagle, or rose tattoos, your choice shows who you are as a person."
-          }
-          sectionBackgrounColor={"#f8f8f8"}
-        />
+        <div className="pt_45 m_pt_15">
+          <FullWidthBlock
+            title={"Crafting Your Unique Tattoo Journey"}
+            content={
+              "Getting a tattoo is a personal and life-changing experience. Each tattoo represents a story and important moments in your life. Whether you prefer religious, eagle, or rose tattoos, your choice shows who you are as a person."
+            }
+            sectionBackgrounColor={"#eaffc0"}
+          />
         </div>
 
         <TrendinginckdArtist
@@ -791,9 +810,11 @@ export default function TattooIdeasForMen() {
           content3=" For those with a connection to cultural heritage, tribal tattoos pay homage to tradition. These designs, rooted in ancient symbolism, bring a sense of identity and belonging. Explore the intricate patterns and meanings behind tribal tattoos."
           title4="New tattoo ideas for men in 2023"
           content4="Keep up with the latest trends by exploring innovative ideas. Tattoo styles change and include new techniques and concepts. Be a trendsetter as you start your tattoo journey this year. Choose a lone wolf or a group, a wolf tattoo has a mysterious appeal for those connected to their primal instincts."
+          leftSectionImage="/tattooIdeasMen-1.jpg"
+          rightSecImage="/pexels-cottonbro-studio-5320037.jpg"
         />
 
-        <WhypartnerTattoos
+        {/* <WhypartnerTattoos
           mainTitle="Visualizing Your Tattoo Experience"
           title1="Tattoo Styles Image Gallery"
           content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication."
@@ -802,7 +823,27 @@ export default function TattooIdeasForMen() {
           embrace="Ready to Embrace"
           story="Your Love Story in Ink?"
           downloadApp="Download inckd now. Your perfect partner tattoo experience is just a click away!"
-        />
+        /> */}
+
+      <OrangeTwoRowBlock
+        mainTitle="Visualizing Your Tattoo Experience"
+        img1="/LinkRound.svg"
+        title1="Tattoo Styles Image Gallery"
+        content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication."
+        img2="/Album.svg"
+        title2="Connecting Through Body Art"
+        content2="Tattoos connect people, forming a shared language of expression. Join a community that celebrates the artistry of body ink. Share your tattoo journey, discover unique designs, and connect with fellow enthusiasts who appreciate the beauty of tattoo art. Tattoos have power. They mark moments, express emotions, and remind us of personal growth. Each tattoo tells a story."
+        bgColor="#FFD5C0"
+
+      />
+
+
+
+
+<DownloadApps />
+
+
+
       </div>
     </>
   );

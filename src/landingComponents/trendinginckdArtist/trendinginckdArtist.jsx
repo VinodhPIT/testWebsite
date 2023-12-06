@@ -19,17 +19,37 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
         dots: true,
      
         responsive: [
+            // {
+            //     breakpoint: 1290,
+            //     settings: {
+            //         slidesToShow: 4,
+            //         slidesToScroll: 4,
+            //         infinite: false,
+            //         dots: true,
+            //     },
+            // },
+
             {
-                breakpoint: 1290,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4,
-                    infinite: false,
-                    dots: true,
-                },
+              breakpoint: 1365,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: false,
+                dots: true,
+              },
             },
             {
-              breakpoint: 1024,
+              breakpoint: 1199,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: false,
+                dots: true,
+              },
+            },
+
+            {
+              breakpoint: 1025,
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 3,
@@ -76,7 +96,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
         <div className="text_box_wrap full-block-wrap">
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc">
-                    <div className="text_box_content_inner max_w_100pc pt_80 pb_25 m_pt_pb_50">
+                    <div className="text_box_content_inner max_w_100pc pt_80 pb_25 m_pt_pb_30">
                     <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
                                 <h2 className="color_gray_550 text_left heading_h2 mb_35 m_mb_25 mr_0">
@@ -87,7 +107,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                             </div>
                             
                             <Link href="/explore/tattoo-artists"
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48">
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
                               {button}
                                 <Image
                                 src="/arow-white-right.svg"
@@ -102,23 +122,23 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                             </Link>
                         </div>
 
-                        <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35" style={{"width": "1090px" ,
+                        <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15" style={{"width": "1090px" ,
     "max-width": "100%",
     "text-align": "left"}}>{content}</p>
 
 
                     </div>                               
-                    <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider'} ${styles.listing_pageContainer}`}>
+                    <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider artistSlider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>
                             <Slider {...sliderSettings} className="custom_content_slick_slider">
-                                {trendingArtist.map((imgPath, index) => (
+                                {trendingArtist.map((el, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index}>
 
-                                      <Link href={imgPath.url}>
+                                      <Link href={el.url}>
                                
                                     <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
-                                        src={imgPath.image}
+                                        src={el.image}
                                         alt="Trending couple tattoos"
                                         width={752}
                                         height={776}
@@ -134,8 +154,8 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                     <div className={`${'listing_grid_content_wrap'} ${styles.listing_grid_content_wrap}`}>
                                         <div className={styles.listing_grid_img_profile}>
                                         <Image
-                                            src={imgPath.artistImage}
-                                            alt={imgPath.name}
+                                            src={el.artistImage}
+                                            alt={el.name}
                                             width={97}
                                             height={97}
                                             loading="lazy"
@@ -147,10 +167,15 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                         </div>
                                         <div className={styles.listing_grid_profile_details}>
                                         <h6 className={styles.listing_grid_profile_title}>
-                                           {imgPath.name}
+                                           {el.name}
                                         </h6>
+                                        <div className="mb_5"></div>
                                         <span className={styles.listing_grid_profile_address}>
-                                            {imgPath.location}
+                                            {el.city}
+                                        </span>
+                                        <div className="mt_5"></div>
+                                        <span className={styles.listing_grid_profile_address} >
+                                            {el.country}
                                         </span>
                                         </div>
                                     </div>
