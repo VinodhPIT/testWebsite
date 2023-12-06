@@ -34,7 +34,7 @@ export default function UniquePartner({ title, subTitle, content1 , content2, im
             }
           >
             <div className="img_text_box_inner container m_switcher">
-              <div className="text_box_content justify_content_start pr_40 pl_0 pb_0 m_min_h_reset m_pb_35 m_pr_0 m_text_center">
+              <div className="text_box_content justify_content_start pr_40 pl_0 pt_0 pb_0 m_min_h_reset m_pb_35 m_pr_0 m_text_center">
                 <div className="text_box_content_inner max_w_100pc">
                   <h2 className="color_gray_550 ,mb">{title}</h2>
 
@@ -44,10 +44,10 @@ export default function UniquePartner({ title, subTitle, content1 , content2, im
                     </h5>
                   )}
 
-                  <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt_10 m_mt_15">
+                  <p className="custom_fs_20 lh_33 custom_fs_m_16 color_gray_550 mb_25 mt_10 m_mt_15">
                     {content1}
                   </p>
-                  <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt_10 m_mt_15">
+                  <p className="custom_fs_20 lh_33 custom_fs_m_16 color_gray_550 mb_0 mt_10 m_mt_15">
                     {content2}
                   </p>
 

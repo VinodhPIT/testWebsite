@@ -15,10 +15,10 @@ export default function DownloadApps () {
           : "text_box_wrap right app_download_box_wrap mb_0 block_bg_orange landing_app_download_wrap"
         }
       >
-        <div class="img_text_box_inner"> 
+        <div class="img_text_box_inner container"> 
           {!isMobileView ? (
             <div class="img_box_wrap w_50pc m_w_100pc">
-              <ul class="app_download_img_list justify_content_start slider_resize d_slid_resize mr_0 pl_50 landing_app_download">
+              <ul class="app_download_img_list justify_content_start slider_resize d_slid_resize mr_0 pl_0 landing_app_download">
                 <li>
                   <Image
                     src="/landing-download-app.png"

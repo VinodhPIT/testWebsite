@@ -803,6 +803,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   width: auto !important;
 }
 
+.w_1090 {
+  width: 1090px !important;
+}
+
 .max_w_100pc {
   max-width: 100% !important;
 }
@@ -2077,10 +2081,13 @@ ul.custom-listing li img {
   line-height: 38px !important;
 }
 
+.lh_30 {
+  line-height: 30px!important;
+}
+
 .lh_33 {
   line-height: 33px!important;
 }
-
 
 .full-block-wrap .img_text_box_inner .text_box_content_inner {
   text-align: center;
@@ -3958,6 +3965,7 @@ li {
 .custom_content_slick_slider .slick-track .slick-slide {
   display: flex!important;
   flex-flow: column;
+  padding-bottom: 10px;
 }
 .custom_content_slick_slider .slick-track .slick-slide > div {
   height: 100%;
@@ -4051,10 +4059,9 @@ button.language_switcher img {
  */
 
 .singleCarosuelSection .slick-list {
-
-  width: 450px;
   max-width: 100%;
-  margin-right: 30px;
+  width: 480px;
+  margin-right: 0px;
 }
 
 
@@ -4062,10 +4069,6 @@ button.language_switcher img {
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
-  .singleCarosuelSection .slick-list {
-  
- margin-right:0px; 
-}
   .toggleModel{
     overflow:hidden;
   }  
@@ -5344,6 +5347,16 @@ button.language_switcher img {
     width: auto;
     margin-top: -40px;
   }
+  .singleCarosuelSection  {   
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  .singleCarosuelSection .slick-list {
+    max-width: 100%;
+    width: 100%;
+    min-width: 290px;
+    margin-right: 0px;
+  }
     
 }
 
@@ -5940,6 +5953,7 @@ button.language_switcher img {
   .available_list ul.custom-listing-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+  
 }
 
 @media screen and (min-width: 1200px) {
@@ -6124,7 +6138,11 @@ button.language_switcher img {
     height:230px;
   }
 }
- 
+@media screen and (min-width: 1520px) {
+  .custom_content_slick_slider .listing_gridItem .listing_grid_img_col {
+    max-height: 430px;
+  }
+}
 @media screen and (min-width: 1651px) {
   .custom_slick_container .listing_gridItem .listing_grid_img_col {
     height: 250px;
