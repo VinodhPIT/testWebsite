@@ -4015,8 +4015,57 @@ button.language_switcher img {
   height:230px;
 }
 
+/* .custom_slick_container .slick-next:before,.custom_slick_container .slick-prev:before{
+  font-size: 26px;
+  opacity: 1;
+  color: #000;
+} 
+
+
+.custom_slick_container .slick-prev {
+  left: -34px;
+}
+.custom_slick_container .slick-next {
+  right: -20px;
+}
+
+.artistSlider .slick-prev:before,
+.artistSlider .slick-next:before {
+  font-size: 26px;
+  opacity: 1;
+  color: #000;
+}
+.fullwidthCarousel .slick-next:before, .fullwidthCarousel .slick-prev:before{
+  font-size: 34px;
+  opacity: 1;
+  color: #fff; z-index: 1;
+}
+
+
+.fullwidthCarousel .slick-prev {
+  left: 0;z-index: 1;
+}
+.fullwidthCarousel .slick-next {
+  right: 14px;
+}
+ */
+
+.singleCarosuelSection .slick-list {
+
+  width: 450px;
+  max-width: 100%;
+  margin-right: 30px;
+}
+
+
+
+
 /* responsive */
 @media screen and (max-width: 767.98px) {
+  .singleCarosuelSection .slick-list {
+  
+ margin-right:0px; 
+}
   .toggleModel{
     overflow:hidden;
   }  
@@ -5343,6 +5392,8 @@ button.language_switcher img {
   .form_submit_block ul.download_app li a img {
     width: 105px; 
   }
+
+  
 }
 
 @media screen and (max-width: 360px) {  
@@ -5568,6 +5619,8 @@ button.language_switcher img {
 }
 
 @media screen and (max-width: 991.98px) {
+
+
   main {
     min-height: 48vh;
   }
