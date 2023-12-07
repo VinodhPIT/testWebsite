@@ -133,4 +133,12 @@
     .listing_gridItem {
         margin-bottom: 20px;
     }*/
+    .listing_grid_profile_title {
+        font-size: 18px;
+        line-height: 19px;        
+    }    
+    .listing_grid_profile_address {
+        font-size: 16px;
+        line-height: 17px;
+    }
 }
