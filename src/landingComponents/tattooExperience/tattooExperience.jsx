@@ -19,7 +19,10 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
 
         <div className="col_full">
             <div className="img_text_box_wrapper">
-                <div className={"text_box_wrap right block_bg_gray_150 pb_75 pt_75 m_pb_40"}>                    
+            
+{/* <div className={`${'btn_custom_m'} ${styles.hi}`}> */}
+
+                <div className={`${"text_box_wrap right block_bg_gray_150 pb_75  m_pb_40"}  ${mainTitle===''?"pt_75":null}`}  >                    
                     <div className="img_text_box_inner container">
                         <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset">
                             <div className="text_box_content_inner max_w_100pc  m_mt_35">
@@ -36,7 +39,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
 
                         <div class="img_box_wrap justify_content_center">
                             <ul class="justify_content_center pl_0">
-                                <li className="img_box_shadow">
+                                <li >
                                     <Image
                                         priority
                                         alt="Celebrate Your Love Journey with Unique Partner Tattoos"
@@ -45,6 +48,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                                         height={600}                                   
                                         blurDataURL={blurDataURL}
                                         placeholder="blur"
+                                      className={styles.imageResponsive}
                                     />
                                 </li>
                             </ul>
@@ -54,7 +58,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                     <div className="img_text_box_inner container m_switcher">
                         <div class="img_box_wrap justify_content_center m_order_2">
                             <ul class="justify_content_center pl_0">
-                                <li className="img_box_shadow">
+                                <li >
                                     <Image
                                         priority
                                         alt="Celebrate Your Love Journey with Unique Partner Tattoos"
@@ -63,6 +67,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                                         height={600}                                
                                         blurDataURL={blurDataURL}
                                         placeholder="blur"
+                                        className={styles.imageResponsive}
                                     />
                                 </li>
                             </ul>

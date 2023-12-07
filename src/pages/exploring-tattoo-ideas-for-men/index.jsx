@@ -646,6 +646,7 @@ export default function TattooIdeasForMen() {
           alt="Hearts"
           title={"Exploring Tattoo Ideas for Men: From Concept to Canvas"}
           content="Are you on the hunt for the perfect tattoo ideas for men? You're in the right place! Tattoos are a way to express yourself and tell a story. Our guide will help you explore the world of men's tattoos, whether you're new to it or already a fan."
+          bgColor="#ffff"
         />
 
         <UniquePartner

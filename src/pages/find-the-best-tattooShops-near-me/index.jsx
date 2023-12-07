@@ -3,13 +3,21 @@ import Head from "next/head";
 
 import Banner from "@/landingComponents/banner/banner";
 
-import TwocolumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
-import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
-import TrendingArtist from "@/landingComponents-2/trendingArtist/trendingArtist";
-import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
+// import TwocolumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
+// import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
+// import TrendingArtist from "@/landingComponents-2/trendingArtist/trendingArtist";
+// import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
+// import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
+
+import {useNavigation} from '@/hooks/useRouter'
+import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
+import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
+import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
+import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
+import FiveColumnCarousel from "@/landingComponents/fiveColumnCarousel/fiveColumnCarousel";
 
 export default function TattooIdeasForMen() {
+  const {router} =useNavigation()
   const currentPage = typeof window !== "undefined" ? window.location.href : "";
 
   const [trendingArtist, setTendingArtist] = useState([
@@ -19,7 +27,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21450_20230309172955410-medium.jpg",
       name: "Vivi B Tattoo",
-      location: "London, United Kingdom",
+    
+      city:"London",
+      country:"United Kingdom",
       url: `${process.env.LIVE_URL}/artists/vivibtattoo_nqk6umse`,
      
 
@@ -31,7 +41,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/19325_20230215132631090-medium.jpg",
       name: "Divine Macabre",
-      location: "Richmond, United Kingdom",
+      
+      city:"Richmond",
+      country:"United Kingdom",
       url: `${process.env.LIVE_URL}/artists/divinemacabre_jzrz10ex`,
     },
     {
@@ -40,7 +52,10 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/22937_20230329165014393-medium.jpg",
       name: "Marco_tatz",
-      location: "Hove, United Kingdom",
+      
+      city:"Hove",
+      country:"United Kingdom",
+
       url: `${process.env.LIVE_URL}/artists/Marco_tatz_lqtedjrr`,
     },
     {
@@ -49,7 +64,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28289_20231101193907439-medium.jpg",
       name: "Stephen Noir",
-      location: "Daventry, United Kingdom",
+      
+      city:"Daventry",
+      country:"United Kingdom",
       url: `${process.env.LIVE_URL}/artists/stephennoir_tykruorz`,
     },
     {
@@ -58,7 +75,10 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3771_20220927130845510-medium.jpg",
       name: "Smania.nera",
-      location: "London, United Kingdom",
+      
+
+      city:"London",
+      country:"United Kingdom",
       url: `${process.env.LIVE_URL}/artists/smania.nera_e2wwxujb`,
     },
     {
@@ -67,7 +87,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8655_20221110125829007-medium.jpg",
       name: "Luciatattoos",
-      location: "London, United Kingdom",
+     
+      city:"London",
+      country:"United Kingdom",
       url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
     },
     {
@@ -76,7 +98,12 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9164_20221116191748594-medium.jpg",
       name: "Megan Rae",
-      location: "Carlisle, United Kingdom",
+      
+
+      city:"Carlisle",
+      country:"United Kingdom",
+
+
       url: `${process.env.LIVE_URL}/artists/meganrae_4dszyy98`,
     },
   ]);
@@ -137,47 +164,82 @@ export default function TattooIdeasForMen() {
       <div>
         <Banner
           bannerTitle="Find the Finest Tattoo Shops Near Me for Exceptional Ink"
-          subTitlte="Are you searching for the perfect tattoo shop to bring your vision to life? Find the best tattoo artists and shops near you with our app. It guarantees a smooth process from consultation to the final tattoo.
-        "
+          subTitlte=""
+        
           alt="Exploring Tattoo Ideas for Men"
           bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
           bannerButton={"Know more about inckd"}
         />
 
-        <TrendinginckdArtist
+
+         <FullWidthSecwithIcon
+          img="/studio.svg"
+          alt="studio"
+          title={"Find the Finest Tattoo Shops Near Me"}
+          content="Are you searching for the perfect tattoo shop to bring your vision to life? Find the best tattoo artists and shops near you with our app. It guarantees a smooth process from consultation to the final tattoo.
+
+          "
+          bgColor="#f8f8f8"
+        />
+
+
+
+
+        <FiveColumnCarousel
           title="Why Choose Our"
           title_sub="Tattoo Booking App?"
           content="No more hassles with long waiting times or phone calls. Use our easy app to book your tattoo appointment instantly, ensuring you get the artist and time you want. Our listed tattoo shops and artists offer a diverse range of services, from body piercings to intricate tattoo designs. You can find artists who specialize in various tattoo styles, ensuring your unique preferences are met.
           "
-          button="Explore more"
+          button="Explore more artists"
           trendingArtist={trendingArtist}
+
+
+
+           btnLink ={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=UnitedKingdom`}
+
+           
+
         />
 
-        <div className="mb_25">
-          <TattooExperience
-            mainTitle=""
-            title1="Discover peace of mind"
-            content1="As you explore our network of tattoo artists and shops. Within our community, you'll find skilled and experienced individuals who are dedicated to their craft. Your journey begins with our team of artists, each poised to collaborate with you in crafting a custom design that mirrors your unique style and vision.Our commitment is to provide you with tattoos of the highest quality and timeless appeal. Booking an appointment is a seamless process that opens the door to personalized consultations with your chosen tattoo artist. Our staff is friendly and ready to assist you in transforming your idea into reality. They can help you whether your idea is well-defined or still a bit unclear.
-
-
-        "
-            title2=""
-            content2="
         
-        "
-            title3="Booking with Confidence:
-"
-            content3=" When it comes to finding the best tattoo artist and tattoo shop, trust our app to guide you. We studied top competitors to find the best match for you.
 
-        "
-            title4="Enhance Your Tattoo Journey:
+        <UniquePartner
+          title="Exploring Diverse Tattoo Styles"
+          subTitle=""
+          content1="Discover peace of mind as you explore our network of tattoo artists and shops. Within our community, you'll find skilled and experienced individuals who are dedicated to their craft. Your journey begins with our team of artists, each poised to collaborate with you in crafting a custom design that mirrors your unique style and vision."
+          
+          content2="Our commitment is to provide you with tattoos of the highest quality and timeless appeal. Booking an appointment is a seamless process that opens the door to personalized consultations with your chosen tattoo artist. Our staff is friendly and ready to assist you in transforming your idea into reality. They can help you whether your idea is well-defined or still a bit unclear.
           "
-            content4="Your tattoo journey is a unique expression of yourself, and we're here to make it exceptional. Our app connects you with tattoo artists and shops that value your individuality, regardless of tattoo size.
-          Embark on your tattoo journey with confidence. Our app empowers you to discover top-rated tattoo shops, ensuring your experience is as brilliant as your ink. Book your appointment today and celebrate your unique style with the perfect tattoo artist for you.
-          .
-        "
-          />
-        </div>
+          img="/tattooShop.jpg"
+          alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+          carousel={''}
+          imgWidth="570"
+          imgHeight="600"
+        
+        />
+
+
+
+
+        <OrangeTwoRowBlock
+        mainTitle=""
+        img1="/LinkRound.svg"
+        title1="Booking with Confidence:"
+        content1="When it comes to finding the best tattoo artist and tattoo shop, trust our app to guide you. We studied top competitors to find the best match for you."
+        
+        img2="/Album.svg"
+        title2="Enhance Your Tattoo Journey:"
+        content2="Your tattoo journey is a unique expression of yourself, and we're here to make it exceptional. Our app connects you with tattoo artists and shops that value your individuality, regardless of tattoo size."
+        bgColor="#FFD5C0"
+
+      />
+
+
+<DownloadApps />
+
+
+
+
       </div>
     </>
   );

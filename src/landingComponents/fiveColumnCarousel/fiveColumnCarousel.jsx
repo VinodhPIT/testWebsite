@@ -7,18 +7,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function TrendinginckdArtist ({title,title_sub , content ,button   ,trendingArtist}) {
+export default function FiveColumnCarousel ({title,title_sub , content ,button   ,trendingArtist ,btnLink}) {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
 
     sliderSettings = {
         infinite: true,
         speed: 300,
-        slidesToShow: isMobileView ? 1.2 : 3,
-        slidesToScroll: isMobileView ? 1. : 3,
+        slidesToShow: isMobileView ? 1 : 5,
+        slidesToScroll: isMobileView ? 1. : 5,
         dots: true,
-        prevArrow: null, // Set prevArrow to null to disable the previous arrow
-        nextArrow: null, // Set nextArrow to null to disable the next arrow
      
         responsive: [
             // {
@@ -34,8 +32,8 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
             {
               breakpoint: 1365,
               settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 5,
+                slidesToScroll: 5,
                 infinite: false,
                 dots: true,
               },
@@ -53,8 +51,8 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
             {
               breakpoint: 1025,
               settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 4,
+                slidesToScroll: 4,
                 infinite: false,
                 dots: true,
               },
@@ -65,7 +63,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
               settings: {
                 infinite: true,
                 slidesToShow: 2,
-                slidesToScroll: 3,
+                slidesToScroll: 2,
                 dots: true,
               },
             },
@@ -108,7 +106,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                              
                             </div>
                             
-                            <Link href="/explore/tattoo-artists"
+                            <Link href={btnLink}
                                  className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
                               {button}
                                 <Image
@@ -136,9 +134,9 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                 {trendingArtist.map((el, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index}>
 
-                                      <Link href={el.url}>
+                                      <Link href={el.url} style={{"paddingRight":"3px"}} >
                                
-                                    <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
+                                    <div className={`${'listing_grid_five_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={el.image}
                                         alt="Trending couple tattoos"
@@ -171,11 +169,11 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                         <h6 className={styles.listing_grid_profile_title}>
                                            {el.name}
                                         </h6>
-                                        <div className="mb_5"></div>
+                                        
                                         <span className={styles.listing_grid_profile_address}>
                                             {el.city}
                                         </span>
-                                        <div className="mt_5"></div>
+                                        
                                         <span className={styles.listing_grid_profile_address} >
                                             {el.country}
                                         </span>
