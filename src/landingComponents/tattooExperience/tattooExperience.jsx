@@ -86,3 +86,4 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
     </section>
   )
 }
+
