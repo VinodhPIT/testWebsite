@@ -13,6 +13,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
 
     sliderSettings = {
         infinite: true,
+        arrows: false,
         speed: 300,
         slidesToShow: isMobileView ? 1.2 : 3,
         slidesToScroll: isMobileView ? 1. : 3,
@@ -109,7 +110,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                             </div>
                             
                             <Link href="/explore/tattoo-artists"
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden">
                               {button}
                                 <Image
                                 src="/arow-white-right.svg"
@@ -186,8 +187,27 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                 ))}
                             </Slider>
                         </div>
-                    </div>
+                    </div> 
                 </div>
+                <div className="text_box_content_inner container max_w_100pc pt_80 pb_25 m_pt_pb_30 ml_0 desk_hidden">
+                    <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">   
+                            <Link href="/explore/tattoo-artists"
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_0">
+                              {button}
+                                <Image
+                                src="/arow-white-right.svg"
+                                width={24}
+                                height={24}
+                                alt="logo"
+                                loading="lazy"
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="ml-8 mt-2"
+                                />
+                            </Link>
+                        </div>
+
+                    </div>
             </div>  
         </div>
     </section>

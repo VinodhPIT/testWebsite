@@ -16,6 +16,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
 
   sliderSettings = {
     infinite: true,
+    arrows: false,
     speed: 300,
     slidesToShow: isMobileView ? 1 :  4.65,
     slidesToScroll: isMobileView ? 1 :4,
@@ -90,7 +91,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                             </div>
                             
                        {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden">
                                 {buttonName}
                                 <Image
                                 src="/arow-white-right.svg"
@@ -112,10 +113,10 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
 </div>
 
 
-                <div className="justify_content_start  w_100pc">                
-                    <div className={`${'mt_0 mb_80 m_mb_50'} ${styles.listing_pageContainer}`}>
+                <div className="justify_content_start  w_100pc">        
+                    <div className={`${'mt_0 mb_80 m_mb_50 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          
-                            <Slider {...sliderSettings} className="custom_slick_slider  fullwidthCarousel  ">
+                            <Slider {...sliderSettings} className="custom_slick_slider  fullwidthCarousel">
                                 {datas.map((imgPath, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index} >
                                       <Link href={imgPath.url}>
@@ -143,6 +144,30 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                         </div>
                     </div>
                 </div>
+
+
+                <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_10 desk_hidden"> 
+                       {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
+                                {buttonName}
+                                <Image
+                                src="/arow-white-right.svg"
+                                width={24}
+                                height={24}
+                                alt="logo"
+                                loading="lazy"
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="ml-8 mt-2"
+                                />
+                            </Link>}
+                        </div>
+
+
+
+
+
+
             </div>  
         </div>
     </section>

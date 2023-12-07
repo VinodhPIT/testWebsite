@@ -209,6 +209,16 @@
 
 
 /* responsive */
+@media screen and (max-width: 640px) {    
+	.listing_grid_img_col {
+		max-height: 340px!important;
+		min-height: inherit;
+	}
+	.listing_grid_content_wrap {		
+		height: auto!important;
+	}
+}
+
 @media screen and (max-width: 767.98px) {
 	.banner_item {
 		min-height: 60vh;

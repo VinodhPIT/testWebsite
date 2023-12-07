@@ -17,7 +17,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
 
   sliderSettings = {
     infinite: true,
-    
+    arrows: false,
     speed: 300,
     slidesToShow: isMobileView ? 1 :5,
     slidesToScroll: isMobileView ? 1 : 4,
@@ -28,9 +28,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
           slidesToShow: 4,
           slidesToScroll: 4,
           infinite: false,
-          dots: true,
-          prevArrow: null, // Set prevArrow to null to disable the previous arrow
-          nextArrow: null, // Set nextArrow to null to disable the next arrow
+          dots: true          
         },
       },     
       {
@@ -102,7 +100,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                   </div>
                 </div> */}
 
-<div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container  mb_10">
+<div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mb_10">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
                                 <h2 className="color_gray_550 text_left heading_h2 mb_10 m_mb_20 mr_0 m_mb_25">
                                     <span class="m_dis_inline">{title} </span>
@@ -112,7 +110,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                             </div>
                             
                        {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden">
                                 {buttonName}
                                 <Image
                                 src="/arow-white-right.svg"
@@ -136,7 +134,7 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
 
 
                 <div className="justify_content_start container w_100pc">                
-                    <div className={`${'mt_0 mb_40 m_mb_40'} ${styles.listing_pageContainer}`}>
+                    <div className={`${'mt_0 mb_40 m_mb_40 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          
                             <Slider {...sliderSettings} className="custom_slick_slider custom_slick_container">
                                 {datas.map((imgPath, index) => (
@@ -170,6 +168,24 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                         </div>
                     </div>
                 </div>
+
+                <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mb_10 desk_hidden">                           
+                            
+                       {isButtonVisible ===false  ? null:     <Link href={`/explore/tattoos?keyword=${keyword}`}
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25">
+                                {buttonName}
+                                <Image
+                                src="/arow-white-right.svg"
+                                width={24}
+                                height={24}
+                                alt="logo"
+                                loading="lazy"
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="ml-8 mt-2"
+                                />
+                            </Link>}
+                        </div>
             </div>  
         </div>
     </section>
