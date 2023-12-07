@@ -166,8 +166,8 @@ export default function TattooIdeasForMen() {
           bannerTitle="Find the Finest Tattoo Shops Near Me for Exceptional Ink"
           subTitlte=""
         
-          alt="Exploring Tattoo Ideas for Men"
-          bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
+          alt="TattooShops"
+          bannerImg={"/tattooShop.jpg"}
           bannerButton={"Know more about inckd"}
         />
 
@@ -210,11 +210,11 @@ export default function TattooIdeasForMen() {
           
           content2="Our commitment is to provide you with tattoos of the highest quality and timeless appeal. Booking an appointment is a seamless process that opens the door to personalized consultations with your chosen tattoo artist. Our staff is friendly and ready to assist you in transforming your idea into reality. They can help you whether your idea is well-defined or still a bit unclear.
           "
-          img="/tattooShop.jpg"
+          img="/inckdedArtists.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
           carousel={''}
           imgWidth="570"
-          imgHeight="600"
+          imgHeight="700"
         
         />
 
