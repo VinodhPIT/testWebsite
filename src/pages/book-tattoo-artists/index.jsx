@@ -161,8 +161,8 @@ export default function TattooIdeasForMen() {
       <div>
         <Banner
           bannerTitle="Discover and Book Tattoo Artists Near Me with inckd."
-          alt="Discover and Book Tattoo Artists Near Me with inckd."
-          bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
+          alt="Book Artist"
+          bannerImg={"/artistBanner.jpg"}
           bannerButton={"Know more about inckd"}
         />
 

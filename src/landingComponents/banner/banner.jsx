@@ -47,11 +47,11 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
                 />
               </Link>
             </span>
-            <span className="header_right_btn">
+            {/* <span className="header_right_btn">
               <button type="button" className="btn btn_primary btn_regist">
                 Signup now - its free
               </button>
-            </span>
+            </span> */}
           </div>
         </div>
       </header>
