@@ -3,13 +3,7 @@ import Head from "next/head";
 
 import Banner from "@/landingComponents/banner/banner";
 
-// import TwocolumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
-// import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
-// import TrendingArtist from "@/landingComponents-2/trendingArtist/trendingArtist";
-// import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-// import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
-
-import {useNavigation} from '@/hooks/useRouter'
+import { useNavigation } from "@/hooks/useRouter";
 import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
 import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
 import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
@@ -17,7 +11,7 @@ import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePart
 import FiveColumnCarousel from "@/landingComponents/fiveColumnCarousel/fiveColumnCarousel";
 
 export default function TattooIdeasForMen() {
-  const {router} =useNavigation()
+  const { router } = useNavigation();
   const currentPage = typeof window !== "undefined" ? window.location.href : "";
 
   const [trendingArtist, setTendingArtist] = useState([
@@ -27,13 +21,10 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21450_20230309172955410-medium.jpg",
       name: "Vivi B Tattoo",
-    
-      city:"London",
-      country:"United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/vivibtattoo_nqk6umse`,
-     
-
-
     },
     {
       artistImage:
@@ -41,9 +32,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/19325_20230215132631090-medium.jpg",
       name: "Divine Macabre",
-      
-      city:"Richmond",
-      country:"United Kingdom",
+
+      city: "Richmond",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/divinemacabre_jzrz10ex`,
     },
     {
@@ -52,9 +43,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/22937_20230329165014393-medium.jpg",
       name: "Marco_tatz",
-      
-      city:"Hove",
-      country:"United Kingdom",
+
+      city: "Hove",
+      country: "United Kingdom",
 
       url: `${process.env.LIVE_URL}/artists/Marco_tatz_lqtedjrr`,
     },
@@ -64,9 +55,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28289_20231101193907439-medium.jpg",
       name: "Stephen Noir",
-      
-      city:"Daventry",
-      country:"United Kingdom",
+
+      city: "Daventry",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/stephennoir_tykruorz`,
     },
     {
@@ -75,10 +66,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3771_20220927130845510-medium.jpg",
       name: "Smania.nera",
-      
 
-      city:"London",
-      country:"United Kingdom",
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/smania.nera_e2wwxujb`,
     },
     {
@@ -87,9 +77,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8655_20221110125829007-medium.jpg",
       name: "Luciatattoos",
-     
-      city:"London",
-      country:"United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
     },
     {
@@ -98,11 +88,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9164_20221116191748594-medium.jpg",
       name: "Megan Rae",
-      
 
-      city:"Carlisle",
-      country:"United Kingdom",
-
+      city: "Carlisle",
+      country: "United Kingdom",
 
       url: `${process.env.LIVE_URL}/artists/meganrae_4dszyy98`,
     },
@@ -159,20 +147,20 @@ export default function TattooIdeasForMen() {
         />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
+
+        
       </Head>
 
       <div>
         <Banner
           bannerTitle="Find the Finest Tattoo Shops Near Me for Exceptional Ink"
           subTitlte=""
-        
           alt="TattooShops"
           bannerImg={"/tattooShop.jpg"}
           bannerButton={"Know more about inckd"}
         />
 
-
-         <FullWidthSecwithIcon
+        <FullWidthSecwithIcon
           img="/studio.svg"
           alt="studio"
           title={"Find the Finest Tattoo Shops Near Me"}
@@ -182,9 +170,6 @@ export default function TattooIdeasForMen() {
           bgColor="#f8f8f8"
         />
 
-
-
-
         <FiveColumnCarousel
           title="Why Choose Our"
           title_sub="Tattoo Booking App?"
@@ -192,54 +177,34 @@ export default function TattooIdeasForMen() {
           "
           button="Explore more artists"
           trendingArtist={trendingArtist}
-
-
-
-           btnLink ={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=UnitedKingdom`}
-
-           
-
+          btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=UnitedKingdom`}
         />
-
-        
 
         <UniquePartner
           title="Exploring Diverse Tattoo Styles"
           subTitle=""
           content1="Discover peace of mind as you explore our network of tattoo artists and shops. Within our community, you'll find skilled and experienced individuals who are dedicated to their craft. Your journey begins with our team of artists, each poised to collaborate with you in crafting a custom design that mirrors your unique style and vision."
-          
           content2="Our commitment is to provide you with tattoos of the highest quality and timeless appeal. Booking an appointment is a seamless process that opens the door to personalized consultations with your chosen tattoo artist. Our staff is friendly and ready to assist you in transforming your idea into reality. They can help you whether your idea is well-defined or still a bit unclear.
           "
           img="/inckdedArtists.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
-          carousel={''}
+          carousel={""}
           imgWidth="570"
           imgHeight="700"
-        
         />
 
-
-
-
         <OrangeTwoRowBlock
-        mainTitle=""
-        img1="/LinkRound.svg"
-        title1="Booking with Confidence:"
-        content1="When it comes to finding the best tattoo artist and tattoo shop, trust our app to guide you. We studied top competitors to find the best match for you."
-        
-        img2="/Album.svg"
-        title2="Enhance Your Tattoo Journey:"
-        content2="Your tattoo journey is a unique expression of yourself, and we're here to make it exceptional. Our app connects you with tattoo artists and shops that value your individuality, regardless of tattoo size."
-        bgColor="#FFD5C0"
+          mainTitle=""
+          img1="/LinkRound.svg"
+          title1="Booking with Confidence:"
+          content1="When it comes to finding the best tattoo artist and tattoo shop, trust our app to guide you. We studied top competitors to find the best match for you."
+          img2="/Album.svg"
+          title2="Enhance Your Tattoo Journey:"
+          content2="Your tattoo journey is a unique expression of yourself, and we're here to make it exceptional. Our app connects you with tattoo artists and shops that value your individuality, regardless of tattoo size."
+          bgColor="#FFD5C0"
+        />
 
-      />
-
-
-<DownloadApps />
-
-
-
-
+        <DownloadApps />
       </div>
     </>
   );
