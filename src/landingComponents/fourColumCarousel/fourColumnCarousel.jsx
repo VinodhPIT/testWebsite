@@ -7,18 +7,17 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function TrendinginckdArtist ({title,title_sub , content ,button   ,trendingArtist}) {
+export default function FourColumnCarousel ({title,title_sub , content ,button   ,trendingArtist}) {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
 
     sliderSettings = {
         infinite: true,
         speed: 300,
-        slidesToShow: isMobileView ? 1.2 : 3,
-        slidesToScroll: isMobileView ? 1. : 3,
+        slidesToShow: isMobileView ? 1 : 4,
+        slidesToScroll: isMobileView ? 1. : 4,
         dots: true,
-        prevArrow: null, // Set prevArrow to null to disable the previous arrow
-        nextArrow: null, // Set nextArrow to null to disable the next arrow
+       
      
         responsive: [
             // {
@@ -138,7 +137,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
 
                                       <Link href={el.url}>
                                
-                                    <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
+                                    <div className={`${'listing_grid_four_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={el.image}
                                         alt="Trending couple tattoos"

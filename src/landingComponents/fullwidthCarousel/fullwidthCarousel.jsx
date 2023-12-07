@@ -19,6 +19,8 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
     speed: 300,
     slidesToShow: isMobileView ? 1 :  4.65,
     slidesToScroll: isMobileView ? 1 :4,
+    prevArrow: null, // Set prevArrow to null to disable the previous arrow
+    nextArrow: null, // Set nextArrow to null to disable the next arrow
     responsive: [
       {
         breakpoint: 1099,

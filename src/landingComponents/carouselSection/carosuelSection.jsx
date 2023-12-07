@@ -29,6 +29,8 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
           slidesToScroll: 4,
           infinite: false,
           dots: true,
+          prevArrow: null, // Set prevArrow to null to disable the previous arrow
+          nextArrow: null, // Set nextArrow to null to disable the next arrow
         },
       },     
       {

@@ -11,13 +11,16 @@ export default function OrangeTwoRowBlock({mainTitle, img1, title1, content1, im
     <section className="img_text_banner_box">
 
         <div className="text_box_wrap full-block-wrap" style={{"backgroundColor":bgColor}}>
+          {mainTitle !=='' ?
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc">
                     <div className="text_box_content_inner pt_80 pb_40 m_pt_45 max_w_100pc ">
                         <h3 className="color_gray_550 mb_0  text_left heading_h2">{mainTitle}</h3>                        
                     </div>                  
                 </div>
-            </div>  
+            </div>    :   <div className='pt_65'></div>}
+
+
         </div>
 
         <div className="col_full">
