@@ -6,7 +6,6 @@ import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
 
 import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
 import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-// import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos"
 
  import WhypartnerTattoos from "@/landingComponents-2/whypartnerTattoos/whypartnerTattoos";
 
