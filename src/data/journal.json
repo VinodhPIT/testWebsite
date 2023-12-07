@@ -1,50 +1,49 @@
 {
-    "uk-en": [
+  "uk-en": [
+    {
+      "id":1,
+      "title":"Exploring Tattoo Ideas for Men: From Concept to Canvas | Inckd",
+      "tagTitle": "Tattoo For Men",
+      "desc": "Discover the perfect tattoo ideas for men at Inckd. Express yourself with small tattoos, tribal designs, cross tattoos, and more. Explore diverse tattoo styles and find inspiration."
+      ,
+      "imageUrl": "/young-beautiful-couple-posing-old-building-1.jpg",
+    "url":"/exploring-tattoo-ideas-for-men"
+      
+    },
+    {
+      "id":2,
+      "title":"Find the Finest Tattoo Shops Near Me for Exceptional Ink",
+      "tagTitle": "Tattoo Shops",
+      "desc": "Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art.",
+      "imageUrl": "/tattooShop.jpg",
+      "url":"/find-the-best-tattooShops-near-me"
+      
+    },
+    {
+      "id":3,
+      "title":"Book Tattoo Artists Near Me with inckd",
+      "tagTitle": "Tattoo Artists",
+      "desc": "Explore exceptional tattoo artists near you on inckd. Effortlessly book your preferred artist, discover diverse styles, and benefit from exclusive partnerships. Download inckd now!"
+      ,
+      "imageUrl": "/artistBanner.jpg",
+      "url":"/book-tattoo-artists"
+      
+    }
+
+
+
+
+
+  ],
+  "de-de": [
       {
         "id":1,
-        "title":"Exploring Tattoo Ideas for Men: From Concept to Canvas | Inckd",
-        "tagTitle": "Tattoo For Men",
-        "desc": "Discover the perfect tattoo ideas for men at Inckd. Express yourself with small tattoos, tribal designs, cross tattoos, and more. Explore diverse tattoo styles and find inspiration."
-        ,
-        "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg",
-      "url":"/exploring-tattoo-ideas-for-men"
-        
-      },
-      {
-        "id":2,
-        "title":"Find the Finest Tattoo Shops Near Me for Exceptional Ink",
-        "tagTitle": "Tattoo Shops",
-        "desc": "Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art.",
-        "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21450_20230309172955410-medium.jpg",
-        "url":"/find-the-best-tattooShops-near-me"
-        
-      },
-      {
-        "id":3,
-        "title":"Book Tattoo Artists Near Me with inckd",
-        "tagTitle": "Tattoo Artists",
-        "desc": "Explore exceptional tattoo artists near you on inckd. Effortlessly book your preferred artist, discover diverse styles, and benefit from exclusive partnerships. Download inckd now!"
-        ,
-        "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image/2795_4657C062-5776-43D0-AC8F-43BBEE5B850E.jpg",
-        "url":"/book-tattoo-artists"
-        
-      }
-
-
-
-
-
-    ],
-    "de-de": [
-        {
-          "id":1,
-            "title":"Cover Up Tattoos: Tipps, Methoden und Kreative Lösungen für Dein Neues Tattoo",
-            "tagTitle": "Cover Up Tattoos",
-            "desc": "Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern.",
-            "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20380_20230223232347378-medium.jpg",
-            "url":"/cover-up-tattoos"
-          }
-         
-    ]
-  }
-  
+          "title":"Cover Up Tattoos: Tipps, Methoden und Kreative Lösungen für Dein Neues Tattoo",
+          "tagTitle": "Cover Up Tattoos",
+          "desc": "Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern.",
+          "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20380_20230223232347378-medium.jpg",
+          "url":"/cover-up-tattoos"
+        }
+       
+  ]
+}

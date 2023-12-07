@@ -3564,7 +3564,20 @@ header .navbar {
   }
 
 }
-
+@media (max-width: 460px) {
+  .custom_slick_slider .listing_gridItem .listing_grid_img_col {    
+    width: 100%!important;
+    margin-left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+ }
+ .container .custom_slick_slider .listing_gridItem .listing_grid_img_col {    
+    width: 100%!important;
+    margin-left: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
 @media (max-width: 415px) {
 
 
@@ -4055,7 +4068,7 @@ button.language_switcher img {
 .switchTextWhite{color: #000;}
 
 .custom_slick_container .listing_gridItem .listing_grid_img_col {
-  height:230px;
+  height:344px;
 }
 
 /* .custom_slick_container .slick-next:before,.custom_slick_container .slick-prev:before{
@@ -5391,7 +5404,7 @@ button.language_switcher img {
     width: 100%;
     min-width: 290px;
     margin-right: 0px;
-  }
+  }  
     
 }
 
@@ -5441,6 +5454,18 @@ button.language_switcher img {
     width: 105px; 
   }
 
+  
+}
+@media screen and (max-width: 380px) {  
+  .mr_xs_0 {
+    margin-right: 0px!important;
+  }
+  .mb_xs_5 {
+    margin-bottom: 5px!important;
+  }
+  .mob_xs_d_block {
+    display: block!important;
+  }
   
 }
 
@@ -5574,7 +5599,7 @@ button.language_switcher img {
   }
   .app_download_box_wrap.landing_app_download_wrap .img_text_box_inner .text_box_content .text_box_content_inner {
     max-width: 100%;
-  }  
+  } 
 
 }
 
@@ -5668,7 +5693,10 @@ button.language_switcher img {
 
 @media screen and (max-width: 991.98px) {
 
-  .imgResponsive{width: 100% ;height: auto;}
+  .imgResponsive{
+    width: 100% ;
+    height: auto;
+  }
   main {
     min-height: 48vh;
   }
@@ -5868,9 +5896,7 @@ button.language_switcher img {
   }
 }
 
-@media screen and (min-width: 992px) {
-
-  
+@media screen and (min-width: 992px) {  
   header .nav-right-block {
     width: calc(100% - 105px);
     display: flex;
@@ -6141,8 +6167,6 @@ button.language_switcher img {
     margin-top: -40px;
   }
 }
-
-
 @media screen and (min-width: 1025px) and (max-width: 1199px) {
   .header_right button.btn_tattoo_art {
     margin-right: 20px;
@@ -6172,25 +6196,22 @@ button.language_switcher img {
       height:300px;
   }
   .custom_slick_container .listing_gridItem .listing_grid_img_col {
-    height:230px;
+    height:300px;
   }
 }
 @media screen and (min-width: 1520px) {
   .custom_content_slick_slider .listing_gridItem .listing_grid_img_col {
     max-height: 430px;
   }
-
   .custom_content_slick_slider .listing_gridItem .listing_grid_five_col {
     max-height: 231px;
-}
-.custom_content_slick_slider .listing_gridItem .listing_grid_four_col {
-  max-height: 300px; overflow: hidden;
-}
-
-
-
-
-
+  }
+  .custom_content_slick_slider .listing_gridItem .listing_grid_four_col {
+    max-height: 300px; overflow: hidden;
+  }
+  .custom_slick_container .listing_gridItem .listing_grid_img_col {
+    height:300px;
+  }
 }
 @media screen and (min-width: 1651px) {
   .custom_slick_container .listing_gridItem .listing_grid_img_col {

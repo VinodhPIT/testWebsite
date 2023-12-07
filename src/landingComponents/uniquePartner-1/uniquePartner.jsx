@@ -16,6 +16,7 @@ export default function UniquePartner({ title, subTitle, content1 , content2, im
   
     sliderSettings = {
       infinite: true,
+      arrows: false,
       speed: 300,
       slidesToShow:1,
       slidesToScroll: 1,
@@ -53,7 +54,7 @@ export default function UniquePartner({ title, subTitle, content1 , content2, im
 
                 </div>
               </div>
-              <div className="singleCarosuelSection" >
+              <div className="singleCarosuelSection trending_artist_slider">
               {carousel && carousel.length > 0  ?(
   <Slider {...sliderSettings}>
     {carousel.map((imgPath, index) => (
