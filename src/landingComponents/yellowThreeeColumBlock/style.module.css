@@ -1,0 +1,19 @@
+.threeColumnBlock{
+    float: left;width: 33.33%;    margin-bottom: 20px;     padding-right: 15px;
+}
+
+
+
+
+
+
+@media screen and (max-width:991px) {
+    .threeColumnBlock {
+     
+        width: 100%;
+        
+        padding-right: 0px;
+    }
+  }
+
+

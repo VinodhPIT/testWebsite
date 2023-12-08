@@ -921,6 +921,11 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .flex_direction_row {
   flex-direction: row !important;
 }
+.flex_wrap {
+  flex-wrap: wrap!important;
+}
+
+
 
 .flex_flow_wrap {
   flex-flow: wrap !important;
@@ -4912,6 +4917,7 @@ button.language_switcher img {
   .max_m_w_100pc {
     max-width: 100% !important;
   }
+
 
   .m_flex_direction_column {
     flex-direction: column !important;
