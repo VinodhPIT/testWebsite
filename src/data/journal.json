@@ -43,7 +43,19 @@
           "desc": "Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern.",
           "imageUrl": "/coverUpTattooBanner.jpg",
           "url":"/cover-up-tattoos"
-        }
+        },
+
+        {
+          "id":2,
+            "title":"Tattoo Ideen: Entdecke einzigartige Tattoomotive",
+            "tagTitle": "Tattoo Ideen",
+            "desc": "Herzlich willkommen auf unserer Seite, die sich der Faszination und Vielfalt von Tattoo Ideen verschrieben hat. Lass dich von unserer umfangreichen Sammlung inspirieren und begleite uns auf deiner Tattooreise.",
+            "imageUrl": "/drachen-tattoos.png",
+            "url":"/tattoo-ideen"
+          }
+
+
+
        
   ]
 }
