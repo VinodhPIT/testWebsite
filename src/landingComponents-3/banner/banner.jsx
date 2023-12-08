@@ -75,11 +75,10 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
             >
               <div className={styles.banner_caption}>
                 <h1>
-                  <span class="m_dis_inline">Drachen Tattoos </span>
-                  <span class="textBlock m_dis_inline">Mystische Kunst für </span>
-                  <span class="textBlock m_dis_inline">deine Haut</span>
+                  <span class="m_dis_inline">{bannerTitle}</span>
+                  {/* <span class="textBlock m_dis_inline">Mystische Kunst für </span>
+                  <span class="textBlock m_dis_inline">deine Haut</span> */}
                 </h1>
-                <p>Willkommen bei unserer Drachen-Tattoo-Informationsseite, deinem ultimativen Guide zu einer kraftvollen Form der Körperkunst. Drachen-Tattoos sind mehr als nur Designs; sie sind Symbole für Stärke, Macht und Mystik.</p>
               </div>
             </div>
           </div>

@@ -643,6 +643,8 @@ export default function TattooIdeasForMen() {
           bgColor="#ffff"
         />
 
+        
+
         <UniquePartner
           title="Exploring Diverse Tattoo Styles"
           subTitle="Small Tattoo Ideas for Men"
@@ -652,6 +654,9 @@ export default function TattooIdeasForMen() {
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
           carousel={carosuelForMen}
         />
+
+
+
 
         <FullWidthcarosuel
           title={"Cross Tattoos"}

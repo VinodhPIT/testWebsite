@@ -72,7 +72,7 @@ export default function UniquePartner({
                             placeholder="blur"
                             blurDataURL={blurDataURL}
                             className="tets"
-                            layout="responsive"
+                           layout="responsive"
                             style={{ borderRadius: "10px" }}
                           />
                         </div>
