@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import Head from "next/head";
-
 import Banner from "@/landingComponents/banner/banner";
 import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
-
 import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
 import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-
- import WhypartnerTattoos from "@/landingComponents-2/whypartnerTattoos/whypartnerTattoos";
-
 import CarouselSection from "@/landingComponents/carouselSection/carosuelSection";
 import FullWidthcarosuel from "@/landingComponents/fullwidthCarousel/fullwidthCarousel";
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
@@ -17,7 +12,7 @@ import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSecti
 import { useRouter } from "next/router";
 import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
 import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
-import OrangeTwoColumnBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
+
 import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
 
 export default function TattooIdeasForMen() {
@@ -814,36 +809,18 @@ export default function TattooIdeasForMen() {
           rightSecImage="/pexels-cottonbro-studio-5320037.jpg"
         />
 
-        {/* <WhypartnerTattoos
+        <OrangeTwoRowBlock
           mainTitle="Visualizing Your Tattoo Experience"
+          img1="/LinkRound.svg"
           title1="Tattoo Styles Image Gallery"
           content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication."
+          img2="/Album.svg"
           title2="Connecting Through Body Art"
           content2="Tattoos connect people, forming a shared language of expression. Join a community that celebrates the artistry of body ink. Share your tattoo journey, discover unique designs, and connect with fellow enthusiasts who appreciate the beauty of tattoo art. Tattoos have power. They mark moments, express emotions, and remind us of personal growth. Each tattoo tells a story."
-          embrace="Ready to Embrace"
-          story="Your Love Story in Ink?"
-          downloadApp="Download inckd now. Your perfect partner tattoo experience is just a click away!"
-        /> */}
+          bgColor="#FFD5C0"
+        />
 
-      <OrangeTwoRowBlock
-        mainTitle="Visualizing Your Tattoo Experience"
-        img1="/LinkRound.svg"
-        title1="Tattoo Styles Image Gallery"
-        content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication."
-        img2="/Album.svg"
-        title2="Connecting Through Body Art"
-        content2="Tattoos connect people, forming a shared language of expression. Join a community that celebrates the artistry of body ink. Share your tattoo journey, discover unique designs, and connect with fellow enthusiasts who appreciate the beauty of tattoo art. Tattoos have power. They mark moments, express emotions, and remind us of personal growth. Each tattoo tells a story."
-        bgColor="#FFD5C0"
-
-      />
-
-
-
-
-<DownloadApps />
-
-
-
+        <DownloadApps />
       </div>
     </>
   );

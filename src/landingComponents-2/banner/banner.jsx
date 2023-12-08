@@ -2,7 +2,7 @@ import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import styles from './banner.module.css'
-import {INSTAGRAM_PROFILE_LINK ,LINKEDIN_PROFILE_LINK , FACEBOOK_PROFILE_LINK ,blurDataURL} from "@/constants/constants";
+import {blurDataURL} from "@/constants/constants";
 
 import {
   EmailShareButton,

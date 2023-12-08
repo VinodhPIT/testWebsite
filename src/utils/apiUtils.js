@@ -1,17 +1,11 @@
 export async function postApiCall(endpoint, requestData) {
-
-
-  
   try {
     const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
       method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(requestData),
-      
-      
-      
     });
     if (!response.ok) {
       const errorResponse = await response.json();
@@ -20,22 +14,17 @@ export async function postApiCall(endpoint, requestData) {
     const jsonResponse = await response.json();
 
     return jsonResponse;
-
   } catch (error) {
-
     throw error;
   }
 }
-
-
-
 
 export async function getApiCall(endpoint) {
   try {
     const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
       method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
     });
     if (!response.ok) {
@@ -44,7 +33,6 @@ export async function getApiCall(endpoint) {
     }
     const jsonResponse = await response.json();
     return jsonResponse;
-
   } catch (error) {
     //console.log(error,'Error')
     throw error;

@@ -22,7 +22,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
             
 {/* <div className={`${'btn_custom_m'} ${styles.hi}`}> */}
 
-                <div className={`${"text_box_wrap right block_bg_gray_150 pb_75 m_pb_40 pt_75 m_pt_40 m_mt_25"}  ${mainTitle===''?"pt_75, m_pt_40":null}`}  >                    
+                <div className={`${"text_box_wrap right block_bg_gray_150 pb_75 m_pb_40  m_pt_20"}  ${mainTitle===''? "pt_75 m_pt_40" :null}`}  >                    
                     <div className="img_text_box_inner container">
                         <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset">
                             <div className="text_box_content_inner max_w_100pc m_mt_0">

@@ -2,23 +2,15 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Banner from "@/landingComponents/banner/banner";
 import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
-// import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
-// import PartnerTattoos from "@/landingComponents/partnerTattoos/tattoos";
-// import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos";
 import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
 import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
 import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
-import FiveColumnCarousel from "@/landingComponents/fiveColumnCarousel/fiveColumnCarousel";
-import {useNavigation} from '@/hooks/useRouter'
+import { useNavigation } from "@/hooks/useRouter";
 import FourColumnCarousel from "@/landingComponents/fourColumCarousel/fourColumnCarousel";
-
-
 
 export default function TattooIdeasForMen() {
   const currentPage = typeof window !== "undefined" ? window.location.href : "";
-  const {router} =useNavigation()
- 
-
+  const { router } = useNavigation();
 
   const [trendingArtist, setTendingArtist] = useState([
     {
@@ -27,13 +19,10 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13709_20230104191526329-medium.jpg",
       name: "Delphin Musquet",
-  
-      city:"London",
-      country:"United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/delphin-musquet_ja14on47`
-     
 
-
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/artists/delphin-musquet_ja14on47`,
     },
     {
       artistImage:
@@ -41,9 +30,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8672_20221110131034233-medium.jpg",
       name: "Luciatattoos",
-      
-      city:"Luciatattoos",
-      country:"United Kingdom",
+
+      city: "Luciatattoos",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
     },
     {
@@ -53,9 +42,8 @@ export default function TattooIdeasForMen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9439_20221118114953632-medium.jpg",
       name: "Alessandro Lanzafame",
 
-      
-      city:"London",
-      country:"United Kingdom",
+      city: "London",
+      country: "United Kingdom",
 
       url: `${process.env.LIVE_URL}/artists/alessandro-lanzafame_nts3jh4k`,
     },
@@ -64,19 +52,12 @@ export default function TattooIdeasForMen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image/566_175C2680-D5A1-46C6-A5BF-13055B046823.jpg",
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2164_20220831155842506-medium.jpg",
-      name:"Barbara Nobody",
+      name: "Barbara Nobody",
 
-      city:"London,",
-      country:"United Kingdom",
+      city: "London,",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/barbaranobody_e8w4uiq5`,
     },
-
-
-
-
-
-
-
 
     {
       artistImage:
@@ -84,10 +65,9 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21192_20230307143220227-medium.jpg",
       name: "Mileink",
-      
 
-      city:"London",
-      country:"United Kingdom",
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/Mileink_8t07n1nk`,
     },
     {
@@ -96,12 +76,11 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/18214_20230209043507234-medium.jpg",
       name: "13FoxxTattoos",
-     
-      city:"London",
-      country:"United Kingdom",
+
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/13foxxtattoos_6426m6eg`,
     },
-
 
     {
       artistImage:
@@ -109,21 +88,11 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17589_20230204173826801-medium.jpg",
       name: "Çinar Efe Tattoo",
-      city:"London",
-      country:"United Kingdom",
+      city: "London",
+      country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/cinar-efe_acwe82ae`,
     },
-
-
-
-
-
-
   ]);
-
-
-
-
 
   return (
     <>
@@ -174,20 +143,14 @@ export default function TattooIdeasForMen() {
           bgColor="#f8f8f8"
         />
 
-
-
-
-
-<FourColumnCarousel
+        <FourColumnCarousel
           title="Tattoo Artists Near Me"
           title_sub=""
           content=" "
           button="Explore more artists"
           trendingArtist={trendingArtist}
-           btnLink ={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=LondonUK`}
+          btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=LondonUK`}
         />
-
-
 
         <TattooExperience
           mainTitle="Why Choose inckd?"
@@ -206,7 +169,6 @@ export default function TattooIdeasForMen() {
           leftSectionImage="/inckdArtist1.svg"
           rightSecImage="/inckdArtist2.svg"
         />
-
 
         <OrangeTwoRowBlock
           mainTitle=""
