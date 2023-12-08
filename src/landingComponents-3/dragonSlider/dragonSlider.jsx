@@ -20,11 +20,8 @@ export default function DragonSlider ({title ,description ,bgColor}) {
     };
 
     const [images, setImage] = useState([
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
+    { image: "/coverUpTattoo2.png" },
+  
     ]);
   return (
     <section className="img_text_banner_box">
@@ -32,17 +29,20 @@ export default function DragonSlider ({title ,description ,bgColor}) {
             <div className=" img_text_box_inner justify_content_start container w_100pc">                
 
                 <div className="img_box_wrap min_h_reset">
+                {/* coverUpTattoo2 */}
+
+
                     <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider slider_arrow_none'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>
-                            <Slider {...sliderSettings}>
-                                {images.map((imgPath, index) => (
-                                    <div className={styles.listing_gridItem} key={index}>
+                           
+                               
+                                    <div className={styles.listing_gridItem} >
                                         <div className={styles.listing_grid_img_col}>
                                             <Image
-                                                src={imgPath.image}
-                                                alt="Drachen Tattoo Vorlagen"
-                                                width={745}
-                                                height={937}
+                                                src={'/coverUpTattoo2.png'}
+                                                alt="overUpTattoo2"
+                                                width={398}
+                                                height={454}
                                                 loading="lazy"
                                                 placeholder="blur"
                                                 blurDataURL={blurDataURL}
@@ -50,10 +50,14 @@ export default function DragonSlider ({title ,description ,bgColor}) {
                                             />
                                         </div>                                    
                                     </div>
-                                ))}
-                            </Slider>
+                           
+                       
                         </div>
                     </div>
+
+
+
+
                 </div>
 
                 <div className="text_box_content justify_content_center p_0 m_pt_50 m_pb_50 min_h_reset flex_direction_column">

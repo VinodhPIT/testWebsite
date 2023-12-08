@@ -1078,6 +1078,13 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .pl_40 {
   padding-left: 40px !important;
 }
+.pl_15 {
+  padding-left: 15px !important;
+}
+.pr_15 {
+  padding-right: 15px !important;
+}
+
 
 .pl_50 {
   padding-left: 50px !important;
@@ -1165,6 +1172,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .pb_0 {
   padding-bottom: 0px !important;
+}
+.pb_11{
+  padding-bottom: 11px!important;
 }
 
 .pb_20 {

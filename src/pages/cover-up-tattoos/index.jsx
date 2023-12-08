@@ -3,6 +3,8 @@ import Head from "next/head";
 import Banner from "@/landingComponents-2/banner/banner";
 
 import YellowThreeCol from "@/landingComponents/yellowThreeeColumBlock/yellowThreeCol";
+import NoHeaderThreeColumn from "@/landingComponents/Noheader-Threecolum/yellowThreeCol";
+
 import { useRouter } from "next/router";
 import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
 
@@ -12,6 +14,7 @@ import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
 import FiveColumnCarousel from "@/landingComponents/fiveColumnCarousel/fiveColumnCarousel";
 
 import UniquePartners from "@/landingComponents-3/uniquePartner/uniquePartner";
+import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
 
 export default function CoverUpTattoos() {
   const router = useRouter();
@@ -244,14 +247,22 @@ export default function CoverUpTattoos() {
           bannerButton={"Know more about inckd"}
         />
 
+
+
+
+
+
+
+
         <UniquePartner
-          title=""
+          title="Tipps, Methoden und Kreative Lösungen
+          "
           subTitle=""
           content1="Willkommen bei unserem umfassenden Guide zum Thema Cover Up Tattoos. Ein Tattoo, das nicht mehr deinen Vorstellungen entspricht, muss nicht dein Dorn im Auge bleiben. Hier erfährst du, welche Möglichkeiten es gibt, um ein altes Motiv zu überdecken und neu zu gestalten.
           "
           content2=""
-          img="/Rectangle.png"
-          alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+          img="/coverUpTattoo1.png"
+          alt="coverUpTattoo1"
           carousel={""}
           imgWidth="570"
           imgHeight="600"
@@ -269,8 +280,8 @@ export default function CoverUpTattoos() {
           title={"Warum cover up Tattoos?"}
           content="Es gibt viele Gründe für ein Cover Up Tattoo. Zum Beispiel, wenn du den Namen deines Ex-Partners entfernen möchtest. Oder wenn du einen Fehler aus deiner Jugend korrigieren willst. Oder wenn du dich von einem Party-Motiv trennen möchtest. Es gibt viele Möglichkeiten, ein Tattoo zu überdecken.
         "
-          img="/Drachen-Tattoo-Idee-1.png"
-          alt="Die Symbolik von Drachen Tattoos"
+          img="/coverUpTattoo3.png"
+          alt="coverUpTattoo3"
         />
 
         <YellowThreeCol mainTitle="Verschiedene Methoden" methodList={list1} />
@@ -308,7 +319,16 @@ Unsere Tätowierer sind Experten auf ihrem Gebiet und können dir nicht nur mit 
           }
         /> */}
 
-        <YellowThreeCol mainTitle="" methodList={list2} />
+        <NoHeaderThreeColumn methodList={list2} />
+
+
+
+        <DownloadApps />
+
+
+
+
+
       </div>
     </>
   );
