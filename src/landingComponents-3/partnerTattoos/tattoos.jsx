@@ -5,15 +5,18 @@ import { blurDataURL } from "@/constants/constants";
 import styles from './partnertattoos.module.css'
 
 export default function PartnerTattoos({
-    mainTitle, content2}) {        
+    mainTitle, content2 ,image ,bgColor}) {        
         const [images, setImage] = useState([
         { image: "/benet-1.png" },
         { image: "/benet-2.png" },
         { image: "/benet-3.png" }
         ]);
+
+
+
   return (
     <section className="img_text_banner_box">
-        <div className="text_box_wrap full-block-wrap block_bg_gray_100">
+        <div className="text_box_wrap full-block-wrap"  style={{"backgroundColor":bgColor}}>
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc">
                     <div className="text_box_content_inner m_pr_0 pt_pb_40">
@@ -22,6 +25,7 @@ export default function PartnerTattoos({
                     </div>
                     <div className={`${'mt_25 m_mb_30 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>
+                            
                             {images.map((imgPath, index) => (
                                 <div className={styles.listing_gridItem} key={index}>
                                     <div className={styles.listing_grid_img_col}>

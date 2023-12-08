@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function DragonSlider () {
+export default function DragonSlider ({title ,description ,bgColor}) {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
 
@@ -28,7 +28,7 @@ export default function DragonSlider () {
     ]);
   return (
     <section className="img_text_banner_box">
-        <div className="text_box_wrap full-block-wrap right pt_0 block_bg_gray_100">
+        <div className="text_box_wrap full-block-wrap right pt_0 " style={{"backgroundColor":bgColor}}>
             <div className=" img_text_box_inner justify_content_start container w_100pc">                
 
                 <div className="img_box_wrap min_h_reset">
@@ -58,8 +58,9 @@ export default function DragonSlider () {
 
                 <div className="text_box_content justify_content_center p_0 m_pt_50 m_pb_50 min_h_reset flex_direction_column">
                     <div className="text_box_content_inner max_w_100pc p_0 text_left">
-                        <h2 className="color_gray_550 mb_25 heading_h2">Drachen Tattoo Vorlagen</h2>
-                        <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_0">Bist du auf der Suche nach dem idealen Design für dein Tattoo? Entdecke viele Tattoo-Ideen, um Ihren Tätowierer zu inspirieren und bei der Gestaltung zu helfen.</p>                            
+                        <h2 className="color_gray_550 mb_25 heading_h2">{title}</h2>
+                        <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_0">{description}
+                        </p>                            
                     </div>                        
                 </div>
             </div>  
