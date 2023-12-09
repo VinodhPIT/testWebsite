@@ -15,6 +15,16 @@ import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
 
 import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
 
+
+
+
+
+
+
+
+
+
+
 export default function TattooIdeasForMen() {
   const router = useRouter();
 
@@ -684,6 +694,20 @@ export default function TattooIdeasForMen() {
             "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance."
           }
         />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <CarouselSection
           title="Dragon Tattoo"
           content="Embrace the mystique of dragon tattoos. These mythical creatures symbolize strength, wisdom, and good fortune. Dragon tattoos allow for artistic freedom, with variations ranging from fierce and bold to intricate and detailed."

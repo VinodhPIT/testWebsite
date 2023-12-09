@@ -14,7 +14,7 @@ export default function CarouselSection({
   datas,
   buttonName,
   isButtonVisible,
-  keyword,
+  keyword, bottomButton
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -148,7 +148,7 @@ export default function CarouselSection({
                         <div className={`${"listing_grid_img_col"}`}>
                           <Image
                             src={imgPath.image}
-                            alt="Trending couple tattoos"
+                            alt="tattoos"
                             width={378}
                             height={378}
                             loading="lazy"
@@ -187,6 +187,34 @@ export default function CarouselSection({
               </Link>
             )}
           </div>
+
+    {/* {keyword === "dragon" ?  
+
+<div style={{"margin":"0 auto" ,"margin-bottom": "47px" ,padding:"0px 15px"}}>
+
+  <Link
+    href={"#"}
+    className="btn_primary btn_img btn_xxl m_btn_custom_48  m_mt_15"
+  >
+    {bottomButton}
+    <Image
+      src="/arow-white-right.svg"
+      width={24}
+      height={24}
+      alt="logo"
+      loading="lazy"
+      placeholder="blur"
+      blurDataURL={blurDataURL}
+      className="ml-8 mt-2"
+    />
+  </Link>
+
+</div> : null} */}
+
+
+
+
+
         </div>
       </div>
     </section>

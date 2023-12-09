@@ -1,19 +1,12 @@
 import React from "react";
 import style from "./style.module.css";
 
-export default function YellowThreeCol({ mainTitle, methodList }) {
+export default function YellowThreeCol({  methodList }) {
   return (
     <section className="img_text_banner_box">
       <div className=" block_bg_yellow container pt_50 pb_50 ">
 
-   
-        <div
-          className="text_box_content_inner  max_w_100pc"
-        >
-          <h3 className="color_gray_550   text_left heading_h2  pb_20" >
-            {mainTitle}
-          </h3>
-        </div> 
+ 
 
 
 
