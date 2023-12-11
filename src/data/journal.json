@@ -28,7 +28,23 @@
       "imageUrl": "/artistBanner.jpg",
       "url":"/book-tattoo-artists"
       
+    },
+    {
+      "id":4,
+      "title":"Tattoo After Care Guide: Best Practices and Tips for Healing",
+      "tagTitle": "Tattoo After Care",
+      "desc": "Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results"
+      ,
+      "imageUrl": "/drachen-tattoos.png",
+      "url":"/tattoo-after-care"
+      
     }
+
+
+
+
+
+
 
 
 
@@ -63,5 +79,19 @@
               "imageUrl": "/drachen-tattoos.png",
               "url":"/tattoos-fur-frauen"
             }
+,
+
+
+            {
+              "id":4,
+                "title":"Tattoo Pflege für langanhaltende Brillanz: Nachsorge Tipps",
+                "tagTitle":"Tattoo Pflege",
+                "desc": "Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg.",
+                "imageUrl": "/drachen-tattoos.png",
+                "url":"/tattoo-Pflege"
+              }
+
+
+
   ]
 }

@@ -261,8 +261,18 @@ export default function CoverUpTattoos() {
           description={
             "Die Größe, Stechtiefe und Farbe deines alten Tattoos beeinflussen das Cover Up erheblich. Vorbereitung ist entscheidend. Ein erfahrener Tätowierer sollte dein altes Tattoo sehen und über die besten Möglichkeiten für das Cover Up sprechen. Nimm dir genug Zeit, besonders bei größeren Rettungsaktionen."
           }
+
+
           bgColor="#fff"
+
+          image="/coverUpTattoo3.png"
+     
+
         />
+
+
+
+
 
         <ContentImageLayout
           title={"Warum cover up Tattoos?"}

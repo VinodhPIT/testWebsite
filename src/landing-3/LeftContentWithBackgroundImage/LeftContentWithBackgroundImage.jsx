@@ -3,7 +3,7 @@ import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from './whydragontattoo.module.css'
 
-export default function WhydragonTattoo() {
+export default function WhydragonTattoo({title1, content1 ,title2, content2 , title3, content3 ,title4, content4}) {
   return (
     <section className="img_text_banner_box">
         <div className="col_full">
@@ -13,20 +13,20 @@ export default function WhydragonTattoo() {
                         <div className="text_box_content justify_content_start align_item_center p_0 min_h_reset ml_0 mr_0">
                             <div className="text_box_content_inner max_w_100pc">
                                 <div className="d_flex flex_direction_column mb_30">
-                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">Warum ein Drachen-Tattoo?</h4>
-                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">Bist du auf der Suche nach dem idealen Design für dein Tattoo? Entdecke viele Tattoo-Ideen, um Ihren Tätowierer zu inspirieren und bei der Gestaltung zu helfen.</p>
+                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">{title1}</h4>
+                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">{content1}</p>
                                 </div>
                                 <div className="d_flex flex_direction_column mb_30">
-                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">Die Vielfalt der Drachen Tattoo-Kunst</h4>
-                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">Die Welt der Drachen-Tattoos bietet eine beeindruckende Vielfalt an Stilen und Techniken. Von detaillierten asiatischen Drachen bis zu modernen Darstellungen gibt es viele Möglichkeiten, Drachen-Tattoos zu erkunden.</p>
+                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">{title2}</h4>
+                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">{content2}</p>
                                 </div>
                                 <div className="d_flex flex_direction_column mb_30">
-                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">Einzigartige Drachen Tattoo-Motive</h4>
-                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">Jedes Drachen-Tattoo ist ein Unikat, gestaltet nach den Vorstellungen des Trägers und der Kreativität des Künstlers. Die einzigartigen Motive reichen von majestätisch fliegenden Drachen bis zu mythologischen Darstellungen, jede erzählt ihre eigene Geschichte.</p>
+                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">{title3}</h4>
+                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">{content3}</p>
                                 </div>
                                 <div className="d_flex flex_direction_column mb_0">
-                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">Drachen Tattoos als Lebensweg</h4>
-                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">Ein Drachen-Tattoo kann mehr sein als nur ein Kunstwerk auf der Haut. Viele Menschen wählen Drachen-Tattoos als einen Weg, ihre persönlichen Reisen und Erfolge zu symbolisieren. Die kraftvollen Drachen können als Schutzgeister oder symbolische Begleiter dienen.</p>
+                                    <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 mb_20">{title4}</h4>
+                                    <p className="custom_fs_16 color_gray_550 mb_0 mt_0">{content4}</p>
                                 </div>
                             </div>
                         </div>
