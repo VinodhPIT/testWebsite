@@ -157,7 +157,7 @@ export default function ThreeColumCarousel ({data}) {
                             
                             style={{    "margin": "0 auto",
                                 "display": "block",
-                                "width": "230px"}}>
+                                "width": "230px" ,"marginTop":"30px"}}>
                                 Explore more
                                 <Image
                                     src="/arow-white-right.svg"
