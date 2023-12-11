@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Head from "next/head";
 
-import Banner from "@/landingComponents/banner/banner";
+import Banner from "@/landing-1/Banner/Banner";
 
 import { useNavigation } from "@/hooks/useRouter";
-import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
-import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
-import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
-import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
-import FiveColumnCarousel from "@/landingComponents/fiveColumnCarousel/fiveColumnCarousel";
+import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
+import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
+import LeftContentRightImage from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
+import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
+import FiveColumnCarousel from "@/landing-1/FiveColumnCarousel/fiveColumnCarousel";
 
 export default function TattooIdeasForMen() {
   const { router } = useNavigation();
@@ -180,7 +180,7 @@ export default function TattooIdeasForMen() {
           btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=UnitedKingdom`}
         />
 
-        <UniquePartner
+        <LeftContentRightImage
           title="Exploring Diverse Tattoo Styles"
           subTitle=""
           content1="Discover peace of mind as you explore our network of tattoo artists and shops. Within our community, you'll find skilled and experienced individuals who are dedicated to their craft. Your journey begins with our team of artists, each poised to collaborate with you in crafting a custom design that mirrors your unique style and vision."
@@ -204,7 +204,16 @@ export default function TattooIdeasForMen() {
           bgColor="#FFD5C0"
         />
 
-        <DownloadApps />
+<DownloadApps
+        
+        title="Download the"
+        subTitle="App & Explore more!"
+        
+        
+        
+        
+        
+        />
       </div>
     </>
   );

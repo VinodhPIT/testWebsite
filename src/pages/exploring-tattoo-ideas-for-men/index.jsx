@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Banner from "@/landingComponents/banner/banner";
-import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
-import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
-import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-import CarouselSection from "@/landingComponents/carouselSection/carosuelSection";
-import FullWidthcarosuel from "@/landingComponents/fullwidthCarousel/fullwidthCarousel";
-import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
-import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
-import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
+import Banner from "@/landing-1/Banner/Banner";
+import LeftContentRightImage from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
+import SideBySideContentWithImage from "@/landing-1/SideBySideContentWithImage/SideBySideContentWithImage";
+import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
+import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
+import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
+import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
 import { useRouter } from "next/router";
-import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
-import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
-
-import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
-
+import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
+import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
+import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
+import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 
 
 
@@ -588,6 +585,56 @@ export default function TattooIdeasForMen() {
     },
   ]);
 
+
+
+
+  const[listingItems1,setListingItems]=useState([
+{
+    title:"Star Tattoo",
+    content:
+      "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles"
+  },
+  {
+    title:"Tattoo Design",
+    content:
+      "A good tattoo starts with a careful design. Be creative or work with a talented artist to make your idea come alive. Pick a design that represents you, your beliefs, or an important event in your life."
+  },
+    {
+    title:"Men’s Tattoos",
+    content:
+      "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity."
+    },
+
+    {title:"Feather Tattoos",
+    content:
+      "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance."
+    }
+    
+    ])
+    
+
+
+    const[listingItems2,setListingItem2]=useState([
+      {
+          title:"Forearm tattoos",
+          content:
+            "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you."
+        },
+        {
+          title:"Tattoo Designs for Men",
+          content:
+            "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality."
+        },
+     
+          
+          ])
+          
+          
+
+    
+
+
+
   return (
     <>
       <Head>
@@ -655,7 +702,7 @@ export default function TattooIdeasForMen() {
 
         
 
-        <UniquePartner
+        <LeftContentRightImage
           title="Exploring Diverse Tattoo Styles"
           subTitle="Small Tattoo Ideas for Men"
           content1="Let's begin with the charm of small tattoos. These gems are perfect for those seeking subtle yet meaningful designs. From minimalist symbols to tiny icons, small tattoos can be a powerful expression of your personality."
@@ -676,25 +723,18 @@ export default function TattooIdeasForMen() {
           keyword={"Cross"}
         />
 
-        <FourColumnSection
-          title1={"Star Tattoo"}
-          content1={
-            "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles"
-          }
-          title2={"Tattoo Design"}
-          content2={
-            "A good tattoo starts with a careful design. Be creative or work with a talented artist to make your idea come alive. Pick a design that represents you, your beliefs, or an important event in your life."
-          }
-          title3={"Men’s Tattoos"}
-          content3={
-            "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity."
-          }
-          title4={"Feather Tattoos"}
-          content4={
-            "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance."
-          }
-        />
 
+
+
+
+
+          <ListingGridTwoColumn data={listingItems1}  bgColor="#eaffc0"/> 
+
+
+
+
+
+     
 
 
 
@@ -757,7 +797,7 @@ export default function TattooIdeasForMen() {
           isButtonVisible={false}
         /> */}
 
-        <TrendinginckdArtist
+        <ThreeColumCarousel
           title="Tattoo Artist "
           title_sub=""
           content="Behind every remarkable tattoo is a skilled tattoo artist. Work with a skilled tattoo artist who gets your ideas and can turn them into an amazing tattoo. They have the technical skills and creativity to make your tattoo special and one-of-a-kind."
@@ -772,16 +812,15 @@ export default function TattooIdeasForMen() {
           datas={roseTattoo}
           keyword={"Rose"}
         />
-        <TwoColumnSection
-          title1={"Forearm tattoos"}
-          content1={
-            "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you."
-          }
-          title2={"Tattoo Designs for Men"}
-          content2={
-            "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality."
-          }
-        />
+
+
+       <ListingGridTwoColumn  data={listingItems2} bgColor="#eaffc0"/>
+
+
+
+
+
+
 
         <CarouselSection
           title="Lion Tattoo"
@@ -816,7 +855,7 @@ export default function TattooIdeasForMen() {
           />
         </div>
 
-        <TrendinginckdArtist
+        <ThreeColumCarousel
           title="Connecting with a Skilled "
           title_sub="Tattoo Artist:"
           content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
@@ -824,7 +863,7 @@ export default function TattooIdeasForMen() {
           trendingArtist={trendingArtist}
         />
 
-        <TattooExperience
+        <SideBySideContentWithImage
           mainTitle=""
           title1="Expressing Individuality Regardless of Tattoo Size"
           content1="Small tattoo ideas for men hold as much significance as larger pieces. Every tattoo, regardless of size, contributes to the tapestry of your self-expression. Whether it's a discreet symbol or an extensive sleeve, your tattoo is a reflection of your identity."
@@ -849,7 +888,16 @@ export default function TattooIdeasForMen() {
           bgColor="#FFD5C0"
         />
 
-        <DownloadApps />
+        <DownloadApps
+        
+        title="Download the"
+        subTitle="App & Explore more!"
+        
+        
+        
+        
+        
+        />
       </div>
     </>
   );

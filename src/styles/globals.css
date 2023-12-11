@@ -4703,10 +4703,18 @@ button.language_switcher img {
   .m_pt_15 {
     padding-top: 15px !important;
   }
+  .m_pt_14 {
+    padding-bottom: 14px !important;
+  }
 
   .m_pt_25 {
     padding-top: 25px !important;
   }
+  .m_pb_25 {
+    padding-bottom: 25px !important;
+  }
+
+
 
   .m_pt_40 {
     padding-top: 40px !important;
@@ -6234,3 +6242,5 @@ button.language_switcher img {
     height: 250px;
   }
 }
+
+ #viewdv_b233_view_1{display: none!important;} 

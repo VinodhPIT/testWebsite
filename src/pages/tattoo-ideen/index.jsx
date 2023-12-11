@@ -1,28 +1,22 @@
 import React, { useState } from "react";
-import Banner from "@/landingComponents-3/banner/banner";
-import FullWidthcarosuel from "@/landingComponents/fullwidthCarousel/fullwidthCarousel";
-import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
+import Banner from "@/landing-3/Banner/Banner";
+import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
+import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import Head from "next/head";
-import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
-import UniquePartner from "@/landingComponents/uniquePartner-1/uniquePartner";
-import CarouselSection from "@/landingComponents/carouselSection/carosuelSection";
-import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
-import FullWidthBlock from "@/landingComponents/fullwidthBlock/fullwidthBlock";
+import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
+import UniquePartner from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
+import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
+import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
+import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import {useNavigation} from '@/hooks/useRouter'
-
+import { useNavigation } from "@/hooks/useRouter";
 import Link from "next/link";
-
-import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
-
-import TwoColumnBlock from "@/landingComponents/twoColumBlock/twoColumnBlock";
-
-
-
+import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
+import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 
 export default function TattooIdeen() {
-  const {router}=useNavigation()
+  const { router } = useNavigation();
 
   const [carosuelForMen, setcarosuelForMen] = useState([
     { image: "/tattoo-ideen-slider1.png" },
@@ -365,6 +359,42 @@ export default function TattooIdeen() {
     },
   ]);
 
+  const [listingItems, setListingItems] = useState([
+    {
+      title: "Rose",
+      content:
+        "Die Rose ist ein zeitloses Tattoo-Motiv, das Liebe und Leidenschaft symbolisiert. Unterschiedliche Farben können verschiedene Bedeutungen haben, wie rote Rosen für Liebe und Leidenschaft, weiße Rosen für Reinheit und Unschulds",
+    },
+    {
+      title: "Anker",
+      content:
+        "Der Anker steht oft für Stabilität und Sicherheit. Es ist ein beliebtes Motiv, das oft von Menschen gewählt wird, die eine tiefe Verbindung zum Meer oder maritimen Lebensstil haben.",
+    },
+
+    {
+      title: "Schwalbe",
+      content:
+        "Die Schwalbe ist ein traditionelles Motiv, das für Freiheit und Wohlstand steht. In der Seefahrt symbolisiert die Schwalbe oft die Rückkehr nach Hause, was sie zu einem Symbol der Hoffnung macht.",
+    },
+    {
+      title: "Schlüssel und Schloss",
+      content:
+        "Dieses Motiv symbolisiert oft Geheimnisse, Liebe und das Finden von Lösungen. Ein offenes Schloss kann Freiheit und Entdeckung darstellen.",
+    },
+
+    {
+      title: "Pfeil und Bogen",
+      content:
+        "Pfeil und Bogen stehen für Fokus, Zielstrebigkeit und Fortschritt. Ein Pfeil muss zurückgezogen werden, bevor er vorwärts schießen kann, was oft mit persönlichem Wachstum verbunden wird.",
+    },
+
+    {
+      title: "Lotusblume",
+      content:
+        "Die Lotusblume symbolisiert oft Reinheit und Erneuerung. Sie wächst aus schlammigem Wasser heraus, was ihre Fähigkeit repräsentiert, Schönheit aus Schwierigkeiten zu gewinnen.",
+    },
+  ]);
+
   return (
     <div>
       <Head>
@@ -474,7 +504,8 @@ export default function TattooIdeen() {
       />
 
       <div className="mb_30">
-        <FullWidthSecwithIcon
+
+        <FullWidthBlock
           img="/studio.svg"
           alt="studio"
           title={"Andere Tattoo Motive"}
@@ -483,34 +514,10 @@ export default function TattooIdeen() {
         />
       </div>
 
-      {/* <TwoColumnBlock/> */}
 
-      <TwoColumnBlock
-        title1={"Rose"}
-        content1={
-          "Die Rose ist ein zeitloses Tattoo-Motiv, das Liebe und Leidenschaft symbolisiert. Unterschiedliche Farben können verschiedene Bedeutungen haben, wie rote Rosen für Liebe und Leidenschaft, weiße Rosen für Reinheit und Unschulds"
-        }
-        title2={"Anker"}
-        content2={
-          "Der Anker steht oft für Stabilität und Sicherheit. Es ist ein beliebtes Motiv, das oft von Menschen gewählt wird, die eine tiefe Verbindung zum Meer oder maritimen Lebensstil haben."
-        }
-        title3={"Schwalbe"}
-        content3={
-          "Die Schwalbe ist ein traditionelles Motiv, das für Freiheit und Wohlstand steht. In der Seefahrt symbolisiert die Schwalbe oft die Rückkehr nach Hause, was sie zu einem Symbol der Hoffnung macht."
-        }
-        title4={"Schlüssel und Schloss"}
-        content4={
-          "Dieses Motiv symbolisiert oft Geheimnisse, Liebe und das Finden von Lösungen. Ein offenes Schloss kann Freiheit und Entdeckung darstellen."
-        }
-        title5={"Pfeil und Bogen"}
-        content5={
-          "Pfeil und Bogen stehen für Fokus, Zielstrebigkeit und Fortschritt. Ein Pfeil muss zurückgezogen werden, bevor er vorwärts schießen kann, was oft mit persönlichem Wachstum verbunden wird."
-        }
-        title6={"Lotusblume"}
-        content6={
-          "Die Lotusblume symbolisiert oft Reinheit und Erneuerung. Sie wächst aus schlammigem Wasser heraus, was ihre Fähigkeit repräsentiert, Schönheit aus Schwierigkeiten zu gewinnen."
-        }
-      />
+
+
+      <ListingGridTwoColumn data={listingItems} bgColor="#eaffc0" />
 
       <CarouselSection
         title="Löwen Tattoo Ideen"
@@ -532,17 +539,11 @@ export default function TattooIdeen() {
         bottomButton="Erfahre mehr über Drachen Tattoos hier"
       />
 
-      {/* <div
-        style={{
-          display:"flex" ,justifyContent:"center",
-          padding: "0px 15px",    marginBottom:'39px' ,"padding":"0px 15px"
-        }} 
-      > */}
-<div className="d_flex justify_content_center pb_35  m_mt_0 m_justify_content_left pl_15    pr_15 
- "> 
-
-
-<Link
+      <div
+        className="d_flex justify_content_center pb_35  m_mt_0 m_justify_content_left pl_15    pr_15 
+ "
+      >
+        <Link
           href={"#"}
           className="btn_primary btn_img btn_xxl m_btn_custom_48  
            "
@@ -559,10 +560,8 @@ export default function TattooIdeen() {
             className="ml-8 mt-2"
           />
         </Link>
-{/* </div> */}
-
-        
-     </div> 
+        {/* </div> */}
+      </div>
 
       <FullWidthBlock
         title={"Deine Tattoo Träume Wirklichkeit werden lassen:"}
@@ -572,7 +571,7 @@ export default function TattooIdeen() {
         sectionBackgrounColor={"#eaffc0"}
       />
 
-      <TrendinginckdArtist
+      <ThreeColumCarousel
         title=" "
         title_sub=""
         content="Wir möchten ein einzigartiges Kunstwerk für dich schaffen, das deine Persönlichkeit und Geschichte authentisch repräsentiert. Unsere erfahrenen Künstler sind hier, um deine individuelle Vision Wirklichkeit werden zu lassen."
@@ -586,9 +585,15 @@ export default function TattooIdeen() {
         title1="Erfahre mehr über die Tattoo-Motive"
         content1={
           <>
-          Wir freuen uns darauf, dich bei jedem Schritt deiner Tattoo-Reise zu begleiten. Wir helfen dir von Ideen bis zur Umsetzung, ein Tattoo zu bekommen. Das Tattoo soll nicht nur schön aussehen, sondern auch eine Bedeutung für dich haben. Erfahre mehr über die Tattoo-Motive in unserem <Link href={`/${router.locale}/tattoo-dictionary`}>Tattoo Lexikon</Link>.
-        </>
-      
+            Wir freuen uns darauf, dich bei jedem Schritt deiner Tattoo-Reise zu
+            begleiten. Wir helfen dir von Ideen bis zur Umsetzung, ein Tattoo zu
+            bekommen. Das Tattoo soll nicht nur schön aussehen, sondern auch
+            eine Bedeutung für dich haben. Erfahre mehr über die Tattoo-Motive
+            in unserem{" "}
+            <Link href={`/${router.locale}/tattoo-dictionary`}>
+              Tattoo Lexikon
+            </Link>
+          </>
         }
         link="Tattoo Lexikon"
         img2="/Album.svg"
@@ -598,7 +603,7 @@ export default function TattooIdeen() {
         bgColor="#FFD5C0"
       />
 
-      <DownloadApps />
+      <DownloadApps title="Download the" subTitle="App & Explore more!" />
     </div>
   );
 }

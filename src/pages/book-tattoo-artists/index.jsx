@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Banner from "@/landingComponents/banner/banner";
-import FullWidthSecwithIcon from "@/landingComponents-2/uniquePartner/uniquePartner";
-import DownloadApps from "@/landingComponents-3/downloadApps/downloadApps";
-import OrangeTwoRowBlock from "@/landingComponents/orangeTwoRowBlock/orangeTwoRowBlock";
-import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
+import Banner from "@/landing-1/Banner/Banner";
+import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
+import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
+import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
+import SideBySideContentWithImage from "@/landing-1/SideBySideContentWithImage/SideBySideContentWithImage";
 import { useNavigation } from "@/hooks/useRouter";
-import FourColumnCarousel from "@/landingComponents/fourColumCarousel/fourColumnCarousel";
+import FourColumnCarousel from "@/landing-1/FourColumCarousel/fourColumnCarousel";
 
 export default function TattooIdeasForMen() {
   const currentPage = typeof window !== "undefined" ? window.location.href : "";
@@ -152,7 +152,7 @@ export default function TattooIdeasForMen() {
           btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=LondonUK`}
         />
 
-        <TattooExperience
+        <SideBySideContentWithImage
           mainTitle="Why Choose inckd?"
           title1="Effortless Booking:"
           content1="With inckd, booking a tattoo artist is a breeze. Browse through a curated list of local tattoo studios, view artist portfolios, and book your appointment seamlessly.
