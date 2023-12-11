@@ -7,7 +7,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function ProcessdragonTattoo () {
+export default function ProcessdragonTattoo ({title ,description}) {
 
    
   
@@ -26,18 +26,9 @@ export default function ProcessdragonTattoo () {
         <div className="text_box_wrap full-block-wrap">
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc block_bg_gray_100">
-                    <div className="text_box_content_inner max_w_100pc pt_80 pb_25 m_pt_50">
-                        <div className="d_flex align_item_start text_center m_flex_direction_column">
-                            <div className="d_flex align_item_left flex_direction_column max_100">
-                                <h3 className="color_gray_550 mb_15 custom_fs_m_45 custom_fs_m_40">
-                                    <span class="m_dis_inline">Der Prozess der Drachen Tätowierung</span>
-                                    <span class="textBlock m_dis_inline">inckd tattoo artists</span>
-                                </h3>
-                                <p class="custom_fs_16 color_gray_550 mb_0">Dive into our extensive network of tattoo artists, each skilled in the art of partner tattoos. Browse portfolios, find styles that resonate with you, and discover the perfect match.</p>
-                            </div>                          
-                            
-                        </div>
-                    </div>                               
+               
+
+
                     <div className={`${'mt_0 mb_80 m_mb_30 m_mt_25 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>                        
                                 {images.map((imgPath, index) => (

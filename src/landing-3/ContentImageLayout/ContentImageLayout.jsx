@@ -2,11 +2,11 @@ import React from 'react'
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 
-export default function ContentImageLayout({title ,content ,img ,alt}) {
+export default function ContentImageLayout({title ,content ,img ,alt  ,bgColor}) {
   return (    
     <section className="img_text_banner_box">
         <div className="col_full">
-            <div className="img_text_box_wrapper block_bg_gray_100">
+            <div className="img_text_box_wrapper" style={{"backgroundColor":bgColor}}>
                 <div className={"text_box_wrap right pt_75 pb_75 m_pt_15 m_pb_15"}>
                     <div className="img_text_box_inner container">
                         <div className="text_box_content justify_content_start pr_40 pl_0 pb_0 m_min_h_reset m_pb_35 m_pr_0 m_text_center">

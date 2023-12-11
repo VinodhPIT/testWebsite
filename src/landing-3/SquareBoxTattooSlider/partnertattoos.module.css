@@ -17,13 +17,15 @@
     height: 100%;
     width: 100%;
     /*padding-left: 10px;*/
+   
+    overflow: hidden;
 }
 
 .listing_grid_img_col {
 	position: relative;
     display: flex;
     flex-flow: wrap;
-    width: 100%;
+    width: 100%; min-height: 300px;
 }
 
 .listing_grid_details {

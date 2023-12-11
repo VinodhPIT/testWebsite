@@ -12,7 +12,7 @@ export default function DragonSlider ({title ,description ,bgColor ,image}) {
     let sliderSettings = {};
 
     sliderSettings = {
-    infinite: false,
+    infinite: true,
     speed: 300,
     slidesToShow: isMobileView ? 1 : 1,
     slidesToScroll: isMobileView ? 1 : 1,

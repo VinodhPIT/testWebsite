@@ -89,7 +89,18 @@
                 "desc": "Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg.",
                 "imageUrl": "/drachen-tattoos.png",
                 "url":"/tattoo-Pflege"
+              },
+
+
+            {
+              "id":5,
+                "title":"Drachen Tattoos - Mystische Kunst für deine Haut",
+                "tagTitle":"Drachen Tattoos",
+                "desc": "Erfahre alles über die Symbolik, Bedeutung und Vielfalt von Drachen-Tattoos. Entdecke inspirierende Designs, Vorlagen und Künstler in deiner Nähe. Lade unsere App herunter und starte deine einzigartige Reise zu einem Drachen-Tattoo.",
+                "imageUrl": "/Drachen-banner.jpg",
+                "url":"/drachen-tattoos"
               }
+
 
 
 
