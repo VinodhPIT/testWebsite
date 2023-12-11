@@ -519,6 +519,8 @@ export default function TattooIdeen() {
 
       <ListingGridTwoColumn data={listingItems} bgColor="#eaffc0" />
 
+      <div className='mt_25'>
+
       <CarouselSection
         title="Löwen Tattoo Ideen"
         content=" Ein beeindruckendes Löwen-Tattoo symbolisiert Stärke und Selbstbewusstsein. Löwen stehen für Mut und königliche Macht. Unsere Kollektion bietet eine Vielfalt von realistischen bis abstrakten Löwenbildern.
@@ -528,7 +530,7 @@ export default function TattooIdeen() {
         datas={löwenTattoo}
         keyword={"Löwen"}
       />
-
+</div>
       <CarouselSection
         title="Drachen Tattoo Ideen"
         content="Drachen Tattoos sind faszinierende Kunstwerke, die Macht und Mystik verkörpern. Von Glücks-Drachen bis zu Abenteuer-Drachen - Drachen Tattoos sind vielfältig und beeindruckend in ihrer Symbolik. Ein Drachen Tattoo kann mit lebendigen Farben und detailreichen Designs gestaltet werden, um eine atemberaubende Wirkung zu erzielen. Lass dich von der mythologischen Welt der Drachen zu einer einzigartigen Tätowierung inspirieren.

@@ -6,7 +6,7 @@ export default function ListingGridTwoColumn({ data, bgColor }) {
       <div className="col_full contai">
         <div className="img_text_box_wrapper">
           <div
-            className={"text_box_wrap right  m_pt_14   pb_75 pt_75 mb_35 m_pt_25"}
+            className={"text_box_wrap right  m_pt_14   pb_75 pt_75  m_pt_25"}
             style={{ backgroundColor: bgColor }}
           >
             <div className="container">

@@ -272,7 +272,7 @@ export default function TattooIdeen() {
             Farbbrillanz zu gewährleisten. Unsere Tipps helfen dabei,
             Irritationen zu vermeiden und dein Tattoo in seiner vollen Pracht
             erstrahlen zu lassen.
-            <Link href={"#"}>Tipps für die Tattoo Pflege </Link>
+            <Link href={"/tattoo-Pflege"}>Tipps für die Tattoo Pflege </Link>
           </>
         }
         title2=""
@@ -304,9 +304,10 @@ export default function TattooIdeen() {
         title3="Fazit: Deine Reise in die Welt der Weiblichen Tattoos"
         content3="Die Vielfalt der weiblichen Tattoos ist faszinierend und unendlich. Wir sind hier, um dich bei deiner Tattoo-Reise zu unterstützen. Egal, ob du nach neuen Motiven suchst, Pflegetipps benötigst oder dich für das Cover-up interessierst.
 Deine Haut ist die Leinwand, und wir stehen bereit, dir bei der Gestaltung deines einzigartigen Meisterwerks zu helfen. Finde Inspiration, entdecke die Symbolik hinter den Motiven und lass dich von der kreativen Vielfalt der weiblichen Tattoo-Kunst begeistern. Dein Weg zu einem einzigartigen Ausdruck deiner Persönlichkeit beginnt hier. Wir freuen uns darauf, Teil deiner faszinierenden Tattoo-Reise zu sein."
-        image1="/pexels-ozan-çulha-15020597 (1).jpg"
-        image2="/traditiondragontattoo-2.png"
-        image3="/traditiondragontattoo-3.png"
+        image1="/artCoverupTattoo-1.png"
+        image2="/artCoverUpTattoo2.png"
+        image3="/artCoverupTattoo-3.svg"
+        alt="CoverUp-Tattoos"
         bgColor="#fff"
       />
 

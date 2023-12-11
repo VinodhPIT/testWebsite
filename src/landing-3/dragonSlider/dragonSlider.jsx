@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function DragonSlider ({title ,description ,bgColor}) {
+export default function DragonSlider ({title ,description ,bgColor ,image}) {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
 
@@ -19,10 +19,10 @@ export default function DragonSlider ({title ,description ,bgColor}) {
     dots: true,
     };
 
-    const [images, setImage] = useState([
-    { image: "/coverUpTattoo2.png" },
+    // const [images, setImage] = useState([
+    // { image: "/coverUpTattoo2.png" },
   
-    ]);
+    // ]);
   return (
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap right pt_0 " style={{"backgroundColor":bgColor}}>
@@ -39,7 +39,7 @@ export default function DragonSlider ({title ,description ,bgColor}) {
                                     <div className={styles.listing_gridItem} >
                                         <div className={styles.listing_grid_img_col}>
                                             <Image
-                                                src={'/coverUpTattoo2.png'}
+                                                src={image}
                                                 alt="overUpTattoo2"
                                                 width={398}
                                                 height={454}

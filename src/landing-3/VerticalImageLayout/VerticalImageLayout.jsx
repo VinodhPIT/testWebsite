@@ -12,11 +12,14 @@ export default function VerticalImageLayout({
 
   image1,
   image2,
-
   image3,
-
+  alt,
   bgColor,
 }) {
+
+  
+
+
   return (
     <section className="img_text_banner_box" style={{"backgroundColor":bgColor}}>
       <div className="col_full">
@@ -40,8 +43,8 @@ export default function VerticalImageLayout({
                 <ul className="traditiondragon_list">
                   <li className="list_step_01">
                     <Image
-                       src="/traditiondragontattoo-2.png"
-                      alt="Tradition Dragon Tattoos"
+                       src={image1}
+                       alt={alt}
                       width={1019}
                       height={705}
                       loading="lazy"
@@ -53,8 +56,8 @@ export default function VerticalImageLayout({
                   </li>
                   <li className="list_step_02">
                     <Image
-                      src="/traditiondragontattoo-2.png"
-                      alt="Tradition Dragon Tattoos"
+                      src={image2}
+                      alt={alt}
                       width={998}
                       height={691}
                       loading="lazy"
@@ -66,8 +69,8 @@ export default function VerticalImageLayout({
                   </li>
                   <li className="list_step_03">
                     <Image
-                      src="/traditiondragontattoo-3.png"
-                      alt="Tradition Dragon Tattoos"
+                      src={image3}
+                      alt={alt}
                       width={999}
                       height={691}
                       loading="lazy"
