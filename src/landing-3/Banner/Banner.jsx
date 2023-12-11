@@ -22,7 +22,7 @@ import {
 export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
-
+  // drachen-tattoos.png
 
 
   return (

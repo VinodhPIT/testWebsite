@@ -8,43 +8,7 @@ export default function DragonTattoo({title1 , content1 ,title2  , content2 ,tit
   return (
     <section className="img_text_banner_box">
 
-        {/* <div className="text_box_wrap right pt_55 pb_0 block_bg_gray_100">
-            <div className="img_text_box_inner justify_content_start  w_100pc block_bg_white bg_shape">
-                <div className="text_box_content justify_content_center min_h_reset flex_direction_column block_bg_yellow pr_40 m_pr_15 m_pt_55">
-                    <div className="text_box_content_inner max_w_100pc pb_40 m_pb_0">
-                        <h2 className="color_gray_550 mb_25 heading_h2">{mainTitle}</h2>
-                        <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mt_0 mb_20 lh_33">{content1}</p>
-                        <Link href="#" className="btn_primary btn_img btn_xxl m_btn_custom_48">
-                            Explore artists
-                            <Image
-                            src="/arow-white-right.svg"
-                            width={24}
-                            height={24}
-                            alt="logo"
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL={blurDataURL}
-                            className="ml-8 mt-2"
-                            />
-                        </Link>
-                    </div>
-                    
-                </div>
-                <div className="img_box_wrap min_h_reset">
-                    <Image
-                        priority
-                        alt="Explore inckd for Your Perfect Partner Tattoo Experience"
-                        src="/dragontattoo.png"
-                        width={705}
-                        height={781}
-                        blurDataURL={blurDataURL}
-                        placeholder="blur"
-                    />
-                </div> 
-
-
-            </div>  
-        </div> */}
+        
 
         <div className="col_full">
             <div className="img_text_box_wrapper">

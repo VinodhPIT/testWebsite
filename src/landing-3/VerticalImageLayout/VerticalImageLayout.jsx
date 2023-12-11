@@ -24,7 +24,11 @@ export default function VerticalImageLayout({
     <section className="img_text_banner_box" style={{"backgroundColor":bgColor}}>
       <div className="col_full">
         <div className="img_text_box_wrapper">
-          <div className="text_box_wrap right  pt_25 m_pt_25 pb_100 m_pb_40">
+          <div className="text_box_wrap right pt_25  m_pt_25 pb_100 m_pb_40"  
+
+>
+
+
             {maintitle && (
               <div className="text_box_wrap full-block-wrap ">
                 <div className="img_text_box_inner">
@@ -38,6 +42,9 @@ export default function VerticalImageLayout({
                 </div>
               </div>
             )}
+
+
+
             <div className="img_text_box_inner container">
               <div className="img_box_wrap justify_content_right m_pb_40">
                 <ul className="traditiondragon_list">
