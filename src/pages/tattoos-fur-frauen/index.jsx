@@ -202,8 +202,10 @@ export default function TattooIdeen() {
         bannerTitle={
           "Tattoos für Frauen: Vielfalt und Symbolik bei weiblichen Tätowierungen."
         }
-        bannerImg={"/TattooIdeenBanner.jpg"}
+        bannerImg={"/Tattoos-für-Fraue.jpg"}
         bannerButton={"Know more about inckd"}
+        textColor="#fff"
+
       />
 
       <ContentImageLayout
@@ -212,6 +214,7 @@ export default function TattooIdeen() {
         Die Beliebtheit von Tattoos bei Frauen ist in den vergangenen Jahren erheblich gestiegen. Unsere Seite ist keine Plattform nur für Frauen, sondern eine Ressource für alle, die sich für die Vielfalt und Symbolik femininer Tätowierungen interessieren."
         img="/tattoo-for-women.jpg"
         alt="tattoos-for-women"
+        bgColor={"#f8f8f8"}
       />
 
       <FullWidthcarosuel
@@ -240,7 +243,7 @@ export default function TattooIdeen() {
           <>
             Blumen sind nicht nur ästhetisch ansprechend, sondern tragen auch
             eine Fülle von Bedeutungen. In unserem{" "}
-            <Link href={"/"}> Tattoo Lexikon</Link> über Blumen Tattoos erfährst
+            <Link href={`/${router.locale}/tattoo-dictionary`}> Tattoo Lexikon</Link> über Blumen Tattoos erfährst
             du die Bedeutung verschiedener Blumen und ihre kulturellen
             Hintergründe. Von der romantischen Rose bis zur reinen Lilie bieten
             Blumen Tattoos viele Möglichkeiten, deine Persönlichkeit

@@ -100,7 +100,7 @@ export default function PartnerTattoos({
         style={{ backgroundColor: bgColor }}
       >
         <div className="img_text_box_inner">
-          <div className="justify_content_start container w_100pc">
+          <div className="justify_content_start container w_100pc pt_25">
             <div className="text_box_content_inner m_pr_0 pt_pb_40">
               <h3 className="color_gray_550 mb_15 custom_fs_m_45 custom_fs_m_40">
                 {mainTitle}

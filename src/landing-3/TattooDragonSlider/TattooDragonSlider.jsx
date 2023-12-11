@@ -32,7 +32,7 @@ export default function TattooDragonSlider ({title,content ,data}) {
 
   return (
     <section className="img_text_banner_box">
-        <div className="text_box_wrap full-block-wrap right pt_0 block_bg_gray_100">
+        <div className="text_box_wrap full-block-wrap right pt_0 block_bg_gray_100 m_pt_55">
             <div className=" img_text_box_inner justify_content_start container w_100pc">                
 
                 <div className="img_box_wrap min_h_reset">

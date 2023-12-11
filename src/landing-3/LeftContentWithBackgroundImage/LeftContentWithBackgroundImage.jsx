@@ -3,7 +3,7 @@ import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from './whydragontattoo.module.css'
 
-export default function WhydragonTattoo({title1, content1 ,title2, content2 , title3, content3 ,title4, content4}) {
+export default function WhydragonTattoo({title1, content1 ,title2, content2 , title3, content3 ,title4, content4 ,bgColor}) {
   return (
     <section className="img_text_banner_box">
         <div className="col_full">

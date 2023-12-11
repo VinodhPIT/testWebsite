@@ -5407,18 +5407,38 @@ button.language_switcher img {
   .bg_shape:after {
     width: 100%;
   }
-  .traditiondragon_list li.list_step_01 {
-    width: auto;
-  }
+
+  
   .traditiondragon_list li.list_step_02 {
+   
+    margin-top: 0px;
+   
+     margin-right: 0px; 
+}
+
+.traditiondragon_list li.list_step_03 {
+ 
+  margin-top: 0px;
+
+}
+  
+  /* .traditiondragon_list li.list_step_01 {
+    width: auto;
+  } */
+  /* .traditiondragon_list li.list_step_02 {
     margin-top: -40px;
     width: auto;
     margin-right: 0px;
-  }
-  .traditiondragon_list li.list_step_03 {
+  } */
+  /* .traditiondragon_list li.list_step_03 {
     width: auto;
     margin-top: -40px;
-  }
+  } */
+  .traditiondragon_list li {
+margin-bottom: 11px;
+}
+
+
   .singleCarosuelSection  {   
     margin-top: 30px;
     margin-bottom: 50px;

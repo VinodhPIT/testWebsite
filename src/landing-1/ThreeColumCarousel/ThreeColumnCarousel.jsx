@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function ThreeColumCarousel ({title,title_sub , content ,button   ,trendingArtist}) {
+export default function ThreeColumCarousel ({title,title_sub , content ,button   ,trendingArtist ,linkUrl}) {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
 
@@ -100,7 +100,7 @@ export default function ThreeColumCarousel ({title,title_sub , content ,button  
                              
                             </div>
                             
-                            <Link href="/explore/tattoo-artists"
+                            <Link href={linkUrl}
                                  className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden">
                               {button}
                                 <Image
@@ -182,7 +182,7 @@ export default function ThreeColumCarousel ({title,title_sub , content ,button  
                 </div>
                 <div className="text_box_content_inner container max_w_100pc pt_80 pb_25 m_pt_pb_30 ml_0 desk_hidden">
                     <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">   
-                            <Link href="/explore/tattoo-artists"
+                            <Link href={linkUrl}
                                  className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_0">
                               {button}
                                 <Image
