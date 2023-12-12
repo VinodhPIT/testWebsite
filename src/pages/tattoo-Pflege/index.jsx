@@ -55,7 +55,7 @@ export default function TattooPflege() {
         bannerTitle={
           "Tattoo Pflege für langanhaltende Brillanz: Nachsorge Tipps."
         }
-        bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
+        bannerImg={"/Drachen-banner.jpg"}
         bannerButton={"Know more about inckd"}
       />
 
@@ -64,7 +64,7 @@ export default function TattooPflege() {
         alt="studio"
         title={""}
         content="Du hast ein neues Tattoo und willst sicherstellen, dass es langfristig schön und gesund bleibt. Die richtige Pflege ist wichtig, nicht nur direkt nach dem Stechen, sondern auch danach."
-        bgColor="#fff"
+        bgColor="#f8f8f8"
       />
 
 
@@ -93,6 +93,15 @@ export default function TattooPflege() {
         "
 
         image="/peeling-tattoo.jpg"
+
+        bgColor="#f8f8f8"
+
+        imageWidth="440"
+
+        imageHeight="440"
+
+
+
       />
 
       <LeftContentWithBackgroundImage
@@ -104,6 +113,8 @@ export default function TattooPflege() {
         content3="Bevor du dich der Sonne aussetzt, ist es entscheidend, dein frisch gestochenes Tattoo zu schützen. Verwende einen Sonnencreme-Stick mit SPF 50+, um die Farben vor schädlichen UV-Strahlen zu bewahren. Durch regelmäßigen Schutz bleibt dein Tattoo nicht nur schön, sondern auch gesund."
         title4="Pflege-Routine"
         content4="Pflege dein Tattoo sorgfältig, um seine Brillanz zu erhalten. Trage die feuchtigkeitsspendende Creme großzügig auf und schütze es vor Sonneneinstrahlung. Eine konsequente Pflege gewährleistet, dass dein Kunstwerk auf der Haut langanhaltend strahlt."
+
+       
       />
 
       <DragonSlider
@@ -135,11 +146,13 @@ export default function TattooPflege() {
       <ContentImageLayout
         title={"Wichtige Punkte zur Tattoo-Pflege"}
         content="Die Pflege deines Tattoos beginnt direkt nach dem Stechen. Verwende eine dünne Schicht ph-neutraler Seife und tupfe die frisch gestochene Tätowierung behutsam ab. Trage anschließend ein atmungsaktives Pflaster auf. Die tägliche Pflege sollte auch feuchtigkeitsspendende Cremes einschließen, um die Wundheilung zu fördern.
-        Verschiedene Körperstellen benötigen unterschiedliche Pflegeintensitäten. Hände, Füße und Gelenke sind oft stärkeren Belastungen ausgesetzt und sollten entsprechend häufiger eingecremt werden. Großflächige Tattoos erfordern nicht zwangsläufig mehr Pflege, jedoch ist Sorgfalt bei der Behandlung unerlässlich. Beachte, dass Rottöne unter UV-Strahlung schneller verblassen, daher ist ein effektiver Sonnenschutz unverzichtbar.
-        .
+
         "
         img="/tattooAftercare-img2.jpg"
         alt="Die Symbolik von Drachen Tattoos"
+bgColor="#f8f8f8"
+
+
       />
 
 <div className="m_mt_35">
@@ -149,7 +162,7 @@ export default function TattooPflege() {
           "Die Pflege deines Tattoos geht über die rein körperliche Versorgung hinaus. Es ist auch wichtig, mentale Aspekte zu berücksichtigen. Akzeptiere und schätze dein Tattoo als Teil von dir. Betrachte es als eine Form der Selbstexpression und feiere die Einzigartigkeit deines Kunstwerks. Die Auswahl der richtigen Pflegeprodukte spielt eine Schlüsselrolle. Achte darauf, dass deine Seife und Creme frei von Duftstoffen sind, um Irritationen zu vermeiden. Eine ph-neutrale Wund- und Heilsalbe kann besonders in den ersten Tagen nach dem Stechen Wunder wirken."
         }
         bgColor="#fff"
-        image="/tattooAftercare-img3.jpg"
+        image="/tattooAfterCare-img3.jpg"
       />
 
 
@@ -158,9 +171,10 @@ export default function TattooPflege() {
         title={"Individuelle Pflege für unterschiedliche Körperbereiche"}
         content="Jeder Teil deines Körpers hat seine eigenen Bedürfnisse. Hände und Füße sind häufiger Reibung ausgesetzt und erfordern möglicherweise eine intensivere Pflege. Gelenke, wie Ellenbogen und Knie, können ebenfalls mehr Aufmerksamkeit benötigen. Passe deine Pflegeroutine an die Bedürfnisse der verschiedenen Körperbereiche an.
         Nachdem du dir ein neues Tattoo stechen lassen hast, solltest du besonders auf die Pflege achten. Außerdem ist es wichtig, während des Sports und beim Schwitzen auf deine frisch tätowierte Haut zu achten.
-        Wenn du intensiv Sport treibst und stark schwitzt, ist es wichtig, darauf zu achten, wie dies auf deine frisch tätowierte Haut wirken kann. Spüle dein Tattoo mehrmals täglich vorsichtig mit lauwarmem Wasser ab, um Schweiß und Bakterien zu entfernen. Trage danach eine dünne Schicht ph-neutraler Seife auf und tupfe es sanft ab. Die Verwendung von atmungsaktiven Bandagen während des Trainings kann ebenfalls dazu beitragen, dein Tattoo zu schützen."
+        "
         img="/Rectangle3602.png"
         alt="Die Symbolik von Drachen Tattoos"
+        bgColor="#f8f8f8"
       />
 <div className="m_mt_35">
 

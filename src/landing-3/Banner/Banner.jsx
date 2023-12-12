@@ -19,7 +19,7 @@ import {
 
 
 
-export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
+export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
   // drachen-tattoos.png
@@ -57,7 +57,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
             <div className={styles.banner}>
               <div className={styles.banner_inner}>
                 <Image
-                  src="/drachen-tattoos.png"
+                  src={bannerImg}
                   alt="banner"
                   loading="lazy"
                   placeholder="blur"
@@ -74,7 +74,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
               }`}
             >
               <div className={styles.banner_caption}>
-                <h1>
+                <h1 style={{"color":textColor}}>
                   <span class="m_dis_inline">{bannerTitle}</span>
                   {/* <span class="textBlock m_dis_inline">Mystische Kunst für </span>
                   <span class="textBlock m_dis_inline">deine Haut</span> */}

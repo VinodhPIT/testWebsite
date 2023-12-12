@@ -13,17 +13,17 @@ import SplitText from "@/landing-3/SplitText&Image/SplitText";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import { useRouter } from 'next/router'
 
-import ThreeColumCarousel from "@/landing-3/TattooThreeCol/TattooThreecol";
+import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
 
 
 
 export default function DrachenTattoos() {
   const images = [
-    { image: "/dragonslider1.png" },
+    { image: "/Drachen-tattoo-Idee.jpg" },
     { image: "/dragonslider2.png" },
     { image: "/dragonslider3.png" },
-    { image: "/Drachen-tattoo-Idee.jpg" },
+   
     
   ];
   const router = useRouter()
@@ -300,6 +300,11 @@ export default function DrachenTattoos() {
         content3="Die Bedeutung eines Drachen-Tattoos reicht weit über die Oberfläche hinaus. Es symbolisiert nicht nur Stärke und Macht, sondern kann auch für Schutz, Weisheit oder persönliche Transformation stehen. Erforsche die Bedeutung von Drachen-Tattoos und finde heraus, welcher Teil deiner Geschichte passt.
         "
         image="/drachen-tattoo-idee-3.png"
+
+        imageWidth="440"
+
+        imageHeight="440"
+
       />
 
       <TattooDragonSlider
@@ -325,22 +330,28 @@ export default function DrachenTattoos() {
 
 
 
-<FullWidthBlock
-            title={"Der Prozess der Drachen Tätowierung"}
-        
-            content={
-              "Das Drachen-Tattoo ist eine Reise in die Kunst und Selbstausdruck. Unsere Plattform verbindet dich mit erfahrenen Künstlern, die die Technik beherrschen und die Bedeutung der Drachen-Tattoos verstehen."
-              
-            }
-            sectionBackgrounColor={"#f9fbfa"}
-          />
 
 
 
 
 
 
- <ThreeColumCarousel data={trendingArtist}/>
+
+ <ThreeColumCarousel 
+ 
+ title="Der Prozess der Drachen Tätowierung"
+ title_sub=""
+ content="Das Drachen-Tattoo ist eine Reise in die Kunst und Selbstausdruck. Unsere Plattform verbindet dich mit erfahrenen Künstlern, die die Technik beherrschen und die Bedeutung der Drachen-Tattoos verstehen."
+ button="Explore more artists"
+ 
+ 
+ trendingArtist={trendingArtist}
+ 
+ linkUrl={`/${router.locale}/explore/tattoo-artists?location=BerlinGermany`}/>
+
+
+
+
 
 
 {/* 
@@ -361,7 +372,7 @@ export default function DrachenTattoos() {
 
 
 
-      <div className="pt_75 ">
+      <div className="pt_75 m_pt_25 ">
         <VerticalImageLayout
           maintitle=""
           title1="Die Tradition von Drachen Tattoos"

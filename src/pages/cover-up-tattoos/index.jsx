@@ -280,6 +280,8 @@ export default function CoverUpTattoos() {
         "
           img="/coverUpTattoo3.png"
           alt="coverUpTattoo3"
+
+          bgColor={"#f8f8f8"}
         />
 
 

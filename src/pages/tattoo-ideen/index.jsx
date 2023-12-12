@@ -443,8 +443,9 @@ export default function TattooIdeen() {
 
       <Banner
         bannerTitle={"Tattoo Ideen: Entdecke einzigartige Tattoomotive"}
-        bannerImg={"/TattooIdeenBanner.jpg"}
+        bannerImg={"/Banner-tattoo-Iden.jpg"}
         bannerButton={"Know more about inckd"}
+        textColor="#fff"
       />
 
       <FullWidthSecwithIcon
@@ -579,6 +580,7 @@ export default function TattooIdeen() {
         content="Wir möchten ein einzigartiges Kunstwerk für dich schaffen, das deine Persönlichkeit und Geschichte authentisch repräsentiert. Unsere erfahrenen Künstler sind hier, um deine individuelle Vision Wirklichkeit werden zu lassen."
         button="Entdecke mehr Tätowierer"
         trendingArtist={trendingArtist}
+        linkUrl={`/${router.locale}/explore/tattoo-artists`}
       />
 
       <OrangeTwoRowBlock

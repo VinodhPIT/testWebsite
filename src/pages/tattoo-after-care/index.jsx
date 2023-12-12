@@ -271,7 +271,7 @@ export default function TattooAfterCare() {
         bannerTitle={
           "Tattoo After Care Guide: Best Practices and Tips for Healing"
         }
-        bannerImg={"/TattooIdeenBanner.jpg"}
+        bannerImg={"/Drachen-banner.jpg"}
         bannerButton={"Know more about inckd"}
       />
 
@@ -317,7 +317,7 @@ By the second or third week, the outer layers of skin should have healed, but ke
 "
         img1="/tattooAftercare-img1.jpg"
         img2="/tattooAftercare-img2.jpg"
-        img3="/tattooAftercare-img3.jpg"
+        img3="/tattooAfterCare-img3.jpg"
         img4="/Rectangle3602.png"
         img5="/Rectangle3603.png"
 

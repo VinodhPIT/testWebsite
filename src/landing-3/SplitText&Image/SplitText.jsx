@@ -7,7 +7,7 @@ import { blurDataURL} from "@/constants/constants";
 export default function SplitText({title ,content}) {
   return (
  
-      <div className="text_box_wrap right pt_55 pb_0 block_bg_gray_100">
+      <div className="text_box_wrap right pt_25 pb_0 block_bg_gray_100">
             <div className="img_text_box_inner justify_content_start  w_100pc block_bg_white bg_shape">
                 <div className="text_box_content justify_content_center min_h_reset flex_direction_column block_bg_yellow pr_40 m_pr_15 m_pt_55">
                     <div className="text_box_content_inner max_w_100pc pb_40 m_pb_0">

@@ -803,6 +803,7 @@ export default function TattooIdeasForMen() {
           content="Behind every remarkable tattoo is a skilled tattoo artist. Work with a skilled tattoo artist who gets your ideas and can turn them into an amazing tattoo. They have the technical skills and creativity to make your tattoo special and one-of-a-kind."
           button="Explore more artists"
           trendingArtist={artist}
+          linkUrl={`/${router.locale}/explore/tattoo-artists`}
         />
 
         <FullWidthcarosuel
@@ -861,6 +862,8 @@ export default function TattooIdeasForMen() {
           content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
           button="Explore more artists"
           trendingArtist={trendingArtist}
+
+          linkUrl={`/${router.locale}/explore/tatttoo-artists`}
         />
 
         <SideBySideContentWithImage
