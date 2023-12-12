@@ -5,7 +5,7 @@ import styles from './tattoosexperience.module.css'
 
 export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,title3 ,title4  ,content1 ,content2 ,content3 ,content4 ,leftSectionImage ,rightSecImage}) {
 
-    console.log("dwdwfwd",leftSectionImage ,"cdc")
+
   return (
     <section className="img_text_banner_box">
 
@@ -32,11 +32,18 @@ export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,t
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title1}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33">{content1}</p>
                                 </div>
+
+                                {title2!==""  ? 
+                                
                                 <div className="d_flex flex_direction_column mb_65 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title2}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content2}</p>
                                 </div>
+
+ : null}
+
                             </div>
+
                         </div>                        
 
                         <div class="img_box_wrap justify_content_center">
@@ -76,14 +83,20 @@ export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,t
                         </div>
                         <div className="text_box_content justify_content_start align_item_center p_0 pl_40 m_pl_0 m_min_h_reset m_order_1">
                             <div className="text_box_content_inner max_w_100pc">
-                                <div className="d_flex flex_direction_column mb_65 mt_0 m_mt_15 m_mb_45">
+                            <div className={`d_flex flex_direction_column  mt_0 m_mt_15 m_mb_45 ${title4 !== '' ? 'mb_65' : 'mb_0'}`}>
+
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title3}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33">{content3}</p>
                                 </div>
+  {title4!=="" ?
+
                                 <div className="d_flex flex_direction_column mb_65 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title4}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content4}</p>
                                 </div>
+
+
+ : null}
                             </div>
                         </div>  
                     </div>

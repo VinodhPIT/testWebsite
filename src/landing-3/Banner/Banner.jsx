@@ -19,7 +19,7 @@ import {
 
 
 
-export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor}) {
+export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor ,position}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
   // drachen-tattoos.png
@@ -43,6 +43,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor}
                   //fill //position-absolute
                   //objectFit="cover"
                   //objectPosition='bottom'
+                 
                   layout="responsive"
                 />
               </Link>
@@ -64,7 +65,8 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor}
                   blurDataURL={blurDataURL}
                   fill
                   objectFit="cover"
-                  objectPosition="bottom"
+                  // objectPosition="bottom"
+                  objectPosition={position}
                 />
               </div>
             </div>

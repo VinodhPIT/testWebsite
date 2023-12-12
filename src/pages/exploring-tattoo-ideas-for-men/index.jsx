@@ -13,15 +13,6 @@ import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 
-
-
-
-
-
-
-
-
-
 export default function TattooIdeasForMen() {
   const router = useRouter();
 
@@ -585,55 +576,42 @@ export default function TattooIdeasForMen() {
     },
   ]);
 
-
-
-
-  const[listingItems1,setListingItems]=useState([
-{
-    title:"Star Tattoo",
-    content:
-      "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles"
-  },
-  {
-    title:"Tattoo Design",
-    content:
-      "A good tattoo starts with a careful design. Be creative or work with a talented artist to make your idea come alive. Pick a design that represents you, your beliefs, or an important event in your life."
-  },
+  const [listingItems1, setListingItems] = useState([
     {
-    title:"Men’s Tattoos",
-    content:
-      "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity."
+      title: "Star Tattoo",
+      content:
+        "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles",
+    },
+    {
+      title: "Tattoo Design",
+      content:
+        "A good tattoo starts with a careful design. Be creative or work with a talented artist to make your idea come alive. Pick a design that represents you, your beliefs, or an important event in your life.",
+    },
+    {
+      title: "Men’s Tattoos",
+      content:
+        "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity.",
     },
 
-    {title:"Feather Tattoos",
-    content:
-      "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance."
-    }
-    
-    ])
-    
+    {
+      title: "Feather Tattoos",
+      content:
+        "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance.",
+    },
+  ]);
 
-
-    const[listingItems2,setListingItem2]=useState([
-      {
-          title:"Forearm tattoos",
-          content:
-            "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you."
-        },
-        {
-          title:"Tattoo Designs for Men",
-          content:
-            "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality."
-        },
-     
-          
-          ])
-          
-          
-
-    
-
-
+  const [listingItems2, setListingItem2] = useState([
+    {
+      title: "Forearm tattoos",
+      content:
+        "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.",
+    },
+    {
+      title: "Tattoo Designs for Men",
+      content:
+        "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality.",
+    },
+  ]);
 
   return (
     <>
@@ -700,8 +678,6 @@ export default function TattooIdeasForMen() {
           bgColor="#ffff"
         />
 
-        
-
         <LeftContentRightImage
           title="Exploring Diverse Tattoo Styles"
           subTitle="Small Tattoo Ideas for Men"
@@ -712,9 +688,6 @@ export default function TattooIdeasForMen() {
           carousel={carosuelForMen}
         />
 
-
-
-
         <FullWidthcarosuel
           title={"Cross Tattoos"}
           content="Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages."
@@ -723,30 +696,9 @@ export default function TattooIdeasForMen() {
           keyword={"Cross"}
         />
 
-
-
-
-
-
-          <ListingGridTwoColumn data={listingItems1}  bgColor="#eaffc0"/> 
-
-
-
-
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
+        <div className="mb_30">
+          <ListingGridTwoColumn data={listingItems1} bgColor="#eaffc0" />
+        </div>
 
         <CarouselSection
           title="Dragon Tattoo"
@@ -814,14 +766,9 @@ export default function TattooIdeasForMen() {
           keyword={"Rose"}
         />
 
-
-       <ListingGridTwoColumn  data={listingItems2} bgColor="#eaffc0"/>
-
-
-
-
-
-
+        <div className="mb_30">
+          <ListingGridTwoColumn data={listingItems2} bgColor="#eaffc0" />
+        </div>
 
         <CarouselSection
           title="Lion Tattoo"
@@ -862,7 +809,6 @@ export default function TattooIdeasForMen() {
           content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
           button="Explore more artists"
           trendingArtist={trendingArtist}
-
           linkUrl={`/${router.locale}/explore/tatttoo-artists`}
         />
 
@@ -891,16 +837,7 @@ export default function TattooIdeasForMen() {
           bgColor="#FFD5C0"
         />
 
-        <DownloadApps
-        
-        title="Download the"
-        subTitle="App & Explore more!"
-        
-        
-        
-        
-        
-        />
+        <DownloadApps title="Download the" subTitle="App & Explore more!" />
       </div>
     </>
   );

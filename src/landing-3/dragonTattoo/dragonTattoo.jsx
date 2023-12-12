@@ -43,7 +43,7 @@ export default function DragonTattoo({title1 , content1 ,title2  , content2 ,tit
                                 </div>
                             </div>
                         </div>
-                        <div className="text_box_content justify_content_end  align_item_normal p_0 min_h_reset">
+                        <div className="text_box_content justify_content_center  align_item_normal p_0 min_h_reset">
                             <div className="text_box_content_inner max_w_100pc">                               
                                 <div className="d_flex flex_direction_column m_mb_45">
                                 <Image

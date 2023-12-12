@@ -155,47 +155,9 @@ export default function TattooIdeen() {
   return (
     <div>
       <Head>
-        <title>Tattoo Ideen: Entdecke einzigartige Tattoomotive</title>
-        <meta
-          name="description"
-          content="Herzlich willkommen auf unserer Seite, die sich der Faszination und Vielfalt von Tattoo Ideen verschrieben hat. Lass dich von unserer umfangreichen Sammlung inspirieren und begleite uns auf deiner Tattooreise"
-        />
-        <meta
-          name="keywords"
-          content="Tattoo Ideen, Tattoo stechen, Schmetterlings Tattoos, Mini Tattoos, Finger Tattoos, Herz Tattoos, Löwen Tattoos, Drachen Tattoos, Tätowierer"
-        />
-
-        <meta
-          property="og:title"
-          content="Tattoo Ideen: Entdecke einzigartige Tattoomotive"
-        />
-        <meta
-          property="og:description"
-          content="Herzlich willkommen auf unserer Seite, die sich der Faszination und Vielfalt von Tattoo Ideen verschrieben hat. Lass dich von unserer umfangreichen Sammlung inspirieren und begleite uns auf deiner Tattooreise."
-        />
-        <meta
-          property="og:url"
-          content="https://www.inckd.com/tattoo/landingpage"
-        />
-        <meta
-          property="og:image"
-          content="https://www.inckd.com/tattoo/landingpage-image.jpg"
-        />
-        <meta property="og:type" content="article" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Tattoo Ideen: Entdecke einzigartige Tattoomotive"
-        />
-        <meta
-          name="twitter:description"
-          content="Herzlich willkommen auf unserer Seite, die sich der Faszination und Vielfalt von Tattoo Ideen verschrieben hat. Lass dich von unserer umfangreichen Sammlung inspirieren und begleite uns auf deiner Tattooreise."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.inckd.com/tattoo/landingpage-image.jpg"
-        />
+        <title>Tattoos für Frauen: Vielfalt und Symbolik bei weiblichen Tätowierungen.
+</title>
+        
       </Head>
 
       <Banner
@@ -205,6 +167,7 @@ export default function TattooIdeen() {
         bannerImg={"/Tattoos-für-Fraue.jpg"}
         bannerButton={"Know more about inckd"}
         textColor="#fff"
+        position="left center"
 
       />
 
