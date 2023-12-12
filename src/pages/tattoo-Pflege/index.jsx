@@ -64,8 +64,11 @@ export default function TattooPflege() {
         bannerTitle={
           "Tattoo Pflege für langanhaltende Brillanz: Nachsorge Tipps."
         }
-        bannerImg={"/Drachen-banner.jpg"}
+        bannerImg={"/drachen-tattoos.png"}
         bannerButton={"Know more about inckd"}
+        position="bottom"
+
+
       />
 
       <FullWidthSecwithIcon

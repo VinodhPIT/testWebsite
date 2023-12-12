@@ -18,7 +18,7 @@ export default function DragonTattoo({title1 , content1 ,title2  , content2 ,tit
                             <div className="text_box_content_inner max_w_100pc">
                                 <div className="d_flex flex_direction_column  m_mt_15 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title1}</h4>
-                                    <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_5 lh_33">{content1}</p>
+                                    <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_5">{content1}</p>
                                 </div>
                                
                             </div>
@@ -27,7 +27,7 @@ export default function DragonTattoo({title1 , content1 ,title2  , content2 ,tit
                             <div className="text_box_content_inner max_w_100pc">
                                 <div className="d_flex flex_direction_column  m_mt_15 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title2}</h4>
-                                    <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_5 lh_33">{content2}</p>
+                                    <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_5">{content2}</p>
                                 </div>                                
                             </div>
                         </div>
@@ -39,7 +39,7 @@ export default function DragonTattoo({title1 , content1 ,title2  , content2 ,tit
                             <div className="text_box_content_inner max_w_100pc d_flex">                               
                                 <div className="d_flex flex_direction_column m_mb_45 justify_content_center">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title3}</h4>
-                                    <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_5 lh_33 ">{content3}</p>
+                                    <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_5">{content3}</p>
                                 </div>
                             </div>
                         </div>
