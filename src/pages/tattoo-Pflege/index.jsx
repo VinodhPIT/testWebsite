@@ -10,8 +10,13 @@ import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import RightAlignedImageContent from '@/landing-3/RightAlignedImageContent;/dragonSlider'
 import LeftAlignedImageContent from '@/landing-3/LeftAlignedImageContent/dragonSlider'
 
+import {useNavigation} from '@/hooks/useRouter'
+
+
 
 export default function TattooPflege() {
+  const {router}=useNavigation()
+  
   return (
     <>
       <Head>
