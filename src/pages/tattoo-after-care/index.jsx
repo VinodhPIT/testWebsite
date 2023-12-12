@@ -276,8 +276,9 @@ export default function TattooAfterCare() {
         bannerTitle={
           "Tattoo After Care Guide: Best Practices and Tips for Healing"
         }
-        bannerImg={"/Drachen-banner.jpg"}
+        bannerImg={"/drachen-tattoos.png"}
         bannerButton={"Know more about inckd"}
+        position="bottom"
       />
 
       <ContentImageLayout

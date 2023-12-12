@@ -47,7 +47,7 @@ export default function RightAlignedImageContent({ title, description, bgColor, 
           <div className="text_box_content justify_content_center p_0 m_pt_0 m_pb_25 min_h_reset flex_direction_column">
             <div className="text_box_content_inner max_w_100pc p_0 text_left">
               <h2 className="color_gray_550 mb_25 heading_h2">{title}</h2>
-              <p className="custom_fs_16 custom_fs_m_16 color_gray_550 mb_0 mt_0">
+              <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0c lh_33 ">
                 {description}
               </p>
             </div>
