@@ -252,7 +252,7 @@ export default function TattooAfterCare() {
           content="Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results."
         />
         <meta property="og:image" content="URL_of_the_image" />
-        <meta property="og:url" content={currentPage} />
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-after-care`}  />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -264,7 +264,12 @@ export default function TattooAfterCare() {
           content="Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results."
         />
         <meta name="twitter:image" content="URL_of_the_image" />
-        <meta name="twitter:url" content={currentPage} />
+        <meta name="twitter:url"  content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-after-care`} />
+
+
+
+
+
       </Head>
 
       <Banner

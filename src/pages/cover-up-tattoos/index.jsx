@@ -240,6 +240,7 @@ export default function CoverUpTattoos() {
           subTitlte=""
           bannerImg={"/coverUpTattooBanner.jpg"}
           bannerButton={"Know more about inckd"}
+          position="center"
         />
 
         <UniquePartner

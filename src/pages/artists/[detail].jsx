@@ -19,9 +19,9 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 
 export default function Detail({ data, locale }) {
 
-console.log(data ,"cdc d cdc s cs.,c")
 
-6
+
+
 
 
   const { isPopupOpen, openPopup, closePopup } = useModal();

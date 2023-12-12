@@ -24,7 +24,6 @@ import Loader from "@/components/loader";
 export default function Detail({ data, status, locale }) {
 
  
-console.log(data ,"tets")
   
   
   const { isPopupOpen, openPopup, closePopup } = useModal();

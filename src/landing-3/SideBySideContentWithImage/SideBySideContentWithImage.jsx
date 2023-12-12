@@ -51,7 +51,7 @@ export default function SideBySideContentWithImage({
             <div className="img_text_box_inner container">
               <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset">
                 <div className="text_box_content_inner max_w_100pc m_mt_0">
-                  <div className="d_flex flex_direction_column mb_65 mt_0 m_mb_45">
+                  <div className="d_flex flex_direction_column  mt_0 m_mb_45">
                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">
                       {title1}
                     </h4>
@@ -98,7 +98,7 @@ export default function SideBySideContentWithImage({
               </div>
               <div className="text_box_content justify_content_start align_item_center p_0 pl_40 m_pl_0 m_min_h_reset m_order_1">
                 <div className="text_box_content_inner max_w_100pc">
-                  <div className="d_flex flex_direction_column mb_65 mt_0 m_mt_15 m_mb_45">
+                  <div className="d_flex flex_direction_column  mt_0 m_mt_15 m_mb_45">
                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">
                       {title2}
                     </h4>
@@ -111,8 +111,8 @@ export default function SideBySideContentWithImage({
             </div>
             <div className="img_text_box_inner container">
               <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset">
-                <div className="text_box_content_inner max_w_100pc m_mt_0">
-                  <div className="d_flex flex_direction_column mb_65 mt_0 m_mb_45">
+                <div className="text_box_content_inner max_w_100pc m_mt_15">
+                  <div className="d_flex flex_direction_column  mt_0 m_mb_45">
                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">
                       {title3}
                     </h4>
@@ -159,7 +159,7 @@ export default function SideBySideContentWithImage({
               </div>
               <div className="text_box_content justify_content_start align_item_center p_0 pl_40 m_pl_0 m_min_h_reset m_order_1">
                 <div className="text_box_content_inner max_w_100pc">
-                  <div className="d_flex flex_direction_column mb_65 mt_0 m_mt_15 m_mb_45">
+                  <div className="d_flex flex_direction_column  mt_0 m_mt_15 m_mb_45">
                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">
                       {title4}
                     </h4>
@@ -172,8 +172,8 @@ export default function SideBySideContentWithImage({
             </div>
             <div className="img_text_box_inner container">
               <div className="text_box_content justify_content_start align_item_center p_0 pr_40 m_pr_0 m_min_h_reset">
-                <div className="text_box_content_inner max_w_100pc m_mt_0">
-                  <div className="d_flex flex_direction_column mb_65 mt_0 m_mb_45">
+                <div className="text_box_content_inner max_w_100pc m_mt_15">
+                  <div className="d_flex flex_direction_column  mt_0 m_mb_45">
                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">
                       {title5}
                     </h4>
@@ -201,7 +201,7 @@ export default function SideBySideContentWithImage({
                 </ul>
               </div>
             </div>
-            ß
+            
           </div>
         </div>
       </div>

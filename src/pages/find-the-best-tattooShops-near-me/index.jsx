@@ -12,7 +12,7 @@ import FiveColumnCarousel from "@/landing-1/FiveColumnCarousel/fiveColumnCarouse
 
 export default function TattooIdeasForMen() {
   const { router } = useNavigation();
-  const currentPage = typeof window !== "undefined" ? window.location.href : "";
+  
 
   const [trendingArtist, setTendingArtist] = useState([
     {
@@ -127,9 +127,10 @@ export default function TattooIdeasForMen() {
         />
         <meta
           property="og:image"
-          content="/young-beautiful-couple-posing-old-building-1.jpg"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/tattooShop.jpg`}
+
         />
-        <meta property="og:url" content={currentPage} />
+        <meta property="og:url"  content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/find-the-best-tattooShops-near-me`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -143,10 +144,13 @@ export default function TattooIdeasForMen() {
 
         <meta
           name="twitter:image"
-          content="[URL to an image relevant to the content]"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/tattooShop.jpg`}
         />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
+
+        
+
 
         
       </Head>

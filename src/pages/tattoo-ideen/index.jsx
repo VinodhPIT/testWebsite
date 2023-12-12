@@ -418,11 +418,11 @@ export default function TattooIdeen() {
         />
         <meta
           property="og:url"
-          content="https://www.inckd.com/tattoo/landingpage"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-ideen`}
         />
         <meta
           property="og:image"
-          content="https://www.inckd.com/tattoo/landingpage-image.jpg"
+            content={`${process.env.NEXT_PUBLIC_BASE_URL}/Banner-tattoo-Iden.jpg`}
         />
         <meta property="og:type" content="article" />
 
@@ -437,8 +437,11 @@ export default function TattooIdeen() {
         />
         <meta
           name="twitter:image"
-          content="https://www.inckd.com/tattoo/landingpage-image.jpg"
+          content={`${process.env.NEXT_PUBLIC_BASE_URL}/Banner-tattoo-Iden.jpg`}
         />
+
+
+
       </Head>
 
       <Banner
@@ -446,6 +449,7 @@ export default function TattooIdeen() {
         bannerImg={"/Banner-tattoo-Iden.jpg"}
         bannerButton={"Know more about inckd"}
         textColor="#fff"
+        position={'center bottom'}
       />
 
       <FullWidthSecwithIcon

@@ -238,12 +238,16 @@ export default function DrachenTattoos() {
           content="Drachen Tattoos, Drachen-Tattoo, Tattoo Kunst, Tattoo Symbole, Drachen Symbolik, Tattoo Bedeutung, Tattoo Designs, Tattoo Vorlagen, Drachen Motive, Drachen-Tattoo Vielfalt, Körperkunst, Mystische Tattoos, Tattoo App, Tattoo Künstler, Drachen-Tattoo Tradition, Drachen Symbol, Asiatische Drachen, Europäische Drachen, Drachen-Tattoo Bedeutung, Tattoo Reise, Tattoo Studio, Tattoo Inspirationsseite, Tattoo Portfolio, Tattoo Bewertungen, Tattoo Community, Tattoo Pflege, Tattoo Trends, Tattoo Tipps"
         />
         <meta name="author" content="Your Name" />
+
+
+        
       </Head>
 
       <Banner
         bannerTitle={"Drachen Tattoos - Mystische Kunst für deine Haut"}
         bannerImg={"/Drachen-banner.jpg"}
         bannerButton={"Know more about inckd"}
+        position={"center top"}
       />
 
 
