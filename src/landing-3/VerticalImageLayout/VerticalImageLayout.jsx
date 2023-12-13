@@ -16,19 +16,14 @@ export default function VerticalImageLayout({
   alt,
   bgColor,
 }) {
-
-  
-
-
   return (
-    <section className="img_text_banner_box" style={{"backgroundColor":bgColor}}>
+    <section
+      className="img_text_banner_box"
+      style={{ backgroundColor: bgColor }}
+    >
       <div className="col_full">
         <div className="img_text_box_wrapper">
-          <div className="text_box_wrap right pt_25  m_pt_25 pb_100 m_pb_40"  
-
->
-
-
+          <div className="text_box_wrap right pt_25  m_pt_25 pb_100 m_pb_40">
             {maintitle && (
               <div className="text_box_wrap full-block-wrap ">
                 <div className="img_text_box_inner">
@@ -43,15 +38,13 @@ export default function VerticalImageLayout({
               </div>
             )}
 
-
-
             <div className="img_text_box_inner container">
               <div className="img_box_wrap justify_content_right m_pb_40">
                 <ul className="traditiondragon_list">
                   <li className="list_step_01">
                     <Image
-                       src={image1}
-                       alt={alt}
+                      src={image1}
+                      alt={alt}
                       width={1019}
                       height={705}
                       loading="lazy"

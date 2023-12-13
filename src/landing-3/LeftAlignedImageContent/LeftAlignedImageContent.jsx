@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import styles from "./dragonslider.module.css";
+import styles from "./style.module.css";
 
-export default function RightAlignedImageContent({ title, description, bgColor, image }) {
+export default function LeftAlignedImageContent({
+  title,
+  description,
+  bgColor,
+  image,
+}) {
   return (
     <section className="img_text_banner_box  ">
       <div
@@ -11,19 +16,10 @@ export default function RightAlignedImageContent({ title, description, bgColor, 
         style={{ backgroundColor: bgColor }}
       >
         <div className=" img_text_box_inner justify_content_start container w_100pc">
-
-
-      
-
-          
           <div className="img_box_wrap min_h_reset">
             {/* coverUpTattoo2 */}
 
-            <div
-              className={`${" m_mb_30"} ${
-                styles.listing_pageContainer
-              }`}
-            >
+            <div className={`${" m_mb_30"} ${styles.listing_pageContainer}`}>
               <div className={styles.listing_grid_wrapper}>
                 <div className={styles.listing_gridItem}>
                   <div className={styles.listing_grid_img_col}>
@@ -43,7 +39,6 @@ export default function RightAlignedImageContent({ title, description, bgColor, 
             </div>
           </div>
 
-
           <div className="text_box_content justify_content_center p_0 m_pt_0 m_pb_25 min_h_reset flex_direction_column">
             <div className="text_box_content_inner max_w_100pc p_0 text_left">
               <h2 className="color_gray_550 mb_25 heading_h2">{title}</h2>
@@ -52,7 +47,6 @@ export default function RightAlignedImageContent({ title, description, bgColor, 
               </p>
             </div>
           </div>
-     
         </div>
       </div>
     </section>

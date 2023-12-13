@@ -13,7 +13,7 @@ import VerticalImageLayout from "@/landing-3/VerticalImageLayout/VerticalImageLa
 export default function TattooIdeen() {
   const { router } = useNavigation();
 
-  const [butterflyTattoos, setButterflyTattoos] = useState([
+  const butterflyTattoos =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17357_20230203124234258-medium.jpg",
@@ -53,9 +53,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3844_20220927191141628-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/485ad340-8b0f-43eb-81ce-6f36d6232432`,
     },
-  ]);
+  ];
 
-  const [floweTattoos, setFloweTattoos] = useState([
+  const floweTattoos = [
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10830_20221205152235958-medium.jpg",
@@ -97,9 +97,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4041_20220929063719022-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/fa69ed9a-755f-461c-bc48-13371981b4b3`,
     },
-  ]);
+  ];
 
-  const [rosenTattos, setRosenTattoos] = useState([
+  const  rosenTattos=[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/1626_20220810115446943-medium.jpg",
@@ -150,7 +150,7 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20716_20230228081436105-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/61e536ad-9327-4eb0-a51c-6799903f96c5`,
     },
-  ]);
+  ];
 
   return (
     <div>

@@ -30,7 +30,7 @@ export default function TattooIdeen() {
     },
   ]);
 
-  const [Schmetterlings, setSchmetterlings] = useState([
+  const Schmetterlings =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10568_20221201163816017-medium.jpg",
@@ -69,9 +69,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5420_20221013111725878-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/ae03c700-746c-4f38-b8d2-5593d7900b03`,
     },
-  ]);
+  ];
 
-  const [miniTattoo, setminiTattoo] = useState([
+  const miniTattoo =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4759_20221007142629676-medium.jpg",
@@ -119,9 +119,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15180_20230116183801253-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/3d40a303-91be-4213-be44-1a43d79903d9`,
     },
-  ]);
+  ];
 
-  const [fingerTattos, setFinger] = useState([
+  const fingerTattos =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9406_20221117211556552-medium.jpg",
@@ -160,9 +160,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4387_20221003125711877-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/a122477d-0a7c-49c7-a872-a3fcc0fa9e71`,
     },
-  ]);
+  ];
 
-  const [herzTattos, setHerzTattos] = useState([
+  const  herzTattos =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17385_20230203140845606-medium.jpg",
@@ -208,9 +208,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9013_20221114205459607-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/f7d99388-5987-476c-ad0d-e19b9b6329ad`,
     },
-  ]);
+  ];
 
-  const [löwenTattoo, setLöwenTattoo] = useState([
+  const löwenTattoo =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13131_20221229171132742-medium.jpg",
@@ -256,9 +256,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24519_20230501115106273-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/74cd289e-f1d6-4696-9c7a-4e4c13651589`,
     },
-  ]);
+  ];
 
-  const [dragonTattoo, setDragonTattoo] = useState([
+  const dragonTattoo =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2697_20220915102023751-medium.jpg",
@@ -298,9 +298,9 @@ export default function TattooIdeen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9615_20221121131123062-medium.jpg",
       url: `${process.env.LIVE_URL}/tattoo/74084fe2-c1be-422f-bf12-32bc33c5a245`,
     },
-  ]);
+  ];
 
-  const [trendingArtist, setTendingArtist] = useState([
+  const trendingArtist =[
     {
       artistImage:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/1606_71406e34-f904-4c32-849e-dc750d5a2a16.jpg",
@@ -357,9 +357,9 @@ export default function TattooIdeen() {
       country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/hugoink_bristol_mp015xjp`,
     },
-  ]);
+  ];
 
-  const [listingItems, setListingItems] = useState([
+  const listingItems =[
     {
       title: "Rose",
       content:
@@ -393,7 +393,7 @@ export default function TattooIdeen() {
       content:
         "Die Lotusblume symbolisiert oft Reinheit und Erneuerung. Sie wächst aus schlammigem Wasser heraus, was ihre Fähigkeit repräsentiert, Schönheit aus Schwierigkeiten zu gewinnen.",
     },
-  ]);
+  ];
 
   return (
     <div>

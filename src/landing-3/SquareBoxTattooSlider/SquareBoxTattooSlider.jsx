@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import styles from "./partnertattoos.module.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import styles from "./style.module.css";
+
 
 export default function PartnerTattoos({
   mainTitle,
