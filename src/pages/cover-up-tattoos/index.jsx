@@ -13,7 +13,7 @@ import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 
 export default function CoverUpTattoos() {
   const router = useRouter();
-  const [trendingArtist, setArtist] = useState([
+  const trendingArtist = [
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/2584_97206FDC-D3C8-4308-84A2-2CC25B7A1369.jpg",
@@ -104,15 +104,11 @@ export default function CoverUpTattoos() {
 
       url: `${process.env.LIVE_URL}/artists/tobias-schneider_0w8pudg1`,
     },
-  ]);
+  ];
 
-  const [images, setImage] = useState([
-    { image: "/benet-1.png" },
-    { image: "/benet-2.png" },
-    { image: "/benet-3.png" },
-  ]);
 
-  const [list1, setList1] = useState([
+
+  const list1 =[
     {
       title: "Das Touch-up",
       content:
@@ -156,9 +152,9 @@ export default function CoverUpTattoos() {
       img: "/shield-check-1.svg",
       alt: "icons",
     },
-  ]);
+  ];
 
-  const [list2, setList2] = useState([
+  const list2 =[
     {
       title: "Farben und Hauptprozesse",
       content:
@@ -181,7 +177,7 @@ export default function CoverUpTattoos() {
       img: "/shield-check-1.svg",
       alt: "icons",
     },
-  ]);
+  ];
 
   return (
     <>
@@ -308,7 +304,7 @@ Unsere Tätowierer sind Experten auf ihrem Gebiet und können dir nicht nur mit 
           "
           button="Entdecke mehr Tätowierer"
           trendingArtist={trendingArtist}
-          btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=BerlinGermany`}
+          btnLink={`/${router.locale}/explore/tattoo-artists?location=BerlinGermany`}
         />
 
         <ListingGridThreeColumn mainTitle="" data={list2} bgColor={"#fff4c0"} />

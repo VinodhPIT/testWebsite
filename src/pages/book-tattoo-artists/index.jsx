@@ -12,7 +12,7 @@ export default function TattooIdeasForMen() {
   const currentPage = typeof window !== "undefined" ? window.location.href : "";
   const { router } = useNavigation();
 
-  const [trendingArtist, setTendingArtist] = useState([
+  const trendingArtist = [
     {
       artistImage:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/2795_4657C062-5776-43D0-AC8F-43BBEE5B850E.jpg",
@@ -92,7 +92,7 @@ export default function TattooIdeasForMen() {
       country: "United Kingdom",
       url: `${process.env.LIVE_URL}/artists/cinar-efe_acwe82ae`,
     },
-  ]);
+  ];
 
   return (
     <>
@@ -149,7 +149,7 @@ export default function TattooIdeasForMen() {
           content=" "
           button="Explore more artists"
           trendingArtist={trendingArtist}
-          btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=LondonUK`}
+          btnLink={`/${router.locale}/explore/tattoo-artists?location=LondonUK`}
         />
 
         <SideBySideContentWithImage

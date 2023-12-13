@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import styles from "./dragonslider.module.css";
+import styles from "./style.module.css";
 
 export default function RightAlignedImageContent({ title, description, bgColor, image }) {
   return (

@@ -1,138 +1,76 @@
-import React ,{useState} from "react";
+import React from "react";
 import Banner from "@/landing-3/Banner/Banner";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import SquareBoxTattooSlider from "@/landing-3/SquareBoxTattooSlider/SquareBoxTattooSlider";
 import DragonTattoo from "@/landing-3/dragonTattoo/dragonTattoo";
 import TattooDragonSlider from "@/landing-3/TattooDragonSlider/TattooDragonSlider";
 import LeftContentWithBackgroundImage from "@/landing-3/LeftContentWithBackgroundImage/LeftContentWithBackgroundImage";
-import TattooSlider from "@/landing-3/TattooSlider/TattooSlider";
+
 import VerticalImageLayout from "@/landing-3/VerticalImageLayout/VerticalImageLayout";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import Head from "next/head";
 import SplitText from "@/landing-3/SplitText&Image/SplitText";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
-import { useRouter } from 'next/router'
+
+
+
+import { useRouter } from "next/router";
 
 import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
-import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
-
-
 
 export default function DrachenTattoos() {
   const images = [
     { image: "/Drachen-tattoo-Idee.jpg" },
     { image: "/dragonslider2.png" },
     { image: "/dragonslider3.png" },
-   
-    
   ];
-  const router = useRouter()
+  const router = useRouter();
 
+  // const  tattooDesigns = [
+  //   { image: "/benet-1.png" },
+  //   { image: "/benet-2.png" },
+  //   { image: "/benet-3.png" }
+  //   ];
 
-
-  const  tattooDesigns = [
-    { image: "/benet-1.png" },
-    { image: "/benet-2.png" },
-    { image: "/benet-3.png" }
-    ];
-
-
-    const Discoverdiversity  = [
-      {
-        artistImage:
-          "https://storage.googleapis.com/hllincd-bucket/cache/96/f0/96f0e474c600b072dd779a8eac62b4f1.jpg",
-        image:
-          "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7779_20221101204102259-medium.jpg",
-        name: "Benet ar",
-  
-        city: "Birmingham",
-        country: "United Kingdom",
-        url: `${process.env.LIVE_URL}/tattoo/b121f441-0033-4295-baf4-f83b77fffce5`,
-      },
-
-      {
-        artistImage:
-          "https://storage.googleapis.com/hllincd-bucket/cache/ab/7f/ab7ffbd004bcb376f5857f456b662240.jpg",
-        image:
-          "/benet-2.png",
-        name: "Imanol Lara",
-  
-        city: "Barcelona" , 
-        country: "Spain",
-        url: `${process.env.LIVE_URL}/tattoo/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`,
-      },
-
-
-      {
-        artistImage:
-          "https://storage.googleapis.com/hllincd-bucket/cache/7a/99/7a990641320df3ee81fa6cfad9ee9757.jpg",
-        image:
-          "https://storage.googleapis.com/hllincd-bucket/cache/f5/bd/f5bde5da33e387a99f95baa91e01ff61.jpg",
-        name: "Raphael Stanley",
-  
-        city: "Zürich",
-        
-        country: "Switzerland",
-        url: `${process.env.LIVE_URL}/tattoo/f775f716-4f76-4335-a41a-0ec2b5b9596a`,
-      },
-
-
-
-
-    ]
-
-
-
-
-
-
-
-
-
-  const artistData = [
+  const Discoverdiversity = [
     {
       artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/2612_A384C201-0E3F-47A1-BC3E-D53C8F0730B2.jpg",
+        "https://storage.googleapis.com/hllincd-bucket/cache/96/f0/96f0e474c600b072dd779a8eac62b4f1.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/None_5F7922D5-EFD8-4BD9-988A-1B71AEF2BA33.jpg",
-      name: "Jack Quadri",
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7779_20221101204102259-medium.jpg",
+      name: "Benet ar",
 
-      city: "Bologna",
-      country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/jackquadri_lz7r97vb`
+      city: "Birmingham",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/tattoo/b121f441-0033-4295-baf4-f83b77fffce5`,
     },
+
     {
       artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/2612_A384C201-0E3F-47A1-BC3E-D53C8F0730B2.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/None_5F7922D5-EFD8-4BD9-988A-1B71AEF2BA33.jpg",
-      name: "Jack Quadri",
+        "https://storage.googleapis.com/hllincd-bucket/cache/ab/7f/ab7ffbd004bcb376f5857f456b662240.jpg",
+      image: "/benet-2.png",
+      name: "Imanol Lara",
 
-      city: "Bologna",
-      country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/jackquadri_lz7r97vb`
+      city: "Barcelona",
+      country: "Spain",
+      url: `${process.env.LIVE_URL}/tattoo/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`,
     },
-  
+
     {
       artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/2612_A384C201-0E3F-47A1-BC3E-D53C8F0730B2.jpg",
+        "https://storage.googleapis.com/hllincd-bucket/cache/7a/99/7a990641320df3ee81fa6cfad9ee9757.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/None_5F7922D5-EFD8-4BD9-988A-1B71AEF2BA33.jpg",
-      name: "Jack Quadri",
+        "https://storage.googleapis.com/hllincd-bucket/cache/f5/bd/f5bde5da33e387a99f95baa91e01ff61.jpg",
+      name: "Raphael Stanley",
 
-      city: "Bologna",
-      country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/jackquadri_lz7r97vb`
+      city: "Zürich",
+
+      country: "Switzerland",
+      url: `${process.env.LIVE_URL}/tattoo/f775f716-4f76-4335-a41a-0ec2b5b9596a`,
     },
-  
-  
-  
-  ]
+  ];
 
-
-
-
-  const [trendingArtist, setTendingArtist] = useState([
+  const trendingArtist = [
     {
       artistImage:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/2612_A384C201-0E3F-47A1-BC3E-D53C8F0730B2.jpg",
@@ -155,7 +93,6 @@ export default function DrachenTattoos() {
       url: `${process.env.LIVE_URL}/artists/pablo-ferrukt_znfil6iu`,
     },
 
-
     {
       artistImage:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/169_8D3FF033-04D9-4693-92F6-BDF7476CD193.jpg",
@@ -166,8 +103,6 @@ export default function DrachenTattoos() {
       country: "Germany",
       url: `${process.env.LIVE_URL}/artists/roots-n-wings_m5uw8u0h`,
     },
-
-
 
     {
       artistImage:
@@ -180,20 +115,7 @@ export default function DrachenTattoos() {
 
       url: `${process.env.LIVE_URL}/artists/jackquadri_lz7r97vb`,
     },
-
-
-
-
-  ]);
-
-
-
-
-    
-
-
-
-
+  ];
 
   return (
     <>
@@ -238,9 +160,6 @@ export default function DrachenTattoos() {
           content="Drachen Tattoos, Drachen-Tattoo, Tattoo Kunst, Tattoo Symbole, Drachen Symbolik, Tattoo Bedeutung, Tattoo Designs, Tattoo Vorlagen, Drachen Motive, Drachen-Tattoo Vielfalt, Körperkunst, Mystische Tattoos, Tattoo App, Tattoo Künstler, Drachen-Tattoo Tradition, Drachen Symbol, Asiatische Drachen, Europäische Drachen, Drachen-Tattoo Bedeutung, Tattoo Reise, Tattoo Studio, Tattoo Inspirationsseite, Tattoo Portfolio, Tattoo Bewertungen, Tattoo Community, Tattoo Pflege, Tattoo Trends, Tattoo Tipps"
         />
         <meta name="author" content="Your Name" />
-
-
-        
       </Head>
 
       <Banner
@@ -250,9 +169,7 @@ export default function DrachenTattoos() {
         position={"center top"}
       />
 
-
-
-<FullWidthSecwithIcon
+      <FullWidthSecwithIcon
         img="/studio.svg"
         alt="studio"
         title={""}
@@ -261,17 +178,12 @@ export default function DrachenTattoos() {
         bgColor="#f9fbfa"
       />
 
-
-
-
-
       <ContentImageLayout
         title={"Die Symbolik von Drachen Tattoos"}
         content="Drachen haben in vielen Kulturen eine reiche Symbolik. Asiatische Drachen bedeuten Glück und Weisheit, während westliche Drachen für Stärke und Abenteuer stehen. Jedes Drachen-Tattoo erzählt eine einzigartige Geschichte. Die mystische Aura, die Drachen umgibt, macht sie zu beliebten Motiven für Tätowierungen weltweit."
         img="/Drachen-Tattoo-Idee-1.png"
         alt="Die Symbolik von Drachen Tattoos"
-         bgColor="#fff"
-
+        bgColor="#fff"
       />
 
       <SquareBoxTattooSlider
@@ -280,13 +192,8 @@ export default function DrachenTattoos() {
           "Die Vielfalt der Drachen-Tattoo-Designs ist ebenso faszinierend wie die Geschichte, die sie erzählen. Von realistischen Darstellungen bis zu künstlerischen Interpretationen bieten Drachen Tattoos eine breite Palette kreativer Möglichkeiten. In unserer Galerie findest du Inspiration für dein eigenes, einzigartiges Tattoo."
         }
         data={Discoverdiversity}
-
-        bgColor={'#f9fbfa'}
-
-      
-
-        btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoos?keyword=dragon`}
-
+        bgColor={"#f9fbfa"}
+        btnLink={`/${router.locale}/explore/tattoos?keyword=dragon`}
       />
 
       <SplitText
@@ -304,11 +211,8 @@ export default function DrachenTattoos() {
         content3="Die Bedeutung eines Drachen-Tattoos reicht weit über die Oberfläche hinaus. Es symbolisiert nicht nur Stärke und Macht, sondern kann auch für Schutz, Weisheit oder persönliche Transformation stehen. Erforsche die Bedeutung von Drachen-Tattoos und finde heraus, welcher Teil deiner Geschichte passt.
         "
         image="/drachen-tattoo-idee-3.png"
-
         imageWidth="440"
-
         imageHeight="440"
-
       />
 
       <TattooDragonSlider
@@ -316,8 +220,6 @@ export default function DrachenTattoos() {
         content="Bist du auf der Suche nach dem idealen Design für dein Tattoo? Entdecke viele Tattoo-Ideen, um Ihren Tätowierer zu inspirieren und bei der Gestaltung zu helfen."
         data={images}
       />
-
-
 
       <LeftContentWithBackgroundImage
         title1="Warum ein Drachen-Tattoo?"
@@ -328,53 +230,21 @@ export default function DrachenTattoos() {
         content3="Jedes Drachen-Tattoo ist ein Unikat, gestaltet nach den Vorstellungen des Trägers und der Kreativität des Künstlers. Die einzigartigen Motive reichen von majestätisch fliegenden Drachen bis zu mythologischen Darstellungen, jede erzählt ihre eigene Geschichte."
         title4="Drachen Tattoos als Lebensweg"
         content4="Ein Drachen-Tattoo kann mehr sein als nur ein Kunstwerk auf der Haut. Viele Menschen wählen Drachen-Tattoos als einen Weg, ihre persönlichen Reisen und Erfolge zu symbolisieren. Die kraftvollen Drachen können als Schutzgeister oder symbolische Begleiter dienen."
+        bgImage="/Warum-ein-Drachen-Tattoo.png"
+        textColor="color_black"
       />
 
- 
+      <ThreeColumCarousel
+        title="Der Prozess der Drachen Tätowierung"
+        title_sub=""
+        content="Das Drachen-Tattoo ist eine Reise in die Kunst und Selbstausdruck. Unsere Plattform verbindet dich mit erfahrenen Künstlern, die die Technik beherrschen und die Bedeutung der Drachen-Tattoos verstehen."
+        button="Explore more artists"
+        trendingArtist={trendingArtist}
+        linkUrl={`/${router.locale}/explore/tattoo-artists?location=BerlinGermany`}
+      />
 
-
-
-
-
-
-
-
-
-
- <ThreeColumCarousel 
- 
- title="Der Prozess der Drachen Tätowierung"
- title_sub=""
- content="Das Drachen-Tattoo ist eine Reise in die Kunst und Selbstausdruck. Unsere Plattform verbindet dich mit erfahrenen Künstlern, die die Technik beherrschen und die Bedeutung der Drachen-Tattoos verstehen."
- button="Explore more artists"
- 
- 
- trendingArtist={trendingArtist}
- 
- linkUrl={`/${router.locale}/explore/tattoo-artists?location=BerlinGermany`}/>
-
-
-
-
-
-
-{/* 
+      {/* 
 <ThreeColumCarousel/> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <div className="pt_75 m_pt_25 ">
         <VerticalImageLayout
@@ -400,6 +270,8 @@ export default function DrachenTattoos() {
         />
       </div>
       <DownloadApps title="Download the" subTitle="App & Explore more!" />
+
+    
     </>
   );
 }

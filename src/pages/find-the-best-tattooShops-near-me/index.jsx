@@ -14,7 +14,7 @@ export default function TattooIdeasForMen() {
   const { router } = useNavigation();
   
 
-  const [trendingArtist, setTendingArtist] = useState([
+  const  trendingArtist = [
     {
       artistImage:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/546_A44FBBCA-2408-4072-B365-68679E3AECFB.jpg",
@@ -94,7 +94,7 @@ export default function TattooIdeasForMen() {
 
       url: `${process.env.LIVE_URL}/artists/meganrae_4dszyy98`,
     },
-  ]);
+  ];
 
   return (
     <>
@@ -181,7 +181,7 @@ export default function TattooIdeasForMen() {
           "
           button="Explore more artists"
           trendingArtist={trendingArtist}
-          btnLink={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoo-artists?location=UnitedKingdom`}
+          btnLink={`/${router.locale}/explore/tattoo-artists?location=UnitedKingdom`}
         />
 
         <LeftContentRightImage

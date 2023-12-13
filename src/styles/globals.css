@@ -802,7 +802,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_auto {
   width: auto !important;
 }
-
+.w_900 {
+  width: 900px !important;
+}
 .w_1090 {
   width: 1090px !important;
 }
@@ -3880,10 +3882,7 @@ li {
   display: none!important;
 }
 
-.bg_drachen_tattoo {
-  background: url("/Warum-ein-Drachen-Tattoo.png") no-repeat;
-  background-size: cover;
-}
+
 .bg_drachen_tattoo .img_text_box_inner {
   min-height: 104vh;
 }

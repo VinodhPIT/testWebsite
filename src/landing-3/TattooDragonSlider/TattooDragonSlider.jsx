@@ -19,14 +19,6 @@ export default function TattooDragonSlider ({title,content ,data}) {
     dots: true,
     };
 
-    const [images, setImage] = useState([
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    { image: "/Drachen-Tattoo-Vorlagen.png" },
-    ]);
-
 
 
 

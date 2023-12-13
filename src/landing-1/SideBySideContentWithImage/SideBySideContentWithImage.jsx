@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import styles from './tattoosexperience.module.css'
+import styles from './style.module.css'
 
 export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,title3 ,title4  ,content1 ,content2 ,content3 ,content4 ,leftSectionImage ,rightSecImage}) {
 
