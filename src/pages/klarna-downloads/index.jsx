@@ -69,20 +69,8 @@ function Klarnadownloads() {
         </div>
       </div>
     </section>
-
-
-
-
-
-
-
-
     <DownloadApps title="Download the" subTitle="App & Explore more!" />
-
-
     </div>
   )
 }
 export default Klarnadownloads
-
-

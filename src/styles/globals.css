@@ -5754,11 +5754,9 @@ margin-bottom: 11px;
   .pt_mid_90 {
     padding-top: 90px!important;
   }
-
 }
 
 @media screen and (max-width: 991.98px) {
-
   .imgResponsive{
     width: 100% ;
     height: auto;

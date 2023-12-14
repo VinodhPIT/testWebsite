@@ -216,7 +216,6 @@ export default function Headerdownloads({ logo, theme, isPosition ,imgWidth ,img
         </div>
       </header>
       {toggle === true ? <SideDrawer onCloseToggle={onCloseToggle} /> : null}
-
       <CountryPickerModel
         className="custom-modal"
         isOpen={isPopupOpen}

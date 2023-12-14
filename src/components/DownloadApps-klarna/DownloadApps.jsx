@@ -45,7 +45,7 @@ export default function DownloadApps ({title ,subTitle}) {
               <ul class="app_download_img_list justify_content_start slider_resize d_slid_resize mr_0 pl_0 landing_app_download">
                 <li>
                   <Image
-                    src="/landing-download-app-n.png"
+                    src="/landing-download-app-new.png"
                     width={408}
                     height={522}
                     alt="Download the App & Explore more!"
@@ -57,9 +57,9 @@ export default function DownloadApps ({title ,subTitle}) {
                 </li>
                 <li>
                   <Image
-                    src="/landing-download-app-n.png"
-                    width={387}
-                    height={516}
+                    src="/landing-download-app-new.png"
+                    width={408}
+                    height={522}
                     alt="Download the App & Explore more!"
                     priority
                     placeholder="blur"
@@ -69,9 +69,9 @@ export default function DownloadApps ({title ,subTitle}) {
                 </li>
                 <li>
                   <Image
-                    src="/landing-download-app-n.png"
-                    width={387}
-                    height={516}
+                    src="/landing-download-app-new.png"
+                    width={408}
+                    height={522}
                     alt="Download the App & Explore more!"
                     priority
                     placeholder="blur"
@@ -88,11 +88,11 @@ export default function DownloadApps ({title ,subTitle}) {
         <div className="img_box_wrap pb_0">
           {isMobileView ? (
             <ImageSlider
-              imagePaths={["/landing-download-app-n.png", "/landing-download-app-n.png", "/landing-download-app-n.png"]}
+              imagePaths={["/landing-download-app-new.png", "/landing-download-app-new.png", "/landing-download-app-new.png"]}
               imgAlt="Download the App & Explore more!"
               imgblurDataURL={blurDataURL}
-              imgWidth={387}
-              imgHeight={516}
+              imgWidth={408}
+              imgHeight={522}
             ></ImageSlider>
           ) : (
             ""
