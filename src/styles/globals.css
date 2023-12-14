@@ -915,6 +915,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .d_flex {
   display: flex !important;
 }
+.flex_auto {
+  flex: auto !important;
+}
+.d_inline_block{
+  display: inline-block !important;
+}
 
 .flex_direction_column {
   flex-direction: column !important;
@@ -1080,6 +1086,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .pl_40 {
   padding-left: 40px !important;
 }
+.pl_50 {
+  padding-left: 50px !important;
+}
+
 .pl_15 {
   padding-left: 15px !important;
 }
@@ -1154,6 +1164,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .pt_110 {
   padding-top: 110px!important;
+}
+
+.pt_150 {
+  padding-top: 150px!important;
 }
 
 .pt_pb_40 {
@@ -4727,6 +4741,10 @@ button.language_switcher img {
     padding-top: 55px !important;
   }
 
+  .m_pt_80 {
+    padding-top: 80px !important;
+  }
+
   .m_pb_15 {
     padding-bottom: 15px !important;
   }
@@ -5730,7 +5748,12 @@ margin-bottom: 11px;
   }
   .ready_embrace_download ul.ready_embrace_block {
     bottom: 30%;
-  }   
+  }
+
+  /* responsive */
+  .pt_mid_90 {
+    padding-top: 90px!important;
+  }
 
 }
 
