@@ -5415,18 +5415,18 @@ button.language_switcher img {
     line-height: 50px!important;
   }
 
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .img_text_box_inner .text_box_content {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .text_box_content {
     padding-top: 90px;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .text_box_content .download_app {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .text_box_content .download_app {
     padding-bottom: 25px!important;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .text_box_content .download_app .download_app_title h2 {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .text_box_content .download_app .download_app_title h2 {
     font-size: 50px;
     line-height: 50px;
     margin-bottom: 25px;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap > .img_box_wrap {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page > .img_box_wrap {
     padding-top: 25px;
     background: linear-gradient(0deg,#f8f8f8 20%,var(--orange-light-200) 17%);
   }
@@ -5626,25 +5626,25 @@ button.language_switcher img {
     max-width: 100%;
   } 
 
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .img_text_box_inner .text_box_content {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .text_box_content {
     min-height: 60vh;
     padding-top: 140px;
     width: 60%;
     padding-left: 14%;
     padding-right: 8%;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .text_box_content .download_app .download_app_title {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .text_box_content .download_app .download_app_title {
     margin-bottom: 0;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .text_box_content .download_app .download_app_title h2 {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .text_box_content .download_app .download_app_title h2 {
     font-size: 80px;
     line-height: 80px;
     margin-bottom: 45px;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .img_text_box_inner .text_box_content .text_box_content_inner {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .text_box_content .text_box_content_inner {
     max-width: 100%;
   }
-  .img_text_banner_box .text_box_wrap.app_download_box_wrap .img_text_box_inner .img_box_wrap {
+  .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .img_box_wrap {
     min-height: 60vh;
     padding-top: 115px;
     width: 40%;

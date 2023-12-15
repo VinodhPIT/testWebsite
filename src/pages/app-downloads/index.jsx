@@ -19,7 +19,7 @@ function Appdownloads() {
     <div>
       <section className="img_text_banner_box">
         <div className="col_full">       
-          <div className="text_box_wrap left app_download_box_wrap mb_0 dictionary_app">
+          <div className="text_box_wrap left app_download_box_wrap app_download_page mb_0 dictionary_app">
             <div className="img_text_box_inner">
               <div class="text_box_content justify_content_start">
                 <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
