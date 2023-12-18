@@ -1,9 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
-import DownloadApps from "@/components/DownloadApps-offer/DownloadApps";
-import style from "./style.module.css";
+
 import useTranslation from "next-translate/useTranslation";
-import ImageSwiper from "@/components/slider/ImageSwiper";
+
 import ImageSlider from "@/components/slider/ImageSlider";
 import useWindowResize from "@/hooks/useWindowSize";
 import {
@@ -11,7 +9,7 @@ import {
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-function Appdownloads() {
+function Appdownload() {
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
 
@@ -98,5 +96,5 @@ function Appdownloads() {
     </div>
   )
 }
-export default Appdownloads
+export default Appdownload
 

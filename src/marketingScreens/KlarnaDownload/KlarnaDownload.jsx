@@ -1,30 +1,34 @@
 import Link from "next/link";
-import DownloadApps from "@/components/DownloadApps-klarna/DownloadApps";
+import DownloadApps from "../DownloadApps-klarna/DownloadApps";
 import style from "./style.module.css";
-function Klarnadownloads() {
-    const listingItems =[
-        {
-          title: "Pay Later",
-          content:
-            "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
-        },
-        {
-          title: "Pay in 3",
-          content:
-            "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
-        },
-    
-        {
-          title: "Pay in 4",
-          content:
-            "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
-        },
-        {
-          title: "Financing",
-          content:
-            "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
-        },
-      ];
+import useTranslation from "next-translate/useTranslation";
+function Klarnadownload() {
+  const { t } = useTranslation();
+
+  const listingItems =[
+    {
+      title: t("common:KlarnaMarketing.title1"),
+      content:
+      t("common:KlarnaMarketing.content1"),
+    },
+    {
+      title:  t("common:KlarnaMarketing.title2"),
+      content:
+      t("common:KlarnaMarketing.content2"),
+    },
+
+    {
+      title: t("common:KlarnaMarketing.title3"),
+      content:
+      t("common:KlarnaMarketing.content3"),
+    },
+    {
+      title: t("common:KlarnaMarketing.title4"),
+      content:
+      t("common:KlarnaMarketing.content4"),
+    },
+  ];
+
   return (
 
     <div>
@@ -69,8 +73,13 @@ function Klarnadownloads() {
         </div>
       </div>
     </section>
-    <DownloadApps title="Download the" subTitle="App & Explore more!" />
+
+    <DownloadApps title="Download the" subTitle="App & Explore more!" bgColor="block_bg_pink"  />
+
+
+
+
     </div>
   )
 }
-export default Klarnadownloads
+export default Klarnadownload

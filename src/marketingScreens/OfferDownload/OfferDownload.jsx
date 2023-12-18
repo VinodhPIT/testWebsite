@@ -1,13 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import DownloadApps from "@/components/DownloadApps-offer/DownloadApps";
+import DownloadApps from "../DownloadApps-klarna/DownloadApps";
 import style from "./style.module.css";
 import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-function Offerdownloads() {
+import useTranslation from "next-translate/useTranslation";
+
+
+function Offerdownload({data}) {
+
+  const { t } = useTranslation();
   return (
     <div>
       <section className="img_text_banner_box">
@@ -18,15 +21,20 @@ function Offerdownloads() {
                 <div class="text_box_content justify_content_center">
                   <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="exciting_offer_block">
+                    {data == "" ? (
+                        <h3 className="color_gray_550"> Invalid Voucher</h3>
+                      ) : 
+                      <div>
                       <span className={`${"d_inline_block"} ${style.refer_earn_block}`}>
-                        <p>Refer and Earn</p>
+                      <p>{t("common:refer")}</p>
                       </span>
-                      <h3 className="color_gray_550">Get exciting offers</h3>
+                      <h3 className="color_gray_550"> {t("common:offers")}</h3>
                       <div className="exciting_offer_price">
-                        <h2 className="title_exciting_price">CHF 300</h2>
+                        <h2 className="title_exciting_price">CHF {data.amount}</h2>
                       </div>
-                      <p className="pt_0 pb_0 mb_0 mt_15">off on your next tattoo</p>
-                    </div>                            
+                      <p className="pt_0 pb_0 mb_0 mt_15">{t("common:nextTattoo")}</p>
+                    </div>  } 
+                    </div>                         
                   </div>
                 </div>
                 <div class="img_box_wrap">
@@ -44,11 +52,11 @@ function Offerdownloads() {
               </div>
             </div>
           </div>
-          <DownloadApps title="Download the" subTitle="App & Explore more!" />
+          <DownloadApps title="Download the" subTitle="App & Explore more!"  bgColor='block_bg_gray_150'/>
         </div>
       </section>
       
     </div>
   )
 }
-export default Offerdownloads
+export default Offerdownload

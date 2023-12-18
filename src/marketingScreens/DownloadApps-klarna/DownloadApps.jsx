@@ -6,15 +6,10 @@ import useWindowResize from "@/hooks/useWindowSize";
 import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constants";
 
 
-export default function DownloadApps ({title ,subTitle}) {
+export default function DownloadApps ({title ,subTitle ,bgColor}) {
   const { isMobileView } = useWindowResize();
   return (
-    <div class={
-        !isMobileView
-          ? "text_box_wrap right app_download_box_wrap mb_0 landing_app_download_wrap"
-          : "text_box_wrap right app_download_box_wrap mb_0 landing_app_download_wrap"
-        }
-      >
+    <div class={`text_box_wrap right app_download_box_wrap mb_0 block_bg_pink landing_app_download_wrap ${bgColor}`}>
         <div class="img_text_box_inner container"> 
           <div class="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc">
               <div class="text_box_content_inner m_pr_0">

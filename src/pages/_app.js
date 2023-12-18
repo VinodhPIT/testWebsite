@@ -2,7 +2,8 @@
 import {useEffect} from 'react'
 import { useRouter } from "next/router";
 import Header from "@/components/header/header";
-import Header1 from "@/components/header-downloads/header";
+import MarketngScreens from "@/marketingScreens/Header/header";
+import useWindowResize from "@/hooks/useWindowSize";
 import Footer from "@/components/footer/footer";
 import { GlobalStateProvider } from "@/context/Context";
 import { Figtree } from "next/font/google";
@@ -54,7 +55,7 @@ function MyApp({ Component, pageProps }) {
 
 
 
-
+  const { isMobileView } = useWindowResize();
 
 
 
@@ -136,19 +137,21 @@ function MyApp({ Component, pageProps }) {
             imgHeight="52"
           />
         );
-      case "/klarna-downloads":
-      case "/offer-downloads":
-      case "/app-downloads":
-       
-        return (
-          <Header1
-            logo={"/Inckd-logo-b.svg"}
-            theme={"white"}
-            isPosition={true}
-            imgWidth="109"
-            imgHeight="52"
-          />
-        );
+   
+        case "/download/[[...download]]":
+          return (
+            <MarketngScreens
+              logo={
+                isMobileView && router.query.type === "voucher"
+                  ? "/inckd-logo.svg"
+                  : "/Inckd-logo-b.svg"
+              }
+              theme={"white"}
+              isPosition={true}
+              imgWidth="109"
+              imgHeight="52"
+            />
+          );
       default:
         return null;
     }
