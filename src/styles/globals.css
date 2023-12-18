@@ -4133,14 +4133,53 @@ button.language_switcher img {
   right: 14px;
 }
  */
+.exciting_offer_wrap {
 
+}
 .singleCarosuelSection .slick-list {
   max-width: 100%;
   width: 480px;
   margin-right: 0px;
 }
 
-
+.exciting_offer_block {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.exciting_offer_block h3 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 90.5%;
+  letter-spacing: -1.44px;
+  margin: 16px 0 25px 0;
+  text-align: center;
+}
+.exciting_offer_block .exciting_offer_price {
+  position: relative;
+  width: 100%;
+  max-width: 466px;
+  display: flex;
+  text-align: center;
+}
+.exciting_offer_block .exciting_offer_price h2.title_exciting_price {
+  background: url("/exciting_offer_price.svg") no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  font-size: 75px!important;
+  font-weight: 700;
+  line-height: 60px;
+  display: flex;
+  min-height: 128px;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  margin: 0;
+  max-width: 466px;
+  width: 100%;
+}
 
 
 /* responsive */
@@ -5331,19 +5370,16 @@ button.language_switcher img {
   .default_form_block.contact_form_block .form_block_left {
     width: 100%;
   }
-
   .default_form_block.contact_form_block .form_right_wrap {
     max-height: inherit;
     padding: 25px 25px;
     margin-top: 25px;
   }
-
   .contact_form_block .form_block_left p {
     font-size: 16px;
     line-height: 25px;
     max-width: 100%;
   }
-
   .default_form_block.contact_form_block .form_submit_block {
     min-height: 43.5vh;
   }
@@ -5363,8 +5399,7 @@ button.language_switcher img {
     text-align: center;
     padding-left: 0;
     padding-right: 0;
-  }
-  
+  }  
   .custom_carousel_title {
     padding-left: 0;
     padding-right: 0;
@@ -5399,8 +5434,6 @@ button.language_switcher img {
     line-height: 24px;
     padding-left: 45px;
   }
-
-
   .ready_embrace_download ul.ready_embrace_block {
     bottom: 11%;
   }    
@@ -5413,49 +5446,25 @@ button.language_switcher img {
   .text_box_wrap .img_text_box_inner .img_box_wrap.ready_embrace_download {
     padding-bottom: 210px;
   }
-
   .bg_drachen_tattoo .img_text_box_inner {
     min-height: 84vh;
   }
-
   .bg_shape:before {
     width: 100%;
   }
   .bg_shape:after {
     width: 100%;
-  }
-
-  
+  }  
   .traditiondragon_list li.list_step_02 {
-   
     margin-top: 0px;
-   
-     margin-right: 0px; 
-}
-
-.traditiondragon_list li.list_step_03 {
- 
-  margin-top: 0px;
-
-}
-  
-  /* .traditiondragon_list li.list_step_01 {
-    width: auto;
-  } */
-  /* .traditiondragon_list li.list_step_02 {
-    margin-top: -40px;
-    width: auto;
-    margin-right: 0px;
-  } */
-  /* .traditiondragon_list li.list_step_03 {
-    width: auto;
-    margin-top: -40px;
-  } */
+    margin-right: 0px; 
+  }
+  .traditiondragon_list li.list_step_03 { 
+    margin-top: 0px;
+  }
   .traditiondragon_list li {
-margin-bottom: 11px;
-}
-
-
+    margin-bottom: 11px;
+  }
   .singleCarosuelSection  {   
     margin-top: 30px;
     margin-bottom: 50px;
@@ -5466,6 +5475,13 @@ margin-bottom: 11px;
     min-width: 290px;
     margin-right: 0px;
   }  
+  .exciting_offer_block h3 {
+    font-size: 38px;
+  }
+  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
+    font-size: 50px!important;
+    line-height: 50px!important;
+  }
     
 }
 
@@ -5749,11 +5765,16 @@ margin-bottom: 11px;
   .ready_embrace_download ul.ready_embrace_block {
     bottom: 30%;
   }
+  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
+    font-size: 55px!important;
+    line-height: 50px!important;
+  }
 
   /* responsive */
   .pt_mid_90 {
     padding-top: 90px!important;
   }
+
 }
 
 @media screen and (max-width: 991.98px) {
@@ -6079,6 +6100,10 @@ margin-bottom: 11px;
   }
   .available_list ul.custom-listing-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
+    font-size: 55px!important;
+    line-height: 50px!important;
   }
   
 }

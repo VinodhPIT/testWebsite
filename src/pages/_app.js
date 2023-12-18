@@ -137,6 +137,7 @@ function MyApp({ Component, pageProps }) {
           />
         );
       case "/klarna-downloads":
+      case "/offer-downloads":
        
         return (
           <Header1
