@@ -2,6 +2,7 @@
 import {useEffect} from 'react'
 import { useRouter } from "next/router";
 import Header from "@/components/header/header";
+import Header1 from "@/components/header-downloads/header";
 import Footer from "@/components/footer/footer";
 import { GlobalStateProvider } from "@/context/Context";
 import { Figtree } from "next/font/google";
@@ -135,11 +136,21 @@ function MyApp({ Component, pageProps }) {
             imgHeight="52"
           />
         );
+      case "/klarna-downloads":
+       
+        return (
+          <Header1
+            logo={"/Inckd-logo-b.svg"}
+            theme={"white"}
+            isPosition={true}
+            imgWidth="109"
+            imgHeight="52"
+          />
+        );
       default:
         return null;
     }
   }
-
   return (
    <>
 
