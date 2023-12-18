@@ -121,9 +121,7 @@ function MyApp({ Component, pageProps }) {
             imgHeight="52"
           />
         );
-      
 
-      case "/download/[[...download]]":
         return (
           <MarketngScreens
             logo={
