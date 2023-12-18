@@ -4092,8 +4092,12 @@ button.language_switcher img {
 }
 .switcherThemeBlack{border: 1px solid #fff;}
 .switcherThemeWhite{border: 1px solid #000}
+
+
 .switchTextBlack{color: #fff;}
 .switchTextWhite{color: #000;}
+
+
 
 .custom_slick_container .listing_gridItem .listing_grid_img_col {
   height:344px;
