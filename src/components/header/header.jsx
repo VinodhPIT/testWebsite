@@ -8,12 +8,16 @@ import useWindowResize from "@/hooks/useWindowSize";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 import { useModal } from "@/utils/modalUtils";
 
-
-export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight }) {
+export default function Header({
+  logo,
+  theme,
+  isPosition,
+  imgWidth,
+  imgHeight,
+}) {
   const router = useRouter();
 
-  const { getCountryIcon, getLanguage } = require('@/utils/localeFunctions');
-
+  const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
 
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
@@ -88,16 +92,22 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
       break;
   }
 
+  const getButtonClass = () => {
+    const isBlackTheme = theme === "black";
+    const isJournalPage = router.pathname === "/journal";
 
-  
+    if (isBlackTheme) {
+      return isJournalPage ? "bgBlack" : "bgWhite";
+    } else {
+      return "bgBlack";
+    }
+  };
+
+  const baseImageUrl =
+    theme === "white" ? "/blackHamburger.svg" : "/Hamburger Menu.png";
 
 
-  
-
-
-
-
-
+    
   return (
     <>
       {router.pathname === "/" && (
@@ -110,12 +120,16 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
               <span>{t("common:tattooNow")}</span>
               <span className="header_cookie_desktop">
                 {t("common:payLater")}
-                <Link href={`/${router.locale}/klarna`}>{t("common:learnmore")}</Link>
+                <Link href={`/${router.locale}/klarna`}>
+                  {t("common:learnmore")}
+                </Link>
               </span>
 
               {isMobileView && (
                 <span className="header_cookie_mob">
-                  <Link href={`/${router.locale}/klarna`}>{t("common:learnmore")}</Link>
+                  <Link href={`/${router.locale}/klarna`}>
+                    {t("common:learnmore")}
+                  </Link>
                 </span>
               )}
             </p>
@@ -145,13 +159,11 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
                     <li key={link.id} className="nav_item">
                       <Link
                         href={link.url}
-                        className={
-                          theme === "black"
-                            ? "textWhite"
-                            : theme === "normal"
-                            ? "textWhite"
-                            : "textBlack"
-                        }
+                        className={`text${
+                          theme === "black" || theme === "normal"
+                            ? "White"
+                            : "Black"
+                        }`}
                       >
                         {link.title}
                       </Link>
@@ -167,44 +179,39 @@ export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight })
                   onClick={() =>
                     router.push(`/${router.locale}/for-tattoo-artists`)
                   }
-                  className={`btn btn_tattoo_art ${
-                    theme === "black" && router.pathname === "/journal" ? "bgBlack" : theme === "black" ? "bgWhite" : "bgBlack"
-                }`}
+                  className={`btn btn_tattoo_art ${getButtonClass()}`}
                 >
                   {t("common:menus.forTattooArtists")}
                 </button>
-{router.pathname !==`/journal` &&
-                 
-                  <button   
-                    className={`language_switcher ${
-                      theme === "black" ? "switcherThemeBlack" :  theme === "normal" ? "switcherThemeBlack" :    "switcherThemeWhite"
-                  }`}                   
+
+                {router.pathname !== `/journal` && (
+                  <button
+                    className={`language_switcher switcherTheme${
+                      theme === "white" ? "White" : "Black"
+                    }`}
                     onClick={openPopup}
                   >
-                    <Image 
+                    <Image
                       src={getCountryIcon(router.locale)}
                       alt="countries"
                       width={32}
                       height={32}
                       priority
                     />
-                     <span   className={` ${
-                      theme === "black"
-                        ? "switchTextBlack"
-                        : theme === "normal"
-                        ? "switchTextBlack"
-                        : "switchTextWhite"
-                    }`}> {getLanguage(router.locale)}</span>
-                  </button>    }            
+                    <span
+                      className={`switchText${
+                        theme === "white" ? "White" : "Black"
+                      }`}
+                    >
+                      {getLanguage(router.locale)}
+                    </span>
+                  </button>
+                )}
 
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
-                  src={
-                    theme === "white"
-                      ? "/blackHamburger.svg"
-                      : "/Hamburger Menu.png"
-                  }
+                  src={baseImageUrl}
                   alt="hamburger"
                   width={32}
                   height={32}

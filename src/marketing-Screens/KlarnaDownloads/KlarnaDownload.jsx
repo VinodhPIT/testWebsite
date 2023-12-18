@@ -1,28 +1,35 @@
-import Link from "next/link";
-import DownloadApps from "@/components/DownloadApps-klarna/DownloadApps";
+import React, { useState, useEffect } from "react";
+import DownloadApps from "../DownloadApps-klarna/DownloadApps";
 import style from "./style.module.css";
+import useTranslation from "next-translate/useTranslation";
+
+
+
 function Klarnadownloads() {
+  const { t } = useTranslation();
+
+
     const listingItems =[
         {
-          title: "Pay Later",
+          title: t("common:KlarnaMarketing.title1"),
           content:
-            "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
+          t("common:KlarnaMarketing.content1"),
         },
         {
-          title: "Pay in 3",
+          title:  t("common:KlarnaMarketing.title2"),
           content:
-            "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
+          t("common:KlarnaMarketing.content2"),
         },
     
         {
-          title: "Pay in 4",
+          title: t("common:KlarnaMarketing.title3"),
           content:
-            "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
+          t("common:KlarnaMarketing.content3"),
         },
         {
-          title: "Financing",
+          title: t("common:KlarnaMarketing.title4"),
           content:
-            "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
+          t("common:KlarnaMarketing.content4"),
         },
       ];
   return (
@@ -42,7 +49,7 @@ function Klarnadownloads() {
                     src="/klarna.svg" alt="klarna"
                 />            
             </span>
-            <h3 className="color_gray_550 text_left heading_h2 pb_50 pt_35">You choose how you want to pay!</h3>
+            <h3 className="color_gray_550 text_left heading_h2 pb_50 pt_35">{t("common:KlarnaMarketing.heading")}</h3>
               <div className={style.listGrid}>
                 {listingItems.map((el, index) => {
                   return (
@@ -69,7 +76,7 @@ function Klarnadownloads() {
         </div>
       </div>
     </section>
-    <DownloadApps title="Download the" subTitle="App & Explore more!" />
+    <DownloadApps title="Download the" subTitle="App & Explore more!"   bgColor="block_bg_pink" />
     </div>
   )
 }
