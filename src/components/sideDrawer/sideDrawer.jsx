@@ -4,7 +4,7 @@ import  styles from './sideDrawer.module.css'
 import Image from 'next/image'
 import useTranslation from "next-translate/useTranslation";
 import{useNavigation} from '@/hooks/useRouter'
-import {useGlobalState} from '@/context/Context'
+
 
 
 export default function SideDrawer({onCloseToggle}) {
@@ -13,11 +13,6 @@ export default function SideDrawer({onCloseToggle}) {
 
 
 const {router} =useNavigation()
-
-  const {
-    state,
-   
-  } = useGlobalState();
 
 
 
@@ -68,7 +63,7 @@ const {router} =useNavigation()
 
   let linkComponent;
 
-  switch (state.locale) {
+  switch (router.locale) {
     case "uk-en":
     case "de-de":
       linkComponent = (

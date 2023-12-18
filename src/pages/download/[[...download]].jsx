@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigation } from "@/hooks/useRouter";
 import path from "path";
 import fs from "fs";
-import Klarnadownloads from "@/marketing-Screens/KlarnaDownloads/KlarnaDownload";
-import Offerdownloads from "@/marketing-Screens/OfferDownloads/OfferDownload";
-import AppDownload from "@/marketing-Screens/AppDownload/AppDownload";
-import Message from "@/marketing-Screens/Message/Message";
+import Klarnadownload from "@/marketingScreens/KlarnaDownload/KlarnaDownload";
+import Offerdownloads from "@/marketingScreens/OfferDownload/OfferDownload";
+import AppDownload from "@/marketingScreens/AppDownload/AppDownload";
+import Message from "@/marketingScreens/Message/Message";
 
 function Download({ data }) {
   const { router } = useNavigation();
@@ -15,10 +15,10 @@ function Download({ data }) {
   function getMarketingpage(type) {
     switch (type) {
       case "klarna":
-        return <Klarnadownloads />;
+        return <Klarnadownload />;
       case "general":
         return <AppDownload />;
-      case "voucher":
+      case "campaign":
         return <Offerdownloads data={data} />;
       default:
         return <Message />;
@@ -33,7 +33,7 @@ export default Download;
 export async function getServerSideProps(context) {
   const { query } = context;
   try {
-    if (query.type === "voucher" && query.influencer !== undefined) {
+    if (query.type === "campaign" && query.influencer !== undefined) {
       const filePath = path.join(process.cwd(), "src", "data", "voucher.json");
       const jsonData = fs.readFileSync(filePath, "utf-8");
       const data = JSON.parse(jsonData);
