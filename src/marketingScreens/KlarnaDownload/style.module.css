@@ -16,30 +16,14 @@
     grid-column-gap: 77px
 }
 @media (max-width: 768px) {
-    .listGrid{
-        
+    .listGrid{        
         grid-template-columns: repeat(1, 1fr);
         grid-column-gap:0px
     }
-
     .with_margin {
         margin-bottom: 30px;
     }
-
     .grid_mobileView{
         margin-bottom: 30px;
-     }
-
-  
-  }
-
-
-
-  @media (max-width: 500px) {
- 
-
-
-
-   
-
+    }  
 }
