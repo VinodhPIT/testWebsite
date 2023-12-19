@@ -69,7 +69,11 @@
   "enterLocation":"Enter Location",
   "loadMore":"LOAD MORE",
 
-
+  "Downloadinckd":"Download the inckd app to get a voucher of",
+  "Usecode":"Use code",
+  "Voucherends":"Voucher ends on",
+  "Joinus":"Join us with",
+  "Somethingwrong":"Oops! Something went wrong.Please check your download link and try again.",
 
 
   "tabs": {

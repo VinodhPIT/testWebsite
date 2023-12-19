@@ -127,3 +127,14 @@ export const artistGallery = async (uid) => {
     return [];
   }
 };
+
+
+export const referralCode = async (slug) => {
+  try {
+    const response = await getApiCall(`/customer/referral/${slug}`);
+
+    return response;
+  } catch (error) {
+    return [];
+  }
+};

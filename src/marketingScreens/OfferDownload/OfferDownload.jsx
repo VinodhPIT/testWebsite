@@ -11,6 +11,10 @@ import useTranslation from "next-translate/useTranslation";
 function Offerdownload({data}) {
 
   const { t } = useTranslation();
+  const moment = require('moment');
+
+
+
   return (
     <div>
       <section className="img_text_banner_box">
@@ -26,21 +30,21 @@ function Offerdownload({data}) {
                       ) : 
                       <div className="exciting_offer_wrap">
                       <span className={`${"d_inline_block"} ${style.refer_earn_block}`}>
-                        <p>Download the inckd app to get a voucher of </p>
+                        <p> {t("common:Downloadinckd")}</p>
                       </span>                      
                       <div className="exciting_offer_price">
                         <h2 className="title_exciting_price">CHF {data.amount}</h2>
                       </div>
                       <div className="exciting_offer_coupon">
-                        <span>Use code</span>
+                        <span>{t("common:Usecode")}</span>
                         <div className="exciting_offer_coupon_code">
-                          INCKDME
+                          {data.referral_code}
                         </div>
-                        <span className="exciting_offer_coupon_msg">Voucher ends on: 12-08-2023</span>
+                        <span className="exciting_offer_coupon_msg">{t("common:Voucherends")}: {moment(data.expiry).format('DD-MM-YYYY')}</span>
                       </div>
                       <div class="exciting_offer_social">
                         <ul>
-                          <li class="exciting_offer_social_title">Join us with</li>
+                          <li class="exciting_offer_social_title">{t("common:Joinus")}</li>
                           <li>
                             <a target="_blank" href="https://www.instagram.com/inckd_com/">
                               <img src="/insta-coupon.svg" alt="Instagram" />
