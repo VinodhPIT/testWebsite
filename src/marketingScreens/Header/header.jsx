@@ -51,7 +51,7 @@ export default function Header({
     case "klarna":
       bgColor = "#CECFD0";
       break;
-    case "voucher":
+    case "campaign":
       bgColor = "transparent";
       break;
     case "general":
@@ -121,7 +121,7 @@ export default function Header({
                     />
                     <span
                       className={` ${
-                        router.query.type === "voucher"
+                        router.query.type === "campaign"
                           ? "textWhite"
                           : "textBlack"
                       }`}
@@ -136,7 +136,7 @@ export default function Header({
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
                   src={
-                    router.query.type === "campaign"
+                    router.query.type === "campaign" || router.query.type === "klarna"
                       ? "/Hamburger Menu.png"
                       : "/blackHamburger.svg"
                   }

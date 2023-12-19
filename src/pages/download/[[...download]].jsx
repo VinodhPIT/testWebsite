@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigation } from "@/hooks/useRouter";
-import path from "path";
-import fs from "fs";
+
 import Klarnadownload from "@/marketingScreens/KlarnaDownload/KlarnaDownload";
 import Offerdownloads from "@/marketingScreens/OfferDownload/OfferDownload";
 import AppDownload from "@/marketingScreens/AppDownload/AppDownload";
 import Message from "@/marketingScreens/Message/Message";
+import { referralCode } from "@/action/action";
 
 function Download({ data }) {
   const { router } = useNavigation();
@@ -34,22 +34,23 @@ export async function getServerSideProps(context) {
   const { query } = context;
   try {
     if (query.type === "campaign" && query.influencer !== undefined) {
-      const filePath = path.join(process.cwd(), "src", "data", "voucher.json");
-      const jsonData = fs.readFileSync(filePath, "utf-8");
-      const data = JSON.parse(jsonData);
+      const results = await referralCode(query.influencer);
+      return {
+        props: {
+          data :results.data??''
+        },
+      };
+    } 
+else {
+  return {
+    props: {
+      data:''
+    },
+  };
 
-      return {
-        props: {
-          data,
-        },
-      };
-    } else {
-      return {
-        props: {
-          data: "",
-        },
-      };
-    }
+}
+
+
   } catch (error) {
     return {
       props: {

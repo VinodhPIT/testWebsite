@@ -809,6 +809,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   width: 1090px !important;
 }
 
+.h_63_vh{height: 63vh !important;} 
+
+
 .max_w_100pc {
   max-width: 100% !important;
 }

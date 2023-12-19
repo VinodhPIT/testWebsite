@@ -141,11 +141,14 @@ function MyApp({ Component, pageProps }) {
         case "/download/[[...download]]":
           return (
             <MarketngScreens
-              logo={
-                isMobileView && router.query.type === "voucher"
-                  ? "/inckd-logo.svg"
-                  : "/Inckd-logo-b.svg"
-              }
+            logo={
+             
+              isMobileView && (router.query.type === "campaign" || router.query.type === "klarna")
+                ? "/inckd-logo.svg"
+                : "/Inckd-logo-b.svg"
+            }
+
+
               theme={"white"}
               isPosition={true}
               imgWidth="109"

@@ -12,8 +12,8 @@ export default function UniquePartner({ img, alt, title, content, bgColor }) {
         <div className="img_text_box_wrapper">
           <div className={"text_box_wrap right pt_75 pb_75 m_pt_pb_50"}>
             <div className="img_text_box_inner container">
-              <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
-                <div className="text_box_content_inner max_w_100pc text_center">
+              <div className="text_box_content  w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
+                <div className="text_box_content_inner w_900 max_w_100pc  text_center">
                   <div className="icon">
                     <Image
                       priority
@@ -29,22 +29,13 @@ export default function UniquePartner({ img, alt, title, content, bgColor }) {
                   </div>
 
                   <div
-                    style={{
-                      width: "900px",
-                      margin: " 0 auto",
-                      "padding-bottom": "12px",
-                      "max-width": "100%",
-                    }}
+                    
                   >
-                    <h2 className="color_gray_550">{title}</h2>
+                    <h2 className="color_gray_550 mb_20">{title}</h2>
                   </div>
                   <p
                     className="custom_fs_20 lh_33 custom_fs_m_16 color_gray_550 mb_0 mt_10"
-                    style={{
-                      "max-width": "100%",
-                      width: "900px",
-                      "line-height": "32px!important",
-                    }}
+                    
                   >
                     {content}
                   </p>
