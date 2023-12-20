@@ -1,3 +1,6 @@
+
+
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import DownloadApps from "../DownloadApps-klarna/DownloadApps";
@@ -6,7 +9,7 @@ import {
   blurDataURL,
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
-
+import AppDownload from "@/marketingScreens/AppDownload/AppDownload";
 
 function Offerdownload({data}) {
 
@@ -15,8 +18,18 @@ function Offerdownload({data}) {
 
 
 
+
+
+
+
+
+
   return (
     <div>
+
+{data == "" ? (
+                        <AppDownload/>
+                      ) : 
       <section className="img_text_banner_box">
         <div className="col_full">
           <div className="img_text_box_wrapper exciting_offer_wrap">
@@ -24,10 +37,10 @@ function Offerdownload({data}) {
               <div class="img_text_box_inner m_switcher">
                 <div class="text_box_content justify_content_center m_pt_15 m_pb_15">
                   <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
+
+                    
                     <div className="exciting_offer_block">
-                    {data == "" ? (
-                        <h3 className="color_gray_550"> Invalid Voucher</h3>
-                      ) : 
+                 
                       <div className="exciting_offer_wrap">
                       <span className={`${"d_inline_block"} ${style.refer_earn_block}`}>
                         <p> {t("common:Downloadinckd")}</p>
@@ -59,7 +72,7 @@ function Offerdownload({data}) {
                           </li>
                         </ul>
                       </div>
-                    </div>  } 
+                    </div> 
                     </div>                         
                   </div>
                 </div>
@@ -92,8 +105,9 @@ function Offerdownload({data}) {
           </div>
           <DownloadApps title="Download the" subTitle="App & Explore more!"  bgColor='block_bg_white'/>
         </div>
+
       </section>
-      
+       } 
     </div>
   )
 }

@@ -21,7 +21,7 @@ function Download({ data }) {
       case "campaign":
         return <Offerdownloads data={data} />;
       default:
-        return <Message />;
+        return <AppDownload />;
     }
   }
 
