@@ -28,7 +28,7 @@ function Appdownload() {
                       </h2>
                     </li>
                     <li class="download_app_title">
-                      <h5>Download our app from</h5>
+                      <h5>Download the inckd. app now - It&apos;s free!</h5>
                     </li>
                     <li>
                       <Link href={APP_LINK_APPLE} target="_blank">
