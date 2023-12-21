@@ -11,7 +11,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
   return (
     <div class={`text_box_wrap right app_download_box_wrap mb_0 block_bg_pink landing_app_download_wrap ${bgColor}`}>
         <div class="img_text_box_inner container"> 
-          <div class="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc m_pl_15 m_pt_50">
+          <div class="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc m_pl_15 m_pt_25">
               <div class="text_box_content_inner m_pr_0">
                 <ul class="download_app max_w_100pc">
                   <li class="download_app_title m_mb_0">
