@@ -9,7 +9,7 @@ import { useModal } from "@/utils/modalUtils";
 import links from "@/constants/linkData";
 import generateLinkComponent from "@/utils/linkGenerator";
 import getButtonClass from "@/utils/getButtonClass"; 
-
+import useWindowResize from "@/hooks/useWindowSize";
 
 
 export default function Header({
@@ -20,6 +20,8 @@ export default function Header({
   imgHeight,
 }) {
   const router = useRouter();
+  const { isMobileView } = useWindowResize();
+
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
@@ -46,19 +48,23 @@ export default function Header({
   };
 
   let bgColor;
-
+let switchTheme
   switch (router.query.type) {
     case "klarna":
-      bgColor = "#CECFD0";
+      bgColor = "transparent";
+      switchTheme=  'switcherThemeBlack' 
       break;
     case "campaign":
       bgColor = "transparent";
+      switchTheme= 'switcherThemeBlack' 
       break;
     case "general":
-      bgColor = "rgba(16, 16, 16, 0.20)";
+      bgColor =isMobileView ?  "transparent" :  "rgba(16, 16, 16, 0.20)";
+      switchTheme=   isMobileView ? 'switcherThemeWhite'   :    'switcherThemeBlack' 
       break;
     default:
-      bgColor = "#CECFD0";
+      bgColor =isMobileView ?  "transparent" :  "rgba(16, 16, 16, 0.20)";
+      switchTheme=   isMobileView ? 'switcherThemeWhite'   :    'switcherThemeBlack' 
       break;
   }
 
@@ -106,9 +112,9 @@ export default function Header({
                 >
                   {t("common:menus.forTattooArtists")}
                 </button>
-                {router.pathname !== `/journal` && (
+                 {router.pathname !== `/journal` &&  (
                   <button
-                    className="language_switcher switcherThemeBlack"
+                    className={`language_switcher ${switchTheme}`}
                     onClick={openPopup}
                     style={{ backgroundColor: bgColor }}
                   >
@@ -121,7 +127,7 @@ export default function Header({
                     />
                     <span
                       className={` ${
-                        router.query.type === "campaign"
+                        router.query.type === "campaign" ||  router.query.type === "klarna"
                           ? "textWhite"
                           : "textBlack"
                       }`}
@@ -131,6 +137,15 @@ export default function Header({
                     </span>
                   </button>
                 )}
+
+
+
+
+
+
+
+
+                
 
                 <Image
                   className="nav_btn_toggle"

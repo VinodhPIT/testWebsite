@@ -57,8 +57,8 @@ function Klarnadownload() {
                         <ul class="download_app ml_0 w_100pc max_w_100pc mt_25 text_left d_inline_block">                         
                           <li class="download_app_title">
                             <h5>
-                              <span>Download inckd app 
-                                <span class="textBlock">to explore the klarna features </span>
+                              <span>{"Download the inckd.app"} 
+                                <span class="textBlock">{"now - It's free! "} </span>
                               </span>
                             </h5>
                           </li>
@@ -77,7 +77,7 @@ function Klarnadownload() {
                     </div>                         
                   </div>
                 </div>
-                <div class="img_box_wrap custom_download_shadow m_min_220">
+                <div class="img_box_wrap custom_download_shadow">
                   <Image
                     priority
                     src="/rock-staar-ccHVqD5P-8g-unsplash 1-n.png"

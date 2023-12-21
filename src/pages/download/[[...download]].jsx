@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigation } from "@/hooks/useRouter";
-
 import Klarnadownload from "@/marketingScreens/KlarnaDownload/KlarnaDownload";
 import Offerdownloads from "@/marketingScreens/OfferDownload/OfferDownload";
 import AppDownload from "@/marketingScreens/AppDownload/AppDownload";
-import Message from "@/marketingScreens/Message/Message";
 import { referralCode } from "@/action/action";
 
-function Download({ data }) {
+function Download({ data, noData }) {
   const { router } = useNavigation();
 
-  const { type, ...otherParams } = router.query;
+  const { type, influencer, ...otherParams } = router.query;
+
+  useEffect(() => {
+    if (noData === true) {
+      router.replace(`/${router.locale}/download?type=general`);
+    }
+  }, [noData, router]);
 
   function getMarketingpage(type) {
     switch (type) {
@@ -20,6 +24,7 @@ function Download({ data }) {
         return <AppDownload />;
       case "campaign":
         return <Offerdownloads data={data} />;
+
       default:
         return <AppDownload />;
     }
@@ -37,20 +42,17 @@ export async function getServerSideProps(context) {
       const results = await referralCode(query.influencer);
       return {
         props: {
-          data :results.data??''
+          data: results.data ?? "",
+          noData: results.data ?? true,
         },
       };
-    } 
-else {
-  return {
-    props: {
-      data:''
-    },
-  };
-
-}
-
-
+    } else {
+      return {
+        props: {
+          data: "",
+        },
+      };
+    }
   } catch (error) {
     return {
       props: {
