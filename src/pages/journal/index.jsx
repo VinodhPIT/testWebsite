@@ -70,10 +70,7 @@ export default function ListingPage({ data, locale }) {
             </div>
             <div className={`${""} ${styles.banner_content}`}>
               <div className={styles.banner_caption}>
-                <h1>
-                  <span className="m_dis_inline">Discover Unforgettable </span>
-                  <span className="textBlock m_dis_inline">Partner Tattoos with inckd</span>
-                </h1>                
+                <h1>inckd.Tattoo Journal: Latest Tattoo Trends, Tips, and Techniques</h1>                
               </div>
             </div>
           </div>
