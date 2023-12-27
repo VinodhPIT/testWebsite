@@ -1,4 +1,10 @@
-import React, { createContext, useReducer, useContext, useState ,useEffect } from "react";
+import React, {
+  createContext,
+  useReducer,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
@@ -147,29 +153,28 @@ export const GlobalStateProvider = ({ children }) => {
     localStorage.setItem("searchQuery", JSON.stringify(searchState.query));
   }, [searchState.query]);
 
-
-
   const clearStyleId = async () => {
     dispatch({ type: "CLEARSTYLE_ID", payload: "" });
   };
 
-  
-
-  const onSearch = async (router) => {
-    await getUrl(
-      state.currentTab,
-      state.searchKey,
-      selectedIds.length === 0 ? "" : selectedIds,
-      state.location,
-      router
-    );
+  const onSearch = async (
+    currentTab,
+    searchKey,
+    selectedIds,
+    location,
+    router
+  ) => {
+    await getUrl(currentTab,
+      searchKey,
+      selectedIds,
+      location,
+      router);
 
     dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
   };
 
 
 
-  
   const getAddress = async (payload) => {
     try {
       dispatch({ type: "GET_ADDRESS", payload: payload });
@@ -234,7 +239,10 @@ export const GlobalStateProvider = ({ children }) => {
         selectedIds,
         setSelectedIds,
         onSearch,
-        clearStyleId,setSearchState ,searchState
+        clearStyleId,
+        setSearchState,
+        searchState,
+        
       }}
     >
       {children}

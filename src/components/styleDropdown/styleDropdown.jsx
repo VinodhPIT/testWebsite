@@ -28,7 +28,13 @@ export default function StyleDropdown({
   };
 
   const onSearchStyle = async () => {
-    await onSearch(router);
+    await onSearch(
+      state.currentTab,
+      state.searchKey,
+      selectedIds,
+      state.location,
+      router
+    );
     onToggle();
   };
 
@@ -66,13 +72,14 @@ export default function StyleDropdown({
       </div>
       <div className={styles.custom_dropdown_btn}>
         <button
-          disabled={selectedIds.length === 0}
+         
           onClick={() => clearAll()}
           className="btn_outline_secondary w_100pc"
         >
           Clear All
         </button>
         <button
+          disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
           className="btn_secondary w_100pc"
         >
