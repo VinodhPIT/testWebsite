@@ -14,21 +14,23 @@ import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { useRouter } from "next/router";
-import {TattooSearchModal} from "@/utils/modalUtils";
+import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
 
-
-
 export default function Detail({ data, status, locale }) {
-
-
-
   const router = useRouter();
-  const { state, getLocale, styleCollection ,setSelectedIds  , clearStyleId} = useGlobalState();
+  const {
+    state,
+    getLocale,
+    styleCollection,
+    setSelectedIds,
+    clearStyleId,
+    onSearch,
+  } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
@@ -38,13 +40,8 @@ export default function Detail({ data, status, locale }) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
-
-  
-
   useEffect(() => {
     styleCollection();
-    // setSelectedIds([])
-    // clearStyleId()
 
     try {
       getLocale({
@@ -89,11 +86,24 @@ export default function Detail({ data, status, locale }) {
     setCurrentBigImage(image);
   };
 
+  const chooseStyle = async (slug) => {
+    let updatedIds;
+    await setSelectedIds((prevIds) => {
+      updatedIds = prevIds.includes(slug)
+        ? prevIds.filter((id) => id === slug)
+        : [...prevIds, slug];
 
+      return updatedIds;
+    });
+    await onSearch(
+      "flash",
+      state.searchKey,
+      updatedIds,
+      state.location,
+      router
+    );
+  };
 
-
-
-  
   return (
     <>
       <Head>
@@ -135,7 +145,7 @@ export default function Detail({ data, status, locale }) {
             </div>
 
             <div className={styles.product_detail_wrap}>
-              <div className={styles.back_arrow} >
+              <div className={styles.back_arrow}>
                 <Image
                   src={"/back-arrow.svg"}
                   alt="backArrow"
@@ -147,9 +157,9 @@ export default function Detail({ data, status, locale }) {
                 />
               </div>
 
-              <div className={styles.product_media} >
+              <div className={styles.product_media}>
                 {loading ? (
-                  <Loader/>
+                  <Loader />
                 ) : (
                   <Image
                     alt={data.style.name}
@@ -222,15 +232,9 @@ export default function Detail({ data, status, locale }) {
                       {getStyle.map((e) => {
                         return (
                           <li key={e.id}>
-                            {" "}
-                            <Link
-                              href={`/${locale}/explore/flash-tattoos?style=${
-                                e.slug
-                              }`}
-                            >
-                              {" "}
-                              {e.name}{" "}
-                            </Link>
+                            <button onClick={() => chooseStyle(e.slug)}>
+                              {e.name}
+                            </button>
                           </li>
                         );
                       })}
@@ -341,7 +345,6 @@ export default function Detail({ data, status, locale }) {
                       blurDataURL={blurDataURL}
                       loading="lazy"
                       quality={62}
-                     
                     />
                   </Link>
                 ))}

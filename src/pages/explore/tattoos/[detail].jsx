@@ -20,6 +20,8 @@ import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
+import { getURL } from "next/dist/shared/lib/utils";
+import { getUrl } from "@/utils/getUrl";
 
 export default function Detail({ data, status, locale }) {
 
@@ -28,7 +30,7 @@ export default function Detail({ data, status, locale }) {
   
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
-  const { getLocale, styleCollection  ,setSelectedIds ,clearStyleId} = useGlobalState();
+  const { state,getLocale, styleCollection  ,setSelectedIds ,clearStyleId , selectedIds, onSearch} = useGlobalState();
 
   const { t } = useTranslation();
 
@@ -37,7 +39,6 @@ export default function Detail({ data, status, locale }) {
   const [getStyle, setStyle] = useState([]);
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
-
 
 
   useEffect(() => {
@@ -87,6 +88,26 @@ export default function Detail({ data, status, locale }) {
     setCurrentBigImage(image);
     setLoading(false);
   };
+
+
+
+  
+  
+  const chooseStyle = async (slug) => {
+     let updatedIds;
+     await setSelectedIds((prevIds) => {
+       updatedIds = prevIds.includes(slug)
+         ? prevIds.filter((id) => id === slug)
+         : [...prevIds, slug];
+   
+       return updatedIds;
+     });
+     await onSearch('tattoo', state.searchKey, updatedIds, state.location, router);
+   };
+
+
+
+
 
   return (
     <>
@@ -223,15 +244,13 @@ export default function Detail({ data, status, locale }) {
                       {getStyle.map((e) => {
                         return (
                           <li key={e.id}>
-                            {" "}
-                            <Link
-                              href={`/${locale}/explore/tattoos?style=${
-                                e.slug
-                              }`}
+                           
+                            <button onClick={()=>chooseStyle(e.slug )}
+                             
                             >
-                              {" "}
-                              {e.name}{" "}
-                            </Link>{" "}
+                             
+                              {e.name}
+                            </button>
                           </li>
                         );
                       })}
