@@ -72,7 +72,7 @@ export default function StyleDropdown({
       </div>
       <div className={styles.custom_dropdown_btn}>
         <button
-         
+          disabled={state.selectedStyle === "" ? true : false}
           onClick={() => clearAll()}
           className="btn_outline_secondary w_100pc"
         >
