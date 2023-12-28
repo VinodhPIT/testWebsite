@@ -56,7 +56,7 @@ const { t } = useTranslation();
            
           
             fetch(
-              `https://apiadmin.inckd.com/api/profile/artist/verification/request`,
+              `${process.env.apiDomain}/profile/artist/verification/request`,
               {
                 method: "POST",
                 headers: {
