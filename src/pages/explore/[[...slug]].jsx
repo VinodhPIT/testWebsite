@@ -291,7 +291,7 @@ export async function getServerSideProps(context) {
           pageNo: 0,
           totalItems: results.totalCount,
           searchKey: query.keyword ?? "",
-          selectedStyle: style,
+          selectedStyle: query.style ?? "",
           lat: placeDetails.latitude,
           lon: placeDetails.longitude,
           locale: context.locale,
