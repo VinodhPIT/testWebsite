@@ -48,7 +48,7 @@ function Klarnadownload() {
                       <span className={`${"d_inline_block"} ${style.btn_klarna}`}>
                         <img src="/klarna.svg" alt="klarna"/>            
                       </span>
-                      <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs50 mt_25">                        
+                      <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_25">                        
                         <span>Big Ink. 
                           <span class="textBlock">Tiny Payments.</span>
                         </span>

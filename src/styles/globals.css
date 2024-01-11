@@ -5019,9 +5019,17 @@ button.language_switcher img {
   }
 
   .txt_mob_fs50 {
-    font-size: 50px !important;
-    line-height: 50px !important;
-    letter-spacing: -2px !important;
+    font-size: 50px!important
+  }
+
+  .txt_mob_fs45,
+  .txt_mob_fs50 {
+    line-height: 50px!important;
+    letter-spacing: -2px!important
+  }
+
+  .txt_mob_fs45 {
+    font-size: 45px!important
   }
 
   .custom_fs_m_40 {
@@ -5574,8 +5582,8 @@ button.language_switcher img {
     padding-bottom: 25px!important;
   }
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .text_box_content .download_app .download_app_title h2 {
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 38px;
+    line-height: 45px;
     margin-bottom: 25px;
   }
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page > .img_box_wrap {

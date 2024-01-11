@@ -106,7 +106,7 @@ const {router} =useNavigation()
           </li>
         ))}
 
-        <li><Link href={'/journal'}onClick={()=>onCloseToggle()}>{linkComponent}</Link></li>
+        {/* <li><Link href={'/journal'}onClick={()=>onCloseToggle()}>{linkComponent}</Link></li> */}
 
 
 
