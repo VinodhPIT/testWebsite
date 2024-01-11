@@ -1,16 +1,30 @@
 
 
 function getCountryIcon(locale) {
-    let countrySplit = locale.split('-')[0];
+    let countrySplit = locale.split("-")[0];
     switch (countrySplit) {
-        case "ch":
-            return "/switzerland.svg";
-        case "de":
-            return "/germany.svg";
-        case "uk":
-            return "/united-kingdom.svg";
-        default:
-            return '/switzerland.svg';
+      case "ch":
+        return "/switzerland.svg";
+      case "de":
+        return "/germany.svg";
+      case "uk":
+        return "/united-kingdom.svg";
+   
+      case "pl":
+        return "/poland.svg";
+      case "sw":
+        return "/sweden.svg";
+      case "ro":
+        return "/romania.svg";
+   
+      case "cz":
+        return "/czech republic.svg";
+   
+      case "hu":
+        return "/hungary.svg";
+   
+      default:
+        return "/switzerland.svg";
     }
 }
 

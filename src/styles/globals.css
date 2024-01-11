@@ -4242,6 +4242,11 @@ button.language_switcher img {
 .exciting_offer_download ul.download_app li a img {
   max-width: 100%;
 }
+.custom_download_icons {
+  width: auto;
+  height: auto;
+  max-width: 100%
+}
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
@@ -5019,9 +5024,17 @@ button.language_switcher img {
   }
 
   .txt_mob_fs50 {
-    font-size: 50px !important;
-    line-height: 50px !important;
-    letter-spacing: -2px !important;
+    font-size: 50px!important
+  }
+
+  .txt_mob_fs45,
+  .txt_mob_fs50 {
+    line-height: 50px!important;
+    letter-spacing: -2px!important
+  }
+
+  .txt_mob_fs45 {
+    font-size: 45px!important
   }
 
   .custom_fs_m_40 {
@@ -5561,10 +5574,12 @@ button.language_switcher img {
   }
   .exciting_offer_block .exciting_offer_price  {  
     max-width: 100%;
+    text-align: left;
   }
   .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
     font-size: 50px!important;
     line-height: 50px!important;
+    justify-content: left;
   }
 
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .text_box_content {
@@ -5574,8 +5589,8 @@ button.language_switcher img {
     padding-bottom: 25px!important;
   }
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .text_box_content .download_app .download_app_title h2 {
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 38px;
+    line-height: 45px;
     margin-bottom: 25px;
   }
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page > .img_box_wrap {
@@ -5593,8 +5608,13 @@ button.language_switcher img {
   .exciting_offer_block .exciting_offer_wrap {
     padding: 10px 10px;
     gap: 15px;
+    align-items: flex-start;
+  }
+  .exciting_offer_block .exciting_offer_wrap p {
+    text-align: left
   }  
   .exciting_offer_coupon {
+    align-items: flex-start;
     width: 100%;
   }
   .exciting_offer_coupon > span {
@@ -5613,6 +5633,13 @@ button.language_switcher img {
     font-weight: 400;
     line-height: 150%;
   } 
+  .exciting_offer_download h5 {
+    text-align: left;
+  }
+  .exciting_offer_download ul.download_app {
+    max-width: 100%;
+    margin: 0;
+  }
   .img_text_box_wrapper.exciting_offer_wrap .img_box_wrap.custom_download_shadow {
     min-height: 220px;
     max-height: 220px;
@@ -6377,6 +6404,9 @@ button.language_switcher img {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
+  header .nav_block {
+    display:none
+  }
   .text_box_wrap .img_text_box_inner .text_box_content h2 {
     font-size: 50px;
     line-height: 55px;

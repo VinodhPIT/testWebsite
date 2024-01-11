@@ -68,13 +68,31 @@ function Offerdownload({data}) {
                           </h5>
                           <ul class="download_app w_100pc mt_0">
                             <li>
-                              <Link href={APP_LINK_APPLE} target="_blank">
-                                <img src="/app-store-new.svg" alt="" />
+                              <Link href={APP_LINK_APPLE} target="_blank">                              
+                                <Image
+                                  priority
+                                  src="/app-store-new.svg"
+                                  alt="App store"
+                                  width={134}
+                                  height={41}
+                                  placeholder="blur"
+                                  blurDataURL={blurDataURL}
+                                  className="custom_download_icons"
+                                />
                               </Link>
                             </li>
                             <li>
                               <Link href={APP_LINK_GOOGLE} target="_blank">
-                                <img src="/g-play-new.svg" alt="" />
+                                <Image
+                                  priority
+                                  src="/g-play-new.svg"
+                                  alt="Play store"
+                                  width={134}
+                                  height={41}
+                                  placeholder="blur"
+                                  blurDataURL={blurDataURL}
+                                  className="custom_download_icons"
+                                />
                               </Link>
                             </li>
                           </ul>

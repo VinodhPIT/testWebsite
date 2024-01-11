@@ -109,7 +109,7 @@ export default function Header({
                       </Link>
                     </li>
                   ))}
-                  <li>{linkComponent}</li>
+                  {/* <li>{linkComponent}</li> */}
                 </ul>
               </div>
 
