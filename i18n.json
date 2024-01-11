@@ -1,10 +1,9 @@
 {
-    "locales": ["ch-en","ch-de","ch-it","de-de","de-en","uk-en" ],
-    "defaultLocale": "ch-en",
-    "pages": {
-      "*": ["common"],
-      "/": ["home"],
-      "/about": ["about"]
-    }
+  "locales": ["ch-en","de-de","de-en","uk-en" ,"sw-en","pl-en" ,"ro-en","cz-en" ,"hu-en" ],
+  "defaultLocale": "ch-en",
+  "pages": {
+    "*": ["common"],
+    "/": ["home"],
+    "/about": ["about"]
   }
-  
+}
