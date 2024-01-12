@@ -34,7 +34,7 @@ function Offerdownload({data}) {
                           <p> {t("common:Downloadinckd")}</p>
                         </span>                      
                         <div className="exciting_offer_price">
-                          <h2 className="title_exciting_price">CHF {data.amount}</h2>
+                          <h2 className="title_exciting_price">EUR {data.amount}</h2>
                         </div>
                         <div className="exciting_offer_coupon">
                           <span>{t("common:Usecode")}</span>
@@ -60,6 +60,7 @@ function Offerdownload({data}) {
                             </li>
                           </ul>
                         </div> */}
+                        
                         <div class="text_box_content_inner w_100pc exciting_offer_download">
                           <h5>
                             <span>Enter this code during signup and receive 
