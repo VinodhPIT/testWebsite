@@ -1,13 +1,16 @@
 import React from "react";
-import styles from "@/pages/tattoo/tattoodetail.module.css";
+import styles from "@/pages/explore/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import style from "@/components/styles/listing.module.css";
 import NoData from './noData'
+import{useNavigation} from '@/hooks/useRouter'
+
 
 const Flash = ({ data }) => {
- 
+  const {router}=useNavigation()
+  
   return (
     <div className={styles.galleryWrapper} >
       {data.length == 0 ? <div className={style.blockCenter}>   <NoData/>  </div>:
@@ -15,7 +18,7 @@ const Flash = ({ data }) => {
         <div className={styles.grid_wrapper_tattoo}>
           {data.map((item) => (
             <Link
-              href={`/flash/${item.tattoo_uid}`}
+              href={`/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`}
               className={styles.listing_gridItem}
               key={item.tattoo_uid}
             >

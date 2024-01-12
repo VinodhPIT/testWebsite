@@ -9,15 +9,19 @@ import ArtistAdd from "../adds/artistAdd";
 import KlarnaAdd from "../adds/klarnaAdd";
 import Offer from "../adds/offer";
 import Link from "next/link";
+import { useNavigation } from '@/hooks/useRouter';
+
 
 export default function Flash({ data }) {
   const { state } = useGlobalState();
+
+  const { router } = useNavigation();
 
   return (
     <div className={styles.pageContainer}>
     {data.length === 0 ? (
         <div className={styles.blockCenter}>
-          <NoData category={"flash"} />
+          <NoData category={"flash-tattoos"} />
         </div>
       ) : (
         <div className={styles.grid_wrapper_tattoo}>
@@ -33,7 +37,7 @@ export default function Flash({ data }) {
               )
             ) : (
               <Link
-                href={`/flash/${item._source.tattoo_uid}`}
+                href={`/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`}
                 className={styles.listing_gridItem}
                 key={key}
               >
@@ -50,13 +54,24 @@ export default function Flash({ data }) {
                 
                 />
 
-                {item._source.min_price && (
-                  <div className={styles.priceBox}>
-                    <p style={{ margin: "0" }}>
-                      {item._source.min_price} {item._source.currency.code}
-                    </p>
-                  </div>
-                )}
+{item._source.min_price !== undefined && item._source.max_price !== undefined ? (
+  <div className={styles.priceBox}>
+    <p style={{ margin: "0" }}>
+    {item._source.currency.code} {item._source.min_price} - {item._source.max_price}
+    </p>
+  </div>
+) : item._source.min_price !== undefined ? (
+  <div className={styles.priceBox}>
+    <p style={{ margin: "0" }}>
+      {item._source.currency.code} {item._source.min_price}
+    </p>
+  </div>
+) : null}
+
+
+
+
+
               </Link>
             );
           })}

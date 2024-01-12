@@ -1,24 +1,43 @@
-
-
-export const getUrl = (term, catgy, style, lat, lon, router) => {
+export const getUrl = (catgy, term, style, address, router) => {
   return new Promise((resolve, reject) => {
-    let url = `/search?term=${term}&category=${catgy}`;
+    const categoryMapping = {
+      tattoo: "tattoos",
+      flash: "flash-tattoos",
+      artist: "tattoo-artists",
+      all: "all",
+    };
+    const category = categoryMapping[catgy] || null;
 
-    if (style !== "") {
-      url += `&style=${style}`;
+    let url = `/${router.locale}/explore/${category}/`;
+
+    const queryParams = {};
+
+    if (term) {
+      queryParams.keyword = term;
     }
 
-    if (catgy === "artist" && lat !== "") {
-      url += `&lon=${lon}&lat=${lat}`;
+    if (style) {
+      queryParams.style = style;
     }
 
-    router.push(url)
+    if (category === "tattoo-artists" && address !== "") {
+      queryParams.location = address;
+    }
+    const queryString = Object.keys(queryParams)
+      .map((key) => `${key}=${encodeURIComponent(queryParams[key])}`)
+      .join("&");
+
+    if (queryString) {
+      url += `?${queryString}`;
+    }
+
+    router
+      .push(url)
       .then(() => {
-        resolve('Navigation succeeded');
+        resolve("Navigation succeeded");
       })
-      .catch(err => {
+      .catch((err) => {
         reject(err);
       });
   });
 };
-

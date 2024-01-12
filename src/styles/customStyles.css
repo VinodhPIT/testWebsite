@@ -64,6 +64,13 @@
   .full-block-wrap .img_text_box_inner .text_box_content_inner h3 {
     font-size: 50px;
     line-height: 50px;
-  } 
+  }
+
+  .heading_h2 {
+    font-size: 55px!important;
+    line-height: 60px!important;
+  }
+
+
 
 }

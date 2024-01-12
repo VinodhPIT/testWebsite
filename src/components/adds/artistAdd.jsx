@@ -2,12 +2,13 @@ import React from 'react'
 import styles from "@/components/styles/listing.module.css";
 import Link from 'next/link'
 import useTranslation from "next-translate/useTranslation";
-
+import {useNavigation} from '@/hooks/useRouter'
 
 
 
 export default function ArtistAdd() {
   const { t } = useTranslation();
+  const {router}=useNavigation()
 
   return (
     <div className={styles.custom_adv_block_1}>
@@ -19,7 +20,8 @@ export default function ArtistAdd() {
          
         </h6>
         <span className={styles.adv_btn_wrap}>
-          <Link  href={`/search?term=${""}&category=${"artist"}`} className={styles.btn_secondary}>
+          <Link   href="/explore/[[...slug]]"
+                                as={`/${router.locale}/explore/tattoo-artists`}  className={styles.btn_secondary}>
           {t("common:viewArtist")}
           </Link>
         </span>

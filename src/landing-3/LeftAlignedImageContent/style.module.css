@@ -1,0 +1,124 @@
+.listing_pageContainer {
+	float: left;
+    width: 100%;
+    /* margin: 10px 0 50px; */
+}
+
+
+
+.listing_gridItem {
+	position: relative;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.listing_grid_img_col {
+    padding: 21%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.listing_grid_details {
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 35px 0;
+    align-items: center;
+    background: #fff;
+    text-align: center;    
+}
+.listing_grid_title {
+	color: #212121;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+.listing_grid_desc {
+	font-size: 20px;
+    font-weight: 400;
+    line-height: 33px;
+    margin: 0;
+    padding: 0;
+    color: #212121;
+    text-align: center;
+}
+.listing_grid_content_wrap {
+    margin-top: 0;
+    display: flex;
+    padding: 15px 15px;
+    align-items: center;
+    border: 1px solid #E1E4E8;
+    border-top: 0;
+    background: #fff;
+    border-radius: 0px 0px 15.9px 15.9px;   
+    width: 100%;
+}
+.listing_grid_img_profile {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    min-height: 48px;
+    margin: 0 12px 0 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 0;
+}
+.listing_grid_img_profile img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.listing_grid_profile_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    padding: 0;
+}
+
+.listing_grid_profile_title {
+    margin: 0 0 5px 0;    
+    font-size: 21px;
+    line-height: 21px;
+    font-weight: 600;
+    color: var(--black-500);
+    display: block;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+.listing_grid_profile_address {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 19px;
+    color: var(--gray-400);
+    text-align: left;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .listing_grid_profile_title {
+        font-size: 18px;
+        line-height: 19px;        
+    }    
+    .listing_grid_profile_address {
+        font-size: 16px;
+        line-height: 17px;
+    }    
+}
+@media screen and (max-width: 767.98px) {
+
+    .listing_grid_img_col {
+        padding: 0;
+    }
+}

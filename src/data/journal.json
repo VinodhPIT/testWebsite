@@ -1,0 +1,113 @@
+{
+  "uk-en": [
+    {
+      "id":1,
+      "title":"Exploring Tattoo Ideas for Men: From Concept to Canvas | Inckd",
+      "tagTitle": "Tattoo For Men",
+      "desc": "Discover the perfect tattoo ideas for men at Inckd. Express yourself with small tattoos, tribal designs, cross tattoos, and more. Explore diverse tattoo styles and find inspiration."
+      ,
+      "imageUrl": "/young-beautiful-couple-posing-old-building-1.jpg",
+    "url":"/exploring-tattoo-ideas-for-men"
+      
+    },
+    {
+      "id":2,
+      "title":"Find the Finest Tattoo Shops Near Me for Exceptional Ink",
+      "tagTitle": "Tattoo Shops",
+      "desc": "Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art.",
+      "imageUrl": "/tattooShop.jpg",
+      "url":"/find-the-best-tattooShops-near-me"
+      
+    },
+    {
+      "id":3,
+      "title":"Book Tattoo Artists Near Me with inckd",
+      "tagTitle": "Tattoo Artists",
+      "desc": "Explore exceptional tattoo artists near you on inckd. Effortlessly book your preferred artist, discover diverse styles, and benefit from exclusive partnerships. Download inckd now!"
+      ,
+      "imageUrl": "/artistBanner.jpg",
+      "url":"/book-tattoo-artists"
+      
+    },
+    {
+      "id":4,
+      "title":"Tattoo After Care Guide: Best Practices and Tips for Healing",
+      "tagTitle": "Tattoo After Care",
+      "desc": "Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results"
+      ,
+      "imageUrl": "/drachen-tattoos.png",
+      "url":"/tattoo-after-care"
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+  ],
+  "de-de": [
+      {
+        "id":1,
+          "title":"Cover Up Tattoos: Tipps, Methoden und Kreative Lösungen für Dein Neues Tattoo",
+          "tagTitle": "Cover Up Tattoos",
+          "desc": "Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern.",
+          "imageUrl": "/coverUpTattooBanner.jpg",
+          "url":"/cover-up-tattoos"
+        },
+
+        {
+          "id":2,
+            "title":"Tattoo Ideen: Entdecke einzigartige Tattoomotive",
+            "tagTitle": "Tattoo Ideen",
+            "desc": "Herzlich willkommen auf unserer Seite, die sich der Faszination und Vielfalt von Tattoo Ideen verschrieben hat. Lass dich von unserer umfangreichen Sammlung inspirieren und begleite uns auf deiner Tattooreise.",
+            "imageUrl": "/Banner-tattoo-Iden.jpg",
+            "url":"/tattoo-ideen"
+          },
+
+
+          {
+            "id":3,
+              "title":"Tattoos für Frauen: Vielfalt und Symbolik bei weiblichen Tätowierungen",
+              "tagTitle":"Tattoos für Frauen",
+              "desc": "Herzlich willkommen auf unserer umfassenden Seite, die sich leidenschaftlich der faszinierenden Welt der Tattoos für Frauen widmet. Hier möchten wir nicht nur den künstlerischen Aspekt von Tätowierungen betonen, sondern auch die vielfältige Symbolik, die jede Tätowierung einzigartig macht.",
+              "imageUrl": "/Tattoos-für-Fraue.jpg",
+              "url":"/tattoos-fur-frauen"
+            }
+,
+
+
+            {
+              "id":4,
+                "title":"Tattoo Pflege für langanhaltende Brillanz: Nachsorge Tipps",
+                "tagTitle":"Tattoo Pflege",
+                "desc": "Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg.",
+                "imageUrl": "/tattoo-Pflege.jpg",
+                "url":"/tattoo-Pflege"
+              },
+
+
+            {
+              "id":5,
+                "title":"Drachen Tattoos - Mystische Kunst für deine Haut",
+                "tagTitle":"Drachen Tattoos",
+                "desc": "Erfahre alles über die Symbolik, Bedeutung und Vielfalt von Drachen-Tattoos. Entdecke inspirierende Designs, Vorlagen und Künstler in deiner Nähe. Lade unsere App herunter und starte deine einzigartige Reise zu einem Drachen-Tattoo.",
+                "imageUrl": "/Drachen-banner.jpg",
+                "url":"/drachen-tattoos"
+              }
+
+
+
+
+
+              
+
+
+
+  ]
+}

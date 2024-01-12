@@ -1,9 +1,9 @@
 
-
 import {useEffect} from 'react'
 import { useRouter } from "next/router";
 import Header from "@/components/header/header";
-import CustomHeader from "@/components/customHeader2/header"
+import MarketngScreens from "@/marketingScreens/Header/header";
+import useWindowResize from "@/hooks/useWindowSize";
 import Footer from "@/components/footer/footer";
 import { GlobalStateProvider } from "@/context/Context";
 import { Figtree } from "next/font/google";
@@ -55,76 +55,116 @@ function MyApp({ Component, pageProps }) {
 
 
 
+  const { isMobileView } = useWindowResize();
 
 
 
-
-  function getHeaderComponent(pathname) {
-    switch (pathname) {
+  function getHeaderComponent( locale ,pathname) {
+    switch (locale ,pathname) {
       case "/":
       case "/klarna":
-        return <Header logo={'/inckd-logo.svg'} theme={"normal"} isPosition={true} />;
+        return <Header logo={'/inckd-logo.svg'} theme={"normal"} isPosition={true} 
+        imgWidth="105"
+            imgHeight="31"
+        />;
 
-      case "/search":
-      case "/flash/[detail]":
+      case "/explore/[[...slug]]":
       case "/artists/[detail]":
-      case "/tattoo/[detail]":
-      case "/flash/[detail]":
+      case `/explore/tattoos/[detail]`:
+      case "/explore/flash-tattoos/[detail]":
       case "/404":
+        
+       
         return (
-          <CustomHeader
+          <Header
             logo={"/tattooSearch.svg"}
             theme={"white"}
             isPosition={false}
+            imgWidth="109"
+            imgHeight="52"
           />
         );
 
-        case "/contactus":
-         case "/joinartist":
-          case "/dictionary":
+        case "/contact":
+         case "/join-tattoo-artists":
+          case "/tattoo-dictionary":
+            case "/journal":
       
-          return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} />;
+          return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} 
+          
+          imgWidth="105"
+            imgHeight="31"
+          
+          />;
         
   
 
       case "/faq":
         case "/privacy-policy":
+          
+        
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
             theme={"white"}
             isPosition={false}
+                  
+          imgWidth="105"
+          imgHeight="31"
           />
         );
 
-      case "/styleguide":
+      case "/tattoo-styleguide":
         return (
-          <CustomHeader
+          <Header
             logo={"/styleGuideLogo.svg"}
             theme={"normal"}
             isPosition={true}
+                  
+          imgWidth="109"
+          imgHeight="52"
           />
         );
 
-      case "/fortattooartists":
+      case "/for-tattoo-artists":
+       
         return (
-          <CustomHeader
+          <Header
             logo={"/artistHeaderLogo.svg"}
             theme={"normal"}
             isPosition={true}
+            imgWidth="109"
+            imgHeight="52"
           />
         );
+   
+        case "/download/[[...download]]":
+          return (
+            <MarketngScreens
+            logo={
+             
+              isMobileView && (router.query.type === "campaign" || router.query.type === "klarna")
+                ? "/inckd-logo.svg"
+                : "/Inckd-logo-b.svg"
+            }
+
+
+              theme={"white"}
+              isPosition={true}
+              imgWidth="109"
+              imgHeight="52"
+            />
+          );
       default:
         return null;
     }
   }
-
   return (
    <>
 
     <GlobalStateProvider>
       <div className={figtree.className}>
-        {getHeaderComponent(router.pathname)}
+        {getHeaderComponent( router.locale, router.pathname)}
 
         <UseLayout pathname={router.pathname}>
           <Component {...pageProps} />

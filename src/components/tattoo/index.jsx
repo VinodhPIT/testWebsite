@@ -9,8 +9,13 @@ import { blurDataURL } from "@/constants/constants";
 import ArtistAdd from "../adds/artistAdd";
 import KlarnaAdd from "../adds/klarnaAdd";
 import Offer from "../adds/offer";
+import { useNavigation } from '@/hooks/useRouter';
+
+
 
 export default function Tattoo({ data }) {
+
+  const { router } = useNavigation();
 
 
   return (
@@ -18,7 +23,7 @@ export default function Tattoo({ data }) {
       {data.length === 0 ? (
         <div className={styles.blockCenter}>
           {" "}
-          <NoData category={"tattoo"} />{" "}
+          <NoData category={"tattoos"} />{" "}
         </div>
       ) : (
         <div className={styles.grid_wrapper_tattoo}>
@@ -34,7 +39,7 @@ export default function Tattoo({ data }) {
               )
             ) : (
               <Link
-                href={`/tattoo/${item._source.tattoo_uid}`}
+                href={`/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`}
                 className={styles.listing_gridItem}
                 key={key}
               >

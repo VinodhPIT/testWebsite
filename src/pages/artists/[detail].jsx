@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./artistdetail.module.css";
+import styles from "./style.module.css";
 import { useRouter } from "next/router";
 import { fetchArtistDetail, artistGallery } from "@/action/action";
 import { blurDataURL } from "@/constants/constants";
 import SearchField from "@/components/tattooSearch/tattooSearch";
  
-import style from "@/pages/search/search.module.css";
+import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { renderArtistGallery } from "@/components/customTabs/tab";
-import TattooSearchModalPopup from "@/utils/modalUtils";
+import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
@@ -19,10 +19,15 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 
 export default function Detail({ data, locale }) {
 
+
+
+
+
+
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
-  const { state, getLocale ,    styleCollection } = useGlobalState();
+  const { state, getLocale ,    styleCollection  ,setSelectedIds , clearStyleId} = useGlobalState();
   const router = useRouter();
   const goBack = () => {
     router.back();
@@ -63,6 +68,8 @@ export default function Detail({ data, locale }) {
   ];
 
   useEffect(() => {
+    // clearStyleId()
+    // setSelectedIds([])
     styleCollection()
     
     try {
@@ -241,7 +248,7 @@ export default function Detail({ data, locale }) {
             )}
           </div>
 
-          <TattooSearchModalPopup
+          <TattooSearchModal
             className="custom-modal"
             isOpen={isPopupOpen}
             closeModal={closePopup}

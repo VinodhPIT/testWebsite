@@ -6,14 +6,53 @@ import styles from "@/components/styles/listing.module.css";
 import NoData from '@/components/noDatafound/noData'
 import Link from "next/link";
 import {blurDataURL} from  '@/constants/constants'
+import { useNavigation } from '@/hooks/useRouter';
+
+
+
+
 
 export default function Artist({ data }) {
   const { state } = useGlobalState();
+  const { router } = useNavigation();
+
+
+  const getCountry = (locations) => {
+    const textBeforeComma = state.location.split(",")[0].trim(); 
+   
+     
+    let locationCity = [];
+    let otherStudiocity = [];
+    if (textBeforeComma) {
+      locationCity = locations.filter(
+        (e) => e.city === textBeforeComma || e.country === textBeforeComma
+      );
+
+
+  
+      otherStudiocity = locations.filter(
+        (e) => e.city !== textBeforeComma || e.country !== textBeforeComma
+      );
+  
+
+      const filterLocations = [...locationCity, ...otherStudiocity];
+
+
+
+
+      return  ` ${filterLocations[0].city} , ${filterLocations[0].country} `;
+    }
+    return `${locations[0].city} , ${locations[0].country}`;
+  };
+
+
+
+
 
   return (
     <div className={styles.pageContainer}>
 
-{data.length === 0 ?   <div className={styles.blockCenter}> <NoData  category={'artist'} /> </div>  :
+{data.length === 0 ?   <div className={styles.blockCenter}> <NoData  category={'tattoo-artists'} /> </div>  :
 
       <div className={styles.grid_wrapper}>
         
@@ -23,7 +62,7 @@ export default function Artist({ data }) {
             return item._index === "ad" ? (
              null
             ) : (
-                <Link href={`/artists/${item._source.slug}`} className={styles.listing_gridItem } key={key}>                   
+                <Link href={`/${router.locale}/artists/${item._source.slug}`} className={styles.listing_gridItem } key={key}>                   
                     <div className={styles.grid_item_block}>
                       <div className={styles.grid_img_wrap}>
                         <div className={styles.grid_img_bg}>
@@ -61,7 +100,7 @@ export default function Artist({ data }) {
                             <h6 className={styles.grid_profile_title}>
 {item._source.artist_name ?? `${item._source.first_name} ${item._source.last_name}`}
                                </h6>
-                            <span className={styles.grid_profile_address}>{item._source.locations[0].city}, {item._source.locations[0].country} </span>
+                            <span className={styles.grid_profile_address}>{getCountry(item._source.studios)}</span>
                             {/* <div className={styles.grid_profile_link}>
                             <Link href={`/artist/${item._source.slug}`} >
                                 <span>Check profile</span>

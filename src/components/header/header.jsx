@@ -2,16 +2,29 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SideDrawer from "@/components/sideDrawer/sideDrawer";
-import LanguageSwitcher from "@/components/languageSwitcher/languageSwitcher";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import useWindowResize from "@/hooks/useWindowSize";
+import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
+import { useModal } from "@/utils/modalUtils";
+import links from "@/constants/linkData";
+import generateLinkComponent from "@/utils/linkGenerator";
+import getButtonClass from "@/utils/getButtonClass"; 
 
-export default function Header({ logo, theme, isPosition }) {
+export default function Header({
+  logo,
+  theme,
+  isPosition,
+  imgWidth,
+  imgHeight,
+}) {
+  const router = useRouter();
+  const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
+  const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
-
   const [toggle, setToggle] = useState(false);
+  const linkComponent = generateLinkComponent(router, theme, t);
 
   useEffect(() => {
     if (toggle) {
@@ -32,31 +45,8 @@ export default function Header({ logo, theme, isPosition }) {
     setToggle(false);
   };
 
-  const links = [
-    {
-      id: 1,
-      title: t("common:menus.tattooSearch"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
-    },
-    {
-      id: 2,
-      title: t("common:menus.styleGuide"),
-      url: "/styleguide",
-    },
-    {
-      id: 3,
-      title: t("common:menus.dictionary"),
-      url: "/dictionary",
-    },
-
-    {
-      id: 4,
-      title: t("common:menus.klarna"),
-      url: "/klarna",
-    },
-  ];
-
-  const router = useRouter();
+  const baseImageUrl =
+    theme === "white" ? "/blackHamburger.svg" : "/Hamburger Menu.png";
 
   return (
     <>
@@ -70,12 +60,16 @@ export default function Header({ logo, theme, isPosition }) {
               <span>{t("common:tattooNow")}</span>
               <span className="header_cookie_desktop">
                 {t("common:payLater")}
-                <Link href="/klarna">{t("common:learnmore")}</Link>
+                <Link href={`/${router.locale}/klarna`}>
+                  {t("common:learnmore")}
+                </Link>
               </span>
 
               {isMobileView && (
                 <span className="header_cookie_mob">
-                  <Link href="/klarna">{t("common:learnmore")}</Link>
+                  <Link href={`/${router.locale}/klarna`}>
+                    {t("common:learnmore")}
+                  </Link>
                 </span>
               )}
             </p>
@@ -88,12 +82,12 @@ export default function Header({ logo, theme, isPosition }) {
           <div className="container">
             <nav className="header_navigation">
               <div className="header_logo">
-                <Link href={"/"} className="navbar_brand">
+                <Link href={`/${router.locale}`} className="navbar_brand">
                   <Image
                     src={logo}
                     alt="Logo"
-                    width={105}
-                    height={31}
+                    width={imgWidth}
+                    height={imgHeight}
                     priority
                   />
                 </Link>
@@ -104,43 +98,63 @@ export default function Header({ logo, theme, isPosition }) {
                   {links.map((link) => (
                     <li key={link.id} className="nav_item">
                       <Link
-                        href={link.url}
-                        className={
-                          theme === "black"
-                            ? "textWhite"
-                            : theme === "normal"
-                            ? "textWhite"
-                            : "textBlack"
-                        }
+                        href={`/${router.locale}${link.url}`}
+                        className={`text${
+                          theme === "black" || theme === "normal"
+                            ? "White"
+                            : "Black"
+                        }`}
                       >
-                        {link.title}
+                        {t(link.title)}
                       </Link>
                     </li>
                   ))}
+                  {/* <li>{linkComponent}</li> */}
                 </ul>
               </div>
 
               <div className="header_right">
                 <button
                   type="button"
-                  onClick={() => router.push("/fortattooartists")}
-                  className={`btn btn_tattoo_art ${
-                    theme === "black" ? "bgWhite" : "bgBlack"
-                  }`}
+                  onClick={() =>
+                    router.push(`/${router.locale}/for-tattoo-artists`)
+                  }
+                  className={`btn btn_tattoo_art ${getButtonClass(
+                    theme,
+                    router
+                  )}`}
                 >
                   {t("common:menus.forTattooArtists")}
                 </button>
 
-                {/* {router.pathname === "/404" ||  router.pathname === "/search" ? null :   <LanguageSwitcher theme={theme}   />} */}
+                {router.pathname !== `/journal` && (
+                  <button
+                    className={`language_switcher switcherTheme${
+                      theme === "white" ? "White" : "Black"
+                    }`}
+                    onClick={openPopup}
+                  >
+                    <Image
+                      src={getCountryIcon(router.locale)}
+                      alt="countries"
+                      width={32}
+                      height={32}
+                      priority
+                    />
+                    <span
+                      className={`switchText${
+                        theme === "white" ? "White" : "Black"
+                      }`}
+                    >
+                      {getLanguage(router.locale)}
+                    </span>
+                  </button>
+                )}
 
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
-                  src={
-                    theme === "white"
-                      ? "/blackHamburger.svg"
-                      : "/Hamburger Menu.png"
-                  }
+                  src={baseImageUrl}
                   alt="hamburger"
                   width={32}
                   height={32}
@@ -152,6 +166,12 @@ export default function Header({ logo, theme, isPosition }) {
         </div>
       </header>
       {toggle === true ? <SideDrawer onCloseToggle={onCloseToggle} /> : null}
+
+      <CountryPickerModel
+        className="custom-modal"
+        isOpen={isPopupOpen}
+        closeModal={closePopup}
+      />
     </>
   );
 }

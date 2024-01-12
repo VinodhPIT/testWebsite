@@ -1,9 +1,9 @@
-// modalUtils.js
-
 import React, { useState } from "react";
 import TattooSearchModalPopup from "@/components/modalPopup/TattooSearchModalPopup";
+import CountrySelectorPopup from "@/components/modalPopup/countrySelectorPopup";
 
-const TattooSearchModal = ({ isOpen, closeModal }) => (
+
+export const TattooSearchModal = ({ isOpen, closeModal }) => (
   <TattooSearchModalPopup
     className="custom-modal"
     isOpen={isOpen}
@@ -11,7 +11,17 @@ const TattooSearchModal = ({ isOpen, closeModal }) => (
   />
 );
 
-export default TattooSearchModal;
+export const CountryPickerModel = ({ isOpen, closeModal }) => (
+  <CountrySelectorPopup
+    className="custom-modal"
+    isOpen={isOpen}
+    closeModal={closeModal}
+  />
+);
+
+
+
+
 
 export const useModal = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import styles from "@/components/styles/listing.module.css";
-import TattooSearchModalPopup from "@/utils/modalUtils";
+import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 
@@ -33,7 +33,7 @@ export default function Offer() {
         />
       </div>
     </div>
-         <TattooSearchModalPopup
+         <TattooSearchModal
             className="custom-modal"
             isOpen={isPopupOpen}
             closeModal={closePopup}

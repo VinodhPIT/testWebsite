@@ -8,6 +8,10 @@ import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
 } from "@/constants/constants";
+import { useRouter } from 'next/router'
+ 
+
+
 
 
 import useTranslation from "next-translate/useTranslation";
@@ -19,25 +23,25 @@ import useTranslation from "next-translate/useTranslation";
 export default function Footer() {
   const { t } = useTranslation();
 
-
+  const router = useRouter()
 
 
   const bookLinks = [
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
+      url:`/${router.locale}/explore/tattoos`
     },
 
     {
       id: 2,
       title: t("common:menus.artistSearch"),
-      url: `/search?term=${""}&category=${"artist"}`,
+      url:`/${router.locale}/explore/tattoo-artists`
     },
     {
       id: 3,
       title: t("common:menus.flashSearch"),
-      url: `/search?term=${""}&category=${"flash"}`,
+      url:`/${router.locale}/explore/flash-tattoos`
     },
   ];
 
@@ -48,18 +52,18 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.styleGuide"),
-      url: "/styleguide",
+      url: `/${router.locale}/tattoo-styleguide`,
     },
 
     {
       id: 2,
       title: t("common:menus.dictionary"),
-      url: "/dictionary",
+      url: `/${router.locale}/tattoo-dictionary`,
     },
     {
       id: 3,
       title: t("common:menus.klarna"),
-      url: "/klarna",
+      url: `/${router.locale}/klarna`,
     },
   ];
 
@@ -69,7 +73,7 @@ export default function Footer() {
     {
       id: 2,
       title: t("common:menus.forTattooArtists"),
-      url: "/fortattooartists",
+      url: `/${router.locale}/for-tattoo-artists`,
     },
   ];
 
@@ -77,12 +81,12 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.contactUs"),
-      url: "/contactus",
+      url:`/${router.locale}/contact`,
     },
     {
       id: 2,
       title: t("common:menus.faq"),
-      url: "/faq",
+      url: `/${router.locale}/faq`,
     },
 
   ];
@@ -91,15 +95,16 @@ export default function Footer() {
 
 
 
-
   return (
+<>
+
     <footer >
       <div className="footer">
         <div class="container">
           <section class="footer_block">
             <div class="footer_left">
               <div class="footer_logo">
-                <Link href="/">
+                <Link href={`/${router.locale}`}>
                 <Image
                     src={"/Inckd-logo-footer-black.svg"}
                     alt="logo"
@@ -234,6 +239,8 @@ export default function Footer() {
           </section>
         </div>
       </div>
-    </footer>
+    </footer> 
+    </>
   );
+  
 }

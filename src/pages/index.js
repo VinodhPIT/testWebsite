@@ -15,10 +15,17 @@ import {
 } from "@/constants/constants";
 import useWindowResize from "@/hooks/useWindowSize";
 import useTranslation from "next-translate/useTranslation";
+import { RouteMatcher } from "next/dist/server/future/route-matchers/route-matcher";
 
-export default function Home({ locale }) {
+import { useRouter } from 'next/router'
+import setLanguage from "next-translate/setLanguage";
+
+
+
+
+export default function Home({ locale ,country }) {
   const { t } = useTranslation();
-  const { styleCollection, getLocale  ,getAddress} = useGlobalState();
+  const { styleCollection, getLocale  ,getAddress ,setSelectedIds ,clearStyleId   ,setSearchState}  = useGlobalState();
   const { isMobileView } = useWindowResize();
 
   const imagePaths = [
@@ -35,8 +42,32 @@ export default function Home({ locale }) {
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const router = useRouter()
+
+
+
+  
   useEffect(() => {
+
+
+router.replace(`/${locale}`)
+
+
+
+
+    clearStyleId('')
+    setSelectedIds([])
+   
+
     getAddress('Location')
+
+    setSearchState((prevSearchState) => ({
+      ...prevSearchState,
+      query:'',
+    }));
+
+
+
     styleCollection();
     const timer = setInterval(changeImage, 2000);
     return () => clearInterval(timer);
@@ -115,7 +146,8 @@ export default function Home({ locale }) {
                           <ul className="trend_list">
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"tattoo"}`}
+                                    href="/explore/[[...slug]]"
+                                   as={`${router.locale}/explore/tattoos`}
                               >
                                 <img src="/Flame.svg" alt="Tattoos" />
                                 {t("common:homePage.tattoos")}
@@ -123,7 +155,9 @@ export default function Home({ locale }) {
                             </li>
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"flash"}`}
+                                   href="/explore/[[...slug]]"
+                                  
+                                   as={`${router.locale}/explore/flash-tattoos`}
                               >
                                 <img src="/Bolt.svg" alt="Flash" />
                                 {t("common:homePage.flash")}
@@ -131,7 +165,9 @@ export default function Home({ locale }) {
                             </li>
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"artist"}`}
+                                href="/explore/[[...slug]]"
+                               
+                                as={`${router.locale}/explore/tattoo-artists`}
                               >
                                 <img src="/colour-palette.svg" alt="Artists" />
 
@@ -164,6 +200,12 @@ export default function Home({ locale }) {
             </div>
           </div>
 
+
+
+
+
+          
+
           <section className="img_text_banner_box">
             <div className="col_full">
               <div className="img_text_box_wrapper">
@@ -182,7 +224,8 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content1")}</p>
                         <Link
-                          href={`/search?term=${""}&category=${"artist"}`}
+                           href="/explore/[[...slug]]"
+                           as={`/${router.locale}/explore/tattoo-artists`}
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:findArtist's")}
@@ -281,7 +324,7 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content3")}</p>
                         <Link
-                          href="/klarna"
+                          href={`/${router.locale}/klarna`}
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:learnmore")}
@@ -309,7 +352,7 @@ export default function Home({ locale }) {
                           </h2>
                           <p>{t("common:homePage.content4")}</p>
                           <Link
-                            href="/dictionary"
+                            href={`/${router.locale}/tattoo-dictionary`}
                             className="btn_default btn_cutom_new btn_img"
                           >
                             {t("common:visitTattoo")}
@@ -389,7 +432,7 @@ export default function Home({ locale }) {
                           </span>
                         </h2>
                         <Link
-                          href="/styleguide"
+                          href={`/${router.locale}/tattoo-styleguide`}
                           class="btn_primary btn_cutom_new btn_img mt_65 m_mt_35"
                         >
                           Check the Styleguide
@@ -416,7 +459,7 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content5")}</p>
                         <Link
-                          href="/fortattooartists"
+                          href={`${router.locale}/for-tattoo-artists`}
                           class="btn_default btn_cutom_new btn_img"
                         >
                           {t("common:learnmore")}
@@ -548,11 +591,26 @@ export default function Home({ locale }) {
   );
 }
 
+
+
+
+
+
+
+
+
+
+
 export async function getServerSideProps(context) {
+
+  
   try {
+
+
     return {
       props: {
         locale: context.locale,
+        
       },
     };
   } catch (error) {

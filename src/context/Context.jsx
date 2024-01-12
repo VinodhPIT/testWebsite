@@ -6,9 +6,11 @@ import React, {
   useEffect,
 } from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
+import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
 const initialState = {
   address: "Location",
+  location: "",
   categoryCollection: [],
   currentTab: "",
   isTriggered: false,
@@ -20,15 +22,15 @@ const initialState = {
   value: "",
   hints: [],
   errorMessage: false,
-  loading: false,
   latitude: "",
   longitude: "",
   searchData: [],
   toggle: false,
   locale: "EN",
   isLoad: false,
-
   seed: "",
+  slugIds: "",
+  styleId: [],
 };
 
 const reducer = (state, action) => {
@@ -41,27 +43,21 @@ const reducer = (state, action) => {
     lat,
     lon,
     locale,
-    seed;
+    seed,
+    slugIds;
 
   switch (action.type) {
- 
-
     case "GET_ADDRESS":
       return {
         ...state,
         address: action.payload,
+        location: action.payload === "Location" ? "" : action.payload,
       };
 
     case "GET_LOCALE":
       return {
         ...state,
         locale: action.payload.locale,
-      };
-
-    case "IS_LOADING":
-      return {
-        ...state,
-        loading: action.payload,
       };
 
     case "INITIAL_SERVER_DATA":
@@ -76,6 +72,7 @@ const reducer = (state, action) => {
         lon,
         locale,
         seed,
+        slugIds,
       } = action.payload);
 
       return {
@@ -91,7 +88,7 @@ const reducer = (state, action) => {
         longitude: lon,
         locale,
         seed,
-        loading:false
+        slugIds,
       };
 
     case "COUNT":
@@ -107,42 +104,23 @@ const reducer = (state, action) => {
             : [...state.categoryCollection, ...action.payload.rows.hits],
       };
 
-    // case "GET_HINTS":
-    //   return {
-    //     ...state,
-    //     hints:
-    //       state.currentTab === "all" || state.currentTab === ""
-    //         ? action.payload.data
-    //         : action.payload.rows.hits,
-    //     errorMessage: state.hints.length === 0 ? true : false,
-    //   };
-
-    // case "SEARCH_QUERY":
-    //   return {
-    //     ...state,
-    //     searchKey: action.payload,
-    //     loading: false,
-    //   };
-
-    // case "SEARCH_DATA":
-    //   return {
-    //     ...state,
-    //     categoryCollection:
-    //       state.currentTab === "all" || state.currentTab === ""
-    //         ? action.payload.data
-    //         : action.payload.rows.hits,
-    //     totalItems:
-    //       state.currentTab === "all" || state.currentTab === ""
-    //         ? action.payload.data.totalCount
-    //         : action.payload.rows.total.value,
-    //     pageNo: 0,
-    //   };
-
     case "STYLE_COLLECTION":
       return {
         ...state,
         styleCollection: action.payload,
         isLoad: false,
+      };
+
+    case "GETSTYLE_ID":
+      return {
+        ...state,
+        styleId: action.payload,
+      };
+
+    case "CLEARSTYLE_ID":
+      return {
+        ...state,
+        styleId: action.payload,
       };
 
     default:
@@ -156,22 +134,44 @@ export const useGlobalState = () => useContext(GlobalStateContext);
 
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   const [selectedIds, setSelectedIds] = useState([]);
+  const [searchState, setSearchState] = useState({
+    query: "",
+  });
 
   useEffect(() => {
-    const styleIds = JSON.parse(localStorage.getItem("selectedStyleIds"));
-    if (styleIds) {
-      setSelectedIds(styleIds);
+    const searchQuery = localStorage.getItem("searchQuery");
+    if (searchQuery) {
+      setSearchState((prevSearchState) => ({
+        ...prevSearchState,
+        query: JSON.parse(searchQuery),
+      }));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("selectedStyleIds", JSON.stringify(selectedIds));
-  }, [selectedIds]);
+    localStorage.setItem("searchQuery", JSON.stringify(searchState.query));
+  }, [searchState.query]);
 
+  const clearStyleId = async () => {
+    dispatch({ type: "CLEARSTYLE_ID", payload: "" });
+  };
 
-  
+  const onSearch = async (
+    currentTab,
+    searchKey,
+    selectedIds,
+    location,
+    router
+  ) => {
+    await getUrl(currentTab,
+      searchKey,
+      selectedIds,
+      location,
+      router);
+
+    dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
+  };
 
 
 
@@ -184,18 +184,6 @@ export const GlobalStateProvider = ({ children }) => {
   const getLocale = async (payload) => {
     try {
       dispatch({ type: "GET_LOCALE", payload: payload });
-    } catch (error) {}
-  };
-
-  const getLoad = async () => {
-    try {
-
-
-      dispatch({ type: "IS_LOADING", payload: true });
-
-
-
-      
     } catch (error) {}
   };
 
@@ -213,12 +201,13 @@ export const GlobalStateProvider = ({ children }) => {
         ...Parameters,
         category: state.currentTab,
         page_no: updatedPageNo,
-        style: state.selectedStyle,
+        style: state.slugIds,
         search_key: state.searchKey,
         latitude: state.latitude,
         longitude: state.longitude,
         seed: state.seed,
       };
+
       let responseData;
       if (state.currentTab === "all") {
         responseData = await fetchMultiData(requestData);
@@ -230,54 +219,11 @@ export const GlobalStateProvider = ({ children }) => {
     } catch (error) {}
   };
 
-  // const getHintsBySearch = async (payload) => {
-  //   try {
-  //     const requestData = {
-  //       ...Parameters,
-  //       category: state.currentTab,
-  //       search_key: payload,
-  //     };
-  //     let responseData;
-  //     if (state.currentTab === "all" || state.currentTab === "") {
-  //       responseData = await fetchMultiData(requestData);
-  //     } else {
-  //       responseData = await fetchCategoryData(requestData);
-  //     }
-  //     dispatch({ type: "GET_HINTS", payload: responseData });
-  //   } catch (error) {}
-  // };
-
-  // const searchData = async (payload, router, load) => {
-  //   dispatch({ type: "IS_LOADING", payload: load });
-
-  //   let url = `/search?term=${payload}&category=${state.currentTab}`;
-  //   if (state.selectedStyle !== "") {
-  //     url += `&style=${state.selectedStyle}`;
-  //   }
-  //   router.push(url);
-
-  //   dispatch({ type: "SEARCH_QUERY", payload });
-  //   try {
-  //     const requestData = {
-  //       ...Parameters,
-  //       category: state.currentTab,
-  //       search_key: payload,
-  //     };
-
-  //     let responseData;
-  //     if (state.currentTab === "all" || state.currentTab == "") {
-  //       responseData = await fetchMultiData(requestData);
-  //     } else {
-  //       responseData = await fetchCategoryData(requestData);
-  //     }
-  //     dispatch({ type: "SEARCH_DATA", payload: responseData });
-  //   } catch (error) {}
-  // };
-
   const styleCollection = async () => {
     try {
       let responseData = await getStyles();
-      dispatch({ type: "STYLE_COLLECTION", payload: responseData.rows.hits });
+
+      dispatch({ type: "STYLE_COLLECTION", payload: responseData.data });
     } catch (error) {}
   };
 
@@ -292,7 +238,11 @@ export const GlobalStateProvider = ({ children }) => {
         getAddress,
         selectedIds,
         setSelectedIds,
-        getLoad
+        onSearch,
+        clearStyleId,
+        setSearchState,
+        searchState,
+        
       }}
     >
       {children}

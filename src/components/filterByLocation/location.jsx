@@ -1,48 +1,33 @@
 import React, { useState } from "react";
 import { getUrl } from "@/utils/getUrl";
 import PlacesAutocomplete from "react-places-autocomplete";
-import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import useWindowResize from "@/hooks/useWindowSize";
 import styles from "../styleDropdown/dropdown.module.css";
 import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 
 export default function LocationSearch({
-  searchKey,
   currentTab,
+  searchKey,
   selectedStyle,
   router,
   onToggle,
 }) {
-  const notify = () => {
-    toast("Choose the location from the dropdown", {
-      position: "top-center", // Set the position of the toast
-      autoClose: 3000, // Auto-close the toast after 3000ms (3 seconds)
-      type: "error",
-    });
-  };
-
   const [address, setAddress] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null,
-  });
+
   const { isMobileView } = useWindowResize();
-  const { getAddress } = useGlobalState();
+  const { getAddress, state } = useGlobalState();
 
   const handleSelect = async (value) => {
-    getAddress(value);
-    const result = await geocodeByAddress(value);
-    const ll = await getLatLng(result[0]);
     setAddress(value);
-    setCoordinates(ll);
   };
 
   const clear = async () => {
     setAddress("");
-    await getUrl(searchKey, currentTab, selectedStyle, "", "", router);
+    getAddress("Location");
+    await getUrl(currentTab, searchKey, selectedStyle, "", router);
   };
 
   const onError = (status, clearSuggestions) => {
@@ -50,20 +35,9 @@ export default function LocationSearch({
   };
 
   const searchLocation = async () => {
-    if (coordinates.lat === null) {
-      notify();
-    } else {
-      await getUrl(
-        searchKey,
-        currentTab,
-        selectedStyle,
-        coordinates.lat,
-        coordinates.lng,
-        router
-      );
-      // await getAddress("Location");
-      onToggle();
-    }
+    await getUrl(currentTab, searchKey, selectedStyle, address, router);
+    getAddress(address);
+    onToggle();
   };
 
   return (
@@ -150,7 +124,7 @@ export default function LocationSearch({
         <div className={styles.custom_dropdown_btn}>
           <button
             onClick={() => clear()}
-            disabled={address === ""}
+            disabled={state.location === "" ? true : false}
             className="btn_outline_secondary w_100pc"
           >
             Clear All
@@ -166,7 +140,7 @@ export default function LocationSearch({
         </div>
       </div>
 
-      <ToastContainer />
+     
     </div>
   );
 }

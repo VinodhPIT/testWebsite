@@ -9,9 +9,12 @@ import Link from "next/link";
 import ArtistAdd from "../adds/artistAdd";
 import KlarnaAdd from "../adds/klarnaAdd";
 import Offer from "../adds/offer";
+import { useNavigation } from '@/hooks/useRouter';
 
 export default function All({ data }) {
   const { state } = useGlobalState();
+
+  const { router } = useNavigation();
 
 
   return (
@@ -39,10 +42,10 @@ export default function All({ data }) {
                 key={key}
                 href={
                   item._source.tattoo_type === "normal"
-                    ? `/tattoo/${item._source.tattoo_uid}`
+                    ? `/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`
                     : item._source.tattoo_type === "flash"
-                    ? `/flash/${item._source.tattoo_uid}`
-                    : `/artists/${item._source.slug}`
+                    ? `/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`
+                    : `/${router.locale}/artists/${item._source.slug}`
                 }
               >
                 <Image
@@ -66,6 +69,7 @@ export default function All({ data }) {
                   blurDataURL={blurDataURL}
                   quality={62}
                 />
+                
               </Link>
             );
           })}

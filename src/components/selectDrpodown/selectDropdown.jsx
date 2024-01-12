@@ -3,7 +3,8 @@ import Image from "next/image";
 import StyleDropdown from "@/components/styleDropdown/styleDropdown";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useToggle } from "@/hooks/useToggle";
-import style from "@/pages/search/search.module.css";
+import style from "@/pages/explore/search.module.css";
+
 import useTranslation from "next-translate/useTranslation";
 import LocationSearch from "@/components/filterByLocation/location";
 import { useGlobalState } from "@/context/Context";
@@ -104,7 +105,7 @@ export default function SelectDropdown({
               
                 priority
               />
-              <span>Styles</span>{selectedIds.length!==0 && <span className={style.notification_count}>{selectedIds.length}</span>}
+              <span>Styles</span>{state.styleId.length!==0 && <span className={style.notification_count}>{state.styleId.length}</span>}
             </button>
 
 

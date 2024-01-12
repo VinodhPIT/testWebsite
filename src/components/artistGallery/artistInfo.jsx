@@ -1,13 +1,43 @@
 import React from 'react'
-import styles from "@/pages/artists/artistdetail.module.css";
+import styles from "@/pages/artists/style.module.css";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-
+import{useNavigation} from '@/hooks/useRouter'
+import { useGlobalState } from "@/context/Context";
 
 const ArtistInfo = ({data}) => {
+  
 
+  
+  const {
+    state,
+    setSelectedIds,
+    onSearch,
+  } = useGlobalState();
 
   const { t } = useTranslation();
+
+  const {router}=useNavigation()
+
+
+
+  const chooseStyle = async (slug) => {
+    let updatedIds;
+    await setSelectedIds((prevIds) => {
+      updatedIds = prevIds.includes(slug)
+        ? prevIds.filter((id) => id === slug)
+        : [...prevIds, slug];
+
+      return updatedIds;
+    });
+    await onSearch(
+      "artist",
+      state.searchKey,
+      updatedIds,
+      state.location,
+      router
+    );
+  };
 
 
 
@@ -21,15 +51,13 @@ const ArtistInfo = ({data}) => {
                   data.style.map((e) => {
                     return (
                       <li key={e.id}>
-                        <Link  href={`/search?term=${
-                               ""
-                              }&category=${"all"}&style=${e.id}`} >
+                        <button   onClick={()=>chooseStyle(e.slug)} >
                           {e.name}
                           <img
                             src="/arrow-right-gray.svg"
                             alt="Abstract Realism"
                           />
-                        </Link>
+                        </button>
                       </li>
                     );
                   })}

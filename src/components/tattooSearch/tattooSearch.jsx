@@ -1,27 +1,23 @@
-///
 import React, { useState, useEffect, useRef } from "react";
 import style from "./tattoosearch.module.css";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
-import { v4 as uuidv4 } from "uuid";
+
+function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
+  const { state, searchData  ,setSearchState ,searchState } = useGlobalState();
 
 
-function SearchBar({
-  isPage,
-  searchKey,
-  currentTab,
-  selectedStyle,
-  lat,
-  lon,
-  router,
-  isDetail,
-}) {
-  const { state, searchData } = useGlobalState();
-  const [searchState, setSearchState] = useState({
-    query: "",
-    showDropdown: false,
-    searchHistory: [],
-  });
+
+  // const [searchState, setSearchState] = useState({
+  //   query: "",
+  //   showDropdown: false,
+  //   searchHistory: [],
+  // });
+
+
+
+
+
 
   const inputRef = useRef(null);
   // const router = useRouter();
@@ -49,36 +45,6 @@ function SearchBar({
   //     JSON.stringify(searchState.searchHistory)
   //   );
   // }, [searchState.searchHistory]);
-
-
-
-useEffect(() => {
-    const searchQuery = localStorage.getItem("searchQuery");
-    if (searchQuery) {
-      setSearchState((prevSearchState) => ({
-        ...prevSearchState,
-        query: JSON.parse(searchQuery),
-      }));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(
-      "searchQuery",
-      JSON.stringify(searchState.query)
-    );
-  }, [searchState.query]);
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -126,23 +92,15 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isDetail === true) {
-      router.push(`/search?term=${searchState.query}&category=${currentTab}`);
-    } else {
-      
+    
       await getUrl(
-        searchState.query,
         currentTab,
+        searchState.query,
         selectedStyle,
-        lat,
-        lon,
+        state.location,
         router
       );
-    }
-
-
-
-  
+    
     // addToSearchHistory(searchState.query);
   };
 
@@ -171,9 +129,6 @@ useEffect(() => {
   //   addToSearchHistory(item);
   // };
 
-
-
-
   // const addToSearchHistory = (name) => {
   //   const newItem = { id: uuidv4(), name };
   //   setSearchState((prevSearchState) => ({
@@ -181,12 +136,6 @@ useEffect(() => {
   //     searchHistory: [newItem, ...prevSearchState.searchHistory],
   //   }));
   // };
-
-
-
-
-
-
 
   // const clear = (el) => {
   //   const updatedHistory = searchState.searchHistory.filter(
@@ -203,32 +152,11 @@ useEffect(() => {
     if (searchKey === "") {
       setSearchState({ query: "" });
     } else {
-      if (isDetail === true) {
-
         setSearchState({ query: "" });
-
-      } else {
-        await getUrl("", currentTab, selectedStyle, lat, lon, router);
-      }
-
-      setSearchState({ query: "" });
+        await getUrl(currentTab, "", selectedStyle, state.location, router);
     }
-localStorage.clear('searchQuery')
-
+    
   };
-
-
-
-  useEffect(() => {
-    const handleBackButton = () => {
-      clearText();
-    };
-    window.addEventListener('popstate', handleBackButton);
-    return () => {
-      window.removeEventListener('popstate', handleBackButton);
-    };
-  }, []);
-
 
 
 
@@ -242,6 +170,8 @@ localStorage.clear('searchQuery')
             type="text"
             required="required"
             className={style.input_txt}
+
+
             onChange={(event) => handleChange(event.target.value)}
             onFocus={() =>
               setSearchState((prevSearchState) => ({
@@ -250,12 +180,19 @@ localStorage.clear('searchQuery')
               }))
             }
             value={searchState.query}
+
+
+
+
+
+
+
           />
           <button type="submit" tabindex="-1" className={style.btn_search}>
             <img src="/tattoo-magnifer.svg" alt="search" />
           </button>
 
-          {searchState.showDropdown && (
+          {/* {searchState.showDropdown && (
             <div className={style.dropdown}>
               {hintsToDisplay.map((result, index) => (
                 <li onClick={(e) => handleItemClick(result, e)} key={index}>
@@ -293,10 +230,10 @@ localStorage.clear('searchQuery')
                 </div>
               )}
             </div>
-          )}
+          )} */}
         </div>
       </form>
-      {searchState.query && (
+       {searchState.query && (
         <button className={style.close_search} onClick={() => clearText()}>
           <img
             src="/search-close.svg"
