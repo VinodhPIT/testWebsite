@@ -5574,14 +5574,11 @@ button.language_switcher img {
   }
   .exciting_offer_block .exciting_offer_price  {  
     max-width: 100%;
-    text-align: left;
   }
   .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
     font-size: 50px!important;
     line-height: 50px!important;
-    justify-content: left;
   }
-
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .text_box_content {
     padding-top: 90px;
   }
@@ -5607,14 +5604,9 @@ button.language_switcher img {
   }
   .exciting_offer_block .exciting_offer_wrap {
     padding: 10px 10px;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  .exciting_offer_block .exciting_offer_wrap p {
-    text-align: left
+    gap: 15px;    
   }  
   .exciting_offer_coupon {
-    align-items: flex-start;
     width: 100%;
   }
   .exciting_offer_coupon > span {
@@ -5633,13 +5625,6 @@ button.language_switcher img {
     font-weight: 400;
     line-height: 150%;
   } 
-  .exciting_offer_download h5 {
-    text-align: left;
-  }
-  .exciting_offer_download ul.download_app {
-    max-width: 100%;
-    margin: 0;
-  }
   .img_text_box_wrapper.exciting_offer_wrap .img_box_wrap.custom_download_shadow {
     min-height: 220px;
     max-height: 220px;
@@ -5958,7 +5943,6 @@ button.language_switcher img {
     font-size: 55px!important;
     line-height: 50px!important;
   }
-
   .exciting_offer_wrap .text_box_wrap .img_text_box_inner .text_box_content {
     min-height: 60vh;
     padding-top: 90px;
@@ -6322,8 +6306,7 @@ button.language_switcher img {
   .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
     font-size: 55px!important;
     line-height: 50px!important;
-  }
-  
+  }  
 }
 
 @media screen and (min-width: 1200px) {
