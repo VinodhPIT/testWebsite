@@ -67,7 +67,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
           <div className={styles.language_popup}>
             <h3>Choose your region and language</h3>
-            <p>Get in touch with us lorem ipsum is a dummy content for typesetting industry.</p>
+            <p>Tailor Your Experience by Choosing Region and Language</p>
             <div className={`${'language_popup_block'} ${styles.language_popup_block}`}>
               <ul>
                 {country.map((e) => {
