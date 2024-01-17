@@ -14,7 +14,7 @@ export default function LeftContentRightImage({
   alt,
   carousel,
   imgWidth,
-  imgHeight,
+  imgHeight,altTag
 }) {
   let sliderSettings = {};
 
@@ -60,12 +60,12 @@ export default function LeftContentRightImage({
               <div className="singleCarosuelSection trending_artist_slider">
                 {carousel && carousel.length > 0 ? (
                   <Slider {...sliderSettings}>
-                    {carousel.map((imgPath, index) => (
+                    {carousel.map((el, index) => (
                       <div key={index}>
                         <div>
                           <Image
-                            src={imgPath.image}
-                            alt="Trending couple tattoos"
+                            src={el.image}
+                            alt={el.altTag}
                             width={570}
                             height={570}
                             loading="lazy"
@@ -83,7 +83,7 @@ export default function LeftContentRightImage({
                   <div>
                     <Image
                       src={img}
-                      alt="Trending couple tattoos"
+                      alt={altTag}
                       width={imgWidth}
                       height={imgHeight}
                       loading="lazy"

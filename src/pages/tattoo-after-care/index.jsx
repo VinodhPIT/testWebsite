@@ -16,17 +16,8 @@ import SideBySideContentWithImage from "@/landing-3/SideBySideContentWithImage/S
 export default function TattooAfterCare() {
   const { router } = useNavigation();
 
-  const currentPage = typeof window !== "undefined" ? window.location.href : "";
-
-  
-
  
- 
-
- 
-
-  const Healingprocess =[
- 
+  const Healingprocess = [
     {
       title: "Infection",
       content:
@@ -107,7 +98,7 @@ export default function TattooAfterCare() {
           content="tattoo aftercare, healing process, long-term maintenance"
         />
 
-        <link rel="canonical" href={currentPage} />
+        <link rel="canonical" content={`${process.env.LIVE_URL}/${router.locale}/tattoo-after-care`} />
 
         <meta
           property="og:title"
@@ -117,8 +108,11 @@ export default function TattooAfterCare() {
           property="og:description"
           content="Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results."
         />
-        <meta property="og:image" content="URL_of_the_image" />
-        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-after-care`}  />
+        <meta property="og:image"  content={`${process.env.LIVE_URL}/drachen-tattoos.png`}/>
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/tattoo-after-care`}
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -129,13 +123,11 @@ export default function TattooAfterCare() {
           name="twitter:description"
           content="Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results."
         />
-        <meta name="twitter:image" content="URL_of_the_image" />
-        <meta name="twitter:url"  content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-after-care`} />
-
-
-
-
-
+        <meta name="twitter:image" content={`${process.env.LIVE_URL}/drachen-tattoos.png`}/>
+        <meta
+          name="twitter:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/tattoo-after-care`}
+        />
       </Head>
 
       <Banner
@@ -145,17 +137,15 @@ export default function TattooAfterCare() {
         bannerImg={"/drachen-tattoos.png"}
         bannerButton={"Know more about inckd"}
         position="bottom"
+        altTag="Tattoo After Care Guide: Best Practices and Tips for Healing"
       />
 
       <ContentImageLayout
         title={"Tattoo aftercare"}
         content="Welcome to our comprehensive guide on tattoo aftercare, a journey into the essential steps to ensure your tattoo not only heals effectively but remains vibrant for years to come. Tattoo aftercare is a critical aspect of the tattooing process, playing a significant role in minimizing the risk of scarring, infection, and fading. In this extensive guide, we'll walk you through a detailed day-by-day approach to caring for your tattoo, along with long-term maintenance tips and answers to common questions."
         img="/peeling-tattoo.jpg"
-        alt="peeling-tattoo"
+        alt="Tattoo aftercare"
       />
-
-
-
 
       <SideBySideContentWithImage
         mainTitle="Importance of Proper Tattoo Aftercare
@@ -192,9 +182,12 @@ By the second or third week, the outer layers of skin should have healed, but ke
         img3="/tattooAfterCare-img3.jpg"
         img4="/Rectangle3602.png"
         img5="/Rectangle3603.png"
-
-
-
+    imgAlt1="Day 1: Setting the Foundation"
+    imgAlt2="Days 2–3: Navigating the Dull Phase"
+    imgAlt3="Days 4–6: Transitioning through Healing Layers"
+    imgAlt4="Days 6–14: The Itchy Stage"
+    imgAlt5="Days 15–30: Final Stages of Healing"
+ 
 
       />
 
@@ -211,29 +204,25 @@ By the second or third week, the outer layers of skin should have healed, but ke
         sectionBackgrounColor={"#f8f8f8"}
       />
 
- 
-
-
-
-
-<div
-        className={
-          "text_box_wrap right pt_75  m_pt_pb_30 "
-        }
-        style={{"backgroundColor":'rgb(234, 255, 192)'}}>
+      <div
+        className={"text_box_wrap right pt_75  m_pt_pb_30 "}
+        style={{ backgroundColor: "rgb(234, 255, 192)" }}
+      >
         <div className="img_text_box_inner container">
           <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
             <div className="text_box_content_inner max_w_100pc text_center">
-              <h3 className="color_gray_550 heading_h2 ">Addressing Complications During the Healing Process</h3>
+              <h3 className="color_gray_550 heading_h2 ">
+                Addressing Complications During the Healing Process
+              </h3>
               <p className="custom_fs_20 w_1090 max_w_100pc lh_30 custom_fs_m_16 color_gray_550 mb_0">
-              While the majority of the healing process is straightforward, its essential to be aware of potential complications. Here are some common issues and how to address them:
-
+                While the majority of the healing process is straightforward,
+                its essential to be aware of potential complications. Here are
+                some common issues and how to address them:
               </p>
             </div>
           </div>
         </div>
       </div>
-
 
       <ListingGridTwoColumn data={Healingprocess} bgColor="#eaffc0" />
 

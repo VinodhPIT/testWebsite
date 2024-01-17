@@ -3,7 +3,6 @@ import Head from "next/head";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";
-
 import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import SearchField from "@/components/tattooSearch/tattooSearch";
@@ -13,7 +12,6 @@ import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import { getPlaceDetails } from "@/utils/placesApi";
-
 const MobileDetect = require("mobile-detect");
 const Search = ({
   data,
@@ -123,7 +121,7 @@ const Search = ({
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>
           Explore Tattoo images, designs, and find tattoo artists with ease
         </title>
@@ -135,7 +133,7 @@ const Search = ({
           name="keywords"
           content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
         />
-      </Head>
+      </Head> */}
       <main>
         <div className={style.page_search_wrapper}>
           <div className="container">

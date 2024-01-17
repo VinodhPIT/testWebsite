@@ -61,7 +61,7 @@ export default function DownloadApps ({title ,subTitle}) {
             ""
           )}
 
-          <div class="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc">
+          <div class="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc m_pl_0 m_pr_0">
             <div class="text_box_content_inner m_pr_0">
               <ul class="download_app max_w_100pc">
                 <li class="download_app_title">
@@ -72,12 +72,12 @@ export default function DownloadApps ({title ,subTitle}) {
                     </span>
                   </h6>
                 </li>
-                <li className="mr_xs_0 mb_xs_5 mob_xs_d_block">
+                <li className="mr_xs_0 mb_xs_5">
                   <Link href={APP_LINK_APPLE} target="_blank">
                     <img src="/app-store-new.svg" alt="" />
                   </Link>
                 </li>
-                <li className="mr_xs_0 mob_xs_d_block">
+                <li className="mr_xs_0">
                   <Link href={APP_LINK_GOOGLE} target="_blank">
                     <img src="/g-play-new.svg" alt="" />
                   </Link>

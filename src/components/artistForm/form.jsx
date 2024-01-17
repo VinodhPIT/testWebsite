@@ -12,17 +12,7 @@ import {
   blurDataURL,
 } from "@/constants/constants";
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  city: Yup.string()
-    .required("location must be at least 2 characters")
-    .min(2, "Too Short!"),
-  instagram: Yup.string()
-    .required("instagram must be at least 2 characters")
-    .min(2, "Too Short!"),
-  location: Yup.string().required("Country field is required"),
-});
+
 
 const _Form = () => {
   const [state, setState] = useState({
@@ -32,6 +22,23 @@ const _Form = () => {
 const router = useRouter()
 
 const { t } = useTranslation();
+const validationSchema = Yup.object().shape({
+  name: Yup.string().required(t("common:joinartistPage.Name is required")),
+  email: Yup.string().email("Invalid email").required(t("common:joinartistPage.Email is required")),
+  location: Yup.string().required(t("common:joinartistPage.Country field is required")),
+
+
+    city: Yup.string()
+    .required(t("common:joinartistPage.location must be at least 2 characters"))
+      .min(2, t("common:joinartistPage.Too Short")),
+  
+
+    instagram: Yup.string()
+    .required(t("common:joinartistPage.instagram must be at least 2 characters"))
+    .min(2, t("common:joinartistPage.Too Short")),
+  
+  
+});
 
   const onSubmit = () => {
     router.push('/')
@@ -42,7 +49,8 @@ const { t } = useTranslation();
     <div style={{ margin: "0 auto", padding: "0px" }}>
       {state.isShown === false ? (
         <div>
-        <h4>{t("common:joinartistPage.enter-details")}</h4>
+        <h4>{t("common:joinartistPage.Enter details")}</h4>
+
         <Formik
           initialValues={{
             name: "",
@@ -97,7 +105,7 @@ const { t } = useTranslation();
                     className="form_control"
                   />
                   <label for="name" class="required">
-                    First name
+                  {t("common:joinartistPage.FirstName")}
                   </label>
                   <ErrorMessage name="name" component="div" className="error" />
                 </div>
@@ -112,7 +120,7 @@ const { t } = useTranslation();
                     className="form_control"
                   />
                   <label for="your e-mail" className="required">
-                    Your e-mail
+                  {t("common:joinartistPage.Your e-mail")}
                   </label>
                   <ErrorMessage
                     name="email"
@@ -130,7 +138,7 @@ const { t } = useTranslation();
                       name="location"
                       className="form_control_select"
                     >
-                      <option value="">Country</option>
+                      <option value="">{t("common:joinartistPage.Country")}</option>
                       {countryList.map((option) => (
                         <option key={option.country} value={option.country}>
                           {option.title}
@@ -167,7 +175,7 @@ const { t } = useTranslation();
                         fill="#707070"
                       ></path>
                     </svg>
-                    City
+                    {t("common:joinartistPage.City")}
                   </label>
                   <ErrorMessage name="city" component="div" className="error" />
                 </div>
@@ -182,7 +190,7 @@ const { t } = useTranslation();
                     className="form_control"
                   />
                   <label for="Your instagram">
-                    Your instagram
+                  {t("common:joinartistPage.Your instagram")}
                   </label>
                   <ErrorMessage
                     name="instagram"
@@ -218,9 +226,9 @@ const { t } = useTranslation();
               priority
               alt="Form submitted" 
             />
-            <h4>Form submitted</h4>
+             <h4>{t("common:Form submitted")}</h4>
             <p>
-              Thank you!
+            {t("common:Thank you")}
             </p>
             <button
               type="submit"
@@ -235,12 +243,30 @@ const { t } = useTranslation();
                 </li>
                 <li>
                   <Link href={APP_LINK_APPLE} target="_blank">
-                    <img src="/app-store-new.svg" alt="" />
+                    <Image
+                      priority
+                      src="/app-store-new.svg"
+                      alt="App store"
+                      width={134}
+                      height={41}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="custom_download_icons"
+                    />
                   </Link>
                 </li>
                 <li>
                   <Link href={APP_LINK_GOOGLE} target="_blank">
-                    <img src="/g-play-new.svg" alt="" />
+                    <Image
+                      priority
+                      src="/g-play-new.svg"
+                      alt="Play store"
+                      width={134}
+                      height={41}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="custom_download_icons"
+                    />
                   </Link>
                 </li>
               </ul>

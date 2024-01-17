@@ -1,7 +1,7 @@
 {
   "menus": {
     "home": "Home",
-    "tattooSearch":"Tattoo search italy",
+    "tattooSearch": "Explore Tattoos",
     "styleGuide": "Styleguide",
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
@@ -10,268 +10,142 @@
     "faq": "FAQ",
     "artistSearch": "Artist search",
     "flashSearch": "Flash search",
-    "search":"Search",
-    "privacypolicy":"Privacy Policy",
-    "journal":"Journal"
-    
-  },
-  "downloadOurApp":"Download our app from",
-  "downloadContent":"We hand pick every tattoo artist to ensure your tattoo experience is handled with care,quality and inclusivity",
-  "downloadApp": "Download the",
-  "downloadApp-Sub1":"App & Explore more!",
-  "explore": "Explore more",
-  "explore-the": "Explore the",
-  "featuresApp":"Features in the App",
-  "download-app-forMore": "Download the App",
-  "download-app-forMore-sub": "for more!",
-
-  "download": "Download the App",
-  "appContent": "We hand pick every tattoo artist to ensure your tattoo experience is handled with care,quality and inclusivity",
-  "submit": "Submit",
-  "submitting": "Submitting",
-  "learnmore": "Learn more",
-  "visitTattoo": "Visit Tattoo Dictionary",
-  "checkStyle": "Check the Styleguide",
-  "download-our-app": "Download our app from",
-  "tattooNow": "Get tattoo now, pay later.",
-  "payLater": "That's right, there's a new way to get tattooed smoooth!",
-  "findArtist's": "Find artists",
-  "pageNotfound": "Ooops... Page not found",
-  "cantfind": "Sorry, We can’t find the page you’re looking for",
-  "backHome": "Back Home",
-  "you-might-like": "You might also like",
-  "image-tattoo-style": "Image tattoo style",
-  "locations": "Locations",
-  "getIntouch": "Get in Touch",
-  "viewProfile": "View Profile",
-  "fixed-price": "Fixed Price",
-  "flexible-price": "Flexible price",
-  "flash-doesn't-price": "This Flash doesn't have a price",
-  "language": "Languages",
-  "styles": "Styles",
-  "nodata": "No data found",
-  "exploreAll": "Explore All",
-  "notFoundMessage": "Try adjusting your search/ filter to find what you are looking for",
-  "followus":"Follow us on",
-  "book":"Book",
-  "product":"Product",
-  "business":"Business",
-  "download-app-on":"Download app on",
-  "findArtist" :"Find your Artist now!",
-  "tattooPayLater":"Tattoo now. Pay later.",
-  "offers":"Get exciting offers!",
-  "nextTattoo":"off on your next tattoo",
-  "chf":"CHF 30",
-  "viewArtist":"View Artists",
-  "refer":"Refer and Earn",
-  "checkProfile":"Check Profile",
-  "chooseStyle":"Styles",
-  "enterLocation":"Enter Location",
-  "loadMore":"LOAD MORE",
-
-  "Downloadinckd":"Download the inckd app to get a voucher of",
-  "Usecode":"Use code",
-  "Voucherends":"Voucher ends on",
-  "Joinus":"Join us with",
-  "Somethingwrong":"Oops! Something went wrong.Please check your download link and try again.",
-
-
-  "tabs": {
-    "all": "All",
-    "tattoo": "Tattoo",
-    "flash": "Flash",
-    "artist": "Artists",
-    "info": "Information",
-    "tattooLovers":"Tattoolovers",
-    "general":"General"
+    "search": "Search",
+    "privacypolicy": "Privacy Policy",
+    "journal": "Journal"
   },
 
   "homePage": {
-    "bookYourDream": "Book your dream",
-    "tattoo": "tattoo",
-    "now": "now!",
-    "search-by": "Search by",
-    "categories": "Categories",
-    "tattoos": "Tattoos",
-    "flash": "Flash",
-    "artist": "Artists",
-    "title1": "Find the right",
-    "title1-Sub1": "Artist for your",
-    "title1-Sub2": "next Tattoo!",
-
-    "content1": "We carefully select each tattoo artist to guarantee your tattoo journey receives dedicated attention, top-notch quality, and an all-embracing atmosphere.",
-    "title2": "Pay all at once?",
-    "title2-Sub": "Never again!",
-
-    "title3": "Tattoo now,",
-    "title3-Sub": "Pay later",
-    "content3": "Get tattoo now, pay later. That's right, there's a new way to get tattooed smoooth!",
-    "title4": "Tattoo",
-    "title4-Sub": "Dictionary",
-    "content4": "Discover the tattoo dictionary, your ultimate tattoo inspiration Hub! Explore 5000+ Motives, search by emotions, and find your perfect design.",
-    "title5": "Boost your",
-    "title5-Sub1": "business with",
-    "title5-Sub2": "inckd.",
-    "content5": "Grow your tattoo business by fulfilling your customers tattoo vision and offering them flexible payment options.",
-    "title6": "Are you a",
-    "title6-Sub": "Tattoo artist?",
-    "title7": "My Style is",
-    "title7-Sub": "Lettering",
-    "title8": "Whats",
-    "title8-Sub": "your Style?"
-
-
+    "bannerTitle": "Book your dream tattoo now!",
+    "bannerContent": "Explore Tattoo Styles, Artist Business Tips, Journal Updates, Financing Options, and Seamless Booking",
+    "ArtistSliderTitle": "Find the right artist for your next tattoo!",
+    "ArtistSliderContent": "Seamless and efficient booking at your fingertips. Connect with reputable artists and studios, scheduling your next session effortlessly through our Tattoo Booking App.",
+    "Pay all at once": "Pay all at once?",
+    "Never again": "Never again!",
+    "TattooFinancing": "Tattoo Financing",
+    "Finance your ink": "Finance your ink without worries. Our app offers credit checks, finance options, and flexible payment plans, ensuring everyone can afford their dream tattoo.",
+    "Tattoo": "Tattoo",
+    "Dictionary": "Dictionary",
+    "TattooDictionaryContent": "Dive into the language of tattoos. From classic styles to the latest trends, our Tattoo Dictionary ensures you understand the art before choosing your ink.",
+    "Tattoo Journal": "Tattoo Journal",
+    "journalContent": "Stay in the know with our Tattoo Journal. Get updates on the latest trends, legally required health and safety guidelines, and insider tips from the tattoo industry.",
+    "TattooStyles": "Tattoo Styles",
+    "StylesContent": "Explore a world of creativity. From fine line details to bold black ink, our app showcases diverse tattoo styles, helping you find the perfect match for your vision.",
+    "TattooArtist": "Tattoo Artist Business",
+    "ArtistContent": "Empower your tattoo artist journey. Our app provides insights into running a successful tattoo studio, crafting a business plan, and mastering the art of social media.",
+    "TypeFinline": "Fineline",
+    "Areyou": "Are you a",
+    "AreyouTattoo artist": "Tattoo artist?",
+    "Verified tattoo artists": "Verified tattoo artists",
+    "We curate a selection": "We curate a selection of top-tier tattoo artists, ensuring a standard of excellence in both skill and professionalism.",
+    "User-Friendly Interface": "User-friendly interface",
+    "Navigate inckd effortlessly": "Navigate inckd effortlessly. Our app is designed with you in mind, providing a seamless experience from exploration to booking.",
+    "Secure Transactions": "Secure transactions",
+    "Rest easy knowing": "Rest easy knowing that your payments are secure. inckd employs encryption technology for safe and worry-free transactions.",
+    "FullWidthCarouselTitle": "Explore tattoos",
+    "FullWidthCarouselContent": "Stay in the know with our Tattoo Journal. Get updates on the latest trends, legally required health and safety guidelines, and insider tips from the tattoo industry.",
+    "Download the inckd": "Download the inckd. app now - It's free!",
+    "Check the Styleguide": "Check the Styleguide"
   },
 
   "styleGuidePage": {
-    "bannerContent1": "Know your style",
-    "bannerContent2": "with the inckd. Styleguide in our App",
-    "title1": "My Style is",
-    "title1-Sub": "Lettering",
-    "title2": "Whats",
-    "title2-Sub": "your Style?",
-    "title3": "Tell me ",
-    "title3-Sub": "your Style?",
-    "title4": "My Style is",
-    "title4-Sub": "Fineline",
-    "download": "Download the App",
-    "exploreApp":"& Explore 30+ styles",
-    "title5": "My Style is",
-    "title5-Sub": "Realistic",
-    "title6": "Show me",
-    "title6-Sub": "your Style?",
-    "title7": "My Style is",
-    "title7-Sub": "Traditional"
-  },
+    "bannerTitle": "Tattoo Styles",
+    "bannerContent": "Explore unique tattoo styles in our app! find your perfect ink. Dive into endless options today.",
+    "Letteringtattoos": "Lettering tattoos",
+    "LetteringTattooContent": "Elevate your self-expression with captivating lettering tattoos. Find skilled artists on our Tattoo Booking App for personalized and impactful ink that tells your unique story. Explore now!",
+    "Finelinetattoos": "Fineline tattoos",
+    "FinelineTattooContent": "Experience the elegance of fineline tattoos, where intricate details and delicate designs converge. Our Tattoo Booking App connects you with skilled artists for timeless, subtly detailed self-expression. Explore today!",
+    "Realistictattoos": "Realistic tattoos",
+    "RealisticTattooContent": "Experience the elegance of realistic tattoos, where intricate details and delicate designs converge. Our Tattoo Booking App connects you with skilled artists for timeless, subtly detailed self-expression. Explore today!",
+    "Traditionaltattoos": "Traditional tattoos",
+    "TraditionalTattooContent": "Experience the elegance of fineline tattoos, where intricate details and delicate designs converge. Our Tattoo Booking App connects you with skilled artists for timeless, subtly detailed self-expression. Explore today!,",
+    "Explore fineline": "Explore fine line tattoos",
+    "Explore traditional tattoos": "Explore traditional tattoos",
+    "Explore lettering tattoos": "Explore lettering tattoos",
+    "Explore realistic tattoos": "Explore realistic tattoos",
 
-
-
-
-  "forArtistPage": {
-    "button": "Get Started",
-    "bannerContent1": "Boost your business with inckd.",
-    "bannerContent2": "Grow your tattoo business by fulfilling your customers' tattoo vision and offering them flexible payment options.",
-    "easySetup": "Easy setup",
-    "free-to-use": "Free to use",
-    "easy-payments": "Easy payments",
-    "nosubscpriptions": "Free to use & no subscpriptions",
-    "set-up-and-manage": "Easy to set up and manage",
-    "verified-users": "Verified users",
-    "your-tattoo-business": "Your tattoo business ally",
-    "title1": "Manage your business",
-    "content1": "inckd is your ally in creating a thriving, client-focused tattoo business. Display your portfolio proudly to attract clients who appreciate your unique style. Expand your customer base effortlessly through seamless communication and hassle-free payment management, all within one user-friendly platform.",
-    "title2": "Keep clients in the Loop",
-    "content2": "Engage in real-time chats to understand your clients preferences firsthand. Efficiently handle appointments and stay prepared to meet your clients needs. Discuss offers and provide progress updates with inckd, ensuring their tattoo vision becomes a reality at every stage.",
-    "title3": "Get inckd. customers tattoing with you now. Are you ready?",
-    "title4": "Your booking buddy",
-    "content4": "inckd. puts you in the drivers seat of your tattoo business schedule, providing a comprehensive overview of all bookings through a real-time dashboard right at your fingertips. Define your availability and make it easier for clients to schedule appointments according to their preferences.",
-    "title5": "Manage Payments",
-    "content5": "Get payments quickly and securely, monitor them in real-time, and offer attractive discounts to encourage repeat business. We support widely accepted payment methods, including credit cards, and have partnered with Klarna to provide convenient instalment plans for your larger projects.",
-    "title6": "Manage your Studios",
-    "content6": "inckd. puts you in the drivers seat of your tattoo business schedule, providing a overview of all bookings through a real-time dashboard right at your fingertips. Define your availability and make it easier for clients to schedule appointments according to their preferences."
-  },
-
-  "joinartistPage": {
-    "title1": "Become an inckd.",
-    "title1-Sub":"Artist",
-    "text": "Tell us more about yourself.",
-
-    "enter-details": "Enter details",
-    "head1": "Submit the contact form",
-    "head2": "Download the App & complete your profile",
-    "head3": "Get verified",
-
- 
-    "head4": "Get verified & bring your Profile live"
+    "Type lettering": "Lettering",
+    "Type fineline": "Fineline",
+    "Type realistic": "Realistic",
+    "Type traditional": "Traditional",
+    "Explore lettering artists": "Explore lettering artists",
+    "Explore fineline artists": "Explore fineline artists",
+    "Explore realistic artists": "Explore realistic artists",
+    "Explore traditional artists": "Explore traditional artists",
+    "download": "Download the app",
+    "exploreApp": "& explore 30+ styles"
   },
 
   "klarnaPage": {
-    "bannerTitle1": "Tattoo now,",
-    "bannerTitle1-Sub": "Pay later",
-    "bannerTitle2": "Get tattoo now, pay later. That's right, there's a new way to get tattooed smoooth!",
-    "title1": "How it Works!",
-    "download-inckd": "Download the inckd.App",
-    "accept-an-offer": "Accept an offer from your favourite artist.",
-    "select-Klarna": "Select Klarna as payment option.",
-    "get-your-tattoo": "Get your tattoo done.",
-    "pay-later": "Pay later or in instalments.",
-    "title2": "You choose",
-    "title2-Sub1": "how you",
-    "title2-Sub2": "want to pay!",
+    "bannerTitle1": "Big Ink.",
+    "bannerTitle1-Sub": "Tiny Payments.",
+    "MainTitle1": "How it works!",
+    "Download App": "Download App",
+    "Seamlessly download": "Seamlessly download our user-friendly app, its free",
+    "Accept an offer": "Accept an offer",
+    "Effortlessly accept": "Effortlessly accept your preferred tattoo offer",
+    "Select Klarna": "Select Klarna",
+    "Select Klarna for a smooth and safe payment": "Select Klarna for a smooth and safe payment experience",
+    "Get your tattoo done": "Get your tattoo done",
+    "Enjoy superior tattoo skills": "Enjoy superior tattoo skills with your preferred artist",
+    "Pay later": "Pay later or in  installments",
+    "Enjoy convenient": "Enjoy convenient, flexible payment terms for your tattoo",
 
-    "option1": "Option 1",
-    "option2": "Option 2",
-    "option3": "Option 3",
-    "option4": "Option 4",
-
+    "MainTitle2": "You choose how you want to pay!",
     "heading1": "Pay Later",
     "heading2": "Pay in 3",
     "heading3": "Pay in 4",
     "heading4": "Financing",
 
-    "carouselText1": "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
-    "carouselText2": "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
-    "carouselText3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
-    "carouselText4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
-
-
-    "title3": "Availability",
-    "title4": "In which countries",
-    "title4-Sub1": "can I pay for my",
-    "title4-Sub2": "tattoo using Klarna?"
-
+    "Text1": "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
+    "Text2": "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
+    "Text3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
+    "Text4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
+    "carosuelTitle": "Check ",
+    "carosuelTitle-Sub": "tattoo artist to finance your tattoo"
   },
-
-
-
 
   "dictionaryPage": {
     "expoloreMore": "Explore more",
     "expoloreMore-Sub": "in the App",
+    "bannerTitle": "Tattoo",
+    "bannerTitle-Sub": "Dictionary",
+    "bannerContent": "Dive into the language of tattoos. From classic styles to the latest trends, our tattoo dictionary ensures you understand the art before choosing your ink.",
 
-    "bannerContent1": "Tattoo",
-    "bannerContent1-Sub": "Dictionary",
-    "bannerContent2": "Discover the tattoo dictionary, your ultimate tattoo inspiration Hub! Explore 5000+ Motives, search by emotions, and find your perfect design.",
-    "findArtist": "Find artists",
-    "title1": "Find your Tattoo",
-    "title1-Sub":"based on Emotions",
-    "basedonTheme":"based on Themes",
+    "Find your Tattoo": "Find your Tattoo",
+    "based on Emotions": "based on Emotions",
+    "enlighenment": "Enlighenment",
+    "love": "Love",
+    "transformation": "Transformation",
+    "explore-more-emotions": "Explore 500+ more emotions...",
+    "animals": "Animals",
+    "flowers": "Flowers",
+    "norseMythology": "Norse Mythology",
     "remembrance": "Remembrance",
     "trust": "Trust",
-    "enlighenment":"Enlighenment",
-   "love":"Love",
-   "transformation":"Transformation",
-   "animals":"Animals",
-   "flowers":"Flowers",
-   "norseMythology":"Norse Mythology",
-
-
-
-
     "reliability": "Reliability",
-    "sensuality" :"Sensuality",
-    "nurturing":"Nurturing",
-    "protection":"Protection",
-    "intensity":"Intensity",
-    "passion":"Passion",
-    "independence":"Independence",
-    "open-mindedness":" Open-mindedness",
-    "pleasure":"Pleasure",
-    "festivity":"Festivity",
-    "power":"Power",
-    "inspiration":"Inspiration",
-    "family":"Family",
-    "connection":"Connection",
-    "fate":"Fate",
-    "valor":"Valor",
-    "transmutation":"Transmutation",
-    "change":"Change",
-    "fun":"Fun",
-    "creativity":"Creativity",
+    "sensuality": "Sensuality",
+    "nurturing": "Nurturing",
+    "protection": "Protection",
+    "intensity": "Intensity",
+    "passion": "Passion",
+    "independence": "Independence",
+    "open-mindedness": " Open-mindedness",
+    "pleasure": "Pleasure",
+    "festivity": "Festivity",
+    "power": "Power",
+    "inspiration": "Inspiration",
+    "family": "Family",
+    "connection": "Connection",
+    "fate": "Fate",
+    "valor": "Valor",
+    "transmutation": "Transmutation",
+    "change": "Change",
+    "fun": "Fun",
+    "creativity": "Creativity",
 
-    "explore-more-emotions": "Explore 500+ more emotions...",
     "title2": "Zodiac",
-    "title2-Sub":"Signs",
+    "title2-Sub": "Signs",
     "content2": "Learn more about zodiac signs and find the tattoo with the right meaning for you in the app",
     "ZodiacCarousel": {
       "title1": "Taurus",
@@ -286,41 +160,33 @@
       "content4": "Aquarius is the eleventh sign of the zodiac. It is the symbol of the water-bearer. The symbol consists of..."
     },
 
-   "MythologyCarousel":{
+    "MythologyCarousel": {
+      "title1": "Dionysus",
+      "content1": "Dionysus was the god of wine, vegetation, pleasure, festivity, madness and wild frenzy. Generally...",
 
-    "title1": "Dionysus",
-    "content1": "Dionysus was the god of wine, vegetation, pleasure, festivity, madness and wild frenzy. Generally...",
+      "title2": "Poseidon",
+      "content2": "Poseidon was the god of the sea, earthquakes, floods, drought and horses. He is often depicted as an…",
 
-    "title2": "Poseidon",
-    "content2": "Poseidon was the god of the sea, earthquakes, floods, drought and horses. He is often depicted as an…",
+      "title3": "Tethys",
+      "content3": "Tethys was one of the Titan offspring of Uranus and Gaia. She is the goddess of fresh water and nursing…",
 
-    "title3": "Tethys",
-    "content3": "Tethys was one of the Titan offspring of Uranus and Gaia. She is the goddess of fresh water and nursing…",
+      "title4": "Zeus",
+      "content4": "Zeus was the King of the Gods and the god of the sky, weather, law and order, destiny and fate, and…"
+    },
 
-    "title4": "Zeus",
-    "content4": "Zeus was the King of the Gods and the god of the sky, weather, law and order, destiny and fate, and…"
+    "AztecCarousel": {
+      "title1": "Itzcuintli",
+      "content1": "Itzcuintli, meaning ‘dog’, is the day in the Aztec calendar associated with the god Mictlantecuhtli…",
 
-   },
+      "title2": "Ocelotl",
+      "content2": "Ocelotl, meaning ‘jaguar’, is the day in the Aztec calendar associated with the god Tezcatlipoca...",
 
+      "title3": "Ollin",
+      "content3": "Ollin, meaning ‘movement’, is the day of the Aztec calendar associated with Xolotl. He is the god of shifting…",
 
-   "AztecCarousel":{
-
-    "title1": "Itzcuintli",
-    "content1": "Itzcuintli, meaning ‘dog’, is the day in the Aztec calendar associated with the god Mictlantecuhtli…",
-
-    "title2": "Ocelotl",
-    "content2": "Ocelotl, meaning ‘jaguar’, is the day in the Aztec calendar associated with the god Tezcatlipoca...",
-
-    "title3": "Ollin",
-    "content3": "Ollin, meaning ‘movement’, is the day of the Aztec calendar associated with Xolotl. He is the god of shifting…",
-
-    "title4": "Ozomahtli",
-    "content4": "Ozomahtli, meaning ‘monkey’, is the day in the Aztec calendar associated with the god Xochipili…"
-
-   },
-
-
-
+      "title4": "Ozomahtli",
+      "content4": "Ozomahtli, meaning ‘monkey’, is the day in the Aztec calendar associated with the god Xochipili…"
+    },
 
     "title3": "Aztec",
     "title3-Sub": "Symbols",
@@ -333,11 +199,74 @@
     "content4": "Learn more about greek mythology and find the tattoo with the right meaning for you in the app"
   },
 
+  "forArtistPage": {
+    "button": "Get Started",
+    "bannerTitle": "Boost your",
+    "bannerSubtitle": "business",
+    "bannerSubtitle3": "with inckd.",
+    "bannerContent": "Grow your tattoo business by fulfilling your customers' tattoo vision and offering them flexible payment options.",
+
+    "title1": "Manage your business",
+    "Download our app from": " Download our app from",
+    "easySetup": "Easy setup",
+    "free-to-use": "Free to use",
+    "easy-payments": "Easy payments",
+    "nosubscpriptions": "Free to use & no subscpriptions",
+    "set-up-and-manage": "Easy to set up and manage",
+    "verified-users": "Verified users",
+
+    "title2": "Your tattoo business ally",
+
+    "content2": "inckd is your ally in creating a thriving, client-focused tattoo business. Display your portfolio proudly to attract clients who appreciate your unique style. Expand your customer base effortlessly through seamless communication and hassle-free payment management, all within one user-friendly platform.",
+
+    "title3": "Keep clients in the Loop",
+    "content3": "Engage in real-time chats to understand your clients preferences firsthand. Efficiently handle appointments and stay prepared to meet your clients needs. Discuss offers and provide progress updates with inckd, ensuring their tattoo vision becomes a reality at every stage.",
+    "title4": "Get inckd. customers tattoing with you now. Are you ready?",
+
+    "title5": "Your booking buddy",
+    "content5": "inckd. puts you in the drivers seat of your tattoo business schedule, providing a comprehensive overview of all bookings through a real-time dashboard right at your fingertips. Define your availability and make it easier for clients to schedule appointments according to their preferences.",
+
+    "title6": "Manage Payments",
+    "content6": "Secure swift payments, monitor in real-time, and incentivize repeat business with attractive discounts. We support popular payment methods, including credit cards, and have partnered with Klarna for convenient installment plans on larger projects, ensuring financial flexibility for your clients.",
+    "title7": "Manage your tattoo studios",
+    "content7": "Effortlessly expand your reach by adding and managing multiple studios on our versatile platform. Seamlessly handle split payments directly within the app, or grant studios the autonomy to manage clients and bookings. Experience unparalleled convenience in studio management, all consolidated within one user-friendly application"
+  },
+
+  "joinartistPage": {
+    "title1": "Become an inckd.",
+    "title1-Sub": "Artist",
+    "head1": "Submit the contact form",
+    "text": "Tell us more about yourself.",
+    "head2": "Get verified",
+    "Enter details": "Enter details",
+    "FirstName": "First name",
+    "Your e-mail": " Your e-mail",
+    "Country": "Country",
+    "City": "City",
+    "Your instagram": " Your instagram",
+    "Name is required": "Name is required",
+    "Email is required": "Email is required",
+    "Country field is required": "Country field is required",
+    "location must be at least 2 characters": "location must be at least 2 characters",
+    "instagram must be at least 2 characters": "instagram must be at least 2 characters",
+    "Too Short": "Too Short"
+  },
+
   "contactUsPage": {
-    "contact-us": "Contact us",
-    "getInTouch": "Please feel free to reach out to us with any questions, comments, or inquiries. We are here to assist you and provide the information you need. Your feedback is important to us, and we look forward to hearing from you.",
-    "in-touch": "Get in touch",
-    "who-you-are": "Who you are?"
+    "title": "Contact us",
+    "content": "Please feel free to reach out to us with any questions, comments, or inquiries. We are here to assist you and provide the information you need. Your feedback is important to us, and we look forward to hearing from you.",
+    "Get in touch": "Get in touch",
+    "who-you-are": "Who you are?",
+    "Tattoo lover": "Tattoo lover",
+    "Studio": "Studio",
+    "Artist": "Artist",
+    "Other": "Other",
+    "Enter-Email": "Enter email address",
+    "How we can help you": "How we can help you?",
+    "Please select one option": "Please select one option",
+    "Email is required": "Email is required",
+    "Message is required": "Message is required",
+    "Invalid email": "Invalid email"
   },
 
   "faqScreen": {
@@ -386,16 +315,184 @@
     "content16": "You can write us via the contact form on the webpage and on Instagram: inckd.support"
   },
 
-  "KlarnaMarketing":{
-    "heading" :"You choose how you want to pay!",
-    "title1": "Pay Later",
-    "title2": "Pay in 3",
-    "title3": "Pay in 4",
-    "title4": "Financing",
-    "content1": "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
-    "content2": "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
-    "content3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
-    "content4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days."
+  "tabs": {
+    "all": "All",
+    "tattoo": "Tattoo",
+    "flash": "Flash",
+    "artist": "Artists",
+    "info": "Information",
+    "tattooLovers": "Tattoolovers",
+    "general": "General"
+  },
 
+  "GeneralAppDownload": {
+    "Explore the Features": "Explore the Features in the Mobile App"
+  },
+
+  "OfferDownload": {
+    "Enterthiscode": "Enter this code during signup and receive ",
+    "YourVoucher": "your voucher via email upon completion"
+  },
+
+  "Download the inckd": "Download the inckd. app now - It's free!",
+  "MyStyleis": "My Style is",
+  "ExploreMoreArtist": "Explore more artists",
+  "ExploreMoreTattoos": "Explore more tattoos",
+
+  "downloadOurApp": "Download our app from",
+  "downloadContent": "We hand pick every tattoo artist to ensure your tattoo experience is handled with care,quality and inclusivity",
+  "downloadApp": "Download the ",
+  "downloadApp-Sub1": "app & explore more!",
+  "explore": "Explore more",
+  "explore-the": "Explore the",
+  "featuresApp": "Features in the App",
+  "download-app-forMore": "Download the App",
+  "download-app-forMore-sub": "for more!",
+
+  "download": "Download the App",
+  "appContent": "We hand pick every tattoo artist to ensure your tattoo experience is handled with care,quality and inclusivity",
+  "submit": "Submit",
+  "submitting": "Submitting",
+  "learnmore": "Learn more",
+  "visitTattoo": "Visit Tattoo Dictionary",
+  "checkStyle": "Check the Styleguide",
+  "download-our-app": "Download our app from",
+  "tattooNow": "Get tattoo now, pay later.",
+  "payLater": "That's right, there's a new way to get tattooed smoooth!",
+  "findArtist's": "Find artists",
+  "pageNotfound": "Ooops... Page not found",
+  "cantfind": "Sorry, We can’t find the page you’re looking for",
+  "backHome": "Back Home",
+  "you-might-like": "You might also like",
+  "image-tattoo-style": "Image tattoo style",
+  "locations": "Locations",
+  "getIntouch": "Get in Touch",
+  "viewProfile": "View Profile",
+  "fixed-price": "Fixed Price",
+  "flexible-price": "Flexible price",
+  "flash-doesn't-price": "This Flash doesn't have a price",
+  "language": "Languages",
+  "styles": "Styles",
+  "nodata": "No data found",
+  "exploreAll": "Explore",
+  "notFoundMessage": "Try adjusting your search/ filter to find what you are looking for",
+  "followus": "Follow us on",
+  "book": "Book",
+  "product": "Product",
+  "business": "Business",
+  "download-app-on": "Download the inckd. app now - It's free!",
+  "findArtist": "Find your Artist now!",
+  "tattooPayLater": "Tattoo now. Pay later.",
+  "offers": "Get exciting offers!",
+  "nextTattoo": "off on your next tattoo",
+  "chf": "CHF 30",
+  "viewArtist": "View Artists",
+  "refer": "Refer and Earn",
+  "checkProfile": "Check Profile",
+  "chooseStyle": "Styles",
+  "enterLocation": "Enter Location",
+  "loadMore": "LOAD MORE",
+
+  "Downloadinckd": "Download the inckd app to get a voucher of",
+  "Usecode": "Use code",
+  "Voucherends": "Voucher ends on",
+  "Joinus": "Join us with",
+  "Form submitted": "Form submitted",
+  "Thank you": "Thank you!",
+
+  "Read more": "Read more",
+  "Download  inckd": "Download the inckd.",
+  "Now - It's free": "app now - It's free",
+  "Choose your region and language": "Choose your region and language",
+  "LanguagePopup-subText": "Get in touch with us lorem ipsum is a dummy content for typesetting industry.",
+  "currency" :"EUR",
+
+  "homeScreenSEO": {
+    "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
+    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
+    "keyword": "Tattoo, Tattoo artist,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Tattoo"
+  },
+
+  "styleGuideScreenSEO": {
+    "title": "Explore a variety of unique tattoo styles and trends",
+    "description": "Dive into a world of tattoo artistry with our diverse collection of unique tattoo styles and tattoo trends. Find your tattoo inspiration",
+    "keyword": "Tattoo, Tattoo, Tattoo booking, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Flash, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Finleine Tattoo, Blackwork Tattoo, Traditional Tattoo, Tattoo Search, Tattoo Finder"
+  },
+
+  "dictionarycreenSEO": {
+    "title": "5000+ Tattoo Motives, Your Ultimate Tattoo Dictionary",
+    "description": "Explore our extensive tattoo dictionary with 5000+ unique motives, each with meanings and emotions. Find your perfect tattoo inspiration here",
+    "keyword": "Tattoo, Tattoo Emotions, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Dictonary, Tattoo Meanings Tattoo Finder, Tattoo"
+  },
+
+  "klarnascreenSEO": {
+    "title": "Flexible tattoo payments with customized installment plans",
+    "description": "Get your dream tattoo with ease! Pay for tattoos in convenient installments, tailored to your budget with our individual payment plans",
+    "keyword": "Tattoo, Tattoos, Tattoo Payment, Tattoo Installments, Tattoo paymentplan, Tattoo budget, Tattooartist, Tattoo Klarna, Klarna"
+  },
+  "fortattooArtistScreenSEO": {
+    "title": "Empower Tattoo artists with our comprehensive business management tool",
+    "description": "Elevate your tattoo business with our all-in-one business management tool, designed to empower tattoo artists and enhance efficiency",
+    "keyword": "Tattoo artist software, Tattoo studio management tool, Tattoo business management, Tattoo shop software, Artist scheduling tool, Ink business management, Tattoo artist productivity, Tattoo parlor software, Tattoo shop organization, Ink studio software"
+  },
+
+  "contactUsScreenSEO": {
+    "title": "Get in touch with us",
+    "description": "Contact us for tattoo inquiries or any questions. We're here to help you with all your tattoo-related queries and concerns",
+    "keyword": "Tattoo inquiry form, Ink-related queries, Get in touch with tattooist"
+  },
+
+  "joinArtistScreenSEO": {
+    "title": "Discover opportunities: Join our tattoo artist platform",
+    "description": "Find exciting opportunities in the tattoo industry. Join our platform for tattoo artists and kick-start your creative journey today",
+    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answer"
+  },
+  "faqScreenSEO": {
+    "title": "Tattoo FAQ: Your questions qnswered",
+    "description": "Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey",
+    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
+  },
+  "exploreAllScreenSEO": {
+    "title": "Explore tattoos, flash designs, and artist portfolios. Get inspired by a variety of styles for your next ink masterpiece"
+  },
+  "exploreTattoosScreenSEO": {
+    "title": "Discover many tattoo pictures. Find inspiration for your next tattoo in a variety of styles."
+  },
+
+  "exploreFlashScreenSEO": {
+    "title": "Find flash tattoo ideas. Explore a range of quick, stylish designs for your next tattoo."
+  },
+
+  "exploreArtistScreenSEO": {
+    "title": "Meet talented tattoo artists. Browse their unique styles and work for your next tattoo inspiration."
+  },
+
+  "tattooDetailScreen": {
+    "title": "Explore Tattoo images, designs, and find tattoo artists with ease.",
+    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
+    "keyword": "Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
+  },
+  "flashDetailScreen": {
+    "title": "Browse unique tattoo designs by talented tattoo artists.",
+    "description": "Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection",
+    "keyword": "Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
+  },
+
+  "artistDetailScreen": {
+    "title": "Locate tattoo artists by city and country",
+    "description": "Discover tattoo artists in your city and across countries. Search, connect, and tattoo with the best artists near you",
+    "keyword": "Tattooartist, Tattooartist Location, Tattooist search by city, City tattoo artist search, Local tattoo artists, Find tattoo artist near me, Tattooers"
+  },
+
+  "klarnaMarketingScreen": {
+    "title": "Klarna-Download"
+  },
+
+  "VoucherScreen": {
+    "title": "Voucher"
+  },
+
+  "GeneralAppdownloadScreen": {
+    "title": "General App Download"
   }
 }

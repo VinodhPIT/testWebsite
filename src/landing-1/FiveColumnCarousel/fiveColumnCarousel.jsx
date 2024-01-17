@@ -108,13 +108,13 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                             </div>
                             
                             <Link href={btnLink}
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden">
+                                 className="btn_primary btn_cutom_new btn_img m_mb_25 mob_hidden">
                               {button}
                                 <Image
                                 src="/arow-white-right.svg"
                                 width={24}
                                 height={24}
-                                alt="logo"
+                                alt="arrow-white"
                                 loading="lazy"
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
@@ -135,12 +135,12 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                                 {trendingArtist.map((el, index) => (
                                     <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index}>
 
-                                      <Link href={el.url} style={{"paddingRight":"3px"}} >
+                                      <Link href={el.url}  >
                                
                                     <div className={`${'listing_grid_five_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={el.image}
-                                        alt="Trending couple tattoos"
+                                        alt={el.name}
                                         width={752}
                                         height={776}
                                         loading="lazy"
@@ -172,11 +172,7 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                                         </h6>
                                         
                                         <span className={styles.listing_grid_profile_address}>
-                                            {el.city}
-                                        </span>
-                                        
-                                        <span className={styles.listing_grid_profile_address} >
-                                            {el.country}
+                                            {el.city}, {el.country}
                                         </span>
                                         </div>
                                     </div>
@@ -190,13 +186,13 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                 <div className="text_box_content_inner container max_w_100pc pt_80 pb_25 m_pt_pb_30 ml_0 desk_hidden">
                     <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">                            
                             <Link href={btnLink}
-                                 className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 m_mt_15">
+                                 className="btn_primary btn_cutom_new btn_img m_mb_25 m_mt_15">
                               {button}
                                 <Image
                                 src="/arow-white-right.svg"
                                 width={24}
                                 height={24}
-                                alt="logo"
+                                alt="arrow-white"
                                 loading="lazy"
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
