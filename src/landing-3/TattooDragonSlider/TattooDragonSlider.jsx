@@ -31,12 +31,12 @@ export default function TattooDragonSlider ({title,content ,data}) {
                     <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider slider_arrow_none'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>
                             <Slider {...sliderSettings}>
-                                {data.map((imgPath, index) => (
+                                {data.map((el, index) => (
                                     <div className={styles.listing_gridItem} key={index}>
                                         <div className={styles.listing_grid_img_col}>
                                             <Image
-                                                src={imgPath.image}
-                                                alt="Drachen Tattoo Vorlagen"
+                                                src={el.image}
+                                                alt={el.altTag}
                                                 width={745}
                                                 height={937}
                                                 loading="lazy"

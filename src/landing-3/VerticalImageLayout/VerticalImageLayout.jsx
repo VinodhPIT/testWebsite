@@ -13,7 +13,7 @@ export default function VerticalImageLayout({
   image1,
   image2,
   image3,
-  alt,
+  altTag1,  altTag2,  altTag3,
   bgColor,
 }) {
   return (
@@ -44,7 +44,7 @@ export default function VerticalImageLayout({
                   <li className="list_step_01">
                     <Image
                       src={image1}
-                      alt={alt}
+                      alt={altTag1}
                       width={1019}
                       height={705}
                       loading="lazy"
@@ -57,7 +57,7 @@ export default function VerticalImageLayout({
                   <li className="list_step_02">
                     <Image
                       src={image2}
-                      alt={alt}
+                      alt={altTag2}
                       width={998}
                       height={691}
                       loading="lazy"
@@ -70,7 +70,7 @@ export default function VerticalImageLayout({
                   <li className="list_step_03">
                     <Image
                       src={image3}
-                      alt={alt}
+                      alt={altTag3}
                       width={999}
                       height={691}
                       loading="lazy"

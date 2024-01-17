@@ -18,6 +18,15 @@
     "set": "de-en"
   },
   {
+    "id": 29,
+    "country": "Germany",
+    "language": "German",
+    "image": "/germany.svg",
+    "domain": "de",
+    "lng": "de",
+    "set": "de-de"
+  },
+  {
     "id": 3,
     "country": "United Kingdom",
     "language": "English",
@@ -129,7 +138,7 @@
     "set": "ie-en"
   },
   {
-    "id": 14,
+    "id": 15,
     "country": "Netherlands",
     "language": "English",
     "image": "/netherlands.svg",
@@ -138,7 +147,7 @@
     "set": "nl-en"
   },
   {
-    "id": 15,
+    "id": 16,
     "country": "Portugal",
     "language": "English",
     "image": "/portugal.svg",
@@ -147,7 +156,7 @@
     "set": "pt-en"
   },
   {
-    "id": 16,
+    "id": 17,
     "country": "Spain",
     "language": "English",
     "image": "/spain.svg",
@@ -156,7 +165,7 @@
     "set": "es-en"
   },
   {
-    "id": 17,
+    "id": 18,
     "country": "Italy",
     "language": "English",
     "image": "/italy.svg",
@@ -165,7 +174,7 @@
     "set": "it-en"
   },
   {
-    "id": 18,
+    "id": 19,
     "country": "Bulgaria",
     "language": "English",
     "image": "/bulgaria.svg",
@@ -175,7 +184,7 @@
   },
 
   {
-    "id": 18,
+    "id": 20,
     "country": "Cyprus",
     "language": "English",
     "image": "/cyprus.svg",
@@ -185,7 +194,7 @@
   },
 
   {
-    "id": 19,
+    "id": 21,
     "country": "Estonia",
     "language": "English",
     "image": "/estonia.svg",
@@ -195,7 +204,7 @@
   },
 
   {
-    "id": 20,
+    "id": 22,
     "country": "Finland",
     "language": "English",
     "image": "/finland.svg",
@@ -205,7 +214,7 @@
   },
 
   {
-    "id": 21,
+    "id": 23,
     "country": "Latvia",
     "language": "English",
     "image": "/latvia.svg",
@@ -215,7 +224,7 @@
   },
 
   {
-    "id": 22,
+    "id": 24,
     "country": "Lithuania",
     "language": "English",
     "image": "/lithuania.svg",
@@ -225,7 +234,7 @@
   },
 
   {
-    "id": 23,
+    "id": 25,
     "country": "Luxembourg",
     "language": "English",
     "image": "/luxembourg.svg",
@@ -235,7 +244,7 @@
   },
 
   {
-    "id": 24,
+    "id": 26,
     "country": "Malta",
     "language": "English",
     "image": "/malta.svg",
@@ -243,9 +252,8 @@
     "lng": "en",
     "set": "mt-en"
   },
-
   {
-    "id": 24,
+    "id": 27,
     "country": "Slovakia",
     "language": "English",
     "image": "/slovakia.svg",
@@ -253,9 +261,8 @@
     "lng": "en",
     "set": "sk-en"
   },
-
   {
-    "id": 24,
+    "id": 28,
     "country": "Slovenia",
     "language": "English",
     "image": "/slovenia.svg",

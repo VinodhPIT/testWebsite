@@ -9,7 +9,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import FourColumnCarousel from "@/landing-1/FourColumCarousel/fourColumnCarousel";
 
 export default function TattooIdeasForMen() {
-  const currentPage = typeof window !== "undefined" ? window.location.href : "";
+ 
   const { router } = useNavigation();
 
   const trendingArtist = [
@@ -22,7 +22,7 @@ export default function TattooIdeasForMen() {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/delphin-musquet_ja14on47`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/delphin-musquet_ja14on47`,
     },
     {
       artistImage:
@@ -33,7 +33,7 @@ export default function TattooIdeasForMen() {
 
       city: "Luciatattoos",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/luciatattoos_n98rnvgl`,
     },
     {
       artistImage:
@@ -45,7 +45,7 @@ export default function TattooIdeasForMen() {
       city: "London",
       country: "United Kingdom",
 
-      url: `${process.env.LIVE_URL}/artists/alessandro-lanzafame_nts3jh4k`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/alessandro-lanzafame_nts3jh4k`,
     },
     {
       artistImage:
@@ -54,9 +54,9 @@ export default function TattooIdeasForMen() {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2164_20220831155842506-medium.jpg",
       name: "Barbara Nobody",
 
-      city: "London,",
+      city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/barbaranobody_e8w4uiq5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/barbaranobody_e8w4uiq5`,
     },
 
     {
@@ -68,7 +68,7 @@ export default function TattooIdeasForMen() {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/Mileink_8t07n1nk`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/Mileink_8t07n1nk`,
     },
     {
       artistImage:
@@ -79,7 +79,7 @@ export default function TattooIdeasForMen() {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/13foxxtattoos_6426m6eg`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/13foxxtattoos_6426m6eg`,
     },
 
     {
@@ -90,7 +90,7 @@ export default function TattooIdeasForMen() {
       name: "Çinar Efe Tattoo",
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/cinar-efe_acwe82ae`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/cinar-efe_acwe82ae`,
     },
   ];
 
@@ -118,10 +118,9 @@ export default function TattooIdeasForMen() {
 
         <meta
           property="og:image"
-          content={"/young-beautiful-couple-posing-old-building-1.jpg"}
+          content={`${process.env.LIVE_URL}/${router.locale}/artistBanner.jpg`}
         />
-
-        <meta property="og:url" content={currentPage} />
+        <meta property="og:url" content={`${process.env.LIVE_URL}/${router.locale}/book-tattoo-artists`}  />
         <meta property="og:type" content="website" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
@@ -130,7 +129,7 @@ export default function TattooIdeasForMen() {
       <div>
         <Banner
           bannerTitle="Discover and Book Tattoo Artists Near Me with inckd."
-          alt="Book Artist"
+          alt="Discover and Book Tattoo Artists Near Me with inckd"
           bannerImg={"/artistBanner.jpg"}
           bannerButton={"Know more about inckd"}
         />
@@ -150,6 +149,7 @@ export default function TattooIdeasForMen() {
           button="Explore more artists"
           trendingArtist={trendingArtist}
           btnLink={`/${router.locale}/explore/tattoo-artists?location=LondonUK`}
+
         />
 
         <SideBySideContentWithImage
@@ -168,6 +168,11 @@ export default function TattooIdeasForMen() {
           "
           leftSectionImage="/inckdArtist1.svg"
           rightSecImage="/inckdArtist2.svg"
+
+          alt1="Diverse Style"
+          alt2="Exclusive Partnerships"
+
+
         />
 
         <OrangeTwoRowBlock
@@ -181,9 +186,14 @@ export default function TattooIdeasForMen() {
           content2="In addition to connecting with tattoo artists, inckd offers a wealth of information and inspiration. Check out our journal for info on tattoo care, trends, and tips for a great tattooing experience.
         "
           bgColor="#FFD5C0"
+          imgAlt1='Connect with Your Ideal Tattoo Artise'
+imgAlt2="Explore More with inckd"
         />
 
-        <DownloadApps />
+        <DownloadApps
+          title="Download the"
+          subTitle="app & explore more!"        
+        />
       </div>
     </>
   );

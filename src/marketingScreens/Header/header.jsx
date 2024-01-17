@@ -52,19 +52,19 @@ let switchTheme
   switch (router.query.type) {
     case "klarna":
       bgColor = "transparent";
-      switchTheme=  'switcherThemeBlack' 
+      switchTheme=  'switcherThemeWhite' 
       break;
     case "campaign":
       bgColor = "transparent";
-      switchTheme= 'switcherThemeBlack' 
+      switchTheme= 'switcherThemeWhite' 
       break;
     case "general":
       bgColor =isMobileView ?  "transparent" :  "rgba(16, 16, 16, 0.20)";
-      switchTheme=   isMobileView ? 'switcherThemeWhite'   :    'switcherThemeBlack' 
+      switchTheme=   isMobileView ? ' switcherThemeBlack '   :    'switcherThemeWhite' 
       break;
     default:
       bgColor =isMobileView ?  "transparent" :  "rgba(16, 16, 16, 0.20)";
-      switchTheme=   isMobileView ? 'switcherThemeWhite'   :    'switcherThemeBlack' 
+      switchTheme=   isMobileView ? ' switcherThemeBlack '   :    'switcherThemeWhite' 
       break;
   }
 
@@ -152,7 +152,7 @@ let switchTheme
                   onClick={() => onToggle(true)}
                   src={
                     router.query.type === "campaign" || router.query.type === "klarna"
-                      ? "/Hamburger Menu.png"
+                      ? "/hamburger-menu.svg"
                       : "/blackHamburger.svg"
                   }
                   alt="hamburger"

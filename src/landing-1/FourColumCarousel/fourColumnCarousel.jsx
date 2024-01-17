@@ -102,14 +102,14 @@ export default function FourColumnCarousel({
 
                 <Link
                   href="/explore/tattoo-artists"
-                  className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden"
+                  className="btn_primary btn_cutom_new btn_img m_mb_25 mob_hidden"
                 >
                   {button}
                   <Image
                     src="/arow-white-right.svg"
                     width={24}
                     height={24}
-                    alt="logo"
+                    alt="arrow-white"
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={blurDataURL}
@@ -154,7 +154,7 @@ export default function FourColumnCarousel({
                         >
                           <Image
                             src={el.image}
-                            alt="Trending couple tattoos"
+                            alt={el.name}
                             width={752}
                             height={776}
                             loading="lazy"
@@ -190,18 +190,11 @@ export default function FourColumnCarousel({
                             <h6 className={styles.listing_grid_profile_title}>
                               {el.name}
                             </h6>
-                            <div className="mb_5"></div>
                             <span
                               className={styles.listing_grid_profile_address}
                             >
-                              {el.city}
-                            </span>
-                            <div className="mt_5"></div>
-                            <span
-                              className={styles.listing_grid_profile_address}
-                            >
-                              {el.country}
-                            </span>
+                              {el.city}, {el.country}
+                            </span>                            
                           </div>
                         </div>
                       </Link>
@@ -215,14 +208,14 @@ export default function FourColumnCarousel({
             <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">
               <Link
                 href="/explore/tattoo-artists"
-                className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 m_mb_15"
+                className="btn_primary btn_cutom_new btn_img m_mb_25 m_mb_15"
               >
                 {button}
                 <Image
                   src="/arow-white-right.svg"
                   width={24}
                   height={24}
-                  alt="logo"
+                  alt="arrow-white"
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}

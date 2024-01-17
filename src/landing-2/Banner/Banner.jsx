@@ -16,7 +16,7 @@ import {
 
 
 
-export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton}) {
+export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton ,altTag}) {
 
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -56,7 +56,7 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton}
               <div className={styles.banner_inner}>
                 <Image
                   src={bannerImg}                 
-                  alt="banner"
+                  alt={altTag}
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}

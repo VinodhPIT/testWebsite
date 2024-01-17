@@ -10,7 +10,7 @@ const UseLayout = ({ children, pathname }) => {
       document.body.style.backgroundColor = "#fff";
       document.body.className = "dictionary";
     } else if (pathname === "/klarna") {
-      document.body.style.backgroundColor = "#F8F8F8";
+      document.body.style.backgroundColor = "#fff";
       document.body.className = "klarna";
     } else {
       // Reset styles for other pages

@@ -60,31 +60,26 @@ function getCountryIcon(locale) {
     case "fi":
       return "/finland.svg";
 
+    case "et":
+      return "/estonia.svg";
 
-      case "et":
-        return "/estonia.svg";
-  
-        case "lv":
-            return "/latvia.svg";
-      
-            case "lt":
-                return "/lithuania.svg";
-          
-                case "lu":
-                    return "/luxembourg.svg";
-              
-                    case "mt":
-                    return "/malta.svg";
+    case "lv":
+      return "/latvia.svg";
 
-                    case "sk":
-                        return "/slovakia.svg";
-    
-                        case "sl":
-                            return "/slovenia.svg";
+    case "lt":
+      return "/lithuania.svg";
 
+    case "lu":
+      return "/luxembourg.svg";
 
+    case "mt":
+      return "/malta.svg";
 
+    case "sk":
+      return "/slovakia.svg";
 
+    case "sl":
+      return "/slovenia.svg";
 
     default:
       return "/switzerland.svg";

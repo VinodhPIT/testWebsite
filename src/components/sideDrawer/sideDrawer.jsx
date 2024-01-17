@@ -1,45 +1,37 @@
-import React  from "react";
+import React from "react";
 import Link from "next/link";
-import  styles from './sideDrawer.module.css'
-import Image from 'next/image'
+import styles from "./sideDrawer.module.css";
+import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import{useNavigation} from '@/hooks/useRouter'
-
-
-
-export default function SideDrawer({onCloseToggle}) {
-
+import { useNavigation } from "@/hooks/useRouter";
+import OutsideClickHandler from 'react-outside-click-handler';
+export default function SideDrawer({ onCloseToggle }) {
   const { t } = useTranslation();
 
-
-const {router} =useNavigation()
-
-
-
+  const { router } = useNavigation();
 
   const links = [
     {
       id: 1,
-      title:t("common:menus.home"),
+      title: t("common:menus.home"),
       url: `/`,
     },
 
     {
       id: 2,
-      title:t("common:menus.search"),
-      url:`/${router.locale}/explore/tattoos`
+      title: t("common:menus.search"),
+      url: `/${router.locale}/explore/tattoos`,
     },
-
 
     {
       id: 3,
-      title:t("common:menus.styleGuide"),
+      title: t("common:menus.styleGuide"),
       url: `/${router.locale}/tattoo-styleguide`,
     },
     {
       id: 4,
       title: t("common:menus.dictionary"),
-      url: `/${router.locale}//tattoo-dictionary`
+      url: `/${router.locale}//tattoo-dictionary`,
     },
 
     {
@@ -50,13 +42,13 @@ const {router} =useNavigation()
 
     {
       id: 6,
-      title:t("common:menus.forTattooArtists"),
+      title: t("common:menus.forTattooArtists"),
       url: `/${router.locale}/for-tattoo-artists`,
     },
 
     {
       id: 7,
-      title:t("common:menus.contactUs"),
+      title: t("common:menus.contactUs"),
       url: `/${router.locale}/contact`,
     },
   ];
@@ -67,12 +59,7 @@ const {router} =useNavigation()
     case "uk-en":
     case "de-de":
       linkComponent = (
-        <Link
-          href={"/journal"}
-        
-        >
-          {t("common:menus.journal")}
-        </Link>
+        <Link href={"/journal"}>{t("common:menus.journal")}</Link>
       );
       break;
     default:
@@ -80,42 +67,38 @@ const {router} =useNavigation()
       break;
   }
 
-
-
-
-
   return (
+ <OutsideClickHandler onOutsideClick={()=>onCloseToggle()}>
+
+
     <div className={styles.sideDrawer}>
-<div className={styles.closeWrapper}>
+      <div className={styles.closeWrapper}>
+        <Image
+          onClick={() => onCloseToggle()}
+          src="/close.png"
+          width={50}
+          height={50}
+          alt="close"
+          priority
+        />
+      </div>
 
-      <Image
-      onClick={()=>onCloseToggle()}
-      src="/close.png"
-      width={50}
-      height={50}
-      alt="close"
-      priority
-    />
-
-</div>
-       
       <ul className={styles.menuList}>
         {links.map((link) => (
-          <li key={link.id} >
-            <Link href={link.url}onClick={()=>onCloseToggle()}>{link.title}</Link>
+          <li key={link.id}>
+            <Link href={link.url} onClick={() => onCloseToggle()}>
+              {link.title}
+            </Link>
           </li>
         ))}
 
-        {/* <li><Link href={'/journal'}onClick={()=>onCloseToggle()}>{linkComponent}</Link></li> */}
-
-
-
-
-        
+        <li>
+          <Link href={"/journal"} onClick={() => onCloseToggle()}>
+            {linkComponent}
+          </Link>
+        </li>
       </ul>
-
-
-
     </div>
+    </OutsideClickHandler>
   );
 }

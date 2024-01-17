@@ -12,84 +12,8 @@ export default function PartnerTattoos({
   bgColor,
   btnLink,
 }) {
-  const [images, setImage] = useState([
-    { image: "/benet-1.png" },
-    { image: "/benet-2.png" },
-    { image: "/benet-3.png" },
-  ]);
 
-  let sliderSettings = {};
-
-  // sliderSettings = {
-  //     infinite: true,
-  //     arrows: false,
-  //     speed: 300,
-  //     slidesToShow: isMobileView ? 1.2 : 3,
-  //     slidesToScroll: isMobileView ? 1. : 3,
-  //     dots: true,
-
-  //     responsive: [
-
-  //         {
-  //           breakpoint: 1365,
-  //           settings: {
-  //             slidesToShow: 3,
-  //             slidesToScroll: 3,
-  //             infinite: false,
-  //             dots: true,
-  //           },
-  //         },
-  //         {
-  //           breakpoint: 1199,
-  //           settings: {
-  //             slidesToShow: 3,
-  //             slidesToScroll: 3,
-  //             infinite: false,
-  //             dots: true,
-  //           },
-  //         },
-
-  //         {
-  //           breakpoint: 1025,
-  //           settings: {
-  //             slidesToShow: 3,
-  //             slidesToScroll: 3,
-  //             infinite: false,
-  //             dots: true,
-  //           },
-  //         },
-
-  //         {
-  //           breakpoint: 900,
-  //           settings: {
-  //             infinite: true,
-  //             slidesToShow: 2,
-  //             slidesToScroll: 3,
-  //             dots: true,
-  //           },
-  //         },
-  //         {
-  //           breakpoint: 600,
-  //           settings: {
-  //             infinite: true,
-  //             slidesToShow: 1,
-  //             slidesToScroll: 1,
-  //             dots: true,
-  //           },
-  //         },
-
-  //         {
-  //           breakpoint: 400,
-  //           settings: {
-  //             infinite: true,
-  //             slidesToShow: 1,
-  //             slidesToScroll: 1,
-  //             dots: true,
-  //           },
-  //         },
-  //       ],
-
-  //     };
+  
 
   return (
     <section className="img_text_banner_box">
@@ -119,7 +43,7 @@ export default function PartnerTattoos({
                       <div className={styles.listing_grid_img_col}>
                         <Image
                           src={el.image}
-                          alt="Trending couple tattoos"
+                          alt={el.altTag}
                           width={746}
                           height={749}
                           loading="lazy"
@@ -144,7 +68,7 @@ export default function PartnerTattoos({
                         <div className={styles.listing_grid_img_profile}>
                           <Image
                             src={el.artistImage}
-                            alt="Trending couple tattoos"
+                            alt={el.name}
                             width={97}
                             height={97}
                             loading="lazy"

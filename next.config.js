@@ -2,12 +2,13 @@ const nextTranslate = require("next-translate-plugin");
 const nextConfig = {
   images: {
     domains: ["storage.googleapis.com"],
+
+    unoptimized: true,
   },
   env: {
-    apiDomain:"https://admin.inckd.com/web/api",
-    googlePlacesApiKey:"AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
-    NEXT_PUBLIC_BASE_URL: "https://inckdweb2023.vercel.app",
-    LIVE_URL: "https://www.inckd.com"
+    apiDomain: "https://admin.inckd.com/web/api",
+    googlePlacesApiKey: "AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
+    LIVE_URL: "https://www.inckd.com",
   },
 
   i18n: {
@@ -23,10 +24,9 @@ module.exports = nextTranslate({
   ...nextConfig,
   async rewrites() {
     return [
-
       {
-        source: '/',
-        destination: '/[locale]',
+        source: "/",
+        destination: "/[locale]",
       },
     ];
   },

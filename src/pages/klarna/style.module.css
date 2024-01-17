@@ -1,0 +1,34 @@
+.btn_klarna {
+    padding: 10px 10px;
+    border-radius: 11px;
+    background: #F5B6C7;    
+}
+.btn_klarna img {
+    max-width: 100%;
+    height: 21px;
+}
+.with_margin{
+    margin-bottom: 45px;
+}
+.listGrid{
+   display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 77px
+}
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .grid_mobileView{
+        margin-bottom: 45px;
+    }  
+}
+@media (max-width: 768px) {
+    .listGrid{        
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap:0px
+    }
+    .with_margin {
+        margin-bottom: 30px;
+    }
+    .grid_mobileView{
+        margin-bottom: 30px;
+    }  
+}

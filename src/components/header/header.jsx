@@ -16,7 +16,8 @@ export default function Header({
   theme,
   isPosition,
   imgWidth,
-  imgHeight,
+  imgHeight,hamburger,languageSwitch ,isFullwidth
+
 }) {
   const router = useRouter();
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
@@ -45,15 +46,16 @@ export default function Header({
     setToggle(false);
   };
 
-  const baseImageUrl =
-    theme === "white" ? "/blackHamburger.svg" : "/Hamburger Menu.png";
+
+    const baseImageUrl =
+    hamburger === "white" ? "/hamburger-menu.svg" : "/blackHamburger.svg"  ;
 
   return (
     <>
       {router.pathname === "/" && (
         <div className="header_cookies">
           <div className="header_cookie_img">
-            <img src="/logo-cookies.svg" alt="" />
+            <Image src="/logo-cookies.svg"  alt="klarna"  width={68} height={16}  loading="eager"></Image>
           </div>
           <div className="header_cookie_txt">
             <p>
@@ -79,38 +81,35 @@ export default function Header({
 
       <header className={isPosition === true ? "header_wrapper" : null}>
         <div>
-          <div className="container">
+          <div className= {isFullwidth  === true ?  "container_full" :  "container"}>
             <nav className="header_navigation">
-              <div className="header_logo">
-                <Link href={`/${router.locale}`} className="navbar_brand">
-                  <Image
-                    src={logo}
-                    alt="Logo"
-                    width={imgWidth}
-                    height={imgHeight}
-                    priority
-                  />
-                </Link>
-              </div>
-
-              <div className="nav_block">
-                <ul className="nav main_nav navbar_collapse collapse">
-                  {links.map((link) => (
-                    <li key={link.id} className="nav_item">
-                      <Link
-                        href={`/${router.locale}${link.url}`}
-                        className={`text${
-                          theme === "black" || theme === "normal"
-                            ? "White"
-                            : "Black"
-                        }`}
-                      >
-                        {t(link.title)}
-                      </Link>
-                    </li>
-                  ))}
-                  {/* <li>{linkComponent}</li> */}
-                </ul>
+              <div className="header_logo_nav">
+                <div className="header_logo">
+                  <Link href={`/${router.locale}`} className=" navbar_brand">
+                    <Image
+                      src={logo}
+                      alt="Logo"
+                      width={imgWidth}
+                      height={imgHeight}
+                      priority
+                    />
+                  </Link>
+                </div>
+                <div className="nav_block">
+                  <ul className="nav main_nav navbar_collapse collapse">
+                    {links.map((link) => (
+                      <li key={link.id} className="nav_item">
+                        <Link
+                          href={`/${router.locale}${link.url}`}
+                          className=  {router.pathname=="/journal" ?   "textWhite" :    "textBlack"}
+                        >
+                          {t(link.title)}
+                        </Link>
+                      </li>
+                    ))}
+                    <li >{linkComponent}</li>
+                  </ul>
+                </div>
               </div>
 
               <div className="header_right">
@@ -119,19 +118,14 @@ export default function Header({
                   onClick={() =>
                     router.push(`/${router.locale}/for-tattoo-artists`)
                   }
-                  className={`btn btn_tattoo_art ${getButtonClass(
-                    theme,
-                    router
-                  )}`}
+                  className={`btn btn_tattoo_art bgBlack`}
                 >
                   {t("common:menus.forTattooArtists")}
                 </button>
 
-                {router.pathname !== `/journal` && (
+                {router.pathname === '/journal' || router.pathname === '/explore/[[...slug]]'? null :
                   <button
-                    className={`language_switcher switcherTheme${
-                      theme === "white" ? "White" : "Black"
-                    }`}
+                    className={`language_switcher  ${languageSwitch}`}
                     onClick={openPopup}
                   >
                     <Image
@@ -142,14 +136,13 @@ export default function Header({
                       priority
                     />
                     <span
-                      className={`switchText${
-                        theme === "white" ? "White" : "Black"
-                      }`}
+                      className={`${languageSwitch === 'switcherThemeWhite' ? 'textWhite' : "textBlack"
+                        }`}
                     >
                       {getLanguage(router.locale)}
                     </span>
                   </button>
-                )}
+                }
 
                 <Image
                   className="nav_btn_toggle"

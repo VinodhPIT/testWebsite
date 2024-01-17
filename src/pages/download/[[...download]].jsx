@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigation } from "@/hooks/useRouter";
-import Klarnadownload from "@/marketingScreens/KlarnaDownload/KlarnaDownload";
-import Offerdownloads from "@/marketingScreens/OfferDownload/OfferDownload";
-import AppDownload from "@/marketingScreens/AppDownload/AppDownload";
+import Klarna from "@/marketingScreens/KlarnaPage/Klarna";
+import Voucher from "@/marketingScreens/VoucherPage/Voucher";
+import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
 import { referralCode } from "@/action/action";
 
 function Download({ data, noData }) {
@@ -19,11 +19,11 @@ function Download({ data, noData }) {
   function getMarketingpage(type) {
     switch (type) {
       case "klarna":
-        return <Klarnadownload />;
+        return <Klarna />;
       case "general":
         return <AppDownload />;
       case "campaign":
-        return <Offerdownloads data={data} />;
+        return <Voucher data={data} />;
 
       default:
         return <AppDownload />;

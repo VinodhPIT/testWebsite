@@ -14,7 +14,7 @@ export default function CarouselSection({
   datas,
   buttonName,
   isButtonVisible,
-  keyword, bottomButton
+  keyword, bottomButton,altTag
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -102,7 +102,7 @@ export default function CarouselSection({
             {isButtonVisible === false ? null : (
               <Link
                 href={`/explore/tattoos?keyword=${keyword}`}
-                className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden"
+                className="btn_primary btn_cutom_new btn_img m_mb_25 mob_hidden"
               >
                 {buttonName}
                 <Image
@@ -148,7 +148,7 @@ export default function CarouselSection({
                         <div className={`${"listing_grid_img_col"}`}>
                           <Image
                             src={imgPath.image}
-                            alt="tattoos"
+                            alt={altTag}
                             width={378}
                             height={378}
                             loading="lazy"
@@ -171,7 +171,7 @@ export default function CarouselSection({
             {isButtonVisible === false ? null : (
               <Link
                 href={`/explore/tattoos?keyword=${keyword}`}
-                className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 m_mt_15"
+                className="btn_primary btn_cutom_new btn_img m_mb_25 m_mt_15"
               >
                 {buttonName}
                 <Image

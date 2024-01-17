@@ -24,7 +24,7 @@ export default function TattooIdeasForMen() {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/vivibtattoo_nqk6umse`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/vivibtattoo_nqk6umse`,
     },
     {
       artistImage:
@@ -35,7 +35,7 @@ export default function TattooIdeasForMen() {
 
       city: "Richmond",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/divinemacabre_jzrz10ex`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/divinemacabre_jzrz10ex`,
     },
     {
       artistImage:
@@ -47,7 +47,7 @@ export default function TattooIdeasForMen() {
       city: "Hove",
       country: "United Kingdom",
 
-      url: `${process.env.LIVE_URL}/artists/Marco_tatz_lqtedjrr`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/Marco_tatz_lqtedjrr`,
     },
     {
       artistImage:
@@ -58,7 +58,7 @@ export default function TattooIdeasForMen() {
 
       city: "Daventry",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/stephennoir_tykruorz`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/stephennoir_tykruorz`,
     },
     {
       artistImage:
@@ -69,7 +69,7 @@ export default function TattooIdeasForMen() {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/smania.nera_e2wwxujb`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/smania.nera_e2wwxujb`,
     },
     {
       artistImage:
@@ -80,7 +80,7 @@ export default function TattooIdeasForMen() {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/luciatattoos_n98rnvgl`,
     },
     {
       artistImage:
@@ -92,7 +92,7 @@ export default function TattooIdeasForMen() {
       city: "Carlisle",
       country: "United Kingdom",
 
-      url: `${process.env.LIVE_URL}/artists/meganrae_4dszyy98`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/meganrae_4dszyy98`,
     },
   ];
 
@@ -127,10 +127,11 @@ export default function TattooIdeasForMen() {
         />
         <meta
           property="og:image"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}/tattooShop.jpg`}
+          content={`${process.env.LIVE_URL}/tattooShop.jpg`}
 
         />
-        <meta property="og:url"  content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/find-the-best-tattooShops-near-me`} />
+        <meta property="og:url"  content={`${process.env.LIVE_URL}/${router.locale}/find-the-best-tattooShops-near-me`} />
+
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -144,7 +145,7 @@ export default function TattooIdeasForMen() {
 
         <meta
           name="twitter:image"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}/tattooShop.jpg`}
+          content={`${process.env.LIVE_URL}/tattooShop.jpg`}
         />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
@@ -159,7 +160,7 @@ export default function TattooIdeasForMen() {
         <Banner
           bannerTitle="Find the Finest Tattoo Shops Near Me for Exceptional Ink"
           subTitlte=""
-          alt="TattooShops"
+          alt="Find the Finest Tattoo Shops Near Me for Exceptional Ink"
           bannerImg={"/tattooShop.jpg"}
           bannerButton={"Know more about inckd"}
         />
@@ -191,10 +192,12 @@ export default function TattooIdeasForMen() {
           content2="Our commitment is to provide you with tattoos of the highest quality and timeless appeal. Booking an appointment is a seamless process that opens the door to personalized consultations with your chosen tattoo artist. Our staff is friendly and ready to assist you in transforming your idea into reality. They can help you whether your idea is well-defined or still a bit unclear.
           "
           img="/inckdedArtists.jpg"
-          alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+          
+          
           carousel={""}
           imgWidth="570"
           imgHeight="700"
+          altTag="Exploring Diverse Tattoo Styles"
         />
 
         <OrangeTwoRowBlock
@@ -206,6 +209,11 @@ export default function TattooIdeasForMen() {
           title2="Enhance Your Tattoo Journey:"
           content2="Your tattoo journey is a unique expression of yourself, and we're here to make it exceptional. Our app connects you with tattoo artists and shops that value your individuality, regardless of tattoo size."
           bgColor="#FFD5C0"
+imgAlt1='Booking with Confidence'
+imgAlt2="Enhance Your Tattoo Journey"
+
+
+
         />
 
 <DownloadApps

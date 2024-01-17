@@ -18,56 +18,56 @@ import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridT
 export default function TattooIdeen() {
   const { router } = useNavigation();
 
-  const [carosuelForMen, setcarosuelForMen] = useState([
-    { image: "/tattoo-ideen-slider1.png" },
+  const carousel= [
+    { image: "/tattoo-ideen-slider1.png" ,altTag:"Das Stechen lassen eines Tattoos" },
 
     {
-      image: "/tattoo-iden-slider2.png",
+      image: "/tattoo-iden-slider2.png",altTag:"Das Stechen lassen eines Tattoos" 
     },
 
     {
-      image: "/tattoo-iden-slider3.png",
+      image: "/tattoo-iden-slider3.png",altTag:"Das Stechen lassen eines Tattoos" 
     },
-  ]);
+  ];
 
   const Schmetterlings =[
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10568_20221201163816017-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/cb8ffe67-49c6-423a-b5dd-0619883532f6`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cb8ffe67-49c6-423a-b5dd-0619883532f6`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11301_20221209092538720-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/bcbb2029-b85b-4bc5-9dc9-02c75b3fec09`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/bcbb2029-b85b-4bc5-9dc9-02c75b3fec09`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17446_20230203192121997-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/294e004c-3be5-4a19-838d-bb1aa1bbd8da`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/294e004c-3be5-4a19-838d-bb1aa1bbd8da`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6302_20221022172609949-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/b8328de8-73b1-4813-b3f4-40e1e81de7a4`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b8328de8-73b1-4813-b3f4-40e1e81de7a4`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2136_20220827094033444-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/5d1afc9e-fa55-47e0-8d69-3fcbd3c32530`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/5d1afc9e-fa55-47e0-8d69-3fcbd3c32530`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24481_20230428081127883-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/7b412796-b79d-40e0-be60-7259b36fa3b0`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7b412796-b79d-40e0-be60-7259b36fa3b0`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5420_20221013111725878-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ae03c700-746c-4f38-b8d2-5593d7900b03`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ae03c700-746c-4f38-b8d2-5593d7900b03`,
     },
   ];
 
@@ -76,48 +76,48 @@ export default function TattooIdeen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4759_20221007142629676-medium.jpg",
 
-      url: `${process.env.LIVE_URL}/tattoo/b366870d-e38c-45a4-9a3b-09837ccdac2c`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b366870d-e38c-45a4-9a3b-09837ccdac2c`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11829_20221214220031111-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/b366870d-e38c-45a4-9a3b-09837ccdac2c`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b366870d-e38c-45a4-9a3b-09837ccdac2c`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4271_20221001104905877-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ba87286c-f36b-4309-95c0-68641af215e5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ba87286c-f36b-4309-95c0-68641af215e5`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4765_20221007144052865-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/8ea3d9d6-cc02-4731-87dc-866f4ff74e94`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8ea3d9d6-cc02-4731-87dc-866f4ff74e94`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8645_20221110120829339-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/5e748d74-6d7f-4493-8360-537fc108ef4a`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/5e748d74-6d7f-4493-8360-537fc108ef4a`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4724_20221007115056435-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/2143f598-771a-414a-8b68-650e91931986`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2143f598-771a-414a-8b68-650e91931986`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13224_20221230180227465-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/8ecdc357-8efc-4122-8067-274cbedc9fa4`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8ecdc357-8efc-4122-8067-274cbedc9fa4`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15180_20230116183801253-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/3d40a303-91be-4213-be44-1a43d79903d9`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/3d40a303-91be-4213-be44-1a43d79903d9`,
     },
   ];
 
@@ -125,40 +125,40 @@ export default function TattooIdeen() {
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9406_20221117211556552-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/012b0ec7-56ed-4d0c-b442-cdbf7049bf87`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/012b0ec7-56ed-4d0c-b442-cdbf7049bf87`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26177_20230819154213258-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/92f01137-ae86-492d-aab7-cfc61a22d20b'`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/92f01137-ae86-492d-aab7-cfc61a22d20b`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/16636_20230130112845332-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/49f32bf5-7cdb-431a-888f-21bb2c5111fc`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/49f32bf5-7cdb-431a-888f-21bb2c5111fc`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6302_20221022172609949-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/b8328de8-73b1-4813-b3f4-40e1e81de7a4`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b8328de8-73b1-4813-b3f4-40e1e81de7a4`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10986_20221207121731029-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/cabd0c1a-8f27-42d8-99db-e73b954ec2ee`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cabd0c1a-8f27-42d8-99db-e73b954ec2ee`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9951_20221123204308600-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/c382163e-8a72-4cd3-96c7-613457eae938`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c382163e-8a72-4cd3-96c7-613457eae938`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4387_20221003125711877-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/a122477d-0a7c-49c7-a872-a3fcc0fa9e71`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/a122477d-0a7c-49c7-a872-a3fcc0fa9e71`,
     },
   ];
 
@@ -166,47 +166,47 @@ export default function TattooIdeen() {
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17385_20230203140845606-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/112271c8-6598-4298-b99c-8730550925a6`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/112271c8-6598-4298-b99c-8730550925a6`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7129_20221026184216461-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/c944187c-de8d-4fd6-b6a7-fec01f63c8c5'`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c944187c-de8d-4fd6-b6a7-fec01f63c8c5`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6174_20221021123236817-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/70748663-94f2-4e9b-abf7-0b3f0d5a9c13`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/70748663-94f2-4e9b-abf7-0b3f0d5a9c13`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/23879_20230412103608255-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/e005fe2b-d04d-4018-af59-28e57725e5ff`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/e005fe2b-d04d-4018-af59-28e57725e5ff`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8832_20221112125030016-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/450b4b33-e8c3-48c8-bbfa-4aadad8203d0`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/450b4b33-e8c3-48c8-bbfa-4aadad8203d0`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5625_20221015123203120-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/4edaede2-3233-411e-bc7d-c52bb6db4dca`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4edaede2-3233-411e-bc7d-c52bb6db4dca`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5074_20221011092521390-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/742cb818-1fd5-4f99-98e6-75a1a9ed6ad0`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/742cb818-1fd5-4f99-98e6-75a1a9ed6ad0`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9013_20221114205459607-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/f7d99388-5987-476c-ad0d-e19b9b6329ad`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f7d99388-5987-476c-ad0d-e19b9b6329ad`,
     },
   ];
 
@@ -214,47 +214,47 @@ export default function TattooIdeen() {
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13131_20221229171132742-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/732aaf7f-466d-4612-a05b-c5ff2aa1dff4`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/732aaf7f-466d-4612-a05b-c5ff2aa1dff4`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14318_20230109134143790-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/640cf4fa-119c-47a6-a6eb-3622750468c6`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/640cf4fa-119c-47a6-a6eb-3622750468c6`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14810_20230112223717411-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ca0b9583-f532-4c89-b7e7-6aeda1ee092e`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ca0b9583-f532-4c89-b7e7-6aeda1ee092e`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12033_20221215200412686-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/1d3f7944-ea2d-4229-8e2b-3c5e5e2b8604`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1d3f7944-ea2d-4229-8e2b-3c5e5e2b8604`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6229_20221021181735788-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/0544c3a5-2f08-4d8e-bfea-b4f1f912c47a`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0544c3a5-2f08-4d8e-bfea-b4f1f912c47a`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14428_20230110025908112-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/59733e6c-4264-4bf9-a8b6-8a321ed9581d`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/59733e6c-4264-4bf9-a8b6-8a321ed9581d`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2900_20220918163734264-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/8df81485-40d2-4996-a640-03a3e136790d`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8df81485-40d2-4996-a640-03a3e136790d`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24519_20230501115106273-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/74cd289e-f1d6-4696-9c7a-4e4c13651589`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74cd289e-f1d6-4696-9c7a-4e4c13651589`,
     },
   ];
 
@@ -262,41 +262,41 @@ export default function TattooIdeen() {
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2697_20220915102023751-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/d0ead812-65af-4cfd-9d3c-f3488f253cf8'`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d0ead812-65af-4cfd-9d3c-f3488f253cf8`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6969_20221025174135791-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/b38d0b4b-c942-4a83-9c6a-30a503a7f6a6`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b38d0b4b-c942-4a83-9c6a-30a503a7f6a6`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3771_20220927130845510-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/58226d7e-d364-4769-abc7-59f0a5a2934d`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/58226d7e-d364-4769-abc7-59f0a5a2934d`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2755_20220916120728076-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/cc04e93a-28ac-4832-8ce7-7d5da4dafbd4`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cc04e93a-28ac-4832-8ce7-7d5da4dafbd4`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2381_20220911184739543-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ca14475a-7571-453d-9482-84067f9f6c64`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ca14475a-7571-453d-9482-84067f9f6c64`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24776_20230516040125015-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/6fdd3b00-767b-44bc-9e72-f750114d316f`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/6fdd3b00-767b-44bc-9e72-f750114d316f`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9615_20221121131123062-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/74084fe2-c1be-422f-bf12-32bc33c5a245`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74084fe2-c1be-422f-bf12-32bc33c5a245`,
     },
   ];
 
@@ -310,7 +310,7 @@ export default function TattooIdeen() {
       city: "Leipzig",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/cheaphandjobs_cbv6hal1`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/cheaphandjobs_cbv6hal1`,
     },
 
     {
@@ -321,7 +321,7 @@ export default function TattooIdeen() {
       name: "Nastis_ink",
       city: "Saalfeld",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/nastis_ink_zxh0r3o5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/nastis_ink_zxh0r3o5`,
     },
 
     {
@@ -332,7 +332,7 @@ export default function TattooIdeen() {
       name: "Rose",
       city: "Weimar",
       country: "United Germany",
-      url: `${process.env.LIVE_URL}/artists/pennygrit_ufotb8kc`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/pennygrit_ufotb8kc`,
     },
 
     {
@@ -345,7 +345,7 @@ export default function TattooIdeen() {
       city: "Fürth",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/Tommy Gunz_q6h9wsn1`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/Tommy Gunz_q6h9wsn1`,
     },
     {
       artistImage:
@@ -355,7 +355,7 @@ export default function TattooIdeen() {
       name: "Hugoink_bristol",
       city: "Weston-super-Mare",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/hugoink_bristol_mp015xjp`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/hugoink_bristol_mp015xjp`,
     },
   ];
 
@@ -418,11 +418,11 @@ export default function TattooIdeen() {
         />
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-ideen`}
+          content={`${process.env.LIVE_URL}/${router.locale}/tattoo-ideen`}
         />
         <meta
           property="og:image"
-            content={`${process.env.NEXT_PUBLIC_BASE_URL}/Banner-tattoo-Iden.jpg`}
+            content={`${process.env.LIVE_URL}/Banner-tattoo-Iden.jpg`}
         />
         <meta property="og:type" content="article" />
 
@@ -437,7 +437,7 @@ export default function TattooIdeen() {
         />
         <meta
           name="twitter:image"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}/Banner-tattoo-Iden.jpg`}
+          content={`${process.env.LIVE_URL}/Banner-tattoo-Iden.jpg`}
         />
 
 
@@ -450,6 +450,7 @@ export default function TattooIdeen() {
         bannerButton={"Know more about inckd"}
         textColor="#fff"
         position={'center bottom'}
+        altTag="Tattoo Ideen"
       />
 
       <FullWidthSecwithIcon
@@ -468,7 +469,7 @@ export default function TattooIdeen() {
         content2=""
         img="/pexels-cottonbro-studio-5320037.jpg"
         alt="Celebrate Your Love Journey with Unique Partner Tattoos"
-        carousel={carosuelForMen}
+        carousel={carousel}
       />
 
       <FullWidthcarosuel
@@ -476,7 +477,10 @@ export default function TattooIdeen() {
         content="Schmetterlings Tattoos sind mehr als nur kunstvolle Designs – sie symbolisieren Transformation und Schönheit. Tauche ein in unsere Sammlung von atemberaubenden Schmetterlingsmotiven, die deine Tätowierung zu einem kraftvollen Ausdruck machen. Von realistischen Schmetterlingen bis zu abstrakten Darstellungen bieten wir eine Vielzahl von Möglichkeiten, Deine Geschichte zu erzählen. Schmetterlings Tattoos stehen für Wandel, Freiheit und Selbstentfaltung - lass dich  von diesen Symbolen der Metamorphose inspirieren."
         buttonName="Mehr Schmetterlings Tattoos"
         datas={Schmetterlings}
-        keyword={"butterfly"}
+        // keyword={"butterfly"}
+        keyword={`/${router.locale}/explore/tattoos?keyword=butterfly`}
+        altTag="Schmetterlings Tattoos"
+
       />
 
       <CarouselSection
@@ -487,6 +491,7 @@ export default function TattooIdeen() {
         buttonName="Mehr mini Tattoos"
         datas={miniTattoo}
         keyword={"mini"}
+        altTag="Mini Tattoos"
       />
 
       <CarouselSection
@@ -496,6 +501,7 @@ export default function TattooIdeen() {
         buttonName="Mehr finger Tattoos"
         datas={fingerTattos}
         keyword={"finger"}
+        altTag="finger Tattoos"
       />
 
       <CarouselSection
@@ -506,6 +512,7 @@ export default function TattooIdeen() {
         buttonName="Mehr Herz Tattoos"
         datas={herzTattos}
         keyword={"Herz"}
+        altTag="Herz Tattoos"
       />
 
       <div className="mb_30">
@@ -534,6 +541,7 @@ export default function TattooIdeen() {
         buttonName="Mehr Löwen Tattoos"
         datas={löwenTattoo}
         keyword={"Löwen"}
+        altTag="Löwen Tattoos"
       />
 </div>
       <CarouselSection
@@ -544,6 +552,7 @@ export default function TattooIdeen() {
         datas={dragonTattoo}
         keyword={"dragon"}
         bottomButton="Erfahre mehr über Drachen Tattoos hier"
+        altTag="dragon Tattoos"
       />
 
       <div
@@ -551,7 +560,7 @@ export default function TattooIdeen() {
  "
       >
         <Link
-          href={"#"}
+          href={`/${router.locale}/drachen-tattoos`}
           className="btn_primary btn_img btn_xxl m_btn_custom_48  
            "
         >
@@ -609,6 +618,9 @@ export default function TattooIdeen() {
           "
         content2="Erforsche unsere umfangreiche Sammlung von Tattoo Ideen, lasse dich inspirieren und schaffe gemeinsam mit uns dein persönliches Meisterwerk. Jedes Tattoo erzählt eine besondere Geschichte. Wir sorgen dafür, dass deine Geschichte künstlerisch und individuell in deinem Tattoo dargestellt wird."
         bgColor="#FFD5C0"
+
+
+        
       />
 
       <DownloadApps title="Download the" subTitle="App & Explore more!" />
