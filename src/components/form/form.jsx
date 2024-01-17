@@ -179,8 +179,6 @@ const _Form = () => {
                       <div className="form_group">
                         <button
                           type="submit"
-                          disabled
-                          
                           class="btn_secondary h_48 w_100pc"
                           style={{ opacity: isSubmitting ? 0.5 : 1 }}
                         >
