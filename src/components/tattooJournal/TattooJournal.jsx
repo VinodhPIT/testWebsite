@@ -81,7 +81,7 @@ export default function ListingPage({ data, error }) {
   };
   return (
     <>
-      <div className="text_box_wrap full-block-wrap">
+      <div className="text_box_wrap full-block-wrap block_bg_white pt_80 m_pt_35 pb_20 m_pb_0">
         <div className="img_text_box_inner">
           <div className="justify_content_start block_bg_aero_blue_lite container w_100pc">
             <div class="text_box_content_inner max_w_100pc pt_80 pb_20 m_pt_40 m_pb_0">

@@ -1,3 +1,6 @@
+Header
+
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -123,7 +126,7 @@ export default function Header({
                   {t("common:menus.forTattooArtists")}
                 </button>
 
-                {router.pathname === '/journal' || router.pathname === '/explore/[[...slug]]'? null :
+                {router.pathname === '/journal' || router.pathname === '/explore/[[...slug]]' || router.pathname==="/404" ? null :
                   <button
                     className={`language_switcher  ${languageSwitch}`}
                     onClick={openPopup}
