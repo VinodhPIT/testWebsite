@@ -183,7 +183,7 @@ export default function Homenew({ data, locale }) {
     switch (locale) {
       case "uk-en":
         return <TattooJournal data={listing} error={error} />
-      case "de-de":
+      case "de-en":
         return <TattooJournal data={listing} error={error} />
       default:
         return null
