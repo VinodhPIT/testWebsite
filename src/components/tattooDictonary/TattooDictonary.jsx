@@ -29,7 +29,7 @@ export default function TattooDictonary() {
                     </h2>
                     <p className="m_mt_15 m_mb_20">{t("common:homePage.TattooDictionaryContent")}</p>
                   <Link
-                    href={`/${router.locale}/explore/tattoo-artists`}
+                    href={`/${router.locale}/tattoo-dictionary`}
                     class="btn_secondary btn_cutom_new btn_img"
                   >
                       {t("common:learnmore")}
