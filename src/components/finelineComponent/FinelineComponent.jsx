@@ -18,7 +18,7 @@ const router = useRouter()
           <div className="img_text_box_inner flex_direction_column">
             <div className="row m_switcher_row">
               <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
-                <div className="img_box_wrap block_bg_gradient_1 mb_30 m_mb_25 m_mt_0">
+                <div className="img_box_wrap block_bg_gradient_1 mt_60 mb_30 m_mb_25 m_mt_0">
                   <div class="box_text_img_over color_yellow">
                     <h2 class="txt_mob_fs50 color_yellow">
                     <span className="small">{t("common:MyStyleis")}</span>{" "}
@@ -41,7 +41,7 @@ const router = useRouter()
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-0 m_order_1">
-                <div className="text_box_content justify_content_start m_min_h_reset m_pt_30 m_pb_35">
+                <div className="text_box_content justify_content_start m_min_h_reset pb_30 m_pt_30 m_pb_35">
                   <div className="text_box_content_inner m_pr_0 pr_0">
                     <h2>
                       <span>{t("common:homePage.TattooStyles")}</span>

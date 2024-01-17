@@ -17,8 +17,8 @@ export default function TattooDictonary() {
       <div class="text_box_wrap right block_bg_white container custom_right_img_new">
         <div class="img_text_box_inner m_switcher flex_direction_column">
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0 m_order_2">
-              <div class="text_box_content justify_content_start m_min_h_reset pl_0 m_pt_0 m_pb_35">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
+              <div class="text_box_content justify_content_start m_min_h_reset pl_0 m_pt_30 pb_0 m_pb_35">
                 <div class="text_box_content_inner pr_0">
                   <h2>
                     {" "}
@@ -45,8 +45,8 @@ export default function TattooDictonary() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_1">
-              <div class="img_box_wrap block_bg_gradient_1 mb_80 m_mb_25 m_mt_25">                
+            <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+              <div class="img_box_wrap block_bg_gradient_1 mb_0 m_mb_0 m_mt_0">                
                 <Image
                   priority={true}
                   src="/tattoo-Dictionary-New_01.png"

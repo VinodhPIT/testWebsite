@@ -1,3 +1,5 @@
+Footer
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -109,7 +111,7 @@ export default function Footer() {
                   </Link>
                 </div>
                 {router.pathname === "/journal" ||
-                  router.pathname === "/explore/[[...slug]]" ? null : (
+                  router.pathname === "/explore/[[...slug]]" || router.pathname==="/404" ? null : (
                   <button className="footer_switcher" onClick={openPopup}>
                     <Image
                       src={getCountryIcon(router.locale)}

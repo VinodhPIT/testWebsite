@@ -39,7 +39,7 @@ const router = useRouter()
               </div>
             </div>
             <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-              <div class="img_box_wrap block_bg_gradient_1 justify_content_right mt_30 m_mt_0 m_mb_25">
+              <div class="img_box_wrap block_bg_gradient_1 justify_content_right mt_30 m_mt_0 m_mb_35">
                 <div class="box_text_img_over color_aero_blue_lite">                 
                   <h2 class="txt_mob_fs50 text_right">
                     <span className="small">{t("common:homePage.Areyou")}</span>{" "}
