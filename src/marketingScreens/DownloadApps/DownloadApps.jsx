@@ -44,9 +44,9 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                 <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
                   <li className="pl_0">
                     <Image
-                      src="/image_2895.png"
+                      src="/klarnaApp-Img1.png"
                       width={193}
-                      height={322}
+                      height={369}
                       alt="Download the App & Explore more!"
                       priority
                       placeholder="blur"
@@ -55,6 +55,18 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                     />
                   </li>
                   <li className="pl_0">
+                    <Image
+                      src="/KlarnaApp-img2.png"
+                      width={193}
+                      height={369}
+                      alt="Download the App & Explore more!"
+                      priority
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="m_max_218"
+                    />
+                  </li>
+                  {/* <li className="pl_0">
                     <Image
                       src="/image_2895.png"
                       width={193}
@@ -65,19 +77,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                       blurDataURL={blurDataURL}
                       className="m_max_218"
                     />
-                  </li>
-                  <li className="pl_0">
-                    <Image
-                      src="/image_2895.png"
-                      width={193}
-                      height={322}
-                      alt="Download the App & Explore more!"
-                      priority
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="m_max_218"
-                    />
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -88,11 +88,11 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
       </div>
       {isMobileView ? (
         <ImageSlider
-          imagePaths={["/image_2895.png", "/image_2895.png", "/image_2895.png"]}
+          imagePaths={["/klarnaApp-Img1.png", "/klarnaApp-Img2.png"]}
           imgAlt="Download the App & Explore more!"
           imgblurDataURL={blurDataURL}
           imgWidth={193}
-          imgHeight={322}
+          imgHeight={369}
         ></ImageSlider>
         ) : (
           ""

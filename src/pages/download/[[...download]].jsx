@@ -4,6 +4,8 @@ import Klarna from "@/marketingScreens/KlarnaPage/Klarna";
 import Voucher from "@/marketingScreens/VoucherPage/Voucher";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
 import { referralCode } from "@/action/action";
+import Head from "next/head";
+
 
 function Download({ data, noData }) {
   const { router } = useNavigation();
@@ -30,7 +32,24 @@ function Download({ data, noData }) {
     }
   }
 
-  return <>{getMarketingpage(type)}</>;
+  return <>
+  
+  <Head>
+        <title>
+        Download the inckd. app
+        </title>
+        <meta
+          name="description"
+          content="Explore the Features in the Mobile App"
+        />
+      </Head>
+  
+  
+  {getMarketingpage(type)}
+  
+  
+  
+  </>;
 }
 
 export default Download;

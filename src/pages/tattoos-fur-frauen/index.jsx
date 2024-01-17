@@ -13,7 +13,7 @@ import VerticalImageLayout from "@/landing-3/VerticalImageLayout/VerticalImageLa
 export default function TattooIdeen() {
   const { router } = useNavigation();
 
-  const butterflyTattoos =[
+  const butterflyTattoos = [
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17357_20230203124234258-medium.jpg",
@@ -99,7 +99,7 @@ export default function TattooIdeen() {
     },
   ];
 
-  const  rosenTattos=[
+  const rosenTattos = [
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/1626_20220810115446943-medium.jpg",
@@ -155,9 +155,13 @@ export default function TattooIdeen() {
   return (
     <div>
       <Head>
-        <title>Tattoos für Frauen: Vielfalt und Symbolik bei weiblichen Tätowierungen.
-</title>
-        
+        <title>
+        Tattoos für Frauen: Vielfalt und Symbolik bei weiblichen Tätowierungen.
+        </title>
+        <meta
+          name="description"
+          content="Herzlich willkommen auf unserer umfassenden Seite, die sich leidenschaftlich der faszinierenden Welt der Tattoos für Frauen widmet. Hier möchten wir nicht nur den künstlerischen Aspekt von Tätowierungen betonen, sondern auch die vielfältige Symbolik, die jede Tätowierung einzigartig macht. Die Beliebtheit von Tattoos bei Frauen ist in den vergangenen Jahren erheblich gestiegen. Unsere Seite ist keine Plattform nur für Frauen, sondern eine Ressource für alle, die sich für die Vielfalt und Symbolik femininer Tätowierungen interessieren."
+        />
       </Head>
 
       <Banner
@@ -169,7 +173,6 @@ export default function TattooIdeen() {
         textColor="#fff"
         position="left center"
         altTag="Tattoos für Frauen"
-
       />
 
       <ContentImageLayout
@@ -186,10 +189,8 @@ export default function TattooIdeen() {
         content="Schmetterlinge sind Symbole der Verwandlung und Veränderung. Ihre zarten Flügel und leuchtenden Farben machen sie zu beliebten Motiven für Frauen. Tauche ein in die Welt der Schmetterlinge Tattoos und entdecke, wie sie die Leichtigkeit des Lebens und die Schönheit der Wandlung einfangen. Wir präsentieren unterschiedliche Designs und erläutern ihre symbolische Bedeutung."
         buttonName="Entdecke mehr Schmetterling Tattoos"
         datas={butterflyTattoos}
-       
         keyword={`/${router.locale}/explore/tattoos?keyword=butterfly`}
         altTag="Schmetterling Tattoos"
-        
       />
 
       <div className="text_box_wrap full-block-wrap ">
@@ -210,11 +211,14 @@ export default function TattooIdeen() {
           <>
             Blumen sind nicht nur ästhetisch ansprechend, sondern tragen auch
             eine Fülle von Bedeutungen. In unserem{" "}
-            <Link href={`/${router.locale}/tattoo-dictionary`}> Tattoo Lexikon</Link> über Blumen Tattoos erfährst
-            du die Bedeutung verschiedener Blumen und ihre kulturellen
-            Hintergründe. Von der romantischen Rose bis zur reinen Lilie bieten
-            Blumen Tattoos viele Möglichkeiten, deine Persönlichkeit
-            auszudrücken.
+            <Link href={`/${router.locale}/tattoo-dictionary`}>
+              {" "}
+              Tattoo Lexikon
+            </Link>{" "}
+            über Blumen Tattoos erfährst du die Bedeutung verschiedener Blumen
+            und ihre kulturellen Hintergründe. Von der romantischen Rose bis zur
+            reinen Lilie bieten Blumen Tattoos viele Möglichkeiten, deine
+            Persönlichkeit auszudrücken.
           </>
         }
         buttonName="Entdecke mehr Blumen Tattoos

@@ -332,7 +332,7 @@ export default function Dictionary({locale}) {
                         <ul class="app_download_img_list after_none justify_content_start m_0 m_md_gap_25 gap_54">   
                           <li className="no_filter pl_0">
                               <Image
-                                src="/image _189_01_new.png"
+                                src="/Tattoodictonary1.png"
                                 alt={`${t("common:dictionaryPage.expoloreMore")} ${t("common:dictionaryPage.expoloreMore-Sub")}`}
                                 className="b_radius"
                                 width={248}
@@ -344,7 +344,7 @@ export default function Dictionary({locale}) {
                             </li>
                             <li className="no_filter pl_0">
                               <Image
-                                src="/image _189_01_new.png"
+                                src="/Tattoodictionary2.png"
                                 alt={`${t("common:dictionaryPage.expoloreMore")} ${t("common:dictionaryPage.expoloreMore-Sub")}`}
                                 className="b_radius"
                                 width={248}
@@ -388,8 +388,8 @@ export default function Dictionary({locale}) {
               {isMobileView ? (
                 <ImageSlider
                   imagePaths={[
-                    "/image _189_01_new.png",
-                    "/image _189_01_new.png",
+                    "/Tattoodictonary1.png",
+                    "/Tattoodictionary2.png",
                   ]}
                   imgAlt="Tattoo"
                   imgblurDataURL={blurDataURL}
