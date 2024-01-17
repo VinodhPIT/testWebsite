@@ -29,7 +29,12 @@ export default function ListingPage({ data, locale }) {
   return (
     <>
       <Head>
-        <title>Journal</title>
+        <title>inckd. Tattoo Journal</title>
+        <meta
+          name="description"
+          content="Latest Tattoo Trends, Tips, and Techniques"
+        />
+
       </Head>
 
       <div>

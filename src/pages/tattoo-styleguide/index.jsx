@@ -468,7 +468,7 @@ export default function Homenew({ locale }) {
                     <ul class="app_download_img_list after_none justify_content_start m_0">
                       <li>
                         <Image
-                          src="/Style-page.png"
+                          src="/Sytlepage1.png"
                           width={221}
                           height={447}
                           alt={t("common:styleGuidePage.download")}
@@ -480,7 +480,7 @@ export default function Homenew({ locale }) {
                       </li>
                       <li>
                         <Image                   
-                          src="/Style-page.png"
+                          src="/Stylepage2.png"
                           width={221}
                           height={447}
                           alt={t("common:styleGuidePage.download")}
@@ -492,7 +492,7 @@ export default function Homenew({ locale }) {
                       </li>
                       <li>
                       <Image
-                          src="/Style-page.png"
+                          src="/Sytlepage3.png"
                           alt={t("common:styleGuidePage.download")}
                           className="b_radius_0"
                           width={221}
@@ -514,9 +514,9 @@ export default function Homenew({ locale }) {
           {isMobileView ? (
             <ImageSlider
               imagePaths={[
-                "/Style-page.png",
-                "/Style-page.png",
-                "/Style-page.png",
+                "/Sytlepage1.png",
+                "/Stylepage2.png",
+                "/Sytlepage3.png",
               ]}
               imgAlt={t("common:styleGuidePage.download")}
               imgblurDataURL={blurDataURL}
