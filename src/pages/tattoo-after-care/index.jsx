@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import Banner from "@/landing-3/Banner/Banner";
-
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import Head from "next/head";
-
 import { useNavigation } from "@/hooks/useRouter";
-
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
 import FAQ from "@/landing-1/Faq/Faq";
-
 import SideBySideContentWithImage from "@/landing-3/SideBySideContentWithImage/SideBySideContentWithImage";
 
 export default function TattooAfterCare() {
