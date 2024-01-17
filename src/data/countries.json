@@ -17,15 +17,7 @@
     "lng": "en",
     "set": "de-en"
   },
-  {
-    "id": 29,
-    "country": "Germany",
-    "language": "German",
-    "image": "/germany.svg",
-    "domain": "de",
-    "lng": "de",
-    "set": "de-de"
-  },
+
   {
     "id": 3,
     "country": "United Kingdom",
