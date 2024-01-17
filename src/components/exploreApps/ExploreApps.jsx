@@ -56,7 +56,7 @@ export default function ExploreApps() {
                 <ul class="app_download_img_list after_none justify_content_start m_0">
                   <li>
                     <Image
-                      src="/Home2.png"
+                      src="/Home1.png"
                       width={218}
                       height={445}
                       alt={`${t("common:downloadApp")}${t("common:downloadApp-Sub1")}`}
@@ -80,7 +80,7 @@ export default function ExploreApps() {
                   </li>
                   <li>
                   <Image
-                      src="/Home2.png"
+                      src="/Home3.png"
                       width={218}
                       height={445}
                       alt={`${t("common:downloadApp")}${t("common:downloadApp-Sub1")}`}
@@ -101,9 +101,9 @@ export default function ExploreApps() {
       {isMobileView ? (
         <ImageSlider
           imagePaths={[
+            "/Home1.png",
             "/Home2.png",
-            "/Home2.png",
-            "/Home2.png",
+            "/Home3.png",
           ]}
           imgAlt={`${t("common:downloadApp")}${t("common:downloadApp-Sub1")}`}
           imgblurDataURL={blurDataURL}
