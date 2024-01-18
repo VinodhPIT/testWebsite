@@ -62,7 +62,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
       <div className="popup_wrap">
         <div className={`${'popup_container'} ${styles.popup_container}`}>
           <button className={`${'close_button'} ${styles.close_button}`} onClick={closeModal}>
-            <img src="/popup-close.svg" alt="close"/>
+            <Image width={25} height={25} src="/popup-close.svg" alt="close"/>
           </button>
 
           <div className={styles.language_popup}>
@@ -87,7 +87,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                             <h4>{e.country}</h4>
                             <p>{e.language}</p>
                           </span>   
-                          <img src="/icon_language_link.svg" alt="" className="icon_language_link"/>                     
+                          <Image width={24} height={25} src="/icon_language_link.svg" alt="" className="icon_language_link"/>                     
                         </button>
                       </li>
                     

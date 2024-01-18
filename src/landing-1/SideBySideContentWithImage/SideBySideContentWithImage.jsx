@@ -3,7 +3,7 @@ import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from './style.module.css'
 
-export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,title3 ,title4  ,content1 ,content2 ,content3 ,content4 ,leftSectionImage ,rightSecImage}) {
+export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,title3 ,title4  ,content1 ,content2 ,content3 ,content4 ,leftSectionImage ,rightSecImage ,alt1 ,alt2}) {
 
 
   return (
@@ -51,7 +51,7 @@ export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,t
                                 <li >
                                     <Image
                                         priority
-                                        alt="tattoo"
+                                        alt={alt1}
                                         src={leftSectionImage}
                                         width={591}
                                         height={600}                                   
@@ -70,7 +70,7 @@ export default function SideBySideContentWithImage({mainTitle ,title1 ,title2 ,t
                                 <li >
                                     <Image
                                         priority
-                                        alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+                                        alt={alt2}
                                         src={rightSecImage}
                                         width={591}
                                         height={600}                                

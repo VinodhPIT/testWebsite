@@ -111,17 +111,18 @@ export default function Detail({ data, locale }) {
   return (
     <>
       <Head>
-        <title>
-        Locate tattoo artists by city and country
+      <title>
+        {t("common:artistDetailScreen.title")}
         </title>
         <meta
           name="description"
-          content={`Discover tattoo artists in your city and across countries. Search, connect, and tattoo with the best artists near you - ${data?.first_name} ${data?.last_name}`}
+          content={`${t("common:artistDetailScreen.description")}-${data?.first_name} ${data?.last_name}`}
         />
         <meta
           name="keywords"
-          content="Tattooartist, Tattooartist Location, Tattooist search by city, City tattoo artist search, Local tattoo artists, Find tattoo artist near me, Tattooers"
-        />
+          content={t("common:artistDetailScreen.keyword")}/>
+
+
       </Head>
 
       <main>
@@ -198,14 +199,14 @@ export default function Detail({ data, locale }) {
                     target="_blank"
                     className={styles.profile_bookmark}
                   >
-                    <img src="/bookmark-icon.svg" alt="bookmark icon" />
+                    <Image width={24} height={24} priority src="/bookmark-icon.svg" alt="bookmark icon" />
                   </a>
                   <a
                     onClick={openPopup}
                     target="_blank"
                     className={styles.profile_share}
                   >
-                    <img src="/share-icon.svg" alt="share icon" />
+                    <Image width={24} height={24} src="/share-icon.svg" alt="share icon" priority />
                   </a>
                 </div>
               </div>
@@ -225,7 +226,10 @@ export default function Detail({ data, locale }) {
                       onClick={() => changeTab(tab.id)}
                     >
                       <div className={style.tabBox}>
-                        <img
+                        <Image
+                        width={25}
+                        height={25}
+                        priority
                           src={
                             currenState === tab.id ? tab.activeImage : tab.image
                           }alt={tab.id}

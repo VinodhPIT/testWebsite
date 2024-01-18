@@ -4,72 +4,263 @@
     "country": "Switzerland",
     "language": "English",
     "image": "/switzerland.svg",
-    "domain":"ch",
-    "lng":"en",
-    "set":"ch-en"    
+    "domain": "ch",
+    "lng": "en",
+    "set": "ch-en"
   },
   {
     "id": 2,
     "country": "Germany",
     "language": "English",
     "image": "/germany.svg",
-    "domain":"de",
-    "lng":"en",
-    "set":"de-en"
+    "domain": "de",
+    "lng": "en",
+    "set": "de-en"
   },
+
   {
     "id": 3,
     "country": "United Kingdom",
     "language": "English",
     "image": "/united-kingdom.svg",
-    "domain":"uk",
-    "lng":"en",
-    "set":"uk-en"
+    "domain": "uk",
+    "lng": "en",
+    "set": "uk-en"
   },
   {
     "id": 4,
     "country": "Hungary",
     "language": "English",
     "image": "/hungary.svg",
-    "domain":"hu",
-    "lng":"en",
-    "set":"hu-en"
+    "domain": "hu",
+    "lng": "en",
+    "set": "hu-en"
   },
   {
     "id": 5,
     "country": "Czech Republic",
     "language": "English",
     "image": "/czech republic.svg",
-    "domain":"cz",
-    "lng":"en",
-    "set":"cz-en"
+    "domain": "cz",
+    "lng": "en",
+    "set": "cz-en"
   },
   {
     "id": 6,
     "country": "Poland",
     "language": "English",
     "image": "/poland.svg",
-    "domain":"pl",
-    "lng":"en",
-    "set":"pl-en"
+    "domain": "pl",
+    "lng": "en",
+    "set": "pl-en"
   },
   {
     "id": 7,
     "country": "Romania",
     "language": "English",
     "image": "/romania.svg",
-    "domain":"ro",
-    "lng":"en",
-    "set":"ro-en"
+    "domain": "ro",
+    "lng": "en",
+    "set": "ro-en"
   },
   {
     "id": 8,
     "country": "Sweden",
     "language": "English",
     "image": "/sweden.svg",
-    "domain":"sw",
-    "lng":"en",
-    "set":"sw-en"
+    "domain": "sw",
+    "lng": "en",
+    "set": "sw-en"
+  },
+
+  {
+    "id": 9,
+    "country": "Austria",
+    "language": "English",
+    "image": "/austria.svg",
+    "domain": "au",
+    "lng": "en",
+    "set": "au-en"
+  },
+
+  {
+    "id": 10,
+    "country": "Belgium",
+    "language": "English",
+    "image": "/belgium.svg",
+    "domain": "bl",
+    "lng": "en",
+    "set": "bl-en"
+  },
+
+  {
+    "id": 11,
+    "country": "Denmark",
+    "language": "English",
+    "image": "/denmark.svg",
+    "domain": "dk",
+    "lng": "en",
+    "set": "dk-en"
+  },
+  {
+    "id": 12,
+    "country": "France",
+    "language": "English",
+    "image": "/france.svg",
+    "domain": "fr",
+    "lng": "en",
+    "set": "fr-en"
+  },
+  {
+    "id": 13,
+    "country": "Greece",
+    "language": "English",
+    "image": "/greece.svg",
+    "domain": "gr",
+    "lng": "en",
+    "set": "gr-en"
+  },
+  {
+    "id": 14,
+    "country": "Ireland",
+    "language": "English",
+    "image": "/ireland.svg",
+    "domain": "ie",
+    "lng": "en",
+    "set": "ie-en"
+  },
+  {
+    "id": 15,
+    "country": "Netherlands",
+    "language": "English",
+    "image": "/netherlands.svg",
+    "domain": "nl",
+    "lng": "en",
+    "set": "nl-en"
+  },
+  {
+    "id": 16,
+    "country": "Portugal",
+    "language": "English",
+    "image": "/portugal.svg",
+    "domain": "pt",
+    "lng": "en",
+    "set": "pt-en"
+  },
+  {
+    "id": 17,
+    "country": "Spain",
+    "language": "English",
+    "image": "/spain.svg",
+    "domain": "es",
+    "lng": "en",
+    "set": "es-en"
+  },
+  {
+    "id": 18,
+    "country": "Italy",
+    "language": "English",
+    "image": "/italy.svg",
+    "domain": "it",
+    "lng": "en",
+    "set": "it-en"
+  },
+  {
+    "id": 19,
+    "country": "Bulgaria",
+    "language": "English",
+    "image": "/bulgaria.svg",
+    "domain": "bg",
+    "lng": "en",
+    "set": "bg-en"
+  },
+
+  {
+    "id": 20,
+    "country": "Cyprus",
+    "language": "English",
+    "image": "/cyprus.svg",
+    "domain": "cy",
+    "lng": "en",
+    "set": "cy-en"
+  },
+
+  {
+    "id": 21,
+    "country": "Estonia",
+    "language": "English",
+    "image": "/estonia.svg",
+    "domain": "et",
+    "lng": "en",
+    "set": "et-en"
+  },
+
+  {
+    "id": 22,
+    "country": "Finland",
+    "language": "English",
+    "image": "/finland.svg",
+    "domain": "fi",
+    "lng": "en",
+    "set": "fi-en"
+  },
+
+  {
+    "id": 23,
+    "country": "Latvia",
+    "language": "English",
+    "image": "/latvia.svg",
+    "domain": "lv",
+    "lng": "en",
+    "set": "lv-en"
+  },
+
+  {
+    "id": 24,
+    "country": "Lithuania",
+    "language": "English",
+    "image": "/lithuania.svg",
+    "domain": "lt",
+    "lng": "en",
+    "set": "lt-en"
+  },
+
+  {
+    "id": 25,
+    "country": "Luxembourg",
+    "language": "English",
+    "image": "/luxembourg.svg",
+    "domain": "lu",
+    "lng": "en",
+    "set": "lu-en"
+  },
+
+  {
+    "id": 26,
+    "country": "Malta",
+    "language": "English",
+    "image": "/malta.svg",
+    "domain": "mt",
+    "lng": "en",
+    "set": "mt-en"
+  },
+  {
+    "id": 27,
+    "country": "Slovakia",
+    "language": "English",
+    "image": "/slovakia.svg",
+    "domain": "sk",
+    "lng": "en",
+    "set": "sk-en"
+  },
+  {
+    "id": 28,
+    "country": "Slovenia",
+    "language": "English",
+    "image": "/slovenia.svg",
+    "domain": "sl",
+    "lng": "en",
+    "set": "sl-en"
   }
 
 ]

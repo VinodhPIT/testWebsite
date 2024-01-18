@@ -20,9 +20,9 @@ import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarous
 
 export default function DrachenTattoos() {
   const images = [
-    { image: "/Drachen-tattoo-Idee.jpg" },
-    { image: "/dragonslider2.png" },
-    { image: "/dragonslider3.png" },
+    { image: "/Drachen-tattoo-Idee.jpg",altTag:"Dragon Tattoo" },
+    { image: "/dragonslider2.png",altTag:"Dragon Tattoo"  },
+    { image: "/dragonslider3.png" ,altTag:"Dragon Tattoo" },
   ];
   const router = useRouter();
 
@@ -43,6 +43,7 @@ export default function DrachenTattoos() {
       city: "Birmingham",
       country: "United Kingdom",
       url: `${process.env.LIVE_URL}/tattoo/b121f441-0033-4295-baf4-f83b77fffce5`,
+      altTag:"Dragon Tattoos"
     },
 
     {
@@ -53,7 +54,7 @@ export default function DrachenTattoos() {
 
       city: "Barcelona",
       country: "Spain",
-      url: `${process.env.LIVE_URL}/tattoo/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`,
+      url: `${process.env.LIVE_URL}/tattoo/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`, altTag:"Dragon Tattoos"
     },
 
     {
@@ -66,7 +67,7 @@ export default function DrachenTattoos() {
       city: "Zürich",
 
       country: "Switzerland",
-      url: `${process.env.LIVE_URL}/tattoo/f775f716-4f76-4335-a41a-0ec2b5b9596a`,
+      url: `${process.env.LIVE_URL}/tattoo/f775f716-4f76-4335-a41a-0ec2b5b9596a`, altTag:"Dragon Tattoos"
     },
   ];
 
@@ -139,10 +140,10 @@ export default function DrachenTattoos() {
           property="og:description"
           content="Entdecke die Symbolik, Bedeutung und Vielfalt von Drachen Tattoos. Finde inspirierende Designs, Vorlagen und Künstler in deiner Nähe. Lade unsere App herunter und starte deine Reise zu einem einzigartigen Drachen-Tattoo."
         />
-        <meta property="og:image" content="URL_TO_IMAGE" />
+        <meta property="og:image"   content={`${process.env.LIVE_URL}/Drachen-banner.jpg`}/>
         <meta
           property="og:url"
-          content="https://www.inckd.com/tattoo/b121f441-0033-4295-baf4-f83b77fffce5"
+          content={`${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b121f441-0033-4295-baf4-f83b77fffce5`} 
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -153,7 +154,7 @@ export default function DrachenTattoos() {
           name="twitter:description"
           content="Entdecke die Symbolik, Bedeutung und Vielfalt von Drachen Tattoos. Finde inspirierende Designs, Vorlagen und Künstler in deiner Nähe. Lade unsere App herunter und starte deine Reise zu einem einzigartigen Drachen-Tattoo."
         />
-        <meta name="twitter:image" content="URL_TO_IMAGE" />
+        <meta name="twitter:image" content={`${process.env.LIVE_URL}/Drachen-banner.jpg`} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="keywords"
@@ -167,6 +168,8 @@ export default function DrachenTattoos() {
         bannerImg={"/Drachen-banner.jpg"}
         bannerButton={"Know more about inckd"}
         position={"center top"}
+        altTag="Drachen Tattoos - Mystische Kunst für deine Haut"
+
       />
 
       <FullWidthSecwithIcon
@@ -194,6 +197,7 @@ export default function DrachenTattoos() {
         data={Discoverdiversity}
         bgColor={"#f9fbfa"}
         btnLink={`/${router.locale}/explore/tattoos?keyword=dragon`}
+       
       />
 
       <SplitText
@@ -213,6 +217,7 @@ export default function DrachenTattoos() {
         image="/drachen-tattoo-idee-3.png"
         imageWidth="440"
         imageHeight="440"
+        altTag={'Drachen-tattoo'}
       />
 
       <TattooDragonSlider
@@ -265,7 +270,10 @@ export default function DrachenTattoos() {
           image1="/DrachenTattoo1.png"
           image2="/DrachenTattoo2.png"
           image3="/DrachenTattoo3.png"
-          alt="DrachenTattoos"
+          altTag1="Die Tradition von Drachen Tattoos"
+          altTag2="Ein Drachen Tattoo wählen"
+          altTag3="Schritt um Schritt zu deinem Drachen Tattoo"
+
           bgColor="#fff"
         />
       </div>

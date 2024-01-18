@@ -7,7 +7,9 @@
       "desc": "Discover the perfect tattoo ideas for men at Inckd. Express yourself with small tattoos, tribal designs, cross tattoos, and more. Explore diverse tattoo styles and find inspiration."
       ,
       "imageUrl": "/young-beautiful-couple-posing-old-building-1.jpg",
+      "alt":"Exploring Tattoo Ideas for Men",
     "url":"/exploring-tattoo-ideas-for-men"
+    
       
     },
     {
@@ -16,6 +18,7 @@
       "tagTitle": "Tattoo Shops",
       "desc": "Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art.",
       "imageUrl": "/tattooShop.jpg",
+      "alt":"Find the Finest Tattoo Shops Near Me",
       "url":"/find-the-best-tattooShops-near-me"
       
     },
@@ -26,6 +29,7 @@
       "desc": "Explore exceptional tattoo artists near you on inckd. Effortlessly book your preferred artist, discover diverse styles, and benefit from exclusive partnerships. Download inckd now!"
       ,
       "imageUrl": "/artistBanner.jpg",
+      "alt":"Book Tattoo Artists Near Me with inckd",
       "url":"/book-tattoo-artists"
       
     },
@@ -36,6 +40,7 @@
       "desc": "Explore our comprehensive guide on tattoo aftercare, covering proper healing steps, aftercare tips, and essential do's and don'ts. Learn from experts for optimal results"
       ,
       "imageUrl": "/drachen-tattoos.png",
+      "alt":"Tattoo After Care Guide",
       "url":"/tattoo-after-care"
       
     }
@@ -51,13 +56,14 @@
 
 
   ],
-  "de-de": [
+  "de-en": [
       {
         "id":1,
           "title":"Cover Up Tattoos: Tipps, Methoden und Kreative Lösungen für Dein Neues Tattoo",
           "tagTitle": "Cover Up Tattoos",
           "desc": "Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern.",
           "imageUrl": "/coverUpTattooBanner.jpg",
+          "alt":"Cover Up Tattoos",
           "url":"/cover-up-tattoos"
         },
 
@@ -67,6 +73,7 @@
             "tagTitle": "Tattoo Ideen",
             "desc": "Herzlich willkommen auf unserer Seite, die sich der Faszination und Vielfalt von Tattoo Ideen verschrieben hat. Lass dich von unserer umfangreichen Sammlung inspirieren und begleite uns auf deiner Tattooreise.",
             "imageUrl": "/Banner-tattoo-Iden.jpg",
+            "alt":"Tattoo Ideen",
             "url":"/tattoo-ideen"
           },
 
@@ -77,6 +84,7 @@
               "tagTitle":"Tattoos für Frauen",
               "desc": "Herzlich willkommen auf unserer umfassenden Seite, die sich leidenschaftlich der faszinierenden Welt der Tattoos für Frauen widmet. Hier möchten wir nicht nur den künstlerischen Aspekt von Tätowierungen betonen, sondern auch die vielfältige Symbolik, die jede Tätowierung einzigartig macht.",
               "imageUrl": "/Tattoos-für-Fraue.jpg",
+              "alt":"Tattoos für Frauen",
               "url":"/tattoos-fur-frauen"
             }
 ,
@@ -88,6 +96,7 @@
                 "tagTitle":"Tattoo Pflege",
                 "desc": "Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg.",
                 "imageUrl": "/tattoo-Pflege.jpg",
+                "alt":"Tattoo Pflege",
                 "url":"/tattoo-Pflege"
               },
 
@@ -98,6 +107,7 @@
                 "tagTitle":"Drachen Tattoos",
                 "desc": "Erfahre alles über die Symbolik, Bedeutung und Vielfalt von Drachen-Tattoos. Entdecke inspirierende Designs, Vorlagen und Künstler in deiner Nähe. Lade unsere App herunter und starte deine einzigartige Reise zu einem Drachen-Tattoo.",
                 "imageUrl": "/Drachen-banner.jpg",
+                "alt":"Drachen Tattoos",
                 "url":"/drachen-tattoos"
               }
 

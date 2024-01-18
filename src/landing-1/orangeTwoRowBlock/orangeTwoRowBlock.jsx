@@ -13,7 +13,7 @@ export default function OrangeTwoRowBlock({
   img2,
   title2,
   content2,
-  bgColor,
+  bgColor,imgAlt1 ,imgAlt2
 }) {
   return (
     <section className="img_text_banner_box">
@@ -51,7 +51,7 @@ export default function OrangeTwoRowBlock({
                         priority
                         width={54}
                         height={54}
-                        alt="shield check"
+                        alt={'Album'}
                         src={img2}
                         blurDataURL={blurDataURL}
                         placeholder="blur"
@@ -72,7 +72,7 @@ export default function OrangeTwoRowBlock({
                         priority
                         width={54}
                         height={54}
-                        alt="iPhone"
+                        alt={'LinkRound'}
                         src={img1}
                         blurDataURL={blurDataURL}
                         placeholder="blur"

@@ -4,6 +4,8 @@ import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import{useNavigation} from '@/hooks/useRouter'
 import { useGlobalState } from "@/context/Context";
+import Image from 'next/image'
+
 
 const ArtistInfo = ({data}) => {
   
@@ -53,9 +55,11 @@ const ArtistInfo = ({data}) => {
                       <li key={e.id}>
                         <button   onClick={()=>chooseStyle(e.slug)} >
                           {e.name}
-                          <img
+                          <Image
+                          width={16}
+                          height={17}
                             src="/arrow-right-gray.svg"
-                            alt="Abstract Realism"
+                            alt="arrow"
                           />
                         </button>
                       </li>
@@ -73,9 +77,11 @@ const ArtistInfo = ({data}) => {
                     return (
                       <div className={styles.product_location_list} key={e.id} >
                         <span className={styles.product_loc_title}>
-                          <img
+                          <Image
+                          width={16}
+                          height={17}
                             src="/location-small.svg"
-                            alt="Berlin, Germany"
+                            alt="Location"
                           />
                           {e.city}, {e.country}
                         </span>

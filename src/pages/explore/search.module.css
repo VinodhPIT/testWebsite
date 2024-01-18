@@ -203,6 +203,12 @@
     border: 0;
     padding: 10px 4px;
 }
+.tabSection button.tabBox {
+    color: #212121;
+}
+.tabSection button.tabBox:hover {
+    color: #212121;
+}
 .wrapper_filter .filter_block .notification_count {
     display: flex;
     width: 20px;

@@ -14,8 +14,9 @@ export default function CarouselSection({
   datas,
   buttonName,
   isButtonVisible,
-  keyword,
+  keyword,sectionBg ,altTag
 }) {
+ 
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
@@ -94,27 +95,27 @@ export default function CarouselSection({
   };
 
   return (
-    <section className="img_text_banner_box">
+    <section className={`img_text_banner_box ${sectionBg}`}>
       <div className="text_box_wrap full-block-wrap">
-        <div className="img_text_box_inner flex_direction_column mt_25">
-          <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_10">
+        <div className="img_text_box_inner flex_direction_column pt_80 m_pt_40 ">
+          <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_0 mb_10">
             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
-              <h2 className="color_gray_550 text_left heading_h2 mb_15 m_mb_25 mr_0">
+              <h2 className="color_gray_550 text_left heading_h2 mb_15 m_mb_25 mr_0 ">
                 <span class="m_dis_inline">{title} </span>
               </h2>
             </div>
 
             {isButtonVisible === false ? null : (
               <Link
-                href={`/explore/tattoos?keyword=${keyword}`}
-                className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden"
+                href={keyword}
+                className="btn_primary btn_cutom_new btn_img m_mb_25 mob_hidden"
               >
                 {buttonName}
                 <Image
                   src="/arow-white-right.svg"
                   width={24}
                   height={24}
-                  alt="logo"
+                  alt="arrowRight"
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
@@ -124,18 +125,20 @@ export default function CarouselSection({
             )}
           </div>
 
-          <div className="d_flex align_item_left flex_direction_column mb_20  m_max_100 container">
+ {content!== '' ?
+          <div className="d_flex align_item_left flex_direction_column mb_80 m_mb_0 m_pb_30 m_max_100 container">
             <p
               class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
               style={{
-                width: "1090px",
-                "max-width": "100%",
+                "max-width": "850px",
                 "text-align": "left",
               }}
             >
               {content}
             </p>
-          </div>
+          </div> : <div className="mb_15"></div>}
+
+
 
           <div className="justify_content_start  w_100pc">
             <div
@@ -163,7 +166,7 @@ export default function CarouselSection({
                         >
                           <Image
                             src={imgPath.image}
-                            alt="Trending couple tattoos"
+                            alt={altTag}
                             width={378}
                             height={378}
                             loading="lazy"
@@ -185,15 +188,15 @@ export default function CarouselSection({
           <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_25 mb_10 desk_hidden">
             {isButtonVisible === false ? null : (
               <Link
-                href={`/explore/tattoos?keyword=${keyword}`}
-                className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25"
+                href={keyword}
+                className="btn_primary btn_cutom_new btn_img m_mb_25"
               >
                 {buttonName}
                 <Image
                   src="/arow-white-right.svg"
                   width={24}
                   height={24}
-                  alt="logo"
+                  alt="arrowRight"
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}

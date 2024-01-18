@@ -8,7 +8,7 @@
     line-height: 32px;
   }
   .full-block-wrap .img_text_box_inner .text_box_content_inner h3 {
-    font-size: 50px;
+    font-size: 40px;
     line-height: 50px;
   } 
 }
@@ -62,7 +62,7 @@
   }
 
   .full-block-wrap .img_text_box_inner .text_box_content_inner h3 {
-    font-size: 50px;
+    font-size: 44px;
     line-height: 50px;
   }
 
@@ -71,6 +71,8 @@
     line-height: 60px!important;
   }
 
-
-
+  .heading_h2_sub {
+    font-size: 30px!important;
+    line-height: 40px!important;
+  }
 }

@@ -4,17 +4,11 @@ import Link from 'next/link';
 const generateLinkComponent = (router, theme, t) => {
   switch (router.locale) {
     case "uk-en":
-    case "de-de":
+    case "de-en":
       return (
         <Link
           href={`/${router.locale}/journal`}
-          className={
-            theme === "black"
-              ? "textWhite"
-              : theme === "normal"
-              ? "textWhite"
-              : "textBlack"
-          }
+          className=  {router.pathname=="/journal" ?   "textWhite" :    "textBlack"}
         >
           {t("common:menus.journal")}
         </Link>

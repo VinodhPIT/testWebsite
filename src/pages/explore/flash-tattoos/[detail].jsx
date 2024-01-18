@@ -107,15 +107,17 @@ export default function Detail({ data, status, locale }) {
   return (
     <>
       <Head>
-        <title>Browse unique tattoo designs by talented tattoo artists</title>
+      <title>
+        {t("common:flashDetailScreen.title")}
+        </title>
         <meta
           name="description"
-          content="Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection"
+          content={t("common:flashDetailScreen.description")}
         />
         <meta
           name="keywords"
-          content="Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
-        />
+          content={t("common:flashDetailScreen.keyword")}/>
+
       </Head>
       <main>
         <div className="page_wrapper">
@@ -209,14 +211,14 @@ export default function Detail({ data, status, locale }) {
                         target="_blank"
                         className={styles.profile_bookmark}
                       >
-                        <img src="/bookmark-icon.svg" alt="bookmark icon" />
+                        <Image width={24} height={24} priority src="/bookmark-icon.svg" alt="bookmark icon" />
                       </a>
                       <a
                         onClick={openPopup}
                         target="_blank"
                         className={styles.profile_share}
                       >
-                        <img src="/share-icon.svg" alt="share icon" />
+                        <Image width={24} height={24} priority src="/share-icon.svg" alt="share icon" />
                       </a>
                     </div>
                   </div>
@@ -254,9 +256,12 @@ export default function Detail({ data, status, locale }) {
                             className={styles.product_loc_title}
                             key={el.studio_uid}
                           >
-                            <img
+                            <Image
+                            width={16}
+                            height={17}
                               src="/location-small.svg"
                               alt="Berlin, Germany"
+                              priority
                             />
                             {el.city}, {el.country}
                           </span>
@@ -310,12 +315,12 @@ export default function Detail({ data, status, locale }) {
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_APPLE}>
-                      <img src="/app-store-new.svg" alt="app store" />
+                      <Image src="/app-store-new.svg" alt="app store" width={134} height={41} />
                     </Link>
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_GOOGLE}>
-                      <img src="/g-play-new.svg" alt="g play" />
+                      <Image src="/g-play-new.svg" alt="g play" width={134} height={41} />
                     </Link>
                   </li>
                 </ul>

@@ -20,6 +20,7 @@ const links = [
       title: "common:menus.klarna",
       url: "/klarna",
     },
+  
   ];
   
   export default links;
