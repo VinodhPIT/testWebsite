@@ -88,7 +88,7 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
                 
 
 
-                <Link class="btn_primary btn_img btn_xxl m_btn_custom_48" href="/">
+                <Link class="btn_primary btn_cutom_new btn_img mt_20 m_mt_0" href="/">
                  {bannerButton}
                   <Image
                     src="/arow-white-right.svg"

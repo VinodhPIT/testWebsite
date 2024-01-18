@@ -3,7 +3,7 @@ import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from "./dragonslider.module.css";
 
-export default function DragonSlider({ title, description, bgColor, image }) {
+export default function DragonSlider({ title, description, bgColor, image  ,altTag}) {
   return (
     <section className="img_text_banner_box">
       <div
@@ -24,7 +24,7 @@ export default function DragonSlider({ title, description, bgColor, image }) {
                   <div className={styles.listing_grid_img_col}>
                     <Image
                       src={image}
-                      alt="overUpTattoo2"
+                      alt={altTag}
                       width={398}
                       height={454}
                       loading="lazy"

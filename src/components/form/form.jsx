@@ -12,15 +12,20 @@ import {
 } from "@/constants/constants";
 
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  message: Yup.string().required("Message is required"),
-  tattooType: Yup.string().required("Please select one option"),
-
-});
 
 const _Form = () => {
   const { t } = useTranslation();
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email(t("common:contactUsPage.Invalid email")).required(t("common:contactUsPage.Email is required")),
+    message: Yup.string().required(t("common:contactUsPage.Message is required")
+    ),
+    tattooType: Yup.string().required(t("common:contactUsPage.Please select one option")
+    ),
+  
+  });
+
+  
 
 
   const [state, setState] = useState({
@@ -38,7 +43,7 @@ const _Form = () => {
         <div style={{ margin: "0 auto", padding: "0px" }}>
           {!state.isShown ? (
             <div>
-              <h4>{t("common:contactUsPage.in-touch")}</h4>
+              <h4>{t("common:contactUsPage.Get in touch")}</h4>
               <h6>{t("common:contactUsPage.who-you-are")}</h6>
               <Formik
                 initialValues={{
@@ -96,7 +101,7 @@ const _Form = () => {
                             value="Tatoo"
                             checked={values.tattooType === "Tatoo"}
                           />
-                          Tattoo lover
+                          {t("common:contactUsPage.Tattoo lover")}
                         </label>
                         <label class="form_radio">
                           <Field
@@ -105,7 +110,7 @@ const _Form = () => {
                             value="Artists"
                             checked={values.tattooType === "Artists"}
                           />
-                          Artist
+                           {t("common:contactUsPage.Artist")}
                         </label>
                         <label class="form_radio">
                           <Field
@@ -114,7 +119,7 @@ const _Form = () => {
                             value="Studio"
                             checked={values.tattooType === "Studio"}
                           />
-                          Studio
+                             {t("common:contactUsPage.Studio")}
                         </label>
                         <label class="form_radio">
                           <Field
@@ -123,7 +128,7 @@ const _Form = () => {
                             value="Other"
                             checked={values.tattooType === "Other"}
                           />
-                          Other
+                       {t("common:contactUsPage.Other")}
                         </label>
 
                      
@@ -144,7 +149,7 @@ const _Form = () => {
                         <Field
                           type="email"
                           name="email"
-                          placeholder="Enter email address"
+                          placeholder={t("common:contactUsPage.Enter-Email")}
                           className="form_control"
                         />                        
                         <ErrorMessage
@@ -160,7 +165,7 @@ const _Form = () => {
                         <Field
                           as="textarea"
                           name="message"
-                          placeholder="How we can help you?"
+                          placeholder={t("common:contactUsPage.How we can help you")}
                           className="form_control"
                         />                        
                         <ErrorMessage
@@ -174,7 +179,6 @@ const _Form = () => {
                       <div className="form_group">
                         <button
                           type="submit"
-                         
                           class="btn_secondary h_48 w_100pc"
                           style={{ opacity: isSubmitting ? 0.5 : 1 }}
                         >
@@ -195,16 +199,18 @@ const _Form = () => {
                 priority
                 alt="Form submitted" 
               />
-              <h4>Form submitted</h4>
+              <h4>{t("common:Form submitted")}</h4>
+
               <p>
-                Thank you!
+              {t("common:Thank you")}
+
               </p>
               <button
                 type="submit"
                 class="btn_outline_secondary w_100pc h_48 hidden"
                 onClick={() => onSubmit()}
               >
-                Ok. got it!
+                test
               </button>
               <ul className="download_app">
                 <li className="download_app_title">
@@ -212,12 +218,30 @@ const _Form = () => {
                 </li>
                 <li>
                   <Link href={APP_LINK_APPLE} target="_blank">
-                    <img src="/app-store-new.svg" alt="" />
+                    <Image
+                      priority
+                      src="/app-store-new.svg"
+                      alt="App store"
+                      width={134}
+                      height={41}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="custom_download_icons"
+                    />
                   </Link>
                 </li>
                 <li>
                   <Link href={APP_LINK_GOOGLE} target="_blank">
-                    <img src="/g-play-new.svg" alt="" />
+                    <Image
+                      priority
+                      src="/g-play-new.svg"
+                      alt="Play store"
+                      width={134}
+                      height={41}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="custom_download_icons"
+                    />
                   </Link>
                 </li>
               </ul>

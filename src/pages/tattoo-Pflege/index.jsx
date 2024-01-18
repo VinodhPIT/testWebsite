@@ -6,15 +6,13 @@ import DragonTattoo from "@/landing-3/dragonTattoo/dragonTattoo";
 import LeftContentWithBackgroundImage from "@/landing-3/LeftContentWithBackgroundImage/LeftContentWithBackgroundImage";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-import RightAlignedImageContent from '@/landing-3/RightAlignedImageContent;/RightAlignedImageContent'
-import LeftAlignedImageContent from '@/landing-3/LeftAlignedImageContent/LeftAlignedImageContent'
-import {useNavigation} from '@/hooks/useRouter'
-
-
+import RightAlignedImageContent from "@/landing-3/RightAlignedImageContent;/RightAlignedImageContent";
+import LeftAlignedImageContent from "@/landing-3/LeftAlignedImageContent/LeftAlignedImageContent";
+import { useNavigation } from "@/hooks/useRouter";
 
 export default function TattooPflege() {
-  const {router}=useNavigation()
-  
+  const { router } = useNavigation();
+
   return (
     <>
       <Head>
@@ -40,7 +38,10 @@ export default function TattooPflege() {
           content="Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg."
         />
         <meta property="og:image" content="URL des Vorschaubilds" />
-        <meta property="og:url"  content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/tattoo-Pflege`}/>
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/tattoo-Pflege`}
+        />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -51,11 +52,8 @@ export default function TattooPflege() {
           name="twitter:description"
           content="Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg."
         />
-        <meta name="twitter:image" content="URL des Vorschaubilds" />
+        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/tattoo-Pflege.jpg`} />
         <meta name="twitter:site" content="@DeinTwitterHandle" />
-
-
-
       </Head>
 
       <Banner
@@ -66,8 +64,7 @@ export default function TattooPflege() {
         bannerButton={"Know more about inckd"}
         textColor="#fff"
         position="center top"
-
-
+        altTag="Tattoo Pflege für langanhaltende Brillanz: Nachsorge Tipps"
       />
 
       <FullWidthSecwithIcon
@@ -83,7 +80,7 @@ export default function TattooPflege() {
         content="Ein Tattoo ist nicht einfach nur ein Kunstwerk auf deiner Haut; es ist eine Investition in langanhaltende Brillanz. Dein Tattoo ist eine Erweiterung deiner Persönlichkeit und verdient daher die bestmögliche Pflege. Pflege dein Tattoo sorgfältig, damit es über die Jahre hinweg frisch und lebendig bleibt.
         "
         img="/pexels-karolina-grabowska-5241027.jpg"
-        alt="peeling-tattoo"
+        alt="Die Bedeutung der richtigen Pflege"
       />
 
       <DragonTattoo
@@ -102,6 +99,7 @@ export default function TattooPflege() {
         bgColor="#f8f8f8"
         imageWidth="440"
         imageHeight="440"
+        altTag="Direkt nach dem Stechen"
       />
 
       <LeftContentWithBackgroundImage
@@ -117,9 +115,7 @@ export default function TattooPflege() {
         textColor="color_white"
       />
 
-
       <LeftAlignedImageContent
-
         title={"Langfristige Pflegehinweise"}
         description={
           <>
@@ -132,78 +128,65 @@ export default function TattooPflege() {
           </>
         }
         bgColor="#fff"
-        image="/tattooAftercare-img1.jpg" />
-
-
-
-
+        image="/tattooAftercare-img1.jpg"
+        altTag="Langfristige Pflegehinweise"
+      />
 
       <RightAlignedImageContent
-
         title={"Wichtige Punkte zur Tattoo-Pflege"}
         description={
           <>
-            Die Pflege deines Tattoos beginnt direkt nach dem Stechen. Verwende eine dünne Schicht ph-neutraler Seife und tupfe die frisch gestochene Tätowierung behutsam ab. Trage anschließend ein atmungsaktives Pflaster auf. Die tägliche Pflege sollte auch feuchtigkeitsspendende Cremes einschließen, um die Wundheilung zu fördern.
+            Die Pflege deines Tattoos beginnt direkt nach dem Stechen. Verwende
+            eine dünne Schicht ph-neutraler Seife und tupfe die frisch
+            gestochene Tätowierung behutsam ab. Trage anschließend ein
+            atmungsaktives Pflaster auf. Die tägliche Pflege sollte auch
+            feuchtigkeitsspendende Cremes einschließen, um die Wundheilung zu
+            fördern.
           </>
         }
         bgColor="#f8f8f8"
         image="/tattooAftercare-img2.jpg"
-
+        altTag="Wichtige Punkte zur Tattoo-Pflege"
       />
 
-
-
-
-
-
-
-
-<LeftAlignedImageContent
-
-title={"Weitere Aspekte der Tattoo-Pflege"}
-description={
-  "Die Pflege deines Tattoos geht über die rein körperliche Versorgung hinaus. Es ist auch wichtig, mentale Aspekte zu berücksichtigen. Akzeptiere und schätze dein Tattoo als Teil von dir. Betrachte es als eine Form der Selbstexpression und feiere die Einzigartigkeit deines Kunstwerks. Die Auswahl der richtigen Pflegeprodukte spielt eine Schlüsselrolle. Achte darauf, dass deine Seife und Creme frei von Duftstoffen sind, um Irritationen zu vermeiden. Eine ph-neutrale Wund- und Heilsalbe kann besonders in den ersten Tagen nach dem Stechen Wunder wirken."
-}
-bgColor="#fff"
-image="/tattooAfterCare-img3.jpg"/>
-
-
-     
-
-
-
-
-
-
+      <LeftAlignedImageContent
+        title={"Weitere Aspekte der Tattoo-Pflege"}
+        description={
+          "Die Pflege deines Tattoos geht über die rein körperliche Versorgung hinaus. Es ist auch wichtig, mentale Aspekte zu berücksichtigen. Akzeptiere und schätze dein Tattoo als Teil von dir. Betrachte es als eine Form der Selbstexpression und feiere die Einzigartigkeit deines Kunstwerks. Die Auswahl der richtigen Pflegeprodukte spielt eine Schlüsselrolle. Achte darauf, dass deine Seife und Creme frei von Duftstoffen sind, um Irritationen zu vermeiden. Eine ph-neutrale Wund- und Heilsalbe kann besonders in den ersten Tagen nach dem Stechen Wunder wirken."
+        }
+        bgColor="#fff"
+        image="/tattooAfterCare-img3.jpg"
+        altTag="Weitere Aspekte der Tattoo-Pfleg"
+      />
 
       <RightAlignedImageContent
-
         title={"Individuelle Pflege für unterschiedliche Körperbereiche"}
         description={
           <>
-            Jeder Teil deines Körpers hat seine eigenen Bedürfnisse. Hände und Füße sind häufiger Reibung ausgesetzt und erfordern möglicherweise eine intensivere Pflege. Gelenke, wie Ellenbogen und Knie, können ebenfalls mehr Aufmerksamkeit benötigen. Passe deine Pflegeroutine an die Bedürfnisse der verschiedenen Körperbereiche an.
-            Nachdem du dir ein neues Tattoo stechen lassen hast, solltest du besonders auf die Pflege achten. Außerdem ist es wichtig, während des Sports und beim Schwitzen auf deine frisch tätowierte Haut zu achten.</>
+            Jeder Teil deines Körpers hat seine eigenen Bedürfnisse. Hände und
+            Füße sind häufiger Reibung ausgesetzt und erfordern möglicherweise
+            eine intensivere Pflege. Gelenke, wie Ellenbogen und Knie, können
+            ebenfalls mehr Aufmerksamkeit benötigen. Passe deine Pflegeroutine
+            an die Bedürfnisse der verschiedenen Körperbereiche an. Nachdem du
+            dir ein neues Tattoo stechen lassen hast, solltest du besonders auf
+            die Pflege achten. Außerdem ist es wichtig, während des Sports und
+            beim Schwitzen auf deine frisch tätowierte Haut zu achten.
+          </>
         }
         bgColor="#f8f8f8"
         image="/Rectangle3602.png"
-
+        altTag="Individuelle Pflege für unterschiedliche Körperbereiche"
       />
-    
-
-
 
       <LeftAlignedImageContent
-
-title={"Die Kunst des Tattoo-Designs und ihre Pflege:"}
-description={
-  "Die Brillanz deines Tattoos beginnt bereits mit dem Design. Ein erfahrener Tätowierer wird nicht nur ein beeindruckendes Kunstwerk schaffen, sondern auch Ratschläge zur Pflege geben. Achte darauf, die Konturen deines Tattoos bei der Pflege nicht zu vernachlässigen. Eine sorgfältige Behandlung dieser Bereiche trägt dazu bei, die Details und die Gesamterscheinung deines Tattoos zu bewahren"
-}
-image="/Rectangle3603.png"
-bgColor="#fff"/>
-
-
-
-
+        title={"Die Kunst des Tattoo-Designs und ihre Pflege:"}
+        description={
+          "Die Brillanz deines Tattoos beginnt bereits mit dem Design. Ein erfahrener Tätowierer wird nicht nur ein beeindruckendes Kunstwerk schaffen, sondern auch Ratschläge zur Pflege geben. Achte darauf, die Konturen deines Tattoos bei der Pflege nicht zu vernachlässigen. Eine sorgfältige Behandlung dieser Bereiche trägt dazu bei, die Details und die Gesamterscheinung deines Tattoos zu bewahren"
+        }
+        image="/Rectangle3603.png"
+        bgColor="#fff"
+        altTag="Die Kunst des Tattoo-Designs und ihre Pflege"
+      />
 
       <DownloadApps title="Download the" subTitle="App & Explore more!" />
     </>

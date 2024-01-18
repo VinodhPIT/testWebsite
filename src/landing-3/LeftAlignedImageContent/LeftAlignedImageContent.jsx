@@ -7,7 +7,7 @@ export default function LeftAlignedImageContent({
   title,
   description,
   bgColor,
-  image,
+  image,altTag
 }) {
   return (
     <section className="img_text_banner_box  ">
@@ -25,7 +25,7 @@ export default function LeftAlignedImageContent({
                   <div className={styles.listing_grid_img_col}>
                     <Image
                       src={image}
-                      alt="overUpTattoo2"
+                      alt={altTag}
                       width={398}
                       height={454}
                       loading="lazy"

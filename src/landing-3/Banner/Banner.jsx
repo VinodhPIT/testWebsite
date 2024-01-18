@@ -19,7 +19,7 @@ import {
 
 
 
-export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor ,position}) {
+export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor ,position ,altTag}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
   // drachen-tattoos.png
@@ -59,7 +59,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor 
               <div className={styles.banner_inner}>
                 <Image
                   src={bannerImg}
-                  alt="banner"
+                  alt={altTag}
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}

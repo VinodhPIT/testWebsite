@@ -22,7 +22,7 @@ export default function CoverUpTattoos() {
       name: "ineskalina",
       city: "Fulda",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/ineskalina_dldiyy1c`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/ineskalina_dldiyy1c`,
     },
 
     {
@@ -35,7 +35,7 @@ export default function CoverUpTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/youcannotstopme_ug882bl3`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/youcannotstopme_ug882bl3`,
     },
 
     {
@@ -48,7 +48,7 @@ export default function CoverUpTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/barbaranobody_e8w4uiq5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/barbaranobody_e8w4uiq5`,
     },
 
     {
@@ -62,7 +62,7 @@ export default function CoverUpTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/herrschneider_rzrp823z`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/herrschneider_rzrp823z`,
     },
     {
       image:
@@ -75,7 +75,7 @@ export default function CoverUpTattoos() {
       city: "Reinbek",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/filocasablanca_rgq479cv`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/filocasablanca_rgq479cv`,
     },
 
     {
@@ -89,7 +89,7 @@ export default function CoverUpTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/sakrosankt_max3x71q`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/sakrosankt_max3x71q`,
     },
 
     {
@@ -102,7 +102,7 @@ export default function CoverUpTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/tobias-schneider_0w8pudg1`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/tobias-schneider_0w8pudg1`,
     },
   ];
 
@@ -206,12 +206,12 @@ export default function CoverUpTattoos() {
 
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_BASE_URL}/${router.locale}/explore/tattoos/c15ed3ae-9a77-4922-9129-4c6d8920e010`}
+          content={`${process.env.LIVE_URL}/${router.locale}/cover-up-tattoos`}
         />
 
         <meta
           property="og:image"
-          content="https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6115_20221020231246277-medium.jpg"
+          content={`${process.env.LIVE_URL}/coverUpTattooBanner.jpg`}
         />
         <meta property="og:type" content="article" />
 
@@ -226,7 +226,7 @@ export default function CoverUpTattoos() {
         />
         <meta
           name="twitter:image"
-          content="https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6115_20221020231246277-medium.jpg"
+          content={`${process.env.LIVE_URL}/coverUpTattooBanner.jpg`}
         />
       </Head>
 
@@ -237,6 +237,7 @@ export default function CoverUpTattoos() {
           bannerImg={"/coverUpTattooBanner.jpg"}
           bannerButton={"Know more about inckd"}
           position="center"
+          altTag="Cover Up Tattoo"
         />
 
         <UniquePartner
@@ -251,6 +252,7 @@ export default function CoverUpTattoos() {
           carousel={""}
           imgWidth="570"
           imgHeight="600"
+          altTag="Tipps, Methoden und Kreative Lösungen"
         />
 
         <DragonSlider
@@ -263,6 +265,7 @@ export default function CoverUpTattoos() {
           bgColor="#fff"
 
           image="/coverUpTattoo3.png"
+          altTag="Was du beachten solltest"
      
 
         />
@@ -276,8 +279,7 @@ export default function CoverUpTattoos() {
           content="Es gibt viele Gründe für ein Cover Up Tattoo. Zum Beispiel, wenn du den Namen deines Ex-Partners entfernen möchtest. Oder wenn du einen Fehler aus deiner Jugend korrigieren willst. Oder wenn du dich von einem Party-Motiv trennen möchtest. Es gibt viele Möglichkeiten, ein Tattoo zu überdecken.
         "
           img="/coverUpTattoo3.png"
-          alt="coverUpTattoo3"
-
+          alt="Warum cover up Tattoos"
           bgColor={"#f8f8f8"}
         />
 

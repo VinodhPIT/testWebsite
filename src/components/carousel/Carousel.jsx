@@ -6,7 +6,6 @@ import { APP_LINK_APPLE, APP_LINK_GOOGLE ,blurDataURL } from "@/constants/consta
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 
-
 const ZodiacCarousel = ({ items, itemStyle }) => {
   const { t } = useTranslation();
   return (
@@ -25,7 +24,7 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <img src="/Alt Arrow Left.svg" alt="Left Arrow" />
+          <Image src="/Alt Arrow Left.svg" alt="Left Arrow" width={32} height={32} />
         </button>
       )}
       renderArrowNext={(onClickHandler, hasNext) => (
@@ -39,21 +38,13 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <img src="/Alt Arrow Right.svg" alt="Right Arrow" />
+          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
       {items.map((item, index) =>
         item.image ? (
-          <div key={index} className="custom_carousel_slider custom_type_one">
-            <div className={itemStyle}>
-              <div className="keywords_wrap">
-                <ul className="keywords_list">
-                  <li>{item.button1}</li>
-                  <li>{item.button2}</li>
-                </ul>
-              </div>
-            </div>
+          <div key={index} className="custom_carousel_slider custom_type_one">            
             <div className="custom_carousel_slider_item">
               <Image
                 src={item.image}
@@ -66,22 +57,30 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
               />
               <h4 className="custom_carousel_title">{item.heading}</h4>
               <p className="custom_carousel_data">{item.text}</p>
+              <div className={itemStyle}>
+                <div className="keywords_wrap">
+                  <ul className="keywords_list">
+                    <li>{item.button1}</li>
+                    <li>{item.button2}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
+            
           </div>
         ) : (
           <div className="download_app" key={index}>
-              <h2 className='m_text_center'> <span>{t("common:download-app-forMore")}</span> 
-        
-        <span className="textBlock">{t("common:download-app-forMore-sub")}</span></h2>
-            
+              <h2 className='m_text_center'>
+                <span>{t("common:download-app-forMore")} {t("common:download-app-forMore-sub")}</span>
+              </h2>           
 
-            <span className="download_app_img" style={{ paddingTop: "50px" }}>
+            <span className="download_app_img app_img_xs">
               <Link
                 href={APP_LINK_APPLE}
                 target="_blank"
-                className="list_inline_item"
+                className="list_inline_item mr_5 mb_5"
               >
-                <img src="/app-store.svg" alt="AppStore" className="w_auto" />
+                <Image src="/app-store.svg" alt="AppStore" className="w_auto"  width={135} height={41} priority />
               </Link>
 
               <Link
@@ -89,12 +88,12 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
                 target="_blank"
                 className="list_inline_item"
               >
-                <img src="/g-play.svg" alt="PlayStore" className="w_auto" />
+                <Image src="/g-play.svg" alt="PlayStore" className="w_auto" width={135} height={41} priority />
               </Link>
             </span>
-            <p className="custom_carousel_data">
+            {/* <p className="custom_carousel_data">
             {t("common:downloadContent")}
-            </p>
+            </p> */}
           </div>
         )
       )}
@@ -120,7 +119,7 @@ const MythologyCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <img src="/Alt Arrow Left.svg" alt="Left Arrow" />
+          <Image src="/Alt Arrow Left.svg" alt="Left Arrow" width={32} height={32} />
         </button>
       )}
       renderArrowNext={(onClickHandler, hasNext) => (
@@ -134,23 +133,15 @@ const MythologyCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <img src="/Alt Arrow Right.svg" alt="Right Arrow" />
+          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
       {items.map((item, index) =>
         item.image ? (
-          <div key={index} className="custom_carousel_slider custom_type_one">
-            <div className={itemStyle}>
-              <div className="keywords_wrap">
-                <ul className="keywords_list">
-                  <li>{item.button1}</li>
-                  <li>{item.button2}</li>
-                </ul>
-              </div>
-            </div>
+          <div key={index} className="custom_carousel_slider custom_type_one">            
             <div className="custom_carousel_slider_item">
-              {/* <img className='align-self-center carousel-image'  src={item.image} alt={item.heading} /> */}
+             
 
               <Image
                 src={item.image}
@@ -164,21 +155,29 @@ const MythologyCarousel = ({ items, itemStyle }) => {
 
               <h4 className="custom_carousel_title">{item.heading}</h4>
               <p className="custom_carousel_data">{item.text}</p>
+              <div className={itemStyle}>
+                <div className="keywords_wrap">
+                  <ul className="keywords_list">
+                    <li>{item.button1}</li>
+                    <li>{item.button2}</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         ) : (
           <div className="download_app" key={index}>
-                    <h2 className='m_text_center'> <span>{t("common:download-app-forMore")}</span> 
-        
-        <span className="textBlock">{t("common:download-app-forMore-sub")}</span></h2>
+                    <h2 className='m_text_center'>
+                      <span>{t("common:download-app-forMore")} {t("common:download-app-forMore-sub")}</span>
+                    </h2>
 
-            <span className="download_app_img" style={{ paddingTop: "50px" }}>
+            <span className="download_app_img app_img_xs">
               <Link
                 href={APP_LINK_APPLE}
                 target="_blank"
-                className="list_inline_item"
+                className="list_inline_item mr_5 mb_5"
               >
-                <img src="/app-store.svg" alt="AppStore" className="w_auto" />
+                <Image src="/app-store.svg" alt="AppStore"  width={135} height={41} className="w_auto" />
               </Link>
 
               <Link
@@ -186,12 +185,12 @@ const MythologyCarousel = ({ items, itemStyle }) => {
                 target="_blank"
                 className="list_inline_item"
               >
-                <img src="/g-play.svg" alt="PlayStore" className="w_auto" />
+                <Image src="/g-play.svg" alt="PlayStore" width={135} height={41} className="w_auto" />
               </Link>
             </span>
-            <p className="custom_carousel_data">
+            {/* <p className="custom_carousel_data">
             {t("common:downloadContent")}
-            </p>
+            </p> */}
           </div>
         )
       )}
@@ -218,7 +217,7 @@ const AztecCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <img src="/Alt Arrow Left.svg" alt="Left Arrow" />
+          <Image src="/Alt Arrow Left.svg" alt="Left Arrow" width={32} height={32} />
         </button>
       )}
       renderArrowNext={(onClickHandler, hasNext) => (
@@ -232,21 +231,13 @@ const AztecCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <img src="/Alt Arrow Right.svg" alt="Right Arrow" />
+          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
       {items.map((item, index) =>
         item.image ? (
-          <div key={index} className="custom_carousel_slider custom_type_one">
-            <div className={itemStyle}>
-              <div className="keywords_wrap">
-                <ul className="keywords_list">
-                  <li>{item.button1}</li>
-                  <li>{item.button2}</li>
-                </ul>
-              </div>
-            </div>
+          <div key={index} className="custom_carousel_slider custom_type_one">           
             <div
               className="custom_carousel_slider_item"
               style={{ position: "relative" }}
@@ -261,25 +252,33 @@ const AztecCarousel = ({ items, itemStyle }) => {
                
               />
 
-              {/* <img className='align-self-center carousel-image'   /> */}
+           
 
               <h4 className="custom_carousel_title">{item.heading}</h4>
               <p className="custom_carousel_data">{item.text}</p>
+              <div className={itemStyle}>
+              <div className="keywords_wrap">
+                <ul className="keywords_list">
+                  <li>{item.button1}</li>
+                  <li>{item.button2}</li>
+                </ul>
+              </div>
+            </div>
             </div>
           </div>
         ) : (
           <div className="download_app" key={index}>
-                   <h2 className='m_text_center'> <span>{t("common:download-app-forMore")}</span> 
-        
-        <span className="textBlock">{t("common:download-app-forMore-sub")}</span></h2>
+            <h2 className='m_text_center'>
+              <span>{t("common:download-app-forMore")} {t("common:download-app-forMore-sub")}</span>
+            </h2>
 
-            <span className="download_app_img" style={{ paddingTop: "50px" }}>
+            <span className="download_app_img app_img_xs">
               <Link
                 href={APP_LINK_APPLE}
                 target="_blank"
-                className="list_inline_item"
+                className="list_inline_item mr_5 mb_5"
               >
-                <img src="/app-store.svg" alt="AppStore" className="w_auto" />
+                <Image src="/app-store.svg" alt="AppStore" width={135} height={41} className="w_auto"  priority/>
               </Link>
 
               <Link
@@ -287,12 +286,12 @@ const AztecCarousel = ({ items, itemStyle }) => {
                 target="_blank"
                 className="list_inline_item"
               >
-                <img src="/g-play.svg" alt="PlayStore" className="w_auto" />
+                <Image src="/g-play.svg" alt="PlayStore" className="w_auto" width={135} height={41} priority />
               </Link>
             </span>
-            <p className="custom_carousel_data">
+            {/* <p className="custom_carousel_data">
             {t("common:downloadContent")}
-            </p>
+            </p> */}
           </div>
         )
       )}

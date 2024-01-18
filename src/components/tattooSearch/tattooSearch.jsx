@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import style from "./tattoosearch.module.css";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
+import Image from 'next/image'
 
 function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
   const { state, searchData  ,setSearchState ,searchState } = useGlobalState();
@@ -189,7 +190,7 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
 
           />
           <button type="submit" tabindex="-1" className={style.btn_search}>
-            <img src="/tattoo-magnifer.svg" alt="search" />
+            <Image src="/tattoo-magnifer.svg" alt="search"  width={16} height={16}/>
           </button>
 
           {/* {searchState.showDropdown && (
@@ -235,9 +236,11 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
       </form>
        {searchState.query && (
         <button className={style.close_search} onClick={() => clearText()}>
-          <img
+          <Image
             src="/search-close.svg"
             alt="search close"
+            width={16}
+            height={16}
             className={style.close_search_icon}
           />
         </button>

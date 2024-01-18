@@ -103,7 +103,7 @@ export default function ThreeColumCarousel({
 
                 <Link
                   href={linkUrl}
-                  className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_25 mob_hidden"
+                  className="btn_primary btn_cutom_new btn_img m_mb_25 mob_hidden"
                 >
                   {button}
                   <Image
@@ -155,7 +155,7 @@ export default function ThreeColumCarousel({
                         >
                           <Image
                             src={el.image}
-                            alt="Trending couple tattoos"
+                            alt={el.name}
                             width={752}
                             height={776}
                             loading="lazy"
@@ -191,18 +191,11 @@ export default function ThreeColumCarousel({
                             <h6 className={styles.listing_grid_profile_title}>
                               {el.name}
                             </h6>
-                            <div className="mb_5"></div>
                             <span
                               className={styles.listing_grid_profile_address}
                             >
-                              {el.city}
-                            </span>
-                            <div className="mt_5"></div>
-                            <span
-                              className={styles.listing_grid_profile_address}
-                            >
-                              {el.country}
-                            </span>
+                              {el.city}, {el.country}
+                            </span>                            
                           </div>
                         </div>
                       </Link>
@@ -216,7 +209,7 @@ export default function ThreeColumCarousel({
             <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">
               <Link
                 href={linkUrl}
-                className="btn_primary btn_img btn_xxl m_btn_custom_48 m_mb_0"
+                className="btn_primary btn_cutom_new btn_img m_mb_0"
               >
                 {button}
                 <Image

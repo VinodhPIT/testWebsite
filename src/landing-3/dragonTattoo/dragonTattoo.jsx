@@ -4,7 +4,7 @@ import Link from "next/link";
 import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constants";
 import styles from './dragontattoo.module.css'
 
-export default function DragonTattoo({title1 , content1 ,title2  , content2 ,title3 ,content3  ,image ,bgColor  ,imageWidth ,imageHeight}) {
+export default function DragonTattoo({title1 , content1 ,title2  , content2 ,title3 ,content3  ,image ,bgColor  ,imageWidth ,imageHeight ,altTag}) {
   return (
     <section className="img_text_banner_box" style={{"backgroundColor":bgColor}}>
 
@@ -48,7 +48,7 @@ export default function DragonTattoo({title1 , content1 ,title2  , content2 ,tit
                                 <div className="d_flex flex_direction_column m_mb_45">
                                 <Image
                                     priority
-                                    alt="drachen tattoo idee"
+                                    alt={altTag}
                                     src={image}
                                     width={imageWidth}
                                     height={imageHeight}

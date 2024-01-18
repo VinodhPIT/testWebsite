@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import {APP_LINK_APPLE,APP_LINK_GOOGLE} from '@/constants/constants'
 import useTranslation from "next-translate/useTranslation";
+import Image from 'next/image'
 
 
 
@@ -41,19 +42,19 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
     style={customStyles} 
     ariaHideApp={false}
     >
-      <div className='popup_wrap'>        
+      <div className='popup_wrap explore_feature_app_popup'>        
         <div className="popup_container">
-          <div className="popup_box_inner">
-          <button className="close_button" onClick={closeModal}>
-            <img src="/popup-close.svg" alt="close"/>        
-          </button>
-            <div className="popup_left justify_content_center block_bg_orange">
+          <div className="popup_box_inner">          
+            <div className="popup_left justify_content_center block_bg_orange mob_hidden">
               <img src="/mockup-iPhone-business-popup.png" alt="Manage your business" className="w_auto max_w_100pc object_fit_contain object_position"/>
             </div>
-            <div className="popup_right">        
+            <div className="popup_right">
+              <button className="close_button" onClick={closeModal}>
+                <Image  width={25} height={25} src="/popup-close.svg" alt="close"/>        
+              </button>
               <div className="popup_right_content">
                 <div className="popup_logo">
-                  <img src="/Inckd-logo-black.svg" alt="Picture of the author"/>
+                  <Image width={105}  height={30} src="/Inckd-logo-black.svg" alt="Picture of the author"/>
                 </div>
                 <div className="popup_content_wrap">
                   <h2><span>{t("common:explore-the")}</span>
@@ -66,12 +67,12 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                     </li>
                     <li>
                       <Link target="_blank" href={APP_LINK_APPLE}>
-                        <img src="/app-store-new.svg" alt="Appstore" />
+                        <Image width={134} height={41} src="/app-store-new.svg" alt="Appstore" />
                       </Link>
                     </li>
                     <li>
                       <Link target="_blank" href={APP_LINK_GOOGLE}>
-                        <img src="/g-play-new.svg" alt="Googleplay" />
+                        <Image src="/g-play-new.svg" alt="Googleplay" width={134} height={41} />
                       </Link>
                     </li>
                   </ul>

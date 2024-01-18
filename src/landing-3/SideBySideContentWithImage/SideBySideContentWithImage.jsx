@@ -21,6 +21,13 @@ export default function SideBySideContentWithImage({
   img3,
   img4,
   img5,
+
+  imgAlt1,
+  imgAlt2,
+  imgAlt3,
+  imgAlt4,
+  imgAlt5
+
 }) {
   return (
     <section className="img_text_banner_box">
@@ -67,7 +74,7 @@ export default function SideBySideContentWithImage({
                   <li>
                     <Image
                       priority
-                      alt="tattoo"
+                      alt={imgAlt1}
                       src={img1}
                       width={591}
                       height={600}
@@ -85,7 +92,7 @@ export default function SideBySideContentWithImage({
                   <li>
                     <Image
                       priority
-                      alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+                      alt={imgAlt2}
                       src={img4}
                       width={591}
                       height={600}
@@ -128,7 +135,7 @@ export default function SideBySideContentWithImage({
                   <li>
                     <Image
                       priority
-                      alt="tattoo"
+                      alt={imgAlt3}
                       src={img3}
                       width={591}
                       height={600}
@@ -146,7 +153,7 @@ export default function SideBySideContentWithImage({
                   <li>
                     <Image
                       priority
-                      alt="Celebrate Your Love Journey with Unique Partner Tattoos"
+                      alt={imgAlt4}
                       src={img5}
                       width={591}
                       height={600}
@@ -189,7 +196,7 @@ export default function SideBySideContentWithImage({
                   <li>
                     <Image
                       priority
-                      alt="tattoo"
+                      alt={imgAlt5}
                       src={img2}
                       width={591}
                       height={600}
