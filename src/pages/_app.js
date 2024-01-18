@@ -13,6 +13,7 @@ import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
 import loadGoogleMapsAPI from "@/components/google-maps";
 import NProgress from "nprogress";
+import { SessionProvider } from "next-auth/react";
 NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
@@ -155,6 +156,7 @@ function MyApp({ Component, pageProps }) {
   }
   return (
     <>
+      <SessionProvider session={pageProps.session}>
       <GlobalStateProvider>
         <div className={figtree.className}>
           {getHeaderComponent(router.locale, router.pathname)}
@@ -166,6 +168,7 @@ function MyApp({ Component, pageProps }) {
           <Footer />
         </div>
       </GlobalStateProvider>
+      </SessionProvider>
     </>
   );
 }

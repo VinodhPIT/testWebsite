@@ -36,8 +36,10 @@ header.db_header_wrap {
 .header_dashboard .header_logo_nav {  
   padding-top: 15px;
   padding-bottom: 15px;
+  padding-right: 10px;
 }
 .header_dashboard .header_logo {
+  margin-top: 0;
   margin-right: 20px;
 }
 .header_db_title h4 {
@@ -70,7 +72,9 @@ header.db_header_wrap {
   max-width: 40px;
   max-height: 40px;
 }
-
+.db_customer_detail_wrap {
+  padding: 0 ;
+}
 .db_full_block {
   display: flex;  
   flex-flow: nowrap;
@@ -78,21 +82,6 @@ header.db_header_wrap {
   gap: 16px;
   padding: 0 20px 20px 20px;
   align-items: stretch;
-}
-.db_four_col {
-  max-width: 24.14%;
-}
-.db_col_25 {
-  max-width: 24.64%;
-}
-.db_col_35 {
-  max-width: 34.42%;
-}
-.db_col_65 {
-  max-width: 64.14%;
-}
-.db_col_74 {
-  max-width: 73.92%;
 }
 .db_card { 
   border: 0;
@@ -102,6 +91,9 @@ header.db_header_wrap {
   word-wrap: break-word;
   border-radius: 10px;
   flex: 1 0;
+  padding: 0;
+  margin: 0 0 20px 0;
+  height: calc(100% - 20px);
 }
 .db_card_body {  
   padding: 20px;
@@ -109,6 +101,7 @@ header.db_header_wrap {
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  min-height: 124px;
 }
 .db_card_body h4 {
   padding: 0;
@@ -277,34 +270,40 @@ header.db_header_wrap {
   gap: 16px;
 }
 
-@media screen and (max-width: 991.98px) {
-  .m_d_grid_lg {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  header .db_navigation {
+    display: inline-block;
   }
-  .m_max_w_pc_100 {
-    max-width: 100%;
-  } 
-  .header_dashboard .header_logo_nav .header_logo {
-    margin-top: 0;
+}
+
+@media screen and (max-width: 767.98px) { 
+  .header_dashboard {
+    align-items: center;
   }
-  .m_flex_dir_column_lg {
-    flex-direction: column !important;
+  .header_db_title {
+   margin-top: 10px;
+  }
+  .header_db_title h4 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .db_customer_detail_wrap {
+    padding: 0;
+  }
+  .header_dashboard .header_logo {
+    margin-right: 0;
   }
 }
 
 @media screen and (max-width: 640px) {  
-  .m_d_grid_xs {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
   .m_flex_wrap_xs {
     flex-wrap: wrap!important;
   }
   .m_pt_10_xs {
     padding-top: 10px!important;
   }
-
 }
 
 @media screen and (max-width: 460px) {  
