@@ -1,4 +1,3 @@
-Footer
 
 import React from "react";
 import Image from "next/image";
@@ -10,41 +9,34 @@ import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
 } from "@/constants/constants";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
-
-
-
 export default function Footer() {
   const { t } = useTranslation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
-  const router = useRouter()
-
+  const router = useRouter();
 
   const bookLinks = [
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url: `/${router.locale}/explore/tattoos`
+      url: `/${router.locale}/explore/tattoos`,
     },
 
     {
       id: 2,
       title: t("common:menus.artistSearch"),
-      url: `/${router.locale}/explore/tattoo-artists`
+      url: `/${router.locale}/explore/tattoo-artists`,
     },
     {
       id: 3,
       title: t("common:menus.flashSearch"),
-      url: `/${router.locale}/explore/flash-tattoos`
+      url: `/${router.locale}/explore/flash-tattoos`,
     },
   ];
-
-
-
 
   const productLinks = [
     {
@@ -66,8 +58,6 @@ export default function Footer() {
   ];
 
   const businesstLinks = [
-
-
     {
       id: 2,
       title: t("common:menus.forTattooArtists"),
@@ -86,15 +76,53 @@ export default function Footer() {
       title: t("common:menus.faq"),
       url: `/${router.locale}/faq`,
     },
-
   ];
 
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
 
+  const renderButton = (pathname, locale, openPopup) => {
+    switch (pathname) {
+      case "/journal":
+      case "/explore/[[...slug]]":
+      case "/404":
+      case "/cover-up-tattoos":
+      case "/tattoos-fur-frauen":
+      case "/tattoo-Pflege":
+      case "/tattoo-ideen":
+      case "/drachen-tattoos":
+
+      case "/exploring-tattoo-ideas-for-men":
+      case "/find-the-best-tattooShops-near-me":
+      case "/book-tattoo-artists":
+      case "/tattoo-after-care":
+        return null;
+      default:
+        return (
+          <button className="footer_switcher" onClick={openPopup}>
+            <Image
+              src={getCountryIcon(locale)}
+              alt="countries"
+              width={32}
+              height={32}
+              priority
+            />
+            <span className={"textBlack"}>{getLanguage(locale)}</span>
+            <Image
+              src="/arrow-right-lang.svg"
+              alt="countries"
+              width={17}
+              height={17}
+              priority
+              className="footer_switcher_right"
+            />
+          </button>
+        );
+    }
+  };
+
   return (
     <>
-
-      <footer >
+      <footer>
         <div className="footer">
           <div class="container_full">
             <section class="footer_block">
@@ -110,7 +138,7 @@ export default function Footer() {
                     />
                   </Link>
                 </div>
-                {router.pathname === "/journal" ||
+                {/* {router.pathname === "/journal" ||
                   router.pathname === "/explore/[[...slug]]" || router.pathname==="/404" ? null : (
                   <button className="footer_switcher" onClick={openPopup}>
                     <Image
@@ -132,14 +160,16 @@ export default function Footer() {
                       className="footer_switcher_right"
                     />
                   </button>
-                )}
+                )} */}
+
+                {renderButton(router.pathname, router.locale, openPopup)}
+
                 <ul class="footer_list">
                   <li class="footer_title">
                     <h6>{t("common:download-app-on")}</h6>
                   </li>
                   <li>
                     <Link href={APP_LINK_APPLE} target="_blank">
-
                       <Image
                         src={"/app-store-new.svg"}
                         alt="AppStore"
@@ -205,13 +235,12 @@ export default function Footer() {
                     return (
                       <li key={e.id}>
                         {" "}
-                        <Link href={e.url} key={e.id} >
+                        <Link href={e.url} key={e.id}>
                           {e.title}
                         </Link>
                       </li>
                     );
                   })}
-
                 </ul>
               </div>
               <div class="social_icons">
@@ -226,8 +255,6 @@ export default function Footer() {
                         height={25}
                         priority
                       />
-
-
                     </Link>
                   </li>
                   <li>
@@ -239,7 +266,6 @@ export default function Footer() {
                         height={25}
                         priority
                       />
-
                     </Link>
                   </li>
                   <li>
@@ -266,5 +292,4 @@ export default function Footer() {
       />
     </>
   );
-
 }
