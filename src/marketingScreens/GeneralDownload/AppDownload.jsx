@@ -28,37 +28,37 @@ function Appdownload() {
                       <span>{t("common:GeneralAppDownload.Explore the Features")}</span>
                       </h2>
                     </li>
-                    <li class="download_app_title">
-                    <h5>{t("common:download-app-on")}</h5>
+                    <li class="download_app_title mb_10">
+                      {t("common:download-app-on")}
                     </li>
                     <li>
-                            <Link href={APP_LINK_APPLE} target="_blank">                              
-                              <Image
-                                priority
-                                src="/app-store-new.svg"
-                                alt="App store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons"
-                              />
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href={APP_LINK_GOOGLE} target="_blank">
-                              <Image
-                                priority
-                                src="/g-play-new.svg"
-                                alt="Play store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons"
-                              />
-                            </Link>
-                          </li>
+                      <Link href={APP_LINK_APPLE} target="_blank">                              
+                        <Image
+                          priority
+                          src="/app-store-new.svg"
+                          alt="App store"
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={blurDataURL}
+                          className="custom_download_icons"
+                        />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={APP_LINK_GOOGLE} target="_blank">
+                        <Image
+                          priority
+                          src="/g-play-new.svg"
+                          alt="Play store"
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={blurDataURL}
+                          className="custom_download_icons"
+                        />
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>

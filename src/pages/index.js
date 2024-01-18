@@ -12,8 +12,7 @@ import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreApps from "@/components/exploreApps/ExploreApps";
 import TattooArtistComponent from "@/components/tatooartistComponent/TattooArtistComponent";
-import path from "path";
-import fs from "fs";
+import jsonData from '@/data/journal.json';
 import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
@@ -164,31 +163,21 @@ export default function Homenew({ data, locale }) {
     setSearchState,
   } = useGlobalState();
 
-  const [listing, setListing] = useState([]);
-  const [error, setError] = useState(false);
+
   const router = useRouter();
-  useEffect(() => {
-    if (
-      !data[locale] ||
-      !Array.isArray(data[locale]) ||
-      data[locale].length === 0
-    ) {
-      setError(true);
-    } else {
-      setListing(data[locale]);
-      setError(false);
-    }
-  }, [data, locale, router, error]);
+
+
   function SwitchJournal(locale) {
     switch (locale) {
       case "uk-en":
-        return <TattooJournal data={listing} error={error} />
+        return <TattooJournal data={jsonData[router.locale]}  />
       case "de-en":
-        return <TattooJournal data={listing} error={error} />
+        return <TattooJournal data={jsonData[router.locale]}  />
       default:
         return null
     }
   }
+
   useEffect(() => {
     router.replace(`/${locale}`);
     clearStyleId("");
@@ -354,12 +343,10 @@ export default function Homenew({ data, locale }) {
 }
 
 export async function getServerSideProps(context) {
-  const filePath = path.join(process.cwd(), "src", "data", "journal.json");
-  const jsonData = fs.readFileSync(filePath, "utf-8");
-  const data = JSON.parse(jsonData);
+  
   return {
     props: {
-      data,
+     
       locale: context.locale,
     },
   };

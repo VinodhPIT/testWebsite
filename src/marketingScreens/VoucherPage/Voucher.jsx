@@ -14,6 +14,11 @@ import useTranslation from "next-translate/useTranslation";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
 
 function OfferPage({data}) {
+  const currency =
+  data.currency && data.currency !== null ? data.currency : "EUR";
+
+
+
   const { t } = useTranslation();
   const moment = require('moment');
   return (
@@ -34,7 +39,7 @@ function OfferPage({data}) {
                           <p>{t("common:Downloadinckd")}</p>
                         </span>                      
                         <div className="exciting_offer_price">
-                          <h2 className="title_exciting_price">{t("common:currency")} {data.amount}</h2>
+                          <h2 className="title_exciting_price"> {currency} {data.amount}</h2>
                         </div>
                         <div className="exciting_offer_coupon">
                           <span>{t("common:Usecode")}</span>

@@ -72,36 +72,36 @@ let switchTheme
     <>
       <header className={isPosition === true ? "header_wrapper" : null}>
         <div>
-          <div className="container">
-            <nav className="header_navigation align_item_center">
-              <div className="header_logo">
-                <Link href={`/${router.locale}`} className="navbar_brand">
-                  <Image
-                    src={logo}
-                    alt="Logo"
-                    width={imgWidth}
-                    height={imgHeight}
-                    priority
-                  />
-                </Link>
-              </div>
-
-              <div className="nav_block flex_auto pl_50 m_pl_0">
-                <ul className="nav main_nav navbar_collapse collapse">
-                  {links.map((link) => (
-                    <li key={link.id} className="nav_item">
-                      <Link
-                        href={`/${router.locale}${link.url}`}
-                        className={"color_gray_550"}
-                      >
-                        {t(link.title)}
-                      </Link>
-                    </li>
-                  ))}
-                  <li>{linkComponent}</li>
-                </ul>
-              </div>
-
+          <div className="container_full">
+            <nav className="header_navigation">
+              <div className="header_logo_nav">
+                <div className="header_logo">
+                  <Link href={`/${router.locale}`} className="navbar_brand">
+                    <Image
+                      src={logo}
+                      alt="Logo"
+                      width={imgWidth}
+                      height={imgHeight}
+                      priority
+                    />
+                  </Link>
+                </div>
+                <div className="nav_block">
+                  <ul className="nav main_nav navbar_collapse collapse">
+                    {links.map((link) => (
+                      <li key={link.id} className="nav_item">
+                        <Link
+                          href={`/${router.locale}${link.url}`}
+                          className={"color_gray_550"}
+                        >
+                          {t(link.title)}
+                        </Link>
+                      </li>
+                    ))}
+                    <li>{linkComponent}</li>
+                  </ul>
+                </div>
+              </div>              
               <div className="header_right">
                 <button
                   type="button"
@@ -137,16 +137,6 @@ let switchTheme
                     </span>
                   </button>
                 )}
-
-
-
-
-
-
-
-
-                
-
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}

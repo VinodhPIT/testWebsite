@@ -6121,14 +6121,12 @@ button.language_switcher img {
   }
   .exciting_offer_block .exciting_offer_price  {  
     max-width: 100%;
-    text-align: left;
   }
   .exciting_offer_block .exciting_offer_price h2.title_exciting_price {   
     font-size: 50px!important;
     line-height: 50px!important;
     justify-content: center;
   }
-
   .img_text_banner_box .text_box_wrap.app_download_box_wrap.app_download_page .img_text_box_inner .text_box_content {
     padding-top: 90px;
   }

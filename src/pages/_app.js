@@ -144,8 +144,8 @@ function MyApp({ Component, pageProps }) {
             }
             theme={"white"}
             isPosition={true}
-            imgWidth="109"
-            imgHeight="52"
+            imgWidth="105"
+            imgHeight="31"
           />
         );
 
