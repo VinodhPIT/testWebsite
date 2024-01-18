@@ -4,13 +4,14 @@ import Image from "next/image";
 
 export default function CustomerGender() {
   return (
-    <div className="db_card block_bg_white db_col_35 m_max_w_pc_100">
+    <div className="db_card block_bg_white">
         <div className="db_card_body">
             <div className="d_flex justify_content_start align_item_center pb_12">
                 <div>
                     <h3>Total customers by gender</h3>
                 </div>                           
             </div>
+            
             <div className="d_flex justify_content_center align_item_center pb_12">
                 <div className="db_chart_bar">
                     graph

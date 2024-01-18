@@ -1,13 +1,16 @@
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
+import { signOut } from "next-auth/react";
+
 export default function Header() {
   return (   
     <header className="header_wrapper db_header_wrap">
-        <div>
-          <div className="container_full pl_15">
+      <div class="container-fluid pr_40 m_pr_12">
+        <div class="row">
+          <div class="col-md-12">
             <nav className="header_dashboard">
-              <div className="header_logo_nav">
+              <div className="header_logo_nav m_flex_direction_column">
                 <div className="header_logo">
                   <Link href="#" className="navbar_brand">
                     <Image
@@ -48,8 +51,7 @@ export default function Header() {
                   </ul>
                 </div>
               <div className="header_right">
-                <div className="db_user_profile">
-                  <a href="#">
+                <div className="db_user_profile">                 
                     <span>Hello, Fabian</span>
                     <Image
                       src="/db_user_1.png"
@@ -57,13 +59,17 @@ export default function Header() {
                       width="40"
                       height="40"
                       priority
-                    />     
-                  </a>
+                      className="hidden"
+                    /> 
+                
+                  <button class="btn_secondary ml_10"  onClick={() => signOut({ callbackUrl: "/analytics/login" })}> Logo out</button> 
+     
                 </div>                
               </div>
             </nav>
-          </div>
+          </div>          
         </div>
-      </header>
+      </div>       
+    </header>
   )
 }

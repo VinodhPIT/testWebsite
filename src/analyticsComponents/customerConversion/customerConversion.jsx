@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function CustomerConversion() {
   return (
-    <div className="db_card block_bg_white db_col_74 m_max_w_pc_100">
+    <div className="db_card block_bg_white">
         <div className="db_card_body pl_0 pr_0">
             <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative">
                 <div>

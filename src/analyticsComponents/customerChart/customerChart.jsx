@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function CustomerChart() {
   return (
-    <div className="db_card block_bg_white db_col_74 m_max_w_pc_100">
+    <div className="db_card block_bg_white">
         <div className="db_card_body">
             <div className="d_flex justify_space_between align_item_center pb_12 m_flex_wrap_xs">
                 <div>
