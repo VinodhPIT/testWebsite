@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
 
-export default function Header() {
-  return (   
+
+export default function Header({ data }) {
+  return (
     <header className="header_wrapper db_header_wrap">
       <div class="container-fluid pr_40 m_pr_12">
         <div class="row">
@@ -24,52 +25,51 @@ export default function Header() {
                 </div>
                 <div className="header_db_title">
                   <h4>Customer analytics</h4>
-                </div> 
+                </div>
               </div>
               <div className="nav_block db_navigation">
-                  <ul className="nav main_nav navbar_collapse collapse">
-                    <li className="nav_item active">
-                      <Link href="#">
-                        Dashboard
-                      </Link>
-                    </li>
-                    <li className="nav_item">
-                      <Link href="#">
-                        Menu 2
-                      </Link>
-                    </li>
-                    <li className="nav_item">
-                      <Link href="#">
-                        Menu 3
-                      </Link>
-                    </li>
-                    <li className="nav_item">
-                      <Link href="#">
-                        Menu 4
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="nav main_nav navbar_collapse collapse">
+                  <li className="nav_item active">
+                    <Link href="#">Dashboard</Link>
+                  </li>
+                  <li className="nav_item">
+                    <Link href="#">Menu 2</Link>
+                  </li>
+                  <li className="nav_item">
+                    <Link href="#">Menu 3</Link>
+                  </li>
+                  <li className="nav_item">
+                    <Link href="#">Menu 4</Link>
+                  </li>
+                </ul>
+              </div>
               <div className="header_right">
-                <div className="db_user_profile">                 
-                    <span>Hello, Fabian</span>
-                    <Image
-                      src="/db_user_1.png"
-                      alt="user"
-                      width="40"
-                      height="40"
-                      priority
-                      className="hidden"
-                    /> 
-                
-                  <button class="btn_secondary ml_10"  onClick={() => signOut({ callbackUrl: "/analytics/login" })}> Logo out</button> 
-     
-                </div>                
+                <div className="db_user_profile">
+                  <span style={{ textTransform: "capitalize" }}>
+                    Hello, {data}{" "}
+                  </span>
+                  <Image
+                    src="/db_user_1.png"
+                    alt="user"
+                    width="40"
+                    height="40"
+                    priority
+                    className="hidden"
+                  />
+
+                  <button
+                    class="btn_secondary ml_10"
+                    onClick={() => signOut({ callbackUrl: "/analytics/login" })}
+                  >
+                    {" "}
+                    Logo out
+                  </button>
+                </div>
               </div>
             </nav>
-          </div>          
+          </div>
         </div>
-      </div>       
+      </div>
     </header>
-  )
+  );
 }

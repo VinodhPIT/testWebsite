@@ -14,6 +14,7 @@ export default function Analytics() {
   const router = useRouter();
   const { status, data } = useSession();
 
+
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
@@ -22,14 +23,14 @@ export default function Analytics() {
 
   return (
     <>
-      <Header />
-      {/* {status === "authenticated" && (
+      <Header data={status === "authenticated" &&  data.user.name } />
+     {/* {status === "authenticated" && (
         <p className="custom_fs_m_16">{JSON.stringify(data.user, null, 2)}</p>
       )}
 
       <button onClick={() => signOut({ callbackUrl: "/analytics/login" })}>
         logo ut{" "}
-      </button> */}      
+      </button> *    */}
 
       <section className="pt_20 pb_20 block_bg_gray_150">
 

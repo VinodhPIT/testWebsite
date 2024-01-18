@@ -34,7 +34,7 @@ const authOptions = {
             return {
               myToken: access_token,
               scope: scope,
-              name: "Vinodh",
+              name: user.username,
             };
           }
         } catch (error) {
@@ -47,7 +47,8 @@ const authOptions = {
   pages: {
     signIn: "/analytics/login",
   },
-
+    secret: process.env.NEXTAUTH_SECRET,
+  
   callbacks: {
     async jwt(params) {
       if (params.user) {
