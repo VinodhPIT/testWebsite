@@ -44,7 +44,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                 <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
                   <li className="pl_0">
                     <Image
-                      src="/klarnaApp-Img1.png"
+                      src="/exploreKlarna1.png"
                       width={193}
                       height={369}
                       alt="Download the App & Explore more!"
@@ -56,7 +56,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                   </li>
                   <li className="pl_0">
                     <Image
-                      src="/KlarnaApp-img2.png"
+                      src="/exploreKlarna2.png"
                       width={193}
                       height={369}
                       alt="Download the App & Explore more!"
@@ -88,7 +88,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
       </div>
       {isMobileView ? (
         <ImageSlider
-          imagePaths={["/klarnaApp-Img1.png", "/klarnaApp-Img2.png"]}
+          imagePaths={["/exploreKlarna1.png", "/exploreKlarna2.png"]}
           imgAlt="Download the App & Explore more!"
           imgblurDataURL={blurDataURL}
           imgWidth={193}
