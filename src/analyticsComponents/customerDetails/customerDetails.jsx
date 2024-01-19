@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from "next/link";
 import Image from "next/image";
+import moment from 'moment';
 import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/action";
@@ -97,6 +98,13 @@ export default function CustomerDetails({initialCounts}) {
                 ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
                 ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source!=="APP").length })
             })
+            setDateRange({
+              ...dateRange,
+              [key]: {
+                from: fromDate,
+                to: toDate
+            }
+          });
         } else {
             const res = await analyticsCustomerCountWithFIlter({
                 type: Apitype[key],
@@ -106,7 +114,14 @@ export default function CustomerDetails({initialCounts}) {
             setCountData({
                 ...countData,
                 [key]: res[Apitype[key]]
-            })
+            });
+            setDateRange({
+              ...dateRange,
+              [key]: {
+                from: fromDate,
+                to: toDate
+            }
+          });
         }
       }
   }
@@ -122,7 +137,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Total customers</h4>
                                         <p>
-                                        July 2023- Aug 2024
+                                            {dateRange.totalCustomers.from&&dateRange.totalCustomers.from?`${moment(dateRange.totalCustomers.from).format('MMM YYYY')}-${moment(dateRange.totalCustomers.to).format('MMM YYYY')}`:''}
                                         </p>
                                     </div>   
                                     <div className="db_icon_shape db_icon_cal">  
@@ -168,7 +183,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers not contacted any artists</h4>
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.notContacted.from&&dateRange.notContacted.from?`${moment(dateRange.notContacted.from).format('MMM YYYY')}-${moment(dateRange.notContacted.to).format('MMM YYYY')}`:''}
                                         </p>
                                     </div>   
                                     <div className="db_icon_shape db_icon_cal">  
@@ -214,7 +229,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers not completed any offers</h4> 
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.noCompletedOffer.from&&dateRange.noCompletedOffer.from?`${moment(dateRange.noCompletedOffer.from).format('MMM YYYY')}-${moment(dateRange.noCompletedOffer.to).format('MMM YYYY')}`:''}
                                         </p>                                 
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal"> 
@@ -260,7 +275,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers contacted the artist and no offer</h4>   
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.contactedWithNoOffer.from&&dateRange.contactedWithNoOffer.from?`${moment(dateRange.contactedWithNoOffer.from).format('MMM YYYY')}-${moment(dateRange.contactedWithNoOffer.to).format('MMM YYYY')}`:''}
                                         </p>                                 
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal">   
@@ -308,7 +323,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Deleted customers</h4>
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.deletedCustomers.from&&dateRange.deletedCustomers.from?`${moment(dateRange.deletedCustomers.from).format('MMM YYYY')}-${moment(dateRange.deletedCustomers.to).format('MMM YYYY')}`:''}
                                         </p>
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal"> 
@@ -354,7 +369,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers used any vouchers</h4>
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.voucherUserCustomers.from&&dateRange.voucherUserCustomers.from?`${moment(dateRange.voucherUserCustomers.from).format('MMM YYYY')}-${moment(dateRange.voucherUserCustomers.to).format('MMM YYYY')}`:''}
                                         </p>
                                     </div>
                                     <div className="db_icon_shape db_icon_cal">  
@@ -400,7 +415,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers joined using referral</h4>   
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.referralUsedCustomers.from&&dateRange.referralUsedCustomers.from?`${moment(dateRange.referralUsedCustomers.from).format('MMM YYYY')}-${moment(dateRange.referralUsedCustomers.to).format('MMM YYYY')}`:''}
                                         </p>                                
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal">  
@@ -446,7 +461,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers joined from the website</h4>  
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.joinedFromWeb.from&&dateRange.joinedFromWeb.from?`${moment(dateRange.joinedFromWeb.from).format('MMM YYYY')}-${moment(dateRange.joinedFromWeb.to).format('MMM YYYY')}`:''}
                                         </p>                                  
                                     </div>    
                                     <div className="db_icon_shape db_icon_cal">  
@@ -494,7 +509,7 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers joined from the app</h4>
                                         <p>
-                                        July 2023- Aug 2024
+                                        {dateRange.joinedFromApp.from&&dateRange.joinedFromApp.from?`${moment(dateRange.joinedFromApp.from).format('MMM YYYY')}-${moment(dateRange.joinedFromApp.to).format('MMM YYYY')}`:''}
                                         </p>
                                     </div>    
                                     <div className="db_icon_shape db_icon_cal">  
