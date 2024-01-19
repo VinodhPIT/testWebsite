@@ -157,7 +157,7 @@ export const analyticsCustomerLeadSourceCount = async () => {
 
 export const analyticsCustomerLeadSourceCountWithFIlter = async (params) => {
   try {
-    const response = await analyticsGetApiCall(`/customer/details/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`);
+    const response = await analyticsGetApiCall(`/customer/details?start_date=${params.startDate}&end_date=${params.endDate}`);
     return response;
   } catch (error) {
     return [];

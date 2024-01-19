@@ -1,9 +1,74 @@
 import React, { useState } from 'react'
 import Link from "next/link";
 import Image from "next/image";
+import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
+import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
+import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/action";
+
+const Apitype = {
+    contactedWithNoOffer:'contacted_with_no_offer',
+    deletedCustomers:'deleted',
+    joinedFromApp:'',
+    joinedFromWeb:'',
+    noCompletedOffer:'customer_no_offer_completed',
+    notContacted:'no_contacted',
+    referralUsedCustomers:'referral_used_customer',
+    totalCustomers:'total_count',
+    voucherUserCustomers:'voucher_used_customer',
+  }
+
+const initialValue = {
+    contactedWithNoOffer:{
+        from: null,
+        to: null
+    },
+    deletedCustomers:{
+        from: null,
+        to: null
+    },
+    joinedFromApp:{
+        from: null,
+        to: null
+    },
+    joinedFromWeb:{
+        from: null,
+        to: null
+    },
+    noCompletedOffer:{
+        from: null,
+        to: null
+    },
+    notContacted:{
+        from: null,
+        to: null
+    },
+    referralUsedCustomers:{
+        from: null,
+        to: null
+    },
+    totalCustomers:{
+        from: null,
+        to: null
+    },
+    voucherUserCustomers:{
+        from: null,
+        to: null
+    }
+};
 
 export default function CustomerDetails({initialCounts}) {
-    const [countData, setCountData]=useState(initialCounts)
+    const [countData, setCountData]=useState(initialCounts);
+    const [dateRange, setDateRange] = useState(initialValue);
+    const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
+    
+    const renderCustomInput = ({ ref }) => (
+        <input
+            readOnly
+            ref={ref}
+            className="datepicker_input"
+            title="Date Range"
+        />
+    )
 
     const handleDownload = (type, startDate, endDate) => {
     const link = document.createElement('a');
@@ -13,7 +78,40 @@ export default function CustomerDetails({initialCounts}) {
     link.click();
   };
 
-    return (
+  const handleDateFilter = async (key, dateRangeValue) => {
+      setSelectedDayRange({
+        ...selectedDayRange,
+        [key]: dateRangeValue
+    });
+      const { from, to } = dateRangeValue;
+      const fromDate = `${from?.year}-${from?.month}-${from?.day}` || '';
+      const toDate = to ? `${to?.year}-${to?.month}-${to?.day}` : null;
+      if (fromDate && toDate) {
+        if(key==="joinedFromWeb"||key==="joinedFromApp"){
+            const res = await analyticsCustomerLeadSourceCountWithFIlter({
+                startDate: fromDate,
+                endDate: toDate
+            });
+            setCountData({
+                ...countData,
+                ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
+                ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source!=="APP").length })
+            })
+        } else {
+            const res = await analyticsCustomerCountWithFIlter({
+                type: Apitype[key],
+                startDate: fromDate,
+                endDate: toDate
+            });
+            setCountData({
+                ...countData,
+                [key]: res[Apitype[key]]
+            })
+        }
+      }
+  }
+
+  return (
         <section className="container-fluid">
             <div className="db_customer_detail_wrap">
                 <div class="row">
@@ -27,8 +125,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>
                                     </div>   
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -36,7 +134,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.totalCustomers}
+                                                onChange={(val)=>handleDateFilter('totalCustomers', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                            
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -65,9 +170,9 @@ export default function CustomerDetails({initialCounts}) {
                                         <p>
                                         July 2023- Aug 2024
                                         </p>
-                                    </div>
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    </div>   
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -75,7 +180,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.notContacted}
+                                                onChange={(val)=>handleDateFilter('notContacted', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -105,8 +217,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>                                 
                                     </div>  
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal"> 
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -114,7 +226,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.noCompletedOffer}
+                                                onChange={(val)=>handleDateFilter('noCompletedOffer', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                            
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -144,8 +263,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>                                 
                                     </div>  
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal">   
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -153,7 +272,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.contactedWithNoOffer}
+                                                onChange={(val)=>handleDateFilter('contactedWithNoOffer', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -185,8 +311,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>
                                     </div>  
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal"> 
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -194,7 +320,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.deletedCustomers}
+                                                onChange={(val)=>handleDateFilter('deletedCustomers', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -224,8 +357,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>
                                     </div>
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -233,7 +366,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.voucherUserCustomers}
+                                                onChange={(val)=>handleDateFilter('voucherUserCustomers', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -263,8 +403,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>                                
                                     </div>  
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -272,7 +412,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.referralUsedCustomers}
+                                                onChange={(val)=>handleDateFilter('referralUsedCustomers', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -302,8 +449,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>                                  
                                     </div>    
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -311,7 +458,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.joinedFromWeb}
+                                                onChange={(val)=>handleDateFilter('joinedFromWeb', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                           
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
@@ -343,8 +497,8 @@ export default function CustomerDetails({initialCounts}) {
                                         July 2023- Aug 2024
                                         </p>
                                     </div>    
-                                    <div className="db_icon_shape db_icon_cal">                               
-                                        <Link href="#" className="d_inline_block">
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
                                             <Image
                                             src="/icon_calender_new.svg"
                                             alt="Download"
@@ -352,7 +506,14 @@ export default function CustomerDetails({initialCounts}) {
                                             height="24"
                                             priority
                                             />
-                                        </Link>
+                                            <DatePicker
+                                                value={selectedDayRange.joinedFromApp}
+                                                onChange={(val)=>handleDateFilter('joinedFromApp', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
                                     </div>                           
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
