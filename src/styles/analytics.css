@@ -286,6 +286,10 @@ header.db_header_wrap {
     cursor: not-allowed;
 }
 
+.datePicker{
+  z-index: 999!important;
+}
+  
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   header .db_navigation {
     display: inline-block;

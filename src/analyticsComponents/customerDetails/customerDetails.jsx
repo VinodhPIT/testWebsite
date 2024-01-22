@@ -131,7 +131,7 @@ export default function CustomerDetails({initialCounts}) {
             <div className="db_customer_detail_wrap">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_yellow_300">
+                        <div className="db_card block_bg_yellow_300">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -177,7 +177,7 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_green_100">
+                        <div className="db_card block_bg_green_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -196,11 +196,12 @@ export default function CustomerDetails({initialCounts}) {
                                             priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.notContacted}
-                                                onChange={(val)=>handleDateFilter('notContacted', val)}
-                                                shouldHighlightWeekends
+                                                className={`datePicker`}
                                                 maximumDate={utils('en').getToday()}
+                                                onChange={(val)=>handleDateFilter('notContacted', val)}
                                                 renderInput={renderCustomInput}
+                                                shouldHighlightWeekends
+                                                value={selectedDayRange.notContacted}
                                             />
                                         </div>
                                     </div>
@@ -223,7 +224,7 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_blue_50">
+                        <div className="db_card block_bg_blue_50">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -269,7 +270,7 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_orange_100">
+                        <div className="db_card  block_bg_orange_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -317,7 +318,7 @@ export default function CustomerDetails({initialCounts}) {
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_yellow_300">
+                        <div className="db_card block_bg_yellow_300">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -363,7 +364,7 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_green_100">
+                        <div className="db_card block_bg_green_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -409,7 +410,7 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_blue_50">
+                        <div className="db_card block_bg_blue_50">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -455,7 +456,7 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_orange_100">
+                        <div className="db_card  block_bg_orange_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
@@ -503,7 +504,7 @@ export default function CustomerDetails({initialCounts}) {
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card db_card_animate block_bg_yellow_300">
+                        <div className="db_card  block_bg_yellow_300">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
