@@ -29,7 +29,7 @@ const Login = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setError(false);
-    setloader(true)
+    setloader(true);
     const searchQuery = localStorage.getItem("loginFrom");
     await signIn("credentials", {
       username: values.username,
@@ -37,7 +37,7 @@ const Login = () => {
       redirect: false,
     })
       .then((res) => {
-        setloader(false)
+        setloader(false);
         if (res.ok === false) {
           setError(true);
         }
@@ -59,7 +59,9 @@ const Login = () => {
         </Link>
       </div>
       <div className={styles.sign_in_form}>
-        {error && <h1> Not an analytic user </h1>}
+        {error && (
+          <h1 className={styles.errorMessage}> Not an analytic user </h1>
+        )}
         <Formik
           initialValues={userInfo}
           validationSchema={LoginSchema}
@@ -76,7 +78,11 @@ const Login = () => {
                 placeholder="Enter Your username"
                 className={styles.input_txt}
               />
-              <ErrorMessage name="username" component="div" className={styles.error}/>
+              <ErrorMessage
+                name="username"
+                component="div"
+                className={styles.error}
+              />
             </div>
             <div className={styles.input_box}>
               {/* <label htmlFor="password">Password</label> */}
@@ -87,10 +93,24 @@ const Login = () => {
                 placeholder="Enter Your Password"
                 className={styles.input_txt}
               />
-              <ErrorMessage name="password" component="div" className={styles.error}/>
-            </div> 
-            {loader ?  <h1>Loading......</h1> : null}
-            <button type="submit" className={styles.btn_login}>Login</button>
+              <ErrorMessage
+                name="password"
+                component="div"
+                className={styles.error}
+              />
+            </div>
+            <div style={{"display":"flex" ,"justifyContent":"center","alignItems":"center", "gap":"11px"}}>
+              <button
+                type="submit"
+                disabled={loader}
+                className={styles.btn_login}
+              >
+                Login
+              </button>
+              {loader ? (
+                <Image src="/6.gif" alt="loader" width={25} height={25} />
+              ) : null}{" "}
+            </div>
           </Form>
         </Formik>
       </div>
