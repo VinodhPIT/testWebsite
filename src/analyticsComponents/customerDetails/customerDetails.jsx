@@ -137,7 +137,11 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Total customers</h4>
                                         <p>
-                                            {dateRange.totalCustomers.from&&dateRange.totalCustomers.from?`${moment(dateRange.totalCustomers.from).format('MMM YYYY')}-${moment(dateRange.totalCustomers.to).format('MMM YYYY')}`:''}
+                                            {
+                                            dateRange.totalCustomers.from&&dateRange.totalCustomers.from
+                                                ?`${moment(dateRange.totalCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.totalCustomers.to).format('DD MMM YYYY') !== moment(dateRange.totalCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.totalCustomers.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
                                         </p>
                                     </div>   
                                     <div className="db_icon_shape db_icon_cal">  
@@ -183,7 +187,11 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers not contacted any artists</h4>
                                         <p>
-                                        {dateRange.notContacted.from&&dateRange.notContacted.from?`${moment(dateRange.notContacted.from).format('MMM YYYY')}-${moment(dateRange.notContacted.to).format('MMM YYYY')}`:''}
+                                            {
+                                            dateRange.notContacted.from&&dateRange.notContacted.from
+                                                ?`${moment(dateRange.notContacted.from).format('DD MMM YYYY')} ${moment(dateRange.notContacted.to).format('DD MMM YYYY') !== moment(dateRange.notContacted.from).format('DD MMM YYYY')? `- ${moment(dateRange.notContacted.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
                                         </p>
                                     </div>   
                                     <div className="db_icon_shape db_icon_cal">  
@@ -230,8 +238,12 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers not completed any offers</h4> 
                                         <p>
-                                        {dateRange.noCompletedOffer.from&&dateRange.noCompletedOffer.from?`${moment(dateRange.noCompletedOffer.from).format('MMM YYYY')}-${moment(dateRange.noCompletedOffer.to).format('MMM YYYY')}`:''}
-                                        </p>                                 
+                                            {
+                                            dateRange.noCompletedOffer.from&&dateRange.noCompletedOffer.from
+                                                ?`${moment(dateRange.noCompletedOffer.from).format('DD MMM YYYY')} ${moment(dateRange.noCompletedOffer.to).format('DD MMM YYYY') !== moment(dateRange.noCompletedOffer.from).format('DD MMM YYYY')? `- ${moment(dateRange.noCompletedOffer.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
+                                        </p>
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal"> 
                                         <div>
@@ -276,8 +288,12 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers contacted the artist and no offer</h4>   
                                         <p>
-                                        {dateRange.contactedWithNoOffer.from&&dateRange.contactedWithNoOffer.from?`${moment(dateRange.contactedWithNoOffer.from).format('MMM YYYY')}-${moment(dateRange.contactedWithNoOffer.to).format('MMM YYYY')}`:''}
-                                        </p>                                 
+                                            {
+                                            dateRange.contactedWithNoOffer.from&&dateRange.contactedWithNoOffer.from
+                                                ?`${moment(dateRange.contactedWithNoOffer.from).format('DD MMM YYYY')} ${moment(dateRange.contactedWithNoOffer.to).format('DD MMM YYYY') !== moment(dateRange.contactedWithNoOffer.from).format('DD MMM YYYY')? `- ${moment(dateRange.contactedWithNoOffer.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
+                                        </p>
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal">   
                                         <div>
@@ -324,7 +340,11 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Deleted customers</h4>
                                         <p>
-                                        {dateRange.deletedCustomers.from&&dateRange.deletedCustomers.from?`${moment(dateRange.deletedCustomers.from).format('MMM YYYY')}-${moment(dateRange.deletedCustomers.to).format('MMM YYYY')}`:''}
+                                            {
+                                            dateRange.deletedCustomers.from&&dateRange.deletedCustomers.from
+                                                ?`${moment(dateRange.deletedCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.deletedCustomers.to).format('DD MMM YYYY') !== moment(dateRange.deletedCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.deletedCustomers.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
                                         </p>
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal"> 
@@ -370,7 +390,11 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers used any vouchers</h4>
                                         <p>
-                                        {dateRange.voucherUserCustomers.from&&dateRange.voucherUserCustomers.from?`${moment(dateRange.voucherUserCustomers.from).format('MMM YYYY')}-${moment(dateRange.voucherUserCustomers.to).format('MMM YYYY')}`:''}
+                                            {
+                                            dateRange.voucherUserCustomers.from&&dateRange.voucherUserCustomers.from
+                                                ?`${moment(dateRange.voucherUserCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.voucherUserCustomers.to).format('DD MMM YYYY') !== moment(dateRange.voucherUserCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.voucherUserCustomers.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
                                         </p>
                                     </div>
                                     <div className="db_icon_shape db_icon_cal">  
@@ -414,10 +438,14 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers joined using referral</h4>   
+                                        <h4>Customers joined using referral</h4> 
                                         <p>
-                                        {dateRange.referralUsedCustomers.from&&dateRange.referralUsedCustomers.from?`${moment(dateRange.referralUsedCustomers.from).format('MMM YYYY')}-${moment(dateRange.referralUsedCustomers.to).format('MMM YYYY')}`:''}
-                                        </p>                                
+                                            {
+                                            dateRange.referralUsedCustomers.from&&dateRange.referralUsedCustomers.from
+                                                ?`${moment(dateRange.referralUsedCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.referralUsedCustomers.to).format('DD MMM YYYY') !== moment(dateRange.referralUsedCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.referralUsedCustomers.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
+                                        </p>
                                     </div>  
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
@@ -462,8 +490,12 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers joined from the website</h4>  
                                         <p>
-                                        {dateRange.joinedFromWeb.from&&dateRange.joinedFromWeb.from?`${moment(dateRange.joinedFromWeb.from).format('MMM YYYY')}-${moment(dateRange.joinedFromWeb.to).format('MMM YYYY')}`:''}
-                                        </p>                                  
+                                            {
+                                            dateRange.joinedFromWeb.from&&dateRange.joinedFromWeb.from
+                                                ?`${moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
+                                        </p>
                                     </div>    
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
@@ -510,7 +542,11 @@ export default function CustomerDetails({initialCounts}) {
                                     <div>
                                         <h4>Customers joined from the app</h4>
                                         <p>
-                                        {dateRange.joinedFromApp.from&&dateRange.joinedFromApp.from?`${moment(dateRange.joinedFromApp.from).format('MMM YYYY')}-${moment(dateRange.joinedFromApp.to).format('MMM YYYY')}`:''}
+                                            {
+                                            dateRange.joinedFromApp.from&&dateRange.joinedFromApp.from
+                                                ?`${moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
                                         </p>
                                     </div>    
                                     <div className="db_icon_shape db_icon_cal">  
