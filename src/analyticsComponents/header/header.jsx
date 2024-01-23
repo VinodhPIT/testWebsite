@@ -3,8 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
 
-
-export default function Header({ data }) {
+export default function Header({ data, type }) {
   return (
     <header className="header_wrapper db_header_wrap">
       <div class="container-fluid pr_40 m_pr_12">
@@ -24,7 +23,7 @@ export default function Header({ data }) {
                   </Link>
                 </div>
                 <div className="header_db_title">
-                  <h4>Customer analytics</h4>
+                  <h4>{`${type === "artist" ? 'Artist' : 'Customer'} analytics`}</h4>
                 </div>
               </div>
               <div className="nav_block db_navigation">

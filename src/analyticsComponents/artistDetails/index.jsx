@@ -2,28 +2,32 @@ import React, { useState } from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import moment from 'moment';
+
 import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
+
 import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/action";
 
 const Apitype = {
-    contactedWithNoOffer:'contacted_with_no_offer',
-    deletedCustomers:'deleted',
+    artistCompletedOffers:'',
+    artistInCommunication:'',
     joinedFromApp:'',
     joinedFromWeb:'',
-    noCompletedOffer:'customer_no_offer_completed',
-    notContacted:'no_contacted',
-    referralUsedCustomers:'referral_used_customer',
-    totalCustomers:'total_count',
-    voucherUserCustomers:'voucher_used_customer',
+    joinedUsingReferral:'',
+    nonPublicProfiles:'',
+    notCompletedAnyOffer:'',
+    notContactedCustomer:'',
+    notCreatedAnyOffers:'',
+    totalArtists:'',
+    totalPublicArtists:''
   }
 
 const initialValue = {
-    contactedWithNoOffer:{
+    artistCompletedOffers:{
         from: null,
         to: null
     },
-    deletedCustomers:{
+    artistInCommunication:{
         from: null,
         to: null
     },
@@ -35,33 +39,41 @@ const initialValue = {
         from: null,
         to: null
     },
-    noCompletedOffer:{
+    joinedUsingReferral:{
         from: null,
         to: null
     },
-    notContacted:{
+    nonPublicProfiles:{
         from: null,
         to: null
     },
-    referralUsedCustomers:{
+    notCompletedAnyOffer:{
         from: null,
         to: null
     },
-    totalCustomers:{
+    notContactedCustomer:{
         from: null,
         to: null
     },
-    voucherUserCustomers:{
+    notCreatedAnyOffers:{
+        from: null,
+        to: null
+    },
+    totalArtists:{
+        from: null,
+        to: null
+    },
+    totalPublicArtists:{
         from: null,
         to: null
     }
 };
 
-export default function CustomerDetails({initialCounts}) {
+export default function ArtistDetails({initialCounts}) {
     const [countData, setCountData]=useState(initialCounts);
     const [dateRange, setDateRange] = useState(initialValue);
     const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
-    
+
     const renderCustomInput = ({ ref }) => (
         <input
             readOnly
@@ -88,7 +100,7 @@ export default function CustomerDetails({initialCounts}) {
       const fromDate = `${from?.year}-${from?.month}-${from?.day}` || '';
       const toDate = to ? `${to?.year}-${to?.month}-${to?.day}` : null;
       if (fromDate && toDate) {
-        if(key==="joinedFromWeb"||key==="joinedFromApp"){
+        if(key==="joinedFromApp"||key==="joinedFromWeb"){
             const res = await analyticsCustomerLeadSourceCountWithFIlter({
                 startDate: fromDate,
                 endDate: toDate
@@ -135,11 +147,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Total customers</h4>
+                                        <h4>Total artist</h4>
                                         <p>
                                             {
-                                            dateRange.totalCustomers.from&&dateRange.totalCustomers.from
-                                                ?`${moment(dateRange.totalCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.totalCustomers.to).format('DD MMM YYYY') !== moment(dateRange.totalCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.totalCustomers.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.totalArtists.from&&dateRange.totalArtists.from
+                                                ?`${moment(dateRange.totalArtists.from).format('DD MMM YYYY')} ${moment(dateRange.totalArtists.to).format('DD MMM YYYY') !== moment(dateRange.totalArtists.from).format('DD MMM YYYY')? `- ${moment(dateRange.totalArtists.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -147,15 +159,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.totalCustomers}
-                                                onChange={(val)=>handleDateFilter('totalCustomers', val)}
+                                                value={selectedDayRange.totalArtists}
+                                                onChange={(val)=>handleDateFilter('totalArtists', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -164,15 +176,15 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>                            
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.totalCustomers}</h2>
+                                    <h2>{countData.totalArtists}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('total_count','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -185,11 +197,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers not contacted any artists</h4>
+                                        <h4>Total Public artists</h4>
                                         <p>
                                             {
-                                            dateRange.notContacted.from&&dateRange.notContacted.from
-                                                ?`${moment(dateRange.notContacted.from).format('DD MMM YYYY')} ${moment(dateRange.notContacted.to).format('DD MMM YYYY') !== moment(dateRange.notContacted.from).format('DD MMM YYYY')? `- ${moment(dateRange.notContacted.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.totalPublicArtists.from&&dateRange.totalPublicArtists.from
+                                                ?`${moment(dateRange.totalPublicArtists.from).format('DD MMM YYYY')} ${moment(dateRange.totalPublicArtists.to).format('DD MMM YYYY') !== moment(dateRange.totalPublicArtists.from).format('DD MMM YYYY')? `- ${moment(dateRange.totalPublicArtists.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -197,32 +209,32 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
                                                 maximumDate={utils('en').getToday()}
-                                                onChange={(val)=>handleDateFilter('notContacted', val)}
+                                                onChange={(val)=>handleDateFilter('totalPublicArtists', val)}
                                                 renderInput={renderCustomInput}
                                                 shouldHighlightWeekends
-                                                value={selectedDayRange.notContacted}
+                                                value={selectedDayRange.totalPublicArtists}
                                             />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.notContacted}</h2>
+                                    <h2>{countData.totalPublicArtists}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('no_contacted','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -235,11 +247,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers not completed any offers</h4> 
+                                        <h4>Artists in communication with the customer</h4> 
                                         <p>
                                             {
-                                            dateRange.noCompletedOffer.from&&dateRange.noCompletedOffer.from
-                                                ?`${moment(dateRange.noCompletedOffer.from).format('DD MMM YYYY')} ${moment(dateRange.noCompletedOffer.to).format('DD MMM YYYY') !== moment(dateRange.noCompletedOffer.from).format('DD MMM YYYY')? `- ${moment(dateRange.noCompletedOffer.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.artistInCommunication.from&&dateRange.artistInCommunication.from
+                                                ?`${moment(dateRange.artistInCommunication.from).format('DD MMM YYYY')} ${moment(dateRange.artistInCommunication.to).format('DD MMM YYYY') !== moment(dateRange.artistInCommunication.from).format('DD MMM YYYY')? `- ${moment(dateRange.artistInCommunication.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -247,15 +259,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal"> 
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.noCompletedOffer}
-                                                onChange={(val)=>handleDateFilter('noCompletedOffer', val)}
+                                                value={selectedDayRange.artistInCommunication}
+                                                onChange={(val)=>handleDateFilter('artistInCommunication', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -264,15 +276,15 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>                            
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.noCompletedOffer}</h2>
+                                    <h2>{countData.artistInCommunication}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('customer_no_offer_completed','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -285,11 +297,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers contacted the artist and no offer</h4>   
+                                        <h4>Artists who completed at least one offer </h4>   
                                         <p>
                                             {
-                                            dateRange.contactedWithNoOffer.from&&dateRange.contactedWithNoOffer.from
-                                                ?`${moment(dateRange.contactedWithNoOffer.from).format('DD MMM YYYY')} ${moment(dateRange.contactedWithNoOffer.to).format('DD MMM YYYY') !== moment(dateRange.contactedWithNoOffer.from).format('DD MMM YYYY')? `- ${moment(dateRange.contactedWithNoOffer.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.artistCompletedOffers.from&&dateRange.artistCompletedOffers.from
+                                                ?`${moment(dateRange.artistCompletedOffers.from).format('DD MMM YYYY')} ${moment(dateRange.artistCompletedOffers.to).format('DD MMM YYYY') !== moment(dateRange.artistCompletedOffers.from).format('DD MMM YYYY')? `- ${moment(dateRange.artistCompletedOffers.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -297,15 +309,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal">   
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.contactedWithNoOffer}
-                                                onChange={(val)=>handleDateFilter('contactedWithNoOffer', val)}
+                                                value={selectedDayRange.artistCompletedOffers}
+                                                onChange={(val)=>handleDateFilter('artistCompletedOffers', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -314,15 +326,15 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.contactedWithNoOffer}</h2>
+                                    <h2>{countData.artistCompletedOffers}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('contacted_with_no_offer','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -337,11 +349,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Deleted customers</h4>
+                                        <h4>Artists who didn’t complete any offers</h4>
                                         <p>
                                             {
-                                            dateRange.deletedCustomers.from&&dateRange.deletedCustomers.from
-                                                ?`${moment(dateRange.deletedCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.deletedCustomers.to).format('DD MMM YYYY') !== moment(dateRange.deletedCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.deletedCustomers.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.notCompletedAnyOffer.from&&dateRange.notCompletedAnyOffer.from
+                                                ?`${moment(dateRange.notCompletedAnyOffer.from).format('DD MMM YYYY')} ${moment(dateRange.notCompletedAnyOffer.to).format('DD MMM YYYY') !== moment(dateRange.notCompletedAnyOffer.from).format('DD MMM YYYY')? `- ${moment(dateRange.notCompletedAnyOffer.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -349,15 +361,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal"> 
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.deletedCustomers}
-                                                onChange={(val)=>handleDateFilter('deletedCustomers', val)}
+                                                value={selectedDayRange.notCompletedAnyOffer}
+                                                onChange={(val)=>handleDateFilter('notCompletedAnyOffer', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -366,15 +378,15 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.deletedCustomers}</h2>
+                                    <h2>{countData.notCompletedAnyOffer}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('deleted','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -387,11 +399,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers used any vouchers</h4>
+                                        <h4>Artists joined using referral</h4>
                                         <p>
                                             {
-                                            dateRange.voucherUserCustomers.from&&dateRange.voucherUserCustomers.from
-                                                ?`${moment(dateRange.voucherUserCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.voucherUserCustomers.to).format('DD MMM YYYY') !== moment(dateRange.voucherUserCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.voucherUserCustomers.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.joinedUsingReferral.from&&dateRange.joinedUsingReferral.from
+                                                ?`${moment(dateRange.joinedUsingReferral.from).format('DD MMM YYYY')} ${moment(dateRange.joinedUsingReferral.to).format('DD MMM YYYY') !== moment(dateRange.joinedUsingReferral.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedUsingReferral.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -399,15 +411,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.voucherUserCustomers}
-                                                onChange={(val)=>handleDateFilter('voucherUserCustomers', val)}
+                                                value={selectedDayRange.joinedUsingReferral}
+                                                onChange={(val)=>handleDateFilter('joinedUsingReferral', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -416,15 +428,15 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.voucherUserCustomers}</h2>
+                                    <h2>{countData.joinedUsingReferral}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('voucher_used_customer','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -437,11 +449,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers joined using referral</h4> 
+                                        <h4>Artists joined from website</h4> 
                                         <p>
                                             {
-                                            dateRange.referralUsedCustomers.from&&dateRange.referralUsedCustomers.from
-                                                ?`${moment(dateRange.referralUsedCustomers.from).format('DD MMM YYYY')} ${moment(dateRange.referralUsedCustomers.to).format('DD MMM YYYY') !== moment(dateRange.referralUsedCustomers.from).format('DD MMM YYYY')? `- ${moment(dateRange.referralUsedCustomers.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.joinedFromWeb.from&&dateRange.joinedFromWeb.from
+                                                ?`${moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -449,15 +461,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.referralUsedCustomers}
-                                                onChange={(val)=>handleDateFilter('referralUsedCustomers', val)}
+                                                value={selectedDayRange.joinedFromWeb}
+                                                onChange={(val)=>handleDateFilter('joinedFromWeb', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -466,15 +478,15 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.referralUsedCustomers}</h2>
+                                    <h2>{countData.joinedFromWeb}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('referral_used_customer','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -487,44 +499,44 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers joined from the website</h4>  
+                                        <h4>Artists joined from App </h4>   
                                         <p>
                                             {
-                                            dateRange.joinedFromWeb.from&&dateRange.joinedFromWeb.from
-                                                ?`${moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.joinedFromApp.from&&dateRange.joinedFromApp.from
+                                                ?`${moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
-                                    </div>    
-                                    <div className="db_icon_shape db_icon_cal">  
+                                    </div>  
+                                    <div className="db_icon_shape db_icon_cal">   
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.joinedFromWeb}
-                                                onChange={(val)=>handleDateFilter('joinedFromWeb', val)}
+                                                value={selectedDayRange.joinedFromApp}
+                                                onChange={(val)=>handleDateFilter('joinedFromApp', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
                                             />
                                         </div>
-                                    </div>                           
+                                    </div>                             
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.joinedFromWeb}</h2>
+                                    <h2>{countData.joinedFromApp}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('deleted','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('contacted_with_no_offer','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -539,11 +551,11 @@ export default function CustomerDetails({initialCounts}) {
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
                                     <div>
-                                        <h4>Customers joined from the app</h4>
+                                        <h4>Artists not contacted any customers</h4>
                                         <p>
                                             {
-                                            dateRange.joinedFromApp.from&&dateRange.joinedFromApp.from
-                                                ?`${moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY')}`:''}`
+                                            dateRange.notContactedCustomer.from&&dateRange.notContactedCustomer.from
+                                                ?`${moment(dateRange.notContactedCustomer.from).format('DD MMM YYYY')} ${moment(dateRange.notContactedCustomer.to).format('DD MMM YYYY') !== moment(dateRange.notContactedCustomer.from).format('DD MMM YYYY')? `- ${moment(dateRange.notContactedCustomer.to).format('DD MMM YYYY')}`:''}`
                                                 :''
                                             }
                                         </p>
@@ -551,15 +563,15 @@ export default function CustomerDetails({initialCounts}) {
                                     <div className="db_icon_shape db_icon_cal">  
                                         <div>
                                             <Image
-                                            src="/icon_calender_new.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                             <DatePicker
-                                                value={selectedDayRange.joinedFromApp}
-                                                onChange={(val)=>handleDateFilter('joinedFromApp', val)}
+                                                value={selectedDayRange.notContactedCustomer}
+                                                onChange={(val)=>handleDateFilter('notContactedCustomer', val)}
                                                 shouldHighlightWeekends
                                                 maximumDate={utils('en').getToday()}
                                                 renderInput={renderCustomInput}
@@ -568,15 +580,115 @@ export default function CustomerDetails({initialCounts}) {
                                     </div>                           
                                 </div>
                                 <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.joinedFromApp}</h2>
+                                    <h2>{countData.notContactedCustomer}</h2>
                                     <div className="db_icon_shape">
                                         <Link href="" className="d_inline_block" onClick={() => handleDownload('total_count','2023-01-01','2024-01-01')}>
                                             <Image
-                                            src="/db_icon_download.svg"
-                                            alt="Download"
-                                            width="24"
-                                            height="24"
-                                            priority
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
+                                            />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div className="db_card block_bg_green_100">
+                            <div className="db_card_body p_16">
+                                <div className="d_flex justify_space_between align_item_center pb_12">
+                                    <div>
+                                        <h4>Artists not created any offers</h4>
+                                        <p>
+                                            {
+                                            dateRange.notCreatedAnyOffers.from&&dateRange.notCreatedAnyOffers.from
+                                                ?`${moment(dateRange.notCreatedAnyOffers.from).format('DD MMM YYYY')} ${moment(dateRange.notCreatedAnyOffers.to).format('DD MMM YYYY') !== moment(dateRange.notCreatedAnyOffers.from).format('DD MMM YYYY')? `- ${moment(dateRange.notCreatedAnyOffers.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
+                                        </p>
+                                    </div>
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
+                                            <Image
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
+                                            />
+                                            <DatePicker
+                                                value={selectedDayRange.notCreatedAnyOffers}
+                                                onChange={(val)=>handleDateFilter('notCreatedAnyOffers', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="d_flex justify_space_between align_item_center">
+                                    <h2>{countData.notCreatedAnyOffers}</h2>
+                                    <div className="db_icon_shape">
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('voucher_used_customer','2023-01-01','2024-01-01')}>
+                                            <Image
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
+                                            />
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div className="db_card block_bg_blue_50">
+                            <div className="db_card_body p_16">
+                                <div className="d_flex justify_space_between align_item_center pb_12">
+                                    <div>
+                                        <h4>Artists not completed public profile criteria</h4> 
+                                        <p>
+                                            {
+                                            dateRange.nonPublicProfiles.from&&dateRange.nonPublicProfiles.from
+                                                ?`${moment(dateRange.nonPublicProfiles.from).format('DD MMM YYYY')} ${moment(dateRange.nonPublicProfiles.to).format('DD MMM YYYY') !== moment(dateRange.nonPublicProfiles.from).format('DD MMM YYYY')? `- ${moment(dateRange.nonPublicProfiles.to).format('DD MMM YYYY')}`:''}`
+                                                :''
+                                            }
+                                        </p>
+                                    </div>  
+                                    <div className="db_icon_shape db_icon_cal">  
+                                        <div>
+                                            <Image
+                                              src="/icon_calender_new.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
+                                            />
+                                            <DatePicker
+                                                value={selectedDayRange.nonPublicProfiles}
+                                                onChange={(val)=>handleDateFilter('nonPublicProfiles', val)}
+                                                shouldHighlightWeekends
+                                                maximumDate={utils('en').getToday()}
+                                                renderInput={renderCustomInput}
+                                            />
+                                        </div>
+                                    </div>                             
+                                </div>
+                                <div className="d_flex justify_space_between align_item_center">
+                                    <h2>{countData.nonPublicProfiles}</h2>
+                                    <div className="db_icon_shape">
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('referral_used_customer','2023-01-01','2024-01-01')}>
+                                            <Image
+                                              src="/db_icon_download.svg"
+                                              alt="Download"
+                                              width="24"
+                                              height="24"
+                                              priority
                                             />
                                         </Link>
                                     </div>
@@ -585,7 +697,6 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
     )
