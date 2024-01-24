@@ -9,6 +9,7 @@ import CustomerChart from "@/analyticsComponents/customerChart/customerChart";
 import CustomerinfoAlert from "@/analyticsComponents/customerinfoAlert/customerinfoAlert";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+
 import {
   analyticsCustomerCount,
   analyticsCustomerLeadSourceCount,
@@ -16,6 +17,11 @@ import {
 } from "@/action/action";
 
 export default function Analytics({ data: initialData }) {
+
+import { analyticsCustomerCount, analyticsCustomerLeadSourceCount } from "@/action/action";
+
+export default function Analytics({data: initialData}) {
+
   const router = useRouter();
   const { status, data } = useSession();
 
@@ -57,8 +63,15 @@ export default function Analytics({ data: initialData }) {
       <Header data={status === "authenticated" && data.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
+
         <CustomerDetails />
         <section className="container-fluid">
+
+        <CustomerDetails 
+          initialCounts={initialData}
+        />        
+        <section className="container-fluid"> 
+
           <div className="db_customer_detail_wrap">
             <div class="row">
               <div class="col-lg-8 col-md-6 col-sm-12">
@@ -114,6 +127,7 @@ export async function getServerSideProps() {
   try {
     const data = await analyticsCustomerCount();
     const customerJoinigData = await analyticsCustomerLeadSourceCount();
+
     // const customerRevenue = await analyticsRevenueDetails();
 
     return {
@@ -122,6 +136,21 @@ export async function getServerSideProps() {
           genderCount: data.gender,
           // revenue: customerRevenue,
           chartData: customerJoinigData??[],
+
+
+    return {
+      props: {
+        data:{
+          contactedWithNoOffer: data.contacted_with_no_offer,
+          deletedCustomers: data.deleted,
+          joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length,
+          joinedFromWeb: customerJoinigData.filter((custData)=> custData.lead_source!=="APP").length,
+          noCompletedOffer: data.customer_no_offer_completed,
+          notContacted: data.no_contacted,
+          referralUsedCustomers: data.referral_used_customer,
+          totalCustomers: data.total_count,
+          voucherUserCustomers: data.voucher_used_customer,
+
         },
       },
     };
