@@ -48,7 +48,6 @@ export default function CustomerPayment({
       },
     },
     maintainAspectRatio: true,
-  
   };
 
   return (
@@ -61,10 +60,9 @@ export default function CustomerPayment({
         </div>
         <div className="d_flex justify_content_center align_item_center pb_12">
           <div className="db_chart_bar">
-          <div className="chart_Box" >
-            <Doughnut options={payoptions} data={Paymentmethod} />
+            <div className="chart_Box">
+              <Doughnut options={payoptions} data={Paymentmethod} />
             </div>
-           
           </div>
         </div>
         <div className="d_flex justify_content_center align_item_center pt_12">

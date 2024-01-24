@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { useGlobalState } from "@/context/Context";
+
 
 const authOptions = {
   session: {
@@ -16,7 +16,7 @@ const authOptions = {
           let value = { username, password };
 
           const response = await fetch(
-            "http://14.140.178.211:8000/analytics/login",
+            `${process.env.analyticsBaseUrl}/login`,
             {
               method: "POST",
               headers: {

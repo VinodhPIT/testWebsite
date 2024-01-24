@@ -1,4 +1,10 @@
 import React, { useEffect } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import {
+  analyticsCustomerCount,
+  analyticsCustomerLeadSourceCount,
+} from "@/action/analyticsAdmin";
 import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
@@ -7,33 +13,27 @@ import PaymentChart from "@/analyticsComponents/paymentChart/paymentChart";
 import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
 import CustomerChart from "@/analyticsComponents/customerChart/customerChart";
 import CustomerinfoAlert from "@/analyticsComponents/customerinfoAlert/customerinfoAlert";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import useRevenueStore from '@/store/revenueList';
 
-import {
-  analyticsCustomerCount,
-  analyticsCustomerLeadSourceCount,
-  analyticsRevenueDetails,
-} from "@/action/action";
 
-export default function Analytics({ data: initialData }) {
-
-import { analyticsCustomerCount, analyticsCustomerLeadSourceCount } from "@/action/action";
-
-export default function Analytics({data: initialData}) {
-
+export default function Analytics({ data }) {
   const router = useRouter();
-  const { status, data } = useSession();
+  const { status, data: sessionData } = useSession();
+  const { revenue, loading, fetchMorePosts } = useRevenueStore()
 
   useEffect(() => {
-    if (status == "unauthenticated") {
+    if (status === "unauthenticated") {
       router.push("/analytics/login");
     }
   }, [status, router]);
 
-  const getValues = Object.values(initialData.genderCount);
-  const getKeys = Object.keys(initialData.genderCount).map((key) => {
-    // Map each key to a new key name
+  useEffect(()=>{
+    fetchMorePosts()
+  },[])
+
+  const getValues = Object.values(data.genderCount);
+
+  const getKeys = Object.keys(data.genderCount).map((key) => {
     switch (key) {
       case "male_count":
         return "Male";
@@ -48,6 +48,7 @@ export default function Analytics({data: initialData}) {
 
 
 
+
   const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
 
   const label = [
@@ -58,26 +59,20 @@ export default function Analytics({data: initialData}) {
 
 
 
+  
   return (
     <>
-      <Header data={status === "authenticated" && data.user.name} />
+      <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-
-        <CustomerDetails />
+        <CustomerDetails initialCounts={data} />
         <section className="container-fluid">
-
-        <CustomerDetails 
-          initialCounts={initialData}
-        />        
-        <section className="container-fluid"> 
-
           <div className="db_customer_detail_wrap">
-            <div class="row">
-              <div class="col-lg-8 col-md-6 col-sm-12">
-            <TotalCustomers chartData={initialData.chartData} /> 
+            <div className="row">
+              <div className="col-lg-8 col-md-6 col-sm-12">
+                <TotalCustomers chartData={data.chartData} />
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-12">
+              <div className="col-lg-4 col-md-6 col-sm-12">
                 <PieChart
                   title="Total customers by gender"
                   getKeys={getKeys}
@@ -92,15 +87,12 @@ export default function Analytics({data: initialData}) {
 
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-12">
-                <PaymentChart
-                  totalRevenue={initialData.revenue}
-                  title="Payment method"
-                />
+            <div className="row">
+              <div className="col-lg-4 col-md-6 col-sm-12">
+              {loading ? null  :<PaymentChart totalRevenue={revenue} title="Payment method" />}
               </div>
-              <div class="col-lg-8 col-md-6 col-sm-12">
-             <CustomerConversion />  
+              <div className="col-lg-8 col-md-6 col-sm-12">
+                <CustomerConversion />
               </div>
             </div>
           </div>
@@ -108,11 +100,11 @@ export default function Analytics({data: initialData}) {
 
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
-            <div class="row">
-              <div class="col-lg-9 col-md-7 col-sm-12">
-               <CustomerChart chartData={initialData.chartData} />
+            <div className="row">
+              <div className="col-lg-9 col-md-7 col-sm-12">
+                <CustomerChart chartData={data.chartData} />
               </div>
-              <div class="col-lg-3 col-md-5 col-sm-12">
+              <div className="col-lg-3 col-md-5 col-sm-12">
                 <CustomerinfoAlert />
               </div>
             </div>
@@ -127,20 +119,10 @@ export async function getServerSideProps() {
   try {
     const data = await analyticsCustomerCount();
     const customerJoinigData = await analyticsCustomerLeadSourceCount();
-
-    // const customerRevenue = await analyticsRevenueDetails();
-
+    
     return {
       props: {
         data: {
-          genderCount: data.gender,
-          // revenue: customerRevenue,
-          chartData: customerJoinigData??[],
-
-
-    return {
-      props: {
-        data:{
           contactedWithNoOffer: data.contacted_with_no_offer,
           deletedCustomers: data.deleted,
           joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length,
@@ -150,13 +132,16 @@ export async function getServerSideProps() {
           referralUsedCustomers: data.referral_used_customer,
           totalCustomers: data.total_count,
           voucherUserCustomers: data.voucher_used_customer,
-
+          genderCount: data.gender,
+          chartData: customerJoinigData ?? [],
         },
       },
     };
   } catch (error) {
     return {
-      data: null,
+      props: {
+        data: null,
+      },
     };
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import { analyticsConvertion } from "@/action/action";
+import useCustomerConversionStore from "@/store/CustomerConversion";
 
 const months = [
   "Jan",
@@ -18,11 +18,10 @@ const months = [
 ];
 
 const CustomerConversion = () => {
-  const [registered, setRegistered] = useState([]);
-  const [contacted, setContacted] = useState([]);
-  const [offerpending, setPending] = useState([]);
+  const { registered, contacted, offerpending, fetchData } =  useCustomerConversionStore();
+  
 
-  const startYear = 2023;
+  const startYear = 2022;
   const currentYear = new Date().getFullYear();
   const years = Array.from(
     { length: currentYear - startYear + 1 },
@@ -30,9 +29,7 @@ const CustomerConversion = () => {
   );
 
   const options = years.map((year) => ({ value: year, label: year }));
-
   const [selectedYear, setSelectedYear] = useState(currentYear);
-
   const selectedOption = { value: selectedYear, label: selectedYear };
 
   const handleChange = (selectedOption) => {
@@ -40,23 +37,14 @@ const CustomerConversion = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let res = await analyticsConvertion();
-        const filteredData = res.filter((entry) => entry.year === selectedYear);
-        setRegistered(filteredData);
-        setContacted(filteredData);
-        setPending(filteredData);
-      } catch (error) {}
-    };
-    fetchData();
+    fetchData(selectedYear);
   }, [selectedYear]);
 
   const renderTableRow = (title, key) => (
     <tr key={title}>
       <th className="main_col_title">{title}</th>
       {registered.map((el) => (
-        <td key={el.id}>
+        <td key={el.month}>
           {el[key === "offer pending" ? "offer_pending" : key]}
         </td>
       ))}
@@ -80,8 +68,6 @@ const CustomerConversion = () => {
             <h3>Customer Conversion</h3>
           </div>
           <div className="db_btn_chart right_20">
-
-            
             <Select
               id="yearSelect"
               options={options}
@@ -91,45 +77,55 @@ const CustomerConversion = () => {
             />
           </div>
         </div>
-        <div className="d_flex justify_content_start align_item_center pb_12">
-          <div className="db_table_block">
-            <div className="table-responsive">
-              <table className="table table-striped table-nowrap table-centered mb-0">
-                <thead>
-                  <tr>
-                    <th className="main_head_title">Month</th>
-                    {monthHeaders}
-                  </tr>
-                </thead>
-                <tbody>
-                  {["Registered", "Contacted", "Offer pending"].map((title) =>
-                    renderTableRow(title, title.toLowerCase())
-                  )}
-                  <tr>
-                    <th className="main_col_title">Percentage</th>
-                    {registered.map((el, index) => (
-                      <td
-                        key={index}
-                        className={calculatePercentage(
+        {registered.length === 0 ? (
+          <div className="not_Found">
+            <h4>No Data Found</h4>
+          </div>
+        ) : (
+          <div className="d_flex justify_content_start align_item_center pb_12">
+            <div className="db_table_block">
+              <div className="table-responsive">
+                <table className="table table-striped table-nowrap table-centered mb-0">
+                  <thead>
+                    <tr>
+                      <th className="main_head_title">Month</th>
+                      {monthHeaders}
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {["Registered", "Contacted", "Offer pending"].map((title) =>
+                      renderTableRow(title, title.toLowerCase())
+                    )}
+                    <tr>
+                      <th className="main_col_title">Percentage</th>
+                      {registered.map((el, index) => {
+                        const percentage = calculatePercentage(
                           el.registered,
                           contacted[index].contacted,
                           offerpending[index].offer_pending
-                        ) === "0.00" ? "color_red_100" : "color_green_900"}
-                      >
-                        {calculatePercentage(
-                          el.registered,
-                          contacted[index].contacted,
-                          offerpending[index].offer_pending
-                        )}
-                        %
-                      </td>
-                    ))}
-                  </tr>
-                </tbody>
-              </table>
+                        );
+
+                        return (
+                          <td
+                            key={index}
+                            className={
+                              percentage === "0.00"
+                                ? "color_red_100"
+                                : "color_green_900"
+                            }
+                          >
+                            {percentage === "0.00" ? "0%" : `${percentage}%`}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
