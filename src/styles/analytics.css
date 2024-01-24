@@ -270,8 +270,26 @@ header.db_header_wrap {
   gap: 16px;
 }
 
+.datepicker_input {
+  position: absolute;
+  background-color: '#BAB1E8';
+  width: 30px;
+  height: 30px;
+  right: 0;
+  top: -20px;
+  opacity: 0;
+  cursor: pointer;
+}
 
+.gloabl-inp {
+    pointer-events: none;
+    cursor: not-allowed;
+}
 
+.datePicker{
+  z-index: 999!important;
+}
+  
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   header .db_navigation {
     display: inline-block;
