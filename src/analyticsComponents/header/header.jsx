@@ -62,7 +62,7 @@ export default function Header({ data }) {
                     onClick={() => signOut({ callbackUrl: "/analytics/login" })}
                   >
                     {" "}
-                    Logo out
+                    Log out
                   </button>
                 </div>
               </div>
