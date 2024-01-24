@@ -6,20 +6,20 @@ import moment from 'moment';
 import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 
-import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/action";
+import { analyticsArtistCountWithFIlter } from "@/action/action";
 
 const Apitype = {
-    artistCompletedOffers:'',
-    artistInCommunication:'',
-    joinedFromApp:'',
-    joinedFromWeb:'',
-    joinedUsingReferral:'',
-    nonPublicProfiles:'',
-    notCompletedAnyOffer:'',
-    notContactedCustomer:'',
-    notCreatedAnyOffers:'',
-    totalArtists:'',
-    totalPublicArtists:''
+    artistCompletedOffers:'artist_with_offer',
+    artistInCommunication:'contacted_artist',
+    joinedFromApp:'joined_from_app',
+    joinedFromWeb:'joined_from_website',
+    joinedUsingReferral:'referreal_used',
+    nonPublicProfiles:'not_public_artist',
+    notCompletedAnyOffer:'no_offer_completed',
+    notContactedCustomer:'no_contacted',
+    notCreatedAnyOffers:'no_offer_created',
+    totalArtists:'total_artist',
+    totalPublicArtists:'public_artist'
   }
 
 const initialValue = {
@@ -92,50 +92,32 @@ export default function ArtistDetails({initialCounts}) {
   };
 
   const handleDateFilter = async (key, dateRangeValue) => {
-      setSelectedDayRange({
+     setSelectedDayRange({
         ...selectedDayRange,
         [key]: dateRangeValue
     });
-      const { from, to } = dateRangeValue;
-      const fromDate = `${from?.year}-${from?.month}-${from?.day}` || '';
-      const toDate = to ? `${to?.year}-${to?.month}-${to?.day}` : null;
-      if (fromDate && toDate) {
-        if(key==="joinedFromApp"||key==="joinedFromWeb"){
-            const res = await analyticsCustomerLeadSourceCountWithFIlter({
-                startDate: fromDate,
-                endDate: toDate
-            });
-            setCountData({
-                ...countData,
-                ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
-                ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source!=="APP").length })
-            })
-            setDateRange({
-              ...dateRange,
-              [key]: {
-                from: fromDate,
-                to: toDate
-            }
-          });
-        } else {
-            const res = await analyticsCustomerCountWithFIlter({
-                type: Apitype[key],
-                startDate: fromDate,
-                endDate: toDate
-            });
-            setCountData({
-                ...countData,
-                [key]: res[Apitype[key]]
-            });
-            setDateRange({
-              ...dateRange,
-              [key]: {
-                from: fromDate,
-                to: toDate
-            }
-          });
-        }
-      }
+    const { from, to } = dateRangeValue;
+    const fromDate = `${from?.year}-${from?.month}-${from?.day}` || '';
+    const toDate = to ? `${to?.year}-${to?.month}-${to?.day}` : null;
+
+    if (fromDate && toDate) {
+        const res = await analyticsArtistCountWithFIlter({
+            type: Apitype[key],
+            startDate: fromDate,
+            endDate: toDate
+        });
+        setCountData({
+            ...countData,
+            [key]: res[Apitype[key]]
+        });
+        setDateRange({
+          ...dateRange,
+          [key]: {
+            from: fromDate,
+            to: toDate
+          }
+        });
+    }
   }
 
   return (
@@ -178,7 +160,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.totalArtists}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('total_count','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('total_artist','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -228,7 +210,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.totalPublicArtists}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_contacted','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('public_artist','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -278,7 +260,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.artistInCommunication}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('customer_no_offer_completed','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('contacted_artist','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -328,7 +310,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.artistCompletedOffers}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('contacted_with_no_offer','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('artist_with_offer','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -380,7 +362,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.notCompletedAnyOffer}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('deleted','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_offer_completed','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -430,7 +412,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.joinedUsingReferral}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('voucher_used_customer','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('referreal_used','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -480,7 +462,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.joinedFromWeb}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('referral_used_customer','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('joined_from_website','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -530,7 +512,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.joinedFromApp}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('contacted_with_no_offer','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('joined_from_app','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -582,7 +564,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.notContactedCustomer}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('total_count','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_contacted','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -632,7 +614,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.notCreatedAnyOffers}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('voucher_used_customer','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_offer_created','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"
@@ -682,7 +664,7 @@ export default function ArtistDetails({initialCounts}) {
                                 <div className="d_flex justify_space_between align_item_center">
                                     <h2>{countData.nonPublicProfiles}</h2>
                                     <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('referral_used_customer','2023-01-01','2024-01-01')}>
+                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('not_public_artist','2023-01-01','2024-01-01')}>
                                             <Image
                                               src="/db_icon_download.svg"
                                               alt="Download"

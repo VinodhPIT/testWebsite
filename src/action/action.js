@@ -146,6 +146,24 @@ export const analyticsCustomerCountWithFIlter = async (params) => {
   }
 };
 
+export const analyticsArtistCount = async () => {
+  try {
+    const response = await analyticsGetApiCall('/artist/count');
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+export const analyticsArtistCountWithFIlter = async (params) => {
+  try {
+    const response = await analyticsGetApiCall(`/artist/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`);
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
 export const analyticsCustomerLeadSourceCount = async () => {
   try {
     const response = await analyticsGetApiCall('/customer/details');
