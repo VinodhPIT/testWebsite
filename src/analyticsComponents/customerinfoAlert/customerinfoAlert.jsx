@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function CustomerinfoAlert() {
   return (
-    <div class="row">
-        <div class="col-md-12 col-sm-6">
+    <div className="row">
+        <div className="col-md-12 col-sm-6">
             <div className="db_card block_bg_white">
                 <div className="db_card_body p_16">
                         <div className="d_flex justify_space_between align_item_center pb_12">
@@ -20,7 +20,7 @@ export default function CustomerinfoAlert() {
             </div>
         </div>
         
-        <div class="col-md-12 col-sm-6">  
+        <div className="col-md-12 col-sm-6">  
             <div className="db_card block_bg_white">
                 <div className="db_card_body p_16">
                     <div className="d_flex justify_space_between align_item_center pb_12">

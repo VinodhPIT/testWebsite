@@ -86,3 +86,9 @@ export const addAdsToResults = async (results, isMobile) => {
 
 
 
+export const formatDate = (date) => {
+  const values = Object.values(date).reverse();
+  const dateObject = new Date(values[0], values[1] - 1, values[2]);
+  return dateObject.toISOString().split("T")[0];
+};
+
