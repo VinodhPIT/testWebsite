@@ -8,7 +8,7 @@ import {
 import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
-import PieChart from "@/analyticsComponents/pieChart/pieChart";
+import PieChart from "@/analyticsComponents/pieChart/chart";
 import PaymentChart from "@/analyticsComponents/paymentChart/paymentChart";
 import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
 import CustomerChart from "@/analyticsComponents/customerChart/customerChart";
