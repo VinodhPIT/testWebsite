@@ -8,7 +8,7 @@ import {
 import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
-import PieChart from "@/analyticsComponents/pieChart/pieChart";
+import PieChart from "@/analyticsComponents/pieChart/chart";
 import PaymentChart from "@/analyticsComponents/paymentChart/paymentChart";
 import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
 import CustomerChart from "@/analyticsComponents/customerChart/customerChart";
@@ -101,12 +101,12 @@ export default function Analytics({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-9 col-md-7 col-sm-12">
+              <div className="col-lg-12 col-md-12 col-sm-12">
                 <CustomerChart chartData={data.chartData} />
               </div>
-              <div className="col-lg-3 col-md-5 col-sm-12">
+              {/* <div className="col-lg-3 col-md-5 col-sm-12">
                 <CustomerinfoAlert />
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
