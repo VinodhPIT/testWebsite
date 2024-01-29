@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hassanmojab/react-modern-calendar-datepicker": "^3.1.7",
+    "@next/font": "^14.1.0",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.1",
     "chart.js": "^3.9.1",
