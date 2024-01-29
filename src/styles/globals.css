@@ -275,6 +275,9 @@ header .navbar_nav>li>a:focus {
 header .navbar_nav>li>a:active {
   color: var(--pink);
 }
+select:focus {
+  outline: none;
+}
 
 header .navbar_nav>li:hover>a {
   color: var(--pink);
@@ -715,6 +718,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .block_bg_black_h {
   background-color: var(--black);
+}
+.block_bg_brown{
+  background-color: #883434;
 }
 
 .block_bg_orange {

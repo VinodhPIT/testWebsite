@@ -6,13 +6,13 @@ import { signOut } from "next-auth/react";
 export default function Header({ data, type }) {
   return (
     <header className="header_wrapper db_header_wrap">
-      <div class="container-fluid pr_40 m_pr_12">
-        <div class="row">
-          <div class="col-md-12">
+      <div className="container-fluid pr_40 m_pr_12">
+        <div className="row">
+          <div className="col-md-12">
             <nav className="header_dashboard">
               <div className="header_logo_nav m_flex_direction_column">
                 <div className="header_logo">
-                  <Link href="#" className="navbar_brand">
+                  <div  className="navbar_brand">
                     <Image
                       src="/Inckd-logo-footer-black.svg"
                       alt="Logo"
@@ -20,7 +20,7 @@ export default function Header({ data, type }) {
                       height="31"
                       priority
                     />
-                  </Link>
+                  </div>
                 </div>
                 <div className="header_db_title">
                   <h4>{`${type === "artist" ? 'Artist' : 'Customer'} analytics`}</h4>
@@ -57,11 +57,11 @@ export default function Header({ data, type }) {
                   />
 
                   <button
-                    class="btn_secondary ml_10"
+                    className="btn_secondary ml_10"
                     onClick={() => signOut({ callbackUrl: "/analytics/login" })}
                   >
                     {" "}
-                    Logo out
+                    Log out
                   </button>
                 </div>
               </div>

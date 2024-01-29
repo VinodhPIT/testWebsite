@@ -4,7 +4,7 @@ import {
   prepareRequest,
   fetchMulticategory,
 } from "@/helpers/helper";
-import { analyticsGetApiCall, getApiCall, postApiCall} from "@/utils/apiUtils";
+import {  getApiCall, postApiCall} from "@/utils/apiUtils";
 
 export const fetchCategoryData = async (params) => {
 

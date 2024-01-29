@@ -4,7 +4,7 @@ import Image from "next/image";
 import moment from 'moment';
 import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/action";
+import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/analyticsAdmin";
 
 const Apitype = {
     contactedWithNoOffer:'contacted_with_no_offer',
@@ -129,8 +129,8 @@ export default function CustomerDetails({initialCounts}) {
   return (
         <section className="container-fluid">
             <div className="db_customer_detail_wrap">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card block_bg_yellow_300">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -180,7 +180,7 @@ export default function CustomerDetails({initialCounts}) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card block_bg_green_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -230,7 +230,7 @@ export default function CustomerDetails({initialCounts}) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card block_bg_blue_50">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -280,7 +280,7 @@ export default function CustomerDetails({initialCounts}) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card  block_bg_orange_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -331,8 +331,8 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card block_bg_yellow_300">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -382,7 +382,7 @@ export default function CustomerDetails({initialCounts}) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card block_bg_green_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -432,7 +432,7 @@ export default function CustomerDetails({initialCounts}) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card block_bg_blue_50">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -482,7 +482,7 @@ export default function CustomerDetails({initialCounts}) {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card  block_bg_orange_100">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
@@ -533,8 +533,8 @@ export default function CustomerDetails({initialCounts}) {
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="db_card  block_bg_yellow_300">
                             <div className="db_card_body p_16">
                                 <div className="d_flex justify_space_between align_item_center pb_12">
