@@ -101,12 +101,12 @@ export default function Analytics({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-9 col-md-7 col-sm-12">
+              <div className="col-lg-12 col-md-12 col-sm-12">
                 <CustomerChart chartData={data.chartData} />
               </div>
-              <div className="col-lg-3 col-md-5 col-sm-12">
+              {/* <div className="col-lg-3 col-md-5 col-sm-12">
                 <CustomerinfoAlert />
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
