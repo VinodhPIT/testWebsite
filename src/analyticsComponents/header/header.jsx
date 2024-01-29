@@ -2,9 +2,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signOut } from "next-auth/react";
-
+import { useRouter } from "next/router";
 
 export default function Header({ data }) {
+  const router = useRouter();
+  const handleSignOut = async () => {
+    await signOut(); 
+  };
+
+
   return (
     <header className="header_wrapper db_header_wrap">
       <div className="container-fluid pr_40 m_pr_12">
@@ -59,7 +65,8 @@ export default function Header({ data }) {
 
                   <button
                     className="btn_secondary ml_10"
-                    onClick={() => signOut({ callbackUrl: "/analytics/login" })}
+                    
+                    onClick={handleSignOut}
                   >
                     {" "}
                     Log out

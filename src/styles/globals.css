@@ -207,7 +207,7 @@ header ul.nav.main_nav>li>a:hover {
 
 .header_right {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin-top: 24px;
   width: auto;
@@ -567,7 +567,7 @@ body.theme_dark footer .footer_block .footer_logo {
 body.theme_dark footer .footer_block .footer_logo a {
   display: flex;
   flex-wrap: wrap;
-  align-content: end;
+  align-content: flex-end;
   padding-bottom: 34px;
 }
 
@@ -941,7 +941,7 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 }
 
 .justify_content_end {
-  justify-content: end !important;
+  justify-content: flex-end !important;
 }
 
 .justify_space_between {
@@ -953,7 +953,7 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 }
 
 .align_item_end {
-  align-items: end !important;
+  align-items: flex-end !important;
 }
 
 .align_item_start {
@@ -2095,7 +2095,7 @@ main {
 
 .trend_list_wrap {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   flex-wrap: wrap;
   position: relative;
   flex-direction: row;
@@ -3050,8 +3050,8 @@ form.form_floating .form_group.radio_block>label {
   max-width: 550px;
   width: 100%;
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .find_tattoo_right ul.download_app {
@@ -3157,8 +3157,8 @@ form.form_floating .form_group.radio_block>label {
 .custom_option_block {
   display: flex;
   flex-direction: column;
-  align-items: end;
-  justify-content: end !important;
+  align-items: flex-end;
+  justify-content: flex-end !important;
   margin-bottom: 16%;
   padding-right: 10%;
 }
@@ -5625,7 +5625,7 @@ button.language_switcher img {
   }
 
   .m_justify_content_right {
-    justify-content: end !important;
+    justify-content: flex-end !important;
   }
 
   .m_object_position_center {
@@ -6502,7 +6502,7 @@ button.language_switcher img {
   ul.app_download_img_list.slider_resize {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    align-content: end;
+    align-content: flex-end;
   }
 
   ul.app_download_img_list.slider_resize li {
