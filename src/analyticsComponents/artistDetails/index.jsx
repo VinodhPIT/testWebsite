@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-import Link from "next/link";
-import Image from "next/image";
-import moment from 'moment';
-
-import DatePicker, { utils } from '@hassanmojab/react-modern-calendar-datepicker';
-import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
 
 import { analyticsArtistCountWithFIlter } from "@/action/action";
+
+import CountDisplayCard from '../countDisplayCard';
 
 const Apitype = {
     artistCompletedOffers:'artist_with_offer',
@@ -125,558 +121,129 @@ export default function ArtistDetails({initialCounts}) {
             <div className="db_customer_detail_wrap">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_yellow_300">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Total artist</h4>
-                                        <p>
-                                            {
-                                            dateRange.totalArtists.from&&dateRange.totalArtists.from
-                                                ?`${moment(dateRange.totalArtists.from).format('DD MMM YYYY')} ${moment(dateRange.totalArtists.to).format('DD MMM YYYY') !== moment(dateRange.totalArtists.from).format('DD MMM YYYY')? `- ${moment(dateRange.totalArtists.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>   
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.totalArtists}
-                                                onChange={(val)=>handleDateFilter('totalArtists', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                            
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.totalArtists}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('total_artist','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_yellow_300"
+                            count={countData.totalArtists}
+                            filteredDateRange={dateRange.totalArtists}
+                            onClickDownload={() => handleDownload('total_artist', dateRange.totalArtists.from, dateRange.totalArtists.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('totalArtists', val)}
+                            selectedDateRange={selectedDayRange.totalArtists}
+                            title="Total artist"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_green_100">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Total Public artists</h4>
-                                        <p>
-                                            {
-                                            dateRange.totalPublicArtists.from&&dateRange.totalPublicArtists.from
-                                                ?`${moment(dateRange.totalPublicArtists.from).format('DD MMM YYYY')} ${moment(dateRange.totalPublicArtists.to).format('DD MMM YYYY') !== moment(dateRange.totalPublicArtists.from).format('DD MMM YYYY')? `- ${moment(dateRange.totalPublicArtists.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>   
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                maximumDate={utils('en').getToday()}
-                                                onChange={(val)=>handleDateFilter('totalPublicArtists', val)}
-                                                renderInput={renderCustomInput}
-                                                shouldHighlightWeekends
-                                                value={selectedDayRange.totalPublicArtists}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.totalPublicArtists}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('public_artist','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_green_100"
+                            count={countData.totalPublicArtists}
+                            filteredDateRange={dateRange.totalPublicArtists}
+                            onClickDownload={() => handleDownload('public_artist', dateRange.totalPublicArtists.from, dateRange.totalPublicArtists.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('totalPublicArtists', val)}
+                            selectedDateRange={selectedDayRange.totalPublicArtists}
+                            title="Total Public artists"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_blue_50">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists in communication with the customer</h4> 
-                                        <p>
-                                            {
-                                            dateRange.artistInCommunication.from&&dateRange.artistInCommunication.from
-                                                ?`${moment(dateRange.artistInCommunication.from).format('DD MMM YYYY')} ${moment(dateRange.artistInCommunication.to).format('DD MMM YYYY') !== moment(dateRange.artistInCommunication.from).format('DD MMM YYYY')? `- ${moment(dateRange.artistInCommunication.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>  
-                                    <div className="db_icon_shape db_icon_cal"> 
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.artistInCommunication}
-                                                onChange={(val)=>handleDateFilter('artistInCommunication', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                            
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.artistInCommunication}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('contacted_artist','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_blue_50"
+                            count={countData.artistInCommunication}
+                            filteredDateRange={dateRange.artistInCommunication}
+                            onClickDownload={() => handleDownload('contacted_artist', dateRange.artistInCommunication.from, dateRange.artistInCommunication.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('artistInCommunication', val)}
+                            selectedDateRange={selectedDayRange.artistInCommunication}
+                            title="Artists in communication with the customer"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card  block_bg_orange_100">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists who completed at least one offer </h4>   
-                                        <p>
-                                            {
-                                            dateRange.artistCompletedOffers.from&&dateRange.artistCompletedOffers.from
-                                                ?`${moment(dateRange.artistCompletedOffers.from).format('DD MMM YYYY')} ${moment(dateRange.artistCompletedOffers.to).format('DD MMM YYYY') !== moment(dateRange.artistCompletedOffers.from).format('DD MMM YYYY')? `- ${moment(dateRange.artistCompletedOffers.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>  
-                                    <div className="db_icon_shape db_icon_cal">   
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.artistCompletedOffers}
-                                                onChange={(val)=>handleDateFilter('artistCompletedOffers', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                             
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.artistCompletedOffers}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('artist_with_offer','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_orange_100"
+                            count={countData.artistCompletedOffers}
+                            filteredDateRange={dateRange.artistCompletedOffers}
+                            onClickDownload={() => handleDownload('artist_with_offer', dateRange.artistCompletedOffers.from, dateRange.artistCompletedOffers.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('artistCompletedOffers', val)}
+                            selectedDateRange={selectedDayRange.artistCompletedOffers}
+                            title="Artists who completed at least one offer"
+                        />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_yellow_300">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists who didn’t complete any offers</h4>
-                                        <p>
-                                            {
-                                            dateRange.notCompletedAnyOffer.from&&dateRange.notCompletedAnyOffer.from
-                                                ?`${moment(dateRange.notCompletedAnyOffer.from).format('DD MMM YYYY')} ${moment(dateRange.notCompletedAnyOffer.to).format('DD MMM YYYY') !== moment(dateRange.notCompletedAnyOffer.from).format('DD MMM YYYY')? `- ${moment(dateRange.notCompletedAnyOffer.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>  
-                                    <div className="db_icon_shape db_icon_cal"> 
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.notCompletedAnyOffer}
-                                                onChange={(val)=>handleDateFilter('notCompletedAnyOffer', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                             
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.notCompletedAnyOffer}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_offer_completed','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_yellow_300"
+                            count={countData.notCompletedAnyOffer}
+                            filteredDateRange={dateRange.notCompletedAnyOffer}
+                            onClickDownload={() => handleDownload('no_offer_completed', dateRange.notCompletedAnyOffer.from, dateRange.notCompletedAnyOffer.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('notCompletedAnyOffer', val)}
+                            selectedDateRange={selectedDayRange.notCompletedAnyOffer}
+                            title="Artists who didn’t complete any offers"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_green_100">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists joined using referral</h4>
-                                        <p>
-                                            {
-                                            dateRange.joinedUsingReferral.from&&dateRange.joinedUsingReferral.from
-                                                ?`${moment(dateRange.joinedUsingReferral.from).format('DD MMM YYYY')} ${moment(dateRange.joinedUsingReferral.to).format('DD MMM YYYY') !== moment(dateRange.joinedUsingReferral.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedUsingReferral.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.joinedUsingReferral}
-                                                onChange={(val)=>handleDateFilter('joinedUsingReferral', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.joinedUsingReferral}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('referreal_used','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_green_100"
+                            count={countData.joinedUsingReferral}
+                            filteredDateRange={dateRange.joinedUsingReferral}
+                            onClickDownload={() => handleDownload('referreal_used', dateRange.joinedUsingReferral.from, dateRange.joinedUsingReferral.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('joinedUsingReferral', val)}
+                            selectedDateRange={selectedDayRange.joinedUsingReferral}
+                            title="Artists joined using referral"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_blue_50">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists joined from website</h4> 
-                                        <p>
-                                            {
-                                            dateRange.joinedFromWeb.from&&dateRange.joinedFromWeb.from
-                                                ?`${moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromWeb.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromWeb.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>  
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.joinedFromWeb}
-                                                onChange={(val)=>handleDateFilter('joinedFromWeb', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                             
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.joinedFromWeb}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('joined_from_website','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_blue_50"
+                            count={countData.joinedFromWeb}
+                            filteredDateRange={dateRange.joinedFromWeb}
+                            onClickDownload={() => handleDownload('joined_from_website', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('joinedFromWeb', val)}
+                            selectedDateRange={selectedDayRange.joinedFromWeb}
+                            title="Artists joined from website"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card  block_bg_orange_100">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists joined from App </h4>   
-                                        <p>
-                                            {
-                                            dateRange.joinedFromApp.from&&dateRange.joinedFromApp.from
-                                                ?`${moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')} ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY') !== moment(dateRange.joinedFromApp.from).format('DD MMM YYYY')? `- ${moment(dateRange.joinedFromApp.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>  
-                                    <div className="db_icon_shape db_icon_cal">   
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.joinedFromApp}
-                                                onChange={(val)=>handleDateFilter('joinedFromApp', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                             
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.joinedFromApp}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('joined_from_app','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_orange_100"
+                            count={countData.joinedFromApp}
+                            filteredDateRange={dateRange.joinedFromApp}
+                            onClickDownload={() => handleDownload('joined_from_app', dateRange.joinedFromApp.from, dateRange.joinedFromApp.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('joinedFromApp', val)}
+                            selectedDateRange={selectedDayRange.joinedFromApp}
+                            title="Artists joined from App"
+                        />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card  block_bg_yellow_300">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists not contacted any customers</h4>
-                                        <p>
-                                            {
-                                            dateRange.notContactedCustomer.from&&dateRange.notContactedCustomer.from
-                                                ?`${moment(dateRange.notContactedCustomer.from).format('DD MMM YYYY')} ${moment(dateRange.notContactedCustomer.to).format('DD MMM YYYY') !== moment(dateRange.notContactedCustomer.from).format('DD MMM YYYY')? `- ${moment(dateRange.notContactedCustomer.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>    
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.notContactedCustomer}
-                                                onChange={(val)=>handleDateFilter('notContactedCustomer', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                           
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.notContactedCustomer}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_contacted','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_yellow_300"
+                            count={countData.notContactedCustomer}
+                            filteredDateRange={dateRange.notContactedCustomer}
+                            onClickDownload={() => handleDownload('no_contacted', dateRange.notContactedCustomer.from, dateRange.notContactedCustomer.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('notContactedCustomer', val)}
+                            selectedDateRange={selectedDayRange.notContactedCustomer}
+                            title="Artists not contacted any customers"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_green_100">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists not created any offers</h4>
-                                        <p>
-                                            {
-                                            dateRange.notCreatedAnyOffers.from&&dateRange.notCreatedAnyOffers.from
-                                                ?`${moment(dateRange.notCreatedAnyOffers.from).format('DD MMM YYYY')} ${moment(dateRange.notCreatedAnyOffers.to).format('DD MMM YYYY') !== moment(dateRange.notCreatedAnyOffers.from).format('DD MMM YYYY')? `- ${moment(dateRange.notCreatedAnyOffers.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.notCreatedAnyOffers}
-                                                onChange={(val)=>handleDateFilter('notCreatedAnyOffers', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.notCreatedAnyOffers}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('no_offer_created','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_green_100"
+                            count={countData.notCreatedAnyOffers}
+                            filteredDateRange={dateRange.notCreatedAnyOffers}
+                            onClickDownload={() => handleDownload('no_offer_created', dateRange.notCreatedAnyOffers.from, dateRange.notCreatedAnyOffers.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('notCreatedAnyOffers', val)}
+                            selectedDateRange={selectedDayRange.notCreatedAnyOffers}
+                            title="Artists not created any offers"
+                        />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div className="db_card block_bg_blue_50">
-                            <div className="db_card_body p_16">
-                                <div className="d_flex justify_space_between align_item_center pb_12">
-                                    <div>
-                                        <h4>Artists not completed public profile criteria</h4> 
-                                        <p>
-                                            {
-                                            dateRange.nonPublicProfiles.from&&dateRange.nonPublicProfiles.from
-                                                ?`${moment(dateRange.nonPublicProfiles.from).format('DD MMM YYYY')} ${moment(dateRange.nonPublicProfiles.to).format('DD MMM YYYY') !== moment(dateRange.nonPublicProfiles.from).format('DD MMM YYYY')? `- ${moment(dateRange.nonPublicProfiles.to).format('DD MMM YYYY')}`:''}`
-                                                :''
-                                            }
-                                        </p>
-                                    </div>  
-                                    <div className="db_icon_shape db_icon_cal">  
-                                        <div>
-                                            <Image
-                                              src="/icon_calender_new.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                            <DatePicker
-                                                value={selectedDayRange.nonPublicProfiles}
-                                                onChange={(val)=>handleDateFilter('nonPublicProfiles', val)}
-                                                shouldHighlightWeekends
-                                                maximumDate={utils('en').getToday()}
-                                                renderInput={renderCustomInput}
-                                            />
-                                        </div>
-                                    </div>                             
-                                </div>
-                                <div className="d_flex justify_space_between align_item_center">
-                                    <h2>{countData.nonPublicProfiles}</h2>
-                                    <div className="db_icon_shape">
-                                        <Link href="" className="d_inline_block" onClick={() => handleDownload('not_public_artist','2023-01-01','2024-01-01')}>
-                                            <Image
-                                              src="/db_icon_download.svg"
-                                              alt="Download"
-                                              width="24"
-                                              height="24"
-                                              priority
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_blue_50"
+                            count={countData.nonPublicProfiles}
+                            filteredDateRange={dateRange.nonPublicProfiles}
+                            onClickDownload={() => handleDownload('not_public_artist', dateRange.nonPublicProfiles.from, dateRange.nonPublicProfiles.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('nonPublicProfiles', val)}
+                            selectedDateRange={selectedDayRange.nonPublicProfiles}
+                            title="Artists not completed public profile criteria"
+                        />
                     </div>
                 </div>
             </div>
