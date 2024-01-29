@@ -7,7 +7,7 @@ import DatePicker, {
 } from "@hassanmojab/react-modern-calendar-datepicker";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 
-import { analyticsCustomeFilter } from "@/action/action";
+import { analyticsCustomeFilter } from "@/action/analyticsAdmin";
 import { formatDate } from "@/helpers/helper";
 ChartJS.register(Tooltip, Legend, Title, Title, Tooltip, Legend);
 
