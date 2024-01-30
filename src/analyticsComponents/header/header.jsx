@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 export default function Header({ data }) {
   const router = useRouter();
   const handleSignOut = async () => {
-    await signOut(); 
+    await signOut({callbackUrl:"/analytics/login"}); 
   };
 
 

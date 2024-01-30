@@ -64,7 +64,7 @@ const validationSchema = Yup.object().shape({
            
           
             fetch(
-              `${process.env.apiDomain}/profile/artist/verification/request`,
+              `${process.env.apiDomain}/web/api/profile/artist/verification/request`,
               {
                 method: "POST",
                 headers: {

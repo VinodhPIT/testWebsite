@@ -2,14 +2,13 @@ const nextTranslate = require("next-translate-plugin");
 const nextConfig = {
   images: {
     domains: ["storage.googleapis.com"],
-
     unoptimized: true,
   },
   env: {
-    apiDomain: "https://admin.inckd.com/web/api",
-    analyticsBaseUrl:"https://admin.inckd.com/analytics",
+    apiDomain: process.env.VERCEL ?"https://apiadmin.inckd.com" :"https://admin.inckd.com",
     googlePlacesApiKey: "AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
     LIVE_URL: "https://www.inckd.com",
+    NEXTAUTH_URL: process.env.VERCEL ? "https://www.inckd.com" :  "https://demo.mypits.org:15080"
   },
 
   i18n: {

@@ -16,7 +16,7 @@ const authOptions = {
           let value = { username, password };
 
           const response = await fetch(
-            `${process.env.analyticsBaseUrl}/login`,
+            `${process.env.apiDomain}/analytics/login`,
             {
               method: "POST",
               headers: {

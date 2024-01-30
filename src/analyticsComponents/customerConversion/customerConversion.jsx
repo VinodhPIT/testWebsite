@@ -17,7 +17,7 @@ const months = [
   "Dec",
 ];
 
-const CustomerConversion = () => {
+const CustomerConversion = ({token}) => {
   const { registered, contacted, offerpending, fetchData } =  useCustomerConversionStore();
   
 
@@ -37,7 +37,7 @@ const CustomerConversion = () => {
   };
 
   useEffect(() => {
-    fetchData(selectedYear);
+    fetchData(selectedYear ,token);
   }, [selectedYear]);
 
   const renderTableRow = (title, key) => (
