@@ -4,10 +4,10 @@ import Image from "next/image";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 
-export default function Header({ data }) {
+export default function Header({ data, type }) {
   const router = useRouter();
   const handleSignOut = async () => {
-    await signOut(); 
+    await signOut({callbackUrl:"/analytics/login"}); 
   };
 
 

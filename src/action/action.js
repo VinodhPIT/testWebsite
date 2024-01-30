@@ -10,7 +10,7 @@ export const fetchCategoryData = async (params) => {
 
   try {
     const responseCategory = await postApiCall(
-      `/${params.category}/search`,
+      `/web/api/${params.category}/search`,
       searchParam(params)
     );
 
@@ -23,7 +23,7 @@ export const fetchCategoryData = async (params) => {
 export const getStyles = async () => {
   try {
     const reponseStyles = await getApiCall(
-      `/style/all`
+      `/web/api/style/all`
     );
   
     return reponseStyles;
@@ -39,7 +39,7 @@ export const getStyles = async () => {
 export async function fetchMultiData(param) {
 
   try {
-    const tattooFetch = await fetch(`${process.env.apiDomain}/tattoo/search`, {
+    const tattooFetch = await fetch(`/web/api/${process.env.apiDomain}/tattoo/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export async function fetchMultiData(param) {
       ),
     });
 
-    const flashFetch = await fetch(`${process.env.apiDomain}/flash/search`, {
+    const flashFetch = await fetch(`/web/api/${process.env.apiDomain}/flash/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +102,7 @@ export async function fetchMultiData(param) {
 
 export const fetchTattooDetail = async (params) => {
   try {
-    const response = await getApiCall(`/tattoo/detail?tattoo_uid=${params}`);
+    const response = await getApiCall(`/web/api/tattoo/detail?tattoo_uid=${params}`);
     return response;
   } catch (error) {
     return [];
@@ -111,7 +111,7 @@ export const fetchTattooDetail = async (params) => {
 
 export const fetchArtistDetail = async (slug) => {
   try {
-    const response = await getApiCall(`/artist/detail/${slug}`);
+    const response = await getApiCall(`/web/api/artist/detail/${slug}`);
     return response;
   } catch (error) {
     return [];
@@ -120,7 +120,7 @@ export const fetchArtistDetail = async (slug) => {
 
 export const artistGallery = async (uid) => {
   try {
-    const response = await getApiCall(`/tattoo/artist?artist_uid=${uid}`);
+    const response = await getApiCall(`/web/api/tattoo/artist?artist_uid=${uid}`);
 
     return response;
   } catch (error) {
@@ -130,7 +130,7 @@ export const artistGallery = async (uid) => {
 
 export const referralCode = async (slug) => {
   try {
-    const response = await getApiCall(`/customer/referral/${slug}`);
+    const response = await getApiCall(`/web/api/customer/referral/${slug}`);
 
     return response;
   } catch (error) {

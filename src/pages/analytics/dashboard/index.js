@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import {
@@ -14,9 +14,12 @@ import CustomerConversion from "@/analyticsComponents/customerConversion/custome
 import CustomerChart from "@/analyticsComponents/customerChart/customerChart";
 import CustomerinfoAlert from "@/analyticsComponents/customerinfoAlert/customerinfoAlert";
 import useRevenueStore from '@/store/revenueList';
+import { getSession } from "next-auth/react";
 
 
 export default function Analytics({ data }) {
+  
+
   const router = useRouter();
   const { status, data: sessionData } = useSession();
   const { revenue, loading, fetchMorePosts } = useRevenueStore()
@@ -27,8 +30,10 @@ export default function Analytics({ data }) {
     }
   }, [status, router]);
 
+ 
+
   useEffect(()=>{
-    fetchMorePosts()
+     fetchMorePosts(data.sessionToken)
   },[])
 
   const getValues = Object.values(data.genderCount);
@@ -65,12 +70,12 @@ export default function Analytics({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <CustomerDetails initialCounts={data} />
+        <CustomerDetails initialCounts={data} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
-                <TotalCustomers chartData={data.chartData} />
+                 <TotalCustomers chartData={data.chartData} token={data.sessionToken} /> 
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <PieChart
@@ -79,6 +84,7 @@ export default function Analytics({ data }) {
                   getValues={getValues}
                   getColor={getColor}
                   label={label}
+                  
                 />
               </div>
             </div>
@@ -89,10 +95,10 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-12">
-              {loading ? null  :<PaymentChart totalRevenue={revenue} title="Payment method" />}
+             {loading ? null  :<PaymentChart totalRevenue={revenue} title="Payment method"  token={data.sessionToken}/>}
               </div>
               <div className="col-lg-8 col-md-6 col-sm-12">
-                <CustomerConversion />
+               <CustomerConversion token={data.sessionToken}/> 
               </div>
             </div>
           </div>
@@ -115,25 +121,38 @@ export default function Analytics({ data }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/analytics/login",
+        permanent: false,
+      },
+    };
+  }
+
   try {
-    const data = await analyticsCustomerCount();
-    const customerJoinigData = await analyticsCustomerLeadSourceCount();
+    const data = await analyticsCustomerCount(session.user.myToken);
+    const customerJoinigData = await analyticsCustomerLeadSourceCount(session.user.myToken);
     
     return {
       props: {
         data: {
+          chartData: customerJoinigData ?? [],
           contactedWithNoOffer: data.contacted_with_no_offer || 0,
           deletedCustomers: data.deleted || 0,
+          genderCount: data.gender || 0,
           joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length || 0,
           joinedFromWeb: customerJoinigData.filter((custData)=> custData.lead_source!=="APP").length || 0,
           noCompletedOffer: data.customer_no_offer_completed || 0,
           notContacted: data.no_contacted || 0,
           referralUsedCustomers: data.referral_used_customer || 0,
+          sessionToken:session.user.myToken??'',
           totalCustomers: data.total_count || 0,
-          voucherUserCustomers: data.voucher_used_customer || 0,
-          genderCount: data.gender || 0,
-          chartData: customerJoinigData ?? [],
+          voucherUserCustomers: data.voucher_used_customer || 0
         },
       },
     };

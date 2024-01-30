@@ -1,68 +1,51 @@
 import { analyticsGetApiCall } from "@/utils/apiUtils";
 
-export const analyticsCustomerCount = async () => {
+export const analyticsCustomerCount = async (token) => {
+  console.log(token ,"token")
   try {
-    const response = await analyticsGetApiCall("/customer/count");
+    const response = await analyticsGetApiCall("/analytics/customer/count" ,token);
     return response;
   } catch (error) {
     return [];
   }
 };
 
-export const analyticsCustomerCountWithFIlter = async (params) => {
+export const analyticsCustomerCountWithFIlter = async (params ,token) => {
   try {
     const response = await analyticsGetApiCall(
-      `/customer/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`
-    );
+      `/analytics/customer/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`
+    ,token);
     return response;
   } catch (error) {
     return [];
   }
 };
 
-export const analyticsCustomerLeadSourceCount = async () => {
+export const analyticsCustomerLeadSourceCount = async (token) => {
   try {
-    const response = await analyticsGetApiCall("/customer/details");
+    const response = await analyticsGetApiCall("/analytics/customer/details" ,token);
     return response;
   } catch (error) {
     return [];
   }
 };
 
-export const analyticsCustomerLeadSourceCountWithFIlter = async (params) => {
-  try {
-    const response = await analyticsGetApiCall(
-      `/customer/details?start_date=${params.startDate}&end_date=${params.endDate}`
-    );
-    return response;
-  } catch (error) {
-    return [];
-  }
-};
-
-export const analyticsArtistCount = async () => {
-  try {
-    const response = await analyticsGetApiCall('/artist/count');
-    return response;
-  } catch (error) {
-    return [];
-  }
-};
-
-export const analyticsArtistCountWithFIlter = async (params) => {
-  try {
-    const response = await analyticsGetApiCall(`/artist/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`);
-    return response;
-  } catch (error) {
-    return [];
-  }
-};
-
-export const analyticsCustomeFilter = async (params, parma1) => {
+export const analyticsCustomerLeadSourceCountWithFIlter = async (params ,token) => {
   try {
     const response = await analyticsGetApiCall(
-      `/customer/details?start_date=${params}&end_date=${parma1}`
-    );
+      `/analytics/customer/details?start_date=${params.startDate}&end_date=${params.endDate}` 
+    ,token);
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+export const analyticsCustomeFilter = async (params, parma1 ,token) => {
+  try {
+    const response = await analyticsGetApiCall(
+      `/analytics/customer/details?start_date=${params}&end_date=${parma1}`
+    ,token);
 
     return response;
   } catch (error) {
@@ -70,9 +53,9 @@ export const analyticsCustomeFilter = async (params, parma1) => {
   }
 };
 
-export const analyticsRevenueDetails = async () => {
+export const analyticsRevenueDetails = async (token) => {
   try {
-    const response = await analyticsGetApiCall(`/revenue/details`);
+    const response = await analyticsGetApiCall(`/analytics/revenue/details`,token);
 
     return response;
   } catch (error) {
@@ -82,9 +65,9 @@ export const analyticsRevenueDetails = async () => {
 
 
 
-export const analyticsConvertion = async () => {
+export const analyticsConvertion = async (token) => {
   try {
-    const response = await analyticsGetApiCall(`/customer/convertion`);
+    const response = await analyticsGetApiCall(`/analytics/customer/convertion` ,token);
     return response;
   } catch (error) {
     return [];
