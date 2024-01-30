@@ -11,7 +11,7 @@ import { analyticsCustomeFilter } from "@/action/analyticsAdmin";
 import { formatDate } from "@/helpers/helper";
 ChartJS.register(Tooltip, Legend, Title, Title, Tooltip, Legend);
 
-export default function TotalCustomers({ chartData }) {
+export default function TotalCustomers({ chartData ,token }) {
   const [charyArray, setChartArray] = useState([]);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function TotalCustomers({ chartData }) {
 
       const customerJoiningData = await analyticsCustomeFilter(
         formattedDate,
-        formattedDate1
+        formattedDate1 ,token
       );
 
       const apiData = processData(customerJoiningData);

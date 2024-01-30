@@ -39,12 +39,13 @@ export async function getApiCall(endpoint) {
   }
 }
 
-export async function analyticsGetApiCall(endpoint) {
+export async function analyticsGetApiCall(endpoint, token) {
   try {
-    const response = await fetch(`${process.env.analyticsBaseUrl}${endpoint}`, {
+    const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
       },
     });
     if (!response.ok) {
@@ -56,8 +57,6 @@ export async function analyticsGetApiCall(endpoint) {
   } catch (error) {
     throw error;
   }
-
-
-
 }
+
 
