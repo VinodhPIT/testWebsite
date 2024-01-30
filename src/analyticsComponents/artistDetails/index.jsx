@@ -102,9 +102,9 @@ export default function ArtistDetails({initialCounts, token}) {
 
     if (fromDate && toDate) {
         const res = await analyticsArtistCountWithFIlter({
-            type: Apitype[key],
+            endDate: toDate,
             startDate: fromDate,
-            endDate: toDate
+            type: Apitype[key]
         }, token);
         setCountData({
             ...countData,
