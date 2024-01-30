@@ -61,12 +61,24 @@ export default function CustomerDetails({initialCounts, token}) {
     const [dateRange, setDateRange] = useState(initialValue);
     const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
 
-    const handleDownload = (type, startDate, endDate) => {
-    const link = document.createElement('a');
-    link.href = `${process.env.analyticsBaseUrl}/customer/csv/${type}${startDate&&endDate?`?start_date=${moment(startDate).format("YYYY-MM-DD")}&end_date=${moment(endDate).format("YYYY-MM-DD")}`:''}`;
-    link.target = '_blank';
-    link.download = `${new Date().getTime()}.csv`;
-    link.click();
+    const handleDownload = async (type, startDate, endDate) => {
+        fetch(`${process.env.apiDomain}/analytics/customer/csv/${type}${startDate&&endDate?`?start_date=${moment(startDate).format("YYYY-MM-DD")}&end_date=${moment(endDate).format("YYYY-MM-DD")}`:''}`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
+            },
+          }).then(resp => resp.blob())
+          .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = `${type}_${new Date().getTime()}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            window.URL.revokeObjectURL(url);
+          })
+          .catch(() => alert("download error!"));
   };
 
   const handleDateFilter = async (key, dateRangeValue) => {
