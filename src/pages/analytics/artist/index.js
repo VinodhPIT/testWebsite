@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 
 import ArtistDetails from "@/analyticsComponents/artistDetails";
 import Header from "@/analyticsComponents/header/header";
-import { analyticsArtistCount } from "@/action/analyticsAdmin";
+import { analyticsArtistCount } from "@/action/analyticsArtist";
 
 export default function ArtistAnalytics({data: initialData}) {
   const router = useRouter();
   const { status, data } = useSession();
+
   useEffect(() => {
     if (status === "unauthenticated") router.push("/analytics/login");
   }, [status, router]);
@@ -22,15 +23,27 @@ export default function ArtistAnalytics({data: initialData}) {
       <section className="pt_20 pb_20 block_bg_gray_150">
         <ArtistDetails
           initialCounts={initialData}
+          token={initialData.sessionToken}
         />   
       </section>
     </>
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/analytics/login",
+        permanent: false,
+      },
+    };
+  }
+
   try {
-    const data = await analyticsArtistCount();
+    const data = await analyticsArtistCount(session.user.myToken);
 
     return {
       props: {
@@ -44,6 +57,7 @@ export async function getServerSideProps() {
           notCompletedAnyOffer:data.no_offer_completed || 0,
           notContactedCustomer:data.no_contacted || 0,
           notCreatedAnyOffers:data.no_offer_created || 0,
+          sessionToken: session.user.myToken??'',
           totalArtists:data.total_artist || 0,
           totalPublicArtists:data.public_artist || 0
         },
