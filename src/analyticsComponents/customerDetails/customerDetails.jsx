@@ -56,7 +56,7 @@ const initialValue = {
     }
 };
 
-export default function CustomerDetails({initialCounts}) {
+export default function CustomerDetails({initialCounts, token}) {
     const [countData, setCountData]=useState(initialCounts);
     const [dateRange, setDateRange] = useState(initialValue);
     const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
@@ -82,7 +82,7 @@ export default function CustomerDetails({initialCounts}) {
             const res = await analyticsCustomerLeadSourceCountWithFIlter({
                 startDate: fromDate,
                 endDate: toDate
-            });
+            }, token);
             setCountData({
                 ...countData,
                 ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
@@ -100,7 +100,7 @@ export default function CustomerDetails({initialCounts}) {
                 type: Apitype[key],
                 startDate: fromDate,
                 endDate: toDate
-            });
+            }, token);
             setCountData({
                 ...countData,
                 [key]: res[Apitype[key]]
