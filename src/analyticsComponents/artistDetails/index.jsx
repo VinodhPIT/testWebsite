@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-import { analyticsArtistCountWithFIlter } from "@/action/action";
+import { analyticsArtistCountWithFIlter } from '@/action/analyticsAdmin';
 
 import CountDisplayCard from '../countDisplayCard';
 
@@ -69,15 +68,6 @@ export default function ArtistDetails({initialCounts}) {
     const [countData, setCountData]=useState(initialCounts);
     const [dateRange, setDateRange] = useState(initialValue);
     const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
-
-    const renderCustomInput = ({ ref }) => (
-        <input
-            readOnly
-            ref={ref}
-            className="datepicker_input"
-            title="Date Range"
-        />
-    )
 
     const handleDownload = (type, startDate, endDate) => {
     const link = document.createElement('a');

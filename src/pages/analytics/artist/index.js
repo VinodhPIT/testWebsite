@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 
 import ArtistDetails from "@/analyticsComponents/artistDetails";
 import Header from "@/analyticsComponents/header/header";
-import { analyticsArtistCount } from "@/action/action";
+import { analyticsArtistCount } from "@/action/analyticsAdmin";
 
 export default function ArtistAnalytics({data: initialData}) {
   const router = useRouter();

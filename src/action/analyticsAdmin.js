@@ -40,6 +40,24 @@ export const analyticsCustomerLeadSourceCountWithFIlter = async (params) => {
   }
 };
 
+export const analyticsArtistCount = async () => {
+  try {
+    const response = await analyticsGetApiCall('/artist/count');
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+export const analyticsArtistCountWithFIlter = async (params) => {
+  try {
+    const response = await analyticsGetApiCall(`/artist/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`);
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
 export const analyticsCustomeFilter = async (params, parma1) => {
   try {
     const response = await analyticsGetApiCall(
