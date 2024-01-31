@@ -18,6 +18,7 @@ export default function CountDisplayCard({
     bgColorClass,
     count,
     filteredDateRange,
+    hideFilter,
     onClickDownload,
     onUpdateDateFilter, 
     selectedDateRange,
@@ -37,7 +38,9 @@ export default function CountDisplayCard({
                         }
                     </p>
                 </div>    
-                <div className="db_icon_shape db_icon_cal">  
+               {!hideFilter
+                 &&(
+                 <div className="db_icon_shape db_icon_cal">  
                     <div>
                         <Image
                             alt="Download"
@@ -54,7 +57,8 @@ export default function CountDisplayCard({
                             value={selectedDateRange}
                         />
                     </div>
-                </div>                           
+                 </div>  
+               )}                         
             </div>
             <div className="d_flex justify_space_between align_item_center">
                 <h2>{count}</h2>
