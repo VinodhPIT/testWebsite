@@ -148,6 +148,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             bgColorClass="block_bg_green_100"
                             count={countData.notContacted}
                             filteredDateRange={dateRange.notContacted}
+                            hideFilter
                             onClickDownload={() => handleDownload('no_contacted', dateRange.notContacted.from, dateRange.notContacted.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('notContacted', val)}
                             selectedDateRange={selectedDayRange.notContacted}
@@ -159,6 +160,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             bgColorClass="block_bg_blue_50"
                             count={countData.noCompletedOffer}
                             filteredDateRange={dateRange.noCompletedOffer}
+                            hideFilter
                             onClickDownload={() => handleDownload('customer_no_offer_completed', dateRange.noCompletedOffer.from, dateRange.noCompletedOffer.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('noCompletedOffer', val)}
                             selectedDateRange={selectedDayRange.noCompletedOffer}

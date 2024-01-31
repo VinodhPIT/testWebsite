@@ -36,7 +36,7 @@ export default function Header({ data }) {
               <div className="nav_block db_navigation">
                 <ul className="nav main_nav navbar_collapse collapse">
                   <li className="nav_item active">
-                    <Link href="#">Dashboard</Link>
+                    <Link href="#">Customer</Link>
                   </li>
                   <li className="nav_item">
                     <Link href="#">Menu 2</Link>
