@@ -1,6 +1,6 @@
 const pagesWithoutFooter = [
     "/analytics/login",
-    "/analytics/dashboard",
+    "/analytics/customer",
     "/analytics/artist",
     "/analytics/studio",
   ];
