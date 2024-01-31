@@ -1,87 +1,66 @@
-import React, { useState, useEffect } from "react";
-import { Chart as ChartJS, Tooltip, Title, Legend } from "chart.js";
+import React, { useState, useEffect, useMemo } from "react";
+import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { processData } from "@/utils/monthlyDataGenerator";
-import DatePicker, {
-  utils,
-} from "@hassanmojab/react-modern-calendar-datepicker";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
+import Select from "react-select";
 
-import { analyticsCustomeFilter } from "@/action/analyticsAdmin";
-import { formatDate } from "@/helpers/helper";
-ChartJS.register(Tooltip, Legend, Title, Title, Tooltip, Legend);
+ChartJS.register(Tooltip, Legend);
 
-export default function TotalCustomers({ chartData ,token }) {
-  const [charyArray, setChartArray] = useState([]);
+const filterChartDataByYear = (chartData, year) => {
+  return chartData.filter((item) => new Date(item.created_date).getFullYear() === year);
+};
+
+const TotalCustomers = ({ chartData, token }) => {
+  const [chartArray, setChartArray] = useState([]);
+  const startYear = 2020;
+  const currentYear = new Date().getFullYear();
+  const years = Array.from(
+    { length: currentYear - startYear + 1 },
+    (_, index) => startYear + index
+  );
+
+  const yearOptions = years.map((year) => ({ value: year, label: year }));
+  const [selectedYear, setSelectedYear] = useState(currentYear);
+  const selectedOption = { value: selectedYear, label: selectedYear };
 
   useEffect(() => {
-    const apiData = processData(chartData);
-    setChartArray(apiData);
-  }, []);
+    const filteredArray = filterChartDataByYear(chartData, currentYear);
+    setChartArray(processData(filteredArray));
+  }, [currentYear, chartData]);
 
-  const labels = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+  const labels = useMemo(
+    () => ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    []
+  );
 
   const options = {
     responsive: true,
     plugins: {
-      title: {
-        display: false,
-      },
       legend: {
-        display: false, // Hide legend
+        display: false, 
       },
     },
     maintainAspectRatio: false,
   };
-
-  // const apiData = processData(charyArray);
 
   const data = {
     labels,
     datasets: [
       {
         label: " Total Customers ",
-        data: charyArray.map((item) => item.app + item.referredCustomers),
+        data: chartArray.map((item) => item.app + item.referredCustomers),
         backgroundColor: "#81C784",
       },
     ],
   };
 
-  const defaultRange = {
-    from: null,
-    to: null,
-  };
-
-  const [selectedDayRange, setSelectedDayRange] = useState(defaultRange);
-
-  const handleDateChange = async (selectedRange) => {
-    setSelectedDayRange(selectedRange);
-
-    if (selectedRange.to !== null) {
-      const formattedDate = formatDate(selectedRange.from);
-      const formattedDate1 = formatDate(selectedRange.to);
-
-      const customerJoiningData = await analyticsCustomeFilter(
-        formattedDate,
-        formattedDate1 ,token
-      );
-
-      const apiData = processData(customerJoiningData);
-      setChartArray(apiData);
-    }
+  
+  const handleChange = (selectedOption) => {
+    const yearToFilter = selectedOption.value;
+    const filteredArray = filterChartDataByYear(chartData, yearToFilter);
+    setChartArray(processData(filteredArray));
+    setSelectedYear(yearToFilter);
   };
 
   return (
@@ -92,12 +71,12 @@ export default function TotalCustomers({ chartData ,token }) {
             <h3>Total customers</h3>
           </div>
           <div className="db_btn_chart">
-            <DatePicker
-              value={selectedDayRange}
-              shouldHighlightWeekends
-              inputPlaceholder="By Month"
-              // renderInput={renderCustomInput}
-              onChange={handleDateChange}
+            <Select
+              id="yearSelect"
+              options={yearOptions}
+              value={selectedOption}
+              onChange={handleChange}
+              placeholder="This year"
             />
           </div>
         </div>
@@ -110,4 +89,6 @@ export default function TotalCustomers({ chartData ,token }) {
       </div>
     </div>
   );
-}
+};
+
+export default TotalCustomers;
