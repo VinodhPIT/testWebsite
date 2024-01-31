@@ -48,7 +48,7 @@ export async function getServerSideProps(context) {
         data: {
           androidDownloads: data.total_count || 0,
           iosDownloads: data.voucher_used_customer || 0,
-          sessionToken:session.user.myToken??'',
+          sessionToken: session.user.myToken ?? '',
           data
         },
       },
