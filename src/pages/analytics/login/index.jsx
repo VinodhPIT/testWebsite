@@ -23,7 +23,7 @@ const Login = () => {
 
   useEffect(() => {
     if (data?.user && status === "authenticated") {
-      router.push("/analytics/dashboard");
+      router.push("/analytics/customer");
     }
   }, [data, status]);
 

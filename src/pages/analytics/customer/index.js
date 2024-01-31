@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import {
@@ -9,20 +9,18 @@ import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
 import PieChart from "@/analyticsComponents/pieChart/chart";
-import PaymentChart from "@/analyticsComponents/paymentChart/paymentChart";
 import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
-import CustomerChart from "@/analyticsComponents/customerChart/customerChart";
-import CustomerinfoAlert from "@/analyticsComponents/customerinfoAlert/customerinfoAlert";
 import useRevenueStore from '@/store/revenueList';
 import { getSession } from "next-auth/react";
-
+import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
+import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
 
 export default function Analytics({ data }) {
   
 
   const router = useRouter();
   const { status, data: sessionData } = useSession();
-  const { revenue, loading, fetchMorePosts } = useRevenueStore()
+  const { revenue, loading, fetchRevenue } = useRevenueStore()
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -33,7 +31,7 @@ export default function Analytics({ data }) {
  
 
   useEffect(()=>{
-     fetchMorePosts(data.sessionToken)
+    fetchRevenue(data.sessionToken)
   },[])
 
   const getValues = Object.values(data.genderCount);
@@ -95,10 +93,15 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-12">
-             {loading ? null  :<PaymentChart totalRevenue={revenue} title="Payment method"  token={data.sessionToken}/>}
+             {loading ? null  : <ComparisonChart
+                    totalData={data.chartData}
+                    title="Normal vs referred customers"
+                    labe_1="Normal Customers"
+                    labe_2="Referred Customers"
+                  />}
               </div>
               <div className="col-lg-8 col-md-6 col-sm-12">
-               <CustomerConversion token={data.sessionToken}/> 
+              <PaymentComparison  title="Payment methods" label_1={'Klarna'}    label_2={'Stripe payment'}   revenueData={revenue} />
               </div>
             </div>
           </div>
@@ -108,11 +111,9 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
-                <CustomerChart chartData={data.chartData} />
+                <CustomerConversion token={data.sessionToken} />
               </div>
-              {/* <div className="col-lg-3 col-md-5 col-sm-12">
-                <CustomerinfoAlert />
-              </div> */}
+            
             </div>
           </div>
         </section>
@@ -141,18 +142,18 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: {
-          sessionToken:session.user.myToken??'',
-          contactedWithNoOffer: data.contacted_with_no_offer,
-          deletedCustomers: data.deleted,
-          joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length,
-          joinedFromWeb: customerJoinigData.filter((custData)=> custData.lead_source!=="APP").length,
-          noCompletedOffer: data.customer_no_offer_completed,
-          notContacted: data.no_contacted,
-          referralUsedCustomers: data.referral_used_customer,
-          totalCustomers: data.total_count,
-          voucherUserCustomers: data.voucher_used_customer,
-          genderCount: data.gender,
           chartData: customerJoinigData ?? [],
+          contactedWithNoOffer: data.contacted_with_no_offer || 0,
+          deletedCustomers: data.deleted || 0,
+          genderCount: data.gender || 0,
+          joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length || 0,
+          joinedFromWeb: customerJoinigData.filter((custData)=> custData.lead_source!=="APP").length || 0,
+          noCompletedOffer: data.customer_no_offer_completed || 0,
+          notContacted: data.no_contacted || 0,
+          referralUsedCustomers: data.referral_used_customer || 0,
+          sessionToken:session.user.myToken??'',
+          totalCustomers: data.total_count || 0,
+          voucherUserCustomers: data.voucher_used_customer || 0
         },
       },
     };
