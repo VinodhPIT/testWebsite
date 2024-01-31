@@ -1237,7 +1237,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mr_5 {
   margin-right: 5px !important;
 }
-
+.mr_6 {
+  margin-right: 6px !important;
+}
 .mr_10pc {
   margin-right: 10% !important;
 }
@@ -1309,6 +1311,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 }
 .pr_30 {
   padding-right: 30px !important;
+}
+.pr_35 {
+  padding-right: 35px !important;
 }
 .pr_2_pc {
   padding-right: 5% !important;

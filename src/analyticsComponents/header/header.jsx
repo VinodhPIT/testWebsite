@@ -11,13 +11,13 @@ export default function Header({ data }) {
 
  
   return (
-  
+    <> 
     <header className="header_wrapper db_header_wrap">
       <div className="container-fluid pr_40 m_pr_12">
         <div className="row">
           <div className="col-md-12">
             <nav className="header_dashboard">
-              <div className="header_logo_nav m_flex_direction_column">
+              <div className="header_logo_nav">
                 <div className="header_logo">
                   <div  className="navbar_brand">
                     <Image
@@ -28,13 +28,16 @@ export default function Header({ data }) {
                       priority
                     />
                   </div>
+                  <div className="header_db_title_logo">
+                    <h6>Analytics</h6>
+                  </div>
                 </div>
-                <div className="header_db_title">
-                  <h4>Customer analytics</h4>
-                </div>
+                {/* <div className="header_db_title">
+                  <h4>Customer</h4>
+                </div> */}
               </div>
               <div className="nav_block db_navigation">
-                <ul className="nav main_nav navbar_collapse collapse">
+                <ul className="nav main_nav">
                   <li className="nav_item active">
                     <Link href="#">Customer</Link>
                   </li>
@@ -62,22 +65,66 @@ export default function Header({ data }) {
                     priority
                     className="hidden"
                   />
-
                   <button
-                    className="btn_secondary ml_10"
-                    
+                    className="btn_secondary ml_10"                    
                     onClick={handleSignOut}
                   >
                     {" "}
                     Log out
                   </button>
+                </div>  
+                <button class="nav_btn_toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                  <Image                    
+                    src="/blackHamburger.svg"
+                    alt="hamburger"
+                    width={32}
+                    height={32}
+                    priority
+                  />
+                </button>              
+              </div>
+
+
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">  
+                <div class="offcanvas-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <Image                      
+                      src="/close.png"
+                      width={50}
+                      height={50}
+                      alt="close"
+                      priority
+                    />
+                  </button>  
+                </div>
+                <div class="offcanvas-body">
+                  <div className="nav_block">              
+                    <ul className="nav main_nav">
+                      <li className="nav_item active">
+                        <Link href="#">Customer</Link>
+                      </li>
+                      <li className="nav_item">
+                        <Link href="#">Menu 2</Link>
+                      </li>
+                      <li className="nav_item">
+                        <Link href="#">Menu 3</Link>
+                      </li>
+                      <li className="nav_item">
+                        <Link href="#">Menu 4</Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+
+
+
+
             </nav>
           </div>
         </div>
       </div>
     </header>
-
+    </>
   );
 }
