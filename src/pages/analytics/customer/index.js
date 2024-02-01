@@ -14,6 +14,8 @@ import useRevenueStore from '@/store/revenueList';
 import { getSession } from "next-auth/react";
 import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
+import Head from 'next/head'
+
 
 export default function Analytics({ data }) {
   
@@ -65,6 +67,11 @@ export default function Analytics({ data }) {
   
   return (
     <>
+     <Head>
+        <title>Customer-Analytics</title>
+      </Head>
+
+
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
