@@ -417,6 +417,36 @@ header.db_header_wrap {
 .header_dashboard .offcanvas-backdrop {
   display: none;
 }
+
+.spinner-border{margin-left: 11px;}
+
+.btn_login {
+  display: inline-flex;
+  height: 40px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+  border: 0;
+  background: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  padding: 8px 20px;    min-width: 170px;
+
+}
+.btn_login:hover {
+  color: var(--white);
+  background: var(--gray-600);
+  text-decoration: none;
+}
+
+
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;

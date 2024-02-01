@@ -47,36 +47,38 @@ const Login = () => {
 
   return (
     <>
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12">           
-
-          <div className={styles.login_main_wrap}>
-            <div className="header_logo">
-              <Link href="#">
-                <Image
-                  src="/Inckd-logo-footer-black.svg"
-                  alt="Logo"
-                  width="105"
-                  height="31"
-                  priority
-                />
-              </Link>
-            </div>
-            <div className={styles.sign_in_form}>
-              {error && (
-                <h1 className={styles.errorMessage}> Not an analytic user </h1>
-              )}
-              <Formik
-                initialValues={userInfo}
-                validationSchema={LoginSchema}
-                onSubmit={handleSubmit}
-              >
-                <Form className="row">
-                  <div class="col-md-12">
-                    <h1>Login</h1>
-                  </div>
-                  <div class="col-md-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <div className={styles.login_main_wrap}>
+              <div className="header_logo">
+                <Link href="#">
+                  <Image
+                    src="/Inckd-logo-footer-black.svg"
+                    alt="Logo"
+                    width="105"
+                    height="31"
+                    priority
+                  />
+                </Link>
+              </div>
+              <div className={styles.sign_in_form}>
+                {error && (
+                  <h1 className={styles.errorMessage}>
+                    {" "}
+                    Not an analytic user{" "}
+                  </h1>
+                )}
+                <Formik
+                  initialValues={userInfo}
+                  validationSchema={LoginSchema}
+                  onSubmit={handleSubmit}
+                >
+                  <Form className="row">
+                    <div class="col-md-12">
+                      <h1>Login</h1>
+                    </div>
+                    <div class="col-md-12">
                       <div className={styles.input_box}>
                         {/* <label htmlFor="username">username</label> */}
                         <Field
@@ -108,32 +110,31 @@ const Login = () => {
                           component="div"
                           className={styles.error}
                         />
-                      </div>                    
-                  </div>
-                  <div class="col-md-12">
-                    <div style={{"display":"flex" ,"justifyContent":"center","alignItems":"center", "gap":"11px"}}>
-                      <button
-                        type="submit"
-                        disabled={loader}
-                        className={styles.btn_login}
-                      >
-                        Login
-                      </button>
-                      {loader ? (
-                        <Image src="/6.gif" alt="loader" width={25} height={25} />
-                      ) : null}{" "}
+                      </div>
                     </div>
-                    
-                  </div>
-                </Form>
-              </Formik>
+                    <div class="col-md-12">
+                      <div class="d-flex justify-content-center">
+                        <button
+                          className="btn btn-primary btn_login  "
+                          type="submit"
+                        >
+                          <span role="status">Login</span>
+                          {loader ? (
+                            <span
+                              className="spinner-border spinner-border-sm"
+                              aria-hidden="true"
+                            ></span>
+                          ) : null}
+                        </button>
+                      </div>
+                    </div>
+                  </Form>
+                </Formik>
+              </div>
             </div>
           </div>
-
-          </div>
+        </div>
       </div>
-    </div>
-
     </>
   );
 };
