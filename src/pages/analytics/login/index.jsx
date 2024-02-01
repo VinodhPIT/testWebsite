@@ -8,6 +8,7 @@ import styles from "./login.module.css";
 import { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Head from "next/head";
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string().required("User name is required"),
@@ -47,6 +48,10 @@ const Login = () => {
 
   return (
     <>
+      <Head>
+        <title>Login</title>
+      </Head>
+
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -113,7 +118,7 @@ const Login = () => {
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center">
                         <button
                           className="btn btn-primary btn_login  "
                           type="submit"
