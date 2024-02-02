@@ -68,7 +68,6 @@ input.input_txt {
   position: relative;
   border-bottom: 2px solid #adadad;  border-radius: 0;
 }
-
 .error {
   color: red;
   font-size: 13px;
