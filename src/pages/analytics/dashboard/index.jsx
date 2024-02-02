@@ -46,8 +46,8 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: {
-          androidDownloads: data.total_count || 0,
-          iosDownloads: data.voucher_used_customer || 0,
+          androidDownloads: data.android_download_count || 0,
+          iosDownloads: data.ios_download_count || 0,
           sessionToken: session.user.myToken ?? '',
           data
         },
