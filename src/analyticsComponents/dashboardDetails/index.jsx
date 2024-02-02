@@ -29,5 +29,5 @@ export default function DashboardDetails({initialCounts, token}) {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
