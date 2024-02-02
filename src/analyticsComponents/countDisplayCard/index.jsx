@@ -18,6 +18,7 @@ export default function CountDisplayCard({
     bgColorClass,
     count,
     filteredDateRange,
+    hideDownload,
     hideFilter,
     onClickDownload,
     onUpdateDateFilter, 
@@ -62,18 +63,21 @@ export default function CountDisplayCard({
             </div>
             <div className="d_flex justify_space_between align_item_center">
                 <h2>{count}</h2>
-                <div className="db_icon_shape mr_6">
-                    <Link href="" className="d_inline_block" onClick={onClickDownload}>
-                        <Image
-                            alt="Download"
-                            height="24"
-                            priority
-                            src="/db_icon_download.svg"
-                            width="24"
-                        />
-                    </Link>
+                {!hideDownload
+                    && (
+                        <div className="db_icon_shape mr_6">
+                            <Link href="" className="d_inline_block" onClick={onClickDownload}>
+                                <Image
+                                    alt="Download"
+                                    height="24"
+                                    priority
+                                    src="/db_icon_download.svg"
+                                    width="24"
+                                />
+                            </Link>
+                        </div>
+                    )}
                 </div>
-            </div>
         </div>
     </div>
   );
