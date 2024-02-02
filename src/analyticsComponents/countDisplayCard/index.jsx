@@ -28,7 +28,7 @@ export default function CountDisplayCard({
   return (
     <div className={`db_card ${bgColorClass}`}>
         <div className="db_card_body p_16">
-            <div className="d_flex justify_space_between align_item_center pb_12">
+            <div className="d_flex justify_space_between align_item_center pb_12 pr_35">
                 <div>
                     <h4>{title}</h4>
                     <p>
@@ -61,11 +61,11 @@ export default function CountDisplayCard({
                  </div>  
                )}                         
             </div>
-                <div className="d_flex justify_space_between align_item_center">
-                    <h2>{count}</h2>
+            <div className="d_flex justify_space_between align_item_center">
+                <h2>{count}</h2>
                 {!hideDownload
                     && (
-                        <div className="db_icon_shape">
+                        <div className="db_icon_shape mr_6">
                             <Link href="" className="d_inline_block" onClick={onClickDownload}>
                                 <Image
                                     alt="Download"

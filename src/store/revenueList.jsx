@@ -4,7 +4,7 @@ import { analyticsRevenueDetails } from "@/action/analyticsAdmin";
 const useRevenueStore = create((set) => ({
   revenue: {},
   loading: false,
-  fetchMorePosts: async (token) => {
+  fetchRevenue: async (token) => {
     try {
       set({ loading: true });
       const response = await analyticsRevenueDetails(token);

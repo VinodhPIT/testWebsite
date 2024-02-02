@@ -46,6 +46,7 @@ const authOptions = {
   ],
   pages: {
     signIn: "/analytics/login",
+    signOut: "/analytics/login",
   },
     secret: process.env.NEXTAUTH_SECRET,
   

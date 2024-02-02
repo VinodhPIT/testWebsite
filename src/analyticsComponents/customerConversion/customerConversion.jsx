@@ -21,7 +21,7 @@ const CustomerConversion = ({token}) => {
   const { registered, contacted, offerpending, fetchData } =  useCustomerConversionStore();
   
 
-  const startYear = 2022;
+  const startYear = 2020;
   const currentYear = new Date().getFullYear();
   const years = Array.from(
     { length: currentYear - startYear + 1 },
