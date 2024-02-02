@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from 'next/head'
 import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
 
@@ -16,10 +17,11 @@ export default function ArtistAnalytics({data: initialData}) {
 
   return (
     <>
-      <Header 
-        data={status === "authenticated" &&  data.user.name }
-        type="artist"
-       />
+      <Head>
+       <title>Artist-Analytics</title>
+     </Head>
+
+     <Header data={status === "authenticated" && data.user.name} />
       <section className="pt_20 pb_20 block_bg_gray_150">
         <ArtistDetails
           initialCounts={initialData}
