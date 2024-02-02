@@ -42,6 +42,10 @@ header.db_header_wrap {
   margin-top: 0;
   margin-right: 20px;
 }
+.header_db_title {
+  display: flex;
+  align-items: center;
+}
 .header_db_title h4 {
   font-size: 20px;
   font-weight: 400;
@@ -49,10 +53,26 @@ header.db_header_wrap {
   margin: 0;
   color: #212121;
 }
+.header_db_title_logo {
+  margin-top: 5px;
+}
+.header_db_title_logo h6 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 0;
+  color: #212121;
+}
+
 .header_dashboard .header_right {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+.header_dashboard .nav_btn_toggle {
+  margin-left: 10px;
+  margin-top: 4px;
+}
+
 .db_user_profile a {
   font-size: 16px;
   font-weight: 400;
@@ -289,10 +309,159 @@ header.db_header_wrap {
 .datePicker{
   z-index: 999!important;
 }
-.chart_Box{width: 225px;max-width: 100%;}
-  .not_Found{position:absolute;top: 50% ;left: 50%;transform: translate(-50%,-50%);}
+.chart_Box{
+  width: 225px;
+  max-width: 100%;
+}
+.not_Found{
+  position:absolute;
+  top: 50% ;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.header_dashboard .offcanvas {
+  padding: 50px 15px 15px;
+  max-width: 633px;
+  width: 100%;
+  box-shadow: 0 0 8px 0 rgba(0,0,0,.2);
+  border: 0;
+}
+
+.header_dashboard .offcanvas button.btn-close {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  cursor: pointer;
+  float: right;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  background: none;
+  opacity: 1;
+}
+.header_dashboard .offcanvas button.btn-close:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.header_dashboard .offcanvas .offcanvas-header {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.header_dashboard .offcanvas .offcanvas-body {
+  padding: 0;
+}
+
+.header_dashboard .offcanvas .nav_block {
+  padding: 0  10%;
+  width: 100%;
+  display: block;
+}
+
+.header_dashboard .offcanvas .nav_block ul.main_nav {
+  display: inline-block;
+  width: 100%;
+  list-style-type: none;
+  text-align: left;
+  padding: 0;
+}
+
+.header_dashboard .offcanvas .nav_block ul.main_nav li {
+  display: block;
+  list-style-type: none;
+  text-align: left;
+  padding: 14px 0;
+  margin: 0 0 15px 0;
+}
+.header_dashboard .offcanvas .nav_block ul.main_nav > li.active {
+  border-bottom: 3px solid #E1E4E8;
+}
+.header_dashboard .offcanvas .nav_block ul.main_nav li a {
+  font-size: 36px;
+  line-height: 37px;
+  color: #000;
+  font-weight: 600;
+}
+
+.header_dashboard .offcanvas .nav_block ul.main_nav > li.active a {
+  color: #212121;
+}
+.db_customer_detail_wrap .db_icon_cal .DatePicker input.datepicker_input {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  border: 0;
+  position: relative;
+}
+
+.db_customer_detail_wrap .db_icon_cal .DatePicker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  left: 8px;
+}
+
+.db_customer_detail_wrap .db_icon_cal {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+.header_dashboard .offcanvas-backdrop {
+  display: none;
+}
+
+.spinner-border{margin-left: 11px;}
+
+.btn_login {
+  display: inline-flex;
+  height: 40px;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+  border: 0;
+  background: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  padding: 8px 20px;    min-width: 170px;
+
+}
+.btn_login:hover {
+  color: var(--white);
+  background: var(--gray-600);
+  text-decoration: none;
+}
+
+
+@media screen and (max-width: 1199px) {
+  .header_dashboard .nav_block.db_navigation {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 1200px) {
+  .header_dashboard .nav_btn_toggle {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  header .db_navigation {
+  header .nav_block {
     display: inline-block;
   }
 }
@@ -301,9 +470,7 @@ header.db_header_wrap {
   .header_dashboard {
     align-items: center;
   }
-  .header_db_title {
-   margin-top: 10px;
-  }
+  
   .header_db_title h4 {
     font-size: 17px;
     line-height: 24px;
@@ -311,9 +478,35 @@ header.db_header_wrap {
   .db_customer_detail_wrap {
     padding: 0;
   }
-  .header_dashboard .header_logo {
-    margin-right: 0;
+
+  .header_dashboard .offcanvas .nav_block ul.main_nav li {   
+    padding: 14px 0;
+    margin: 0 0 15px 0;
   }
+ 
+  .header_dashboard .offcanvas .nav_block ul.main_nav li a {
+    font-size: 24px;
+    line-height: 24px;  
+  }
+  .header_dashboard .offcanvas button.btn-close img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header_dashboard .offcanvas button.btn-close {
+      right: 15px;
+      top: 15px;
+  }
+
+.header_dashboard .offcanvas .nav_block {
+  padding: 0 5%;
+}
+
+.header_dashboard .offcanvas {
+  width: 100%;
+  max-width: 100%;
+}
+  
 }
 
 @media screen and (max-width: 640px) {  
@@ -324,6 +517,28 @@ header.db_header_wrap {
     padding-top: 10px!important;
   }
 }
+
+@media screen and (max-width: 560px) {   
+  .header_dashboard .header_right .db_user_profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .header_dashboard .header_right .db_user_profile > span {
+      margin-bottom: 5px;
+  }
+  .header_dashboard .db_user_profile button.btn_secondary {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 36px;
+    font-size: 14px;
+    margin-left: 0!important;
+    width: 100px;
+  }
+
+}
+
 
 @media screen and (max-width: 460px) {  
   .db_piechart_payment {
