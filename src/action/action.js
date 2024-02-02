@@ -128,6 +128,8 @@ export const artistGallery = async (uid) => {
   }
 };
 
+
+
 export const referralCode = async (slug) => {
   try {
     const response = await getApiCall(`/web/api/customer/referral/${slug}`);
