@@ -62,6 +62,7 @@
   --light-green-200: #81C784;
   --green-dark-400: #187E7E;
   --green-800: #4CAF50;
+  --blue:#1976D2;
 }
 * {
   box-sizing: border-box;
@@ -775,6 +776,11 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .block_bg_blue_150 {
   background-color: var(--blue-150);
 }
+.block_bg_blue {
+  background-color: var(--blue);
+}
+
+
 .block_bg_gray_light_200 {
   background-color: var(--gray-light-200);
 }
