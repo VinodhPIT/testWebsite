@@ -24,7 +24,7 @@ const Login = () => {
 
   useEffect(() => {
     if (data?.user && status === "authenticated") {
-      router.push("/analytics/customer");
+      router.replace("/analytics/customer");
     }
   }, [data, status]);
 
