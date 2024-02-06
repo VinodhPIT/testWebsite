@@ -97,8 +97,8 @@ export default function ArtistDetails({initialCounts, token}) {
         [key]: dateRangeValue
     });
     const { from, to } = dateRangeValue;
-    const fromDate = `${from?.year}-${from?.month}-${from?.day}` || '';
-    const toDate = to ? `${to?.year}-${to?.month}-${to?.day}` : null;
+    const fromDate = `${from?.year}-${from?.month>9?from?.month:`0${from?.month}`}-${from?.day>9?from?.day:`0${from?.day}`}` || '';
+    const toDate = to ? `${to?.year}-${to?.month>9?to?.month:`0${to?.month}`}-${to?.day>9?to?.day:`0${to?.day}`}` : null;
 
     if (fromDate && toDate) {
         const res = await analyticsArtistCountWithFIlter({

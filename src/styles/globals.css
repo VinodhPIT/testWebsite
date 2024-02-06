@@ -859,6 +859,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   max-width: 90% !important;
 }
 
+.w_min_100 {
+  min-width: 100px!important;
+}
+
 .w_min_170 {
   min-width: 170px!important;
 }
@@ -1035,6 +1039,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .ml_0 {
   margin-left: 0px !important;
+}
+
+.ml_5 {
+  margin-left: 5px !important;
 }
 
 .ml-8 {
