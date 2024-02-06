@@ -95,6 +95,7 @@ body {
   min-height: 100%;
   scroll-behavior: smooth;
   position: relative;
+  overflow: inherit!important;
 }
 
 body.theme-dark {
