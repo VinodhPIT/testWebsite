@@ -13,7 +13,7 @@ export const processData = (apiResponse) => {
       const dateString = item.created_date;
       const dateOnly = dateString.split(" ")[0];
       const monthIndex = parseInt(dateOnly.split("-")[1], 10) - 1;
-      if (item.lead_source === "APP") {
+      if (item.lead_source !== "REFERRAL") {
         monthlyArray[monthIndex].app += 1;
       } else if (item.lead_source === "REFERRAL") {
         monthlyArray[monthIndex].referredCustomers += 1;

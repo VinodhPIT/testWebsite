@@ -67,7 +67,7 @@ const CustomerConversion = ({token}) => {
           <div>
             <h3>Customer Conversion</h3>
           </div>
-          <div className="db_btn_chart right_20">
+          <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
               id="yearSelect"
               options={options}

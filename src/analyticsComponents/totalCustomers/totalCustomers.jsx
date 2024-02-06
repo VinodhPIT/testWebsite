@@ -70,13 +70,14 @@ const TotalCustomers = ({ chartData, token }) => {
           <div>
             <h3>Total customers</h3>
           </div>
-          <div className="db_btn_chart">
+          <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
               id="yearSelect"
               options={yearOptions}
               value={selectedOption}
               onChange={handleChange}
               placeholder="This year"
+              isSearchable={ false }
             />
           </div>
         </div>

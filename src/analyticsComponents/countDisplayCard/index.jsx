@@ -51,6 +51,7 @@ export default function CountDisplayCard({
                             width="24"
                         />
                         <DatePicker
+                            calendarPopperPosition="bottom"
                             maximumDate={utils('en').getToday()}
                             onChange={(val)=> onUpdateDateFilter(val)}
                             renderInput={renderCustomInput}
