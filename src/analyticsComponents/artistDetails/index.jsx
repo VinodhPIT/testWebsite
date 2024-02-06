@@ -132,7 +132,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('total_artist', dateRange.totalArtists.from, dateRange.totalArtists.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalArtists', val)}
                             selectedDateRange={selectedDayRange.totalArtists}
-                            title="Total artist"
+                            title="Total active artist"
                         />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -143,7 +143,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('public_artist', dateRange.totalPublicArtists.from, dateRange.totalPublicArtists.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalPublicArtists', val)}
                             selectedDateRange={selectedDayRange.totalPublicArtists}
-                            title="Total Public artists"
+                            title="Total public artists"
                         />
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6">
