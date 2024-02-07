@@ -57,7 +57,7 @@ export default function Analytics({ data }) {
   const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
 
   const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue_150" },
+    { id: 1, label: "Male", bgColor: "block_bg_blue" },
     { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
@@ -118,7 +118,9 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
-                <CustomerConversion token={data.sessionToken} />
+
+               {data.role==="Analytic Admin" &&  <CustomerConversion token={data.sessionToken} />}
+               
               </div>
             
             </div>
@@ -132,6 +134,7 @@ export default function Analytics({ data }) {
 export async function getServerSideProps(context) {
 
   const session = await getSession(context);
+
 
   if (!session) {
     return {
@@ -149,6 +152,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: {
+          role :session.user.role,
           chartData: customerJoinigData ?? [],
           contactedWithNoOffer: data.contacted_with_no_offer || 0,
           deletedCustomers: data.deleted || 0,

@@ -35,6 +35,7 @@ const authOptions = {
               myToken: access_token,
               scope: scope,
               name: user.username,
+              role:user.role
             };
           }
         } catch (error) {
@@ -56,6 +57,8 @@ const authOptions = {
         params.token.myToken = params.user.myToken;
         params.token.scope = params.user.scope;
         params.token.name = params.user.name;
+        params.token.role = params.user.role;
+        
       }
       return params.token;
     },
@@ -64,6 +67,7 @@ const authOptions = {
         session.user.myToken = token.myToken;
         session.user.scope = token.scope;
         session.user.name = token.name;
+        session.user.role = token.role;
       }
       return session;
     },
