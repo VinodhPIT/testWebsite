@@ -1,8 +1,6 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
-
 import useTranslation from "next-translate/useTranslation";
-
 import {
   Accordion,
   AccordionItem,
@@ -14,15 +12,13 @@ import "react-accessible-accordion/dist/fancy-example.css";
 import Search from "@/components/tattooSearch/tattooSearch";
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
-import { getLocaleProps } from '@/utils/getlocale';
+import { getLocaleProps } from "@/utils/getlocale";
 import { useRouter } from "next/router";
 
+export default function FAQ({ locale }) {
+  const router = useRouter();
 
-export default function FAQ({locale}) {
-
-const router = useRouter()
-
-  const {getLocale } = useGlobalState();
+  const { getLocale } = useGlobalState();
 
   const [state, setState] = useState("general");
 
@@ -32,8 +28,6 @@ const router = useRouter()
 
   const { t } = useTranslation();
 
-
-
   useEffect(() => {
     try {
       getLocale({
@@ -41,7 +35,6 @@ const router = useRouter()
       });
     } catch (error) {}
   }, [locale]);
-
 
   const faqTab = [
     {
@@ -106,74 +99,77 @@ const router = useRouter()
 
   const FAQ_ARTISTS = [
     {
-      id: 1,
+      id: 7,
       summary: t("common:faqScreen.title7"),
-      details: t("common:faqScreen.content7")},
-
+      details: t("common:faqScreen.content7"),
+    },
 
     {
-      id: 2,
+      id: 8,
       summary: t("common:faqScreen.title8"),
-      details: t("common:faqScreen.content8")},
+      details: t("common:faqScreen.content8"),
+    },
 
     {
-      id: 3,
+      id: 9,
       summary: t("common:faqScreen.title9"),
-      details: t("common:faqScreen.content9")},
-
-
+      details: t("common:faqScreen.content9"),
+    },
 
     {
-      id: 4,
+      id: 10,
       summary: t("common:faqScreen.title10"),
-      details: t("common:faqScreen.content10")},
+      details: t("common:faqScreen.content10"),
+    },
 
     {
-      id: 5,
-       summary: t("common:faqScreen.title11"),
-      details: t("common:faqScreen.content11")},
-      
+      id: 11,
+      summary: t("common:faqScreen.title11"),
+      details: t("common:faqScreen.content11"),
+    },
+
     {
-      id: 6,
+      id: 12,
       summary: t("common:faqScreen.title12"),
-      details: t("common:faqScreen.content12")}
-
+      details: t("common:faqScreen.content12"),
+    },
   ];
 
   const FAQ_CUSTOMERS = [
     {
-      id: 1,
+      id: 13,
       summary: t("common:faqScreen.title13"),
-      details: t("common:faqScreen.content13")},
+      details: t("common:faqScreen.content13"),
+    },
 
     {
-      id: 2,
-     summary: t("common:faqScreen.title14"),
-      details: t("common:faqScreen.content14")},
+      id: 14,
+      summary: t("common:faqScreen.title14"),
+      details: t("common:faqScreen.content14"),
+    },
 
     {
-      id: 3,
+      id: 15,
       summary: t("common:faqScreen.title15"),
-      details: t("common:faqScreen.content15")},
-      
-    {
-      id: 4,
-      summary: t("common:faqScreen.title16"),
-      details: t("common:faqScreen.content16")},
+      details: t("common:faqScreen.content15"),
+    },
 
+    {
+      id: 16,
+      summary: t("common:faqScreen.title16"),
+      details: t("common:faqScreen.content16"),
+    },
   ];
 
   return (
     <>
-    <Head>
-        <title>
-        Tattoo FAQ: Your questions qnswered
-        </title>
+      <Head>
+        <title>Tattoo FAQ: Your questions qnswered</title>
         <meta
           name="description"
           content="Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey"
         />
-         <meta
+        <meta
           name="keywords"
           content="Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
         />
@@ -182,9 +178,7 @@ const router = useRouter()
       <main>
         <div className="faq_search_wrap">
           <div className="container">
-
-            <Search  currentTab={"all"}  router={router} isDetail={true} />
-
+            <Search currentTab={"all"} router={router} isDetail={true} />
           </div>
         </div>
 
@@ -204,7 +198,8 @@ const router = useRouter()
                     >
                       <div className={style.tabBox}>
                         <img
-                          src={state === tab.id ? tab.activeImage : tab.image} alt={tab.id}
+                          src={state === tab.id ? tab.activeImage : tab.image}
+                          alt={tab.id}
                         />
                         <p style={{ margin: "0" }}>{tab.label}</p>
                       </div>
@@ -217,64 +212,43 @@ const router = useRouter()
 
           <div className="faq_accordion_wrap">
             <div className="container">
-              {state === "general" ? (
-                <Accordion>
-                  {FAQ_GENERAL.map((e) => {
-                    return (
-                      <>
-                        <AccordionItem>
-                          <AccordionItemHeading>
-                            <AccordionItemButton>
-                              {e.summary}
-                            </AccordionItemButton>
-                          </AccordionItemHeading>
-                          <AccordionItemPanel>
-                            <p>{e.details}</p>
-                          </AccordionItemPanel>
-                        </AccordionItem>
-                      </>
-                    );
-                  })}
-                </Accordion>
-              ) : state == "artist" ? (
-                <Accordion>
-                  {FAQ_ARTISTS.map((e) => {
-                    return (
-                      <>
-                        <AccordionItem>
-                          <AccordionItemHeading>
-                            <AccordionItemButton>
-                              {e.summary}
-                            </AccordionItemButton>
-                          </AccordionItemHeading>
-                          <AccordionItemPanel>
-                            <p>{e.details}</p>
-                          </AccordionItemPanel>
-                        </AccordionItem>
-                      </>
-                    );
-                  })}
-                </Accordion>
-              ) : (
-                <Accordion>
-                  {FAQ_CUSTOMERS.map((e) => {
-                    return (
-                      <>
-                        <AccordionItem>
-                          <AccordionItemHeading>
-                            <AccordionItemButton>
-                              {e.summary}
-                            </AccordionItemButton>
-                          </AccordionItemHeading>
-                          <AccordionItemPanel>
-                            <p>{e.details}</p>
-                          </AccordionItemPanel>
-                        </AccordionItem>
-                      </>
-                    );
-                  })}
-                </Accordion>
-              )}
+              <Accordion allowZeroExpanded={true}>
+                {state === "general" &&
+                  FAQ_GENERAL.map((e, index) => (
+                    <AccordionItem
+                      expanded={state === "general" && index === 0}
+                    >
+                      <AccordionItemHeading>
+                        <AccordionItemButton>{e.summary}</AccordionItemButton>
+                      </AccordionItemHeading>
+                      <AccordionItemPanel>
+                        <p>{e.details}</p>
+                      </AccordionItemPanel>
+                    </AccordionItem>
+                  ))}
+                {state === "artist" &&
+                  FAQ_ARTISTS.map((e, index) => (
+                    <AccordionItem expanded={state === "artist" && index === 0}>
+                      <AccordionItemHeading>
+                        <AccordionItemButton>{e.summary}</AccordionItemButton>
+                      </AccordionItemHeading>
+                      <AccordionItemPanel>
+                        <p>{e.details}</p>
+                      </AccordionItemPanel>
+                    </AccordionItem>
+                  ))}
+                {state === "tattoo" &&
+                  FAQ_CUSTOMERS.map((e, index) => (
+                    <AccordionItem expanded={state === "tattoo" && index === 0}>
+                      <AccordionItemHeading>
+                        <AccordionItemButton>{e.summary}</AccordionItemButton>
+                      </AccordionItemHeading>
+                      <AccordionItemPanel>
+                        <p>{e.details}</p>
+                      </AccordionItemPanel>
+                    </AccordionItem>
+                  ))}
+              </Accordion>
             </div>
           </div>
         </div>
@@ -286,8 +260,8 @@ const router = useRouter()
 export async function getServerSideProps(context) {
   const { props } = await getLocaleProps(context);
   return {
-    props:{
-      locale:props.locale
-    }
+    props: {
+      locale: props.locale,
+    },
   };
 }
