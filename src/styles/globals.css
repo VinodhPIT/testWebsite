@@ -3139,6 +3139,7 @@ form.form_floating .form_group.radio_block>label {
   width: 100% !important;
   height: 100%;
 }
+.carousel-slider button{width: 32px; height: 32px;}
 
 .custom_carousel_wrap .carousel-root {
   display: flex;
@@ -6058,9 +6059,18 @@ button.language_switcher img {
   .custom-carousel-prev {
     left: -10px;
   }  
+
   .custom-carousel-next {
     right: -10px;
   }   
+  .custom-carousel-arrow {
+    top: 40%;
+  }
+
+  .custom-carousel-arrow-disable {
+    top: 40%
+  }
+
   .custom_carousel_data {
     text-align: center;
     padding-left: 0;
@@ -6272,11 +6282,11 @@ button.language_switcher img {
   .artist_tattoo_form_block .img_text_box_wrapper .text_box_wrap .img_text_box_inner .img_box_wrap .form_block_right .form_right_wrap {
     margin-top: 0;
   }
-  .custom_dictionary_slider .carousel .slider-wrapper {
+  /* .custom_dictionary_slider .carousel .slider-wrapper {
     margin-left: 30px;
     margin-right: 30px;
     width: calc(100% - 60px);
-  }
+  } */
   .custom_dictionary_slider .keywords_item_block {
     margin-left: 0;
     width: 100%!important;
@@ -6331,8 +6341,10 @@ button.language_switcher img {
     line-height: 21px;
   }
   .custom_carousel_wrap .carousel-slider .slider-wrapper ul.slider .keywords_wrap ul.keywords_list li {
-    margin-right: 9px;
-    font-size: 16px;
+    margin-right: 6px;
+    font-size: 15px;
+    padding: 3px 8px;
+
   }
   .footer .footer_block .footer_left ul.footer_list {
     margin-top: 20px;
@@ -6412,6 +6424,8 @@ button.language_switcher img {
 }
 
 @media screen and (min-width: 768px) {
+  
+
   .offset-md-right-0 {
     margin-right: 0;
   }
@@ -6873,6 +6887,7 @@ button.language_switcher img {
   .popup_wrap.explore_feature_app_popup .popup_content_wrap {
     padding-right: 15px;
   }
+
 }
 
 @media screen and (max-width: 991.98px) {
