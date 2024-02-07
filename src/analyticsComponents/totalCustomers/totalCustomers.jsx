@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
+import moment from "moment";
 import { Bar } from "react-chartjs-2";
 import { processData } from "@/utils/monthlyDataGenerator";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
@@ -8,7 +9,7 @@ import Select from "react-select";
 ChartJS.register(Tooltip, Legend);
 
 const filterChartDataByYear = (chartData, year) => {
-  return chartData.filter((item) => new Date(item.created_date).getFullYear() === year);
+  return chartData.filter((item) => moment(item.created_date).year() === year);
 };
 
 const TotalCustomers = ({ chartData, token }) => {

@@ -92,3 +92,36 @@ export const formatDate = (date) => {
   return dateObject.toISOString().split("T")[0];
 };
 
+
+
+
+export const startYear = 2020;
+export const currentYear = new Date().getFullYear();
+export const years = Array.from(
+  { length: currentYear - startYear + 1 },
+  (_, index) => startYear + index
+);
+
+export const options = years.map((year) => ({ value: year, label: year }));
+
+export const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+export const calculatePercentage = (...args) => {
+  const numbers = args.map(arg => parseFloat(arg) || 0);
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0); 
+  const averagePercentage = sum / numbers.length; // Divide by the count of values
+  return averagePercentage.toFixed(2); 
+};
