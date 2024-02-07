@@ -45,7 +45,7 @@ export default function Analytics({ data }) {
   const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
 
   const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue_150" },
+    { id: 1, label: "Male", bgColor: "block_bg_blue" },
     { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
