@@ -1,7 +1,7 @@
 import { analyticsGetApiCall } from "@/utils/apiUtils";
 
 export const analyticsCustomerCount = async (token) => {
-  console.log(token ,"token")
+
   try {
     const response = await analyticsGetApiCall("/analytics/customer/count" ,token);
     return response;

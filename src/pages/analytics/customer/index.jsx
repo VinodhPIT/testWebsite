@@ -10,7 +10,7 @@ import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetai
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
 import PieChart from "@/analyticsComponents/pieChart/chart";
 import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
-import useRevenueStore from '@/store/revenueList';
+import useRevenueStore from '@/store/customerAnalytics/revenueList';
 import { getSession } from "next-auth/react";
 import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
@@ -80,7 +80,7 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
-                 <TotalCustomers chartData={data.chartData} token={data.sessionToken} /> 
+                 <TotalCustomers    title="Total Customers"  chartData={data.chartData} token={data.sessionToken} /> 
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <PieChart
@@ -146,9 +146,12 @@ export async function getServerSideProps(context) {
   }
 
   try {
-    const data = await analyticsCustomerCount(session.user.myToken);
-    const customerJoinigData = await analyticsCustomerLeadSourceCount(session.user.myToken);
-    
+ 
+    const [data, customerJoinigData] = await Promise.all([
+      analyticsCustomerCount(session.user.myToken),
+      analyticsCustomerLeadSourceCount(session.user.myToken),
+    ]);
+
     return {
       props: {
         data: {

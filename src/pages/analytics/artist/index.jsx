@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { getSession, useSession } from "next-auth/react";
+import ArtistDetails from "@/analyticsComponents/artistDetails";
+import Header from "@/analyticsComponents/header/header";
 import {
   analyticsArtistCount,
   analyticsArtistLeadSourceCount,
 } from "@/action/analyticsArtist";
-import Header from "@/analyticsComponents/header/header";
-import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
+import ArtistsByCountryTable from "@/analyticsComponents/ArtistsByCountryTable/ArtistsByCountryTable";
+import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
+import { artistConversion } from "@/analyticsComponents/customerConversion/keys";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
 import PieChart from "@/analyticsComponents/pieChart/chart";
 import ArtistConversion from "@/analyticsComponents/artistConversion/artistConversion";
-import { getSession } from "next-auth/react";
-import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
-import { artistConversion } from "@/analyticsComponents/customerConversion/keys";
 
-import ArtistsByCountryTable from "@/analyticsComponents/ArtistsByCountryTable/ArtistsByCountryTable";
-
-export default function Analytics({ data }) {
+export default function ArtistAnalytics({ data: initialData }) {
   const router = useRouter();
-  const { status, data: sessionData } = useSession();
+  const { status, data } = useSession();
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
+    if (status === "unauthenticated") router.push("/analytics/login");
   }, [status, router]);
 
-  const getValues = Object.values(data.genderCount);
+  const getValues = Object.values(initialData.genderCount);
 
-  const getKeys = Object.keys(data.genderCount).map((key) => {
+  const getKeys = Object.keys(initialData.genderCount).map((key) => {
     switch (key) {
       case "male_count":
         return "Male";
@@ -56,16 +52,20 @@ export default function Analytics({ data }) {
         <title>Artist-Analytics</title>
       </Head>
 
-      <Header data={status === "authenticated" && sessionData.user.name} />
-
+      <Header data={status === "authenticated" && data.user.name} />
       <section className="pt_20 pb_20 block_bg_gray_150">
+        <ArtistDetails
+          initialCounts={initialData}
+          token={initialData.sessionToken}
+        />
+
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
                 <TotalCustomers
                   title="Total Artists"
-                  chartData={data.chartData}
+                  chartData={initialData.chartData}
                 />
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
@@ -86,14 +86,14 @@ export default function Analytics({ data }) {
             <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <ComparisonChart
-                  totalData={data.chartData}
+                  totalData={initialData.chartData}
                   title="Normal vs Referred artists"
                   labe_1="Normal artists"
                   labe_2="Referred artists"
                 />
               </div>
               <div className="col-lg-8 col-md-6 col-sm-12">
-                <ArtistsByCountryTable data={data.chartData} />
+                <ArtistsByCountryTable data={initialData.chartData} />
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function Analytics({ data }) {
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <ArtistConversion
                   title={"Artist Conversion"}
-                  token={data.sessionToken}
+                  token={initialData.sessionToken}
                   types={artistConversion}
                 />
               </div>
@@ -139,18 +139,25 @@ export async function getServerSideProps(context) {
       props: {
         data: {
           chartData: customerJoinigData ?? [],
-          genderCount: data.gender || 0,
+          artistCompletedOffers: data.artist_with_offer || 0,
+          artistInCommunication: data.contacted_artist || 0,
+          joinedFromApp: data.joined_from_app || 0,
+          joinedFromWeb: data.joined_from_website || 0,
+          joinedUsingReferral: data.referreal_used || 0,
+          nonPublicProfiles: data.not_public_artist || 0,
+          notCompletedAnyOffer: data.no_offer_completed || 0,
+          notContactedCustomer: data.no_contacted || 0,
+          notCreatedAnyOffers: data.no_offer_created || 0,
           sessionToken: session.user.myToken ?? "",
+          totalArtists: data.total_artist || 0,
+          totalPublicArtists: data.public_artist || 0,
+          genderCount: data.gender || 0,
         },
       },
     };
   } catch (error) {
-    console.error("Error fetching data:", error);
-
     return {
-      props: {
-        data: null,
-      },
+      data: null,
     };
   }
 }

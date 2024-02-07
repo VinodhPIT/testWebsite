@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import useSArtistConversionStore from "@/store/artistAnalytics/ArtistConversion";
+import useSArtistConversionStore from "@/store/artistAnalytics/artistConversion";
 import {
   currentYear,
   options,
