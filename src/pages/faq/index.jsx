@@ -14,6 +14,7 @@ import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { getLocaleProps } from "@/utils/getlocale";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function FAQ({ locale }) {
   const router = useRouter();
@@ -197,7 +198,9 @@ export default function FAQ({ locale }) {
                       onClick={() => changeTab(tab.id)}
                     >
                       <div className={style.tabBox}>
-                        <img
+                        <Image
+                          width={25}
+                          height={25}
                           src={state === tab.id ? tab.activeImage : tab.image}
                           alt={tab.id}
                         />
@@ -217,6 +220,7 @@ export default function FAQ({ locale }) {
                   FAQ_GENERAL.map((e, index) => (
                     <AccordionItem
                       expanded={state === "general" && index === 0}
+                      key={e.id}
                     >
                       <AccordionItemHeading>
                         <AccordionItemButton>{e.summary}</AccordionItemButton>
@@ -228,7 +232,10 @@ export default function FAQ({ locale }) {
                   ))}
                 {state === "artist" &&
                   FAQ_ARTISTS.map((e, index) => (
-                    <AccordionItem expanded={state === "artist" && index === 0}>
+                    <AccordionItem
+                      expanded={state === "artist" && index === 0}
+                      key={e.id}
+                    >
                       <AccordionItemHeading>
                         <AccordionItemButton>{e.summary}</AccordionItemButton>
                       </AccordionItemHeading>
@@ -239,7 +246,10 @@ export default function FAQ({ locale }) {
                   ))}
                 {state === "tattoo" &&
                   FAQ_CUSTOMERS.map((e, index) => (
-                    <AccordionItem expanded={state === "tattoo" && index === 0}>
+                    <AccordionItem
+                      expanded={state === "tattoo" && index === 0}
+                      key={e.id}
+                    >
                       <AccordionItemHeading>
                         <AccordionItemButton>{e.summary}</AccordionItemButton>
                       </AccordionItemHeading>
