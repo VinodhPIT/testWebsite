@@ -123,8 +123,8 @@ export default function ArtistDetails({initialCounts, token}) {
   return (
         <section className="container-fluid">
             <div className="db_customer_detail_wrap">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_yellow_300"
                             count={countData.totalArtists}
@@ -132,10 +132,10 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('total_artist', dateRange.totalArtists.from, dateRange.totalArtists.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalArtists', val)}
                             selectedDateRange={selectedDayRange.totalArtists}
-                            title="Total artist"
+                            title="Total active artist"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_green_100"
                             count={countData.totalPublicArtists}
@@ -143,10 +143,10 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('public_artist', dateRange.totalPublicArtists.from, dateRange.totalPublicArtists.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalPublicArtists', val)}
                             selectedDateRange={selectedDayRange.totalPublicArtists}
-                            title="Total Public artists"
+                            title="Total public artists"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_blue_50"
                             count={countData.artistInCommunication}
@@ -157,7 +157,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             title="Artists in communication with the customer"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_orange_100"
                             count={countData.artistCompletedOffers}
@@ -169,8 +169,8 @@ export default function ArtistDetails({initialCounts, token}) {
                         />
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_yellow_300"
                             count={countData.notCompletedAnyOffer}
@@ -181,7 +181,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             title="Artists who didn’t complete any offers"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_green_100"
                             count={countData.joinedUsingReferral}
@@ -192,7 +192,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             title="Artists joined using referral"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_blue_50"
                             count={countData.joinedFromWeb}
@@ -203,7 +203,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             title="Artists joined from website"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_orange_100"
                             count={countData.joinedFromApp}
@@ -215,8 +215,8 @@ export default function ArtistDetails({initialCounts, token}) {
                         />
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_yellow_300"
                             count={countData.notContactedCustomer}
@@ -227,7 +227,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             title="Artists not contacted any customers"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_green_100"
                             count={countData.notCreatedAnyOffers}
@@ -238,7 +238,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             title="Artists not created any offers"
                         />
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
                         <CountDisplayCard 
                             bgColorClass="block_bg_blue_50"
                             count={countData.nonPublicProfiles}

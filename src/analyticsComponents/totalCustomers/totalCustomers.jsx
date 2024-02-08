@@ -12,7 +12,7 @@ const filterChartDataByYear = (chartData, year) => {
   return chartData.filter((item) => moment(item.created_date).year() === year);
 };
 
-const TotalCustomers = ({ chartData, token }) => {
+const TotalCustomers = ({ title ,chartData, token }) => {
   const [chartArray, setChartArray] = useState([]);
   const startYear = 2020;
   const currentYear = new Date().getFullYear();
@@ -49,7 +49,7 @@ const TotalCustomers = ({ chartData, token }) => {
     labels,
     datasets: [
       {
-        label: " Total Customers ",
+        label: title,
         data: chartArray.map((item) => item.app + item.referredCustomers),
         backgroundColor: "#81C784",
       },
@@ -69,7 +69,7 @@ const TotalCustomers = ({ chartData, token }) => {
       <div className="db_card_body">
         <div className="d_flex justify_space_between align_item_center pb_12 position_relative">
           <div>
-            <h3>Total customers</h3>
+            <h3>{title}</h3>
           </div>
           <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select

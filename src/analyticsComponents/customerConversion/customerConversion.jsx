@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import useCustomerConversionStore from "@/store/CustomerConversion";
+import useCustomerConversionStore from "@/store/customerAnalytics/customerConversion";
 import {
   currentYear,
   options,

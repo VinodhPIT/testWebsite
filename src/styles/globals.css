@@ -7269,6 +7269,9 @@ button.language_switcher img {
   .artist_tattoo_form_block .img_text_box_wrapper .text_box_wrap .img_text_box_inner .img_box_wrap .form_block_right {
     padding-left: 15px;
     padding-right: 15px;
+  } 
+  .img_text_box_inner.custom_two_col_banner .text_box_content > .text_box_content_inner {
+    min-height: 60vh;
   }  
 }
 @media screen and (min-width: 992px) and (max-width: 1024px) {
@@ -7491,6 +7494,9 @@ button.language_switcher img {
 
   .switch-lang {
     margin-right: 20px;
+  }
+  .img_text_box_inner.custom_two_col_banner .text_box_content > .text_box_content_inner {
+    min-height: 80vh;
   }
 }
 

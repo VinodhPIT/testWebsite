@@ -20,11 +20,6 @@ export const analyticsArtistCountWithFIlter = async (params ,token) => {
   }
 };
 
-
-
-
-
-
 export const analyticsArtistLeadSourceCount = async (token) => {
     try {
       const response = await analyticsGetApiCall("/analytics/artist/details" ,token);

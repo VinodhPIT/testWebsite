@@ -81,7 +81,7 @@ export default function Header({ data }) {
                     </button>
                   </div>
                   <button
-                    class="nav_btn_toggle"
+                    className="nav_btn_toggle"
                     type="button"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
@@ -100,15 +100,15 @@ export default function Header({ data }) {
                 </div>
 
                 <div
-                  class="offcanvas offcanvas-end"
-                  tabindex="-1"
+                  className="offcanvas offcanvas-end"
+                
                   id="offcanvasRight"
                   aria-labelledby="offcanvasRightLabel"
                 >
-                  <div class="offcanvas-header">
+                  <div className="offcanvas-header">
                     <button
                       type="button"
-                      class="btn-close"
+                      className="btn-close"
                       data-bs-dismiss="offcanvas"
                       aria-label="Close"
                     >
@@ -121,7 +121,7 @@ export default function Header({ data }) {
                       />
                     </button>
                   </div>
-                  <div class="offcanvas-body">
+                  <div className="offcanvas-body">
                     <div className="nav_block">
                       <ul className="nav main_nav">
                         {navigationItems.map((item, index) => (
