@@ -19,3 +19,27 @@ export const analyticsArtistCountWithFIlter = async (params ,token) => {
     return [];
   }
 };
+
+
+
+
+
+
+export const analyticsArtistLeadSourceCount = async (token) => {
+    try {
+      const response = await analyticsGetApiCall("/analytics/artist/details" ,token);
+      return response;
+    } catch (error) {
+      return [];
+    }
+  };
+
+  export const artistConvertion = async (token) => {
+    try {
+      const response = await analyticsGetApiCall(`/analytics/artist/converstion` ,token);
+      return response;
+    } catch (error) {
+      return [];
+    }
+  };
+  

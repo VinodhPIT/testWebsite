@@ -39,7 +39,7 @@ export const getStyles = async () => {
 export async function fetchMultiData(param) {
 
   try {
-    const tattooFetch = await fetch(`/web/api/${process.env.apiDomain}/tattoo/search`, {
+    const tattooFetch = await fetch(`${process.env.apiDomain}/web/api/tattoo/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export async function fetchMultiData(param) {
       ),
     });
 
-    const flashFetch = await fetch(`/web/api/${process.env.apiDomain}/flash/search`, {
+    const flashFetch = await fetch(`${process.env.apiDomain}/web/api/flash/search`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,40 +1,31 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import {
-  analyticsCustomerCount,
-  analyticsCustomerLeadSourceCount,
-} from "@/action/analyticsAdmin";
+  analyticsArtistCount,
+  analyticsArtistLeadSourceCount,
+} from "@/action/analyticsArtist";
 import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
 import PieChart from "@/analyticsComponents/pieChart/chart";
-import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
-import useRevenueStore from '@/store/revenueList';
+import ArtistConversion from "@/analyticsComponents/artistConversion/artistConversion";
 import { getSession } from "next-auth/react";
-import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
-import Head from 'next/head'
+import { artistConversion } from "@/analyticsComponents/customerConversion/keys";
 
+import ArtistsByCountryTable from "@/analyticsComponents/ArtistsByCountryTable/ArtistsByCountryTable";
 
 export default function Analytics({ data }) {
-  
-
   const router = useRouter();
   const { status, data: sessionData } = useSession();
-  const { revenue, loading, fetchRevenue } = useRevenueStore()
 
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
     }
   }, [status, router]);
-
- 
-
-  useEffect(()=>{
-    fetchRevenue(data.sessionToken)
-  },[])
 
   const getValues = Object.values(data.genderCount);
 
@@ -51,9 +42,6 @@ export default function Analytics({ data }) {
     }
   });
 
-
-
-
   const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
 
   const label = [
@@ -62,34 +50,31 @@ export default function Analytics({ data }) {
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
 
-
-
-  
   return (
     <>
-     <Head>
-        <title>Customer-Analytics</title>
+      <Head>
+        <title>Artist-Analytics</title>
       </Head>
-
 
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <CustomerDetails initialCounts={data} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
-                 <TotalCustomers chartData={data.chartData} token={data.sessionToken} /> 
+                <TotalCustomers
+                  title="Total Artists"
+                  chartData={data.chartData}
+                />
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <PieChart
-                  title="Total customers by gender"
+                  title="Total Artists by gender"
                   getKeys={getKeys}
                   getValues={getValues}
                   getColor={getColor}
                   label={label}
-                  
                 />
               </div>
             </div>
@@ -100,15 +85,15 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-12">
-             {loading ? null  : <ComparisonChart
-                    totalData={data.chartData}
-                    title="Normal vs referred customers"
-                    labe_1="Normal Customers"
-                    labe_2="Referred Customers"
-                  />}
+                <ComparisonChart
+                  totalData={data.chartData}
+                  title="Normal vs Referred artists"
+                  labe_1="Normal artists"
+                  labe_2="Referred artists"
+                />
               </div>
               <div className="col-lg-8 col-md-6 col-sm-12">
-              <PaymentComparison  title="Payment methods" label_1={'Klarna'}    label_2={'Stripe payment'}   revenueData={revenue} />
+                <ArtistsByCountryTable data={data.chartData} />
               </div>
             </div>
           </div>
@@ -118,11 +103,12 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
-
-               {data.role==="Analytic Admin" &&  <CustomerConversion token={data.sessionToken} />}
-               
+                <ArtistConversion
+                  title={"Artist Conversion"}
+                  token={data.sessionToken}
+                  types={artistConversion}
+                />
               </div>
-            
             </div>
           </div>
         </section>
@@ -132,9 +118,7 @@ export default function Analytics({ data }) {
 }
 
 export async function getServerSideProps(context) {
-
   const session = await getSession(context);
-
 
   if (!session) {
     return {
@@ -146,29 +130,23 @@ export async function getServerSideProps(context) {
   }
 
   try {
-    const data = await analyticsCustomerCount(session.user.myToken);
-    const customerJoinigData = await analyticsCustomerLeadSourceCount(session.user.myToken);
-    
+    const [data, customerJoinigData] = await Promise.all([
+      analyticsArtistCount(session.user.myToken),
+      analyticsArtistLeadSourceCount(session.user.myToken),
+    ]);
+
     return {
       props: {
         data: {
-          role :session.user.role,
           chartData: customerJoinigData ?? [],
-          contactedWithNoOffer: data.contacted_with_no_offer || 0,
-          deletedCustomers: data.deleted || 0,
           genderCount: data.gender || 0,
-          joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length || 0,
-          joinedFromWeb: customerJoinigData.filter((custData)=> custData.lead_source!=="APP").length || 0,
-          noCompletedOffer: data.customer_no_offer_completed || 0,
-          notContacted: data.no_contacted || 0,
-          referralUsedCustomers: data.referral_used_customer || 0,
-          sessionToken:session.user.myToken??'',
-          totalCustomers: data.total_count || 0,
-          voucherUserCustomers: data.voucher_used_customer || 0
+          sessionToken: session.user.myToken ?? "",
         },
       },
     };
   } catch (error) {
+    console.error("Error fetching data:", error);
+
     return {
       props: {
         data: null,

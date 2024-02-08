@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import useCustomerConversionStore from "@/store/CustomerConversion";
+import useSArtistConversionStore from "@/store/artistAnalytics/ArtistConversion";
 import {
   currentYear,
   options,
@@ -9,9 +9,8 @@ import {
 } from "@/helpers/helper";
 import { keyMappings } from "@/analyticsComponents/customerConversion/keys";
 
-const CustomerConversion = ({ token }) => {
-  const { registered, fetchData } = useCustomerConversionStore();
-
+const ArtistConversion = ({ title, token, types }) => {
+  const { registered, fetchData } = useSArtistConversionStore();
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
 
@@ -41,7 +40,7 @@ const CustomerConversion = ({ token }) => {
       <div className="db_card_body pl_0 pr_0">
         <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative">
           <div>
-            <h3>Customer Conversion</h3>
+            <h3>{title}</h3>
           </div>
           <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
@@ -70,7 +69,7 @@ const CustomerConversion = ({ token }) => {
                   </thead>
 
                   <tbody>
-                    {["Registered", "Contacted", "Offer pending"].map((title) =>
+                    {types.map((title) =>
                       renderTableRow(title, title.toLowerCase())
                     )}
                     <tr>
@@ -79,7 +78,8 @@ const CustomerConversion = ({ token }) => {
                         const percentage = calculatePercentage(
                           el.registered,
                           el.contacted,
-                          el.offer_pending
+                          el.offer_created_count,
+                          el.public_artist
                         );
 
                         return (
@@ -107,4 +107,4 @@ const CustomerConversion = ({ token }) => {
   );
 };
 
-export default CustomerConversion;
+export default ArtistConversion;
