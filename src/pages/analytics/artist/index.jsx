@@ -143,7 +143,7 @@ export async function getServerSideProps(context) {
           artistInCommunication: data.contacted_artist || 0,
           joinedFromApp: data.joined_from_app || 0,
           joinedFromWeb: data.joined_from_website || 0,
-          joinedUsingReferral: data.referreal_used || 0,
+          joinedUsingReferral: data.referral_used || 0,
           nonPublicProfiles: data.not_public_artist || 0,
           notCompletedAnyOffer: data.no_offer_completed || 0,
           notContactedCustomer: data.no_contacted || 0,

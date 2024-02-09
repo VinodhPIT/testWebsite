@@ -5,23 +5,23 @@
   gap: 51px;
 }
 
-.nav_block.db_navigation ul.main_nav>li {
+.nav_block.db_navigation ul.main_nav > li {
   margin: 0;
   padding: 0 13px;
 }
 
-.nav_block.db_navigation ul.main_nav>li>a {
+.nav_block.db_navigation ul.main_nav > li > a {
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
   color: #666;
 }
 
-.nav_block.db_navigation ul.main_nav>li.active {
-  border-bottom: 3px solid #E1E4E8;
+.nav_block.db_navigation ul.main_nav > li.active {
+  border-bottom: 3px solid #e1e4e8;
 }
 
-.nav_block.db_navigation ul.main_nav>li.active>a {
+.nav_block.db_navigation ul.main_nav > li.active > a {
   color: #212121;
   font-weight: 600;
 }
@@ -94,12 +94,12 @@ header.db_header_wrap {
   align-items: center;
 }
 
-.db_user_profile a>span {
+.db_user_profile a > span {
   margin-right: 20px;
   display: inline-block;
 }
 
-.db_user_profile a>img {
+.db_user_profile a > img {
   border-radius: 40px;
   height: 100%;
   width: 100%;
@@ -184,12 +184,12 @@ header.db_header_wrap {
   align-items: flex-start;
   gap: 10px;
   border-radius: 4px;
-  background: #F2F5F6;
+  background: #f2f5f6;
 }
 
 .db_card_animate {
-  -webkit-transition: all .4s;
-  transition: all .4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 .db_card_animate:hover {
@@ -207,7 +207,7 @@ header.db_header_wrap {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #eaeaea;
   padding: 10px 9px;
   color: #000;
   font-size: 15px;
@@ -284,7 +284,7 @@ header.db_header_wrap {
 }
 
 .db_table_block table.table thead th {
-  background-color: #F2F5F6;
+  background-color: #f2f5f6;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 24px;
@@ -336,7 +336,7 @@ header.db_header_wrap {
 
 .datepicker_input {
   position: absolute;
-  background-color: '#BAB1E8';
+  background-color: "#BAB1E8";
   width: 30px;
   height: 30px;
   right: 0;
@@ -370,7 +370,7 @@ header.db_header_wrap {
   padding: 50px 15px 15px;
   max-width: 633px;
   width: 100%;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
   border: 0;
 }
 
@@ -426,8 +426,8 @@ header.db_header_wrap {
   margin: 0 0 15px 0;
 }
 
-.header_dashboard .offcanvas .nav_block ul.main_nav>li.active {
-  border-bottom: 3px solid #E1E4E8;
+.header_dashboard .offcanvas .nav_block ul.main_nav > li.active {
+  border-bottom: 3px solid #e1e4e8;
 }
 
 .header_dashboard .offcanvas .nav_block ul.main_nav li a {
@@ -437,7 +437,7 @@ header.db_header_wrap {
   font-weight: 600;
 }
 
-.header_dashboard .offcanvas .nav_block ul.main_nav>li.active a {
+.header_dashboard .offcanvas .nav_block ul.main_nav > li.active a {
   color: #212121;
 }
 
@@ -492,7 +492,6 @@ header.db_header_wrap {
   cursor: pointer;
   padding: 8px 20px;
   min-width: 170px;
-
 }
 
 .btn_login:hover {
@@ -509,14 +508,15 @@ header.db_header_wrap {
   padding-left: 45px;
   text-align: left;
 }
-.offcanvas-open{overflow: unset !important;}
+.offcanvas-open {
+  overflow: unset !important;
+}
 
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;
   }
 }
-
 
 @media screen and (min-width: 1200px) {
   .header_dashboard .nav_btn_toggle {
@@ -572,10 +572,17 @@ header.db_header_wrap {
     width: 100%;
     max-width: 100%;
   }
-
 }
 
-
+@media screen and (max-width: 699px) {
+  .not_Found {
+    position: relative;
+    text-align: center;
+    top: 0;
+    left: 0;
+    transform: inherit;
+  }
+}
 @media screen and (max-width: 640px) {
   .m_flex_wrap_xs {
     flex-wrap: wrap !important;
@@ -593,7 +600,7 @@ header.db_header_wrap {
     align-items: flex-end;
   }
 
-  .header_dashboard .header_right .db_user_profile>span {
+  .header_dashboard .header_right .db_user_profile > span {
     margin-bottom: 5px;
   }
 
@@ -605,13 +612,10 @@ header.db_header_wrap {
     margin-left: 0 !important;
     width: 100px;
   }
-
 }
-
 
 @media screen and (max-width: 460px) {
   .db_piechart_payment {
     flex-direction: column;
   }
-
 }
