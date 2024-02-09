@@ -129,3 +129,24 @@
         padding-bottom: 10px;
     }
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-height:940px) and (orientation:landscape) {
+    .language_popup_block {
+        max-height: 150px;
+        margin-top: 20px;
+    }
+    .language_popup {
+        padding: 20px 27px 20px 20px;
+    }
+    .language_popup h3 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .language_popup p {
+        margin-bottom: 0.5rem;
+    }
+    .language_popup ul li button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
