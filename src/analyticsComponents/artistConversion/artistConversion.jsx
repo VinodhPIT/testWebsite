@@ -45,10 +45,11 @@ const ArtistConversion = ({ title, token, types }) => {
           <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
               id="yearSelect"
-              options={options}
-              value={selectedOption}
+              isSearchable={ false }
               onChange={handleChange}
+              options={options}
               placeholder="This year"
+              value={selectedOption}
             />
           </div>
         </div>
