@@ -18,7 +18,7 @@ import Head from 'next/head'
 
 
 export default function Analytics({ data }) {
-  
+
 
   const router = useRouter();
   const { status, data: sessionData } = useSession();
@@ -160,8 +160,8 @@ export async function getServerSideProps(context) {
           contactedWithNoOffer: data.contacted_with_no_offer || 0,
           deletedCustomers: data.deleted || 0,
           genderCount: data.gender || 0,
-          joinedFromApp: customerJoinigData.filter((custData)=> custData.lead_source==="APP").length || 0,
-          joinedFromWeb: customerJoinigData.filter((custData)=> custData.lead_source!=="APP").length || 0,
+          joinedFromApp: data.joined_from_app || 0,
+          joinedFromWeb: data.joined_from_website || 0,
           noCompletedOffer: data.customer_no_offer_completed || 0,
           notContacted: data.no_contacted || 0,
           referralUsedCustomers: data.referral_used_customer || 0,
