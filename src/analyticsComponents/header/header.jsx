@@ -14,10 +14,25 @@ export default function Header({ data }) {
   const navigationItems = [
     { href: "/analytics/customer", label: "Customer" },
     { href: "/analytics/artist", label: "Artists" },
+    
   ];
 
- 
+  const [offCanvas, setoffCanvas] = useState(false);
 
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setoffCanvas(true); // Set to true to open the offcanvas
+    });
+
+    router.events.on("routeChangeComplete", () => {
+      setoffCanvas(false); // Set to false to close the offcanvas
+    });
+
+    return () => {
+      router.events.off("routeChangeStart");
+      router.events.off("routeChangeComplete");
+    };
+  }, []);
 
   return (
     <>
@@ -86,8 +101,6 @@ export default function Header({ data }) {
                     data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight"
                     aria-controls="offcanvasRight"
-                   
-                    
                   >
                     <Image
                       src="/blackHamburger.svg"
@@ -99,45 +112,51 @@ export default function Header({ data }) {
                   </button>
                 </div>
 
-                <div
-                  className="offcanvas offcanvas-end"
-                
-                  id="offcanvasRight"
-                  aria-labelledby="offcanvasRightLabel"
-                >
-                  <div className="offcanvas-header">
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="offcanvas"
-                      aria-label="Close"
-                    >
-                      <Image
-                        src="/close.png"
-                        width={50}
-                        height={50}
-                        alt="close"
-                        priority
-                      />
-                    </button>
-                  </div>
-                  <div className="offcanvas-body">
-                    <div className="nav_block">
-                      <ul className="nav main_nav">
-                        {navigationItems.map((item, index) => (
-                          <li
-                            key={index}
-                            className={`nav_item ${
-                              router.pathname === item.href ? "active" : ""
-                            }`}
-                          >
-                            <Link href={item.href}>{item.label}</Link>
-                          </li>
-                        ))}
-                      </ul>
+                {!offCanvas && (
+                  <div
+                    className="offcanvas offcanvas-end"
+                    id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel"
+                  >
+                    <div className="offcanvas-header">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                      >
+                        <Image
+                          src="/close.png"
+                          width={50}
+                          height={50}
+                          alt="close"
+                          priority
+                        />
+                      </button>
+                    </div>
+                    <div className="offcanvas-body">
+                      <div className="nav_block">
+                        <ul className="nav main_nav">
+                          {navigationItems.map((item, index) => (
+                            <li
+                              key={index}
+                              className={`nav_item ${
+                                router.pathname === item.href ? "active" : ""
+                              }`}
+                            >
+                              <Link
+                                href={item.href}
+                                onClick={() => setoffCanvas(!offCanvas)}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </nav>
             </div>
           </div>
