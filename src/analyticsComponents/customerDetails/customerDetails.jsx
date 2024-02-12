@@ -218,7 +218,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             bgColorClass="block_bg_orange_100"
                             count={countData.joinedFromWeb}
                             filteredDateRange={dateRange.joinedFromWeb}
-                            onClickDownload={() => handleDownload('joined_from_web', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
+                            onClickDownload={() => handleDownload('joined_from_website', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedFromWeb', val)}
                             selectedDateRange={selectedDayRange.joinedFromWeb}
                             title="Customers joined from the website"
