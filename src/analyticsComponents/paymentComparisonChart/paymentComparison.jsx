@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import Loader from "@/components/loader";
 ChartJS.register(
   ArcElement,
   Tooltip,
@@ -28,14 +29,36 @@ export default function PaymentComparison({
   label_1,
   label_2,
   revenueData,
+  isTest,
 }) {
   const label = Object.keys(revenueData);
-  const klarnaData = Object.values(revenueData).map((currencyData) =>
-    parseFloat(currencyData.klarna)
-  );
-  const stripeData = Object.values(revenueData).map((currencyData) =>
-    parseFloat(currencyData.stripe)
-  );
+
+  const keys = {
+    klarna: "klarna",
+    stripe: "stripe",
+    completed: "completed",
+    cancelled: "cancelled",
+  };
+
+  const dataSet1 = Object.values(revenueData).map((el) => {
+    if (keys.klarna && el[keys.klarna]) {
+      return parseFloat(el[keys.klarna]);
+    } else if (keys.completed && el[keys.completed]) {
+      return parseFloat(el[keys.completed]);
+    }
+    return null; 
+  });
+
+  const dataSet2 = Object.values(revenueData).map((el) => {
+    if (keys.stripe && el[keys.stripe]) {
+      return parseFloat(el[keys.stripe]);
+    } else if (keys.cancelled && el[keys.cancelled]) {
+      return parseFloat(el[keys.cancelled]);
+    }
+    return null; 
+  });
+
+
 
   const labels = label;
 
@@ -54,13 +77,13 @@ export default function PaymentComparison({
     datasets: [
       {
         label: label_1,
-        data: klarnaData,
-        backgroundColor: "#f5b6c7",
+        data: dataSet1,
+        backgroundColor: isTest ? "#187e7e" : "#f5b6c7",
       },
       {
         label: label_2,
-        data: stripeData,
-        backgroundColor: "#883434",
+        data: dataSet2,
+        backgroundColor: isTest ? "#81c784" : "#883434",
       },
     ],
   };
@@ -74,18 +97,28 @@ export default function PaymentComparison({
           </div>
           <div className="db_piechart_legend m_pt_10_xs">
             <div className="db_piechart_legend_col">
-              <span className="db_piechart_legend_marker block_bg_pink"></span>
+              <span
+                className={`db_piechart_legend_marker  ${
+                  isTest ? " block_bg_green_dark_400 " : "block_bg_pink"
+                }`}
+              ></span>
               <span className="db_piechart_legend_text">{label_1}</span>
             </div>
             <div className="db_piechart_legend_col">
-              <span className="db_piechart_legend_marker block_bg_brown"></span>
+              <span
+                className={`db_piechart_legend_marker    ${
+                  isTest ? " block_bg_green_light_200" : "block_bg_brown"
+                } `}
+              ></span>
               <span className="db_piechart_legend_text">{label_2}</span>
             </div>
           </div>
         </div>
         <div className=" justify_content_center align_item_center pb_12">
           <div className="db_chart_bar">
-            <Bar data={data} options={options} width={100} height={311} />
+            {Object.keys(revenueData).length === 0 && <Loader />}
+
+            <Bar data={data} options={options} width={100} height={390} />
           </div>
         </div>
       </div>

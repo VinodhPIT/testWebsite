@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import useRevenueStore from "@/store/customerAnalytics/revenueList";
+import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
 import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
@@ -14,9 +16,10 @@ import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
 
 export default function Offer({ data }) {
   const router = useRouter();
+  const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
 
-  const { fetchOffer, completedOffers } = useOfferDetail();
+  const {offerData , fetchOffer, completedOffers } = useOfferDetail();
 
 
   useEffect(() => {
@@ -54,9 +57,9 @@ export default function Offer({ data }) {
 
 
   useEffect(() => {
+    fetchRevenue(data.sessionToken);
     fetchOffer(data.sessionToken);
   }, []);
-
   return (
     <>
       <Head>
@@ -88,8 +91,27 @@ export default function Offer({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-6 col-md-12 col-sm-12"></div>
-              <div className="col-lg-6 col-md-12 col-sm-12"></div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+
+              <PaymentComparison
+                  title="Total amount earned from completed/canceled offers"
+                  label_1={"Completed"}
+                  label_2={"Canceled"}
+                  revenueData={offerData}
+                  isTest={true}
+                />
+
+
+              </div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+              <PaymentComparison
+                  title="Payment methods"
+                  label_1={"Klarna"}
+                  label_2={"Stripe payment"}
+                  revenueData={revenue}
+                  isTest={false}
+                />
+              </div>
             </div>
           </div>
         </section>
