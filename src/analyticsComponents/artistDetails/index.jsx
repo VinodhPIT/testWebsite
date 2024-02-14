@@ -10,7 +10,7 @@ const Apitype = {
     artistInCommunication:'contacted_artist',
     joinedFromApp:'joined_from_app',
     joinedFromWeb:'joined_from_website',
-    joinedUsingReferral:'referreal_used',
+    joinedUsingReferral:'referral_used',
     nonPublicProfiles:'not_public_artist',
     notCompletedAnyOffer:'no_offer_completed',
     notContactedCustomer:'no_contacted',
@@ -186,7 +186,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             bgColorClass="block_bg_green_100"
                             count={countData.joinedUsingReferral}
                             filteredDateRange={dateRange.joinedUsingReferral}
-                            onClickDownload={() => handleDownload('referreal_used', dateRange.joinedUsingReferral.from, dateRange.joinedUsingReferral.to)}
+                            onClickDownload={() => handleDownload('referral_used', dateRange.joinedUsingReferral.from, dateRange.joinedUsingReferral.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedUsingReferral', val)}
                             selectedDateRange={selectedDayRange.joinedUsingReferral}
                             title="Artists joined using referral"
