@@ -128,4 +128,3 @@ export const filterChartDataByYear = (chartData, year, key) => {
 
   return chartData.filter((item) => moment(item[key]).year() === year);
 };
-
