@@ -16,6 +16,9 @@ export default function Offer({ data }) {
   const router = useRouter();
   const { status, data: sessionData } = useSession();
 
+  const { fetchOffer, completedOffers } = useOfferDetail();
+
+
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
@@ -89,7 +92,18 @@ export default function Offer({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-12 col-md-12 col-sm-12"></div>
+              <div className="col-lg-12 col-md-12 col-sm-12">
+
+
+              <TotalCustomers
+                  title="Total completed offers"
+                  chartData={completedOffers}
+                  type={"type2"}
+                  creationDate="offer_date"
+                />
+
+
+              </div>
             </div>
           </div>
         </section>
