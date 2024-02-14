@@ -155,7 +155,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: {
-          role :session.user.role,
+          role :session.user.role??'',
           chartData: customerJoinigData ?? [],
           contactedWithNoOffer: data.contacted_with_no_offer || 0,
           deletedCustomers: data.deleted || 0,
