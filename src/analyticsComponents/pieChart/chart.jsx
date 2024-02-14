@@ -1,4 +1,4 @@
-//
+
 import React from "react";
 import { Chart as ChartJS, Tooltip, Title, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -11,6 +11,7 @@ export default function PieChart({
   getColor,
   label,
 }) {
+ 
   const data = {
     labels: getKeys,
     datasets: [

@@ -5,6 +5,8 @@ import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
+import PieChart from "@/analyticsComponents/pieChart/chart";
+
 
 export default function Offer({ data }) {
   const router = useRouter();
@@ -15,6 +17,33 @@ export default function Offer({ data }) {
       router.push("/analytics/login");
     }
   }, [status, router]);
+
+
+  const getValues = [
+    data.offerCount.discount_used,
+    data.offerCount.no_discount_used,
+  ];
+
+  const getKeys = Object.keys(data.offerCount)
+    .map((key) => {
+      switch (key) {
+        case "discount_used":
+          return "Discount Used";
+        case "no_discount_used":
+          return "No Discount used";
+        default:
+          return null;
+      }
+    })
+    .filter((key) => key !== null); // Filter out null values
+
+  const getColor = ["#187e7e", "#81c784"];
+
+  const label = [
+    { id: 1, label: "Discount Used", bgColor: "block_bg_green_dark_400" },
+    { id: 2, label: "No Discount used", bgColor: "block_bg_green_light_200" },
+  ];
+
 
   return (
     <>
@@ -29,7 +58,16 @@ export default function Offer({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12"></div>
-              <div className="col-lg-6 col-md-12 col-sm-12"></div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+
+              <PieChart
+                  title="Total Discount"
+                  getKeys={getKeys}
+                  getValues={getValues}
+                  getColor={getColor}
+                  label={label}
+                />
+              </div>
             </div>
           </div>
         </section>
