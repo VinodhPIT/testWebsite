@@ -7,7 +7,7 @@ import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
-import useOfferDetail from "@/store/offerAnalytics/offerDetails";
+
 
 export default function Offer({ data }) {
   const router = useRouter();
@@ -34,6 +34,7 @@ export default function Offer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
+      <OfferDeatils offerCount={data.offerCount} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
