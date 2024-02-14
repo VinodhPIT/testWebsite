@@ -5,9 +5,9 @@ import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
-
+import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
+import useOfferDetail from "@/store/offerAnalytics/offerDetails";
 import PieChart from "@/analyticsComponents/pieChart/chart";
-
 import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
 
 
@@ -24,6 +24,7 @@ export default function Offer({ data }) {
       router.push("/analytics/login");
     }
   }, [status, router]);
+
 
 
   const getValues = [
@@ -51,6 +52,10 @@ export default function Offer({ data }) {
     { id: 2, label: "No Discount used", bgColor: "block_bg_green_light_200" },
   ];
 
+
+  useEffect(() => {
+    fetchOffer(data.sessionToken);
+  }, []);
 
   return (
     <>
