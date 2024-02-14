@@ -80,7 +80,7 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
-                 <TotalCustomers    title="Total Customers"  chartData={data.chartData} token={data.sessionToken} /> 
+                 <TotalCustomers    title="Total Customers"  chartData={data.chartData}  type="type1"   creationDate="created_date"/> 
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <PieChart
@@ -108,7 +108,7 @@ export default function Analytics({ data }) {
                   />}
               </div>
               <div className="col-lg-8 col-md-6 col-sm-12">
-              <PaymentComparison  title="Payment methods" label_1={'Klarna'}    label_2={'Stripe payment'}   revenueData={revenue} />
+              <PaymentComparison  title="Payment methods" label_1={'Klarna'}    label_2={'Stripe payment'}   revenueData={revenue}   isTest={false} /> 
               </div>
             </div>
           </div>
