@@ -9,6 +9,13 @@ import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
 
 
+import PieChart from "@/analyticsComponents/pieChart/chart";
+
+import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
+
+
+
+
 export default function Offer({ data }) {
   const router = useRouter();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
@@ -22,9 +29,7 @@ export default function Offer({ data }) {
     }
   }, [status, router]);
 
-  useEffect(() => {
-    fetchRevenue(data.sessionToken);
-  }, []);
+
   return (
     <>
       <Head>
@@ -39,7 +44,16 @@ export default function Offer({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12"></div>
-              <div className="col-lg-6 col-md-12 col-sm-12"></div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+
+              <PieChart
+                  title="Total Discount"
+                  getKeys={getKeys}
+                  getValues={getValues}
+                  getColor={getColor}
+                  label={label}
+                />
+              </div>
             </div>
           </div>
         </section>
