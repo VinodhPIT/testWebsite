@@ -19,7 +19,7 @@ export default function Offer({ data }) {
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
 
-  const {offerData , fetchOffer, completedOffers } = useOfferDetail();
+  const {offerData , fetchOffer, completedOffers ,scheduledOffers } = useOfferDetail();
 
 
   useEffect(() => {
