@@ -1,45 +1,36 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
-import moment from "moment";
+import { filterChartDataByYear } from "@/helpers/helper";
 import { Bar } from "react-chartjs-2";
 import { processData } from "@/utils/monthlyDataGenerator";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import Select from "react-select";
+import { currentYear, options, months } from "@/helpers/helper";
+import Loader from "@/components/loader";
 
 ChartJS.register(Tooltip, Legend);
 
-const filterChartDataByYear = (chartData, year) => {
-  return chartData.filter((item) => moment(item.created_date).year() === year);
-};
-
-const TotalCustomers = ({ title ,chartData, token }) => {
+const TotalCustomers = ({ title, chartData, type, creationDate }) => {
   const [chartArray, setChartArray] = useState([]);
-  const startYear = 2020;
-  const currentYear = new Date().getFullYear();
-  const years = Array.from(
-    { length: currentYear - startYear + 1 },
-    (_, index) => startYear + index
-  );
-
-  const yearOptions = years.map((year) => ({ value: year, label: year }));
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
 
   useEffect(() => {
-    const filteredArray = filterChartDataByYear(chartData, currentYear);
-    setChartArray(processData(filteredArray));
+    const filteredArray = filterChartDataByYear(
+      chartData,
+      currentYear,
+      creationDate
+    );
+    setChartArray(processData(filteredArray, type));
   }, [currentYear, chartData]);
 
-  const labels = useMemo(
-    () => ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    []
-  );
+  const labels = useMemo(() => months, []);
 
-  const options = {
+  const barOptions = {
     responsive: true,
     plugins: {
       legend: {
-        display: false, 
+        display: false,
       },
     },
     maintainAspectRatio: false,
@@ -50,17 +41,22 @@ const TotalCustomers = ({ title ,chartData, token }) => {
     datasets: [
       {
         label: title,
-        data: chartArray.map((item) => item.app + item.referredCustomers),
+        data: chartArray.map((item) =>
+          type === "type2" ? item.scheduled : item.app + item.referredCustomers
+        ),
         backgroundColor: "#81C784",
       },
     ],
   };
 
-  
   const handleChange = (selectedOption) => {
     const yearToFilter = selectedOption.value;
-    const filteredArray = filterChartDataByYear(chartData, yearToFilter);
-    setChartArray(processData(filteredArray));
+    const filteredArray = filterChartDataByYear(
+      chartData,
+      yearToFilter,
+      creationDate
+    );
+    setChartArray(processData(filteredArray, type));
     setSelectedYear(yearToFilter);
   };
 
@@ -74,18 +70,21 @@ const TotalCustomers = ({ title ,chartData, token }) => {
           <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
               id="yearSelect"
-              options={yearOptions}
+              options={options}
               value={selectedOption}
               onChange={handleChange}
               placeholder="This year"
-              isSearchable={ false }
+              isSearchable={false}
+              isDisabled={chartData.length == 0 ? true : false}
             />
           </div>
         </div>
 
         <div className=" justify_content_center align_item_center pb_12">
           <div className="db_chart_bar">
-            <Bar data={data} options={options} width={100} height={311} />
+            {chartData.length === 0 && <Loader />}
+
+            <Bar data={data} options={barOptions} width={100} height={311} />
           </div>
         </div>
       </div>

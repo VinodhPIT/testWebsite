@@ -83,17 +83,11 @@ export const addAdsToResults = async (results, isMobile) => {
   return results;
 };
 
-
-
-
 export const formatDate = (date) => {
   const values = Object.values(date).reverse();
   const dateObject = new Date(values[0], values[1] - 1, values[2]);
   return dateObject.toISOString().split("T")[0];
 };
-
-
-
 
 export const startYear = 2020;
 export const currentYear = new Date().getFullYear();
@@ -120,8 +114,8 @@ export const months = [
 ];
 
 export const calculatePercentage = (...args) => {
-  const numbers = args.map(arg => parseFloat(arg) || 0);
-  const sum = numbers.reduce((acc, curr) => acc + curr, 0); 
+  const numbers = args.map((arg) => parseFloat(arg) || 0);
+  const sum = numbers.reduce((acc, curr) => acc + curr, 0);
   const averagePercentage = sum / numbers.length; // Divide by the count of values
-  return averagePercentage.toFixed(2); 
+  return averagePercentage.toFixed(2);
 };
