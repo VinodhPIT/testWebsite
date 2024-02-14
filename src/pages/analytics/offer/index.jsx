@@ -7,11 +7,14 @@ import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
+import useOfferDetail from "@/store/offerAnalytics/offerDetails";
 
 export default function Offer({ data }) {
   const router = useRouter();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
+  const { offerData} = useOfferDetail();
+
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -43,7 +46,18 @@ export default function Offer({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-6 col-md-12 col-sm-12"></div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+
+              <PaymentComparison
+                  title="Total amount earned from completed/canceled offers"
+                  label_1={"Completed"}
+                  label_2={"Canceled"}
+                  revenueData={offerData}
+                  isTest={true}
+                />
+
+
+              </div>
               <div className="col-lg-6 col-md-12 col-sm-12">
               <PaymentComparison
                   title="Payment methods"
