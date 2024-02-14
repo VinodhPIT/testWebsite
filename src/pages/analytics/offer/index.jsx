@@ -9,9 +9,10 @@ import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
 
 
-import PieChart from "@/analyticsComponents/pieChart/chart";
 
-import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
+import useOfferDetail from "@/store/offerAnalytics/offerDetails";
+
+
 
 
 
@@ -23,12 +24,19 @@ export default function Offer({ data }) {
   const { offerData} = useOfferDetail();
 
 
+  const { fetchOffer, completedOffers } = useOfferDetail();
+
+
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
     }
   }, [status, router]);
 
+  useEffect(() => {
+    fetchRevenue(data.sessionToken);
+    fetchOffer(data.sessionToken);
+  }, []);
 
   return (
     <>
@@ -39,20 +47,13 @@ export default function Offer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-      <OfferDeatils offerCount={data.offerCount} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12"></div>
               <div className="col-lg-6 col-md-12 col-sm-12">
 
-              <PieChart
-                  title="Total Discount"
-                  getKeys={getKeys}
-                  getValues={getValues}
-                  getColor={getColor}
-                  label={label}
-                />
+            
               </div>
             </div>
           </div>
@@ -89,7 +90,12 @@ export default function Offer({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-12 col-md-12 col-sm-12"></div>
+              <div className="col-lg-12 col-md-12 col-sm-12">
+
+
+            
+
+              </div>
             </div>
           </div>
         </section>
