@@ -119,3 +119,12 @@ export const calculatePercentage = (...args) => {
   const averagePercentage = sum / numbers.length; // Divide by the count of values
   return averagePercentage.toFixed(2);
 };
+
+export const extractData = (data, propertyName) => {
+  return Object.values(data).map((el) => parseFloat(el[propertyName] || 0));
+};
+
+export const filterChartDataByYear = (chartData, year, key) => {
+
+  return chartData.filter((item) => moment(item[key]).year() === year);
+};

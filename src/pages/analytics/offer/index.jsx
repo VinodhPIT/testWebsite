@@ -5,10 +5,14 @@ import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { offerCount } from "@/action/offerAnalyticsService";
+import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
+import useOfferDetail from "@/store/offerAnalytics/offerDetails";
+
 
 export default function Offer({ data }) {
   const router = useRouter();
   const { status, data: sessionData } = useSession();
+  const { fetchOffer, scheduledOffers  } = useOfferDetail();
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -16,6 +20,12 @@ export default function Offer({ data }) {
     }
   }, [status, router]);
 
+  useEffect(() => {
+    fetchRevenue(data.sessionToken);
+    fetchOffer(data.sessionToken);
+  }, []);
+
+  
   return (
     <>
       <Head>
@@ -28,7 +38,16 @@ export default function Offer({ data }) {
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
-              <div className="col-lg-6 col-md-12 col-sm-12"></div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+              <TotalCustomers
+                  title="Total scheduled offers"
+                  chartData={scheduledOffers}
+                  type={"type2"}
+                  creationDate="offer_date"
+                />
+
+
+              </div>
               <div className="col-lg-6 col-md-12 col-sm-12"></div>
             </div>
           </div>
