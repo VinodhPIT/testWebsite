@@ -10,15 +10,12 @@ const useOfferDetail = create((set) => ({
       set({ loading: true });
       const response = await offerDetails(token);
       const scheduledOffers = response.filter((e) => e.status === "scheduled");
-
       const completedOffers = response.filter((e) => e.status === "completed");
-
       const filter = response.filter(
         (e) => e.status === "completed" || e.status === "cancelled"
       );
 
       const result = {};
-
       filter.forEach((item) => {
         const { status, total_amount, currency } = item;
         if (!result[currency]) {
