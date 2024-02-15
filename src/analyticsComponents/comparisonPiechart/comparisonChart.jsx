@@ -26,7 +26,7 @@ ChartJS.register(
 import { processData } from "@/utils/monthlyDataGenerator";
 
 export default function ComparisonChart({ totalData, title, labe_1, labe_2 }) {
-  const apiData = processData(totalData);
+  const apiData = processData(totalData ,"type1");
 
   const appCounts = apiData.map((item) => item.app);
 

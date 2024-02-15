@@ -66,6 +66,8 @@ export default function ArtistAnalytics({ data: initialData }) {
                 <TotalCustomers
                   title="Total Artists"
                   chartData={initialData.chartData}
+
+                  type={"type1"} creationDate="created_date"
                 />
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">

@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const prepareRequest = (parameters) => {
   const request = {
     sort: parameters.sort,
@@ -51,7 +53,6 @@ export const addAdsToResults = async (results, isMobile) => {
   if (totalCount < 15) {
     return results;
   }
-
   if (
     isMobile === "iPad" ||
     isMobile === "UnknownTablet" ||
@@ -125,7 +126,5 @@ export const extractData = (data, propertyName) => {
 };
 
 export const filterChartDataByYear = (chartData, year, key) => {
-
   return chartData.filter((item) => moment(item[key]).year() === year);
 };
-
