@@ -1,29 +1,15 @@
 import useTranslation from "next-translate/useTranslation";
 
-const customerConversion = [
-  "contacted", 
-  "offer_accepted",
-  "offers_completed",
-  "offers_received",
-  "registered"
-];
-
-const customerConversionTitle = {
-  "contacted":"Contacted", 
-  "offer_accepted":"offer accepted",
-  "offers_completed":"offers completed",
-  "offers_received":"offers received",
-  "registered":"Registered"
-};
-
 const ConversionDataComponent = () => {
   const { t } = useTranslation();
 
-  const customerConversion = [
-    {id:1 ,title:t("common:TableConversion.Registered"),value:"Registered"},
-    {id:2 ,title:t("common:TableConversion.Contacted"),value:"Contacted"},
-    {id:3 ,title:t("common:TableConversion.Offer pending"),value:"Offer pending"}
-  ];
+  const customerConversionTitle = {
+    "contacted": t("common:TableConversion.Contacted"), 
+    "offer_accepted": t("common:TableConversion.Offer accepted"),
+    "offers_completed": t("common:TableConversion.Offers completed"),
+    "offers_received": t("common:TableConversion.Offers received"),
+    "registered": t("common:TableConversion.Registered")
+  };
 
 
   const artistConversion = [
@@ -41,7 +27,6 @@ const ConversionDataComponent = () => {
 
   // Export your arrays and mappings
   return {
-    customerConversion,
     customerConversionTitle,
     artistConversion,
     keyMappings,
