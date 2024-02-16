@@ -405,7 +405,16 @@
   "Now - It's free": "app now - It's free",
   "Choose your region and language": "Choose your region and language",
   "LanguagePopup-subText": "Get in touch with us lorem ipsum is a dummy content for typesetting industry.",
-  "currency" :"EUR",
+  "currency": "EUR",
+  "Stripe payment": "Stripe payment",
+  "Payment methods": "Payment methods",
+  "Completed": "Completed",
+  "Canceled": "Canceled",
+  "Hello": "Hello",
+  "Analytics": "Analytics",
+  "Log out": " Log out",
+  "Month": "Month",
+  "Percentage": "Percentage",
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
@@ -494,5 +503,65 @@
 
   "GeneralAppdownloadScreen": {
     "title": "General App Download"
+  },
+  "AnalyticsCustomer": {
+    "MetaTitle": "Customer-Analytics",
+    "TotalCustomers": "Total customers",
+    "NotContactedArtists": "Customers not contacted any artists",
+    "NotCompletedOffers": "Customers not completed any offers",
+    "ContactedArtistNoOffer": "Customers contacted the artist and no offer",
+    "DeletedCustomer": "Deleted customers",
+    "UsedVouchers": "Customers used any vouchers",
+    "JoinedUsingReferral": "Customers joined using referral",
+    "JoinedFromWebsite": "Customers joined from the website",
+    "JoinedFromApp": "Customers joined from the app",
+    "TotalCustomersByGender": "Total customers by gender",
+    "Normal vs referred customers": "Normal vs referred customers",
+    "Customer Conversion": "Customer Conversion"
+  },
+
+  "AnalyticsArtist": {
+    "MetaTitle": "Artist-Analytics",
+    "Total active artist": "Total active artist",
+    "Total public artists": "Total public artists",
+    "Artists in communication with the customer": "Artists in communication with the customer",
+    "Artists who completed at least one offer": "Artists who completed at least one offer",
+    "Artists who didn’t complete any offers": "Artists who didn’t complete any offers",
+    "Artists joined using referral": "Artists joined using referral",
+    "Artists joined from website": "Artists joined from website",
+    "Artists joined from App": "Artists joined from App",
+    "Artists not contacted any customers": "Artists not contacted any customers",
+    "Artists not created any offers": "Artists not created any offers",
+    "Artists not completed public profile criteria": "Artists not completed public profile criteria",
+    "Total Artists": "Total Artists",
+    "Total Artists by gender": "Total Artists by gender",
+    "Normal vs Referred artists": "Normal vs Referred artists",
+    "Artists by Country": "Artists by Country",
+    "Artist Conversion": "Artist Conversion",
+    "Normal artists": "Normal artists",
+    "Referred artists": "Referred artists",
+    "Country": "Country",
+    "Number of artists": "No. of artists"
+  },
+  "AnalyticsOffer": {
+    "MetaTitle": "Offer-Analytics",
+    "Scheduled": "Scheduled",
+    "Completed": "Completed",
+    "Rejected": "Rejected",
+    "Expired": "Expired",
+    "Canceled": "Canceled",
+    "Total scheduled offers": "Total scheduled offers",
+    "Total Discount": "Total Discount",
+    "Total amount earned from completed/canceled offers": "Total amount earned from completed/canceled offers",
+    "Total completed offers": "Total completed offers"
+  },
+
+  "TableConversion": {
+    "Registered": "Registered",
+    "Contacted": "Contacted",
+    "Public artist": "Public artist",
+    "Offer created count": "Offer created count",
+    "Percentage": "Percentage",
+    "Offer pending" :"Offer pending"
   }
 }

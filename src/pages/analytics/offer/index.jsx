@@ -11,13 +11,14 @@ import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers"
 import useOfferDetail from "@/store/offerAnalytics/offerDetails";
 import PieChart from "@/analyticsComponents/pieChart/chart";
 import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
-
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function Offer({ data }) {
   const router = useRouter();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
+  const { t } = useTranslation();
 
   const {offerData , fetchOffer, completedOffers ,scheduledOffers } = useOfferDetail();
 
@@ -63,7 +64,7 @@ export default function Offer({ data }) {
   return (
     <>
       <Head>
-        <title>Offer-Analytics</title>
+        <title>{t("common:AnalyticsOffer.MetaTitle")}</title>
       </Head>
 
       <Header data={status === "authenticated" && sessionData.user.name} />
@@ -75,7 +76,7 @@ export default function Offer({ data }) {
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12">
               <TotalCustomers
-                  title="Total scheduled offers"
+                  title={t("common:AnalyticsOffer.Total scheduled offers")}
                   chartData={scheduledOffers}
                   type={"type2"}
                   creationDate="offer_date"
@@ -86,7 +87,7 @@ export default function Offer({ data }) {
               <div className="col-lg-6 col-md-12 col-sm-12">
 
               <PieChart
-                  title="Total Discount"
+                  title={t("common:AnalyticsOffer.Total Discount")}
                   getKeys={getKeys}
                   getValues={getValues}
                   getColor={getColor}
@@ -103,9 +104,9 @@ export default function Offer({ data }) {
               <div className="col-lg-6 col-md-12 col-sm-12">
 
               <PaymentComparison
-                  title="Total amount earned from completed/canceled offers"
-                  label_1={"Completed"}
-                  label_2={"Canceled"}
+                  title={t("common:AnalyticsOffer.Total amount earned from completed/canceled offers")}
+                  label_1={t("common:AnalyticsOffer.Completed")}
+                  label_2={t("common:AnalyticsOffer.Canceled")}
                   revenueData={offerData}
                   isTest={true}
                 />
@@ -114,9 +115,9 @@ export default function Offer({ data }) {
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12">
               <PaymentComparison
-                  title="Payment methods"
-                  label_1={"Klarna"}
-                  label_2={"Stripe payment"}
+                  title={t("common:Payment methods")}
+                  label_1={t("common:menus.klarna")}
+                  label_2={t("common:Stripe payment")}
                   revenueData={revenue}
                   isTest={false}
                 />
@@ -132,7 +133,7 @@ export default function Offer({ data }) {
 
 
               <TotalCustomers
-                  title="Total completed offers"
+                  title={t("common:AnalyticsOffer.Total completed offers")}
                   chartData={completedOffers}
                   type={"type2"}
                   creationDate="offer_date"

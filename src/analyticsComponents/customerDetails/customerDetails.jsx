@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import moment from 'moment';
 import '@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css';
-import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/analyticsAdmin";
+import { analyticsCustomerCountWithFIlter , analyticsCustomerLeadSourceCountWithFIlter} from "@/action/customerAnalyticsService";
+import useTranslation from "next-translate/useTranslation";
 
 import CountDisplayCard from '../countDisplayCard';
 
@@ -60,6 +61,7 @@ export default function CustomerDetails({initialCounts, token}) {
     const [countData, setCountData]=useState(initialCounts);
     const [dateRange, setDateRange] = useState(initialValue);
     const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
+    const { t } = useTranslation();
 
     const handleDownload = async (type, startDate, endDate) => {
         fetch(`${process.env.apiDomain}/analytics/customer/csv/${type}${startDate&&endDate?`?start_date=${moment(startDate).format("YYYY-MM-DD")}&end_date=${moment(endDate).format("YYYY-MM-DD")}`:''}`, {
@@ -140,7 +142,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('total_count', dateRange.totalCustomers.from, dateRange.totalCustomers.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalCustomers', val)}
                             selectedDateRange={selectedDayRange.totalCustomers}
-                            title="Total customers"
+                            title={t("common:AnalyticsCustomer.TotalCustomers")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -152,7 +154,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('no_contacted', dateRange.notContacted.from, dateRange.notContacted.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('notContacted', val)}
                             selectedDateRange={selectedDayRange.notContacted}
-                            title="Customers not contacted any artists"
+                            title={t("common:AnalyticsCustomer.NotContactedArtists")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -164,7 +166,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('customer_no_offer_completed', dateRange.noCompletedOffer.from, dateRange.noCompletedOffer.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('noCompletedOffer', val)}
                             selectedDateRange={selectedDayRange.noCompletedOffer}
-                            title="Customers not completed any offers"
+                            title={t("common:AnalyticsCustomer.NotCompletedOffers")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -175,7 +177,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('contacted_with_no_offer', dateRange.contactedWithNoOffer.from, dateRange.contactedWithNoOffer.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('contactedWithNoOffer', val)}
                             selectedDateRange={selectedDayRange.contactedWithNoOffer}
-                            title="Customers contacted the artist and no offer"
+                            title={t("common:AnalyticsCustomer.ContactedArtistNoOffer")}
                         />
                     </div>
                 </div>
@@ -188,7 +190,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('deleted', dateRange.deletedCustomers.from, dateRange.deletedCustomers.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('deletedCustomers', val)}
                             selectedDateRange={selectedDayRange.deletedCustomers}
-                            title="Deleted customers"
+                            title={t("common:AnalyticsCustomer.DeletedCustomer")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -199,7 +201,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('voucher_used_customer', dateRange.voucherUserCustomers.from, dateRange.voucherUserCustomers.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('voucherUserCustomers', val)}
                             selectedDateRange={selectedDayRange.voucherUserCustomers}
-                            title="Customers used any vouchers"
+                            title={t("common:AnalyticsCustomer.UsedVouchers")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -210,7 +212,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('referral_used_customer', dateRange.referralUsedCustomers.from, dateRange.referralUsedCustomers.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('referralUsedCustomers', val)}
                             selectedDateRange={selectedDayRange.referralUsedCustomers}
-                            title="Customers joined using referral"
+                            title={t("common:AnalyticsCustomer.JoinedUsingReferral")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -221,7 +223,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('joined_from_website', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedFromWeb', val)}
                             selectedDateRange={selectedDayRange.joinedFromWeb}
-                            title="Customers joined from the website"
+                            title={t("common:AnalyticsCustomer.JoinedFromWebsite")}
                         />
                     </div>
                 </div>
@@ -234,7 +236,7 @@ export default function CustomerDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('joined_from_app', dateRange.joinedFromApp.from, dateRange.joinedFromApp.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedFromApp', val)}
                             selectedDateRange={selectedDayRange.joinedFromApp}
-                            title="Customers joined from the app"
+                            title={t("common:AnalyticsCustomer.JoinedFromApp")}
                         />
                     </div>
                 </div>

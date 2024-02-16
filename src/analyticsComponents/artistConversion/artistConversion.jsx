@@ -7,12 +7,15 @@ import {
   months,
   calculatePercentage,
 } from "@/helpers/helper";
-import { keyMappings } from "@/analyticsComponents/customerConversion/keys";
+import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
+import useTranslation from "next-translate/useTranslation";
 
 const ArtistConversion = ({ title, token, types }) => {
   const { registered, fetchData } = useSArtistConversionStore();
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
+  const { t } = useTranslation();
+  const { keyMappings } = ConversionDataComponent();
 
   const handleChange = (selectedOption) => {
     setSelectedYear(selectedOption.value);
@@ -45,7 +48,7 @@ const ArtistConversion = ({ title, token, types }) => {
           <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
               id="yearSelect"
-              isSearchable={ false }
+              isSearchable={false}
               onChange={handleChange}
               options={options}
               placeholder="This year"
@@ -64,17 +67,19 @@ const ArtistConversion = ({ title, token, types }) => {
                 <table className="table table-striped table-nowrap table-centered mb-0">
                   <thead>
                     <tr>
-                      <th className="main_head_title">Month</th>
+                      <th className="main_head_title">{t("common:Month")}</th>
                       {monthHeaders}
                     </tr>
                   </thead>
 
                   <tbody>
-                    {types.map((title) =>
-                      renderTableRow(title, title.toLowerCase())
+                    {types.map((el) =>
+                      renderTableRow(el.title, el.value.toLowerCase())
                     )}
                     <tr>
-                      <th className="main_col_title">Percentage</th>
+                      <th className="main_col_title">
+                        {t("common:Percentage")}
+                      </th>
                       {registered.map((el, index) => {
                         const percentage = calculatePercentage(
                           el.registered,

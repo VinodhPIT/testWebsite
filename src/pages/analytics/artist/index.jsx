@@ -7,17 +7,22 @@ import Header from "@/analyticsComponents/header/header";
 import {
   analyticsArtistCount,
   analyticsArtistLeadSourceCount,
-} from "@/action/analyticsArtist";
+} from "@/action/artistAnalyticsService";
 import ArtistsByCountryTable from "@/analyticsComponents/ArtistsByCountryTable/ArtistsByCountryTable";
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
-import { artistConversion } from "@/analyticsComponents/customerConversion/keys";
+import YourComponent from "@/analyticsComponents/customerConversion/keys";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
 import PieChart from "@/analyticsComponents/pieChart/chart";
 import ArtistConversion from "@/analyticsComponents/artistConversion/artistConversion";
+import useTranslation from "next-translate/useTranslation";
+
+
 
 export default function ArtistAnalytics({ data: initialData }) {
   const router = useRouter();
   const { status, data } = useSession();
+  const { t } = useTranslation();
+  const { artistConversion } = YourComponent();
 
   useEffect(() => {
     if (status === "unauthenticated") router.push("/analytics/login");
@@ -49,7 +54,7 @@ export default function ArtistAnalytics({ data: initialData }) {
   return (
     <>
       <Head>
-        <title>Artist-Analytics</title>
+      <title>{t("common:AnalyticsArtist.MetaTitle")}</title>
       </Head>
 
       <Header data={status === "authenticated" && data.user.name} />
@@ -64,7 +69,7 @@ export default function ArtistAnalytics({ data: initialData }) {
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
                 <TotalCustomers
-                  title="Total Artists"
+                  title={t("common:AnalyticsArtist.Total Artists")}
                   chartData={initialData.chartData}
 
                   type={"type1"} creationDate="created_date"
@@ -72,7 +77,7 @@ export default function ArtistAnalytics({ data: initialData }) {
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <PieChart
-                  title="Total Artists by gender"
+                  title={t("common:AnalyticsArtist.Total Artists by gender")}
                   getKeys={getKeys}
                   getValues={getValues}
                   getColor={getColor}
@@ -89,9 +94,9 @@ export default function ArtistAnalytics({ data: initialData }) {
               <div className="col-lg-4 col-md-6 col-sm-12">
                 <ComparisonChart
                   totalData={initialData.chartData}
-                  title="Normal vs Referred artists"
-                  labe_1="Normal artists"
-                  labe_2="Referred artists"
+                  title={t("common:AnalyticsArtist.Normal vs Referred artists")}
+                  labe_1={t("common:AnalyticsArtist.Normal artists")}
+                  labe_2={t("common:AnalyticsArtist.Referred artists")}
                 />
               </div>
               <div className="col-lg-8 col-md-6 col-sm-12">
@@ -106,7 +111,7 @@ export default function ArtistAnalytics({ data: initialData }) {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <ArtistConversion
-                  title={"Artist Conversion"}
+                  title={t("common:AnalyticsArtist.Artist Conversion")}
                   token={initialData.sessionToken}
                   types={artistConversion}
                 />
