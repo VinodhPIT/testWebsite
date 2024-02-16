@@ -31,7 +31,7 @@ export const analyticsArtistLeadSourceCount = async (token) => {
 
   export const artistConvertion = async (token) => {
     try {
-      const response = await analyticsGetApiCall(`/analytics/artist/converstion` ,token);
+      const response = await analyticsGetApiCall(`/analytics/artist/conversion` ,token);
       return response;
     } catch (error) {
       return [];

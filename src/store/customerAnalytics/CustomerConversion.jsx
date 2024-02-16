@@ -1,6 +1,6 @@
 
 import { create } from "zustand";
-import { analyticsConvertion } from "@/action/analyticsAdmin";
+import { analyticsConvertion } from "@/action/customerAnalyticsService";
 const useCustomerConversionStore = create((set) => ({
   registered: [],
   loading: false,

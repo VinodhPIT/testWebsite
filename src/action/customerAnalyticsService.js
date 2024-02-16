@@ -67,7 +67,7 @@ export const analyticsRevenueDetails = async (token) => {
 
 export const analyticsConvertion = async (token) => {
   try {
-    const response = await analyticsGetApiCall(`/analytics/customer/convertion` ,token);
+    const response = await analyticsGetApiCall(`/analytics/customer/conversion` ,token);
     return response;
   } catch (error) {
     return [];
