@@ -5,15 +5,14 @@ import useCustomerConversionStore from "@/store/customerAnalytics/CustomerConver
 import {
   currentYear,
   options,
-  months,
-  calculatePercentage,
+  months
 } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 
 const CustomerConversion = ({ token }) => {
   const { registered, fetchData } = useCustomerConversionStore();
   const { t } = useTranslation();
-  const { customerConversion, keyMappings } = ConversionDataComponent();
+  const { customerConversionTitle, keyMappings } = ConversionDataComponent();
 
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
@@ -26,9 +25,14 @@ const CustomerConversion = ({ token }) => {
     fetchData(selectedYear, token);
   }, [selectedYear]);
 
+  const percentageCalculate = (part, whole) => {
+      const calculatedPercentage = (part / whole) * 100;
+      return isNaN(calculatedPercentage)? "0.00" :calculatedPercentage.toFixed(2);
+  };
+
   const renderTableRow = (title, key) => (
     <tr key={title}>
-      <th className="main_col_title">{title}</th>
+      <th className="main_col_title">{customerConversionTitle[title]}</th>
       {registered.map((el) => (
         <td key={el.month}>{el[keyMappings[key]] || el[key] || 0}</td>
       ))}
@@ -38,6 +42,37 @@ const CustomerConversion = ({ token }) => {
   const monthHeaders = months.map((month, index) => (
     <th key={index}>{month}</th>
   ));
+
+  const CustomerConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
+                <>
+                    {[partTitle, wholeTitle].map((title) =>
+                      renderTableRow(title, title.toLowerCase())
+                    )}
+                    <tr>
+                      <th className="main_col_title">Percentage</th>
+                      {registered.map((el, index) => {
+                        const percentage = percentageCalculate(
+                          el[wholeTitle],
+                          el[partTitle]
+                        );
+
+                        return (
+                          <td
+                            key={index}
+                            className={
+                              percentage === "0.00"
+                              || percentage === "Infinity"
+                                ? "color_red_100"
+                                : "color_green_900"
+                            }
+                          >
+                            {percentage === "0.00" ||percentage === "Infinity" ? "0%" : `${percentage}%`}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                    </>
+    );
 
   return (
     <div className="db_card block_bg_white">
@@ -74,32 +109,22 @@ const CustomerConversion = ({ token }) => {
                   </thead>
 
                   <tbody>
-                    {customerConversion.map((el) =>
-                      renderTableRow(el.title, el.value.toLowerCase())
-                    )}
-                    <tr>
-                      <th className="main_col_title">{t("common:Percentage")}</th>
-                      {registered.map((el, index) => {
-                        const percentage = calculatePercentage(
-                          el.registered,
-                          el.contacted,
-                          el.offer_pending
-                        );
-
-                        return (
-                          <td
-                            key={index}
-                            className={
-                              percentage === "0.00"
-                                ? "color_red_100"
-                                : "color_green_900"
-                            }
-                          >
-                            {percentage === "0.00" ? "0%" : `${percentage}%`}
-                          </td>
-                        );
-                      })}
-                    </tr>
+                    <CustomerConversionDisplayBlock
+                      partTitle="registered"
+                      wholeTitle="contacted"
+                    />
+                    <CustomerConversionDisplayBlock
+                      partTitle="contacted"
+                      wholeTitle="offers_received"
+                    />
+                    <CustomerConversionDisplayBlock
+                      partTitle="offers_received"
+                      wholeTitle="offer_accepted"
+                    />
+                    <CustomerConversionDisplayBlock
+                      partTitle="offer_accepted"
+                      wholeTitle="offers_completed"
+                    />
                   </tbody>
                 </table>
               </div>
