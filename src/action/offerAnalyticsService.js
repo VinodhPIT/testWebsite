@@ -3,7 +3,7 @@ import { analyticsGetApiCall } from "@/utils/apiUtils";
 
 export const offerRevenueDetails = async (token) => {
     try {
-      const response = await analyticsGetApiCall(`/analytics/revenue/details`,token);
+      const response = await analyticsGetApiCall(`/analytics/offer/revenue/details`,token);
   
       return response;
     } catch (error) {
