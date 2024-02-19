@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import moment from 'moment';
+import useTranslation from "next-translate/useTranslation";
 
-import { analyticsArtistCountWithFIlter } from '@/action/analyticsArtist';
+import { analyticsArtistCountWithFIlter } from '@/action/artistAnalyticsService';
 
 import CountDisplayCard from '../countDisplayCard';
 
@@ -70,6 +71,7 @@ export default function ArtistDetails({initialCounts, token}) {
     const [countData, setCountData]=useState(initialCounts);
     const [dateRange, setDateRange] = useState(initialValue);
     const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
+    const { t } = useTranslation();
 
     const handleDownload = (type, startDate, endDate) => {
         fetch(`${process.env.apiDomain}/analytics/artist/csv/${type}${startDate&&endDate?`?start_date=${moment(startDate).format("YYYY-MM-DD")}&end_date=${moment(endDate).format("YYYY-MM-DD")}`:''}`, {
@@ -132,7 +134,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('total_artist', dateRange.totalArtists.from, dateRange.totalArtists.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalArtists', val)}
                             selectedDateRange={selectedDayRange.totalArtists}
-                            title="Total active artist"
+                            title={t("common:AnalyticsArtist.Total active artist")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -143,7 +145,7 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('public_artist', dateRange.totalPublicArtists.from, dateRange.totalPublicArtists.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('totalPublicArtists', val)}
                             selectedDateRange={selectedDayRange.totalPublicArtists}
-                            title="Total public artists"
+                            title={t("common:AnalyticsArtist.Total public artists")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -154,7 +156,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('contacted_artist', dateRange.artistInCommunication.from, dateRange.artistInCommunication.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('artistInCommunication', val)}
                             selectedDateRange={selectedDayRange.artistInCommunication}
-                            title="Artists in communication with the customer"
+                            title={t("common:AnalyticsArtist.Artists in communication with the customer")}
+                            
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -165,7 +168,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('artist_with_offer', dateRange.artistCompletedOffers.from, dateRange.artistCompletedOffers.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('artistCompletedOffers', val)}
                             selectedDateRange={selectedDayRange.artistCompletedOffers}
-                            title="Artists who completed at least one offer"
+                            title={t("common:AnalyticsArtist.Artists who completed at least one offer")}
+                           
                         />
                     </div>
                 </div>
@@ -178,7 +182,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('no_offer_completed', dateRange.notCompletedAnyOffer.from, dateRange.notCompletedAnyOffer.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('notCompletedAnyOffer', val)}
                             selectedDateRange={selectedDayRange.notCompletedAnyOffer}
-                            title="Artists who didn’t complete any offers"
+                            title={t("common:AnalyticsArtist.Artists who didn’t complete any offers")}
+                           
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -189,7 +194,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('referral_used', dateRange.joinedUsingReferral.from, dateRange.joinedUsingReferral.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedUsingReferral', val)}
                             selectedDateRange={selectedDayRange.joinedUsingReferral}
-                            title="Artists joined using referral"
+                            title={t("common:AnalyticsArtist.Artists joined using referral")}
+                            
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -200,7 +206,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('joined_from_website', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedFromWeb', val)}
                             selectedDateRange={selectedDayRange.joinedFromWeb}
-                            title="Artists joined from website"
+                            title={t("common:AnalyticsArtist.Artists joined from website")}
+                           
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -211,7 +218,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('joined_from_app', dateRange.joinedFromApp.from, dateRange.joinedFromApp.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('joinedFromApp', val)}
                             selectedDateRange={selectedDayRange.joinedFromApp}
-                            title="Artists joined from App"
+                            title={t("common:AnalyticsArtist.Artists joined from App")}
+                           
                         />
                     </div>
                 </div>
@@ -224,7 +232,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('no_contacted', dateRange.notContactedCustomer.from, dateRange.notContactedCustomer.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('notContactedCustomer', val)}
                             selectedDateRange={selectedDayRange.notContactedCustomer}
-                            title="Artists not contacted any customers"
+                            title={t("common:AnalyticsArtist.Artists not contacted any customers")}
+                           
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -235,7 +244,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('no_offer_created', dateRange.notCreatedAnyOffers.from, dateRange.notCreatedAnyOffers.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('notCreatedAnyOffers', val)}
                             selectedDateRange={selectedDayRange.notCreatedAnyOffers}
-                            title="Artists not created any offers"
+                            title={t("common:AnalyticsArtist.Artists not created any offers")}
+                            
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -246,7 +256,8 @@ export default function ArtistDetails({initialCounts, token}) {
                             onClickDownload={() => handleDownload('not_public_artist', dateRange.nonPublicProfiles.from, dateRange.nonPublicProfiles.to)}
                             onUpdateDateFilter={(val)=>handleDateFilter('nonPublicProfiles', val)}
                             selectedDateRange={selectedDayRange.nonPublicProfiles}
-                            title="Artists not completed public profile criteria"
+                            title={t("common:AnalyticsArtist.Artists not completed public profile criteria")}
+                          
                         />
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import useTranslation from "next-translate/useTranslation";
 import useCustomerConversionStore from "@/store/customerAnalytics/CustomerConversion";
 import {
   currentYear,
@@ -7,10 +8,12 @@ import {
   months,
   calculatePercentage,
 } from "@/helpers/helper";
-import { keyMappings } from "@/analyticsComponents/customerConversion/keys";
+import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 
 const CustomerConversion = ({ token }) => {
   const { registered, fetchData } = useCustomerConversionStore();
+  const { t } = useTranslation();
+  const { customerConversion, keyMappings } = ConversionDataComponent();
 
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
@@ -41,12 +44,12 @@ const CustomerConversion = ({ token }) => {
       <div className="db_card_body pl_0 pr_0">
         <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative">
           <div>
-            <h3>Customer Conversion</h3>
+            <h3>{t("common:AnalyticsCustomer.Customer Conversion")}</h3>
           </div>
           <div className="db_btn_chart position_relative w_min_100 ml_5">
             <Select
               id="yearSelect"
-              isSearchable={ false }
+              isSearchable={false}
               onChange={handleChange}
               options={options}
               placeholder="This year"
@@ -65,17 +68,17 @@ const CustomerConversion = ({ token }) => {
                 <table className="table table-striped table-nowrap table-centered mb-0">
                   <thead>
                     <tr>
-                      <th className="main_head_title">Month</th>
+                      <th className="main_head_title">{t("common:Month")}</th>
                       {monthHeaders}
                     </tr>
                   </thead>
 
                   <tbody>
-                    {["Registered", "Contacted", "Offer pending"].map((title) =>
-                      renderTableRow(title, title.toLowerCase())
+                    {customerConversion.map((el) =>
+                      renderTableRow(el.title, el.value.toLowerCase())
                     )}
                     <tr>
-                      <th className="main_col_title">Percentage</th>
+                      <th className="main_col_title">{t("common:Percentage")}</th>
                       {registered.map((el, index) => {
                         const percentage = calculatePercentage(
                           el.registered,

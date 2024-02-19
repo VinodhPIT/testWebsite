@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import moment from "moment";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import { offerCountFilter } from "@/action/offerAnalyticsService";
 import { downloadExcel } from "@/action/downloadService";
 import CountDisplayCard from "../countDisplayCard";
+import useTranslation from "next-translate/useTranslation";
 
 const Apitype = {
   scheduled: "scheduled",
@@ -33,7 +33,7 @@ const initialValue = {
 
 export default function OfferDeatils({ offerCount, token }) {
   const [countData, setCountData] = useState(offerCount);
-
+  const { t } = useTranslation();
   const [dateRange, setDateRange] = useState(initialValue);
   const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
 
@@ -92,7 +92,7 @@ export default function OfferDeatils({ offerCount, token }) {
               onClickDownload={() => handleDownload("scheduled" , dateRange.scheduled.from, dateRange.scheduled.to)}
               onUpdateDateFilter={(val) => handleDateFilter("scheduled", val)}
               selectedDateRange={selectedDayRange.scheduled}
-              title="Scheduled"
+              title={t("common:AnalyticsOffer.Scheduled")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -103,7 +103,7 @@ export default function OfferDeatils({ offerCount, token }) {
               onClickDownload={() => handleDownload("completed" , dateRange.completed.from, dateRange.completed.to)}
               onUpdateDateFilter={(val) => handleDateFilter("completed", val)}
               selectedDateRange={selectedDayRange.completed}
-              title="Completed"
+              title={t("common:AnalyticsOffer.Completed")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -114,7 +114,7 @@ export default function OfferDeatils({ offerCount, token }) {
               onClickDownload={() => handleDownload("rejected" , dateRange.rejected.from, dateRange.rejected.to)}
               onUpdateDateFilter={(val) => handleDateFilter("rejected", val)}
               selectedDateRange={selectedDayRange.rejected}
-              title="Rejected"
+              title={t("common:AnalyticsOffer.Rejected")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -123,10 +123,9 @@ export default function OfferDeatils({ offerCount, token }) {
               count={countData.expired}
               filteredDateRange={dateRange.expired}
               onClickDownload={() => handleDownload("expired" , dateRange.expired.from, dateRange.expired.to)}
-              
               onUpdateDateFilter={(val) => handleDateFilter("expired", val)}
               selectedDateRange={selectedDayRange.expired}
-              title="Expired"
+              title={t("common:AnalyticsOffer.Expired")}
             />
           </div>
         </div>

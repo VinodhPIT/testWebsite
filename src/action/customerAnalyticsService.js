@@ -55,7 +55,7 @@ export const analyticsCustomeFilter = async (params, parma1 ,token) => {
 
 export const analyticsRevenueDetails = async (token) => {
   try {
-    const response = await analyticsGetApiCall(`/analytics/revenue/details`,token);
+    const response = await analyticsGetApiCall(`/analytics/offer/revenue/details`,token);
 
     return response;
   } catch (error) {
@@ -67,7 +67,7 @@ export const analyticsRevenueDetails = async (token) => {
 
 export const analyticsConvertion = async (token) => {
   try {
-    const response = await analyticsGetApiCall(`/analytics/customer/convertion` ,token);
+    const response = await analyticsGetApiCall(`/analytics/customer/conversion` ,token);
     return response;
   } catch (error) {
     return [];
