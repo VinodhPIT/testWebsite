@@ -4,7 +4,6 @@ import CountDisplayCard from "../countDisplayCard";
 import useAnalyticsStore from "@/store/artistAnalytics/calenderFilter"; // This is a custom hook for managing analytics data
 import { useEffect } from "react";
 import { downloadExcel } from "@/action/downloadService";
-
 // Initial values for date ranges
 const initialValue = {
   artistCompletedOffers: {
