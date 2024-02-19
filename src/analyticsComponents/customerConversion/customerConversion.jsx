@@ -9,6 +9,11 @@ import {
 } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 
+export const percentageCalculate = (part, whole) => {
+  const calculatedPercentage = (part / whole) * 100;
+  return isNaN(calculatedPercentage)? "0.00" :calculatedPercentage.toFixed(2);
+};
+
 const CustomerConversion = ({ token }) => {
   const { registered, fetchData } = useCustomerConversionStore();
   const { t } = useTranslation();
@@ -24,11 +29,6 @@ const CustomerConversion = ({ token }) => {
   useEffect(() => {
     fetchData(selectedYear, token);
   }, [selectedYear]);
-
-  const percentageCalculate = (part, whole) => {
-      const calculatedPercentage = (part / whole) * 100;
-      return isNaN(calculatedPercentage)? "0.00" :calculatedPercentage.toFixed(2);
-  };
 
   const renderTableRow = (title, key) => (
     <tr key={title}>

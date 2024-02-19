@@ -565,6 +565,9 @@
     "Offers completed": "offers completed",
     "Offers received": "offers received",
     "Percentage": "Percentage",
-    "Offer pending" :"Offer pending"
+    "Offer pending" :"Offer pending",
+    "Lead" :"Offer pending",
+    "Offers sent" :"Offers sent",
+    "Offers scheduled" :"Offers scheduled"
   }
 }

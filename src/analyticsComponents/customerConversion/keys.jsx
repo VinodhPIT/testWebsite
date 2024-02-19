@@ -11,6 +11,14 @@ const ConversionDataComponent = () => {
     "registered": t("common:TableConversion.Registered")
   };
 
+  const artistConversionTitle = {
+    "lead": t("common:TableConversion.Lead"), 
+    "public_artist": t("common:TableConversion.Public artist"),
+    "offer_send_count": t("common:TableConversion.Offers sent"),
+    "offer_scheduled_count": t("common:TableConversion.Offers scheduled"),
+    "offer_completed_count": t("common:TableConversion.Offers completed")
+  };
+
 
   const artistConversion = [
     {id:1 ,title:t("common:TableConversion.Registered"),value:"Registered"},
@@ -27,6 +35,7 @@ const ConversionDataComponent = () => {
 
   // Export your arrays and mappings
   return {
+    artistConversionTitle,
     customerConversionTitle,
     artistConversion,
     keyMappings,
