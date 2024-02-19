@@ -8,8 +8,6 @@ import CountDisplayCard from '../countDisplayCard';
 const Apitype = {
     contactedWithNoOffer:'contacted_with_no_offer',
     deletedCustomers:'deleted',
-    joinedFromApp:'joined_from_app',
-    joinedFromWeb:'joined_from_website',
     noCompletedOffer:'customer_no_offer_completed',
     notContacted:'no_contacted',
     referralUsedCustomers:'referral_used_customer',
@@ -23,14 +21,6 @@ const initialValue = {
         to: null
     },
     deletedCustomers:{
-        from: null,
-        to: null
-    },
-    joinedFromApp:{
-        from: null,
-        to: null
-    },
-    joinedFromWeb:{
         from: null,
         to: null
     },
@@ -86,28 +76,10 @@ export default function CustomerDetails({initialCounts, token}) {
         ...selectedDayRange,
         [key]: dateRangeValue
     });
-      const { from, to } = dateRangeValue;
-      const fromDate = `${from?.year}-${from?.month>9?from?.month:`0${from?.month}`}-${from?.day>9?from?.day:`0${from?.day}`}` || '';
-      const toDate = to ? `${to?.year}-${to?.month>9?to?.month:`0${to?.month}`}-${to?.day>9?to?.day:`0${to?.day}`}` : null;
-      if (fromDate && toDate) {
-        if(key==="joinedFromWeb"||key==="joinedFromApp"){
-            const res = await analyticsCustomerLeadSourceCountWithFIlter({
-                startDate: fromDate,
-                endDate: toDate
-            }, token);
-            setCountData({
-                ...countData,
-                ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
-                ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source!=="APP").length })
-            })
-            setDateRange({
-              ...dateRange,
-              [key]: {
-                from: fromDate,
-                to: toDate
-            }
-          });
-        } else {
+        const { from, to } = dateRangeValue;
+        const fromDate = `${from?.year}-${from?.month>9?from?.month:`0${from?.month}`}-${from?.day>9?from?.day:`0${from?.day}`}` || '';
+        const toDate = to ? `${to?.year}-${to?.month>9?to?.month:`0${to?.month}`}-${to?.day>9?to?.day:`0${to?.day}`}` : null;
+        if (fromDate && toDate) {
             const res = await analyticsCustomerCountWithFIlter({
                 type: Apitype[key],
                 startDate: fromDate,
@@ -118,14 +90,13 @@ export default function CustomerDetails({initialCounts, token}) {
                 [key]: res[Apitype[key]]
             });
             setDateRange({
-              ...dateRange,
-              [key]: {
+                ...dateRange,
+                [key]: {
                 from: fromDate,
                 to: toDate
             }
           });
         }
-      }
   }
 
   return (
@@ -213,32 +184,8 @@ export default function CustomerDetails({initialCounts, token}) {
                             title="Customers joined using referral"
                         />
                     </div>
-                    <div className="col-lg-3 col-md-6 col-sm-6">
-                        <CountDisplayCard 
-                            bgColorClass="block_bg_orange_100"
-                            count={countData.joinedFromWeb}
-                            filteredDateRange={dateRange.joinedFromWeb}
-                            onClickDownload={() => handleDownload('joined_from_website', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
-                            onUpdateDateFilter={(val)=>handleDateFilter('joinedFromWeb', val)}
-                            selectedDateRange={selectedDayRange.joinedFromWeb}
-                            title="Customers joined from the website"
-                        />
-                    </div>
+                    
                 </div>
-                <div className="row">
-                    <div className="col-lg-3 col-md-6 col-sm-6">
-                        <CountDisplayCard 
-                            bgColorClass="block_bg_yellow_300"
-                            count={countData.joinedFromApp}
-                            filteredDateRange={dateRange.joinedFromApp}
-                            onClickDownload={() => handleDownload('joined_from_app', dateRange.joinedFromApp.from, dateRange.joinedFromApp.to)}
-                            onUpdateDateFilter={(val)=>handleDateFilter('joinedFromApp', val)}
-                            selectedDateRange={selectedDayRange.joinedFromApp}
-                            title="Customers joined from the app"
-                        />
-                    </div>
-                </div>
-                
             </div>
         </section>
     )
