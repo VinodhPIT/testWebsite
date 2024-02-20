@@ -3,9 +3,9 @@ import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import {
   analyticsCustomerCountWithFIlter,
   analyticsCustomerLeadSourceCountWithFIlter,
-} from "@/action/customerAnalyticsService"; // Importing analytics services
+} from "@/apiConfig/customerAnalyticsService"; // Importing analytics services
 import useTranslation from "next-translate/useTranslation";
-import { downloadExcel } from "@/action/downloadService"; // Importing download service
+import { downloadExcel } from "@/apiConfig/downloadService"; // Importing download service
 import CountDisplayCard from "../countDisplayCard";
 
 const Apitype = {
@@ -69,7 +69,7 @@ export default function CustomerDetails({ initialCounts, token }) {
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {
-    downloadExcel("/analytics/customer/csv/", type, token, startDate, endDate);
+    downloadExcel("/analytics/customer", type, startDate, endDate ,token);
   };
 
   // Function to handle date filter

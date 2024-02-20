@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { offerDetails } from "@/action/offerAnalyticsService";
+import { offerDetails } from "@/apiConfig/offerAnalyticsService";
 const useOfferDetail = create((set) => ({
   offerData: {},
   loading: false,

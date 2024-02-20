@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import API_URL from '@/apiConfig/api.config'
 
 const authOptions = {
   session: {
@@ -16,7 +16,7 @@ const authOptions = {
           let value = { username, password };
 
           const response = await fetch(
-            `${process.env.apiDomain}/analytics/login`,
+            `${process.env.apiDomain}${API_URL.ANALYTICS_LOGIN.LOGIN}`,
             {
               method: "POST",
               headers: {

@@ -1,6 +1,6 @@
 
 import { create } from "zustand";
-import { analyticsRevenueDetails } from "@/action/customerAnalyticsService";
+import { analyticsRevenueDetails } from "@/apiConfig/customerAnalyticsService";
 const useRevenueStore = create((set) => ({
   revenue: {},
   loading: false,

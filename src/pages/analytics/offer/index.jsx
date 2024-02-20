@@ -6,7 +6,7 @@ import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paym
 import Header from "@/analyticsComponents/header/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { offerCount } from "@/action/offerAnalyticsService";
+import { offerCount } from "@/apiConfig/offerAnalyticsService";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
 import useOfferDetail from "@/store/offerAnalytics/offerDetails";
 import PieChart from "@/analyticsComponents/pieChart/chart";
@@ -15,21 +15,12 @@ import useTranslation from "next-translate/useTranslation";
 
 
 export default function Offer({ data }) {
-  const router = useRouter();
+  
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
 
   const {offerData , fetchOffer, completedOffers ,scheduledOffers } = useOfferDetail();
-
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
-
-
 
   const getValues = [
     data.offerCount.discount_used,

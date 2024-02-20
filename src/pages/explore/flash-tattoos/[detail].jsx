@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../tattoodetail.module.css";
-import { fetchTattooDetail } from "@/action/action";
+import { fetchTattooDetail } from "@/apiConfig/webService";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-import { fetchArtistDetail } from "@/action/action";
+import { fetchArtistDetail } from "@/apiConfig/webService";
 import Link from "next/link";
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";

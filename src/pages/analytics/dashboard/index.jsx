@@ -5,17 +5,13 @@ import { getSession } from "next-auth/react";
 
 import DashboardDetails from "@/analyticsComponents/dashboardDetails";
 import Header from "@/analyticsComponents/header/header";
-import { analyticsDashboardCount } from "@/action/analyticsDashboard";
+import { analyticsDashboardCount } from "@/apiConfig/dashboardService";
 
 export default function Dashboard({ data : initialData }) {
-  const router = useRouter();
+  
   const { status, data: sessionData } = useSession();
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
+
 
   return (
     <>

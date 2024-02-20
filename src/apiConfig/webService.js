@@ -1,20 +1,15 @@
-// actions.js//
-import {
-  searchParam,
-  prepareRequest,
-  fetchMulticategory,
-} from "@/helpers/helper";
-import {  getApiCall, postApiCall} from "@/utils/apiUtils";
+import { searchParam, fetchMulticategory } from "@/helpers/helper";
+import API_URL from "./api.config";
+import { getApiCall, postApiCall } from "./api.service";
 
 export const fetchCategoryData = async (params) => {
-
   try {
     const responseCategory = await postApiCall(
-      `/web/api/${params.category}/search`,
+      API_URL.SEARCH.SEARCH_BY_CATRGORY(params),
       searchParam(params)
     );
 
-    return responseCategory; // Return the actual data
+    return responseCategory; 
   } catch (error) {
     return [];
   }
@@ -22,42 +17,44 @@ export const fetchCategoryData = async (params) => {
 
 export const getStyles = async () => {
   try {
-    const reponseStyles = await getApiCall(
-      `/web/api/style/all`
-    );
-  
-    return reponseStyles;
-   
-   
-  } catch (error) {
+    const reponseStyles = await getApiCall(API_URL.SEARCH.GET_STYLE_ALL);
 
-    // Handle error if needed
+    return reponseStyles;
+  } catch (error) {
     return [];
   }
 };
 
 export async function fetchMultiData(param) {
-
   try {
-    const tattooFetch = await fetch(`${process.env.apiDomain}/web/api/tattoo/search`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(
-        fetchMulticategory({ ...param, category: (param.category = "tattoo") })
-      ),
-    });
+    const tattooFetch = await fetch(
+      `${process.env.apiDomain}${API_URL.SEARCH.GET_TATTOO_SEARCH}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          fetchMulticategory({
+            ...param,
+            category: (param.category = "tattoo"),
+          })
+        ),
+      }
+    );
 
-    const flashFetch = await fetch(`${process.env.apiDomain}/web/api/flash/search`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(
-        fetchMulticategory({ ...param, category: (param.category = "flash") })
-      ),
-    });
+    const flashFetch = await fetch(
+      `${process.env.apiDomain}${API_URL.SEARCH.GET_FLASH_SEARCH}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          fetchMulticategory({ ...param, category: (param.category = "flash") })
+        ),
+      }
+    );
 
     // const artistsFetch = await fetch(`${process.env.apiDomain}/artist/search`, {
     //   method: "POST",
@@ -88,21 +85,19 @@ export async function fetchMultiData(param) {
     ];
 
     const resultsCount =
-      tattoosResult.rows.total.value +
-      flashesResult.rows.total.value 
-      // artistsResult.rows.total.value;
+      tattoosResult.rows.total.value + flashesResult.rows.total.value;
+    // artistsResult.rows.total.value;
 
     return {
       data: shuffledResults,
       totalCount: resultsCount,
     };
   } catch (error) {}
-
 }
 
 export const fetchTattooDetail = async (params) => {
   try {
-    const response = await getApiCall(`/web/api/tattoo/detail?tattoo_uid=${params}`);
+    const response = await getApiCall(API_URL.SEARCH.GET_TATTOO_DETAIL(params));
     return response;
   } catch (error) {
     return [];
@@ -111,7 +106,7 @@ export const fetchTattooDetail = async (params) => {
 
 export const fetchArtistDetail = async (slug) => {
   try {
-    const response = await getApiCall(`/web/api/artist/detail/${slug}`);
+    const response = await getApiCall(API_URL.SEARCH.GET_ARTIST_DETAIL(slug));
     return response;
   } catch (error) {
     return [];
@@ -120,7 +115,7 @@ export const fetchArtistDetail = async (slug) => {
 
 export const artistGallery = async (uid) => {
   try {
-    const response = await getApiCall(`/web/api/tattoo/artist?artist_uid=${uid}`);
+    const response = await getApiCall(API_URL.SEARCH.GET_ARTIST_GALLERY(uid));
 
     return response;
   } catch (error) {
@@ -128,12 +123,9 @@ export const artistGallery = async (uid) => {
   }
 };
 
-
-
 export const referralCode = async (slug) => {
   try {
-    const response = await getApiCall(`/web/api/customer/referral/${slug}`);
-
+    const response = await getApiCall(API_URL.SEARCH.GET_REFERRAL_CODE(slug));
     return response;
   } catch (error) {
     return [];
