@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-import useSArtistConversionStore from "@/store/artistAnalytics/ArtistConversion";
+import useSArtistConversionStore from "@/store/artistAnalytics/artistConversion";
 import {
   currentYear,
   options,
   months,
-  calculatePercentage,
 } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 import useTranslation from "next-translate/useTranslation";
@@ -39,35 +38,33 @@ const ArtistConversion = ({ title, token, types }) => {
   ));
 
   const ArtistConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
-                <>
-                    {[partTitle, wholeTitle].map((title) =>
-                      renderTableRow(title, title.toLowerCase())
-                    )}
-                    <tr>
-                      <th className="main_col_title">Percentage</th>
-                      {registered.map((el, index) => {
-                        const percentage = percentageCalculate(
-                          el[wholeTitle],
-                          el[partTitle]
-                        );
+    <>
+      {[partTitle, wholeTitle].map((title) =>
+        renderTableRow(title, title.toLowerCase())
+      )}
+      <tr>
+        <th className="main_col_title">Percentage</th>
+        {registered.map((el, index) => {
+          const percentage = percentageCalculate(el[wholeTitle], el[partTitle]);
 
-                        return (
-                          <td
-                            key={index}
-                            className={
-                              percentage === "0.00"
-                              || percentage === "Infinity"
-                                ? "color_red_100"
-                                : "color_green_900"
-                            }
-                          >
-                            {percentage === "0.00" ||percentage === "Infinity" ? "0%" : `${percentage}%`}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                    </>
-    );
+          return (
+            <td
+              key={index}
+              className={
+                percentage === "0.00" || percentage === "Infinity"
+                  ? "color_red_100"
+                  : "color_green_900"
+              }
+            >
+              {percentage === "0.00" || percentage === "Infinity"
+                ? "0%"
+                : `${percentage}%`}
+            </td>
+          );
+        })}
+      </tr>
+    </>
+  );
 
   return (
     <div className="db_card block_bg_white">
