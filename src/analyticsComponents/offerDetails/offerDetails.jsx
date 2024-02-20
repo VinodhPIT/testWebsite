@@ -1,16 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import { offerCountFilter } from "@/action/offerAnalyticsService";
 import { downloadExcel } from "@/action/downloadService";
 import CountDisplayCard from "../countDisplayCard";
 import useTranslation from "next-translate/useTranslation";
-
-const Apitype = {
-  scheduled: "scheduled",
-  completed: "completed",
-  rejected: "rejected",
-  expired: "expired",
-};
+import useAnalyticsStore from "@/store/offerAnalytics/calenderFilter";
 
 const initialValue = {
   scheduled: {
@@ -32,52 +25,26 @@ const initialValue = {
 };
 
 export default function OfferDeatils({ offerCount, token }) {
-  const [countData, setCountData] = useState(offerCount);
   const { t } = useTranslation();
-  const [dateRange, setDateRange] = useState(initialValue);
-  const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
 
-  const handleDownload = async (type , startDate, endDate) => {
-    downloadExcel("/analytics/offer/csv/", type, token ,startDate, endDate);
-  };
+ // Hook to manage analytics store
+  const {
+    countData,
+    dateRange,
+    selectedDayRange,
+    handleDateFilter,
+    resetCalender,
+    fetchInitialData,
+  } = useAnalyticsStore();
 
-  const handleDateFilter = async (key, dateRangeValue) => {
-    setSelectedDayRange({
-      ...selectedDayRange,
-      [key]: dateRangeValue,
-    });
-    const { from, to } = dateRangeValue;
-    const fromDate =
-      `${from?.year}-${from?.month > 9 ? from?.month : `0${from?.month}`}-${
-        from?.day > 9 ? from?.day : `0${from?.day}`
-      }` || "";
-    const toDate = to
-      ? `${to?.year}-${to?.month > 9 ? to?.month : `0${to?.month}`}-${
-          to?.day > 9 ? to?.day : `0${to?.day}`
-        }`
-      : null;
+   // Fetch initial data on component mount
+  useEffect(() => {
+    fetchInitialData(offerCount, initialValue, token);
+  }, []);
 
-    if (fromDate && toDate) {
-      const res = await offerCountFilter(
-        {
-          endDate: toDate,
-          startDate: fromDate,
-          type: Apitype[key],
-        },
-        token
-      );
-      setCountData({
-        ...countData,
-        [key]: res[Apitype[key]],
-      });
-      setDateRange({
-        ...dateRange,
-        [key]: {
-          from: fromDate,
-          to: toDate,
-        },
-      });
-    }
+// Function to handle downloading Excel file
+  const handleDownload = async (type, startDate, endDate) => {
+    downloadExcel("/analytics/offer/csv/", type, token, startDate, endDate);
   };
 
   return (
@@ -89,10 +56,17 @@ export default function OfferDeatils({ offerCount, token }) {
               bgColorClass="block_bg_yellow_300"
               count={countData.scheduled}
               filteredDateRange={dateRange.scheduled}
-              onClickDownload={() => handleDownload("scheduled" , dateRange.scheduled.from, dateRange.scheduled.to)}
+              onClickDownload={() =>
+                handleDownload(
+                  "scheduled",
+                  dateRange.scheduled.from,
+                  dateRange.scheduled.to
+                )
+              }
               onUpdateDateFilter={(val) => handleDateFilter("scheduled", val)}
               selectedDateRange={selectedDayRange.scheduled}
               title={t("common:AnalyticsOffer.Scheduled")}
+              reset={() => resetCalender("scheduled")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -100,10 +74,17 @@ export default function OfferDeatils({ offerCount, token }) {
               bgColorClass="block_bg_green_100"
               count={countData.completed}
               filteredDateRange={dateRange.completed}
-              onClickDownload={() => handleDownload("completed" , dateRange.completed.from, dateRange.completed.to)}
+              onClickDownload={() =>
+                handleDownload(
+                  "completed",
+                  dateRange.completed.from,
+                  dateRange.completed.to
+                )
+              }
               onUpdateDateFilter={(val) => handleDateFilter("completed", val)}
               selectedDateRange={selectedDayRange.completed}
               title={t("common:AnalyticsOffer.Completed")}
+              reset={() => resetCalender("completed")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -111,10 +92,17 @@ export default function OfferDeatils({ offerCount, token }) {
               bgColorClass="block_bg_blue_50"
               count={countData.rejected}
               filteredDateRange={dateRange.rejected}
-              onClickDownload={() => handleDownload("rejected" , dateRange.rejected.from, dateRange.rejected.to)}
+              onClickDownload={() =>
+                handleDownload(
+                  "rejected",
+                  dateRange.rejected.from,
+                  dateRange.rejected.to
+                )
+              }
               onUpdateDateFilter={(val) => handleDateFilter("rejected", val)}
               selectedDateRange={selectedDayRange.rejected}
               title={t("common:AnalyticsOffer.Rejected")}
+              reset={() => resetCalender("rejected")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">
@@ -122,10 +110,17 @@ export default function OfferDeatils({ offerCount, token }) {
               bgColorClass="block_bg_orange_100"
               count={countData.expired}
               filteredDateRange={dateRange.expired}
-              onClickDownload={() => handleDownload("expired" , dateRange.expired.from, dateRange.expired.to)}
+              onClickDownload={() =>
+                handleDownload(
+                  "expired",
+                  dateRange.expired.from,
+                  dateRange.expired.to
+                )
+              }
               onUpdateDateFilter={(val) => handleDateFilter("expired", val)}
               selectedDateRange={selectedDayRange.expired}
               title={t("common:AnalyticsOffer.Expired")}
+              reset={() => resetCalender("expired")}
             />
           </div>
         </div>
