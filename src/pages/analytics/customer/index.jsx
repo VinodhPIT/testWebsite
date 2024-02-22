@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import {
   analyticsCustomerCount,
   analyticsCustomerLeadSourceCount,
@@ -21,9 +20,12 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function Analytics({ data }) {
 
+ 
   const { status, data: sessionData } = useSession();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { t } = useTranslation();
+
+
 
 
 

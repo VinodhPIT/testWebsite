@@ -13,14 +13,14 @@ import PieChart from "@/analyticsComponents/pieChart/chart";
 import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
 import useTranslation from "next-translate/useTranslation";
 
-
 export default function Offer({ data }) {
   
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
 
-  const {offerData , fetchOffer, completedOffers ,scheduledOffers } = useOfferDetail();
+  const { offerData, fetchOffer, completedOffers, scheduledOffers } =
+    useOfferDetail();
 
   const getValues = [
     data.offerCount.discount_used,
@@ -48,6 +48,7 @@ export default function Offer({ data }) {
   ];
 
 
+
   useEffect(() => {
     fetchRevenue(data.sessionToken);
     fetchOffer(data.sessionToken);
@@ -61,23 +62,20 @@ export default function Offer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-      <OfferDeatils offerCount={data.offerCount} token={data.sessionToken} />
+        <OfferDeatils offerCount={data.offerCount} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12">
-              <TotalCustomers
+                <TotalCustomers
                   title={t("common:AnalyticsOffer.Total scheduled offers")}
                   chartData={scheduledOffers}
                   type={"type2"}
                   creationDate="offer_date"
                 />
-
-
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12">
-
-              <PieChart
+                <PieChart
                   title={t("common:AnalyticsOffer.Total Discount")}
                   getKeys={getKeys}
                   getValues={getValues}
@@ -93,19 +91,18 @@ export default function Offer({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12">
-
-              <PaymentComparison
-                  title={t("common:AnalyticsOffer.Total amount earned from completed/canceled offers")}
+                <PaymentComparison
+                  title={t(
+                    "common:AnalyticsOffer.Total amount earned from completed/canceled offers"
+                  )}
                   label_1={t("common:AnalyticsOffer.Completed")}
                   label_2={t("common:AnalyticsOffer.Canceled")}
                   revenueData={offerData}
                   isTest={true}
                 />
-
-
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12">
-              <PaymentComparison
+                <PaymentComparison
                   title={t("common:Payment methods")}
                   label_1={t("common:menus.klarna")}
                   label_2={t("common:Stripe payment")}
@@ -121,16 +118,12 @@ export default function Offer({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
-
-
-              <TotalCustomers
+                <TotalCustomers
                   title={t("common:AnalyticsOffer.Total completed offers")}
                   chartData={completedOffers}
                   type={"type2"}
                   creationDate="offer_date"
                 />
-
-
               </div>
             </div>
           </div>
