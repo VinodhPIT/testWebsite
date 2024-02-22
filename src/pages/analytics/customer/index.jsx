@@ -16,6 +16,7 @@ import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paym
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
+import CustomerContactTime from "@/analyticsComponents/customerContactTime/customerContactTime"
 
 
 
@@ -82,6 +83,20 @@ export default function Analytics({ data }) {
                   getValues={getValues}
                   getColor={getColor}
                   label={label}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section className="container-fluid">
+          <div className="db_customer_detail_wrap">
+            <div className="row">
+              <div className="col-lg-12 col-md-6 col-sm-12">
+                <CustomerContactTime
+                  title= "Customer average time"
+                  chartData={data.chartData}
                 />
               </div>
             </div>
