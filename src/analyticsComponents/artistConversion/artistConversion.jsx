@@ -104,7 +104,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
           </div>
           <div className="d_flex m_flex_direction_row">
             <div
-              className="db_btn_chart position_relative w_min_170 ml_5 mr_15"
+              className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_380"
             >
               <Select
                   isMulti

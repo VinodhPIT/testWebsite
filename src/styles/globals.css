@@ -1519,9 +1519,15 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mxw_720 {
   max-width: 720px!important;
 }
+
 .d_max_320 {
   max-width: 320px!important;
 }
+
+.d_max_380 {
+  max-width: 380px!important;
+}
+
 .no_space_center {
   padding-left: 15px !important;
   padding-right: 15px !important;
