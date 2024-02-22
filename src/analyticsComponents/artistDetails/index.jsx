@@ -100,7 +100,7 @@ export default function ArtistDetails({ initialCounts, token }) {
                 )
               }
               onUpdateDateFilter={(val) =>
-                handleDateFilter("totalArtists", val, Apitype)
+                handleDateFilter("totalArtists", val)
               }
               selectedDateRange={selectedDayRange.totalArtists ?? ""}
               title={t("common:AnalyticsArtist.Total active artist")}
