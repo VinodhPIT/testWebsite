@@ -113,7 +113,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
                   options={countryList.map((country)=>{
                     return {value: country, label: country}
                   })}
-                  placeholder="All"
+                  placeholder={t("common:AnalyticsArtist.All")}
               />
             </div>
             <div className="db_btn_chart position_relative w_min_100 ml_5">
@@ -122,7 +122,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
                 isSearchable={false}
                 onChange={handleChange}
                 options={options}
-                placeholder="This year"
+                placeholder={t("common:AnalyticsArtist.This year")}
                 value={selectedOption}
               />
             </div>
