@@ -23,12 +23,12 @@ export default function CountDisplayCard({
     onClickDownload,
     onUpdateDateFilter, 
     selectedDateRange,
-    title
+    title ,reset
  }) {
   return (
     <div className={`db_card ${bgColorClass}`}>
         <div className="db_card_body p_16">
-            <div className="d_flex justify_space_between align_item_center pb_12 pr_35">
+            <div className="d_flex justify_space_between align_item_center pb_12">
                 <div>
                     <h4>{title}</h4>
                     <p>
@@ -41,15 +41,22 @@ export default function CountDisplayCard({
                 </div>    
                {!hideFilter
                  &&(
+                    <div className='iconWrapper'>
+                
+                 
+                    
                  <div className="db_icon_shape db_icon_cal">  
-                    <div>
+                    
                         <Image
-                            alt="Download"
-                            height="24"
+                            alt="calender"
+                            height="20"
                             priority
                             src="/icon_calender_new.svg"
-                            width="24"
+                            width="20"
                         />
+
+
+                         
                         <DatePicker
                             calendarPopperPosition="bottom"
                             maximumDate={utils('en').getToday()}
@@ -57,16 +64,23 @@ export default function CountDisplayCard({
                             renderInput={renderCustomInput}
                             shouldHighlightWeekends
                             value={selectedDateRange}
+                        
                         />
                     </div>
-                 </div>  
+                  
+                    <div className="db_icon_shape db_icon_cal">  
+                    <button  disabled={ filteredDateRange && filteredDateRange.from && filteredDateRange.from !==null ? false :true} onClick={reset}><Image src={'/resetIcon.png'} width={15} height={15}/></button>
+
+                     </div>
+                    </div>
+                
                )}                         
             </div>
             <div className="d_flex justify_space_between align_item_center">
                 <h2>{count}</h2>
                 {!hideDownload
                     && (
-                        <div className="db_icon_shape mr_6">
+                        <div className="db_icon_shape mr_24">
                             <Link href="" className="d_inline_block" onClick={onClickDownload}>
                                 <Image
                                     alt="Download"

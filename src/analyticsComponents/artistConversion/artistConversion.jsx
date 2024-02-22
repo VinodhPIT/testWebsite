@@ -9,25 +9,25 @@ import {
 } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 import useTranslation from "next-translate/useTranslation";
+import { percentageCalculate } from "../customerConversion/customerConversion";
 
 const ArtistConversion = ({ title, token, types }) => {
   const { registered, fetchData } = useSArtistConversionStore();
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
   const { t } = useTranslation();
-  const { keyMappings } = ConversionDataComponent();
+  const { artistConversionTitle, keyMappings } = ConversionDataComponent();
 
   const handleChange = (selectedOption) => {
     setSelectedYear(selectedOption.value);
   };
-
   useEffect(() => {
     fetchData(selectedYear, token);
   }, [selectedYear]);
 
   const renderTableRow = (title, key) => (
     <tr key={title}>
-      <th className="main_col_title">{title}</th>
+      <th className="main_col_title">{artistConversionTitle[title]}</th>
       {registered.map((el) => (
         <td key={el.month}>{el[keyMappings[key]] || el[key] || 0}</td>
       ))}
@@ -37,6 +37,37 @@ const ArtistConversion = ({ title, token, types }) => {
   const monthHeaders = months.map((month, index) => (
     <th key={index}>{month}</th>
   ));
+
+  const ArtistConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
+                <>
+                    {[partTitle, wholeTitle].map((title) =>
+                      renderTableRow(title, title.toLowerCase())
+                    )}
+                    <tr>
+                      <th className="main_col_title">Percentage</th>
+                      {registered.map((el, index) => {
+                        const percentage = percentageCalculate(
+                          el[wholeTitle],
+                          el[partTitle]
+                        );
+
+                        return (
+                          <td
+                            key={index}
+                            className={
+                              percentage === "0.00"
+                              || percentage === "Infinity"
+                                ? "color_red_100"
+                                : "color_green_900"
+                            }
+                          >
+                            {percentage === "0.00" ||percentage === "Infinity" ? "0%" : `${percentage}%`}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                    </>
+    );
 
   return (
     <div className="db_card block_bg_white">
@@ -73,35 +104,22 @@ const ArtistConversion = ({ title, token, types }) => {
                   </thead>
 
                   <tbody>
-                    {types.map((el) =>
-                      renderTableRow(el.title, el.value.toLowerCase())
-                    )}
-                    <tr>
-                      <th className="main_col_title">
-                        {t("common:Percentage")}
-                      </th>
-                      {registered.map((el, index) => {
-                        const percentage = calculatePercentage(
-                          el.registered,
-                          el.contacted,
-                          el.offer_created_count,
-                          el.public_artist
-                        );
-
-                        return (
-                          <td
-                            key={index}
-                            className={
-                              percentage === "0.00"
-                                ? "color_red_100"
-                                : "color_green_900"
-                            }
-                          >
-                            {percentage === "0.00" ? "0%" : `${percentage}%`}
-                          </td>
-                        );
-                      })}
-                    </tr>
+                    <ArtistConversionDisplayBlock
+                      partTitle="lead"
+                      wholeTitle="public_artist"
+                    />
+                    <ArtistConversionDisplayBlock
+                      partTitle="public_artist"
+                      wholeTitle="offer_send_count"
+                    />
+                    <ArtistConversionDisplayBlock
+                      partTitle="offer_send_count"
+                      wholeTitle="offer_scheduled_count"
+                    />
+                    <ArtistConversionDisplayBlock
+                      partTitle="offer_scheduled_count"
+                      wholeTitle="offer_completed_count"
+                    />
                   </tbody>
                 </table>
               </div>

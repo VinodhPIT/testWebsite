@@ -179,10 +179,9 @@ header.db_header_wrap {
 }
 
 .db_icon_cal {
-  display: flex;
+  
   padding: 8px;
-  align-items: flex-start;
-  gap: 10px;
+ 
   border-radius: 4px;
   background: #f2f5f6;
 }
@@ -459,11 +458,11 @@ header.db_header_wrap {
   left: 8px;
 }
 
-.db_customer_detail_wrap .db_icon_cal {
+/* .db_customer_detail_wrap .db_icon_cal {
   position: absolute;
   right: 16px;
   top: 16px;
-}
+} */
 
 .header_dashboard .offcanvas-backdrop {
   display: none;
@@ -511,7 +510,7 @@ header.db_header_wrap {
 .offcanvas-open {
   overflow: unset !important;
 }
-
+.iconWrapper {display:flex;gap: 8px; position: relative;}
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;
