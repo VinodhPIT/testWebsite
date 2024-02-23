@@ -52,7 +52,7 @@ export default function Offer({ data }) {
   useEffect(() => {
     fetchRevenue(data.sessionToken);
     fetchOffer(data.sessionToken);
-  }, []);
+  }, [fetchRevenue ,fetchOffer ,data.sessionToken ]);
   return (
     <>
       <Head>

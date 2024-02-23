@@ -1,115 +1,81 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import _Form from "@/components/artistForm/form";
-
 import useTranslation from "next-translate/useTranslation";
-import { useGlobalState } from "@/context/Context";
-import { getLocaleProps } from '@/utils/getlocale';
 import Head from "next/head";
 
-
-
-
-export default function JoinArtist({locale}) {
-
-  const {getLocale } = useGlobalState();
-
+export default function JoinArtist({  }) {
   const { t } = useTranslation();
 
-
-
-  useEffect(() => {
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
-
-
-
-
   return (
+    <>
+      <Head>
+        <title>{t("common:joinArtistScreenSEO.title")}</title>
 
-<>
-
-<Head>
-<title>{t("common:joinArtistScreenSEO.title")}</title>
-
-<meta
-  name="description"
-  content={t("common:joinArtistScreenSEO.description")}
-/>
-<meta
-  name="keywords"
-  content={t("common:joinArtistScreenSEO.keyword")}
-/>
+        <meta
+          name="description"
+          content={t("common:joinArtistScreenSEO.description")}
+        />
+        <meta
+          name="keywords"
+          content={t("common:joinArtistScreenSEO.keyword")}
+        />
       </Head>
 
-
-    <div className="page-wrapper">  
-      <section className="img_text_banner_box forms_section default_form_block artist_tattoo_form_block">
-        <div className="col_full">
-          <div className="img_text_box_wrapper custom_new_wrap">
-            <div class="text_box_wrap right">
-              <div class="img_text_box_inner">
-                <div class="text_box_content justify_content_center align_item_start">
-                  <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">  
-                    <div class="form_block_left">
-                      <h1 class="color_gray_550 heading_h1 custom_fs_58 custom_fs_50 txt_mob_fs45">
-                        <span>{t("common:joinartistPage.title1")}</span>
-                        <span className="textBlock">{t("common:joinartistPage.title1-Sub")}</span>
-                      </h1>
-                      <div class="form_left_wrap">
-                        <section class="progress_block">
-                          <ul class="progressbar">
-                            <li class="active">
-                              <div className="progressbar_block">
-                                <h4> {t("common:joinartistPage.head1")}</h4>
-                                <p> {t("common:joinartistPage.text")}</p>
-                              </div>
-                            </li>
-                            {/* <li>
+      <div className="page-wrapper">
+        <section className="img_text_banner_box forms_section default_form_block artist_tattoo_form_block">
+          <div className="col_full">
+            <div className="img_text_box_wrapper custom_new_wrap">
+              <div class="text_box_wrap right">
+                <div class="img_text_box_inner">
+                  <div class="text_box_content justify_content_center align_item_start">
+                    <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
+                      <div class="form_block_left">
+                        <h1 class="color_gray_550 heading_h1 custom_fs_58 custom_fs_50 txt_mob_fs45">
+                          <span>{t("common:joinartistPage.title1")}</span>
+                          <span className="textBlock">
+                            {t("common:joinartistPage.title1-Sub")}
+                          </span>
+                        </h1>
+                        <div class="form_left_wrap">
+                          <section class="progress_block">
+                            <ul class="progressbar">
+                              <li class="active">
+                                <div className="progressbar_block">
+                                  <h4> {t("common:joinartistPage.head1")}</h4>
+                                  <p> {t("common:joinartistPage.text")}</p>
+                                </div>
+                              </li>
+                              {/* <li>
                               <div className="progressbar_block">
                                 <h4> {t("common:joinartistPage.head2")}</h4>
                                 <p> {t("common:joinartistPage.text")}</p>
                               </div>
                             </li> */}
-                            <li>
-                              <div className="progressbar_block">
-                                <h4>{t("common:joinartistPage.head2")}</h4>
-                    
-                              </div>
-                            </li>
-                          </ul>
-                        </section>
+                              <li>
+                                <div className="progressbar_block">
+                                  <h4>{t("common:joinartistPage.head2")}</h4>
+                                </div>
+                              </li>
+                            </ul>
+                          </section>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="img_box_wrap" style={{ backgroundImage: 'url(/joinArtist.jpg)' }}>
-                  <div class="form_block_right">              
-                  <_Form />
+                  <div
+                    class="img_box_wrap"
+                    style={{ backgroundImage: "url(/joinArtist.jpg)" }}
+                  >
+                    <div class="form_block_right">
+                      <_Form />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-    </div>
+        </section>
+      </div>
     </>
-
   );
-}
-
-
-
-export async function getServerSideProps(context) {
-  const { props } = await getLocaleProps(context);
-  return {
-    props:{
-      locale:props.locale
-    }
-  };
 }

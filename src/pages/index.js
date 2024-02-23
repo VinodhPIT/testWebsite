@@ -189,7 +189,7 @@ export default function Homenew({ data, locale }) {
     }));
 
     styleCollection();
-  }, []);
+  },[]);
 
   useEffect(() => {
     try {
@@ -275,7 +275,7 @@ export default function Homenew({ data, locale }) {
                       priority
                       src="/pexels-jasmin-chew-14664626-2-1.png"
                       alt={t("common:homePage.bannerTitle")}
-                      fill
+                      layout="fill"
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
@@ -287,7 +287,7 @@ export default function Homenew({ data, locale }) {
                       priority
                       src="/image_2024_01_10T08_41_09_088Z.png"
                       alt={t("common:homePage.bannerTitle")}
-                      fill
+                      layout="fill"
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"

@@ -24,7 +24,9 @@ export default function Dashboard({ data: initialData }) {
 
   useEffect(() => {
     fetchTotalRevenue(initialData.sessionToken);
-  }, []);
+  }, [ fetchTotalRevenue ,initialData.sessionToken]);
+
+
 
   return (
     <>

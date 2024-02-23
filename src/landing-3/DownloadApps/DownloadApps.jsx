@@ -74,12 +74,12 @@ export default function DownloadApps ({title ,subTitle}) {
                 </li>
                 <li className="mr_xs_0 mb_xs_5">
                   <Link href={APP_LINK_APPLE} target="_blank">
-                    <img src="/app-store-new.svg" alt="" />
+                    <Image src="/app-store-new.svg" alt="AppStore" width={131} height={41} />
                   </Link>
                 </li>
                 <li className="mr_xs_0">
                   <Link href={APP_LINK_GOOGLE} target="_blank">
-                    <img src="/g-play-new.svg" alt="" />
+                    <Image src="/g-play-new.svg" alt="PlayStore"  width={131} height={41}/>
                   </Link>
                 </li>
               </ul>

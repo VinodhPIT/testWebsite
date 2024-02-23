@@ -69,7 +69,7 @@ export default function CountDisplayCard({
                     </div>
                   
                     <div className="db_icon_shape db_icon_cal">  
-                    <button  disabled={ filteredDateRange && filteredDateRange.from && filteredDateRange.from !==null ? false :true} onClick={reset}><Image src={'/resetIcon.png'} width={15} height={15}/></button>
+                    <button  disabled={ filteredDateRange && filteredDateRange.from && filteredDateRange.from !==null ? false :true} onClick={reset}><Image src={'/resetIcon.png'} alt='resetIcon' width={15} height={15}/></button>
 
                      </div>
                     </div>
