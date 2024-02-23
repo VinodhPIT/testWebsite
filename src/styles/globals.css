@@ -903,6 +903,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   height: inherit !important;
 } 
 
+.h_400{
+  height: 400px !important;
+} 
+
 .max_h_565 {
   max-height: 565px !important;
 }

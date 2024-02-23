@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "./style.module.css";
 import { useRouter } from "next/router";
-import { fetchArtistDetail, artistGallery } from "@/action/action";
+import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
 import { blurDataURL } from "@/constants/constants";
 import SearchField from "@/components/tattooSearch/tattooSearch";
  

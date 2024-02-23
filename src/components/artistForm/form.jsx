@@ -11,7 +11,7 @@ import {
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-
+import  API_URL  from '@/apiConfig/api.config'
 
 
 const _Form = () => {
@@ -44,6 +44,7 @@ const validationSchema = Yup.object().shape({
     router.push('/')
   };
 
+
   return (
   <div class="form_right_wrap">
     <div style={{ margin: "0 auto", padding: "0px" }}>
@@ -64,7 +65,7 @@ const validationSchema = Yup.object().shape({
            
           
             fetch(
-              `${process.env.apiDomain}/api/profile/artist/verification/request`,
+              `${process.env.apiDomain}${API_URL.SEARCH.ARTIST_FORM}`,
               {
                 method: "POST",
                 headers: {

@@ -547,15 +547,21 @@
   },
   "AnalyticsOffer": {
     "MetaTitle": "Offer-Analytics",
-    "Scheduled": "Scheduled",
-    "Completed": "Completed",
-    "Rejected": "Rejected",
-    "Expired": "Expired",
+    "Scheduled": "Total scheduled offers",
+    "Completed": "Total offers completed",
+    "Rejected": "Total Rejected offers",
+    "Expired": " Total Expired offers",
     "Canceled": "Canceled",
     "Total scheduled offers": "Total scheduled offers",
     "Total Discount": "Total Discount",
     "Total amount earned from completed/canceled offers": "Total amount earned from completed/canceled offers",
     "Total completed offers": "Total completed offers"
+  },
+  "AnalyticsDashboard": {
+    "MetaTitle": "Dashboard-Analytics",
+    "Total revenue earned": "Total revenue earned",
+    "IOS Downloads": "IOS Downloads",
+    "Android Downloads": "Android Downloads"
   },
 
   "TableConversion": {

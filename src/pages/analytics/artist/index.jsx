@@ -7,7 +7,7 @@ import Header from "@/analyticsComponents/header/header";
 import {
   analyticsArtistCount,
   analyticsArtistLeadSourceCount,
-} from "@/action/artistAnalyticsService";
+} from "@/apiConfig/artistAnalyticsService";
 import ArtistsByCountryTable from "@/analyticsComponents/ArtistsByCountryTable/ArtistsByCountryTable";
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
 import YourComponent from "@/analyticsComponents/customerConversion/keys";
@@ -19,14 +19,11 @@ import useTranslation from "next-translate/useTranslation";
 
 
 export default function ArtistAnalytics({ data: initialData }) {
-  const router = useRouter();
+
   const { status, data } = useSession();
+  const router = useRouter();
   const { t } = useTranslation();
   const { artistConversion } = YourComponent();
-
-  useEffect(() => {
-    if (status === "unauthenticated") router.push("/analytics/login");
-  }, [status, router]);
 
   const getValues = Object.values(initialData.genderCount);
 
@@ -50,6 +47,17 @@ export default function ArtistAnalytics({ data: initialData }) {
     { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
+
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/analytics/login");
+    }
+  }, [status, router]);
+
+
+
+
 
   return (
     <>

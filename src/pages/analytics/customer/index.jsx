@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import {
   analyticsCustomerCount,
   analyticsCustomerLeadSourceCount,
-} from "@/action/customerAnalyticsService";
+} from "@/apiConfig/customerAnalyticsService";
 import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
@@ -16,21 +15,12 @@ import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paym
 import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
-import CustomerContactTime from "@/analyticsComponents/customerContactTime/customerContactTime"
-
-
+import CustomerContactTime from "@/analyticsComponents/customerContactTime/customerContactTime";
 
 export default function Analytics({ data }) {
-  const router = useRouter();
   const { status, data: sessionData } = useSession();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
 
   useEffect(() => {
     fetchRevenue(data.sessionToken);
@@ -62,7 +52,7 @@ export default function Analytics({ data }) {
   return (
     <>
       <Head>
-      <title>{t("common:AnalyticsCustomer.MetaTitle")}</title>
+        <title>{t("common:AnalyticsCustomer.MetaTitle")}</title>
       </Head>
 
       <Header data={status === "authenticated" && sessionData.user.name} />
@@ -74,7 +64,7 @@ export default function Analytics({ data }) {
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
                 <TotalCustomers
-                  title= {t("common:AnalyticsCustomer.TotalCustomers")}
+                  title={t("common:AnalyticsCustomer.TotalCustomers")}
                   chartData={data.chartData}
                   type="type1"
                   creationDate="created_date"
@@ -93,13 +83,12 @@ export default function Analytics({ data }) {
           </div>
         </section>
 
-
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-12 col-md-6 col-sm-12">
                 <CustomerContactTime
-                  title= "Customer average time"
+                  title="Customer average time"
                   chartData={data.chartData}
                 />
               </div>
@@ -114,7 +103,9 @@ export default function Analytics({ data }) {
                 {loading ? null : (
                   <ComparisonChart
                     totalData={data.chartData}
-                    title={t("common:AnalyticsCustomer.Normal vs referred customers")}
+                    title={t(
+                      "common:AnalyticsCustomer.Normal vs referred customers"
+                    )}
                     labe_1="Normal Customers"
                     labe_2="Referred Customers"
                   />
@@ -138,7 +129,7 @@ export default function Analytics({ data }) {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
                 {data.role === "Analytic Admin" && (
-                  <CustomerConversion      token={data.sessionToken}   />
+                  <CustomerConversion token={data.sessionToken} />
                 )}
               </div>
             </div>

@@ -3,7 +3,7 @@ import useTranslation from "next-translate/useTranslation";
 import CountDisplayCard from "../countDisplayCard";
 import useAnalyticsStore from "@/store/artistAnalytics/calenderFilter"; // This is a custom hook for managing analytics data
 import { useEffect } from "react";
-import { downloadExcel } from "@/action/downloadService";
+import { downloadExcel } from "@/apiConfig/downloadService";
 // Initial values for date ranges
 const initialValue = {
   artistCompletedOffers: {
@@ -72,8 +72,14 @@ export default function ArtistDetails({ initialCounts, token }) {
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {
-    downloadExcel("/analytics/artist/csv/", type, token, startDate, endDate);
+
+    downloadExcel("/analytics/artist", type, startDate, endDate ,token);
+
+
   };
+
+
+
 
   return (
     <section className="container-fluid">
@@ -94,7 +100,7 @@ export default function ArtistDetails({ initialCounts, token }) {
                 )
               }
               onUpdateDateFilter={(val) =>
-                handleDateFilter("totalArtists", val, Apitype)
+                handleDateFilter("totalArtists", val)
               }
               selectedDateRange={selectedDayRange.totalArtists ?? ""}
               title={t("common:AnalyticsArtist.Total active artist")}

@@ -3,16 +3,16 @@ import Select from "react-select";
 import Multiselect from "multiselect-react-dropdown";
 import useTranslation from "next-translate/useTranslation";
 
-import useSArtistConversionStore from "@/store/artistAnalytics/ArtistConversion";
 import {
   currentYear,
   options,
   months
 } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
-import { artistConvesionWithCountryFilter } from "@/action/artistAnalyticsService";
 import { percentageCalculate } from "../customerConversion/customerConversion";
 import Loader from "@/components/loader";
+import { artistConvesionWithCountryFilter } from "@/apiConfig/artistAnalyticsService";
+import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
 
 const ArtistConversion = ({ data, title, token, types }) => {
   const { 
@@ -24,6 +24,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
   const { artistConversionTitle, keyMappings } = ConversionDataComponent();
 
   const [loading, setLoading] = useState(false);
+  const [selectedCountries, setSelectedCountries] = useState([]);
   const [registered, setRegistered] = useState(registeredData);
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const allCountries = data.map((dataItem)=> dataItem.country);
@@ -36,6 +37,9 @@ const ArtistConversion = ({ data, title, token, types }) => {
   };
 
   const handleCountryChange = async (selectedOption) => {
+    const countries=selectedOption.length>0?selectedOption.map((op)=> op.value).join():[];
+
+    setSelectedCountries(countries);
     if(selectedOption.length>0){
       setLoading(true);
       const res = await artistConvesionWithCountryFilter(selectedOption.map((op)=> op.value).join(), token);
@@ -79,23 +83,24 @@ const ArtistConversion = ({ data, title, token, types }) => {
                           el[partTitle]
                         );
 
-                        return (
-                          <td
-                            key={index}
-                            className={
-                              percentage === "0.00"
-                              || percentage === "Infinity"
-                                ? "color_red_100"
-                                : "color_green_900"
-                            }
-                          >
-                            {percentage === "0.00" ||percentage === "Infinity" ? "0%" : `${percentage}%`}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                    </>
-    );
+          return (
+            <td
+              key={index}
+              className={
+                percentage === "0.00" || percentage === "Infinity"
+                  ? "color_red_100"
+                  : "color_green_900"
+              }
+            >
+              {percentage === "0.00" || percentage === "Infinity"
+                ? "0%"
+                : `${percentage}%`}
+            </td>
+          );
+        })}
+      </tr>
+    </>
+  );
 
     return (
     <div className="db_card block_bg_white">
@@ -106,7 +111,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
           </div>
           <div className="d_flex m_flex_direction_row">
             <div
-              className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_380"
+              className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_320"
             >
               <Multiselect
                 displayValue="label"
@@ -115,6 +120,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
                 options={countryList.map((country)=>{
                   return {value: country, label: country}
                 })}
+                hidePlaceholder={selectedCountries.length > 0}
                 placeholder={t("common:AnalyticsArtist.All")}
                 />
             </div>
@@ -132,7 +138,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
         </div>
         {isLoading
         ? (
-          <div className="pt_pb_80">
+          <div className="pt_pb_80 h_400">
             <Loader />
           </div>
         ) : (
@@ -142,7 +148,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
             </div>
           ) : (
             <div className="d_flex justify_content_start align_item_center pb_12">
-              <div className="db_table_block">
+            <div className="db_table_block db_table_country">
                 <div className="table-responsive">
                   <table className="table table-striped table-nowrap table-centered mb-0">
                     <thead>

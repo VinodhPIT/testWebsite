@@ -5,7 +5,7 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
+import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
 const initialState = {

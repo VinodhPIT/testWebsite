@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import { downloadExcel } from "@/action/downloadService";
+import { downloadExcel } from "@/apiConfig/downloadService";
 import CountDisplayCard from "../countDisplayCard";
 import useTranslation from "next-translate/useTranslation";
 import useAnalyticsStore from "@/store/offerAnalytics/calenderFilter";
@@ -44,7 +44,7 @@ export default function OfferDeatils({ offerCount, token }) {
 
 // Function to handle downloading Excel file
   const handleDownload = async (type, startDate, endDate) => {
-    downloadExcel("/analytics/offer/csv/", type, token, startDate, endDate);
+    downloadExcel("/analytics/offer", type, startDate, endDate ,token);
   };
 
   return (

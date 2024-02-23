@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import useTranslation from "next-translate/useTranslation";
-import useCustomerConversionStore from "@/store/customerAnalytics/CustomerConversion";
-import {
-  currentYear,
-  options,
-  months
-} from "@/helpers/helper";
+import useCustomerConversionStore from "@/store/customerAnalytics/conversionCustomer";
+import { currentYear, options, months } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
+
 
 export const percentageCalculate = (part, whole) => {
   const calculatedPercentage = (part / whole) * 100;
-  return isNaN(calculatedPercentage)? "0.00" :calculatedPercentage.toFixed(2);
+  return isNaN(calculatedPercentage) ? "0.00" : calculatedPercentage.toFixed(2);
 };
 
 const CustomerConversion = ({ token }) => {
@@ -56,23 +53,24 @@ const CustomerConversion = ({ token }) => {
                           el[partTitle]
                         );
 
-                        return (
-                          <td
-                            key={index}
-                            className={
-                              percentage === "0.00"
-                              || percentage === "Infinity"
-                                ? "color_red_100"
-                                : "color_green_900"
-                            }
-                          >
-                            {percentage === "0.00" ||percentage === "Infinity" ? "0%" : `${percentage}%`}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                    </>
-    );
+          return (
+            <td
+              key={index}
+              className={
+                percentage === "0.00" || percentage === "Infinity"
+                  ? "color_red_100"
+                  : "color_green_900"
+              }
+            >
+              {percentage === "0.00" || percentage === "Infinity"
+                ? "0%"
+                : `${percentage}%`}
+            </td>
+          );
+        })}
+      </tr>
+    </>
+  );
 
   return (
     <div className="db_card block_bg_white">
@@ -98,7 +96,7 @@ const CustomerConversion = ({ token }) => {
           </div>
         ) : (
           <div className="d_flex justify_content_start align_item_center pb_12">
-            <div className="db_table_block">
+          <div className="db_table_block db_table_country">
               <div className="table-responsive">
                 <table className="table table-striped table-nowrap table-centered mb-0">
                   <thead>

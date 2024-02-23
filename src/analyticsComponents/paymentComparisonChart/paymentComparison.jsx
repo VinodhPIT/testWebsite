@@ -117,7 +117,6 @@ export default function PaymentComparison({
         <div className=" justify_content_center align_item_center pb_12">
           <div className="db_chart_bar">
             {Object.keys(revenueData).length === 0 && <Loader />}
-
             <Bar data={data} options={options} width={100} height={390} />
           </div>
         </div>
