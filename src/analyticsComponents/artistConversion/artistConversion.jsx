@@ -110,8 +110,8 @@ const ArtistConversion = ({ data, title, token, types }) => {
             >
               <Multiselect
                 displayValue="label"
-                onRemove={handleCountryChange} // Function will trigger on remove event
-                onSelect={handleCountryChange} // Function will trigger on select event
+                onRemove={handleCountryChange}
+                onSelect={handleCountryChange}
                 options={countryList.map((country)=>{
                   return {value: country, label: country}
                 })}
