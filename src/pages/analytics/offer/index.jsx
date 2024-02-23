@@ -14,7 +14,6 @@ import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
 import useTranslation from "next-translate/useTranslation";
 
 export default function Offer({ data }) {
-  
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
@@ -46,8 +45,6 @@ export default function Offer({ data }) {
     { id: 1, label: "Discount Used", bgColor: "block_bg_green_dark_400" },
     { id: 2, label: "No Discount used", bgColor: "block_bg_green_light_200" },
   ];
-
-
 
   useEffect(() => {
     fetchRevenue(data.sessionToken);
