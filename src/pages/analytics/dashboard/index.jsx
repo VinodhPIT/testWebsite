@@ -10,17 +10,12 @@ import { analyticsArtistCount } from "@/apiConfig/artistAnalyticsService";
 import { analyticsCustomerCount } from "@/apiConfig/customerAnalyticsService";
 import TotalAmountEarned from "@/analyticsComponents/totalAmountEarned/totalAmount";
 import useTotalRevenue from "@/store/dashboardAnalytics/totalRevenue";
-import useTranslation from "next-translate/useTranslation"
-
+import useTranslation from "next-translate/useTranslation";
 
 export default function Dashboard({ data: initialData }) {
-
   const { status, data: sessionData } = useSession();
   const { totalAmount, fetchTotalRevenue } = useTotalRevenue();
   const { t } = useTranslation();
-
-
-
 
   useEffect(() => {
     fetchTotalRevenue(initialData.sessionToken);
@@ -30,13 +25,11 @@ export default function Dashboard({ data: initialData }) {
 
   return (
     <>
-        <Head>
-      <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
+      <Head>
+        <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
       </Head>
 
-
       <Header data={status === "authenticated" && sessionData.user.name} />
-
 
       <section className="pt_20 pb_20 block_bg_gray_150">
         <DashboardDetails
@@ -49,7 +42,7 @@ export default function Dashboard({ data: initialData }) {
             <div className="row">
               <div className="col-lg-9 col-md-12 col-sm-12">
                 <TotalAmountEarned
-                   title={t("common:AnalyticsDashboard.Total revenue earned")}
+                  title={t("common:AnalyticsDashboard.Total revenue earned")}
                   revenueData={totalAmount}
                   isTest={true}
                 />

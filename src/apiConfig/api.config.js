@@ -33,6 +33,10 @@ const API_URL = {
     GET_ARTIST_DETAILS: "/analytics/artist/details",
     GET_ARTIST_CONVERSION: "/analytics/artist/conversion",
     DOWNLOAD_EXCEL: "/analytics/artist",
+
+    CONVERSION_COUNTRY:(country)=>`/analytics/artist/conversion?country=${country}`
+    
+
   },
 
   ANALYTICS_OFFER: {
