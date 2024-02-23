@@ -1,21 +1,18 @@
 import { create } from "zustand";
 import { offerDetails } from "@/apiConfig/offerAnalyticsService";
-const useOfferDetail = create((set) => ({
-  offerData: {},
+const useTotalRevenue = create((set) => ({
+  totalAmount: {},
   loading: false,
-  scheduledOffers: [],
-  completedOffers:[],
-  fetchOffer: async (token) => {
+  fetchTotalRevenue: async (token) => {
     try {
       set({ loading: true });
       const response = await offerDetails(token);
-      const scheduledOffers = response.filter((e) => e.status === "scheduled");
-      const completedOffers = response.filter((e) => e.status === "completed");
       const filter = response.filter(
-        (e) => e.status === "completed" || e.status === "cancelled"
+        (e) =>
+          e.status === "completed" ||
+          e.status === "cancelled" ||
+          e.status === "scheduled"
       );
-
-    
 
       const result = {};
       filter.forEach((item) => {
@@ -24,28 +21,26 @@ const useOfferDetail = create((set) => ({
           result[currency] = {
             completed: 0,
             cancelled: 0,
+            scheduled: 0,
           };
         }
         result[currency][status] += total_amount;
       });
 
-
-      
       const formattedResult = Object.entries(result).reduce(
-        (acc, [currency, { completed, cancelled }]) => {
+        (acc, [currency, { completed, cancelled, scheduled }]) => {
+          const total = (completed + cancelled + scheduled).toFixed(2);
           acc[currency] = {
-            completed: completed.toFixed(2),
-            cancelled: cancelled.toFixed(2),
+            total: total,
           };
           return acc;
         },
         {}
       );
-
-      set({ offerData: formattedResult, loading: false, scheduledOffers ,completedOffers });
+      set({ totalAmount: formattedResult, loading: false });
     } catch (error) {
       set({ loading: false });
     }
   },
 }));
-export default useOfferDetail;
+export default useTotalRevenue;
