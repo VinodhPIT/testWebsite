@@ -6,7 +6,6 @@ import {
   analyticsCustomerLeadSourceCountWithFIlter,
 } from "@/apiConfig/customerAnalyticsService"; // Importing analytics services
 
-
 import useTranslation from "next-translate/useTranslation";
 import { downloadExcel } from "@/apiConfig/downloadService"; // Importing download service
 import CountDisplayCard from "../countDisplayCard";
@@ -65,37 +64,56 @@ export default function CustomerDetails({ initialCounts, token }) {
     downloadExcel("/analytics/customer", type, startDate, endDate ,token);
   };
 
- 
+
 
     // Function to handle date filter
     const handleDateFilter = async (key, dateRangeValue) => {
         setSelectedDayRange({
-            ...selectedDayRange,
-            [key]: dateRangeValue,
-        });
-
+          ...selectedDayRange,
+          [key]: dateRangeValue
+      });
         const { from, to } = dateRangeValue;
-        const fromDate = `${from?.year}-${from?.month > 9 ? from?.month : `0${from?.month}`}-${from?.day > 9 ? from?.day : `0${from?.day}`}` || '';
-        const toDate = to ? `${to?.year}-${to?.month > 9 ? to?.month : `0${to?.month}`}-${to?.day > 9 ? to?.day : `0${to?.day}`}` : null;
+        const fromDate = `${from?.year}-${from?.month>9?from?.month:`0${from?.month}`}-${from?.day>9?from?.day:`0${from?.day}`}` || '';
+        const toDate = to ? `${to?.year}-${to?.month>9?to?.month:`0${to?.month}`}-${to?.day>9?to?.day:`0${to?.day}`}` : null;
         if (fromDate && toDate) {
-            const res = await analyticsCustomerCountWithFIlter({
-                type: Apitype[key],
-                startDate: fromDate,
-                endDate: toDate
-            }, token);
-            setCountData({
-                ...countData,
-                [key]: res[Apitype[key]]
-            });
-            setDateRange({
+          if(key==="joinedFromWeb"||key==="joinedFromApp"){
+              const res = await analyticsCustomerLeadSourceCountWithFIlter({
+                  startDate: fromDate,
+                  endDate: toDate
+              }, token);
+              setCountData({
+                  ...countData,
+                  ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
+                  ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source!=="APP").length })
+              })
+              setDateRange({
                 ...dateRange,
                 [key]: {
-                    from: fromDate,
-                    to: toDate
-                }
+                  from: fromDate,
+                  to: toDate
+              }
             });
+          } else {
+              const res = await analyticsCustomerCountWithFIlter({
+                  type: Apitype[key],
+                  startDate: fromDate,
+                  endDate: toDate
+              }, token);
+              setCountData({
+                  ...countData,
+                  [key]: res[Apitype[key]]
+              });
+              setDateRange({
+                ...dateRange,
+                [key]: {
+                  from: fromDate,
+                  to: toDate
+              }
+            });
+          }
         }
     }
+  
 
     return (
         <section className="container-fluid">
@@ -187,4 +205,3 @@ export default function CustomerDetails({ initialCounts, token }) {
         </section>
     )
 }
-
