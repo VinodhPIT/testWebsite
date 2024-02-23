@@ -5,22 +5,29 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import useTranslation from "next-translate/useTranslation";
-
+import { useSession } from "next-auth/react";
 
 export default function Header({ data }) {
-  const handleSignOut = async () => {
-    await signOut({ redirect: false });
-  };
+  const [offCanvas, setoffCanvas] = useState(false);
+  const { status } = useSession();
   const router = useRouter();
   const { t } = useTranslation();
   const navigationItems = [
+    { href: "/analytics/dashboard", label: "Dashboard" },
     { href: "/analytics/customer", label: "Customer" },
     { href: "/analytics/artist", label: "Artists" },
     { href: "/analytics/offer", label: "Offer" },
-    
   ];
 
-  const [offCanvas, setoffCanvas] = useState(false);
+  const handleSignOut = async () => {
+    await signOut({ redirect: false });
+  };
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/analytics/login");
+    }
+  }, [status, router]);
 
   useEffect(() => {
     router.events.on("routeChangeStart", () => {
@@ -80,7 +87,7 @@ export default function Header({ data }) {
                 <div className="header_right">
                   <div className="db_user_profile">
                     <span style={{ textTransform: "capitalize" }}>
-                    {t("common:Hello")}, {data}{" "}
+                      {t("common:Hello")}, {data}{" "}
                     </span>
                     <Image
                       src="/db_user_1.png"

@@ -11,7 +11,7 @@ import ConversionDataComponent from "@/analyticsComponents/customerConversion/ke
 
 export const percentageCalculate = (part, whole) => {
   const calculatedPercentage = (part / whole) * 100;
-  return isNaN(calculatedPercentage)? "0.00" :calculatedPercentage.toFixed(2);
+  return isNaN(calculatedPercentage) ? "0.00" : calculatedPercentage.toFixed(2);
 };
 
 const CustomerConversion = ({ token }) => {
@@ -56,23 +56,24 @@ const CustomerConversion = ({ token }) => {
                           el[partTitle]
                         );
 
-                        return (
-                          <td
-                            key={index}
-                            className={
-                              percentage === "0.00"
-                              || percentage === "Infinity"
-                                ? "color_red_100"
-                                : "color_green_900"
-                            }
-                          >
-                            {percentage === "0.00" ||percentage === "Infinity" ? "0%" : `${percentage}%`}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                    </>
-    );
+          return (
+            <td
+              key={index}
+              className={
+                percentage === "0.00" || percentage === "Infinity"
+                  ? "color_red_100"
+                  : "color_green_900"
+              }
+            >
+              {percentage === "0.00" || percentage === "Infinity"
+                ? "0%"
+                : `${percentage}%`}
+            </td>
+          );
+        })}
+      </tr>
+    </>
+  );
 
   return (
     <div className="db_card block_bg_white">

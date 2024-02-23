@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
+import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";
 import style from "@/pages/explore/search.module.css";

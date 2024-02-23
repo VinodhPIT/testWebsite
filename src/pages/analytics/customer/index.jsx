@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import {
   analyticsCustomerCount,
   analyticsCustomerLeadSourceCount,
-} from "@/action/customerAnalyticsService";
+} from "@/apiConfig/customerAnalyticsService";
 import Header from "@/analyticsComponents/header/header";
 import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
 import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
@@ -21,16 +20,15 @@ import CustomerContactTime from "@/analyticsComponents/customerContactTime/custo
 
 
 export default function Analytics({ data }) {
-  const router = useRouter();
+
+ 
   const { status, data: sessionData } = useSession();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
+
+
+
 
   useEffect(() => {
     fetchRevenue(data.sessionToken);

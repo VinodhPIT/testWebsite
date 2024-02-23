@@ -1,8 +1,11 @@
-import moment from 'moment';
-
-export const downloadExcel = async (path, type, token ,startDate, endDate) => {
+import API_URL from "./api.config";
+export const downloadExcel = async (path, type, startDate, endDate, token) => {
+  
   try {
-    const url = `${process.env.apiDomain}${path}${type}${startDate&&endDate?`?start_date=${moment(startDate).format("YYYY-MM-DD")}&end_date=${moment(endDate).format("YYYY-MM-DD")}`:''}`;
+    const url = `${
+      process.env.apiDomain
+    }${API_URL.EXCEL_DOWNLOAD.GET_EXCEL_FILE(path, type, startDate, endDate)}`;
+
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -10,7 +13,6 @@ export const downloadExcel = async (path, type, token ,startDate, endDate) => {
         Authorization: `Bearer ${token}`,
       },
     });
-
     const blob = await response.blob();
     const downloadUrl = window.URL.createObjectURL(blob);
     const link = document.createElement("a");
