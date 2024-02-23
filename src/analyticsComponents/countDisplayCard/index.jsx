@@ -28,7 +28,7 @@ export default function CountDisplayCard({
   return (
     <div className={`db_card ${bgColorClass}`}>
         <div className="db_card_body p_16">
-            <div className="d_flex justify_space_between align_item_center pb_12">
+            <div className="d_flex justify_space_between  pb_12">
                 <div>
                     <h4>{title}</h4>
                     <p>

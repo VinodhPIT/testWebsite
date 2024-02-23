@@ -4,18 +4,17 @@ const useOfferDetail = create((set) => ({
   offerData: {},
   loading: false,
   scheduledOffers: [],
-  completedOffers:[],
+  completedOffers: [],
   fetchOffer: async (token) => {
     try {
       set({ loading: true });
       const response = await offerDetails(token);
       const scheduledOffers = response.filter((e) => e.status === "scheduled");
       const completedOffers = response.filter((e) => e.status === "completed");
+
       const filter = response.filter(
         (e) => e.status === "completed" || e.status === "cancelled"
       );
-
-    
 
       const result = {};
       filter.forEach((item) => {
@@ -29,8 +28,6 @@ const useOfferDetail = create((set) => ({
         result[currency][status] += total_amount;
       });
 
-
-      
       const formattedResult = Object.entries(result).reduce(
         (acc, [currency, { completed, cancelled }]) => {
           acc[currency] = {
@@ -42,7 +39,12 @@ const useOfferDetail = create((set) => ({
         {}
       );
 
-      set({ offerData: formattedResult, loading: false, scheduledOffers ,completedOffers });
+      set({
+        offerData: formattedResult,
+        loading: false,
+        scheduledOffers,
+        completedOffers,
+      });
     } catch (error) {
       set({ loading: false });
     }

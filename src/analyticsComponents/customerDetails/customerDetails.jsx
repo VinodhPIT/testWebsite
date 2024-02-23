@@ -11,46 +11,57 @@ import { downloadExcel } from "@/apiConfig/downloadService"; // Importing downlo
 import CountDisplayCard from "../countDisplayCard";
 
 const Apitype = {
-    contactedWithNoOffer: 'contacted_with_no_offer',
-    deletedCustomers: 'deleted',
-    noCompletedOffer: 'customer_no_offer_completed',
-    notContacted: 'no_contacted',
-    referralUsedCustomers: 'referral_used_customer',
-    totalCustomers: 'total_count',
-    voucherUserCustomers: 'voucher_used_customer',
-};
-
-const initialValue = {
+    // Object defining different types of analytics
+    contactedWithNoOffer: "contacted_with_no_offer",
+    deletedCustomers: "deleted",
+    joinedFromApp: "joined_from_app",
+    joinedFromWeb: "joined_from_website",
+    noCompletedOffer: "customer_no_offer_completed",
+    notContacted: "no_contacted",
+    referralUsedCustomers: "referral_used_customer",
+    totalCustomers: "total_count",
+    voucherUserCustomers: "voucher_used_customer",
+  };
+  
+  const initialValue = {
+    // Initial date range values
     contactedWithNoOffer: {
-        from: null,
-        to: null
+      from: null,
+      to: null,
     },
     deletedCustomers: {
-        from: null,
-        to: null
+      from: null,
+      to: null,
+    },
+    joinedFromApp: {
+      from: null,
+      to: null,
+    },
+    joinedFromWeb: {
+      from: null,
+      to: null,
     },
     noCompletedOffer: {
-        from: null,
-        to: null
+      from: null,
+      to: null,
     },
     notContacted: {
-        from: null,
-        to: null
+      from: null,
+      to: null,
     },
     referralUsedCustomers: {
-        from: null,
-        to: null
+      from: null,
+      to: null,
     },
     totalCustomers: {
-        from: null,
-        to: null
+      from: null,
+      to: null,
     },
     voucherUserCustomers: {
-        from: null,
-        to: null
-    }
-};
-
+      from: null,
+      to: null,
+    },
+  };
 
 export default function CustomerDetails({ initialCounts, token }) {
     const [countData, setCountData] = useState(initialCounts);
@@ -84,7 +95,7 @@ export default function CustomerDetails({ initialCounts, token }) {
               setCountData({
                   ...countData,
                   ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
-                  ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source!=="APP").length })
+                  ...(key==="joinedFromWeb" && { joinedFromWeb: res.filter((custData)=> custData.lead_source ==="WEB").length })
               })
               setDateRange({
                 ...dateRange,
@@ -115,6 +126,31 @@ export default function CustomerDetails({ initialCounts, token }) {
     }
   
 
+    const resetCalender = (key) => {
+        setSelectedDayRange({
+          ...selectedDayRange,
+          [key]: {
+            from: null,
+            to: null,
+          },
+        });
+    
+        setDateRange({
+          ...dateRange,
+          [key]: {
+            from: null,
+            to: null,
+          },
+        });
+    
+        setCountData({
+          ...countData,
+          [key]: initialCounts[key],
+        });
+      };
+
+
+
     return (
         <section className="container-fluid">
             <div className="db_customer_detail_wrap">
@@ -128,6 +164,8 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('totalCustomers', val)}
                             selectedDateRange={selectedDayRange.totalCustomers}
                             title={t("common:AnalyticsCustomer.TotalCustomers")}
+                            reset={() => resetCalender("totalCustomers")}
+
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -140,6 +178,7 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('notContacted', val)}
                             selectedDateRange={selectedDayRange.notContacted}
                             title={t("common:AnalyticsCustomer.NotContactedArtists")}
+                          
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -152,6 +191,7 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('noCompletedOffer', val)}
                             selectedDateRange={selectedDayRange.noCompletedOffer}
                             title={t("common:AnalyticsCustomer.NotCompletedOffers")}
+                            reset={() => resetCalender("noCompletedOffer")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -163,6 +203,7 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('contactedWithNoOffer', val)}
                             selectedDateRange={selectedDayRange.contactedWithNoOffer}
                             title={t("common:AnalyticsCustomer.ContactedArtistNoOffer")}
+                            reset={() => resetCalender("contactedWithNoOffer")}
                         />
                     </div>
                 </div>
@@ -176,6 +217,8 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('deletedCustomers', val)}
                             selectedDateRange={selectedDayRange.deletedCustomers}
                             title={t("common:AnalyticsCustomer.DeletedCustomer")}
+                            reset={() => resetCalender("deletedCustomers")}
+
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -187,6 +230,7 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('voucherUserCustomers', val)}
                             selectedDateRange={selectedDayRange.voucherUserCustomers}
                             title={t("common:AnalyticsCustomer.UsedVouchers")}
+                            reset={() => resetCalender("voucherUserCustomers")}
                         />
                     </div>
                     <div className="col-lg-3 col-md-6 col-sm-6">
@@ -198,8 +242,45 @@ export default function CustomerDetails({ initialCounts, token }) {
                             onUpdateDateFilter={(val) => handleDateFilter('referralUsedCustomers', val)}
                             selectedDateRange={selectedDayRange.referralUsedCustomers}
                             title={t("common:AnalyticsCustomer.JoinedUsingReferral")}
+                            reset={() => resetCalender("referralUsedCustomers")}
                         />
                     </div>
+
+                    <div className="col-lg-3 col-md-6 col-sm-6">
+                        <CountDisplayCard 
+                            bgColorClass="block_bg_orange_100"
+                            count={countData.joinedFromWeb}
+                            filteredDateRange={dateRange.joinedFromWeb}
+                            onClickDownload={() => handleDownload('joined_from_website', dateRange.joinedFromWeb.from, dateRange.joinedFromWeb.to)}
+                            onUpdateDateFilter={(val)=>handleDateFilter('joinedFromWeb', val)}
+                            selectedDateRange={selectedDayRange.joinedFromWeb}
+                            title={t("common:AnalyticsCustomer.JoinedFromWebsite")}
+                            reset={() => resetCalender("joinedFromWeb")}
+                        />
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-lg-3 col-md-6 col-sm-6">
+                        <CountDisplayCard 
+                              bgColorClass="block_bg_yellow_300"
+                              count={countData.joinedFromApp}
+                              filteredDateRange={dateRange.joinedFromApp}
+                              onClickDownload={() =>
+                                handleDownload(
+                                  "joined_from_app",
+                                  dateRange.joinedFromApp.from,
+                                  dateRange.joinedFromApp.to
+                                )
+                              }
+                              onUpdateDateFilter={(val) =>
+                                handleDateFilter("joinedFromApp", val)
+                              }
+                              selectedDateRange={selectedDayRange.joinedFromApp}
+                              title={t("common:AnalyticsCustomer.JoinedFromApp")}
+                              reset={() => resetCalender("joinedFromApp")}
+                        />
+                    </div>
+                
                 </div>
             </div>
         </section>
