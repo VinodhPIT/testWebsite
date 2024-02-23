@@ -5,6 +5,7 @@ import useCustomerConversionStore from "@/store/customerAnalytics/customerConver
 import { currentYear, options, months } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 
+
 export const percentageCalculate = (part, whole) => {
   const calculatedPercentage = (part / whole) * 100;
   return isNaN(calculatedPercentage) ? "0.00" : calculatedPercentage.toFixed(2);

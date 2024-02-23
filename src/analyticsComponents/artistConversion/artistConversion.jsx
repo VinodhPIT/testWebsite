@@ -12,6 +12,7 @@ import useTranslation from "next-translate/useTranslation";
 import { percentageCalculate } from "../customerConversion/customerConversion";
 import Loader from "@/components/loader";
 
+
 const ArtistConversion = ({ data, title, token, types }) => {
   const { 
     fetchData, 
