@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import useTranslation from "next-translate/useTranslation";
-import useCustomerConversionStore from "@/store/customerAnalytics/customerConversion";
+import useCustomerConversionStore from "@/store/customerAnalytics/conversionCustomer";
 import { currentYear, options, months } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
+
 
 export const percentageCalculate = (part, whole) => {
   const calculatedPercentage = (part / whole) * 100;
