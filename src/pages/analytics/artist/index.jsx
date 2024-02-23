@@ -111,6 +111,7 @@ export default function ArtistAnalytics({ data: initialData }) {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <ArtistConversion
+                  data={initialData.chartData}
                   title={t("common:AnalyticsArtist.Artist Conversion")}
                   token={initialData.sessionToken}
                   types={artistConversion}
