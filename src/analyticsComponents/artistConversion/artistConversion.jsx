@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
+import Multiselect from "multiselect-react-dropdown";
+import useTranslation from "next-translate/useTranslation";
+
 import useSArtistConversionStore from "@/store/artistAnalytics/ArtistConversion";
 import {
   currentYear,
@@ -8,7 +11,6 @@ import {
 } from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 import { artistConvesionWithCountryFilter } from "@/action/artistAnalyticsService";
-import useTranslation from "next-translate/useTranslation";
 import { percentageCalculate } from "../customerConversion/customerConversion";
 import Loader from "@/components/loader";
 
@@ -106,15 +108,15 @@ const ArtistConversion = ({ data, title, token, types }) => {
             <div
               className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_380"
             >
-              <Select
-                  isMulti
-                  isSearchable={false}
-                  onChange={handleCountryChange}
-                  options={countryList.map((country)=>{
-                    return {value: country, label: country}
-                  })}
-                  placeholder={t("common:AnalyticsArtist.All")}
-              />
+              <Multiselect
+                displayValue="label"
+                onRemove={handleCountryChange} // Function will trigger on remove event
+                onSelect={handleCountryChange} // Function will trigger on select event
+                options={countryList.map((country)=>{
+                  return {value: country, label: country}
+                })}
+                placeholder={t("common:AnalyticsArtist.All")}
+                />
             </div>
             <div className="db_btn_chart position_relative w_min_100 ml_5">
               <Select
