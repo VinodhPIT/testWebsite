@@ -48,7 +48,7 @@ const CustomerConversion = ({ token }) => {
                     {[partTitle, wholeTitle].map((title) =>
                       renderTableRow(title, title.toLowerCase())
                     )}
-                    <tr>
+                    <tr className="conversion-highlighter">
                       <th className="main_col_title">Percentage</th>
                       {registered.map((el, index) => {
                         const percentage = percentageCalculate(
