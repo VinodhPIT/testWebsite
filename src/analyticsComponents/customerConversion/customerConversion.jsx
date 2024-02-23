@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import useTranslation from "next-translate/useTranslation";
-import useCustomerConversionStore from "@/store/customerAnalytics/customerConversion";
-import { currentYear, options, months } from "@/helpers/helper";
+import useCustomerConversionStore from "@/store/customerAnalytics/CustomerConversion";
+import {
+  currentYear,
+  options,
+  months
+} from "@/helpers/helper";
 import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
 
 export const percentageCalculate = (part, whole) => {
@@ -40,14 +44,17 @@ const CustomerConversion = ({ token }) => {
   ));
 
   const CustomerConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
-    <>
-      {[partTitle, wholeTitle].map((title) =>
-        renderTableRow(title, title.toLowerCase())
-      )}
-      <tr>
-        <th className="main_col_title">Percentage</th>
-        {registered.map((el, index) => {
-          const percentage = percentageCalculate(el[wholeTitle], el[partTitle]);
+                <>
+                    {[partTitle, wholeTitle].map((title) =>
+                      renderTableRow(title, title.toLowerCase())
+                    )}
+                    <tr className="conversion-highlighter">
+                      <th className="main_col_title">Percentage</th>
+                      {registered.map((el, index) => {
+                        const percentage = percentageCalculate(
+                          el[wholeTitle],
+                          el[partTitle]
+                        );
 
           return (
             <td

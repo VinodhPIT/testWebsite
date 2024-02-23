@@ -541,7 +541,9 @@
     "Normal artists": "Normal artists",
     "Referred artists": "Referred artists",
     "Country": "Country",
-    "Number of artists": "No. of artists"
+    "Number of artists": "No. of artists",
+    "This year": "This year",
+    "All": "All"
   },
   "AnalyticsOffer": {
     "MetaTitle": "Offer-Analytics",
@@ -571,9 +573,9 @@
     "Offers completed": "offers completed",
     "Offers received": "offers received",
     "Percentage": "Percentage",
-    "Offer pending": "Offer pending",
-    "Lead": "Offer pending",
-    "Offers sent": "Offers sent",
-    "Offers scheduled": "Offers scheduled"
+    "Offer pending" :"Offer pending",
+    "Lead" :"Offer pending",
+    "Offers sent" :"Offers sent",
+    "Offers scheduled" :"Offers scheduled"
   }
 }

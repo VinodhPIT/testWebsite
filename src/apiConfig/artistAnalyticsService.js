@@ -48,3 +48,12 @@ export const artistConvertion = async (token) => {
     return [];
   }
 };
+
+export const artistConvesionWithCountryFilter = async (country, token) => {
+  try {
+    const response = await analyticsGetApiCall(`/analytics/artist/conversion?country=${country}` ,token);
+    return response;
+  } catch (error) {
+    return [];
+  }
+};

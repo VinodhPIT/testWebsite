@@ -510,7 +510,19 @@ header.db_header_wrap {
 .offcanvas-open {
   overflow: unset !important;
 }
+
 .iconWrapper {display:flex;gap: 8px; position: relative;}
+
+.db_table_block table.table tbody .conversion-highlighter th.main_col_title, 
+.db_table_block table.table tbody .conversion-highlighter td {
+  font-weight: 700;
+  border-bottom: 1px solid var(--gray-light-300);
+}
+
+.db_table_block table.table tbody .conversion-highlighter th.main_col_title {
+  color: var(--black-150) 
+}
+
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;
