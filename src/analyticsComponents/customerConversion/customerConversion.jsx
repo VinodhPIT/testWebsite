@@ -40,14 +40,17 @@ const CustomerConversion = ({ token }) => {
   ));
 
   const CustomerConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
-    <>
-      {[partTitle, wholeTitle].map((title) =>
-        renderTableRow(title, title.toLowerCase())
-      )}
-      <tr>
-        <th className="main_col_title">Percentage</th>
-        {registered.map((el, index) => {
-          const percentage = percentageCalculate(el[wholeTitle], el[partTitle]);
+                <>
+                    {[partTitle, wholeTitle].map((title) =>
+                      renderTableRow(title, title.toLowerCase())
+                    )}
+                    <tr className="conversion-highlighter">
+                      <th className="main_col_title">Percentage</th>
+                      {registered.map((el, index) => {
+                        const percentage = percentageCalculate(
+                          el[wholeTitle],
+                          el[partTitle]
+                        );
 
           return (
             <td
