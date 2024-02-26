@@ -42,7 +42,7 @@ export default function Header({ data }) {
       router.events.off("routeChangeStart");
       router.events.off("routeChangeComplete");
     };
-  }, []);
+  }, [router.events ,setoffCanvas]);
 
   return (
     <>

@@ -22,7 +22,7 @@ const TotalCustomers = ({ title, chartData, type, creationDate }) => {
       creationDate
     );
     setChartArray(processData(filteredArray, type));
-  }, [currentYear, chartData]);
+  }, [chartData ,creationDate ,type]);
 
   const labels = useMemo(() => months, []);
 

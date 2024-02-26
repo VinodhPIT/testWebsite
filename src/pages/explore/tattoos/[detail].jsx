@@ -14,25 +14,23 @@ import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { useRouter } from "next/router";
 import style from "@/pages/explore/search.module.css";
-import { TattooSearchModal } from "@/utils/modalUtils";
+import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
+import { getURL } from "next/dist/shared/lib/utils";
+import { getUrl } from "@/utils/getUrl";
 
-export default function Detail({ data, status }) {
+export default function Detail({ data, status, locale }) {
+
+ 
+  
+  
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
-  const {
-    state,
-    getLocale,
-    styleCollection,
-    setSelectedIds,
-    clearStyleId,
-    selectedIds,
-    onSearch,
-  } = useGlobalState();
+  const { state,getLocale, styleCollection  ,setSelectedIds ,clearStyleId , selectedIds, onSearch} = useGlobalState();
 
   const { t } = useTranslation();
 
@@ -42,9 +40,17 @@ export default function Detail({ data, status }) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+
   useEffect(() => {
     styleCollection();
-  },[]);
+    // setSelectedIds([])
+    // clearStyleId()
+    try {
+      getLocale({
+        locale,
+      });
+    } catch (error) {}
+  }, [locale]);
 
   const goBack = () => {
     router.back();
@@ -74,6 +80,8 @@ export default function Detail({ data, status }) {
   }
 
   const handleThumbnailClick = async (newItemImage) => {
+    
+   
     setCurrentBigImage("");
     setLoading(true);
     let image = await myPromise(newItemImage);
@@ -81,36 +89,40 @@ export default function Detail({ data, status }) {
     setLoading(false);
   };
 
-  const chooseStyle = async (slug) => {
-    let updatedIds;
-    await setSelectedIds((prevIds) => {
-      updatedIds = prevIds.includes(slug)
-        ? prevIds.filter((id) => id === slug)
-        : [...prevIds, slug];
 
-      return updatedIds;
-    });
-    await onSearch(
-      "tattoo",
-      state.searchKey,
-      updatedIds,
-      state.location,
-      router
-    );
-  };
+
+  
+  
+  const chooseStyle = async (slug) => {
+     let updatedIds;
+     await setSelectedIds((prevIds) => {
+       updatedIds = prevIds.includes(slug)
+         ? prevIds.filter((id) => id === slug)
+         : [...prevIds, slug];
+   
+       return updatedIds;
+     });
+     await onSearch('tattoo', state.searchKey, updatedIds, state.location, router);
+   };
+
+
+
+
 
   return (
     <>
       <Head>
-        <title>{t("common:tattooDetailScreen.title")}</title>
+      <title>
+        {t("common:tattooDetailScreen.title")}
+        </title>
         <meta
           name="description"
           content={t("common:tattooDetailScreen.description")}
         />
         <meta
           name="keywords"
-          content={t("common:tattooDetailScreen.keyword")}
-        />
+          content={t("common:tattooDetailScreen.keyword")}/>
+
       </Head>
 
       <main>
@@ -154,7 +166,7 @@ export default function Detail({ data, status }) {
               </div>
               <div className={styles.product_media}>
                 {loading ? (
-                  <Loader />
+                 <Loader/>
                 ) : (
                   <Image
                     alt={data.style.name}
@@ -162,6 +174,7 @@ export default function Detail({ data, status }) {
                     src={currentBigImage}
                     height={500}
                     width={500}
+                
                     style={{
                       height: "auto",
                       width: "100%",
@@ -169,6 +182,7 @@ export default function Detail({ data, status }) {
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                     quality={75}
+                  
                   />
                 )}
               </div>
@@ -207,25 +221,14 @@ export default function Detail({ data, status }) {
                         target="_blank"
                         className={styles.profile_bookmark}
                       >
-                        <Image
-                          src="/bookmark-icon.svg"
-                          alt="bookmark icon"
-                          width={24}
-                          height={24}
-                          priority
-                        />
+                        <Image src="/bookmark-icon.svg" alt="bookmark icon" width={24} height={24} priority />
                       </a>
                       <a
                         onClick={openPopup}
                         target="_blank"
                         className={styles.profile_share}
                       >
-                        <Image
-                          src="/share-icon.svg"
-                          alt="share icon"
-                          width={24}
-                          height={24}
-                        />
+                        <Image src="/share-icon.svg" alt="share icon" width={24} height={24} />
                       </a>
                     </div>
                   </div>
@@ -241,7 +244,11 @@ export default function Detail({ data, status }) {
                       {getStyle.map((e) => {
                         return (
                           <li key={e.id}>
-                            <button onClick={() => chooseStyle(e.slug)}>
+                           
+                            <button onClick={()=>chooseStyle(e.slug )}
+                             
+                            >
+                             
                               {e.name}
                             </button>
                           </li>
@@ -282,23 +289,12 @@ export default function Detail({ data, status }) {
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_APPLE}>
-                      <Image
-                        width={134}
-                        height={41}
-                        priority
-                        src="/app-store-new.svg"
-                        alt="app store"
-                      />
+                      <Image width={134} height={41} priority src="/app-store-new.svg" alt="app store" />
                     </Link>
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_GOOGLE}>
-                      <Image
-                        width={134}
-                        height={41}
-                        src="/g-play-new.svg"
-                        alt="g play"
-                      />
+                      <Image width={134} height={41} src="/g-play-new.svg" alt="g play" />
                     </Link>
                   </li>
                 </ul>
@@ -314,6 +310,7 @@ export default function Detail({ data, status }) {
                 {tattoo.map((item) => (
                   <Link
                     href={`/${router.locale}/explore/tattoos/${item.tattoo_uid}`}
+                    
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch

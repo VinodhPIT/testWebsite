@@ -25,7 +25,7 @@ const CustomerConversion = ({ token }) => {
 
   useEffect(() => {
     fetchData(selectedYear, token);
-  }, [selectedYear]);
+  }, [selectedYear ,fetchData ,token]);
 
   const renderTableRow = (title, key) => (
     <tr key={title}>

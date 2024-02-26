@@ -1,4 +1,7 @@
+
+
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import Image from 'next/image'
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { Parameters } from "@/components/parameters/params";
@@ -67,6 +70,7 @@ const Search = ({
     },
   ];
 
+
   useEffect(() => {
     try {
       styleCollection();
@@ -85,7 +89,9 @@ const Search = ({
         slugIds,
       });
     } catch (error) {}
-  }, [data]);
+  }, [data, currentTab, pageNo, totalItems, searchKey, selectedStyle, lat, lon, locale, seed, slugIds,]);
+
+
 
   useEffect(() => {
     if (lat === "") {
@@ -93,7 +99,7 @@ const Search = ({
     }
   }, [lat]);
 
-  
+
   useEffect(() => {
     if (searchKey === "") {
       setSearchState((prevSearchState) => ({
@@ -182,15 +188,11 @@ const Search = ({
                         className={style.tabBox}
                         onClick={() => updateTab(tab.id)}
                       >
-                        <Image
-                        width={25}
-                        height={25}
+                        <Image width={25} height={25}
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
                           alt={tab.id}
-
-
                         />
 
                         {tab.label}

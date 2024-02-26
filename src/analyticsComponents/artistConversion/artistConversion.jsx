@@ -50,7 +50,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
 
   useEffect(() => {
     fetchData(selectedYear, token);
-  }, [selectedYear]);
+  }, [selectedYear ,fetchData ,token]);
 
   const renderTableRow = (title, key) => (
     <tr key={title}>

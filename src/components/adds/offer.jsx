@@ -3,7 +3,7 @@ import styles from "@/components/styles/listing.module.css";
 import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-
+import Image from 'next/image'
 
 export default function Offer() {
 
@@ -27,9 +27,12 @@ export default function Offer() {
            {t("common:refer")}
           </button>
         </span>
-        <img
+        <Image
           src="/shutterstock_2068639577-1.png"
           alt="Tattoo now Pay later"
+          layout='fill'
+          objectFit='contain'
+          objectPosition='right bottom'
         />
       </div>
     </div>

@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
 
       router.events.off("routeChangeComplete", (url) => {});
     };
-  }, []);
+  }, [router.events]);
 
   const { isMobileView } = useWindowResize();
 
