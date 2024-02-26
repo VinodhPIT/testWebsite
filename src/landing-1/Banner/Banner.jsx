@@ -88,16 +88,14 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
                 
 
 
-                <Link class="btn_primary btn_cutom_new btn_img mt_20 m_mt_0" href="/">
+                <Link className="btn_primary btn_cutom_new btn_img mt_20 m_mt_0" href="/">
                  {bannerButton}
                   <Image
                     src="/arow-white-right.svg"
                     width={24}
                     height={24}
-                    alt="logo"
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    alt="arrow"
+                    
                     className="ml-8 mt-2"
                   />
                 </Link>

@@ -26,7 +26,7 @@ export default function ArtistAdd() {
           </Link>
         </span>
         </div>
-        <div style={{"flex":1 ,"position":"relative"}}>
+        <div className={styles.addImagewrap}>
 
     
         <Image layout='fill'

@@ -20,7 +20,7 @@ import {
   blurDataURL,
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
-export default function Homenew({ data, locale }) {
+export default function Home({ data, locale }) {
 
   const { t } = useTranslation();
 
@@ -179,7 +179,7 @@ export default function Homenew({ data, locale }) {
   }
 
   useEffect(() => {
-    router.replace(`/${locale}`);
+    router.replace(`/${locale}${router.asPath}`);
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");

@@ -116,10 +116,10 @@ export default function Footer() {
       <>
         <footer>
           <div className="footer">
-            <div class="container_full">
-              <section class="footer_block">
-                <div class="footer_left">
-                  <div class="footer_logo">
+            <div className="container_full">
+              <section className="footer_block">
+                <div className="footer_left">
+                  <div className="footer_logo">
                     <Link href={`/${router.locale}`}>
                       <Image
                         src={"/Inckd-logo-footer-black.svg"}
@@ -133,8 +133,8 @@ export default function Footer() {
 
                   {renderSwitcher(router.pathname, router.locale, openPopup)}
 
-                  <ul class="footer_list">
-                    <li class="footer_title">
+                  <ul className="footer_list">
+                    <li className="footer_title">
                       <h6>{t("common:download-app-on")}</h6>
                     </li>
                     <li>
@@ -162,8 +162,8 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                <div class="footer_right">
-                  <ul class="footer_list">
+                <div className="footer_right">
+                  <ul className="footer_list">
                     <li>
                       <h4>{t("common:book")}</h4>
                     </li>
@@ -173,7 +173,7 @@ export default function Footer() {
                       </li>
                     ))}
                   </ul>
-                  <ul class="footer_list">
+                  <ul className="footer_list">
                     <li>
                       <h4>{t("common:product")}</h4>
                     </li>
@@ -183,7 +183,7 @@ export default function Footer() {
                       </li>
                     ))}
                   </ul>
-                  <ul class="footer_list">
+                  <ul className="footer_list">
                     <li>
                       <h4>{t("common:business")}</h4>
                     </li>
@@ -197,9 +197,9 @@ export default function Footer() {
                 </div>
               </section>
 
-              <section class="footer_secondary">
-                <div class="foot_links">
-                  <ul class="links">
+              <section className="footer_secondary">
+                <div className="foot_links">
+                  <ul className="links">
                     {links.map((e) => {
                       return (
                         <li key={e.id}>
@@ -212,9 +212,9 @@ export default function Footer() {
                     })}
                   </ul>
                 </div>
-                <div class="social_icons">
+                <div className="social_icons">
                   <ul>
-                    <li class="footer_title">{t("common:followus")}</li>
+                    <li className="footer_title">{t("common:followus")}</li>
                     <li>
                       <Link href={INSTAGRAM_PROFILE_LINK} target="_blank">
                         <Image

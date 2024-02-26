@@ -157,8 +157,7 @@ export default function Tattooartists({}) {
                                 alt="Free to use & no subscpriptions"
                                 width={24}
                                 height={24}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
+                              
                               />
                               {t("common:forArtistPage.nosubscpriptions")}
                             </li>
@@ -169,8 +168,7 @@ export default function Tattooartists({}) {
                                 alt="Easy to set up and manage"
                                 width={24}
                                 height={24}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                
                               />
                               {t("common:forArtistPage.set-up-and-manage")}
                             </li>
@@ -181,8 +179,7 @@ export default function Tattooartists({}) {
                                 alt="Verified users"
                                 width={24}
                                 height={24}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
+                               
                               />
                               {t("common:forArtistPage.verified-users")}
                             </li>
@@ -193,8 +190,7 @@ export default function Tattooartists({}) {
                                 alt="Easy payments"
                                 width={24}
                                 height={24}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
+                               
                               />
                               {t("common:forArtistPage.easy-payments")}
                             </li>

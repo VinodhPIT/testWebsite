@@ -113,8 +113,7 @@ export default function ListingPage({ data, locale }) {
 
                                   <p>{el.desc} </p>
                                   <div className="w_100pc d_flex justify_content_end">
-                                    <Link
-                                      href={el.url}
+                                    <div
                                       className="btn_primary btn_img btn_custom_48"
                                     >
                                       Read more
@@ -122,13 +121,10 @@ export default function ListingPage({ data, locale }) {
                                         src="/arow-white-right.svg"
                                         width={24}
                                         height={24}
-                                        alt="logo"
-                                        loading="lazy"
-                                        placeholder="blur"
-                                        blurDataURL={blurDataURL}
+                                        alt="arrow"
                                         className="ml-8 mt-2"
                                       />
-                                    </Link>
+                                    </div>
                                   </div>
                                 </div>
                               </Link>

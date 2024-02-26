@@ -12,10 +12,13 @@ import {
 import useWindowResize from "@/hooks/useWindowSize";
 import ImageSlider from "@/components/slider/ImageSlider";
 import useTranslation from "next-translate/useTranslation";
-export default function Homenew({ locale }) {
+import { getLocaleProps } from "@/utils/getlocale";
+export default function StyleGuide() {
+
   const router = useRouter();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
+
 
   const letteringTattoo = [
     {
@@ -673,4 +676,10 @@ export default function Homenew({ locale }) {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props:null
+  };
 }

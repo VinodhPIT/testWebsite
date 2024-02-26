@@ -40,6 +40,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
 
   const chooseLanguage = async (id, domain, li) => {
+
+    console.log( domain, li )
     await setLanguage(`${domain}-${li}`);
     closeModal();
     const newUrl =`/${domain}-${li}${router.asPath}`;
@@ -79,9 +81,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                             src={e.image}
                             width={32}
                             height={32}
-                            placeholder="blur"
-                            loading="lazy"
-                            blurDataURL={blurDataURL}                          
+                                            
                           />
                           <span>
                             <h4>{e.country}</h4>

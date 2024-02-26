@@ -101,8 +101,8 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                     <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
                                 <h2 className="color_gray_550 text_left heading_h2 mb_35 m_mb_25 mr_0">
-                                    <span class="m_dis_inline">{title} </span>
-                                    <span class="textBlock m_dis_inline">{title_sub}</span>
+                                    <span className="m_dis_inline">{title} </span>
+                                    <span className="textBlock m_dis_inline">{title_sub}</span>
                                 </h2>
                              
                             </div>
@@ -115,18 +115,14 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                                 width={24}
                                 height={24}
                                 alt="arrow-white"
-                                loading="lazy"
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
                                 className="ml-8 mt-2"
                                 />
                             </Link>
                         </div>
 
-                        <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15" style={{"width": "1090px" ,
-    "max-width": "100%",
-    "text-align": "left"}}>{content}</p>
-
+                        <p className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15" style={{"width": "1090px" ,
+    "maxWidth":"100%", "textAlign":"left"
+    }}>{content}</p>
 
                     </div>                               
                     <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider artistSlider'} ${styles.listing_pageContainer}`}>
@@ -193,9 +189,6 @@ export default function FiveColumnCarousel ({title,title_sub , content ,button  
                                 width={24}
                                 height={24}
                                 alt="arrow-white"
-                                loading="lazy"
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
                                 className="ml-8 mt-2"
                                 />
                             </Link>

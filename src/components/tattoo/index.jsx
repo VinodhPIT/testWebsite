@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import PageLoad from "@/components/pageLoad";
 import { useGlobalState } from "@/context/Context";
 import styles from "@/components/styles/listing.module.css";
 import Link from "next/link";

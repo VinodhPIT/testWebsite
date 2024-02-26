@@ -9,16 +9,16 @@ import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constan
 export default function DownloadApps ({title ,subTitle}) {
   const { isMobileView } = useWindowResize();
   return (
-    <div class={
+    <div className={
         !isMobileView
           ? "text_box_wrap right app_download_box_wrap mb_0 block_bg_orange landing_app_download_wrap"
           : "text_box_wrap right app_download_box_wrap mb_0 block_bg_orange landing_app_download_wrap"
         }
       >
-        <div class="img_text_box_inner container"> 
+        <div className="img_text_box_inner container"> 
           {!isMobileView ? (
-            <div class="img_box_wrap w_50pc m_w_100pc">
-              <ul class="app_download_img_list justify_content_start slider_resize d_slid_resize mr_0 pl_0 landing_app_download">
+            <div className="img_box_wrap w_50pc m_w_100pc">
+              <ul className="app_download_img_list justify_content_start slider_resize d_slid_resize mr_0 pl_0 landing_app_download">
                 <li>
                   <Image
                     src="/landing-download-app.png"
@@ -61,10 +61,10 @@ export default function DownloadApps ({title ,subTitle}) {
             ""
           )}
 
-          <div class="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc m_pl_0 m_pr_0">
-            <div class="text_box_content_inner m_pr_0">
-              <ul class="download_app max_w_100pc">
-                <li class="download_app_title">
+          <div className="text_box_content justify_content_start m_justify_content_center pl_40 w_50pc m_w_100pc m_pl_0 m_pr_0">
+            <div className="text_box_content_inner m_pr_0">
+              <ul className="download_app max_w_100pc">
+                <li className="download_app_title">
                   <h6 className="m_m_auto m_mxw_290">
                     <span className="m_dis_inline">{title}
                     </span>

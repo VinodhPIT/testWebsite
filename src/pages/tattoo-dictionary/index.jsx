@@ -17,6 +17,8 @@ import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
+import { getLocaleProps } from "@/utils/getlocale";
+
 
 export default function Dictionary({ }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
@@ -55,7 +57,7 @@ export default function Dictionary({ }) {
     },
     {
       heading: t("common:dictionaryPage.ZodiacCarousel.title1"),
-      text: t("common:dictionaryPage.carousel.content1"),
+      text:    t("common:dictionaryPage.ZodiacCarousel.content1"),
       button1: t("common:dictionaryPage.trust"),
       button2: t("common:dictionaryPage.remembrance"),
     },
@@ -554,4 +556,13 @@ export default function Dictionary({ }) {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { props } = await getLocaleProps(context);
+  return {
+    props: {
+      locale: props.locale,
+    },
+  };
 }
