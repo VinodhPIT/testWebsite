@@ -179,7 +179,6 @@ export default function Home({ data, locale }) {
   }
 
   useEffect(() => {
-    router.replace(`/${locale}${router.asPath}`);
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -189,7 +188,7 @@ export default function Home({ data, locale }) {
     }));
 
     styleCollection();
-  }, []);
+  }, [ ]);
 
 
 

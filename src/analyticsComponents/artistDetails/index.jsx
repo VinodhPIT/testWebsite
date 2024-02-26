@@ -67,20 +67,14 @@ export default function ArtistDetails({ initialCounts, token }) {
 
   // Fetch initial data on component mount
   useEffect(() => {
-    console.log("fetchmee111")
+    console.log("fetchmee111");
     fetchInitialData(initialCounts, initialValue, token);
-  }, [fetchInitialData ,initialCounts ,token]);
+  }, [fetchInitialData, initialCounts, token]);
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {
-
-    downloadExcel("/analytics/artist", type, startDate, endDate ,token);
-
-
+    downloadExcel("/analytics/artist", type, startDate, endDate, token);
   };
-
-
-
 
   return (
     <section className="container-fluid">
@@ -105,7 +99,7 @@ export default function ArtistDetails({ initialCounts, token }) {
               }
               selectedDateRange={selectedDayRange.totalArtists ?? ""}
               title={t("common:AnalyticsArtist.Total active artist")}
-              reset={() => resetCalender("totalArtists",)}
+              reset={() => resetCalender("totalArtists")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">

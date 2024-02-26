@@ -27,7 +27,7 @@ const initialValue = {
 export default function OfferDeatils({ offerCount, token }) {
   const { t } = useTranslation();
 
- // Hook to manage analytics store
+  // Hook to manage analytics store
   const {
     countData,
     dateRange,
@@ -37,15 +37,15 @@ export default function OfferDeatils({ offerCount, token }) {
     fetchInitialData,
   } = useAnalyticsStore();
 
-   // Fetch initial data on component mount
+  // Fetch initial data on component mount
   useEffect(() => {
-    console.log("fetchmee1")
+    console.log("fetchmee1");
     fetchInitialData(offerCount, initialValue, token);
-  }, [fetchInitialData ,offerCount ,token]);
+  }, [fetchInitialData, offerCount, token]);
 
-// Function to handle downloading Excel file
+  // Function to handle downloading Excel file
   const handleDownload = async (type, startDate, endDate) => {
-    downloadExcel("/analytics/offer", type, startDate, endDate ,token);
+    downloadExcel("/analytics/offer", type, startDate, endDate, token);
   };
 
   return (

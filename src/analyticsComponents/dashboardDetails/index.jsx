@@ -1,8 +1,7 @@
 import React from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import CountDisplayCard from "../countDisplayCard";
-import useTranslation from "next-translate/useTranslation"
-
+import useTranslation from "next-translate/useTranslation";
 
 export default function DashboardDetails({ initialCounts, token }) {
   const { t } = useTranslation();
@@ -47,7 +46,6 @@ export default function DashboardDetails({ initialCounts, token }) {
               hideDownload
               hideFilter
               title={t("common:AnalyticsCustomer.TotalCustomers")}
-                            
             />
           </div>
 
