@@ -18,11 +18,11 @@ const router = useRouter()
             <div className="row m_switcher_row">
               <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div className="img_box_wrap block_bg_gradient_1 mb_30 m_mb_25 m_mt_25">
-                    <div class="klarna_bg">
+                    <div className="klarna_bg">
                         <Image src="/klarna-white.svg" alt="klarna" width={92} height={21} loading="eager" />
                     </div>
-                    <div class="box_text_img_over color_pink">
-                        <h2 class="txt_mob_fs50">
+                    <div className="box_text_img_over color_pink">
+                        <h2 className="txt_mob_fs50">
                             <span>{t("common:homePage.Pay all at once")}</span>{" "}
                             <span className="textBlock">
                             {t("common:homePage.Never again")}
@@ -50,13 +50,13 @@ const router = useRouter()
                     <p className="m_mt_15 m_mb_20">{t("common:homePage.Finance your ink")}</p>
                     <Link
                       href={`/${router.locale}/klarna`}
-                      class="btn_secondary btn_cutom_new btn_img"
+                      className="btn_secondary btn_cutom_new btn_img"
                     >
                       {t("common:learnmore")}
                       <Image
                         src="/alt-arrow-right-white.svg"
                         alt="arrow"
-                        class="ml-8 mt-2"
+                        className="ml-8 mt-2"
                         width={20}
                         height={20}
                         loading="eager"
