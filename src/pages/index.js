@@ -12,7 +12,7 @@ import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreApps from "@/components/exploreApps/ExploreApps";
 import TattooArtistComponent from "@/components/tatooartistComponent/TattooArtistComponent";
-import jsonData from '@/data/journal.json';
+import jsonData from "@/data/journal.json";
 import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
@@ -21,9 +21,7 @@ import {
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 export default function Home({ data, locale }) {
-
   const { t } = useTranslation();
-
 
   const tattoos = [
     {
@@ -163,18 +161,16 @@ export default function Home({ data, locale }) {
     setSearchState,
   } = useGlobalState();
 
-
   const router = useRouter();
-
 
   function SwitchJournal(locale) {
     switch (locale) {
       case "uk-en":
-        return <TattooJournal data={jsonData[router.locale]}  />
+        return <TattooJournal data={jsonData[router.locale]} />;
       case "de-en":
-        return <TattooJournal data={jsonData[router.locale]}  />
+        return <TattooJournal data={jsonData[router.locale]} />;
       default:
-        return null
+        return null;
     }
   }
 
@@ -188,26 +184,17 @@ export default function Home({ data, locale }) {
     }));
 
     styleCollection();
-  }, [ ]);
-
-
+  }, []);
 
   return (
     <>
       <Head>
-      <title>
-
-{t("common:homeScreenSEO.title")}
-  
-</title>
-<meta
-  name="description"
-  content= {t("common:homeScreenSEO.description")}
-/>
-<meta
-  name="keywords"
-  content= {t("common:homeScreenSEO.keyword")}
-/>
+        <title>{t("common:homeScreenSEO.title")}</title>
+        <meta
+          name="description"
+          content={t("common:homeScreenSEO.description")}
+        />
+        <meta name="keywords" content={t("common:homeScreenSEO.keyword")} />
       </Head>
 
       <section className="img_text_banner_box">
@@ -222,12 +209,12 @@ export default function Home({ data, locale }) {
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
                       <p className="custom_fs_m_18 m_mt_20 m_mb_20">
-                      {t("common:homePage.bannerContent")}
+                        {t("common:homePage.bannerContent")}
                       </p>
                       <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
                         <ul class="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block download_mob_center">
-                          <li class="download_app_title mb_10">                          
-                          {t("common:homePage.Download the inckd")}
+                          <li class="download_app_title mb_10">
+                            {t("common:homePage.Download the inckd")}
                           </li>
                           <li>
                             <Link href={APP_LINK_APPLE} target="_blank">
@@ -308,7 +295,7 @@ export default function Home({ data, locale }) {
       {/* <TattooJournal data={listing} error={error} /> */}
       {SwitchJournal(router.locale)}
 
-      <FinelineComponent /> 
+      <FinelineComponent />
 
       <TattooArtistComponent />
 
@@ -328,7 +315,7 @@ export default function Home({ data, locale }) {
         buttonName={t("common:ExploreMoreTattoos")}
         keyword={`/${router.locale}/explore/tattoos`}
         sectionBg="block_bg_gray_150"
-        altTag={'Tattoos'}
+        altTag={"Tattoos"}
       />
       <ExploreApps />
     </>
@@ -336,10 +323,8 @@ export default function Home({ data, locale }) {
 }
 
 export async function getServerSideProps(context) {
-  
   return {
     props: {
-     
       locale: context.locale,
     },
   };
