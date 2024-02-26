@@ -73,7 +73,7 @@ export default function Detail({ data, status, locale }) {
       };
       fetchData();
     }
-  }, []);
+  }, [data]);
 
   if (!data) {
     return null;
