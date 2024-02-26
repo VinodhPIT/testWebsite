@@ -46,7 +46,7 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
         <div className="popup_container">
           <div className="popup_box_inner">          
             <div className="popup_left justify_content_center block_bg_orange mob_hidden">
-              <Image src="/mockup-iPhone-business-popup.png" alt="Manage your business" className="w_auto max_w_100pc object_fit_contain object_position"   width={291} height={396}/>
+              <Image src="/mockup-iPhone-business-popup.png" alt="Manage your business" className="w_auto max_w_100pc object_fit_contain object_position"   width={398} height={500}/>
             </div>
             <div className="popup_right">
               <button className="close_button" onClick={closeModal}>
