@@ -18,7 +18,6 @@ export default function Dashboard({ data: initialData }) {
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log("fup[sk=")
     fetchTotalRevenue(initialData.sessionToken);
   }, [ fetchTotalRevenue ,initialData.sessionToken]);
 
