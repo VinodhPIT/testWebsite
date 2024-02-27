@@ -68,7 +68,7 @@ export default function ArtistDetails({ initialCounts, token }) {
   // Fetch initial data on component mount
   useEffect(() => {
     fetchInitialData(initialCounts, initialValue, token);
-  }, [fetchInitialData, initialCounts, token]);
+  }, []);
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {
