@@ -39,9 +39,8 @@ export default function OfferDeatils({ offerCount, token }) {
 
   // Fetch initial data on component mount
   useEffect(() => {
-    console.log("fetchmee1");
     fetchInitialData(offerCount, initialValue, token);
-  }, [fetchInitialData, offerCount, token]);
+  }, []);
 
   // Function to handle downloading Excel file
   const handleDownload = async (type, startDate, endDate) => {
