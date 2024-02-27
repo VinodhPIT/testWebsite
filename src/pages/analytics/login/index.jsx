@@ -26,7 +26,7 @@ const Login = () => {
     if (data?.user && status === "authenticated") {
       router.replace("/analytics/dashboard");
     }
-  }, [data, status ,router]);
+  }, [data, status]);
 
   const handleSubmit = async (values, { setSubmitting }) => {
     setError(false);
