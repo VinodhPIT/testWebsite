@@ -1,6 +1,6 @@
 import React from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 import useTranslation from "next-translate/useTranslation";
 
 export default function DashboardDetails({ initialCounts, token }) {

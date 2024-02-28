@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
-import DashboardDetails from "@/analyticsComponents/dashboardDetails";
-import Header from "@/analyticsComponents/header/header";
+import DashboardDetails from "@/analyticsComponents/dashboard/dashboardDetails";
+import Header from "@/analyticsComponents/common/header";
 import { analyticsDashboardCount } from "@/apiConfig/dashboardService";
 import { offerCount } from "@/apiConfig/offerAnalyticsService";
 import { analyticsArtistCount } from "@/apiConfig/artistAnalyticsService";
 import { analyticsCustomerCount } from "@/apiConfig/customerAnalyticsService";
-import TotalAmountEarned from "@/analyticsComponents/totalAmountEarned/totalAmount";
+import TotalAmountEarned from "@/analyticsComponents/dashboard/totalRevenue";
 import useTotalRevenue from "@/store/dashboardAnalytics/totalRevenue";
 import useTranslation from "next-translate/useTranslation";
 

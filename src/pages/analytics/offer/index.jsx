@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import useRevenueStore from "@/store/customerAnalytics/revenueList";
-import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
-import Header from "@/analyticsComponents/header/header";
+import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
+import Header from "@/analyticsComponents/common/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { offerCount } from "@/apiConfig/offerAnalyticsService";
-import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
+import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import useOfferDetail from "@/store/offerAnalytics/offerDetails";
-import PieChart from "@/analyticsComponents/pieChart/chart";
-import OfferDeatils from "@/analyticsComponents/offerDetails/offerDetails";
+import PieChart from "@/analyticsComponents/common/chart";
+import OfferDeatils from "@/analyticsComponents/offer/offerDetails";
 import useTranslation from "next-translate/useTranslation";
 
 export default function Offer({ data }) {
@@ -64,7 +64,7 @@ export default function Offer({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12">
-                <TotalCustomers
+                <BarChart
                   title={t("common:AnalyticsOffer.Total scheduled offers")}
                   chartData={scheduledOffers}
                   type={"type2"}
@@ -115,7 +115,7 @@ export default function Offer({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
-                <TotalCustomers
+                <BarChart
                   title={t("common:AnalyticsOffer.Total completed offers")}
                   chartData={completedOffers}
                   type={"type2"}

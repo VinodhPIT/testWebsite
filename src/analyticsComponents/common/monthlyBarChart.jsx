@@ -10,7 +10,7 @@ import Loader from "@/components/loader";
 
 ChartJS.register(Tooltip, Legend);
 
-const TotalCustomers = ({ title, chartData, type, creationDate }) => {
+const BarChart = ({ title, chartData, type, creationDate }) => {
   const [chartArray, setChartArray] = useState([]);
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const selectedOption = { value: selectedYear, label: selectedYear };
@@ -22,7 +22,7 @@ const TotalCustomers = ({ title, chartData, type, creationDate }) => {
       creationDate
     );
     setChartArray(processData(filteredArray, type));
-  }, [chartData ,creationDate ,type]);
+  }, [chartData, creationDate, type]);
 
   const labels = useMemo(() => months, []);
 
@@ -92,4 +92,4 @@ const TotalCustomers = ({ title, chartData, type, creationDate }) => {
   );
 };
 
-export default TotalCustomers;
+export default BarChart;

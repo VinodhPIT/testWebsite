@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 import useAnalyticsStore from "@/store/artistAnalytics/calenderFilter"; // This is a custom hook for managing analytics data
 import { useEffect } from "react";
 import { downloadExcel } from "@/apiConfig/downloadService";

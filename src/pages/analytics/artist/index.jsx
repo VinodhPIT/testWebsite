@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
-import ArtistDetails from "@/analyticsComponents/artistDetails";
-import Header from "@/analyticsComponents/header/header";
+import ArtistDetails from "@/analyticsComponents/artist/artistDetails";
+import Header from "@/analyticsComponents/common/header";
 import {
   analyticsArtistCount,
   analyticsArtistLeadSourceCount,
 } from "@/apiConfig/artistAnalyticsService";
-import ArtistsByCountryTable from "@/analyticsComponents/ArtistsByCountryTable/ArtistsByCountryTable";
-import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
-import YourComponent from "@/analyticsComponents/customerConversion/keys";
-import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
-import PieChart from "@/analyticsComponents/pieChart/chart";
-import ArtistConversion from "@/analyticsComponents/artistConversion/artistConversion";
+import ArtistsByCountryTable from "@/analyticsComponents/artist/artistsByCountry";
+import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
+import YourComponent from "@/analyticsComponents/common/keys";
+import BarChart from "@/analyticsComponents/common/monthlyBarChart";
+import PieChart from "@/analyticsComponents/common/chart";
+import ArtistConversion from "@/analyticsComponents/artist/artistConversion";
 import useTranslation from "next-translate/useTranslation";
 
 
@@ -76,7 +76,7 @@ export default function ArtistAnalytics({ data: initialData }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
-                <TotalCustomers
+                <BarChart
                   title={t("common:AnalyticsArtist.Total Artists")}
                   chartData={initialData.chartData}
 

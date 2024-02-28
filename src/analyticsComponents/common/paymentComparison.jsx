@@ -46,7 +46,7 @@ export default function PaymentComparison({
     } else if (keys.completed && el[keys.completed]) {
       return parseFloat(el[keys.completed]);
     }
-    return null; 
+    return null;
   });
 
   const dataSet2 = Object.values(revenueData).map((el) => {
@@ -55,10 +55,8 @@ export default function PaymentComparison({
     } else if (keys.cancelled && el[keys.cancelled]) {
       return parseFloat(el[keys.cancelled]);
     }
-    return null; 
+    return null;
   });
-
-
 
   const labels = label;
 

@@ -7,7 +7,7 @@ import {
 
 import useTranslation from "next-translate/useTranslation";
 import { downloadExcel } from "@/apiConfig/downloadService"; // Importing download service
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 
 const Apitype = {
   contactedWithNoOffer: "contacted_with_no_offer",

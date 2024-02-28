@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import { downloadExcel } from "@/apiConfig/downloadService";
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 import useTranslation from "next-translate/useTranslation";
 import useAnalyticsStore from "@/store/offerAnalytics/calenderFilter";
 

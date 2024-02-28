@@ -26,15 +26,18 @@ ChartJS.register(
 import { processData } from "@/utils/monthlyDataGenerator";
 
 export default function ComparisonChart({ totalData, title, labe_1, labe_2 }) {
-  const apiData = processData(totalData ,"type1");
+  const apiData = processData(totalData, "type1");
 
   const appCounts = apiData.map((item) => item.app);
 
   const totalAppCount = appCounts.reduce((total, count) => total + count, 0);
 
-  const referredCount= apiData.map((item) => item.referredCustomers);
+  const referredCount = apiData.map((item) => item.referredCustomers);
 
-  const totalreferredCount = referredCount.reduce((total, count) => total + count, 0);
+  const totalreferredCount = referredCount.reduce(
+    (total, count) => total + count,
+    0
+  );
 
   const Paymentmethod = {
     labels: [labe_1, labe_2],
@@ -47,13 +50,13 @@ export default function ComparisonChart({ totalData, title, labe_1, labe_2 }) {
     ],
   };
 
-  // backgroundColor: ["#F5B6C7", "#883434"],
+
 
   const payoptions = {
     responsive: true,
     plugins: {
       legend: {
-        display: false, // Hide legend
+        display: false,
       },
     },
     maintainAspectRatio: true,
