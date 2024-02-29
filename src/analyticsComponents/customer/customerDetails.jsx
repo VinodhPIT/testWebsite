@@ -8,7 +8,7 @@ import {
 
 import useTranslation from "next-translate/useTranslation";
 import { downloadExcel } from "@/apiConfig/downloadService"; // Importing download service
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 
 const Apitype = {
     // Object defining different types of analytics

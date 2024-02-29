@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import Multiselect from "multiselect-react-dropdown";
 import useTranslation from "next-translate/useTranslation";
-
 import {
   currentYear,
   options,
   months
 } from "@/helpers/helper";
-import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
-import { percentageCalculate } from "../customerConversion/customerConversion";
+import ConversionDataComponent from "../common/keys";
+import { percentageCalculate } from "../customer/customerConversion";
 import Loader from "@/components/loader";
 import { artistConvesionWithCountryFilter } from "@/apiConfig/artistAnalyticsService";
 import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
@@ -105,13 +104,13 @@ const ArtistConversion = ({ data, title, token, types }) => {
     return (
     <div className="db_card block_bg_white">
       <div className="db_card_body pl_0 pr_0">
-        <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative">
+        <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative flex_wrap">
           <div>
             <h3>{title}</h3>
           </div>
-          <div className="d_flex m_flex_direction_row">
+          <div className="d_flex m_flex_direction_row m_mt_20">
             <div
-              className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_320"
+              className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_320 m_ml_0"
             >
               <Multiselect
                 displayValue="label"
