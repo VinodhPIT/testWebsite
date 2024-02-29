@@ -96,7 +96,7 @@ const CustomerConversion = ({ token }) => {
           </div>
         ) : (
           <div className="d_flex justify_content_start align_item_center pb_12">
-            <div className="db_table_block">
+          <div className="db_table_block db_table_country">
               <div className="table-responsive">
                 <table className="table table-striped table-nowrap table-centered mb-0">
                   <thead>

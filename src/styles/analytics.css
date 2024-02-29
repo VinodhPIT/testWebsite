@@ -523,6 +523,15 @@ header.db_header_wrap {
   color: var(--black-150) 
 }
 
+.multiselect-container .search-wrapper {
+  height: 45px;
+  overflow-y: auto
+}
+
+.multiselect-container .search-wrapper input.searchBox {
+  margin-top: 0;
+}
+
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;
