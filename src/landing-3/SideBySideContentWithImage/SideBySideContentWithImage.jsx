@@ -69,8 +69,8 @@ export default function SideBySideContentWithImage({
                 </div>
               </div>
 
-              <div class="img_box_wrap justify_content_center">
-                <ul class="justify_content_center pl_0">
+              <div className="img_box_wrap justify_content_center">
+                <ul className="justify_content_center pl_0">
                   <li>
                     <Image
                       priority
@@ -87,8 +87,8 @@ export default function SideBySideContentWithImage({
               </div>
             </div>
             <div className="img_text_box_inner container m_switcher">
-              <div class="img_box_wrap justify_content_center m_order_2">
-                <ul class="justify_content_center pl_0">
+              <div className="img_box_wrap justify_content_center m_order_2">
+                <ul className="justify_content_center pl_0">
                   <li>
                     <Image
                       priority
@@ -130,8 +130,8 @@ export default function SideBySideContentWithImage({
                 </div>
               </div>
 
-              <div class="img_box_wrap justify_content_center">
-                <ul class="justify_content_center pl_0">
+              <div className="img_box_wrap justify_content_center">
+                <ul className="justify_content_center pl_0">
                   <li>
                     <Image
                       priority
@@ -148,8 +148,8 @@ export default function SideBySideContentWithImage({
               </div>
             </div>
             <div className="img_text_box_inner container m_switcher">
-              <div class="img_box_wrap justify_content_center m_order_2">
-                <ul class="justify_content_center pl_0">
+              <div className="img_box_wrap justify_content_center m_order_2">
+                <ul className="justify_content_center pl_0">
                   <li>
                     <Image
                       priority
@@ -191,8 +191,8 @@ export default function SideBySideContentWithImage({
                 </div>
               </div>
 
-              <div class="img_box_wrap justify_content_center">
-                <ul class="justify_content_center pl_0">
+              <div className="img_box_wrap justify_content_center">
+                <ul className="justify_content_center pl_0">
                   <li>
                     <Image
                       priority

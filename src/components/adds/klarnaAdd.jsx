@@ -49,9 +49,12 @@ export default function KlarnaAdd() {
           />
           </Link>
         </span>
-        <img
+        <Image
           src="/shutterstock_2068639577.png"
           alt="Tattoo now Pay later"
+        layout="fill"
+        objectFit='contain'
+        objectPosition="right bottom"
         />
       </div>
     </div>

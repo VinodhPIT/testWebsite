@@ -1,30 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
 import {
   analyticsCustomerCount,
   analyticsCustomerLeadSourceCount,
 } from "@/apiConfig/customerAnalyticsService";
-import Header from "@/analyticsComponents/header/header";
-import CustomerDetails from "@/analyticsComponents/customerDetails/customerDetails";
-import TotalCustomers from "@/analyticsComponents/totalCustomers/totalCustomers";
-import PieChart from "@/analyticsComponents/pieChart/chart";
-import CustomerConversion from "@/analyticsComponents/customerConversion/customerConversion";
+import Header from "@/analyticsComponents/common/header";
+import CustomerDetails from "@/analyticsComponents/customer/customerDetails";
+import BarChart from "@/analyticsComponents/common/monthlyBarChart";
+import PieChart from "@/analyticsComponents/common/chart";
+import CustomerConversion from "@/analyticsComponents/customer/customerConversion";
 import useRevenueStore from "@/store/customerAnalytics/revenueList";
 import { getSession } from "next-auth/react";
-import PaymentComparison from "@/analyticsComponents/paymentComparisonChart/paymentComparison";
-import ComparisonChart from "@/analyticsComponents/comparisonPiechart/comparisonChart";
+import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
+import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
-import CustomerContactTime from "@/analyticsComponents/customerContactTime/customerContactTime";
+import CustomerContactTime from "@/analyticsComponents/customer/customerContactTime";
 
-export default function Analytics({ data }) {
+export default function Customer({ data }) {
   const { status, data: sessionData } = useSession();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { t } = useTranslation();
 
   useEffect(() => {
     fetchRevenue(data.sessionToken);
-  }, []);
+  }, [fetchRevenue, data.sessionToken]);
 
   const getValues = Object.values(data.genderCount);
 
@@ -63,7 +63,7 @@ export default function Analytics({ data }) {
           <div className="db_customer_detail_wrap">
             <div className="row">
               <div className="col-lg-8 col-md-6 col-sm-12">
-                <TotalCustomers
+                <BarChart
                   title={t("common:AnalyticsCustomer.TotalCustomers")}
                   chartData={data.chartData}
                   type="type1"

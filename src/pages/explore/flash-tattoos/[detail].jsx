@@ -21,16 +21,10 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
 
-export default function Detail({ data, status, locale }) {
+export default function Detail({ data, status }) {
   const router = useRouter();
-  const {
-    state,
-    getLocale,
-    styleCollection,
-    setSelectedIds,
-    clearStyleId,
-    onSearch,
-  } = useGlobalState();
+  const { state, styleCollection, setSelectedIds, clearStyleId, onSearch } =
+    useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
@@ -42,13 +36,7 @@ export default function Detail({ data, status, locale }) {
 
   useEffect(() => {
     styleCollection();
-
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
+  },[]);
 
   const goBack = () => {
     router.back();
@@ -72,7 +60,7 @@ export default function Detail({ data, status, locale }) {
       };
       fetchData();
     }
-  }, []);
+  }, [data]);
 
   if (!data) {
     return null;
@@ -107,17 +95,12 @@ export default function Detail({ data, status, locale }) {
   return (
     <>
       <Head>
-      <title>
-        {t("common:flashDetailScreen.title")}
-        </title>
+        <title>{t("common:flashDetailScreen.title")}</title>
         <meta
           name="description"
           content={t("common:flashDetailScreen.description")}
         />
-        <meta
-          name="keywords"
-          content={t("common:flashDetailScreen.keyword")}/>
-
+        <meta name="keywords" content={t("common:flashDetailScreen.keyword")} />
       </Head>
       <main>
         <div className="page_wrapper">
@@ -211,14 +194,26 @@ export default function Detail({ data, status, locale }) {
                         target="_blank"
                         className={styles.profile_bookmark}
                       >
-                        <Image width={24} height={24} priority src="/bookmark-icon.svg" alt="bookmark icon" />
+                        <Image
+                          width={24}
+                          height={24}
+                          priority
+                          src="/bookmark-icon.svg"
+                          alt="bookmark icon"
+                        />
                       </a>
                       <a
                         onClick={openPopup}
                         target="_blank"
                         className={styles.profile_share}
                       >
-                        <Image width={24} height={24} priority src="/share-icon.svg" alt="share icon" />
+                        <Image
+                          width={24}
+                          height={24}
+                          priority
+                          src="/share-icon.svg"
+                          alt="share icon"
+                        />
                       </a>
                     </div>
                   </div>
@@ -257,8 +252,8 @@ export default function Detail({ data, status, locale }) {
                             key={el.studio_uid}
                           >
                             <Image
-                            width={16}
-                            height={17}
+                              width={16}
+                              height={17}
                               src="/location-small.svg"
                               alt="Berlin, Germany"
                               priority
@@ -315,12 +310,22 @@ export default function Detail({ data, status, locale }) {
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_APPLE}>
-                      <Image src="/app-store-new.svg" alt="app store" width={134} height={41} />
+                      <Image
+                        src="/app-store-new.svg"
+                        alt="app store"
+                        width={134}
+                        height={41}
+                      />
                     </Link>
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_GOOGLE}>
-                      <Image src="/g-play-new.svg" alt="g play" width={134} height={41} />
+                      <Image
+                        src="/g-play-new.svg"
+                        alt="g play"
+                        width={134}
+                        height={41}
+                      />
                     </Link>
                   </li>
                 </ul>

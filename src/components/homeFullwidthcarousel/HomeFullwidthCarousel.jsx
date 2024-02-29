@@ -114,10 +114,9 @@ export default function CarouselSection({
                   src="/arow-white-right.svg"
                   width={24}
                   height={24}
-                  alt="logo"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  alt="arrow"
+                 
+                
                   className="ml-8 mt-2"
                 />
               </Link>
@@ -131,11 +130,8 @@ export default function CarouselSection({
                     src="/arrowBlack.svg"
                   width={32}
                   height={32}
-                  alt="logo"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
-                  className=""
+                  alt="arrowBlack"
+                  
                 />
               </Link>
             )}

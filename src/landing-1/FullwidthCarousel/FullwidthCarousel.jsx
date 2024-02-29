@@ -101,7 +101,7 @@ export default function CarouselSection({
           <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mt_0 mb_10">
             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
               <h2 className="color_gray_550 text_left heading_h2 mb_15 m_mb_25 mr_0 ">
-                <span class="m_dis_inline">{title} </span>
+                <span className="m_dis_inline">{title} </span>
               </h2>
             </div>
 
@@ -116,9 +116,6 @@ export default function CarouselSection({
                   width={24}
                   height={24}
                   alt="arrowRight"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
                   className="ml-8 mt-2"
                 />
               </Link>
@@ -128,10 +125,10 @@ export default function CarouselSection({
  {content!== '' ?
           <div className="d_flex align_item_left flex_direction_column mb_80 m_mb_0 m_pb_30 m_max_100 container">
             <p
-              class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
+              className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
               style={{
-                "max-width": "850px",
-                "text-align": "left",
+                "maxWidth":"850px",
+                "textAlign":"left"
               }}
             >
               {content}
@@ -197,9 +194,6 @@ export default function CarouselSection({
                   width={24}
                   height={24}
                   alt="arrowRight"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
                   className="ml-8 mt-2"
                 />
               </Link>

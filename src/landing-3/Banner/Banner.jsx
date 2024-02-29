@@ -77,7 +77,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton ,textColor 
             >
               <div className={styles.banner_caption}>
                 <h1 style={{"color":textColor}}>
-                  <span class="m_dis_inline">{bannerTitle}</span>
+                  <span className="m_dis_inline">{bannerTitle}</span>
                   {/* <span class="textBlock m_dis_inline">Mystische Kunst für </span>
                   <span class="textBlock m_dis_inline">deine Haut</span> */}
                 </h1>

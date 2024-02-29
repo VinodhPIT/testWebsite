@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Chart as ChartJS, Tooltip, Title, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -11,7 +10,6 @@ export default function PieChart({
   getColor,
   label,
 }) {
- 
   const data = {
     labels: getKeys,
     datasets: [
@@ -27,8 +25,8 @@ export default function PieChart({
     responsive: true,
     plugins: {
       legend: {
-        display: false, // Hide legend
-        position: "bottom", // You can adjust the position if needed
+        display: false, 
+        position: "bottom",
       },
     },
     maintainAspectRatio: true,

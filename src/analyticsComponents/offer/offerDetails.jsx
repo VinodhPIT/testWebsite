@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import { downloadExcel } from "@/apiConfig/downloadService";
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 import useTranslation from "next-translate/useTranslation";
 import useAnalyticsStore from "@/store/offerAnalytics/calenderFilter";
 
@@ -27,7 +27,7 @@ const initialValue = {
 export default function OfferDeatils({ offerCount, token }) {
   const { t } = useTranslation();
 
- // Hook to manage analytics store
+  // Hook to manage analytics store
   const {
     countData,
     dateRange,
@@ -37,14 +37,14 @@ export default function OfferDeatils({ offerCount, token }) {
     fetchInitialData,
   } = useAnalyticsStore();
 
-   // Fetch initial data on component mount
+  // Fetch initial data on component mount
   useEffect(() => {
     fetchInitialData(offerCount, initialValue, token);
   }, []);
 
-// Function to handle downloading Excel file
+  // Function to handle downloading Excel file
   const handleDownload = async (type, startDate, endDate) => {
-    downloadExcel("/analytics/offer", type, startDate, endDate ,token);
+    downloadExcel("/analytics/offer", type, startDate, endDate, token);
   };
 
   return (

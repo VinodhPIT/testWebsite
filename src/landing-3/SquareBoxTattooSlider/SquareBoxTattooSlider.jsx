@@ -100,10 +100,7 @@ export default function PartnerTattoos({
                     src="/arow-white-right.svg"
                     width={24}
                     height={24}
-                    alt="logo"
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    alt="arrow"
                     className="ml-8 mt-2"
                   />
                 </Link>

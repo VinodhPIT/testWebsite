@@ -3,8 +3,7 @@ import Select from "react-select";
 import useTranslation from "next-translate/useTranslation";
 import useCustomerConversionStore from "@/store/customerAnalytics/conversionCustomer";
 import { currentYear, options, months } from "@/helpers/helper";
-import ConversionDataComponent from "@/analyticsComponents/customerConversion/keys";
-
+import ConversionDataComponent from "@/analyticsComponents/common/keys";
 
 export const percentageCalculate = (part, whole) => {
   const calculatedPercentage = (part / whole) * 100;
@@ -25,7 +24,7 @@ const CustomerConversion = ({ token }) => {
 
   useEffect(() => {
     fetchData(selectedYear, token);
-  }, [selectedYear]);
+  }, [selectedYear, fetchData, token]);
 
   const renderTableRow = (title, key) => (
     <tr key={title}>
@@ -41,17 +40,14 @@ const CustomerConversion = ({ token }) => {
   ));
 
   const CustomerConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
-                <>
-                    {[partTitle, wholeTitle].map((title) =>
-                      renderTableRow(title, title.toLowerCase())
-                    )}
-                    <tr className="conversion-highlighter">
-                      <th className="main_col_title">Percentage</th>
-                      {registered.map((el, index) => {
-                        const percentage = percentageCalculate(
-                          el[wholeTitle],
-                          el[partTitle]
-                        );
+    <>
+      {[partTitle, wholeTitle].map((title) =>
+        renderTableRow(title, title.toLowerCase())
+      )}
+      <tr className="conversion-highlighter">
+        <th className="main_col_title">Percentage</th>
+        {registered.map((el, index) => {
+          const percentage = percentageCalculate(el[wholeTitle], el[partTitle]);
 
           return (
             <td
@@ -92,7 +88,7 @@ const CustomerConversion = ({ token }) => {
         </div>
         {registered.length === 0 ? (
           <div className="not_Found">
-            <h4>No Data Found</h4>
+            <h4>{t("common:nodata")}</h4>
           </div>
         ) : (
           <div className="d_flex justify_content_start align_item_center pb_12">

@@ -9,23 +9,16 @@ import {
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-import { getLocaleProps } from "@/utils/getlocale";
-import { useGlobalState } from "@/context/Context";
 import useWindowResize from "@/hooks/useWindowSize";
 import ImageSlider from "@/components/slider/ImageSlider";
 import useTranslation from "next-translate/useTranslation";
-export default function Homenew({ locale }) {
+import { getLocaleProps } from "@/utils/getlocale";
+export default function StyleGuide() {
+
   const router = useRouter();
-  const { getLocale } = useGlobalState();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
-  useEffect(() => {
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
+
 
   const letteringTattoo = [
     {
@@ -200,9 +193,7 @@ export default function Homenew({ locale }) {
   return (
     <>
       <Head>
-      <title>
-        {t("common:styleGuideScreenSEO.title")}
-        </title>
+        <title>{t("common:styleGuideScreenSEO.title")}</title>
         <meta
           name="description"
           content={t("common:styleGuideScreenSEO.description")}
@@ -214,7 +205,6 @@ export default function Homenew({ locale }) {
       </Head>
 
       <div className="main_wrap_styleguide">
-
         <section className="img_text_banner_box">
           <div className="col_full">
             <div className="img_text_box_wrapper exciting_offer_wrap">
@@ -226,11 +216,13 @@ export default function Homenew({ locale }) {
                         <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_0">
                           <span>{t("common:styleGuidePage.bannerTitle")}</span>
                         </h1>
-                        <p className="m_mt_20 m_mb_20">{t("common:styleGuidePage.bannerContent")}</p>
+                        <p className="m_mt_20 m_mb_20">
+                          {t("common:styleGuidePage.bannerContent")}
+                        </p>
                         <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
                           <ul class="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block">
                             <li class="download_app_title mb_10">
-                            {t("common:homePage.Download the inckd")}
+                              {t("common:homePage.Download the inckd")}
                             </li>
                             <li>
                               <Link href={APP_LINK_APPLE} target="_blank">
@@ -295,18 +287,20 @@ export default function Homenew({ locale }) {
               </div>
             </div>
           </div>
-        </section>  
+        </section>
         {/* custom_left_img_block */}
         <div className="img_text_box_wrapper mb_35 m_mb_0">
           <div className="text_box_wrap left block_bg_white container custom_left_img_new">
             <div className="img_text_box_inner flex_direction_column">
               <div className="row m_switcher_row">
-					      <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
+                <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
                   <div className="img_box_wrap block_bg_gradient_1 mb_30 m_mb_25 m_mt_0">
                     <div class="box_text_img_over color_yellow md_max_75">
                       <h2 class="txt_mob_fs50 color_yellow">
                         <span className="small">{t("common:MyStyleis")}</span>
-                        <span className="textBlock">{t("common:styleGuidePage.Type lettering")}</span>
+                        <span className="textBlock">
+                          {t("common:styleGuidePage.Type lettering")}
+                        </span>
                       </h2>
                     </div>
                     <Image
@@ -326,10 +320,12 @@ export default function Homenew({ locale }) {
                   <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_35">
                     <div className="text_box_content_inner m_pr_0 pr_0">
                       <h2>
-                        <span>{t("common:styleGuidePage.Letteringtattoos")}</span>
+                        <span>
+                          {t("common:styleGuidePage.Letteringtattoos")}
+                        </span>
                       </h2>
                       <p className="m_mt_15 m_mb_20">
-                      {t("common:styleGuidePage.LetteringTattooContent")}
+                        {t("common:styleGuidePage.LetteringTattooContent")}
                       </p>
                       <Link
                         href={`/${router.locale}/explore/tattoo-artists`}
@@ -361,25 +357,25 @@ export default function Homenew({ locale }) {
           keyword={`/${router.locale}/explore/tattoos`}
           sectionBg="#fff"
           altTag={t("common:styleGuidePage.Letteringtattoos")}
-          
-        />        
-
+        />
 
         <div className="img_text_box_wrapper">
           <div class="text_box_wrap right block_bg_white container custom_right_img_new">
             <div class="img_text_box_inner m_switcher flex_direction_column">
               <div className="row">
-					      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
+                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
                   <div class="text_box_content justify_content_start pl_0 pt_30 pb_100 m_pr_0 m_min_h_reset m_pt_20 m_pb_35">
                     <div class="text_box_content_inner m_pr_0 pr_0">
                       <h2>
-                        <span>{t("common:styleGuidePage.Finelinetattoos")}</span>
+                        <span>
+                          {t("common:styleGuidePage.Finelinetattoos")}
+                        </span>
                       </h2>
                       <p className="m_mt_15 m_mb_20">
-                      {t("common:styleGuidePage.FinelineTattooContent")}
+                        {t("common:styleGuidePage.FinelineTattooContent")}
                       </p>
                       <Link
-                         href={`/${router.locale}/explore/tattoo-artists`}
+                        href={`/${router.locale}/explore/tattoo-artists`}
                         class="btn_secondary btn_cutom_new btn_img"
                       >
                         {t("common:styleGuidePage.Explore fineline artists")}
@@ -400,7 +396,9 @@ export default function Homenew({ locale }) {
                     <div class="box_text_img_over color_yellow md_max_75 tattoo_fine_custom_left">
                       <h2 class="txt_mob_fs50">
                         <span className="small">{t("common:MyStyleis")}</span>{" "}
-                        <span className="textBlock">{t("common:styleGuidePage.Type fineline")}</span>
+                        <span className="textBlock">
+                          {t("common:styleGuidePage.Type fineline")}
+                        </span>
                       </h2>
                     </div>
                     <Image
@@ -429,8 +427,7 @@ export default function Homenew({ locale }) {
           keyword={`/${router.locale}/explore/tattoos`}
           sectionBg="#fff"
           altTag={t("common:styleGuidePage.Finelinetattoos")}
-        />       
-
+        />
 
         <div class="text_box_wrap right app_download_box_wrap mb_0 block_bg_gray_150 mt_25">
           <div class="img_text_box_inner container pt_90 m_md_pt_40 m_pt_20 pb_90 m_md_pb_40 m_pb_20 flex_direction_column app_download_custom_new">
@@ -444,18 +441,30 @@ export default function Homenew({ locale }) {
                           <span>{t("common:styleGuidePage.download")}</span>
 
                           <span className="textBlock">
-                          {t("common:styleGuidePage.exploreApp")}
+                            {t("common:styleGuidePage.exploreApp")}
                           </span>
                         </h6>
                       </li>
                       <li>
                         <Link href={APP_LINK_APPLE} target="_blank">
-                          <Image src="/app-store-new.svg" alt="Appstore" width={134} height={41} priority />
+                          <Image
+                            src="/app-store-new.svg"
+                            alt="Appstore"
+                            width={134}
+                            height={41}
+                            priority
+                          />
                         </Link>
                       </li>
                       <li>
                         <Link href={APP_LINK_GOOGLE} target="_blank">
-                          <Image src="/g-play-new.svg" alt="Playstore"  width={134} height={41}  priority />
+                          <Image
+                            src="/g-play-new.svg"
+                            alt="Playstore"
+                            width={134}
+                            height={41}
+                            priority
+                          />
                         </Link>
                       </li>
                     </ul>
@@ -479,7 +488,7 @@ export default function Homenew({ locale }) {
                         />
                       </li>
                       <li>
-                        <Image                   
+                        <Image
                           src="/Stylepage2.png"
                           width={221}
                           height={447}
@@ -491,7 +500,7 @@ export default function Homenew({ locale }) {
                         />
                       </li>
                       <li>
-                      <Image
+                        <Image
                           src="/Sytlepage3.png"
                           alt={t("common:styleGuidePage.download")}
                           className="b_radius_0"
@@ -500,7 +509,6 @@ export default function Homenew({ locale }) {
                           loading="lazy"
                           placeholder="blur"
                           blurDataURL={blurDataURL}
-                          
                         />
                       </li>
                     </ul>
@@ -528,21 +536,18 @@ export default function Homenew({ locale }) {
           )}
         </div>
 
-
-
-
-
-
         <div className="img_text_box_wrapper mb_35 m_mb_0">
           <div class="text_box_wrap left block_bg_white container custom_left_img_new">
             <div class="img_text_box_inner m_switcher m_mt_0 flex_direction_column">
               <div className="row">
-					      <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
+                <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
                   <div class="img_box_wrap block_bg_gradient_1 mb_30 m_mt_0 m_mb_25">
                     <div class="box_text_img_over color_yellow md_max_75">
                       <h2 class="txt_mob_fs50 color_green_100">
                         <span className="small">{t("common:MyStyleis")}</span>{" "}
-                        <span className="textBlock">{t("common:styleGuidePage.Type realistic")}</span>
+                        <span className="textBlock">
+                          {t("common:styleGuidePage.Type realistic")}
+                        </span>
                       </h2>
                     </div>
                     <Image
@@ -562,16 +567,18 @@ export default function Homenew({ locale }) {
                   <div class="text_box_content justify_content_start m_min_h_reset m_pt_30 m_pb_35">
                     <div class="text_box_content_inner m_pr_0 pr_0">
                       <h2>
-                        <span>{t("common:styleGuidePage.Realistictattoos")}</span>
+                        <span>
+                          {t("common:styleGuidePage.Realistictattoos")}
+                        </span>
                       </h2>
                       <p className="m_mt_15 m_mb_20">
-                      {t("common:styleGuidePage.RealisticTattooContent")}
+                        {t("common:styleGuidePage.RealisticTattooContent")}
                       </p>
                       <Link
-                       href={`/${router.locale}/explore/tattoo-artists`}
+                        href={`/${router.locale}/explore/tattoo-artists`}
                         class="btn_secondary btn_cutom_new btn_img"
                       >
-                       {t("common:styleGuidePage.Explore realistic artists")}
+                        {t("common:styleGuidePage.Explore realistic artists")}
                         <Image
                           src="/alt-arrow-right-white.svg"
                           alt="arrow"
@@ -602,20 +609,22 @@ export default function Homenew({ locale }) {
           <div class="text_box_wrap right block_bg_white container custom_right_img_new">
             <div class="img_text_box_inner m_switcher flex_direction_column">
               <div className="row">
-					      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
+                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
                   <div class="text_box_content justify_content_start pl_0 pt_30 pb_100 m_pr_0 m_min_h_reset m_pt_20 m_pb_35">
                     <div class="text_box_content_inner m_pr_0 pr_0">
                       <h2>
-                        <span>{t("common:styleGuidePage.Traditionaltattoos")}</span>
+                        <span>
+                          {t("common:styleGuidePage.Traditionaltattoos")}
+                        </span>
                       </h2>
                       <p className="m_mt_15 m_mb_20">
-                      {t("common:styleGuidePage.TraditionalTattooContent")}
+                        {t("common:styleGuidePage.TraditionalTattooContent")}
                       </p>
                       <Link
                         href={`/${router.locale}/explore/tattoo-artists`}
                         class="btn_secondary btn_cutom_new btn_img"
                       >
-                         {t("common:styleGuidePage.Explore traditional artists")}
+                        {t("common:styleGuidePage.Explore traditional artists")}
                         <Image
                           src="/alt-arrow-right-white.svg"
                           alt="arrow"
@@ -632,7 +641,9 @@ export default function Homenew({ locale }) {
                     <div class="box_text_img_over color_aero_blue md_max_75">
                       <h2 class="txt_mob_fs50 text_right">
                         <span className="small">{t("common:MyStyleis")}</span>{" "}
-                        <span className="textBlock">{t("common:styleGuidePage.Type traditional")}</span>
+                        <span className="textBlock">
+                          {t("common:styleGuidePage.Type traditional")}
+                        </span>
                       </h2>
                     </div>
                     <Image
@@ -646,7 +657,6 @@ export default function Homenew({ locale }) {
                       layout="responsive"
                       className="object_position_left"
                     />
-                    
                   </div>
                 </div>
               </div>
@@ -662,7 +672,6 @@ export default function Homenew({ locale }) {
           keyword={`/${router.locale}/explore/tattoos`}
           sectionBg="#fff"
           altTag={t("common:styleGuidePage.Traditionaltattoos")}
-          
         />
       </div>
     </>
@@ -670,10 +679,7 @@ export default function Homenew({ locale }) {
 }
 
 export async function getServerSideProps(context) {
-  const { props } = await getLocaleProps(context);
   return {
-    props: {
-      locale: props.locale,
-    },
+    props:null
   };
 }

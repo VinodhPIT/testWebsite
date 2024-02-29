@@ -11,31 +11,17 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css";
 import Search from "@/components/tattooSearch/tattooSearch";
 import style from "@/pages/explore/search.module.css";
-import { useGlobalState } from "@/context/Context";
-import { getLocaleProps } from "@/utils/getlocale";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 export default function FAQ({ locale }) {
   const router = useRouter();
-
-  const { getLocale } = useGlobalState();
-
   const [state, setState] = useState("general");
-
   const changeTab = (id) => {
     setState(id);
   };
 
   const { t } = useTranslation();
-
-  useEffect(() => {
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
 
   const faqTab = [
     {
@@ -265,13 +251,4 @@ export default function FAQ({ locale }) {
       </main>
     </>
   );
-}
-
-export async function getServerSideProps(context) {
-  const { props } = await getLocaleProps(context);
-  return {
-    props: {
-      locale: props.locale,
-    },
-  };
 }

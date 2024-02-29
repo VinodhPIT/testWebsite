@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
-import CountDisplayCard from "../countDisplayCard";
+import CountDisplayCard from "../common/countDisplayCard";
 import useAnalyticsStore from "@/store/artistAnalytics/calenderFilter"; // This is a custom hook for managing analytics data
 import { useEffect } from "react";
 import { downloadExcel } from "@/apiConfig/downloadService";
@@ -72,14 +72,8 @@ export default function ArtistDetails({ initialCounts, token }) {
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {
-
-    downloadExcel("/analytics/artist", type, startDate, endDate ,token);
-
-
+    downloadExcel("/analytics/artist", type, startDate, endDate, token);
   };
-
-
-
 
   return (
     <section className="container-fluid">
@@ -104,7 +98,7 @@ export default function ArtistDetails({ initialCounts, token }) {
               }
               selectedDateRange={selectedDayRange.totalArtists ?? ""}
               title={t("common:AnalyticsArtist.Total active artist")}
-              reset={() => resetCalender("totalArtists",)}
+              reset={() => resetCalender("totalArtists")}
             />
           </div>
           <div className="col-lg-3 col-md-6 col-sm-6">

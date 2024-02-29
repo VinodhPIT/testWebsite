@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-
 import Link from "next/link";
-
 import Image from "next/image";
 import Head from "next/head";
 import DownloadApps from "@/marketingScreens/DownloadApps/DownloadApps";
@@ -14,24 +12,10 @@ import {
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-import { useGlobalState } from "@/context/Context";
-import { getLocaleProps } from "@/utils/getlocale";
-import useWindowResize from "@/hooks/useWindowSize";
 
-function KlarnaNew({ locale }) {
+function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
-
-  const { getLocale } = useGlobalState();
-  const { isMobileView } = useWindowResize();
-
-  useEffect(() => {
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
 
   const listingItems = [
     {
@@ -257,7 +241,9 @@ function KlarnaNew({ locale }) {
                   <Image
                     priority
                     src="/klarnaBanner.png"
-                    alt={`${t("common:klarnaPage.bannerTitle1")} ${t("common:klarnaPage.bannerTitle1-Sub")}`}
+                    alt={`${t("common:klarnaPage.bannerTitle1")} ${t(
+                      "common:klarnaPage.bannerTitle1-Sub"
+                    )}`}
                     fill
                     objectFit="cover"
                     objectPosition="center"
@@ -380,12 +366,3 @@ function KlarnaNew({ locale }) {
   );
 }
 export default KlarnaNew;
-
-export async function getServerSideProps(context) {
-  const { props } = await getLocaleProps(context);
-  return {
-    props: {
-      locale: props.locale,
-    },
-  };
-}

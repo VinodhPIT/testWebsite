@@ -1,7 +1,6 @@
 import React from "react";
 import useTranslation from "next-translate/useTranslation";
 
-
 export default function ArtistsByCountryTable({ data }) {
   const { t } = useTranslation();
 
@@ -33,7 +32,6 @@ export default function ArtistsByCountryTable({ data }) {
             <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative">
               <div>
                 <h3>{t("common:AnalyticsArtist.Artists by Country")}</h3>
-
               </div>
             </div>
             <div className="d_flex justify_content_start align_item_center pb_12">
@@ -42,8 +40,12 @@ export default function ArtistsByCountryTable({ data }) {
                   <table className="table table-striped table-nowrap table-centered mb-0">
                     <thead>
                       <tr>
-                        <th className="main_head_title">{t("common:AnalyticsArtist.Country")}</th>
-                        <th className="main_head_title">{t("common:AnalyticsArtist.Number of artists")}</th>
+                        <th className="main_head_title">
+                          {t("common:AnalyticsArtist.Country")}
+                        </th>
+                        <th className="main_head_title">
+                          {t("common:AnalyticsArtist.Number of artists")}
+                        </th>
                       </tr>
                     </thead>
 
