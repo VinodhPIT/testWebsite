@@ -179,11 +179,14 @@ header.db_header_wrap {
 }
 
 .db_icon_cal {
-  
   padding: 8px;
- 
   border-radius: 4px;
   background: #f2f5f6;
+  height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .db_card_animate {
