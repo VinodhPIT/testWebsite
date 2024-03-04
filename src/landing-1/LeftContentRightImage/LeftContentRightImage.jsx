@@ -14,7 +14,8 @@ export default function LeftContentRightImage({
   alt,
   carousel,
   imgWidth,
-  imgHeight,altTag
+  imgHeight,
+  altTag,
 }) {
   let sliderSettings = {};
 
@@ -72,7 +73,7 @@ export default function LeftContentRightImage({
                             placeholder="blur"
                             blurDataURL={blurDataURL}
                             className="tets"
-                           layout="responsive"
+                            layout="responsive"
                             style={{ borderRadius: "10px" }}
                           />
                         </div>

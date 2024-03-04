@@ -13,7 +13,9 @@ export default function VerticalImageLayout({
   image1,
   image2,
   image3,
-  altTag1,  altTag2,  altTag3,
+  altTag1,
+  altTag2,
+  altTag3,
   bgColor,
 }) {
   return (

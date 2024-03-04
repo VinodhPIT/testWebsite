@@ -2,20 +2,15 @@ import React from "react";
 import Banner from "@/landing-3/Banner/Banner";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import SquareBoxTattooSlider from "@/landing-3/SquareBoxTattooSlider/SquareBoxTattooSlider";
-import DragonTattoo from "@/landing-3/dragonTattoo/dragonTattoo";
-import TattooDragonSlider from "@/landing-3/TattooDragonSlider/TattooDragonSlider";
+import MediaItem from "@/landing-3/MediaItem/MediaItem";
+import SliderSection from "@/landing-3/Slider/Slider";
 import LeftContentWithBackgroundImage from "@/landing-3/LeftContentWithBackgroundImage/LeftContentWithBackgroundImage";
-
 import VerticalImageLayout from "@/landing-3/VerticalImageLayout/VerticalImageLayout";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import Head from "next/head";
 import SplitText from "@/landing-3/SplitText&Image/SplitText";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
-
-
-
 import { useRouter } from "next/router";
-
 import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
 
 export default function DrachenTattoos() {
@@ -205,7 +200,7 @@ export default function DrachenTattoos() {
         content="Das Tätowieren eines Drachens erfordert Geschick und Verständnis für die Symbolik. Unsere erfahrenen Künstler können dir helfen, ein ästhetisches Drachen-Tattoo zu gestalten, das deine persönliche Geschichte zeigt."
       />
 
-      <DragonTattoo
+      <MediaItem
         title1="Die Kunst der Drachen Tätowierung"
         content1="Das Tätowieren eines Drachens erfordert Geschick und Verständnis für die Symbolik. Unsere erfahrenen Künstler können dir helfen, ein ästhetisches Drachen-Tattoo zu gestalten, das deine persönliche Geschichte zeigt."
         title2="Inspirierende Drachen Tattoo Designs"
@@ -220,7 +215,7 @@ export default function DrachenTattoos() {
         altTag={'Drachen-tattoo'}
       />
 
-      <TattooDragonSlider
+      <SliderSection
         title="Drachen Tattoo Vorlagen"
         content="Bist du auf der Suche nach dem idealen Design für dein Tattoo? Entdecke viele Tattoo-Ideen, um Ihren Tätowierer zu inspirieren und bei der Gestaltung zu helfen."
         data={images}

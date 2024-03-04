@@ -14,7 +14,9 @@ export default function CarouselSection({
   datas,
   buttonName,
   isButtonVisible,
-  keyword, bottomButton,altTag
+  keyword,
+  bottomButton,
+  altTag,
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -44,7 +46,6 @@ export default function CarouselSection({
           dots: true,
         },
       },
-
 
       {
         breakpoint: 1024,
@@ -110,7 +111,6 @@ export default function CarouselSection({
                   width={24}
                   height={24}
                   alt="arrow"
-                 
                   className="ml-8 mt-2"
                 />
               </Link>
@@ -121,8 +121,8 @@ export default function CarouselSection({
               className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
               style={{
                 width: "990px",
-                "maxWidth":"100%",
-                "textAlign":"left"
+                maxWidth: "100%",
+                textAlign: "left",
               }}
             >
               {content}
@@ -183,7 +183,7 @@ export default function CarouselSection({
             )}
           </div>
 
-    {/* {keyword === "dragon" ?  
+          {/* {keyword === "dragon" ?  
 
 <div style={{"margin":"0 auto" ,"margin-bottom": "47px" ,padding:"0px 15px"}}>
 
@@ -205,11 +205,6 @@ export default function CarouselSection({
   </Link>
 
 </div> : null} */}
-
-
-
-
-
         </div>
       </div>
     </section>

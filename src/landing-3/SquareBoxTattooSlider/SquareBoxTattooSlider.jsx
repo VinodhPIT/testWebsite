@@ -4,7 +4,6 @@ import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from "./style.module.css";
 
-
 export default function PartnerTattoos({
   mainTitle,
   content2,
@@ -12,9 +11,6 @@ export default function PartnerTattoos({
   bgColor,
   btnLink,
 }) {
-
-  
-
   return (
     <section className="img_text_banner_box">
       <div

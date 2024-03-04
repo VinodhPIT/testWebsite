@@ -16,10 +16,7 @@ import PieChart from "@/analyticsComponents/common/chart";
 import ArtistConversion from "@/analyticsComponents/artist/artistConversion";
 import useTranslation from "next-translate/useTranslation";
 
-
-
 export default function ArtistAnalytics({ data: initialData }) {
-
   const { status, data } = useSession();
   const router = useRouter();
   const { t } = useTranslation();
@@ -48,21 +45,16 @@ export default function ArtistAnalytics({ data: initialData }) {
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
 
-
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
     }
   }, [status, router]);
 
-
-
-
-
   return (
     <>
       <Head>
-      <title>{t("common:AnalyticsArtist.MetaTitle")}</title>
+        <title>{t("common:AnalyticsArtist.MetaTitle")}</title>
       </Head>
 
       <Header data={status === "authenticated" && data.user.name} />
@@ -79,8 +71,8 @@ export default function ArtistAnalytics({ data: initialData }) {
                 <BarChart
                   title={t("common:AnalyticsArtist.Total Artists")}
                   chartData={initialData.chartData}
-
-                  type={"type1"} creationDate="created_date"
+                  type={"type1"}
+                  creationDate="created_date"
                 />
               </div>
               <div className="col-lg-4 col-md-6 col-sm-12">

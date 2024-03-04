@@ -120,8 +120,8 @@ export default function ThreeColumCarousel({
                 className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
                 style={{
                   width: "1090px",
-                  "maxWidth":"100%",
-                  "textAlign":"left"
+                  maxWidth: "100%",
+                  textAlign: "left",
                 }}
               >
                 {content}
@@ -192,7 +192,7 @@ export default function ThreeColumCarousel({
                               className={styles.listing_grid_profile_address}
                             >
                               {el.city}, {el.country}
-                            </span>                            
+                            </span>
                           </div>
                         </div>
                       </Link>
@@ -214,7 +214,6 @@ export default function ThreeColumCarousel({
                   width={24}
                   height={24}
                   alt="arrow"
-                 
                   className="ml-8 mt-2"
                 />
               </Link>

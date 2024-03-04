@@ -2,8 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-
-
 import { blurDataURL } from "@/constants/constants";
 import styles from "./banner.module.css";
 
@@ -13,17 +11,16 @@ import {
   LinkedinShareButton,
   WhatsappShareButton,
   WhatsappIcon,
-  
 } from "react-share";
 
-
-
-
-export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerButton}) {
-  const currentPage = typeof window !== 'undefined' ? window.location.href : '';
-
-
-
+export default function Banner({
+  bannerTitle,
+  subTitlte,
+  alt,
+  bannerImg,
+  bannerButton,
+}) {
+  const currentPage = typeof window !== "undefined" ? window.location.href : "";
 
   return (
     <div className={styles.header}>
@@ -82,20 +79,20 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
                   <span>{bannerTitle}</span>
                 </h1>
 
-<div className={styles.bannerSubTitle}>
-<p >{subTitlte}</p>
-</div>
-                
+                <div className={styles.bannerSubTitle}>
+                  <p>{subTitlte}</p>
+                </div>
 
-
-                <Link className="btn_primary btn_cutom_new btn_img mt_20 m_mt_0" href="/">
-                 {bannerButton}
+                <Link
+                  className="btn_primary btn_cutom_new btn_img mt_20 m_mt_0"
+                  href="/"
+                >
+                  {bannerButton}
                   <Image
                     src="/arow-white-right.svg"
                     width={24}
                     height={24}
                     alt="arrow"
-                    
                     className="ml-8 mt-2"
                   />
                 </Link>
@@ -106,19 +103,28 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
       </div>
 
       <div className={styles.social_icons}>
-
-        <ul>          
-        <li> 
-          <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
-
-            <WhatsappIcon  size={32}  iconFillColor="#000" borderRadius={12}  bgStyle={{fill:"#fff"}}/>
-             
+        <ul>
+          <li>
+            <WhatsappShareButton
+              url={currentPage}
+              title="Please share to your friends and keep supporting inckd"
+              hashtag="#code"
+            >
+              <WhatsappIcon
+                size={32}
+                iconFillColor="#000"
+                borderRadius={12}
+                bgStyle={{ fill: "#fff" }}
+              />
             </WhatsappShareButton>
           </li>
-        
-         
+
           <li>
-            <FacebookShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"  hashtag="Inckd" >
+            <FacebookShareButton
+              url={currentPage}
+              title="Please share to your friends and keep supporting inckd"
+              hashtag="Inckd"
+            >
               <Image
                 src={"/icon-fb-header.svg"}
                 alt="Facebook"
@@ -129,7 +135,10 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
             </FacebookShareButton>
           </li>
           <li>
-            <LinkedinShareButton url={currentPage} title="Please share to your connections and keep supporting inckd">
+            <LinkedinShareButton
+              url={currentPage}
+              title="Please share to your connections and keep supporting inckd"
+            >
               <Image
                 src={"/icon-inkd-header.svg"}
                 alt="Facebook"
@@ -140,8 +149,12 @@ export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerBu
             </LinkedinShareButton>
           </li>
           <li>
-            <EmailShareButton url={currentPage} subject="inckd"  body="Please share to your friends and keep supporting inckd">
-              <Image  
+            <EmailShareButton
+              url={currentPage}
+              subject="inckd"
+              body="Please share to your friends and keep supporting inckd"
+            >
+              <Image
                 src={"/icon-mail-header.svg"}
                 alt="Mail"
                 width={33}

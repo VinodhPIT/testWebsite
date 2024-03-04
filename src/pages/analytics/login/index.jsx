@@ -9,11 +9,10 @@ import { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
 
-const LoginSchema = Yup.object().shape({
-  username: Yup.string().required("User name is required"),
-  password: Yup.string().required("Password is required"),
-});
+
+
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });
@@ -21,6 +20,17 @@ const Login = () => {
   const [loader, setloader] = useState(false);
   const { data, status } = useSession(); // Get the session data
   const router = useRouter();
+  const { t } = useTranslation();
+
+
+
+const LoginSchema = Yup.object().shape({
+  username: Yup.string().required(t("common:AnalyticLogin.User name is required")),
+  password: Yup.string().required(t("common:AnalyticLogin.Password is required")),
+});
+
+
+
 
   useEffect(() => {
     if (data?.user && status === "authenticated") {
@@ -49,7 +59,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Login</title>
+        <title>{t("common:AnalyticLogin.Login")}</title>
       </Head>
 
       <div className="container">
@@ -71,7 +81,7 @@ const Login = () => {
                 {error && (
                   <h1 className={styles.errorMessage}>
                     {" "}
-                    Not an analytic user{" "}
+                    {t("common:AnalyticLogin.NotUser")}
                   </h1>
                 )}
                 <Formik
@@ -81,7 +91,7 @@ const Login = () => {
                 >
                   <Form className="row">
                     <div class="col-md-12">
-                      <h1>Login</h1>
+                      <h1>{t("common:AnalyticLogin.Login")}</h1>
                     </div>
                     <div class="col-md-12">
                       <div className={styles.input_box}>
@@ -90,7 +100,7 @@ const Login = () => {
                           type="username"
                           id="username"
                           name="username"
-                          placeholder="Enter Your username"
+                          placeholder={t("common:AnalyticLogin.EnterUser")}
                           className={styles.input_txt}
                         />
                         <ErrorMessage
@@ -107,7 +117,7 @@ const Login = () => {
                           type="password"
                           id="password"
                           name="password"
-                          placeholder="Enter Your Password"
+                          placeholder={t("common:AnalyticLogin.EnterPassword")}
                           className={styles.input_txt}
                         />
                         <ErrorMessage
@@ -118,12 +128,12 @@ const Login = () => {
                       </div>
                     </div>
                     <div class="col-md-12">
-                    <div class="d-flex justify-content-center">
+                      <div class="d-flex justify-content-center">
                         <button
                           className="btn btn-primary btn_login  "
                           type="submit"
                         >
-                          <span role="status">Login</span>
+                          <span role="status">{t("common:AnalyticLogin.Login")}</span>
                           {loader ? (
                             <span
                               className="spinner-border spinner-border-sm"

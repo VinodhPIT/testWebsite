@@ -119,9 +119,9 @@ export default function FourColumnCarousel({
                 className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
                 style={{
                   width: "1090px",
-                  
-                  "maxWidth":"100%","textAlign":"left",
-                  
+
+                  maxWidth: "100%",
+                  textAlign: "left",
                 }}
               >
                 {content}
@@ -192,7 +192,7 @@ export default function FourColumnCarousel({
                               className={styles.listing_grid_profile_address}
                             >
                               {el.city}, {el.country}
-                            </span>                            
+                            </span>
                           </div>
                         </div>
                       </Link>

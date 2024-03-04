@@ -1,25 +1,24 @@
-import React from 'react'
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from './banner.module.css'
-import {blurDataURL} from "@/constants/constants";
-
+import styles from "./banner.module.css";
+import { blurDataURL } from "@/constants/constants";
 import {
   EmailShareButton,
   FacebookShareButton,
   LinkedinShareButton,
   WhatsappShareButton,
   WhatsappIcon,
-  
 } from "react-share";
 
-
-
-
-export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton ,altTag}) {
-
-  const currentPage = typeof window !== 'undefined' ? window.location.href : '';
-
+export default function Banner({
+  bannerTitle,
+  subTitlte,
+  bannerImg,
+  bannerButton,
+  altTag,
+}) {
+  const currentPage = typeof window !== "undefined" ? window.location.href : "";
 
   return (
     <div className={styles.header}>
@@ -36,7 +35,7 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
-                  layout="responsive"                
+                  layout="responsive"
                 />
               </Link>
             </span>
@@ -45,7 +44,7 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
                 Signup now - its free
               </button>
             </span> */}
-          </div>    
+          </div>
         </div>
       </header>
 
@@ -55,7 +54,7 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
             <div className={styles.banner}>
               <div className={styles.banner_inner}>
                 <Image
-                  src={bannerImg}                 
+                  src={bannerImg}
                   alt={altTag}
                   loading="lazy"
                   placeholder="blur"
@@ -65,18 +64,19 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
                 />
               </div>
             </div>
-            <div className={`${'m_justify_content_center'} ${styles.banner_content}`}>
-              <div className={styles.banner_caption}>  
+            <div
+              className={`${"m_justify_content_center"} ${
+                styles.banner_content
+              }`}
+            >
+              <div className={styles.banner_caption}>
                 <h1>
-                  <span>{bannerTitle}</span>                    
+                  <span>{bannerTitle}</span>
                 </h1>
 
-
-<div className={styles.bannerSubTitle}>
-<p >{subTitlte}</p>
-</div>
-        
-
+                <div className={styles.bannerSubTitle}>
+                  <p>{subTitlte}</p>
+                </div>
 
                 {/* <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
                   {bannerButton}
@@ -91,25 +91,35 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
                     className="ml-8 mt-2"
                   />
                 </a> */}
-                </div> 
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className={styles.social_icons}>
-        <ul>          
- <li> 
-          <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
-
-            <WhatsappIcon  size={32}  iconFillColor="#000" borderRadius={12}  bgStyle={{fill:"#fff"}}/>
-             
+        <ul>
+          <li>
+            <WhatsappShareButton
+              url={currentPage}
+              title="Please share to your friends and keep supporting inckd"
+              hashtag="#code"
+            >
+              <WhatsappIcon
+                size={32}
+                iconFillColor="#000"
+                borderRadius={12}
+                bgStyle={{ fill: "#fff" }}
+              />
             </WhatsappShareButton>
           </li>
-        
-         
+
           <li>
-            <FacebookShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"  hashtag="Inckd" >
+            <FacebookShareButton
+              url={currentPage}
+              title="Please share to your friends and keep supporting inckd"
+              hashtag="Inckd"
+            >
               <Image
                 src={"/icon-fb-header.svg"}
                 alt="Facebook"
@@ -120,7 +130,10 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
             </FacebookShareButton>
           </li>
           <li>
-            <LinkedinShareButton url={currentPage} title="Please share to your connections and keep supporting inckd">
+            <LinkedinShareButton
+              url={currentPage}
+              title="Please share to your connections and keep supporting inckd"
+            >
               <Image
                 src={"/icon-inkd-header.svg"}
                 alt="Facebook"
@@ -131,8 +144,12 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
             </LinkedinShareButton>
           </li>
           <li>
-            <EmailShareButton url={currentPage} subject="inckd"  body="Please share to your friends and keep supporting inckd">
-              <Image  
+            <EmailShareButton
+              url={currentPage}
+              subject="inckd"
+              body="Please share to your friends and keep supporting inckd"
+            >
+              <Image
                 src={"/icon-mail-header.svg"}
                 alt="Mail"
                 width={33}
@@ -143,12 +160,6 @@ export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton 
           </li>
         </ul>
       </div>
-
-
-
-
-      
-      
     </div>
-  )
+  );
 }

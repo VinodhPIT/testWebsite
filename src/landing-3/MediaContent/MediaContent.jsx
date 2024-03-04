@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import styles from "./dragonslider.module.css";
+import styles from "./style.module.css";
 
-export default function DragonSlider({ title, description, bgColor, image  ,altTag}) {
+export default function MediaContent({
+  title,
+  description,
+  bgColor,
+  image,
+  altTag,
+}) {
   return (
     <section className="img_text_banner_box">
       <div
