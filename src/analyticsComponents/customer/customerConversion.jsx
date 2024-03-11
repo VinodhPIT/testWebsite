@@ -71,7 +71,7 @@ const CustomerConversion = ({ token }) => {
   return (
     <div className="db_card block_bg_white">
       <div className="db_card_body pl_0 pr_0">
-        <div className="d_flex justify_space_between align_item_center mb_18 pl_20 pr_20 position_relative">
+        <div className="d_flex justify_space_between align_item_center mb_18 pl_15 pr_15 position_relative">
           <div>
             <h3>{t("common:AnalyticsCustomer.Customer Conversion")}</h3>
           </div>
