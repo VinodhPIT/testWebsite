@@ -504,6 +504,17 @@
   "GeneralAppdownloadScreen": {
     "title": "General App Download"
   },
+
+  "AnalyticLogin":{
+  "User name is required":"User name is required",
+  "Password is required":"Password is required",
+  "Login":"Login",
+  "NotUser":" Not an analytic user",
+  "EnterUser":"Enter Your username",
+  "EnterPassword":"Enter Your Password"
+
+  },
+
   "AnalyticsCustomer": {
     "MetaTitle": "Customer-Analytics",
     "TotalCustomers": "Total customers",
@@ -541,7 +552,9 @@
     "Normal artists": "Normal artists",
     "Referred artists": "Referred artists",
     "Country": "Country",
-    "Number of artists": "No. of artists"
+    "Number of artists": "No. of artists",
+    "This year": "This year",
+    "All": "All"
   },
   "AnalyticsOffer": {
     "MetaTitle": "Offer-Analytics",

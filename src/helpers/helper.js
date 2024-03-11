@@ -132,24 +132,26 @@ export const filterChartDataByYear = (chartData, year, key) => {
 // Function to get countries and average time to get contacted
 export const getContactTimeDifference = (chartData) => {
   const dateDifferenceArray = {};
-  chartData.map(data => {
+  chartData.map((data) => {
     if (data.contacted_time != null) {
-
       const start = moment(data.created_date);
       const end = moment(data.contacted_time);
       if (!dateDifferenceArray[data.country]) {
-        dateDifferenceArray[data.country] = { totalTime: (end.diff(start, 'days')), count: 1 }
+        dateDifferenceArray[data.country] = {
+          totalTime: end.diff(start, "days"),
+          count: 1,
+        };
       } else {
-        dateDifferenceArray[data.country].totalTime += (end.diff(start, 'days'));
+        dateDifferenceArray[data.country].totalTime += end.diff(start, "days");
         dateDifferenceArray[data.country].count += 1;
       }
-
     }
-
   });
 
   for (const country in dateDifferenceArray) {
-    dateDifferenceArray[country].averageTime = dateDifferenceArray[country].totalTime / dateDifferenceArray[country].count;
+    dateDifferenceArray[country].averageTime =
+      dateDifferenceArray[country].totalTime /
+      dateDifferenceArray[country].count;
   }
 
   return dateDifferenceArray;

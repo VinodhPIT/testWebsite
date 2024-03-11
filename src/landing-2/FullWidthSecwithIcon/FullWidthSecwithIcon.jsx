@@ -28,15 +28,10 @@ export default function UniquePartner({ img, alt, title, content, bgColor }) {
                     />
                   </div>
 
-                  <div
-                    
-                  >
+                  <div>
                     <h2 className="color_gray_550 mb_20">{title}</h2>
                   </div>
-                  <p
-                    className="custom_fs_20 lh_33 custom_fs_m_16 color_gray_550 mb_0 mt_10"
-                    
-                  >
+                  <p className="custom_fs_20 lh_33 custom_fs_m_16 color_gray_550 mb_0 mt_10">
                     {content}
                   </p>
                 </div>

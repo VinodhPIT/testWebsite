@@ -504,6 +504,17 @@
   "GeneralAppdownloadScreen": {
     "title": "General App Download"
   },
+
+  "AnalyticLogin":{
+  "User name is required":"User name is required",
+  "Password is required":"Password is required",
+  "Login":"Login",
+  "NotUser":" Not an analytic user",
+  "EnterUser":"Enter Your username",
+  "EnterPassword":"Enter Your Password"
+
+  },
+
   "AnalyticsCustomer": {
     "MetaTitle": "Customer-Analytics",
     "TotalCustomers": "Total customers",
@@ -573,9 +584,9 @@
     "Offers completed": "offers completed",
     "Offers received": "offers received",
     "Percentage": "Percentage",
-    "Offer pending" :"Offer pending",
-    "Lead" :"Offer pending",
-    "Offers sent" :"Offers sent",
-    "Offers scheduled" :"Offers scheduled"
+    "Offer pending": "Offer pending",
+    "Lead": "Offer pending",
+    "Offers sent": "Offers sent",
+    "Offers scheduled": "Offers scheduled"
   }
 }

@@ -14,7 +14,9 @@ export default function CarouselSection({
   datas,
   buttonName,
   isButtonVisible,
-  keyword, bottomButton,altTag
+  keyword,
+  bottomButton,
+  altTag,
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -44,7 +46,6 @@ export default function CarouselSection({
           dots: true,
         },
       },
-
 
       {
         breakpoint: 1024,
@@ -94,7 +95,7 @@ export default function CarouselSection({
           <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column container mb_10">
             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
               <h2 className="color_gray_550 text_left heading_h2 mb_10 m_mb_20 mr_0 m_mb_25">
-                <span class="m_dis_inline">{title} </span>
+                <span className="m_dis_inline">{title} </span>
                 {/* <span class="textBlock m_dis_inline">inckd tattoo artists</span> */}
               </h2>
             </div>
@@ -109,10 +110,7 @@ export default function CarouselSection({
                   src="/arow-white-right.svg"
                   width={24}
                   height={24}
-                  alt="logo"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  alt="arrow"
                   className="ml-8 mt-2"
                 />
               </Link>
@@ -120,11 +118,11 @@ export default function CarouselSection({
           </div>
           <div className="d_flex align_item_left flex_direction_column mb_20  m_max_100 container">
             <p
-              class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
+              className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
               style={{
                 width: "990px",
-                "max-width": "100%",
-                "text-align": "left",
+                maxWidth: "100%",
+                textAlign: "left",
               }}
             >
               {content}
@@ -178,17 +176,14 @@ export default function CarouselSection({
                   src="/arow-white-right.svg"
                   width={24}
                   height={24}
-                  alt="logo"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  alt="arrow"
                   className="ml-8 mt-2"
                 />
               </Link>
             )}
           </div>
 
-    {/* {keyword === "dragon" ?  
+          {/* {keyword === "dragon" ?  
 
 <div style={{"margin":"0 auto" ,"margin-bottom": "47px" ,padding:"0px 15px"}}>
 
@@ -210,11 +205,6 @@ export default function CarouselSection({
   </Link>
 
 </div> : null} */}
-
-
-
-
-
         </div>
       </div>
     </section>

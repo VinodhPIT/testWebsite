@@ -10,29 +10,24 @@ export default function ListingGridThreeColumn({ mainTitle, data, bgColor }) {
             style={{ backgroundColor: bgColor }}
           >
             <div className="container">
-              {mainTitle!==""   ? 
-              <div
-                className="text_box_content_inner  max_w_100pc"
-              >
-                <h3 className="color_gray_550   text_left heading_h2  pb_40" >
-                  {mainTitle}
-                </h3>
-              </div>
- : null}
-
+              {mainTitle !== "" ? (
+                <div className="text_box_content_inner  max_w_100pc">
+                  <h3 className="color_gray_550   text_left heading_h2  pb_40">
+                    {mainTitle}
+                  </h3>
+                </div>
+              ) : null}
 
               <div className={style.listGrid}>
                 {data.map((el, index) => {
                   return (
                     <div
-                    className={`item ${
-                      index < data.length - 2
-                        ? style.with_margin
-                        : style.grid_mobileView
-                    }`}
+                      className={`item ${
+                        index < data.length - 2
+                          ? style.with_margin
+                          : style.grid_mobileView
+                      }`}
                       key={index}
-                     
-
                     >
                       <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">
                         {el.title}
@@ -44,11 +39,10 @@ export default function ListingGridThreeColumn({ mainTitle, data, bgColor }) {
                   );
                 })}
               </div>
-              </div>
             </div>
           </div>
         </div>
-     
+      </div>
     </section>
   );
 }

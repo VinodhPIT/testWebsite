@@ -12,7 +12,7 @@ import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreApps from "@/components/exploreApps/ExploreApps";
 import TattooArtistComponent from "@/components/tatooartistComponent/TattooArtistComponent";
-import jsonData from '@/data/journal.json';
+import jsonData from "@/data/journal.json";
 import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
@@ -20,10 +20,8 @@ import {
   blurDataURL,
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
-export default function Homenew({ data, locale }) {
-
+export default function Home({ data, locale }) {
   const { t } = useTranslation();
-
 
   const tattoos = [
     {
@@ -163,23 +161,20 @@ export default function Homenew({ data, locale }) {
     setSearchState,
   } = useGlobalState();
 
-
   const router = useRouter();
-
 
   function SwitchJournal(locale) {
     switch (locale) {
       case "uk-en":
-        return <TattooJournal data={jsonData[router.locale]}  />
+        return <TattooJournal data={jsonData[router.locale]} />;
       case "de-en":
-        return <TattooJournal data={jsonData[router.locale]}  />
+        return <TattooJournal data={jsonData[router.locale]} />;
       default:
-        return null
+        return null;
     }
   }
 
   useEffect(() => {
-    router.replace(`/${locale}`);
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -191,50 +186,35 @@ export default function Homenew({ data, locale }) {
     styleCollection();
   }, []);
 
-  useEffect(() => {
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
-
   return (
     <>
       <Head>
-      <title>
-
-{t("common:homeScreenSEO.title")}
-  
-</title>
-<meta
-  name="description"
-  content= {t("common:homeScreenSEO.description")}
-/>
-<meta
-  name="keywords"
-  content= {t("common:homeScreenSEO.keyword")}
-/>
+        <title>{t("common:homeScreenSEO.title")}</title>
+        <meta
+          name="description"
+          content={t("common:homeScreenSEO.description")}
+        />
+        <meta name="keywords" content={t("common:homeScreenSEO.keyword")} />
       </Head>
 
       <section className="img_text_banner_box">
         <div className="col_full">
           <div className="img_text_box_wrapper exciting_offer_wrap">
-            <div class="text_box_wrap right">
-              <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                <div class="text_box_content justify_content_center m_min_h_reset">
-                  <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
+            <div className="text_box_wrap right">
+              <div className="img_text_box_inner custom_two_col_banner m_switcher">
+                <div className="text_box_content justify_content_center m_min_h_reset">
+                  <div className="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="tiny_payment_block pr_10_pc m_pr_0">
                       <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_0">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
                       <p className="custom_fs_m_18 m_mt_20 m_mb_20">
-                      {t("common:homePage.bannerContent")}
+                        {t("common:homePage.bannerContent")}
                       </p>
-                      <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
-                        <ul class="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block download_mob_center">
-                          <li class="download_app_title mb_10">                          
-                          {t("common:homePage.Download the inckd")}
+                      <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">
+                        <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block download_mob_center">
+                          <li className="download_app_title mb_10">
+                            {t("common:homePage.Download the inckd")}
                           </li>
                           <li>
                             <Link href={APP_LINK_APPLE} target="_blank">
@@ -269,7 +249,7 @@ export default function Homenew({ data, locale }) {
                     </div>
                   </div>
                 </div>
-                <div class="img_box_wrap custom_download_shadow no_shadow_before">
+                <div className="img_box_wrap custom_download_shadow no_shadow_before">
                   <span>
                     <Image
                       priority
@@ -315,7 +295,7 @@ export default function Homenew({ data, locale }) {
       {/* <TattooJournal data={listing} error={error} /> */}
       {SwitchJournal(router.locale)}
 
-      <FinelineComponent /> 
+      <FinelineComponent />
 
       <TattooArtistComponent />
 
@@ -335,7 +315,7 @@ export default function Homenew({ data, locale }) {
         buttonName={t("common:ExploreMoreTattoos")}
         keyword={`/${router.locale}/explore/tattoos`}
         sectionBg="block_bg_gray_150"
-        altTag={'Tattoos'}
+        altTag={"Tattoos"}
       />
       <ExploreApps />
     </>
@@ -343,10 +323,8 @@ export default function Homenew({ data, locale }) {
 }
 
 export async function getServerSideProps(context) {
-  
   return {
     props: {
-     
       locale: context.locale,
     },
   };

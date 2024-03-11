@@ -68,16 +68,8 @@ export default function Detail({ data, locale }) {
   ];
 
   useEffect(() => {
-    // clearStyleId()
-    // setSelectedIds([])
     styleCollection()
-    
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
+  }, [styleCollection]);
 
   const changeTab = (tab) => {
     setCurrentTab(tab);

@@ -7,7 +7,8 @@ export default function LeftAlignedImageContent({
   title,
   description,
   bgColor,
-  image,altTag
+  image,
+  altTag,
 }) {
   return (
     <section className="img_text_banner_box  ">

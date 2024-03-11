@@ -11,6 +11,7 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
   return (
     <Carousel
       showArrows={true}
+      showThumbs={false}
       preventMovementUntilSwipeScrollTolerance={true}
       swipeScrollTolerance={50}
       renderArrowPrev={(onClickHandler, hasPrev) => (
@@ -106,6 +107,7 @@ const MythologyCarousel = ({ items, itemStyle }) => {
   return (
     <Carousel
       showArrows={true}
+      showThumbs={false}
       preventMovementUntilSwipeScrollTolerance={true}
       swipeScrollTolerance={50}
       renderArrowPrev={(onClickHandler, hasPrev) => (
@@ -204,6 +206,7 @@ const AztecCarousel = ({ items, itemStyle }) => {
   return (
     <Carousel
       showArrows={true}
+      showThumbs={false}
       preventMovementUntilSwipeScrollTolerance={true}
       swipeScrollTolerance={50}
       renderArrowPrev={(onClickHandler, hasPrev) => (

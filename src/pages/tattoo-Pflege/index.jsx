@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "@/landing-3/Banner/Banner";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import Head from "next/head";
-import DragonTattoo from "@/landing-3/dragonTattoo/dragonTattoo";
+import MediaItem from "@/landing-3/MediaItem/MediaItem";
 import LeftContentWithBackgroundImage from "@/landing-3/LeftContentWithBackgroundImage/LeftContentWithBackgroundImage";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
@@ -83,7 +83,7 @@ export default function TattooPflege() {
         alt="Die Bedeutung der richtigen Pflege"
       />
 
-      <DragonTattoo
+      <MediaItem
         title1="Direkt nach dem Stechen"
         content1="Die ersten Stunden und Tage nach dem Stechen sind entscheidend für die Heilung deines frisch tätowierten Kunstwerks. Hier sind einige grundlegende Schritte, die du befolgen solltest"
         title2="Verwendung von atmungsaktivem Pflaster und ph-neutraler Seife"

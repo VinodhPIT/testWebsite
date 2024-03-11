@@ -4,12 +4,11 @@ import Banner from "@/landing-2/Banner/Banner";
 import ListingGridThreeColumn from "@/landing-2/ListingGrid-ThreeColumn/ListingGridTwoColumn";
 import { useRouter } from "next/router";
 import UniquePartner from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
-import DragonSlider from "@/landing-3/dragonSlider/dragonSlider";
+import MediaContent from "@/landing-3/MediaContent/MediaContent";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
 import FiveColumnCarousel from "@/landing-1/FiveColumnCarousel/fiveColumnCarousel";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-
 
 export default function CoverUpTattoos() {
   const router = useRouter();
@@ -106,9 +105,7 @@ export default function CoverUpTattoos() {
     },
   ];
 
-
-
-  const list1 =[
+  const list1 = [
     {
       title: "Das Touch-up",
       content:
@@ -154,7 +151,7 @@ export default function CoverUpTattoos() {
     },
   ];
 
-  const list2 =[
+  const list2 = [
     {
       title: "Farben und Hauptprozesse",
       content:
@@ -255,24 +252,15 @@ export default function CoverUpTattoos() {
           altTag="Tipps, Methoden und Kreative Lösungen"
         />
 
-        <DragonSlider
+        <MediaContent
           title={"Was du beachten solltest"}
           description={
             "Die Größe, Stechtiefe und Farbe deines alten Tattoos beeinflussen das Cover Up erheblich. Vorbereitung ist entscheidend. Ein erfahrener Tätowierer sollte dein altes Tattoo sehen und über die besten Möglichkeiten für das Cover Up sprechen. Nimm dir genug Zeit, besonders bei größeren Rettungsaktionen."
           }
-
-
           bgColor="#fff"
-
           image="/coverUpTattoo3.png"
           altTag="Was du beachten solltest"
-     
-
         />
-
-
-
-
 
         <ContentImageLayout
           title={"Warum cover up Tattoos?"}
@@ -282,8 +270,6 @@ export default function CoverUpTattoos() {
           alt="Warum cover up Tattoos"
           bgColor={"#f8f8f8"}
         />
-
-
 
         <ListingGridThreeColumn
           mainTitle="Verschiedene Methoden"
@@ -311,18 +297,7 @@ Unsere Tätowierer sind Experten auf ihrem Gebiet und können dir nicht nur mit 
 
         <ListingGridThreeColumn mainTitle="" data={list2} bgColor={"#fff4c0"} />
 
-       
-
-        <DownloadApps
-        
-        title="Download the"
-        subTitle="App & Explore more!"
-        
-        
-        
-        
-        
-        />
+        <DownloadApps title="Download the" subTitle="App & Explore more!" />
       </div>
     </>
   );
