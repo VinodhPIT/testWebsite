@@ -76,7 +76,7 @@ export default function TattooIdeen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4759_20221007142629676-medium.jpg",
 
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b366870d-e38c-45a4-9a3b-09837ccdac2c`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/740168ca-2ead-476d-9654-44e2f1d7146d`,
     },
     {
       image:
@@ -315,13 +315,13 @@ export default function TattooIdeen() {
 
     {
       artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/8647_20231109084816116_E71AB428-A00F-4FAE-A84C-3CA13ED3BD62.jpg",
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/5239_20230427112738601_64bec933-2b2f-4e58-bc68-56eb7eb39001.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28933_20231109084136407-medium.jpg",
-      name: "Nastis_ink",
-      city: "Saalfeld",
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24371_20230426055124269-medium.jpg",
+      name: "TrineCocoLores",
+      city: "Jena",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/nastis_ink_zxh0r3o5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/TrineCocoLores_x1sxzybq`,
     },
 
     {

@@ -21,52 +21,52 @@ import {
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 export default function Home({ data, locale }) {
+  const router = useRouter();
   const { t } = useTranslation();
-
   const tattoos = [
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21561_20230312230323292-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ba76717a-788c-42ec-a50c-c946a7deb7b7`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ba76717a-788c-42ec-a50c-c946a7deb7b7`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26057_20230814190028838-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ffbb5f5b-c124-4599-9a2a-8b8fb70d0305`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ffbb5f5b-c124-4599-9a2a-8b8fb70d0305`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2836_20220916175556641-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/fe25e0ec-bf1d-451d-93d4-70ac74a6286d`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/fe25e0ec-bf1d-451d-93d4-70ac74a6286d`,
     },
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13796_20230105095643483-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/1374fce3-e79a-4381-a9f7-281c84793b5c`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1374fce3-e79a-4381-a9f7-281c84793b5c`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/18174_20230208215617181-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/c2377f90-d4c4-4056-896e-53a2da502273`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c2377f90-d4c4-4056-896e-53a2da502273`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/22296_20230323003140535-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/32a4ef5e-159d-4e3a-8498-5f2244b0fb8d`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/32a4ef5e-159d-4e3a-8498-5f2244b0fb8d`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4677_20221006183710030-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/570d3a82-3d83-41b1-8b3c-ed72fe064c42`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/570d3a82-3d83-41b1-8b3c-ed72fe064c42`,
     },
 
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4674_20221006183315588-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/ebdd32be-7b9f-429b-8adb-4dc92161143a`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ebdd32be-7b9f-429b-8adb-4dc92161143a`,
     },
   ];
 
@@ -80,7 +80,7 @@ export default function Home({ data, locale }) {
 
       city: "Rotherham",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/miabella_ohshrf35`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/miabella_ohshrf35`,
     },
     {
       artistImage:
@@ -91,7 +91,7 @@ export default function Home({ data, locale }) {
 
       city: "Frankfurt an der Oder",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/juliablackfox_4rh203ng`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/juliablackfox_4rh203ng`,
     },
     {
       artistImage:
@@ -103,7 +103,7 @@ export default function Home({ data, locale }) {
       city: "London",
       country: "United Kingdom",
 
-      url: `${process.env.LIVE_URL}/artists/alessandro-lanzafame_nts3jh4k`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/alessandro-lanzafame_nts3jh4k`,
     },
     {
       artistImage:
@@ -114,7 +114,7 @@ export default function Home({ data, locale }) {
 
       city: "London,",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/barbaranobody_e8w4uiq5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/barbaranobody_e8w4uiq5`,
     },
 
     {
@@ -126,7 +126,7 @@ export default function Home({ data, locale }) {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/Mileink_8t07n1nk`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/Mileink_8t07n1nk`,
     },
     {
       artistImage:
@@ -137,7 +137,7 @@ export default function Home({ data, locale }) {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/13foxxtattoos_6426m6eg`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/13foxxtattoos_6426m6eg`,
     },
 
     {
@@ -148,9 +148,10 @@ export default function Home({ data, locale }) {
       name: "Çinar Efe Tattoo",
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/cinar-efe_acwe82ae`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/cinar-efe_acwe82ae`,
     },
   ];
+  
 
   const {
     styleCollection,
@@ -161,7 +162,7 @@ export default function Home({ data, locale }) {
     setSearchState,
   } = useGlobalState();
 
-  const router = useRouter();
+
 
   function SwitchJournal(locale) {
     switch (locale) {
