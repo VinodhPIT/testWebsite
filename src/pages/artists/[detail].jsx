@@ -5,15 +5,15 @@ import styles from "./style.module.css";
 import { useRouter } from "next/router";
 import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
 import { blurDataURL } from "@/constants/constants";
-import SearchField from "@/components/tattooSearch/tattooSearch";
+import SearchField from "@/components/exploreScreens/searchField";
  
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
-import { renderArtistGallery } from "@/components/customTabs/tab";
+import { renderArtistGallery } from "@/components/exploreScreens/tab";
 import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+import SelectDropdown from "@/components/exploreScreens/SearchPanel";
 
 
 

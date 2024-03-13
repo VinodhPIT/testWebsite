@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { getContactTimeDifference } from "@/helpers/helper";
-import Loader from "@/components/loader";
+import Loader from "@/components/loading/loader";
 
 const CustomerContactTime = ({ title, chartData }) => {
   const dateDiffData = getContactTimeDifference(chartData);

@@ -4,16 +4,16 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from 'next/image'
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
-import { Parameters } from "@/components/parameters/params";
-import { renderCategoryComponent } from "@/components/customTabs/tab";
+import { Parameters } from "@/utils/params";
+import { renderCategoryComponent } from "@/components/exploreScreens/tab";
 import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
-import SearchField from "@/components/tattooSearch/tattooSearch";
+import SearchField from "@/components/exploreScreens/searchField";
 import { addAdsToResults } from "@/helpers/helper";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+import SelectDropdown from "@/components/exploreScreens/SearchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
 
 const MobileDetect = require("mobile-detect");

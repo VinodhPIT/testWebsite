@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import FullWidthcarosuel from "@/components/FullwidthCarousel/FullwidthCarousel";
+import FullWidthcarosuel from "@/components/styleguideScreen/FullwidthCarousel";
 import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,

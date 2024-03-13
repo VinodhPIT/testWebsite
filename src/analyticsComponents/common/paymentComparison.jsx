@@ -10,7 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import Loader from "@/components/loader";
+import Loader from "@/components/loading/loader";
 ChartJS.register(
   ArcElement,
   Tooltip,

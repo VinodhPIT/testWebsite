@@ -1,16 +1,4 @@
-/*
-.gridWrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 4px;
-  padding: 10px 0px 10px 0px;
-}
-.gridItem {
-  padding: 8px;
-  position: relative;
-  height: 208px;
-  border-radius: 8px;
-}*/
+
 .pageContainer {
   float: left;
   width: 100%;

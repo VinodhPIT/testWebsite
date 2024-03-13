@@ -1,22 +1,12 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
-
-
-
-
-
 const Custom404 = () => {
   const { t } = useTranslation();
 
-
-  
   return (
     <>
-    
-
       <main>
         <div className="page-wrapper">
           <section className="page_404_wrap">
@@ -37,7 +27,7 @@ const Custom404 = () => {
                   alt="back to home"
                   className="btn_secondary btn_custom_m"
                 >
-                 {t("common:backHome")}
+                  {t("common:backHome")}
                 </Link>
               </div>
             </div>

@@ -6,7 +6,7 @@ import DownloadApps from "@/marketingScreens/DownloadApps/DownloadApps";
 import style from "./style.module.css";
 import useTranslation from "next-translate/useTranslation";
 import { useNavigation } from "@/hooks/useRouter";
-import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumnCarousel";
+import FiveColumnCarousel from "@/components/klarnaScreen/fiveColumnCarousel";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,

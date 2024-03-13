@@ -12,14 +12,14 @@ import { fetchArtistDetail } from "@/apiConfig/webService";
 import Link from "next/link";
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
-import SearchField from "@/components/tattooSearch/tattooSearch";
+import SearchField from "@/components/exploreScreens/searchField";
 import { useRouter } from "next/router";
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-import myPromise from "@/components/myPromise";
-import Loader from "@/components/loader";
+import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+import myPromise from "@/utils/myPromise";
+import Loader from "@/components/loading/loader";
 
 export default function Detail({ data, status }) {
   const router = useRouter();

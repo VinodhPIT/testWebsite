@@ -6,7 +6,7 @@ import { processData } from "@/utils/monthlyDataGenerator";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import Select from "react-select";
 import { currentYear, options, months } from "@/helpers/helper";
-import Loader from "@/components/loader";
+import Loader from "@/components/loading/loader";
 
 ChartJS.register(Tooltip, Legend);
 

@@ -5,8 +5,8 @@ import {
   ZodiacCarousel,
   MythologyCarousel,
   AztecCarousel,
-} from "@/components/carousel/Carousel";
-import ImageSlider from "@/components/sliderDictionary/ImageSlider";
+} from "@/components/dictionaryScreen/carousel";
+import ImageSlider from "@/components/dictionaryScreen/imageSlider";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,

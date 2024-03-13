@@ -9,7 +9,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import Search from "@/components/tattooSearch/tattooSearch";
+import Search from "@/components/exploreScreens/searchField";
 import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";

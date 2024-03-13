@@ -1,5 +1,5 @@
 import React from "react";
-import _Form from "@/components/form/form";
+import _Form from "@/components/contactForm/form";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 

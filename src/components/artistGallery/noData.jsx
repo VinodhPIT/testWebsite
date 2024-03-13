@@ -2,15 +2,10 @@ import React from "react";
 import Image from "next/image";
 import styles from "@/components/noDatafound/style.module.css";
 
-
-
 import useTranslation from "next-translate/useTranslation";
-
-
 
 export default function NoData({ category }) {
   const { t } = useTranslation();
-
 
   return (
     <div>

@@ -9,7 +9,7 @@ import {
 } from "@/helpers/helper";
 import ConversionDataComponent from "../common/keys";
 import { percentageCalculate } from "../customer/customerConversion";
-import Loader from "@/components/loader";
+import Loader from "@/components/loading/loader";
 import { artistConvesionWithCountryFilter } from "@/apiConfig/artistAnalyticsService";
 import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
 
