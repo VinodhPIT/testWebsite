@@ -133,15 +133,6 @@ export default function Offer({ data }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
-
   try {
     const [data] = await Promise.all([offerCount(session.user.myToken)]);
 

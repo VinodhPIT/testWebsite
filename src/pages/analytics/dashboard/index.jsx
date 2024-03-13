@@ -56,15 +56,6 @@ export default function Dashboard({ data: initialData }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
-
   try {
     const [data, offerData, artistCount, customerCount] = await Promise.all([
       analyticsDashboardCount(session.user.myToken),
