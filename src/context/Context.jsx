@@ -8,6 +8,9 @@ import React, {
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
+
+
+
 const initialState = {
   address: "Location",
   location: "",

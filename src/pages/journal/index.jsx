@@ -7,11 +7,13 @@ import path from "path";
 import fs from "fs";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
 
 export default function ListingPage({ data, locale }) {
   const [listing, setListing] = useState([]);
   const [error, setError] = useState(false);
   const router = useRouter();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (
@@ -29,10 +31,10 @@ export default function ListingPage({ data, locale }) {
   return (
     <>
       <Head>
-        <title>inckd. Tattoo Journal</title>
+        <title>{t("common:journalTitle")}</title>
         <meta
           name="description"
-          content="Latest Tattoo Trends, Tips, and Techniques"
+          content={t("common:subText")}
         />
 
       </Head>
@@ -58,10 +60,10 @@ export default function ListingPage({ data, locale }) {
               <div className={`${""} ${styles.banner_content}`}>
                 <div className={styles.banner_caption}>
                   <h1>
-                    <span>inckd. Tattoo Journal:</span>
+                    <span>{t("common:journalTitle")}</span>
                   </h1>
                   <p className="max_w_100pc mb_0 mt_20">
-                    Latest Tattoo Trends, Tips, and Techniques
+                  {t("common:subText")}
                   </p>
                 </div>
               </div>
@@ -116,7 +118,7 @@ export default function ListingPage({ data, locale }) {
                                     <div
                                       className="btn_primary btn_img btn_custom_48"
                                     >
-                                      Read more
+                                       {t("common:Read more")}
                                       <Image
                                         src="/arow-white-right.svg"
                                         width={24}
