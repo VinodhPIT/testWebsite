@@ -4,6 +4,9 @@ import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 
 export default function Contact({}) {
+
+  //Constants
+  
   const { t } = useTranslation();
 
   return (

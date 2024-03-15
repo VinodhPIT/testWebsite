@@ -17,6 +17,7 @@ import ArtistConversion from "@/analyticsComponents/artist/artistConversion";
 import useTranslation from "next-translate/useTranslation";
 
 export default function ArtistAnalytics({ data: initialData }) {
+  
   const { status, data } = useSession();
   const router = useRouter();
   const { t } = useTranslation();

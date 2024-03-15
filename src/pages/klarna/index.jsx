@@ -14,8 +14,13 @@ import {
 } from "@/constants/constants";
 
 function KlarnaNew({}) {
+  // Constants
+
   const { t } = useTranslation();
   const { router } = useNavigation();
+
+
+  
 
   const listingItems = [
     {

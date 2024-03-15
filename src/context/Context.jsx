@@ -5,32 +5,37 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
+import {
+  fetchCategoryData,
+  fetchMultiData,
+  getStyles,
+} from "@/apiConfig/webService";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/utils/params";
+
 const initialState = {
   address: "Location",
-  location: "",
   categoryCollection: [],
   currentTab: "",
-  isTriggered: false,
-  pageNo: 0,
-  selectedStyle: "",
-  styleCollection: [],
-  totalItems: "",
-  searchKey: "",
-  value: "",
-  hints: [],
   errorMessage: false,
-  latitude: "",
-  longitude: "",
-  searchData: [],
-  toggle: false,
-  locale: "EN",
+  hints: [],
   isLoad: false,
+  isTriggered: false,
+  latitude: "",
+  location: "",
+  longitude: "",
+  locale: "EN",
+  pageNo: 0,
+  searchKey: "",
+  searchData: [],
+  selectedStyle: "",
   seed: "",
   slugIds: "",
+  styleCollection: [],
   styleId: [],
+  toggle: false,
+  totalItems: "",
+  value: "",
 };
 
 const reducer = (state, action) => {
@@ -157,23 +162,11 @@ export const GlobalStateProvider = ({ children }) => {
     dispatch({ type: "CLEARSTYLE_ID", payload: "" });
   };
 
-  const onSearch = async (
-    currentTab,
-    searchKey,
-    selectedIds,
-    location,
-    router
-  ) => {
-    await getUrl(currentTab,
-      searchKey,
-      selectedIds,
-      location,
-      router);
-
-    dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
+  const fetchServerlData = async (payload) => {
+    try {
+      dispatch({ type: "INITIAL_SERVER_DATA", payload: payload });
+    } catch (error) {}
   };
-
-
 
   const getAddress = async (payload) => {
     try {
@@ -184,12 +177,6 @@ export const GlobalStateProvider = ({ children }) => {
   const getLocale = async (payload) => {
     try {
       dispatch({ type: "GET_LOCALE", payload: payload });
-    } catch (error) {}
-  };
-
-  const fetchServerlData = async (payload) => {
-    try {
-      dispatch({ type: "INITIAL_SERVER_DATA", payload: payload });
     } catch (error) {}
   };
 
@@ -219,6 +206,18 @@ export const GlobalStateProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  const onSearch = async (
+    currentTab,
+    searchKey,
+    selectedIds,
+    location,
+    router
+  ) => {
+    await getUrl(currentTab, searchKey, selectedIds, location, router);
+
+    dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
+  };
+
   const styleCollection = async () => {
     try {
       let responseData = await getStyles();
@@ -230,19 +229,18 @@ export const GlobalStateProvider = ({ children }) => {
   return (
     <GlobalStateContext.Provider
       value={{
-        state,
+        clearStyleId,
         fetchServerlData,
-        loadMore,
         getLocale,
-        styleCollection,
         getAddress,
+        loadMore,
+        onSearch,
+        state,
+        styleCollection,
         selectedIds,
         setSelectedIds,
-        onSearch,
-        clearStyleId,
-        setSearchState,
         searchState,
-        
+        setSearchState,
       }}
     >
       {children}

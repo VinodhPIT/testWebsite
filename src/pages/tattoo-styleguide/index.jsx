@@ -15,9 +15,55 @@ import useTranslation from "next-translate/useTranslation";
 import { getLocaleProps } from "@/utils/getlocale";
 export default function StyleGuide() {
 
-  const router = useRouter();
-  const { isMobileView } = useWindowResize();
-  const { t } = useTranslation();
+// Constants
+const router = useRouter();
+const { isMobileView } = useWindowResize();
+const { t } = useTranslation();
+
+// Tattoo arrays
+
+const finlineTattoo = [
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2667_20220914190416690-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/5a629ad1-216f-4b46-96a7-78beb7e7011e`,
+  },
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8125_20221104174853899-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/7542cf47-3213-4f9f-931d-149118d9ecbd`,
+  },
+
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13440_20230102160802048-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/2875c869-fd9a-42cd-9989-dec8888c1ac2`,
+  },
+
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13458_20230102163950299-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/9871b7a0-033f-4996-b8da-c3a23c793aed`,
+  },
+
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17544_20230204122643244-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/52bd353e-9f4e-4508-848d-60522d6d3212`,
+  },
+
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17550_20230204123504272-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/74caf732-9d14-4f5f-8722-65c707eb687d`,
+  },
+
+  {
+    image:
+      "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17547_20230204123501185-medium.jpg",
+    url: `${process.env.LIVE_URL}/tattoo/bb2dc20c-a35b-44f6-bed1-156624395726`,
+  },
+];
 
 
   const letteringTattoo = [
@@ -61,48 +107,7 @@ export default function StyleGuide() {
     },
   ];
 
-  const finlineTattoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2667_20220914190416690-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/5a629ad1-216f-4b46-96a7-78beb7e7011e`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8125_20221104174853899-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/7542cf47-3213-4f9f-931d-149118d9ecbd`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13440_20230102160802048-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/2875c869-fd9a-42cd-9989-dec8888c1ac2`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13458_20230102163950299-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/9871b7a0-033f-4996-b8da-c3a23c793aed`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17544_20230204122643244-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/52bd353e-9f4e-4508-848d-60522d6d3212`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17550_20230204123504272-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/74caf732-9d14-4f5f-8722-65c707eb687d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17547_20230204123501185-medium.jpg",
-      url: `${process.env.LIVE_URL}/tattoo/bb2dc20c-a35b-44f6-bed1-156624395726`,
-    },
-  ];
+ 
 
   const realisticTattoo = [
     {

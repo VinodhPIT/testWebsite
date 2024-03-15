@@ -21,10 +21,13 @@ import { getLocaleProps } from "@/utils/getlocale";
 
 
 export default function Dictionary({ }) {
+// Constants
+
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
 
+//Carousel  content
   const items = [
     {
       heading: t("common:dictionaryPage.ZodiacCarousel.title1"),
@@ -139,7 +142,7 @@ export default function Dictionary({ }) {
     },
   ];
 
-  // const data = await getData()
+
 
   return (
     <>

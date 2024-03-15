@@ -11,7 +11,79 @@ import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayou
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 
 export default function CoverUpTattoos() {
+  const list1 = [
+    {
+      title: "Das Touch-up",
+      content:
+        "Frisches Stechen, um verblasste Farben wieder aufleben zu lassen.",
+      img: "/shield-check-1.svg",
+      alt: "icons",
+    },
+    {
+      title: "Ausbessern",
+      content: "Das Grundmotiv bleibt, aber neue Details werden hinzugefügt.",
+      img: "/iPhone.svg",
+      alt: "icons",
+    },
+
+    {
+      title: "Integrieren",
+      content:
+        "Altes Motiv wird in ein neues integriert, ideal für sentimentale Erinnerungen.",
+      img: "/shield-check-1.svg",
+      alt: "icons",
+    },
+
+    {
+      title: "Blast Over",
+      content: "Neues Tattoo harmonisch über dem alten platzieren.",
+      img: "/lock-password.svg",
+      alt: "icons",
+    },
+
+    {
+      title: "Überdecken",
+      content: "Klassisches Cover Up mit einem komplett neuen Motiv.",
+      img: "/shield-check-1.svg",
+      alt: "icons",
+    },
+
+    {
+      title: "Heavy Blackwork",
+      content:
+        "Extremer Ansatz, ungeliebte Kunstwerke mit Schwarz zu überdecken.",
+      img: "/shield-check-1.svg",
+      alt: "icons",
+    },
+  ];
+
+  const list2 = [
+    {
+      title: "Farben und Hauptprozesse",
+      content:
+        "Beachte den Zeitfaktor und die Veränderung der Farben unter der Haut. Dunklere Farben eignen sich oft besser für ein langfristiges Cover Up.",
+      img: "/shield-check-1.svg",
+      alt: "icons",
+    },
+    {
+      title: "Wann ist eine Laserbehandlung sinnvoll?",
+      content:
+        "Es ist manchmal am besten, ein altes Tattoo mit einem Laser zu entfernen. Dadurch entsteht Platz für ein neues Tattoo. Dieser Prozess erfordert Geduld und Vorbereitung.",
+      img: "/iPhone.svg",
+      alt: "icons",
+    },
+
+    {
+      title: "Fazit",
+      content:
+        "Cover Up Tattoos sind eine optimale Lösung, um die Freude an deinem Tattoo wieder zu entfachen. Die Möglichkeiten sind vielfältig, aber eine gute Vorbereitung und Zeitplanung sind entscheidend. Am Ende zählt, dass das neue Tattoo deine Lebensqualität verbessert und dir gefällt.",
+      img: "/shield-check-1.svg",
+      alt: "icons",
+    },
+  ];
+
   const router = useRouter();
+
   const trendingArtist = [
     {
       image:
@@ -102,77 +174,6 @@ export default function CoverUpTattoos() {
       country: "Germany",
 
       url: `${process.env.LIVE_URL}/${router.locale}/artists/tobias-schneider_0w8pudg1`,
-    },
-  ];
-
-  const list1 = [
-    {
-      title: "Das Touch-up",
-      content:
-        "Frisches Stechen, um verblasste Farben wieder aufleben zu lassen.",
-      img: "/shield-check-1.svg",
-      alt: "icons",
-    },
-    {
-      title: "Ausbessern",
-      content: "Das Grundmotiv bleibt, aber neue Details werden hinzugefügt.",
-      img: "/iPhone.svg",
-      alt: "icons",
-    },
-
-    {
-      title: "Integrieren",
-      content:
-        "Altes Motiv wird in ein neues integriert, ideal für sentimentale Erinnerungen.",
-      img: "/shield-check-1.svg",
-      alt: "icons",
-    },
-
-    {
-      title: "Blast Over",
-      content: "Neues Tattoo harmonisch über dem alten platzieren.",
-      img: "/lock-password.svg",
-      alt: "icons",
-    },
-
-    {
-      title: "Überdecken",
-      content: "Klassisches Cover Up mit einem komplett neuen Motiv.",
-      img: "/shield-check-1.svg",
-      alt: "icons",
-    },
-
-    {
-      title: "Heavy Blackwork",
-      content:
-        "Extremer Ansatz, ungeliebte Kunstwerke mit Schwarz zu überdecken.",
-      img: "/shield-check-1.svg",
-      alt: "icons",
-    },
-  ];
-
-  const list2 = [
-    {
-      title: "Farben und Hauptprozesse",
-      content:
-        "Beachte den Zeitfaktor und die Veränderung der Farben unter der Haut. Dunklere Farben eignen sich oft besser für ein langfristiges Cover Up.",
-      img: "/shield-check-1.svg",
-      alt: "icons",
-    },
-    {
-      title: "Wann ist eine Laserbehandlung sinnvoll?",
-      content:
-        "Es ist manchmal am besten, ein altes Tattoo mit einem Laser zu entfernen. Dadurch entsteht Platz für ein neues Tattoo. Dieser Prozess erfordert Geduld und Vorbereitung.",
-      img: "/iPhone.svg",
-      alt: "icons",
-    },
-
-    {
-      title: "Fazit",
-      content:
-        "Cover Up Tattoos sind eine optimale Lösung, um die Freude an deinem Tattoo wieder zu entfachen. Die Möglichkeiten sind vielfältig, aber eine gute Vorbereitung und Zeitplanung sind entscheidend. Am Ende zählt, dass das neue Tattoo deine Lebensqualität verbessert und dir gefällt.",
-      img: "/shield-check-1.svg",
-      alt: "icons",
     },
   ];
 

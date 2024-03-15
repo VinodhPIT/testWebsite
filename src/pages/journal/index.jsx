@@ -7,32 +7,36 @@ import path from "path";
 import fs from "fs";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
 
 export default function ListingPage({ data, locale }) {
-  const [listing, setListing] = useState([]);
-  const [error, setError] = useState(false);
-  const router = useRouter();
 
-  useEffect(() => {
-    if (
-      !data[locale] ||
-      !Array.isArray(data[locale]) ||
-      data[locale].length === 0
-    ) {
-      setError(true);
-    } else {
-      setListing(data[locale]);
-      setError(false);
-    }
-  }, [data, locale, router, error]);
+
+// Constants and state variables
+const [error, setError] = useState(false);
+const [listing, setListing] = useState([]);
+const router = useRouter();
+const { t } = useTranslation();
+// Effect to set listing and handle error
+useEffect(() => {
+  if (!data[locale] || !Array.isArray(data[locale]) || data[locale].length === 0) {
+    setError(true);
+  } else {
+    setListing(data[locale]);
+    setError(false);
+  }
+}, [data, locale, router, error]);
+
+
+
 
   return (
     <>
       <Head>
-        <title>inckd. Tattoo Journal</title>
+        <title>{t("common:journalListing.title")}</title>
         <meta
           name="description"
-          content="Latest Tattoo Trends, Tips, and Techniques"
+          content={t("common:journalListing.tips&Techniques")}
         />
 
       </Head>
@@ -58,10 +62,10 @@ export default function ListingPage({ data, locale }) {
               <div className={`${""} ${styles.banner_content}`}>
                 <div className={styles.banner_caption}>
                   <h1>
-                    <span>inckd. Tattoo Journal:</span>
+                    <span>{t("common:journalListing.title")}</span>
                   </h1>
                   <p className="max_w_100pc mb_0 mt_20">
-                    Latest Tattoo Trends, Tips, and Techniques
+                  {t("common:journalListing.tips&Techniques")}
                   </p>
                 </div>
               </div>
@@ -116,7 +120,7 @@ export default function ListingPage({ data, locale }) {
                                     <div
                                       className="btn_primary btn_img btn_custom_48"
                                     >
-                                      Read more
+                                      {t("common:Read more")}
                                       <Image
                                         src="/arow-white-right.svg"
                                         width={24}
