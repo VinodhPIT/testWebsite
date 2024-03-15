@@ -213,7 +213,7 @@ const Search = ({
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
                   <p>
-                    See out of {collectionLength.length}/{state.totalItems}
+                  {t("common:See out of")} {collectionLength.length}/{state.totalItems}
                   </p>
                   <div className={style.btn_wrapper}>
                     <button

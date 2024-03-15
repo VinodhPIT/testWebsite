@@ -3,11 +3,12 @@ import style from "./tattoosearch.module.css";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 import Image from 'next/image'
+import useTranslation from "next-translate/useTranslation";
 
 function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
   const { state, searchData  ,setSearchState ,searchState } = useGlobalState();
 
-
+  const { t } = useTranslation();
 
   // const [searchState, setSearchState] = useState({
   //   query: "",
@@ -167,7 +168,7 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
       <form onSubmit={handleSubmit}>
         <div className="input_group position_relative" ref={inputRef}>
           <input
-            placeholder="Search"
+            placeholder={t("common:menus.search")}
             type="text"
             required="required"
             className={style.input_txt}

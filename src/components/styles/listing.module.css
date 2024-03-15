@@ -51,9 +51,9 @@
 
 .custom_adv_block_1 .custom_adv_content h6 {
   color: #43865A;
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 38px;
+  line-height: 28px;
   margin: 0 0 16px 0;
   max-width: 220px;
   position: relative;
@@ -102,9 +102,9 @@
 
 .custom_adv_block_2 .custom_adv_content h6 {
   color: var(--black-500);
-  font-size: 32px;
+  font-size:20px;
   font-weight: 700;
-  line-height: 38px;
+  line-height: 28px;
   margin: 11px 0 16px 0;
   max-width: 220px;
   position: relative;
@@ -172,7 +172,7 @@
 
 .custom_adv_block_3 .custom_adv_content h6 {
   color: var(--white);
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 38px;
   margin: 11px 0 16px 0;

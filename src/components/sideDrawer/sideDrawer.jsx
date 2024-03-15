@@ -57,7 +57,7 @@ export default function SideDrawer({ onCloseToggle }) {
 
   switch (router.locale) {
     case "uk-en":
-    case "de-en":
+    case "de-de":
       linkComponent = (
         <Link href={"/journal"}>{t("common:menus.journal")}</Link>
       );

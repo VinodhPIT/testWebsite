@@ -167,7 +167,7 @@ export default function Home({ data, locale }) {
     switch (locale) {
       case "uk-en":
         return <TattooJournal data={jsonData[router.locale]} />;
-      case "de-en":
+      case "de-de":
         return <TattooJournal data={jsonData[router.locale]} />;
       default:
         return null;
