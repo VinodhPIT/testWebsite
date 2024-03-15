@@ -11,9 +11,9 @@ import * as Yup from "yup";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { loginFields } from "@/utils/formData";
+import { schemaValidator, loginInitialValues } from "@/schema/login.schema";
 
 const Login = () => {
-  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
   const [error, setError] = useState(false);
   const [loader, setloader] = useState(false);
   const { data, status } = useSession(); // Get the session data
@@ -21,15 +21,6 @@ const Login = () => {
 
   const { t } = useTranslation();
   const formData = loginFields(t);
-
-  const LoginSchema = Yup.object().shape({
-    username: Yup.string().required(
-      t("common:AnalyticLogin.User name is required")
-    ),
-    password: Yup.string().required(
-      t("common:AnalyticLogin.Password is required")
-    ),
-  });
 
   useEffect(() => {
     if (data?.user && status === "authenticated") {
@@ -40,7 +31,6 @@ const Login = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     setError(false);
     setloader(true);
-    const searchQuery = localStorage.getItem("loginFrom");
     await signIn("credentials", {
       username: values.username,
       password: values.password,
@@ -84,12 +74,12 @@ const Login = () => {
                   </h1>
                 )}
                 <Formik
-                  initialValues={userInfo}
-                  validationSchema={LoginSchema}
+                  initialValues={loginInitialValues}
+                  validationSchema={schemaValidator(t)}
                   onSubmit={handleSubmit}
                 >
                   <Form className="row">
-                  <div class="col-md-12">
+                    <div class="col-md-12">
                       <h1>{t("common:AnalyticLogin.Login")}</h1>
                     </div>
                     {formData.map((field, index) => (
