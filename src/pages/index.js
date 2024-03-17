@@ -288,7 +288,7 @@ export default function Home({ data, locale }) {
         content={t("common:homePage.ArtistSliderContent")}
         button={t("common:ExploreMoreArtist")}
         trendingArtist={trendingArtist}
-        btnLink={`/${router.locale}/explore/tattoo-artists?location=LondonUK`}
+        btnLink={`/${router.locale}/explore/tattoo-artists`}
       />
 
       <KlarnaComponent />

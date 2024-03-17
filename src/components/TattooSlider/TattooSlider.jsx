@@ -12,7 +12,7 @@ export default function FourColumnCarousel({
   title_sub,
   content,
   button,
-  trendingArtist,
+  trendingArtist,btnLink
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -168,7 +168,7 @@ export default function FourColumnCarousel({
               </div>
               <div className="d_flex flex_flow_wrap justify_content_center">
                 <Link
-                  href="/explore/tattoo-artists"
+                  href={btnLink}
                   className="btn_secondary btn_cutom_new btn_img mt_30 mob_hidden"
                 >
                   {button}
@@ -186,7 +186,7 @@ export default function FourColumnCarousel({
           <div className="text_box_content_inner container max_w_100pc pt_80 pb_25 m_pt_0 m_pb_20 ml_0 desk_hidden mt_30">
             <div className="d_flex align_item_start text_left justify_space_between m_justify_content_center">
               <Link
-                href="/explore/tattoo-artists"
+                href={btnLink}
                 className="btn_secondary btn_cutom_new btn_img m_mt_20 m_mb_20"
               >
                 {button}
