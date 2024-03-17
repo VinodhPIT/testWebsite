@@ -1,0 +1,606 @@
+{
+  "menus": {
+    "home": "Inicio",
+    "tattooSearch": "Explorar Tatuajes",
+    "styleGuide": "Styleguide",
+    "dictionary": "Diccionario",
+    "forTattooArtists": "Para Artistas de Tatuajes",
+    "klarna": "Klarna",
+    "contactUs": "Contáctanos",
+    "faq": "Preguntas Frecuentes",
+    "artistSearch": "Buscar Artistas",
+    "flashSearch": "Buscar Flash",
+    "search": "Buscar",
+    "privacypolicy": "Política de Privacidad",
+    "journal": "Journal"
+  },
+
+  "homePage": {
+    "bannerTitle": "¡Reserva tu tatuaje soñado ahora!",
+    "bannerContent": "Explora Estilos de Tatuajes, Consejos de Negocios para Artistas, Actualizaciones del Journal, Opciones de Financiamiento y Reservas sin Problemas",
+    "ArtistSliderTitle": "¡Encuentra al artista adecuado para tu próximo tatuaje!",
+    "ArtistSliderContent": "Reservas sin problemas y eficientes al alcance de tus manos. Conéctate con artistas y estudios de renombre, programando tu próxima sesión sin esfuerzo a través de nuestra aplicación de reserva de tatuajes.",
+    "Pay all at once": "¿Pagar todo de una vez?",
+    "Never again": "¡Nunca más!",
+    "TattooFinancing": "Financiamiento de Tatuajes",
+    "Finance your ink": "Financia tu tatuaje sin preocupaciones. Nuestra aplicación ofrece verificación de crédito, opciones de financiamiento y planes de pago flexibles, asegurando que todos puedan costear su tatuaje soñado.",
+    "Tattoo": "Tatuaje",
+    "Dictionary": "Diccionario",
+    "TattooDictionaryContent": "Sumérgete en el lenguaje de los tatuajes. Desde estilos clásicos hasta las últimas tendencias, nuestro Diccionario de Tatuajes asegura que entiendas el arte antes de elegir tu tinta.",
+    "Tattoo Journal": "Journal de Tatuajes",
+    "journalContent": "Mantente informado con nuestro Journal de Tatuajes. Obtén actualizaciones sobre las últimas tendencias, pautas de salud y seguridad legalmente requeridas, y consejos internos de la industria del tatuaje.",
+    "TattooStyles": "Estilos de Tatuajes",
+    "StylesContent": "Explora un mundo de creatividad. Desde detalles de línea fina hasta tinta negra audaz, nuestra aplicación muestra diversos estilos de tatuajes, ayudándote a encontrar la combinación perfecta para tu visión.",
+    "TattooArtist": "Negocio de Artistas de Tatuajes",
+    "ArtistContent": "Potencia tu viaje como artista de tatuajes. Nuestra aplicación proporciona información sobre cómo dirigir un exitoso estudio de tatuajes, elaborar un plan de negocios y dominar el arte de las redes sociales.",
+    "TypeFinline": "Línea fina",
+    "Areyou": "¿Eres un",
+    "AreyouTattoo artist": "Artista de Tatuaje?",
+    "Verified tattoo artists": "Artistas de tatuajes verificados",
+    "We curate a selection": "Seleccionamos cuidadosamente una variedad de artistas de tatuajes de primer nivel, garantizando un estándar de excelencia tanto en habilidad como en profesionalismo.",
+    "User-Friendly Interface": "Interfaz fácil de usar",
+    "Navigate inckd effortlessly": "Navega inckd. sin esfuerzo. Nuestra aplicación está diseñada pensando en ti, brindando una experiencia sin problemas desde la exploración hasta la reserva.",
+    "Secure Transactions": "Transacciones seguras",
+    "Rest easy knowing": "Descansa tranquilo sabiendo que tus pagos son seguros. inckd. emplea tecnología de encriptación para transacciones seguras y sin preocupaciones.",
+    "FullWidthCarouselTitle": "Explora tatuajes",
+    "FullWidthCarouselContent": "Mantente informado con nuestro Journal de Tatuajes. Obtén actualizaciones sobre las últimas tendencias, pautas de salud y seguridad legalmente requeridas, y consejos internos de la industria del tatuaje.",
+    "Download the inckd": "Descarga la aplicación inckd. ahora - ¡Es gratis!",
+    "Check the Styleguide": "Revisa el Styleguide"
+  },
+
+  "styleGuidePage": {
+    "bannerTitle": "Estilos de Tatuajes",
+    "bannerContent": "¡Explora estilos únicos de tatuajes en nuestra aplicación! Encuentra tu tattoo perfecto. Sumérgete en infinitas opciones hoy mismo.",
+    "Letteringtattoos": "Tatuajes de lettering",
+    "LetteringTattooContent": "Eleva tu autoexpresión con cautivadores tatuajes de lettering. Encuentra artistas talentosos en nuestra Aplicación de Reservaciones de Tatuajes para obtener tinta personalizada e impactante que cuente tu historia única. ¡Explora ahora!",
+    "Finelinetattoos": "Tatuajes de fineline",
+    "FinelineTattooContent": "Experimenta la elegancia de los tatuajes de fineline, donde los detalles intrincados y los diseños delicados convergen. Nuestra Aplicación de Reservaciones de Tatuajes te conecta con artistas talentosos para una autoexpresión atemporal y sutilmente detallada. ¡Explora hoy!",
+    "Realistictattoos": "Tatuajes realistic",
+    "RealisticTattooContent": "Experimenta la elegancia de los tatuajes realistic, donde los detalles intrincados y los diseños delicados convergen. Nuestra Aplicación de Reservaciones de Tatuajes te conecta con artistas talentosos para una autoexpresión atemporal y sutilmente detallada. ¡Explora hoy!",
+    "Traditionaltattoos": "Tatuajes Tradicionales",
+    "TraditionalTattooContent": "Experimenta la elegancia de los tatuajes de fineline, donde los detalles intrincados y los diseños delicados convergen. Nuestra Aplicación de Reservaciones de Tatuajes te conecta con artistas talentosos para una autoexpresión atemporal y sutilmente detallada. ¡Explora hoy!",
+    "Explore fineline": "Explora tatuajes de fineline",
+    "Explore traditional tattoos": "Explora tatuajes de traditional",
+    "Explore lettering tattoos": "Explora tatuajes de letras",
+    "Explore realistic tattoos": "Explora tatuajes de realistic",
+
+    "Type lettering": "Lettering",
+    "Type fineline": "Fineline",
+    "Type realistic": "Realistic",
+    "Type traditional": "Traditional",
+    "Explore lettering artists": "Explora artistas de lettering",
+    "Explore fineline artists": "Explora artistas de fineline",
+    "Explore realistic artists": "Explora artistas de realistic",
+    "Explore traditional artists": "Explora artistas de traditional",
+    "download": "¡Descarga la aplicación",
+    "exploreApp": "y explora 30+ estilos!"
+  },
+
+  "klarnaPage": {
+    "bannerTitle1": "Big Ink.",
+    "bannerTitle1-Sub": "Tiny Payments.",
+    "MainTitle1": "¡Así es como funciona!",
+    "Download App": "Descargar la aplicación",
+    "Seamlessly download": "Descarga nuestra aplicación fácil de usar sin problemas, es gratuito",
+    "Accept an offer": "Aceptar una oferta",
+    "Effortlessly accept": "Aceptar sin esfuerzo tu oferta de tatuaje preferida",
+    "Select Klarna": "Selecciona Klarna",
+    "Select Klarna for a smooth and safe payment": "Selecciona Klarna para una experiencia de pago segura y sin problemas",
+    "Get your tattoo done": "Hazte tu tatuaje",
+    "Enjoy superior tattoo skills": "Disfruta de habilidades superiores de tatuaje con tu artista preferido",
+    "Pay later": "Paga después o en cuotas",
+    "Enjoy convenient": "Disfruta de términos de pago convenientes y flexibles para tu tatuaje",
+
+    "MainTitle2": "¡Tú eliges cómo quieres pagar!",
+    "heading1": "Pagar después",
+    "heading2": "Pagar en 3",
+    "heading3": "Pagar en 4",
+    "heading4": "Financiamiento",
+
+    "Text1": "Tatúate ahora y paga hasta 30 días después. Sin intereses. Sin comisiones, si pagas a tiempo.",
+    "Text2": "Distribuye el costo de tu compra en 3 cuotas sin intereses. El primer pago se realiza en el día de la cita para el tatuaje, con las cuotas restantes programadas automáticamente cada 30 días.",
+    "Text3": "Distribuye el costo de tu compra en 4 cuotas sin intereses. El primer pago se realiza en el día de la cita para el tatuaje, con las cuotas restantes programadas automáticamente cada 2 semanas.",
+    "Text4": "Estas opciones de financiamiento son planes de crédito con términos de pago de hasta 36 meses. El primer pago se realiza en el día de la cita para el tatuaje, con las cuotas restantes programadas automáticamente cada 30 días.",
+    "carosuelTitle": "Revisa a ",
+    "carosuelTitle-Sub": "tatuadores para financiar tu tatuaje"
+  },
+
+  "dictionaryPage": {
+    "expoloreMore": "Explora más",
+    "expoloreMore-Sub": "en la aplicación",
+    "bannerTitle": "Tatuaje",
+    "bannerTitle-Sub": "Diccionario",
+    "bannerContent": "Sumérgete en el lenguaje de los tatuajes. Desde estilos clásicos hasta las últimas tendencias, nuestro diccionario de tatuajes asegura que entiendas el arte antes de elegir tu tinta.",
+
+    "Find your Tattoo": "Encuentra tu tatuaje",
+    "based on Emotions": "basado en Emociones",
+    "enlighenment": "Iluminación",
+    "love": "Amor",
+    "transformation": "Transformación",
+    "explore-more-emotions": "Explora más de 500 emociones...",
+    "animals": "Animales",
+    "flowers": "Flores",
+    "norseMythology": "Mitología nórdica",
+    "remembrance": "Recuerdo",
+    "trust": "Confianza",
+    "reliability": "Fiabilidad",
+    "sensuality": "Sensualidad",
+    "nurturing": "Crianza",
+    "protection": "Protección",
+    "intensity": "Intensidad",
+    "passion": "Pasión",
+    "independence": "Independencia",
+    "open-mindedness": "Mente abierta",
+    "pleasure": "Placer",
+    "festivity": "Festividad",
+    "power": "Poder",
+    "inspiration": "Inspiración",
+    "family": "Familia",
+    "connection": "Conexión",
+    "fate": "Destino",
+    "valor": "Valor",
+    "transmutation": "Transmutación",
+    "change": "Cambio",
+    "fun": "Diversión",
+    "creativity": "Creatividad",
+
+  "title2": "Zodiaco",
+  "title2-Sub": "Signos",
+  "content2": "Obtén más información sobre los signos del zodiaco y encuentra el tatuaje con el significado adecuado para ti en la aplicación",
+    "ZodiacCarousel": {
+      "title1": "Tauro",
+      "content1": "Tauro es el segundo signo del zodiaco y es el símbolo del toro. El símbolo consiste en un...",
+      "title2": "Cáncer",
+      "content2": "Cáncer es el cuarto signo del zodiaco y es el símbolo del cangrejo. El símbolo consiste en dos círculos...",
+
+      "title3": "Escorpio",
+      "content3": "Escorpio es el octavo signo del zodiaco. Es el símbolo del escorpión. El símbolo consiste en...",
+
+      "title4": "Acuario",
+      "content4": "Acuario es el undécimo signo del zodiaco. Es el símbolo del portador de agua. El símbolo consiste en..."
+    },
+
+    "MythologyCarousel": {
+      "title1": "Dionisio",
+      "content1": "Dionisio era el dios del vino, la vegetación, el placer, la festividad, la locura y el frenesí salvaje. Generalmente...",
+
+      "title2": "Poseidón",
+      "content2": "Poseidón era el dios del mar, los terremotos, las inundaciones, la sequía y los caballos. A menudo se lo representa como un...",
+
+      "title3": "Tetis",
+      "content3": "Tetis era uno de los descendientes de los Titanes Urano y Gea. Ella es la diosa del agua dulce y la crianza...",
+
+      "title4": "Zeus",
+      "content4": "Zeus era el Rey de los Dioses y el dios del cielo, el clima, la ley y el orden, el destino y el destino, y..."
+    },
+
+    "AztecCarousel": {
+      "title1": "Itzcuintli",
+      "content1": "Itzcuintli, que significa 'perro', es el día en el calendario azteca asociado con el dios Mictlantecuhtli...",
+
+      "title2": "Ocelotl",
+      "content2": "Ocelotl, que significa 'jaguar', es el día en el calendario azteca asociado con el dios Tezcatlipoca...",
+
+      "title3": "Ollin",
+      "content3": "Ollin, que significa 'movimiento', es el día del calendario azteca asociado con Xolotl. Él es el dios del cambio...",
+
+      "title4": "Ozomahtli",
+      "content4": "Ozomahtli, que significa 'mono', es el día en el calendario azteca asociado con el dios Xochipili..."
+    },
+
+    "title3": "Azteca",
+    "title3-Sub": "Símbolos",
+  
+    "content3": "Aprende más sobre los símbolos aztecas y encuentra el tatuaje con el significado adecuado para ti en la aplicación.",
+
+    "title4": "Mitología",
+    "title4-Sub": "Griega",
+
+    "content4": "Aprende más sobre la mitología griega y encuentra el tatuaje con el significado adecuado para ti en la aplicación."
+  },
+
+  "forArtistPage": {
+    "button": "Empezar",
+    "bannerTitle": "Impulsa tu",
+    "bannerSubtitle": "negocio",
+    "bannerSubtitle3": "con inckd.",
+    "bannerContent": "Haz crecer tu negocio de tatuajes al cumplir la visión de tatuaje de tus clientes y ofrecerles opciones de pago flexibles.",
+
+    "title1": "Gestiona tu negocio",
+    "Download our app from": "Descarga nuestra aplicación desde",
+    "easySetup": "Configuración fácil",
+    "free-to-use": "Gratis para usar",
+    "easy-payments": "Pagos fáciles",
+    "nosubscpriptions": "Gratis para usar y sin suscripciones",
+    "set-up-and-manage": "Fácil de configurar y gestionar",
+    "verified-users": "Usuarios verificados",
+
+    "title2": "Tu aliado para negocios de tatuajes",
+
+    "content2": "inckd. es tu aliado en la creación de un próspero negocio de tatuajes centrado en el cliente. Muestra tu portafolio con orgullo para atraer clientes que aprecien tu estilo único. Expande tu base de clientes sin esfuerzo a través de una comunicación fluida y una gestión de pagos sin complicaciones, todo dentro de una plataforma fácil de usar.",
+
+    "title3": "Mantén a los clientes informados",
+    "content3": "Participa en chats en tiempo real para comprender las preferencias de tus clientes de primera mano. Maneja eficientemente las citas y mantente preparado para satisfacer las necesidades de tus clientes. Discute ofertas y proporciona actualizaciones de progreso con inckd, asegurando que su visión de tatuaje se convierta en realidad en cada etapa.",
+    "title4": "¡Consigue clientes de inckd. tatuándote ahora! ¿Estás listo?",
+
+    "title5": "Tu compañero de reservas",
+    "content5": "inckd. te pone al mando de tu horario de negocio de tatuajes, proporcionando una visión general completa de todas las reservas a través de un panel en tiempo real al alcance de tus dedos. Define tu disponibilidad y facilita que los clientes programen citas según sus preferencias.",
+
+    "title6": "Gestiona los pagos",
+    "content6": "Asegura pagos rápidos, monitoréalos en tiempo real e incentiva negocios recurrentes con atractivos descuentos. Apoyamos métodos de pago populares, incluyendo tarjetas de crédito, y nos hemos asociado con Klarna para planes de pago convenientes en proyectos más grandes, asegurando flexibilidad financiera para tus clientes.",
+    "title7": "Gestiona tus estudios de tatuajes",
+    "content7": "Expande tu alcance fácilmente añadiendo y gestionando múltiples estudios en nuestra plataforma versátil. Maneja sin problemas los pagos divididos directamente dentro de la aplicación, o otorga a los estudios la autonomía para manejar clientes y reservas. Experimenta una comodidad incomparable en la gestión de estudios, todo consolidado dentro de una aplicación fácil de usar."
+  },
+
+  "joinartistPage": {
+    "title1": "Conviértete en un",
+    "title1-Sub": "Artista de inckd.",
+    "head1": "Envía el formulario de contacto",
+    "text": "Cuéntanos más sobre ti.",
+    "head2": "Obtén verificación",
+    "Enter details": "Ingresa los detalles",
+    "FirstName": "Nombre",
+    "Your e-mail": " Tu correo electrónico",
+    "Country": "País",
+    "City": "Ciudad",
+    "Your instagram": " Tu Instagram",
+    "Name is required": "El nombre es obligatorio",
+    "Email is required": "El correo electrónico es obligatorio",
+    "Country field is required": "El campo de país es obligatorio",
+    "location must be at least 2 characters": "La ubicación debe tener al menos 2 caracteres",
+    "instagram must be at least 2 characters": "Instagram debe tener al menos 2 caracteres",
+    "Too Short": "Demasiado corto"
+  },
+
+  "contactUsPage": {
+    "title": "Contáctanos",
+    "content": "No dudes en ponerte en contacto con nosotros si tienes alguna pregunta, comentario o consulta. Estamos aquí para ayudarte y proporcionarte la información que necesitas. Tu opinión es importante para nosotros y esperamos saber de ti.",
+    "Get in touch": "Ponte en contacto",
+    "who-you-are": "¿Quién eres?",
+    "Tattoo lover": "Amante de los tatuajes",
+    "Studio": "Estudio",
+    "Artist": "Artista",
+    "Other": "Otro",
+    "Enter-Email": "Ingresa tu dirección de correo electrónico",
+    "How we can help you": "¿Cómo podemos ayudarte?",
+    "Please select one option": "Por favor, selecciona una opción",
+    "Email is required": "El correo electrónico es obligatorio",
+    "Message is required": "El mensaje es obligatorio",
+    "Invalid email": "Correo electrónico no válido"
+  },
+
+  "faqScreen": {
+    "head1": "Encuentra respuestas a tus preguntas",
+    "title1": "¿Por qué debería obtener la aplicación inckd.?",
+    "content1": "Puedes descubrir nuevos artistas y estilos que se ajusten exactamente a lo que estás buscando. Encontrar el concepto, estilo y artista adecuado cerca de ti es posible gracias a nuestras funciones de búsqueda. Te proporcionamos una forma clara y sencilla de ponerte en contacto, enviar tu solicitud y pagar de forma segura por tu tatuaje, todo en un mismo lugar.",
+    "title2": "¿Es gratuita la aplicación inckd.?",
+    "content2": "¡Sí! No creemos en las suscripciones ni en las funciones premium. Tanto para los amantes de los tatuajes como para los artistas, el uso de la aplicación es gratuito. Cuando pagas por un tatuaje, tomamos una comisión para cubrir los gastos de transacción.",
+    "title3": "¿En qué países está activa inckd.?",
+    "content3": "¡inckd. está disponible en la mayoría de los países europeos y estamos expandiéndonos rápidamente!",
+    "title4": "¿Por qué creasteis inckd.?",
+    "content4": "Queremos construir una plataforma donde los amantes de los tatuajes puedan encontrar al artista que realmente se ajuste a sus necesidades e ideas. Con más filtros y una mejor experiencia de navegación, puedes descubrir increíbles artistas y ponerte en contacto con ellos fácilmente. Para los artistas, les estamos apoyando en encontrar nuevos clientes y con una herramienta de gestión que elimina el estrés de las reservas, ¡así pueden concentrarse en su arte!",
+    "title5": "Cuéntame más sobre la aplicación",
+    "content5": "inckd. conecta artistas y amantes de los tatuajes en una aplicación de tatuajes única donde las personas pueden inspirarse y obtener un nuevo tatuaje con solo unos pocos clics. Centrándonos directamente en los tatuajes, inckd. quiere ayudar a los amantes de los tatuajes a encontrar al artista adecuado para su estilo y visión.",
+    "title6": "¿Qué métodos de pago se aceptan en la aplicación?",
+    "content6": "Puedes pagar con los métodos de pago más comunes: aceptamos tarjetas de crédito y nos hemos asociado con Klarna para ofrecerte pagos seguros y la posibilidad de pagar a plazos tus grandes piezas.",
+
+    "title7": "¿Cuáles son las condiciones para formar parte de inckd. como artista? ¿Y qué beneficios obtengo?",
+    "content7": "inckd. verifica a cada artista que desea estar activo en la plataforma, ya que los amantes de los tatuajes quieren encontrar grandes y profesionales artistas en Europa. ¡Con inckd., tu trabajo llega a nuevos clientes de toda Europa! Te proporcionamos un proceso de reserva simplificado que reduce el estrés de la administración para ti y te permite centrarte en tu arte.",
+
+    "title8": "¿Puedo estar en inckd. pero recibir el pago fuera de la aplicación?",
+    "content8": "Una vez que se ha confirmado una reserva, recogemos el depósito de pago y lo transferimos a tu cuenta bancaria junto con el pago final del cliente. Recomendamos no evitar completar el pago en la aplicación.",
+
+    "title9": "¿Cuándo recibo el pago del depósito?",
+    "content9": "Una vez completada la sesión de tatuajes, recibirás el pago completo del monto total del tatuaje en tu cuenta bancaria.",
+
+    "title10": "Hay muchas aplicaciones como esta, ¿qué hace que esta sea diferente?",
+    "content10": "Instagram, Messenger, WhatsApp, correo electrónico... No tienes que preocuparte por múltiples aplicaciones. Todos los clientes pueden contactarte a través de inckd. Solo un lugar y tranquilidad.",
+
+    "title11": "¿Cómo puedo comunicarme con el soporte de inckd.?",
+    "content11": "Puedes escribirnos a través del formulario de contacto en la página web y en Instagram: inckd_support",
+
+    "title12": "¿Mantendré la propiedad de mis imágenes y diseños?",
+    "content12": "Por supuesto, tu arte siempre será tuyo. Lo que publiques en inckd. podría aparecer en material promocional para la aplicación, donde se te mostrará como el artista.",
+
+    "title13": "¿Tengo que crear un perfil para usar inckd.?",
+    "content13": "Puedes explorar diseños y artistas libremente, pero para guardar tus favoritos o reservar una sesión, necesitarás crear un perfil. Esto permite que el artista verifique quién eres y que el equipo de inckd. pueda ofrecerte apoyo si lo necesitas.",
+
+    "title14": "¿Los artistas son profesionales y trabajan en un estudio seguro?",
+    "content14": "Sí, cada artista de tatuajes y estudio es verificado por inckd.",
+
+    "title15": "¿Cómo puedo ponerme en contacto con un artista?",
+    "content15": "Ve a la página del artista y en la parte superior derecha verás el botón \"Comenzar chat\". Algunos artistas pueden requerir que envíes un formulario de solicitud antes de enviar mensajes.",
+
+    "title16": "¿Cómo puedo contactar al equipo de inckd. para obtener ayuda?",
+    "content16": "Puedes escribirnos a través del formulario de contacto en la página web y en Instagram: inckd.support"
+  },
+
+  "tabs": {
+    "all": "Todo",
+    "tattoo": "Tattoo",
+    "flash": "Flash",
+    "artist": "Artists",
+    "info": "Información",
+    "tattooLovers": "Tattoolovers",
+    "general": "General"
+  },
+
+  "GeneralAppDownload": {
+    "Explore the Features": "Explora las características en la aplicación móvil"
+  },
+
+  "OfferDownload": {
+    "Enterthiscode": "Ingresa este código al registrarte y recibe ",
+    "YourVoucher": "tu cupón por correo al terminar"
+  },
+
+  "Download the inckd": "Descarga la app inckd. ahora - ¡Es gratis!",
+  "MyStyleis": "Mi estilo es",
+  "ExploreMoreArtist": "Explora más artistas",
+  "ExploreMoreTattoos": "Explora más tatuajes",
+
+  "downloadOurApp": "Descarga nuestra app desde",
+  "downloadContent": "Seleccionamos a cada tatuador cuidadosamente para asegurar que tu experiencia sea de calidad y inclusiva",
+  "downloadApp": "Descarga la ",
+  "downloadApp-Sub1": "app y explora más!",
+  "explore": "Explora más",
+  "explore-the": "Explora el",
+  "featuresApp": "Funciones en la App",
+  "download-app-forMore": "Descarga la App",
+  "download-app-forMore-sub": "para más!",
+
+  "download": "Descarga la App",
+  "appContent": "Elegimos cuidadosamente a cada tatuador para garantizar que tu experiencia sea segura, de calidad e inclusiva",
+  "submit": "Enviar",
+  "submitting": "Enviando",
+  "learnmore": "Aprende más",
+  "visitTattoo": "Visita Diccionario de Tatuajes",
+  "checkStyle": "Consulta la Guía de Estilos",
+  "download-our-app": "Descarga nuestra app desde",
+  "tattooNow": "Obtén un tatuaje ahora, paga después.",
+  "payLater": "Así es, hay una nueva forma de tatuarte suavemente!",
+  "findArtist's": "Encuentra artistas",
+  "pageNotfound": "Uups... Página no encontrada",
+  "cantfind": "Lo siento, no podemos encontrar la página que buscas",
+  "backHome": "Volver Inicio",
+  "you-might-like": "También te podría gustar",
+  "image-tattoo-style": "Estilo de tatuaje en imagen",
+  "locations": "Ubicaciones",
+  "getIntouch": "Ponte en Contacto",
+  "viewProfile": "Ver Perfil",
+  "fixed-price": "Precio Fijo",
+  "flexible-price": "Precio Flexible",
+  "flash-doesn't-price": "Este Flash no tiene precio",
+  "language": "Idiomas",
+  "styles": "Estilos",
+  "nodata": "No se encontraron datos",
+  "exploreAll": "Explorar",
+  "notFoundMessage": "Intenta ajustar tu búsqueda/filtro para encontrar lo que buscas",
+  "followus": "Síguenos en",
+  "book": "Reservar",
+  "product": "Producto",
+  "business": "Negocio",
+  "download-app-on": "Descarga la app inckd. ahora - ¡Es gratis!",
+  "findArtist": "¡Encuentra tu Artista ahora!",
+  "tattooPayLater": "Tatuaje ahora. Paga después.",
+  "offers": "¡Obtén ofertas emocionantes!",
+  "nextTattoo": "de descuento en tu próximo tatuaje",
+  "chf": "CHF 30",
+  "viewArtist": "Ver Artistas",
+  "refer": "Recomienda y Gana",
+  "checkProfile": "Revisar Perfil",
+  "chooseStyle": "Estilos",
+  "enterLocation": "Ingresa Ubicación",
+  "loadMore": "CARGAR MÁS",
+
+  "Downloadinckd": "Descarga la app inckd para obtener un cupón de",
+  "Usecode": "Usa el código",
+  "Voucherends": "El cupón termina el",
+  "Joinus": "Únete a nosotros con",
+  "Form submitted": "Formulario enviado",
+  "Thank you": "¡Gracias!",
+
+  "Read more": "Leer más",
+  "Download  inckd": "Descarga inckd.",
+  "Now - It's free": "app ahora - Es gratuito",
+  "Choose your region and language": "Elige tu región e idioma",
+  "LanguagePopup-subText": "Personaliza tu experiencia eligiendo región e idioma",
+  "currency": "EUR",
+  "Stripe payment": "Pago con Stripe",
+  "Payment methods": "Métodos de pago",
+  "Completed": "Completado",
+  "Canceled": "Cancelado",
+  "Hello": "Hola",
+  "Analytics": "Análisis",
+  "Log out": "Cerrar sesión",
+  "Month": "Mes",
+  "Percentage": "Porcentaje",
+
+  
+  "journalTitle":"inckd. Diario de tatuajes:",
+  "subText":"Últimas tendencias, consejos y técnicas de tatuaje",
+  "See out of":"Ver fuera de",
+  "Style":"Estilo",
+  "Search by Location":"Buscar por ubicación",
+  "Clear All":"Borrar todo",
+  "Show Results":"Mostrar resultados",
+  "Loading":"Carga...",
+  "Search Location":"Ubicación de búsqueda",
+
+
+
+
+  "homeScreenSEO": {
+    "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
+    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
+    "keyword": "Tattoo, Tattoo artist,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Tattoo"
+  },
+
+  "styleGuideScreenSEO": {
+    "title": "Explore a variety of unique tattoo styles and trends",
+    "description": "Dive into a world of tattoo artistry with our diverse collection of unique tattoo styles and tattoo trends. Find your tattoo inspiration",
+    "keyword": "Tattoo, Tattoo, Tattoo booking, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Flash, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Finleine Tattoo, Blackwork Tattoo, Traditional Tattoo, Tattoo Search, Tattoo Finder"
+  },
+
+  "dictionarycreenSEO": {
+    "title": "5000+ Tattoo Motives, Your Ultimate Tattoo Dictionary",
+    "description": "Explore our extensive tattoo dictionary with 5000+ unique motives, each with meanings and emotions. Find your perfect tattoo inspiration here",
+    "keyword": "Tattoo, Tattoo Emotions, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Dictonary, Tattoo Meanings Tattoo Finder, Tattoo"
+  },
+
+  "klarnascreenSEO": {
+    "title": "Flexible tattoo payments with customized installment plans",
+    "description": "Get your dream tattoo with ease! Pay for tattoos in convenient installments, tailored to your budget with our individual payment plans",
+    "keyword": "Tattoo, Tattoos, Tattoo Payment, Tattoo Installments, Tattoo paymentplan, Tattoo budget, Tattooartist, Tattoo Klarna, Klarna"
+  },
+  "fortattooArtistScreenSEO": {
+    "title": "Empower Tattoo artists with our comprehensive business management tool",
+    "description": "Elevate your tattoo business with our all-in-one business management tool, designed to empower tattoo artists and enhance efficiency",
+    "keyword": "Tattoo artist software, Tattoo studio management tool, Tattoo business management, Tattoo shop software, Artist scheduling tool, Ink business management, Tattoo artist productivity, Tattoo parlor software, Tattoo shop organization, Ink studio software"
+  },
+
+  "contactUsScreenSEO": {
+    "title": "Get in touch with us",
+    "description": "Contact us for tattoo inquiries or any questions. We're here to help you with all your tattoo-related queries and concerns",
+    "keyword": "Tattoo inquiry form, Ink-related queries, Get in touch with tattooist"
+  },
+
+  "joinArtistScreenSEO": {
+    "title": "Discover opportunities: Join our tattoo artist platform",
+    "description": "Find exciting opportunities in the tattoo industry. Join our platform for tattoo artists and kick-start your creative journey today",
+    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answer"
+  },
+  "faqScreenSEO": {
+    "title": "Tattoo FAQ: Your questions qnswered",
+    "description": "Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey",
+    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
+  },
+  "exploreAllScreenSEO": {
+    "title": "Explore tattoos, flash designs, and artist portfolios. Get inspired by a variety of styles for your next ink masterpiece"
+  },
+  "exploreTattoosScreenSEO": {
+    "title": "Discover many tattoo pictures. Find inspiration for your next tattoo in a variety of styles."
+  },
+
+  "exploreFlashScreenSEO": {
+    "title": "Find flash tattoo ideas. Explore a range of quick, stylish designs for your next tattoo."
+  },
+
+  "exploreArtistScreenSEO": {
+    "title": "Meet talented tattoo artists. Browse their unique styles and work for your next tattoo inspiration."
+  },
+
+  "tattooDetailScreen": {
+    "title": "Explore Tattoo images, designs, and find tattoo artists with ease.",
+    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
+    "keyword": "Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
+  },
+  "flashDetailScreen": {
+    "title": "Browse unique tattoo designs by talented tattoo artists.",
+    "description": "Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection",
+    "keyword": "Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
+  },
+
+  "artistDetailScreen": {
+    "title": "Locate tattoo artists by city and country",
+    "description": "Discover tattoo artists in your city and across countries. Search, connect, and tattoo with the best artists near you",
+    "keyword": "Tattooartist, Tattooartist Location, Tattooist search by city, City tattoo artist search, Local tattoo artists, Find tattoo artist near me, Tattooers"
+  },
+
+  "klarnaMarketingScreen": {
+    "title": "Klarna-Download"
+  },
+
+  "VoucherScreen": {
+    "title": "Voucher"
+  },
+
+  "GeneralAppdownloadScreen": {
+    "title": "General App Download"
+  },
+
+  "AnalyticLogin":{
+  "User name is required":"User name is required",
+  "Password is required":"Password is required",
+  "Login":"Login",
+  "NotUser":" Not an analytic user",
+  "EnterUser":"Enter Your username",
+  "EnterPassword":"Enter Your Password"
+
+  },
+
+  "AnalyticsCustomer": {
+    "MetaTitle": "Customer-Analytics",
+    "TotalCustomers": "Total customers",
+    "NotContactedArtists": "Customers not contacted any artists",
+    "NotCompletedOffers": "Customers not completed any offers",
+    "ContactedArtistNoOffer": "Customers contacted the artist and no offer",
+    "DeletedCustomer": "Deleted customers",
+    "UsedVouchers": "Customers used any vouchers",
+    "JoinedUsingReferral": "Customers joined using referral",
+    "JoinedFromWebsite": "Customers joined from the website",
+    "JoinedFromApp": "Customers joined from the app",
+    "TotalCustomersByGender": "Total customers by gender",
+    "Normal vs referred customers": "Normal vs referred customers",
+    "Customer Conversion": "Customer Conversion"
+  },
+
+  "AnalyticsArtist": {
+    "MetaTitle": "Artist-Analytics",
+    "Total active artist": "Total active artist",
+    "Total public artists": "Total public artists",
+    "Artists in communication with the customer": "Artists in communication with the customer",
+    "Artists who completed at least one offer": "Artists who completed at least one offer",
+    "Artists who didn’t complete any offers": "Artists who didn’t complete any offers",
+    "Artists joined using referral": "Artists joined using referral",
+    "Artists joined from website": "Artists joined from website",
+    "Artists joined from App": "Artists joined from App",
+    "Artists not contacted any customers": "Artists not contacted any customers",
+    "Artists not created any offers": "Artists not created any offers",
+    "Artists not completed public profile criteria": "Artists not completed public profile criteria",
+    "Total Artists": "Total Artists",
+    "Total Artists by gender": "Total Artists by gender",
+    "Normal vs Referred artists": "Normal vs Referred artists",
+    "Artists by Country": "Artists by Country",
+    "Artist Conversion": "Artist Conversion",
+    "Normal artists": "Normal artists",
+    "Referred artists": "Referred artists",
+    "Country": "Country",
+    "Number of artists": "No. of artists",
+    "This year": "This year",
+    "All": "All"
+  },
+  "AnalyticsOffer": {
+    "MetaTitle": "Offer-Analytics",
+    "Scheduled": "Total scheduled offers",
+    "Completed": "Total offers completed",
+    "Rejected": "Total Rejected offers",
+    "Expired": " Total Expired offers",
+    "Canceled": "Canceled",
+    "Total scheduled offers": "Total scheduled offers",
+    "Total Discount": "Total Discount",
+    "Total amount earned from completed/canceled offers": "Total amount earned from completed/canceled offers",
+    "Total completed offers": "Total completed offers"
+  },
+  "AnalyticsDashboard": {
+    "MetaTitle": "Dashboard-Analytics",
+    "Total revenue earned": "Total revenue earned",
+    "IOS Downloads": "IOS Downloads",
+    "Android Downloads": "Android Downloads"
+  },
+
+  "TableConversion": {
+    "Registered": "Registered",
+    "Contacted": "Contacted",
+    "Public artist": "Public artist",
+    "Offer created count": "Offer created count",
+    "Offer accepted": "offer accepted",
+    "Offers completed": "offers completed",
+    "Offers received": "offers received",
+    "Percentage": "Percentage",
+    "Offer pending": "Offer pending",
+    "Lead": "Offer pending",
+    "Offers sent": "Offers sent",
+    "Offers scheduled": "Offers scheduled"
+  }
+}

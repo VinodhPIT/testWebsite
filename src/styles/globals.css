@@ -1691,12 +1691,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .btn_secondary {
   display: inline-flex;
   height: 40px;
-  padding: 10px 20px;
+  padding: 10px 13px;
   margin: 0;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   font-weight: 600;
   text-align: center;
@@ -1756,12 +1756,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .btn_outline_secondary {
   display: inline-flex;
   height: 40px;
-  padding: 10px 20px;
+  padding: 10px 13px;
   margin: 0;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   font-weight: 600;
   text-align: center;

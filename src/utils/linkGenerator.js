@@ -4,7 +4,7 @@ import Link from 'next/link';
 const generateLinkComponent = (router, theme, t) => {
   switch (router.locale) {
     case "uk-en":
-    case "de-en":
+    case "de-de":
       return (
         <Link
           href={`/${router.locale}/journal`}

@@ -28,15 +28,19 @@ const customStyles = {
   },
 };
 const CountrySelectorModel = ({ isOpen, closeModal }) => {
+
+  const router = useRouter()
+  const [country, setCountry] = useState([])
   const { t } = useTranslation();
-  const router = useRouter();
-  const [country, setCountry] = useState([]);
+
 
   useEffect(() => {
     setCountry(countriesData);
   }, []);
 
   const chooseLanguage = async (id, domain, li) => {
+
+
     await setLanguage(`${domain}-${li}`);
     closeModal();
     const newUrl = `/${domain}-${li}${router.asPath}`;
@@ -61,12 +65,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
           <div className={styles.language_popup}>
             <h3>{t("common:Choose your region and language")}</h3>
-            <p>{t("common:LanguagePopup-subText")} </p>
-            <div
-              className={`${"language_popup_block"} ${
-                styles.language_popup_block
-              }`}
-            >
+            <p>{t("common:LanguagePopup-subText")}</p>
+            <div className={`${'language_popup_block'} ${styles.language_popup_block}`}>
               <ul>
                 {country.map((e) => {
                   return (
