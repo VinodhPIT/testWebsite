@@ -50,7 +50,7 @@ export default function DrachenTattoos() {
 
       city: "Barcelona",
       country: "Spain",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore//tattoos/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`, altTag:"Dragon Tattoos"
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`, altTag:"Dragon Tattoos"
     },
 
     {
