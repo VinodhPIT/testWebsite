@@ -427,8 +427,8 @@
   "Loading":"Loading...",
   "Search Location":"Search Location",
 
-
   
+   
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
@@ -519,6 +519,12 @@
     "title": "General App Download"
   },
 
+  "terms-conditions":{"title":"Terms-and-Conditions"},
+  "privacy-policy":{"title":"Privacy-Policy"},
+  "Impressum" :{"title":"Impressum"},
+  "User Data Policy" :{"title":"User Data Policy"},
+
+  
   "AnalyticLogin":{
   "User name is required":"User name is required",
   "Password is required":"Password is required",

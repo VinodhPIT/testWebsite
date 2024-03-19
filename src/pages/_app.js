@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
+import "@/styles/cms.css";
 import loadGoogleMapsAPI from "@/components/google-maps";
 import NProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
@@ -118,7 +119,10 @@ function MyApp({ Component, pageProps }) {
         );
 
       case "/faq":
-      case "/privacy-policy":
+      case "/privacy_policy":
+      case "/terms&conditions":
+      case "/impressum":
+        case"/user_data_policy":
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
