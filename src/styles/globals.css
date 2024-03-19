@@ -885,9 +885,17 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_auto {
   width: auto !important;
 }
+.w_850 {
+  width: 850px !important;
+}
 .w_900 {
   width: 900px !important;
 }
+.w_990 {
+  width: 990px !important;
+}
+
+
 .w_1090 {
   width: 1090px !important;
 }

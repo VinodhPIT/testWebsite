@@ -14,7 +14,9 @@ export default function CarouselSection({
   datas,
   buttonName,
   isButtonVisible,
-  keyword,sectionBg,altTag
+  keyword,
+  sectionBg,
+  altTag,
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -25,7 +27,7 @@ export default function CarouselSection({
     speed: 300,
     slidesToShow: isMobileView ? 1 : 4.65,
     slidesToScroll: isMobileView ? 1 : 4,
-
+    draggable: true,
     responsive: [
       {
         breakpoint: 1099,
@@ -37,7 +39,6 @@ export default function CarouselSection({
         },
       },
 
-      
       {
         breakpoint: 1054,
         settings: {
@@ -48,7 +49,6 @@ export default function CarouselSection({
         },
       },
 
-
       {
         breakpoint: 1024,
         settings: {
@@ -58,9 +58,6 @@ export default function CarouselSection({
           dots: true,
         },
       },
-
-
-
 
       {
         breakpoint: 900,
@@ -115,42 +112,27 @@ export default function CarouselSection({
                   width={24}
                   height={24}
                   alt="arrow"
-                 
-                
                   className="ml-8 mt-2"
                 />
               </Link>
             )}
             {isButtonVisible === false ? null : (
-              <Link
-                href={keyword}
-                className="desk_hidden ml_10"
-              >
-                 <Image
-                    src="/arrowBlack.svg"
+              <Link href={keyword} className="desk_hidden ml_10">
+                <Image
+                  src="/arrowBlack.svg"
                   width={32}
                   height={32}
                   alt="arrowBlack"
-                  
                 />
               </Link>
             )}
           </div>
 
- {content!== '' ?
           <div className="d_flex align_item_left flex_direction_column mb_80 m_mb_0 m_pb_30 m_max_100 container">
-            <p
-              class="custom_fs_20 custom_fs_m_18 color_gray_550 lh_33 mb_0 m_pb_15"
-              style={{
-                "max-width": "850px",
-                "text-align": "left",
-              }}
-            >
+            <p class="custom_fs_20 custom_fs_m_18 color_gray_550 lh_33 mb_0 m_pb_15 text_left w_850 max_w_100pc">
               {content}
             </p>
-          </div> : <div className="mb_15"></div>}
-
-
+          </div>
 
           <div className="justify_content_start w_100pc m_mb_20">
             <div
