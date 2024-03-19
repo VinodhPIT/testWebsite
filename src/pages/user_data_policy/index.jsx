@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Loader from "@/components/loader";
 import useTranslation from "next-translate/useTranslation";
 
-export default function Privacy() {
+export default function UserPolicy() {
   const router = useRouter();
   const { t } = useTranslation();
   let languageSplit = router.locale.split("-");
