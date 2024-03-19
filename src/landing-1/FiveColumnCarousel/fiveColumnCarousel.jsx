@@ -117,8 +117,8 @@ export default function FiveColumnCarousel({
               </div>
 
               <p
-                className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
-                style={{ width: "1090px", maxWidth: "100%", textAlign: "left" }}
+                className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15 w_1090 text_left max_w_100pc"
+             
               >
                 {content}
               </p>

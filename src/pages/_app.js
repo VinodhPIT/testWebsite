@@ -123,6 +123,7 @@ function MyApp({ Component, pageProps }) {
       case "/terms&conditions":
       case "/impressum":
         case"/user_data_policy":
+        case"/privacy-policy":
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
