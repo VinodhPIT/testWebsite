@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import useRevenueStore from "@/store/customerAnalytics/revenueList";
 import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
 import Header from "@/analyticsComponents/common/header";
@@ -12,35 +11,23 @@ import useOfferDetail from "@/store/offerAnalytics/offerDetails";
 import PieChart from "@/analyticsComponents/common/chart";
 import OfferDeatils from "@/analyticsComponents/offer/offerDetails";
 import useTranslation from "next-translate/useTranslation";
+import { OFFER_COUNT_KEYS_MAPPING, Label2 ,DISCOUNT_VARIATION} from "@/constants/sharedConstants";
 
 export default function Offer({ data }) {
-  const { offerData, fetchOffer, completedOffers, scheduledOffers } = useOfferDetail();
+  const { offerData, fetchOffer, completedOffers, scheduledOffers } =
+    useOfferDetail();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
-  const getColor = ["#187e7e", "#81c784"];
+
 
   const getKeys = Object.keys(data.offerCount)
-    .map((key) => {
-      switch (key) {
-        case "discount_used":
-          return "Discount Used";
-        case "no_discount_used":
-          return "No Discount used";
-        default:
-          return null;
-      }
-    })
-    .filter((key) => key !== null); // Filter out null values
+    .map((key) => OFFER_COUNT_KEYS_MAPPING[key])
+    .filter((value) => value !== undefined);
 
   const getValues = [
     data.offerCount.discount_used,
     data.offerCount.no_discount_used,
-  ];
-
-  const label = [
-    { id: 1, label: "Discount Used", bgColor: "block_bg_green_dark_400" },
-    { id: 2, label: "No Discount used", bgColor: "block_bg_green_light_200" },
   ];
 
   useEffect(() => {
@@ -74,8 +61,8 @@ export default function Offer({ data }) {
                   title={t("common:AnalyticsOffer.Total Discount")}
                   getKeys={getKeys}
                   getValues={getValues}
-                  getColor={getColor}
-                  label={label}
+                  getColor={DISCOUNT_VARIATION}
+                  label={Label2}
                 />
               </div>
             </div>

@@ -6,5 +6,4 @@ export const FACEBOOK_PROFILE_LINK = 'https://www.facebook.com/inckdcom/'
 export const INSTAGRAM_PROFILE_LINK = 'https://www.instagram.com/inckd_com/'
 export const LINKEDIN_PROFILE_LINK = 'https://www.linkedin.com/company/inckd'
 
- 
 

@@ -15,52 +15,22 @@ import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import PieChart from "@/analyticsComponents/common/chart";
 import ArtistConversion from "@/analyticsComponents/artist/artistConversion";
 import useTranslation from "next-translate/useTranslation";
+import {
+  GET_COLOR,
+  GENDER_COUNT_KEYS_MAPPING,
+  LABEL,
+} from "@/constants/sharedConstants";
 
 export default function ArtistAnalytics({ data: initialData }) {
-  
   const { artistConversion } = YourComponent();
   const { status, data } = useSession();
   const { t } = useTranslation();
-  const router = useRouter();
-  
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
-  
+
   const getKeys = Object.keys(initialData.genderCount).map((key) => {
-    switch (key) {
-      case "male_count":
-        return "Male";
-      case "female_count":
-        return "Female";
-      case "non_binary_count":
-        return "Other";
-      default:
-        return key;
-    }
+    return GENDER_COUNT_KEYS_MAPPING[key] || key;
   });
-  
+
   const getValues = Object.values(initialData.genderCount);
-  
-  const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue" },
-    { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
-    { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
-  ];
-  
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
-  
-
-
-
-
-
-
-
-
-
 
   return (
     <>
@@ -91,8 +61,8 @@ export default function ArtistAnalytics({ data: initialData }) {
                   title={t("common:AnalyticsArtist.Total Artists by gender")}
                   getKeys={getKeys}
                   getValues={getValues}
-                  getColor={getColor}
-                  label={label}
+                  getColor={GET_COLOR}
+                  label={LABEL}
                 />
               </div>
             </div>

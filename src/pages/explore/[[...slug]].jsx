@@ -1,9 +1,11 @@
-
-
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import Image from 'next/image'
-import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
+import Image from "next/image";
+import {
+  fetchCategoryData,
+  fetchMultiData,
+  getStyles,
+} from "@/apiConfig/webService";
 import { Parameters } from "@/utils/params";
 import { renderCategoryComponent } from "@/components/exploreScreens/tab";
 import style from "@/pages/explore/search.module.css";
@@ -15,6 +17,9 @@ import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
+import { MIN_RANDOM, MAX_RANDOM } from "@/constants/sharedConstants";
+import { categoryMapping } from "@/constants/categoryMappings";
+
 
 const MobileDetect = require("mobile-detect");
 const Search = ({
@@ -70,7 +75,6 @@ const Search = ({
     },
   ];
 
-
   useEffect(() => {
     try {
       styleCollection();
@@ -89,16 +93,25 @@ const Search = ({
         slugIds,
       });
     } catch (error) {}
-  }, [data, currentTab, pageNo, totalItems, searchKey, selectedStyle, lat, lon, locale, seed, slugIds,]);
-
-
+  }, [
+    data,
+    currentTab,
+    pageNo,
+    totalItems,
+    searchKey,
+    selectedStyle,
+    lat,
+    lon,
+    locale,
+    seed,
+    slugIds,
+  ]);
 
   useEffect(() => {
     if (lat === "") {
       getAddress("Location");
     }
   }, [lat]);
-
 
   useEffect(() => {
     if (searchKey === "") {
@@ -109,7 +122,6 @@ const Search = ({
     }
   }, [searchKey]);
 
-
   const collectionLength = state.categoryCollection.filter(
     (e) => e._index !== "ad"
   );
@@ -119,12 +131,6 @@ const Search = ({
   const updateTab = async (tab) => {
     await getUrl(tab, searchKey, selectedStyle, state.location, router);
   };
-
-
-
-
-
-
 
   return (
     <>
@@ -166,7 +172,7 @@ const Search = ({
                 currentTab={currentTab}
                 selectedStyle={selectedStyle}
                 lat={lat}
-                lon={lon} 
+                lon={lon}
                 router={router}
                 isDetail={false}
               />
@@ -188,7 +194,9 @@ const Search = ({
                         className={style.tabBox}
                         onClick={() => updateTab(tab.id)}
                       >
-                        <Image width={25} height={25}
+                        <Image
+                          width={25}
+                          height={25}
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
@@ -238,26 +246,13 @@ export default Search;
 
 export async function getServerSideProps(context) {
   const { query, req, locale } = context;
-
   const { slug } = query;
-
   const userAgent = req.headers["user-agent"];
   const md = new MobileDetect(userAgent);
   const isMobile = md.mobile();
-  const min = 3;
-  const max = 3409357923759259;
-  const seed = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  const categoryMapping = {
-    tattoos: "tattoo",
-    "flash-tattoos": "flash",
-    "tattoo-artists": "artist",
-    all: "all",
-  };
-
+  const seed =Math.floor(Math.random() * (MAX_RANDOM - MIN_RANDOM + 1)) + MIN_RANDOM;
   const category = categoryMapping[slug[0]] || null;
 
-  let style = "";
   let styleId = "";
 
   const placeDetails = await getPlaceDetails(query.location ?? "");
@@ -314,8 +309,6 @@ export async function getServerSideProps(context) {
         longitude: placeDetails.longitude,
         seed,
       });
-
-      // alert(placeDetails.latitude ?? "")
 
       let addData = await addAdsToResults(data.rows.hits, isMobile);
 

@@ -16,33 +16,22 @@ import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import CustomerContactTime from "@/analyticsComponents/customer/customerContactTime";
+import {
+  GET_COLOR,
+  GENDER_COUNT_KEYS_MAPPING,
+  LABEL,
+} from "@/constants/sharedConstants";
 
 export default function Customer({ data }) {
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
 
   const getKeys = Object.keys(data.genderCount).map((key) => {
-    switch (key) {
-      case "male_count":
-        return "Male";
-      case "female_count":
-        return "Female";
-      case "non_binary_count":
-        return "Other";
-      default:
-        return key;
-    }
+    return GENDER_COUNT_KEYS_MAPPING[key] || key;
   });
 
   const getValues = Object.values(data.genderCount);
-
-  const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue" },
-    { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
-    { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
-  ];
 
   useEffect(() => {
     fetchRevenue(data.sessionToken);
@@ -74,8 +63,8 @@ export default function Customer({ data }) {
                   title={t("common:AnalyticsCustomer.TotalCustomersByGender")}
                   getKeys={getKeys}
                   getValues={getValues}
-                  getColor={getColor}
-                  label={label}
+                  getColor={GET_COLOR}
+                  label={LABEL}
                 />
               </div>
             </div>
