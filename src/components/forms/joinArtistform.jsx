@@ -24,9 +24,7 @@ const _Form = () => {
   const formData = joinArtistFields(t);
   const router = useRouter();
 
-  const onSubmit = () => {
-    router.push("/");
-  };
+
 
   return (
     <div className="form_right_wrap">
@@ -141,13 +139,6 @@ const _Form = () => {
             />
             <h4>{t("common:Form submitted")}</h4>
             <p>{t("common:Thank you")}</p>
-            <button
-              type="submit"
-              className="btn_outline_secondary w_100pc h_48 hidden"
-              onClick={() => onSubmit()}
-            >
-              Ok.got it !
-            </button>
             <ul className="download_app">
               <li className="download_app_title">
                 <h6>{t("common:download-our-app")}</h6>

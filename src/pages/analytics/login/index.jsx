@@ -7,27 +7,25 @@ import { useSession } from "next-auth/react";
 import styles from "./login.module.css";
 import { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import { loginFields } from "@/utils/formData";
 import { schemaValidator, loginInitialValues } from "@/schema/login.schema";
 
 const Login = () => {
+  const { data, status } = useSession(); // Get the session data
+  const { t } = useTranslation();
+  const router = useRouter();
   const [error, setError] = useState(false);
   const [loader, setloader] = useState(false);
-  const { data, status } = useSession(); // Get the session data
-  const router = useRouter();
-
-  const { t } = useTranslation();
   const formData = loginFields(t);
-
+  
   useEffect(() => {
     if (data?.user && status === "authenticated") {
       router.replace("/analytics/dashboard");
     }
   }, [data, status]);
-
+  
   const handleSubmit = async (values, { setSubmitting }) => {
     setError(false);
     setloader(true);
@@ -44,6 +42,7 @@ const Login = () => {
       })
       .catch((error) => {});
   };
+  
 
   return (
     <>

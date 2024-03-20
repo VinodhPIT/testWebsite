@@ -21,9 +21,7 @@ const _Form = () => {
   });
   const router = useRouter();
 
-  const onSubmit = () => {
-    router.push("/");
-  };
+
 
   return (
     <div className="form_right_wrap">

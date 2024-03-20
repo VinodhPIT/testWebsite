@@ -13,7 +13,7 @@ import { renderArtistGallery } from "@/components/exploreScreens/tab";
 import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
 
 
 

@@ -14,17 +14,11 @@ import OfferDeatils from "@/analyticsComponents/offer/offerDetails";
 import useTranslation from "next-translate/useTranslation";
 
 export default function Offer({ data }) {
+  const { offerData, fetchOffer, completedOffers, scheduledOffers } = useOfferDetail();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
-
-  const { offerData, fetchOffer, completedOffers, scheduledOffers } =
-    useOfferDetail();
-
-  const getValues = [
-    data.offerCount.discount_used,
-    data.offerCount.no_discount_used,
-  ];
+  const getColor = ["#187e7e", "#81c784"];
 
   const getKeys = Object.keys(data.offerCount)
     .map((key) => {
@@ -39,7 +33,10 @@ export default function Offer({ data }) {
     })
     .filter((key) => key !== null); // Filter out null values
 
-  const getColor = ["#187e7e", "#81c784"];
+  const getValues = [
+    data.offerCount.discount_used,
+    data.offerCount.no_discount_used,
+  ];
 
   const label = [
     { id: 1, label: "Discount Used", bgColor: "block_bg_green_dark_400" },
@@ -50,6 +47,7 @@ export default function Offer({ data }) {
     fetchRevenue(data.sessionToken);
     fetchOffer(data.sessionToken);
   }, [fetchRevenue, fetchOffer, data.sessionToken]);
+
   return (
     <>
       <Head>

@@ -1,12 +1,10 @@
 import * as Yup from "yup";
 
-
 export const initialValues = {
   tattooType: "",
   email: "",
   message: "",
 };
-
 
 export let schemaValidator = (t) => {
   const validationSchema = Yup.object().shape({

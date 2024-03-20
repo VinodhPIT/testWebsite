@@ -6,8 +6,6 @@ import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
 
-
-
 export default function LocationSearch({
   currentTab,
   searchKey,
@@ -15,19 +13,18 @@ export default function LocationSearch({
   router,
   onToggle,
 }) {
-  const [address, setAddress] = useState("");
-
-  const { isMobileView } = useWindowResize();
   const { getAddress, state } = useGlobalState();
-
-  const handleSelect = async (value) => {
-    setAddress(value);
-  };
+  const { isMobileView } = useWindowResize();
+  const [address, setAddress] = useState("");
 
   const clear = async () => {
     setAddress("");
     getAddress("Location");
     await getUrl(currentTab, searchKey, selectedStyle, "", router);
+  };
+
+  const handleSelect = async (value) => {
+    setAddress(value);
   };
 
   const onError = (status, clearSuggestions) => {
@@ -139,8 +136,6 @@ export default function LocationSearch({
           </button>
         </div>
       </div>
-
-     
     </div>
   );
 }

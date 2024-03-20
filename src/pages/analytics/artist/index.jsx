@@ -18,13 +18,13 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function ArtistAnalytics({ data: initialData }) {
   
-  const { status, data } = useSession();
-  const router = useRouter();
-  const { t } = useTranslation();
   const { artistConversion } = YourComponent();
-
-  const getValues = Object.values(initialData.genderCount);
-
+  const { status, data } = useSession();
+  const { t } = useTranslation();
+  const router = useRouter();
+  
+  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
+  
   const getKeys = Object.keys(initialData.genderCount).map((key) => {
     switch (key) {
       case "male_count":
@@ -37,20 +37,30 @@ export default function ArtistAnalytics({ data: initialData }) {
         return key;
     }
   });
-
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
-
+  
+  const getValues = Object.values(initialData.genderCount);
+  
   const label = [
     { id: 1, label: "Male", bgColor: "block_bg_blue" },
     { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
-
+  
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
     }
   }, [status, router]);
+  
+
+
+
+
+
+
+
+
+
 
   return (
     <>

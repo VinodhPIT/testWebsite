@@ -9,8 +9,15 @@ export default function StyleDropdown({
   router,
   onToggle,
 }) {
-  const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } =
-    useGlobalState();
+  const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } = useGlobalState();
+   
+
+  const clearAll = async () => {
+    setSelectedIds([]);
+    clearStyleId();
+    await getUrl(currentTab, searchKey, "", state.location, router);
+    onToggle();
+  };
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
@@ -18,13 +25,6 @@ export default function StyleDropdown({
     } else {
       setSelectedIds([...selectedIds, elId]);
     }
-  };
-
-  const clearAll = async () => {
-    setSelectedIds([]);
-    clearStyleId();
-    await getUrl(currentTab, searchKey, "", state.location, router);
-    onToggle();
   };
 
   const onSearchStyle = async () => {

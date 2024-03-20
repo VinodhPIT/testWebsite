@@ -7,19 +7,23 @@ import Image from "next/image";
 function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
   const { state, searchData, setSearchState, searchState } = useGlobalState();
 
-  const inputRef = useRef(null);
-
- 
+  const clearText = async () => {
+    setSearchState({ query: "" });
+    if (searchKey !== "") {
+      await getUrl(currentTab, "", selectedStyle, state.location, router);
+    }
+  };
+  
   const handleChange = (e) => {
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: e,
     }));
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     await getUrl(
       currentTab,
       searchState.query,
@@ -28,15 +32,9 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
       router
     );
   };
+  
+  const inputRef = useRef(null);
 
-  const clearText = async () => {
-    if (searchKey === "") {
-      setSearchState({ query: "" });
-    } else {
-      setSearchState({ query: "" });
-      await getUrl(currentTab, "", selectedStyle, state.location, router);
-    }
-  };
 
   return (
     <div className={style.search_bar} style={{ position: "relative" }}>
@@ -51,7 +49,6 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
             onFocus={() =>
               setSearchState((prevSearchState) => ({
                 ...prevSearchState,
-                //  showDropdown: true,
               }))
             }
             value={searchState.query}

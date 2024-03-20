@@ -80,7 +80,6 @@ export default function Artist({ data }) {
                           width={30}
                           height={30}
                           alt={item._source.first_name}
-                         
                           loading="lazy"
                           quality={62}
                         />

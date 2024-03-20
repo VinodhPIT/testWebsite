@@ -18,15 +18,10 @@ import useTranslation from "next-translate/useTranslation";
 import CustomerContactTime from "@/analyticsComponents/customer/customerContactTime";
 
 export default function Customer({ data }) {
-  const { status, data: sessionData } = useSession();
   const { revenue, loading, fetchRevenue } = useRevenueStore();
+  const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    fetchRevenue(data.sessionToken);
-  }, [fetchRevenue, data.sessionToken]);
-
-  const getValues = Object.values(data.genderCount);
+  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
 
   const getKeys = Object.keys(data.genderCount).map((key) => {
     switch (key) {
@@ -41,13 +36,17 @@ export default function Customer({ data }) {
     }
   });
 
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
+  const getValues = Object.values(data.genderCount);
 
   const label = [
     { id: 1, label: "Male", bgColor: "block_bg_blue" },
     { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
     { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
   ];
+
+  useEffect(() => {
+    fetchRevenue(data.sessionToken);
+  }, [fetchRevenue, data.sessionToken]);
 
   return (
     <>

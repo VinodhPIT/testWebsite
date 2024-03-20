@@ -17,7 +17,7 @@ import style from "@/pages/explore/search.module.css";
 import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import myPromise from "@/utils/myPromise";
 import Loader from "@/components/loading/loader";
 import { getURL } from "next/dist/shared/lib/utils";

@@ -13,7 +13,7 @@ import { addAdsToResults } from "@/helpers/helper";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
 
 const MobileDetect = require("mobile-detect");

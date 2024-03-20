@@ -3,7 +3,7 @@ import _Form from "@/components/forms/joinArtistform";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 
-export default function JoinArtist({  }) {
+export default function JoinArtist({}) {
   //Constants
   const { t } = useTranslation();
 

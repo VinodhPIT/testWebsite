@@ -13,7 +13,6 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 
 export default function All({ data }) {
-  const { state } = useGlobalState();
   const { t } = useTranslation();
   const { router } = useNavigation();
 

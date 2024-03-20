@@ -17,7 +17,7 @@ import { useRouter } from "next/router";
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import myPromise from "@/utils/myPromise";
 import Loader from "@/components/loading/loader";
 
