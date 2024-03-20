@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Head from "next/head";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import {
   fetchCategoryData,
   fetchMultiData,
-  getStyles,
 } from "@/apiConfig/webService";
 import { Parameters } from "@/utils/params";
 import { renderCategoryComponent } from "@/components/exploreScreens/tab";
@@ -17,9 +15,8 @@ import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
-import { MIN_RANDOM, MAX_RANDOM } from "@/constants/sharedConstants";
+import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
 import { categoryMapping } from "@/constants/categoryMappings";
-
 
 const MobileDetect = require("mobile-detect");
 const Search = ({
@@ -250,89 +247,57 @@ export async function getServerSideProps(context) {
   const userAgent = req.headers["user-agent"];
   const md = new MobileDetect(userAgent);
   const isMobile = md.mobile();
-  const seed =Math.floor(Math.random() * (MAX_RANDOM - MIN_RANDOM + 1)) + MIN_RANDOM;
   const category = categoryMapping[slug[0]] || null;
 
-  let styleId = "";
+  if (!category) {
+    return { notFound: true };
+  }
 
   const placeDetails = await getPlaceDetails(query.location ?? "");
 
-  if (query.style !== undefined) {
-    const slugsToCheck = query.style.split(",");
-    const stylesArray = await getStyles();
-
-    const matchingStyles = slugsToCheck.map((style) => {
-      const matchingStyle = stylesArray.data.find(
-        (styleObj) => styleObj.slug === style
-      );
-      return matchingStyle ? matchingStyle.id : null;
-    });
-    styleId = matchingStyles.filter((id) => id !== null);
-  }
+  const styleId =
+    query.style !== undefined
+      ? (await getMatchingStyles(query.style.split(","))).filter(
+          (id) => id !== null
+        )
+      : [];
 
   try {
-    if (category === "all") {
-      const results = await fetchMultiData({
-        ...Parameters,
-        category,
-        search_key: query.keyword ?? "",
-        style: styleId,
-        latitude: placeDetails.latitude,
-        longitude: placeDetails.longitude,
-        seed,
-      });
+    const fetchFunction =
+      category === "all" ? fetchMultiData : fetchCategoryData;
+    const fetchParams = {
+      ...Parameters,
+      category,
+      style: styleId,
+      search_key: query.keyword ?? "",
+      latitude: placeDetails?.latitude??'0.00',
+      longitude: placeDetails?.longitude??"0.00",
+      seed: getRandomSeed(),
+    };
 
-      let addData = await addAdsToResults(results.data, isMobile);
+    const results = await fetchFunction(fetchParams);
+    const totalItems =
+      category === "all" ? results.totalCount : results.rows.total.value;
+    const data = category === "all" ? results.data : results.rows.hits;
 
-      return {
-        props: {
-          data: addData,
-          currentTab: category,
-          pageNo: 0,
-          totalItems: results.totalCount,
-          searchKey: query.keyword ?? "",
-          selectedStyle: query.style ?? "",
-          lat: placeDetails.latitude,
-          lon: placeDetails.longitude,
-          locale: context.locale,
-          seed,
-          slugIds: styleId,
-        },
-      };
-    } else {
-      const data = await fetchCategoryData({
-        ...Parameters,
-        category,
-        style: styleId,
-        search_key: query.keyword ?? "",
-        latitude: placeDetails.latitude,
-        longitude: placeDetails.longitude,
-        seed,
-      });
+    const addData = await addAdsToResults(data, isMobile);
 
-      let addData = await addAdsToResults(data.rows.hits, isMobile);
-
-      return {
-        props: {
-          data: addData,
-          currentTab: category,
-          pageNo: 0,
-          totalItems: data.rows.total.value,
-          searchKey: query.keyword ?? "",
-          selectedStyle: query.style ?? "",
-          lat: placeDetails.latitude,
-          lon: placeDetails.longitude,
-          locale: locale,
-          seed,
-          slugIds: styleId,
-        },
-      };
-    }
-  } catch (error) {
     return {
       props: {
-        data: null,
+        data: addData,
+        currentTab: category,
+        pageNo: 0,
+        totalItems,
+        searchKey: query.keyword ?? "",
+        selectedStyle: query.style ?? "",
+        lat: placeDetails?.latitude??"0.00",
+        lon: placeDetails?.longitude??"0.00",
+        locale,
+        seed: fetchParams.seed,
+        slugIds: styleId,
       },
     };
+  } catch (error) {
+    return { props: { data: null } };
   }
 }

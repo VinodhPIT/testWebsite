@@ -1,52 +1,16 @@
 import moment from "moment";
+import { MIN_RANDOM, MAX_RANDOM } from "@/constants/sharedConstants";
+import { getStyles } from "@/apiConfig/webService";
 
-export const prepareRequest = (parameters) => {
-  const request = {
-    sort: parameters.sort,
-    page_no: "0",
-    paginator_count: parameters.paginator_count,
-    search_key: "",
-  };
 
-  return request;
-};
+export const startYear = 2020;
+export const currentYear = new Date().getFullYear();
+export const years = Array.from(
+  { length: currentYear - startYear + 1 },
+  (_, index) => startYear + index
+);
 
-const createRequestObject = (parameters, paginatorCount) => {
-  const request = {
-    sort: parameters.category === "artist" ? "newest" : "random",
-    page_no: parameters.page_no,
-    paginator_count: paginatorCount,
-    search_key: parameters.search_key,
-    seed: parameters.seed,
-  };
 
-  if (parameters.latitude && parameters.category === "artist") {
-    request.longitude = parameters.longitude;
-    request.latitude = parameters.latitude;
-  }
-
-  if (parameters.style) {
-    if (typeof parameters.style === "string") {
-      request.style = parameters.style.split(",").map((item) => item.trim());
-    } else if (Array.isArray(parameters.style)) {
-      request.style = parameters.style;
-    } else {
-      request.style = [];
-    }
-  } else {
-    request.style = [];
-  }
-
-  return request;
-};
-
-export const searchParam = (parameters) => {
-  return createRequestObject(parameters, 24);
-};
-
-export const fetchMulticategory = (parameters) => {
-  return createRequestObject(parameters, 12);
-};
 
 export const addAdsToResults = async (results, isMobile) => {
   const totalCount = results.length;
@@ -84,36 +48,6 @@ export const addAdsToResults = async (results, isMobile) => {
   return results;
 };
 
-export const formatDate = (date) => {
-  const values = Object.values(date).reverse();
-  const dateObject = new Date(values[0], values[1] - 1, values[2]);
-  return dateObject.toISOString().split("T")[0];
-};
-
-export const startYear = 2020;
-export const currentYear = new Date().getFullYear();
-export const years = Array.from(
-  { length: currentYear - startYear + 1 },
-  (_, index) => startYear + index
-);
-
-export const options = years.map((year) => ({ value: year, label: year }));
-
-export const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
 export const calculatePercentage = (...args) => {
   const numbers = args.map((arg) => parseFloat(arg) || 0);
   const sum = numbers.reduce((acc, curr) => acc + curr, 0);
@@ -121,15 +55,53 @@ export const calculatePercentage = (...args) => {
   return averagePercentage.toFixed(2);
 };
 
+export const createRequestObject = (parameters, paginatorCount) => {
+  const request = {
+    sort: parameters.category === "artist" ? "newest" : "random",
+    page_no: parameters.page_no,
+    paginator_count: paginatorCount,
+    search_key: parameters.search_key,
+    seed: parameters.seed,
+  };
+
+  if (parameters.latitude && parameters.category === "artist") {
+    request.longitude = parameters.longitude;
+    request.latitude = parameters.latitude;
+  }
+
+  if (parameters.style) {
+    if (typeof parameters.style === "string") {
+      request.style = parameters.style.split(",").map((item) => item.trim());
+    } else if (Array.isArray(parameters.style)) {
+      request.style = parameters.style;
+    } else {
+      request.style = [];
+    }
+  } else {
+    request.style = [];
+  }
+
+  return request;
+};
+
 export const extractData = (data, propertyName) => {
   return Object.values(data).map((el) => parseFloat(el[propertyName] || 0));
+};
+
+export const fetchMulticategory = (parameters) => {
+  return createRequestObject(parameters, 12);
+};
+
+export const formatDate = (date) => {
+  const values = Object.values(date).reverse();
+  const dateObject = new Date(values[0], values[1] - 1, values[2]);
+  return dateObject.toISOString().split("T")[0];
 };
 
 export const filterChartDataByYear = (chartData, year, key) => {
   return chartData.filter((item) => moment(item[key]).year() === year);
 };
 
-// Function to get countries and average time to get contacted
 export const getContactTimeDifference = (chartData) => {
   const dateDifferenceArray = {};
   chartData.map((data) => {
@@ -156,3 +128,37 @@ export const getContactTimeDifference = (chartData) => {
 
   return dateDifferenceArray;
 };
+
+export const getMatchingStyles = async (slugsToCheck) => {
+  const stylesArray = await getStyles();
+  return slugsToCheck.map((style) => {
+    const matchingStyle = stylesArray.data.find(
+      (styleObj) => styleObj.slug === style
+    );
+    return matchingStyle ? matchingStyle.id : null;
+  });
+};
+
+export const getRandomSeed = () => {
+  const randomValues = new Uint32Array(1);
+  crypto.getRandomValues(randomValues);
+  return randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM;
+};
+
+export const options = years.map((year) => ({ value: year, label: year }));
+
+export const prepareRequest = (parameters) => {
+  const request = {
+    sort: parameters.sort,
+    page_no: "0",
+    paginator_count: parameters.paginator_count,
+    search_key: "",
+  };
+
+  return request;
+};
+
+export const searchParam = (parameters) => {
+  return createRequestObject(parameters, 24);
+};
+
