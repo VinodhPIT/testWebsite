@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import styles from "./banner.module.css";
 import {
   EmailShareButton,
@@ -37,7 +37,7 @@ export default function Banner({
                   alt="logo"
                   loading="lazy"
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   //fill //position-absolute
                   //objectFit="cover"
                   //objectPosition='bottom'
@@ -60,7 +60,7 @@ export default function Banner({
                   alt={altTag}
                   loading="lazy"
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   fill
                   objectFit="cover"
                   // objectPosition="bottom"

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import styles from "./findtattoos.module.css"
 
 
@@ -40,7 +40,7 @@ export default function FindT({title ,button ,img1 ,img2}) {
                   height={550}
                   loading="lazy"
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   layout="responsive"
                 />                 
               </li>
@@ -52,7 +52,7 @@ export default function FindT({title ,button ,img1 ,img2}) {
                   height={550}
                   loading="lazy"
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   layout="responsive"
                 />                 
               </li>  

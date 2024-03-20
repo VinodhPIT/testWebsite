@@ -8,7 +8,7 @@ import style from "./style.module.css";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
@@ -81,7 +81,7 @@ function OfferPage({data}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -95,7 +95,7 @@ function OfferPage({data}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -114,7 +114,7 @@ function OfferPage({data}) {
                     width={612}
                     height={752}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     layout="responsive"
                     className="mob_hidden"
                   />
@@ -125,7 +125,7 @@ function OfferPage({data}) {
                     width={375}
                     height={220}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     layout="responsive"
                     className="desk_hidden"
                   />

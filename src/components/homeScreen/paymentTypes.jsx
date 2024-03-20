@@ -5,7 +5,7 @@ import styles from './styles/style1.module.css'
 import {
     APP_LINK_APPLE,
     APP_LINK_GOOGLE,
-    blurDataURL,
+    BLUR_URL,
 } from "@/constants/constants";
 
 import useTranslation from "next-translate/useTranslation";
@@ -53,7 +53,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                 src={leftSectionImage}
                                                 width={278}
                                                 height={556}
-                                                blurDataURL={blurDataURL}
+                                                blurDataURL={BLUR_URL}
                                                 placeholder="blur"
                                                 className={styles.imageResponsive}
                                             />
@@ -69,7 +69,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     width={192}
                                                     height={59}
                                                     placeholder="blur"
-                                                    blurDataURL={blurDataURL}
+                                                    blurDataURL={BLUR_URL}
                                                     className="custom_download_icons_mob w_100pc object_fit_contain"
                                                 />
                                             </Link>
@@ -83,7 +83,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     width={192}
                                                     height={59}
                                                     placeholder="blur"
-                                                    blurDataURL={blurDataURL}
+                                                    blurDataURL={BLUR_URL}
                                                     className="custom_download_icons_mob w_100pc object_fit_contain"
                                                 />
                                             </Link>

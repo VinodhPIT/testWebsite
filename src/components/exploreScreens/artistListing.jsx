@@ -4,7 +4,7 @@ import { useGlobalState } from "@/context/Context";
 import styles from "@/components/styles/listing.module.css";
 import NoData from "@/components/noDatafound/noData";
 import Link from "next/link";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import { useNavigation } from "@/hooks/useRouter";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
@@ -66,7 +66,7 @@ export default function Artist({ data }) {
                             alt={item._source.slug}
                             objectFit="cover"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             loading="lazy"
                             quality={62}
                           />

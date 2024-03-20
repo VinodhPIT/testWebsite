@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
 import styles from "@/components/styles/listing.module.css";
 import NoData from "@/components/noDatafound/noData";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import Link from "next/link";
 import ArtistAdd from "./artistAdd";
 import KlarnaAdd from "./klarnaAdd";
@@ -68,7 +68,7 @@ export default function All({ data }) {
                     }
                     objectFit="cover"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     quality={62}
                   />
                 </Link>

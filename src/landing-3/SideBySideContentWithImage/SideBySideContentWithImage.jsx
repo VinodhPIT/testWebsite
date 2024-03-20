@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import styles from "./style.module.css";
 
 export default function SideBySideContentWithImage({
@@ -77,7 +77,7 @@ export default function SideBySideContentWithImage({
                       src={img1}
                       width={591}
                       height={600}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       className={styles.imageResponsive}
                     />
@@ -95,7 +95,7 @@ export default function SideBySideContentWithImage({
                       src={img4}
                       width={591}
                       height={600}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       className={styles.imageResponsive}
                     />
@@ -138,7 +138,7 @@ export default function SideBySideContentWithImage({
                       src={img3}
                       width={591}
                       height={600}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       className={styles.imageResponsive}
                     />
@@ -156,7 +156,7 @@ export default function SideBySideContentWithImage({
                       src={img5}
                       width={591}
                       height={600}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       className={styles.imageResponsive}
                     />
@@ -199,7 +199,7 @@ export default function SideBySideContentWithImage({
                       src={img2}
                       width={591}
                       height={600}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       className={styles.imageResponsive}
                     />

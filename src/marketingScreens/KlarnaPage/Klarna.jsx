@@ -6,7 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 function KlarnaPage() {
   const { t } = useTranslation();
@@ -55,7 +55,7 @@ function KlarnaPage() {
                           height={21}
                           loading="eager"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                         />
                       </span>
 
@@ -83,7 +83,7 @@ function KlarnaPage() {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -97,7 +97,7 @@ function KlarnaPage() {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -116,7 +116,7 @@ function KlarnaPage() {
                     objectFit="cover"
                     objectPosition="center"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     className="mob_hidden"
                   />
                   <Image
@@ -127,7 +127,7 @@ function KlarnaPage() {
                     objectFit="cover"
                     objectPosition="center"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     className="desk_hidden"
                   />
                 </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 export default function VerticalImageLayout({
   maintitle,
   title1,
@@ -51,7 +51,7 @@ export default function VerticalImageLayout({
                       height={705}
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       style={{ borderRadius: "15px" }}
                     />
@@ -64,7 +64,7 @@ export default function VerticalImageLayout({
                       height={691}
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       style={{ borderRadius: "15px" }}
                     />
@@ -77,7 +77,7 @@ export default function VerticalImageLayout({
                       height={691}
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       style={{ borderRadius: "15px" }}
                     />

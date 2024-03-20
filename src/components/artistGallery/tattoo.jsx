@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/pages/explore/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 
 import style from "@/components/styles/listing.module.css";
 import NoData from "./noData";
@@ -34,7 +34,7 @@ const Tattoo = ({ data }) => {
                 objectFit="cover"
                 quality={62}
                 placeholder="blur"
-                blurDataURL={blurDataURL}
+                blurDataURL={BLUR_URL}
               />
             </Link>
           ))}

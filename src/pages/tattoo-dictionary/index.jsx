@@ -10,7 +10,7 @@ import ImageSlider from "@/components/dictionaryScreen/imageSlider";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import useWindowResize from "@/hooks/useWindowSize";
 import Image from "next/image";
@@ -200,7 +200,7 @@ export default function Dictionary({ }) {
                                 objectFit="cover"
                                 objectPosition="center"
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="mob_hidden"
                               />
                               <Image
@@ -215,7 +215,7 @@ export default function Dictionary({ }) {
                                 objectFit="cover"
                                 objectPosition="center"
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="desk_hidden"
                               />
                             </span>
@@ -290,7 +290,7 @@ export default function Dictionary({ }) {
                                 width={472}
                                 height={622}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 layout="responsive"
                               />
                             </div>
@@ -331,7 +331,7 @@ export default function Dictionary({ }) {
                                   height={508}
                                   priority
                                   placeholder="blur"
-                                  blurDataURL={blurDataURL}
+                                  blurDataURL={BLUR_URL}
                                 />
                               </li>
                               <li className="no_filter pl_0">
@@ -347,7 +347,7 @@ export default function Dictionary({ }) {
                                   height={508}
                                   priority
                                   placeholder="blur"
-                                  blurDataURL={blurDataURL}
+                                  blurDataURL={BLUR_URL}
                                 />
                               </li>
                             </ul>
@@ -409,7 +409,7 @@ export default function Dictionary({ }) {
                         "/Tattoodictionary2.png",
                       ]}
                       imgAlt="Tattoo"
-                      imgblurDataURL={blurDataURL}
+                      imgblurDataURL={BLUR_URL}
                       imgWidth={248}
                       imgHeight={508}
                     ></ImageSlider>
@@ -457,7 +457,7 @@ export default function Dictionary({ }) {
                                 width={472}
                                 height={622}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 layout="responsive"
                               />
                             </div>
@@ -527,7 +527,7 @@ export default function Dictionary({ }) {
                                 width={474}
                                 height={622}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 layout="responsive"
                               />
                             </div>

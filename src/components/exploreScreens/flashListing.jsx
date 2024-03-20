@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
 import styles from "@/components/styles/listing.module.css";
 import NoData from "@/components/noDatafound/noData";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import ArtistAdd from "./artistAdd";
 import KlarnaAdd from "./klarnaAdd";
 import Offer from "./offerAdd";
@@ -54,7 +54,7 @@ export default function Flash({ data }) {
                     objectFit="cover"
                     alt={item._source.style._source.name}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     loading="lazy"
                     quality={62}
                   />

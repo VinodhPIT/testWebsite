@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import styles from "./style.module.css";
 
 export default function LeftAlignedImageContent({
@@ -31,7 +31,7 @@ export default function LeftAlignedImageContent({
                       height={454}
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                     />
                   </div>

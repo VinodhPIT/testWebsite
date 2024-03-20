@@ -10,7 +10,7 @@ import FiveColumnCarousel from "@/components/klarnaScreen/fiveColumnCarousel";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 
 function KlarnaNew({}) {
@@ -190,7 +190,7 @@ function KlarnaNew({}) {
                           height={21}
                           loading="eager"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                         />
                       </span>
 
@@ -218,7 +218,7 @@ function KlarnaNew({}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -232,7 +232,7 @@ function KlarnaNew({}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -253,7 +253,7 @@ function KlarnaNew({}) {
                     objectFit="cover"
                     objectPosition="center"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     className="mob_hidden"
                   />
                   <Image
@@ -264,7 +264,7 @@ function KlarnaNew({}) {
                     objectFit="cover"
                     objectPosition="center"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     className="desk_hidden"
                   />
                 </div>

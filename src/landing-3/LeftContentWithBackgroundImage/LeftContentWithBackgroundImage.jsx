@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 
 export default function WhydragonTattoo({
   title1,

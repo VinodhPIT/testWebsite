@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import ImageSlider from "@/components/slider/ImageSlider";
 import useWindowResize from "@/hooks/useWindowSize";
@@ -62,7 +62,7 @@ export default function ExploreApps() {
                       className="b_radius_0"
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}                      
+                      blurDataURL={BLUR_URL}                      
                     />                    
                   </li>
                   <li>
@@ -74,7 +74,7 @@ export default function ExploreApps() {
                       className="b_radius_0"
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}                      
+                      blurDataURL={BLUR_URL}                      
                     />
                   </li>
                   <li>
@@ -86,7 +86,7 @@ export default function ExploreApps() {
                       className="b_radius_0"
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}                                            
+                      blurDataURL={BLUR_URL}                                            
                     />
                   </li>
                 </ul>
@@ -105,7 +105,7 @@ export default function ExploreApps() {
             "/Home3.png",
           ]}
           imgAlt={`${t("common:downloadApp")}${t("common:downloadApp-Sub1")}`}
-          imgblurDataURL={blurDataURL}
+          imgblurDataURL={BLUR_URL}
           imgWidth={218}
           imgHeight={445}
         ></ImageSlider>

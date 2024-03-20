@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/pages/explore/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import { useNavigation } from "@/hooks/useRouter";
 
 const All = ({ data, loading }) => {
@@ -28,7 +28,7 @@ const All = ({ data, loading }) => {
               loading="lazy"
               objectFit="cover"
               placeholder="blur"
-              blurDataURL={blurDataURL}
+              blurDataURL={BLUR_URL}
               quality={62}
             />
             {item.tattoo_type !== "normal" &&

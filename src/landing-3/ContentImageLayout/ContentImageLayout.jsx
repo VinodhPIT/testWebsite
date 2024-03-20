@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 
 export default function ContentImageLayout({
   title,
@@ -34,7 +34,7 @@ export default function ContentImageLayout({
                   fill
                   objectFit="contain"
                   objectPosition="right"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   className="m_object_position_center"
                   placeholder="blur"
                 />

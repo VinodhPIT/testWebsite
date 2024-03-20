@@ -4,10 +4,10 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from 'next/router'
 import {
-    APP_LINK_APPLE,
-    APP_LINK_GOOGLE,
-    blurDataURL,
-  } from "@/constants/constants";
+  APP_LINK_APPLE,
+  APP_LINK_GOOGLE,
+  BLUR_URL,
+} from "@/constants/constants";
 export default function FinelineComponent () {
 const { t } = useTranslation();
 const router = useRouter()
@@ -34,7 +34,7 @@ const router = useRouter()
                     width={474}
                     height={565}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     layout="responsive"
                     className="object_position_left"
                   />  

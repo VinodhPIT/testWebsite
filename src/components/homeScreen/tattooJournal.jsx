@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import styles from "./styles/journal.module.css"
 import { useRouter } from 'next/router'
 import Slider from "react-slick";
@@ -113,7 +113,7 @@ export default function ListingPage({ data, error }) {
                         height={776}
                         loading="lazy"
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         layout="responsive"
                         style={{
                           borderTopRightRadius: "4px",

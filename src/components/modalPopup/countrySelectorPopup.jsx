@@ -1,7 +1,7 @@
 import React, { useState ,useEffect } from "react";
 import Modal from "react-modal";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import countriesData from "@/data/countries.json"
 import styles from './style.module.css'
 import { useRouter } from 'next/router'

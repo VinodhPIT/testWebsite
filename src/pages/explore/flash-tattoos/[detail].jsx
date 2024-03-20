@@ -6,7 +6,7 @@ import { fetchTattooDetail } from "@/apiConfig/webService";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import { fetchArtistDetail } from "@/apiConfig/webService";
 import Link from "next/link";
@@ -157,7 +157,7 @@ export default function Detail({ data, status }) {
                       width: "100%",
                     }}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     quality={75}
                   />
                 )}
@@ -173,7 +173,7 @@ export default function Detail({ data, status }) {
                       width={100}
                       height={100}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                     />
                   </div>
                   <div className={styles.search_profile}>
@@ -352,7 +352,7 @@ export default function Detail({ data, status }) {
                       layout="fill"
                       objectFit="cover"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       loading="lazy"
                       quality={62}
                     />

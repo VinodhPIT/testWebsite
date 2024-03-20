@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import styles from "./processdragontattoo.module.css";
 import useWindowResize from "@/hooks/useWindowSize";
 // import Slider from "react-slick";
@@ -35,7 +35,7 @@ export default function ProcessdragonTattoo({ title, description }) {
                         height={776}
                         loading="lazy"
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         layout="responsive"
                       />
                     </div>
@@ -49,7 +49,7 @@ export default function ProcessdragonTattoo({ title, description }) {
                           height={97}
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           layout="responsive"
                         />
                       </div>

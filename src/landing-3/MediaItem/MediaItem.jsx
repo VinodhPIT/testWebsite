@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import {
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 
 
@@ -75,7 +75,7 @@ export default function MediaItem({
                       src={image}
                       width={imageWidth}
                       height={imageHeight}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       className="img_fluid"
                     />

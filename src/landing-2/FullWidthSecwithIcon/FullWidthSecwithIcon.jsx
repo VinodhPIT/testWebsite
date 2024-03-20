@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 
 export default function UniquePartner({ img, alt, title, content, bgColor }) {
   return (
@@ -21,7 +21,7 @@ export default function UniquePartner({ img, alt, title, content, bgColor }) {
                       height={60}
                       alt={alt}
                       src={img}
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       placeholder="blur"
                       layout="responsive"
                       className="w_auto mb_35"

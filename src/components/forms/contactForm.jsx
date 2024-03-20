@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import { contactFormFields } from "@/utils/formData";
 import { schemaValidator, initialValues } from "@/schema/contactForm.schema";
@@ -171,7 +171,7 @@ const _Form = () => {
                       width={134}
                       height={41}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       className="custom_download_icons"
                     />
                   </Link>
@@ -185,7 +185,7 @@ const _Form = () => {
                       width={134}
                       height={41}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       className="custom_download_icons"
                     />
                   </Link>

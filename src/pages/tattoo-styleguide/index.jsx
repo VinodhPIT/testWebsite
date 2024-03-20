@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import useWindowResize from "@/hooks/useWindowSize";
 import ImageSlider from "@/components/slider/ImageSlider";
@@ -238,7 +238,7 @@ const finlineTattoo = [
                                   width={134}
                                   height={41}
                                   placeholder="blur"
-                                  blurDataURL={blurDataURL}
+                                  blurDataURL={BLUR_URL}
                                   className="custom_download_icons"
                                 />
                               </Link>
@@ -252,7 +252,7 @@ const finlineTattoo = [
                                   width={134}
                                   height={41}
                                   placeholder="blur"
-                                  blurDataURL={blurDataURL}
+                                  blurDataURL={BLUR_URL}
                                   className="custom_download_icons"
                                 />
                               </Link>
@@ -271,7 +271,7 @@ const finlineTattoo = [
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       className="mob_hidden"
                       //layout="responsive"
                     />
@@ -283,7 +283,7 @@ const finlineTattoo = [
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       className="desk_hidden"
                       //layout="responsive"
                     />
@@ -315,7 +315,7 @@ const finlineTattoo = [
                       width={474}
                       height={553}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       className="object_position_left"
                     />
@@ -413,7 +413,7 @@ const finlineTattoo = [
                       width={474}
                       height={565}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       className="object_position_left"
                     />
@@ -489,7 +489,7 @@ const finlineTattoo = [
                           className="b_radius_0"
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                         />
                       </li>
                       <li>
@@ -501,7 +501,7 @@ const finlineTattoo = [
                           className="b_radius_0"
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                         />
                       </li>
                       <li>
@@ -513,7 +513,7 @@ const finlineTattoo = [
                           height={447}
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                         />
                       </li>
                     </ul>
@@ -532,7 +532,7 @@ const finlineTattoo = [
                 "/Sytlepage3.png",
               ]}
               imgAlt={t("common:styleGuidePage.download")}
-              imgblurDataURL={blurDataURL}
+              imgblurDataURL={BLUR_URL}
               imgWidth={221}
               imgHeight={447}
             ></ImageSlider>
@@ -562,7 +562,7 @@ const finlineTattoo = [
                       width={474}
                       height={565}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       className="object_position_left"
                     />
@@ -658,7 +658,7 @@ const finlineTattoo = [
                       width={474}
                       height={565}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       layout="responsive"
                       className="object_position_left"
                     />

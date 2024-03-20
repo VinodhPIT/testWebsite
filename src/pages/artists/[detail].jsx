@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./style.module.css";
 import { useRouter } from "next/router";
 import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import SearchField from "@/components/exploreScreens/searchField";
  
 import style from "@/pages/explore/search.module.css";
@@ -163,7 +163,7 @@ export default function Detail({ data, locale }) {
                   width={100}
                   height={100}
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                 />
               </div>
 

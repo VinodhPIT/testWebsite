@@ -17,7 +17,7 @@ import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 
@@ -227,7 +227,7 @@ export default function Home({ data, locale }) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -241,7 +241,7 @@ export default function Home({ data, locale }) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -261,7 +261,7 @@ export default function Home({ data, locale }) {
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       className="mob_hidden"
                       //layout="responsive"
                     />
@@ -273,7 +273,7 @@ export default function Home({ data, locale }) {
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       className="desk_hidden"
                       //layout="responsive"
                     />
