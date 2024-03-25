@@ -3,7 +3,7 @@ import { useSession } from "next-auth/react";
 import {
   analyticsCustomerCount,
   analyticsCustomerLeadSourceCount,
-} from "@/apiConfig/customerAnalyticsService";
+} from "@/pages/api/customerAnalytics.service";
 import Header from "@/analyticsComponents/common/header";
 import CustomerDetails from "@/analyticsComponents/customer/customerDetails";
 import BarChart from "@/analyticsComponents/common/monthlyBarChart";
@@ -157,6 +157,9 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
+
+    
+  
     return {
       props: {
         data: null,

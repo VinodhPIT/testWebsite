@@ -177,6 +177,7 @@ export default function Home({ data, locale }) {
   const router = useRouter();
 
   useEffect(() => {
+    router.replace(`/${router.locale}${router.asPath}`);
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");

@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "./style.module.css";
 import { useRouter } from "next/router";
-import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
+import { fetchArtistDetail, artistGallery } from "../api/web.service";
 import { BLUR_URL } from "@/constants/constants";
 import SearchField from "@/components/exploreScreens/searchField";
  
@@ -17,7 +17,7 @@ import SelectDropdown from "@/components/exploreScreens/searchPanel";
 
 
 
-export default function Detail({ data, locale }) {
+export default function Detail({ data }) {
 
 
 
@@ -27,7 +27,7 @@ export default function Detail({ data, locale }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
-  const { state, getLocale ,    styleCollection  ,setSelectedIds , clearStyleId} = useGlobalState();
+  const {  styleCollection} = useGlobalState();
   const router = useRouter();
   const goBack = () => {
     router.back();
@@ -258,6 +258,8 @@ export default function Detail({ data, locale }) {
 export async function getServerSideProps(context) {
   try {
     const data = await fetchArtistDetail(context.query.detail);
+
+   
 
     if (!data.data) {
       return {

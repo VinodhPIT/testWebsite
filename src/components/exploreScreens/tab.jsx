@@ -10,6 +10,7 @@ import ArtistAll from '@/components/artistGallery/all'
 import ArtistFlash from '@/components/artistGallery/flash'
 import ArtistInfo from '@/components/artistGallery/info'
 import ArtistTattoo from '@/components/artistGallery/tattoo'
+import ErrorBoundary from "../errorBoundary/errrorBoundary";
 
 
 
@@ -19,7 +20,9 @@ export   function renderCategoryComponent(tab, categoryCollection) {
     case "all":
       return <All data={categoryCollection} />;
     case "tattoo":
-      return <Tattoo data={categoryCollection}  />;
+      return  <Tattoo data={categoryCollection}  />;
+        
+     
     case "artist":
       return <Artist data={categoryCollection}  />;
     case "flash":

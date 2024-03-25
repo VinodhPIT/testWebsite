@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../tattoodetail.module.css";
-import { fetchTattooDetail } from "@/apiConfig/webService";
+import { fetchTattooDetail ,fetchArtistDetail } from "../../api/web.service";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
-import { fetchArtistDetail } from "@/apiConfig/webService";
+
 import Link from "next/link";
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
@@ -36,7 +36,7 @@ export default function Detail({ data, status }) {
 
   useEffect(() => {
     styleCollection();
-  },[]);
+  }, []);
 
   const goBack = () => {
     router.back();
@@ -167,9 +167,9 @@ export default function Detail({ data, status }) {
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={data.artist.artist_name}
+                      alt={data.artist.artist_name??''}
                       priority
-                      src={data.artist.profile_image}
+                      src={data.artist.profile_image ??'/circle-user.png'}
                       width={100}
                       height={100}
                       placeholder="blur"
@@ -179,7 +179,7 @@ export default function Detail({ data, status }) {
                   <div className={styles.search_profile}>
                     <div className={styles.search_profile_content}>
                       <div className={styles.search_profile_name}>
-                        {data.artist.artist_name}
+                        {data.artist.artist_name??''}
                       </div>
                     </div>
                     <div className={styles.search_profile_link}>
@@ -219,12 +219,11 @@ export default function Detail({ data, status }) {
                   </div>
                 </div>
 
-                <div className={styles.product_style}>
-                  <span className={styles.product_style_label}>
-                    {t("common:image-tattoo-style")}
-                  </span>
-
-                  {getStyle.length > 0 && (
+                {getStyle.length > 0 && (
+                  <div className={styles.product_style}>
+                    <span className={styles.product_style_label}>
+                      {t("common:image-tattoo-style")}
+                    </span>
                     <ul className={styles.product_style_list}>
                       {getStyle.map((e) => {
                         return (
@@ -236,32 +235,32 @@ export default function Detail({ data, status }) {
                         );
                       })}
                     </ul>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 <div className={styles.product_detail_location}>
-                  <span className={styles.product_location_label}>
-                    {t("common:locations")}
-                  </span>
                   <div className={styles.product_location_list}>
-                    {location.length > 0 &&
-                      location.map((el) => {
-                        return (
+                    {location.length > 0 && (
+                      <>
+                        <span className={styles.product_location_label}>
+                          {t("common:locations")}
+                        </span>
+                        {location.map((el) => (
                           <span
                             className={styles.product_loc_title}
                             key={el.studio_uid}
                           >
                             <Image
+                              src="/location-small.svg"
                               width={16}
                               height={17}
-                              src="/location-small.svg"
                               alt="Berlin, Germany"
-                              priority
                             />
                             {el.city}, {el.country}
                           </span>
-                        );
-                      })}
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -332,12 +331,18 @@ export default function Detail({ data, status }) {
               </div>
             </div>
 
-            <div className={styles.titleWrapper}>
-              <h1>{t("common:you-might-like")}</h1>
-            </div>
+          
 
             {loading === true ? null : tattoo && tattoo.length > 0 ? (
+<>
+
+<div className={styles.titleWrapper}>
+<h1>{t("common:you-might-like")}</h1>
+</div>
+
               <div className={styles.grid_wrapper_tattoo}>
+          
+
                 {tattoo.map((item) => (
                   <Link
                     href={`/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`}
@@ -359,7 +364,9 @@ export default function Detail({ data, status }) {
                   </Link>
                 ))}
               </div>
+              </>
             ) : null}
+            
           </div>
 
           <TattooSearchModal

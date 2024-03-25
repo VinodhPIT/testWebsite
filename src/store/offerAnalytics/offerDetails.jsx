@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { offerDetails } from "@/apiConfig/offerAnalyticsService";
+import { offerDetails } from "@/pages/api/offerAnalytics.service";
 const useOfferDetail = create((set) => ({
   offerData: {},
   loading: false,

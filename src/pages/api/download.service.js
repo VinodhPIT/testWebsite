@@ -1,6 +1,5 @@
-import API_URL from "./api.config";
+import API_URL from "@/apiConfig/api.config";
 export const downloadExcel = async (path, type, startDate, endDate, token) => {
-  
   try {
     const url = `${
       process.env.apiDomain

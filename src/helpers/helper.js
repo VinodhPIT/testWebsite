@@ -2,7 +2,7 @@ import moment from "moment";
 import { MIN_RANDOM, MAX_RANDOM } from "@/constants/sharedConstants";
 import {
   getStyles,
-} from "@/apiConfig/webService";
+} from "@/pages/api/web.service";
 export const prepareRequest = (parameters) => {
   const request = {
     sort: parameters.sort,

@@ -51,7 +51,8 @@ export default function StyleDropdown({
         />
       </div>
       <div className={styles.custom_dropdown_content}>
-        {state.styleCollection.map((el) => {
+
+        {state.styleCollection&& state.styleCollection.map((el) => {
           return (
             <div key={el.slug} className={styles.custom_dropdown_col}>
               <label className={styles.custom_dropdown_label}>
@@ -68,7 +69,7 @@ export default function StyleDropdown({
             </div>
           );
         })}
-        .
+        
       </div>
       <div className={styles.custom_dropdown_btn}>
         <button

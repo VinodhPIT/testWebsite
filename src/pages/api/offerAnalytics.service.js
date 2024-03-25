@@ -1,13 +1,14 @@
-import { analyticsGetApiCall } from "./api.service";
-import API_URL from "./api.config";
+import axiosInstance from "../../apiConfig/axios.instance";
+import API_URL from "@/apiConfig/api.config";
+
 
 export const offerDetails = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_OFFER.GET_OFFER_DETAILS,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -15,11 +16,11 @@ export const offerDetails = async (token) => {
 
 export const offerCount = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_OFFER.GET_OFFER_COUNT,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -27,11 +28,11 @@ export const offerCount = async (token) => {
 
 export const offerCountFilter = async (params, token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_OFFER.OFFER_FILTER_BY_DATE(params),
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }

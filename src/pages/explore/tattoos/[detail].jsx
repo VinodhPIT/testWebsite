@@ -2,55 +2,41 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../tattoodetail.module.css";
-import { fetchTattooDetail } from "@/apiConfig/webService";
+import { fetchTattooDetail ,fetchArtistDetail } from "../../api/web.service";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
-import { fetchArtistDetail } from "@/apiConfig/webService";
+
 import Link from "next/link";
+import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/exploreScreens/searchField";
 import { useRouter } from "next/router";
-import style from "@/pages/explore/search.module.css";
-import {TattooSearchModal} from "@/utils/modalUtils";
+import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import myPromise from "@/utils/myPromise";
 import Loader from "@/components/loading/loader";
-import { getURL } from "next/dist/shared/lib/utils";
-import { getUrl } from "@/utils/getUrl";
 
-export default function Detail({ data, status, locale }) {
-
- 
-  
-  
-  const { isPopupOpen, openPopup, closePopup } = useModal();
+export default function Detail({ data, status }) {
   const router = useRouter();
-  const { state,getLocale, styleCollection  ,setSelectedIds ,clearStyleId , selectedIds, onSearch} = useGlobalState();
+  const { state, styleCollection, setSelectedIds, clearStyleId, onSearch } =
+    useGlobalState();
+  const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
-
   const [loading, setLoading] = useState(false);
   const [tattoo, setTattoo] = useState([]);
   const [getStyle, setStyle] = useState([]);
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
-
   useEffect(() => {
     styleCollection();
-    // setSelectedIds([])
-    // clearStyleId()
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);
+  }, []);
 
   const goBack = () => {
     router.back();
@@ -67,6 +53,7 @@ export default function Detail({ data, status, locale }) {
 
           setTattoo(res.data.tattoo);
           setStyle(res.data.style);
+
           setLocation(res.data.studio);
         } catch (error) {}
         setLoading(false);
@@ -80,51 +67,41 @@ export default function Detail({ data, status, locale }) {
   }
 
   const handleThumbnailClick = async (newItemImage) => {
-    
-   
-    setCurrentBigImage("");
     setLoading(true);
+    setCurrentBigImage("");
     let image = await myPromise(newItemImage);
-    setCurrentBigImage(image);
     setLoading(false);
+    setCurrentBigImage(image);
   };
 
-
-
-  
-  
   const chooseStyle = async (slug) => {
-     let updatedIds;
-     await setSelectedIds((prevIds) => {
-       updatedIds = prevIds.includes(slug)
-         ? prevIds.filter((id) => id === slug)
-         : [...prevIds, slug];
-   
-       return updatedIds;
-     });
-     await onSearch('tattoo', state.searchKey, updatedIds, state.location, router);
-   };
+    let updatedIds;
+    await setSelectedIds((prevIds) => {
+      updatedIds = prevIds.includes(slug)
+        ? prevIds.filter((id) => id === slug)
+        : [...prevIds, slug];
 
-
-
-
+      return updatedIds;
+    });
+    await onSearch(
+      "flash",
+      state.searchKey,
+      updatedIds,
+      state.location,
+      router
+    );
+  };
 
   return (
     <>
       <Head>
-      <title>
-        {t("common:tattooDetailScreen.title")}
-        </title>
+        <title>{t("common:flashDetailScreen.title")}</title>
         <meta
           name="description"
-          content={t("common:tattooDetailScreen.description")}
+          content={t("common:flashDetailScreen.description")}
         />
-        <meta
-          name="keywords"
-          content={t("common:tattooDetailScreen.keyword")}/>
-
+        <meta name="keywords" content={t("common:flashDetailScreen.keyword")} />
       </Head>
-
       <main>
         <div className="page_wrapper">
           <div className="container">
@@ -133,7 +110,7 @@ export default function Detail({ data, status, locale }) {
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
                     <SearchField
-                      currentTab={"tattoo"}
+                      currentTab={"flash"}
                       router={router}
                       isDetail={true}
                     />
@@ -143,7 +120,7 @@ export default function Detail({ data, status, locale }) {
 
               <SelectDropdown
                 searchKey={""}
-                currentTab={"tattoo"}
+                currentTab={"flash"}
                 selectedStyle={""}
                 lat={""}
                 lon={""}
@@ -164,17 +141,17 @@ export default function Detail({ data, status, locale }) {
                   onClick={goBack}
                 />
               </div>
+
               <div className={styles.product_media}>
                 {loading ? (
-                 <Loader/>
+                  <Loader />
                 ) : (
                   <Image
                     alt={data.style.name}
-                    loading="lazy"
+                    priority="high"
                     src={currentBigImage}
                     height={500}
                     width={500}
-                
                     style={{
                       height: "auto",
                       width: "100%",
@@ -182,7 +159,6 @@ export default function Detail({ data, status, locale }) {
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
                     quality={75}
-                  
                   />
                 )}
               </div>
@@ -191,9 +167,9 @@ export default function Detail({ data, status, locale }) {
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={data.artist.artist_name}
+                      alt={data.artist.artist_name??''}
                       priority
-                      src={data.artist.profile_image}
+                      src={data.artist.profile_image ??'/circle-user.png'}
                       width={100}
                       height={100}
                       placeholder="blur"
@@ -203,10 +179,7 @@ export default function Detail({ data, status, locale }) {
                   <div className={styles.search_profile}>
                     <div className={styles.search_profile_content}>
                       <div className={styles.search_profile_name}>
-                        {data.artist.artist_name}
-                      </div>
-                      <div className={styles.search_profile_details}>
-                        Switzerland, Germany
+                        {data.artist.artist_name??''}
                       </div>
                     </div>
                     <div className={styles.search_profile_link}>
@@ -221,51 +194,58 @@ export default function Detail({ data, status, locale }) {
                         target="_blank"
                         className={styles.profile_bookmark}
                       >
-                        <Image src="/bookmark-icon.svg" alt="bookmark icon" width={24} height={24} priority />
+                        <Image
+                          width={24}
+                          height={24}
+                          priority
+                          src="/bookmark-icon.svg"
+                          alt="bookmark icon"
+                        />
                       </a>
                       <a
                         onClick={openPopup}
                         target="_blank"
                         className={styles.profile_share}
                       >
-                        <Image src="/share-icon.svg" alt="share icon" width={24} height={24} />
+                        <Image
+                          width={24}
+                          height={24}
+                          priority
+                          src="/share-icon.svg"
+                          alt="share icon"
+                        />
                       </a>
                     </div>
                   </div>
                 </div>
 
-                <div className={styles.product_style}>
-                  <span className={styles.product_style_label}>
-                    {t("common:image-tattoo-style")}
-                  </span>
-
-                  {getStyle.length > 0 && (
+                {getStyle.length > 0 && (
+                  <div className={styles.product_style}>
+                    <span className={styles.product_style_label}>
+                      {t("common:image-tattoo-style")}
+                    </span>
                     <ul className={styles.product_style_list}>
                       {getStyle.map((e) => {
                         return (
                           <li key={e.id}>
-                           
-                            <button onClick={()=>chooseStyle(e.slug )}
-                             
-                            >
-                             
+                            <button onClick={() => chooseStyle(e.slug)}>
                               {e.name}
                             </button>
                           </li>
                         );
                       })}
                     </ul>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 <div className={styles.product_detail_location}>
-                  <span className={styles.product_location_label}>
-                    {t("common:locations")}
-                  </span>
                   <div className={styles.product_location_list}>
-                    {location.length > 0 &&
-                      location.map((el) => {
-                        return (
+                    {location.length > 0 && (
+                      <>
+                        <span className={styles.product_location_label}>
+                          {t("common:locations")}
+                        </span>
+                        {location.map((el) => (
                           <span
                             className={styles.product_loc_title}
                             key={el.studio_uid}
@@ -278,39 +258,92 @@ export default function Detail({ data, status, locale }) {
                             />
                             {el.city}, {el.country}
                           </span>
-                        );
-                      })}
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
 
+                <div className={styles.product_price_block}>
+                  <div className={styles.product_price_wrap}>
+                    {data.tattoo.max_price !== null ||
+                    data.tattoo.min_price !== null ? (
+                      <div>
+                        {data.tattoo.min_price !== null && (
+                          <span>
+                            <span className={styles.product_price_label}>
+                              {data.tattoo.max_price !== null
+                                ? t("common:flexible-price")
+                                : t("common:fixed-price")}
+                            </span>
+
+                            <span className={styles.product_price_value}>
+                              {data.currency.code} {data.tattoo.min_price}
+                            </span>
+                          </span>
+                        )}
+
+                        {data.tattoo.max_price !== null &&
+                          data.tattoo.min_price !== null && (
+                            <span className={styles.product_price_to}>to</span>
+                          )}
+
+                        {data.tattoo.max_price !== null && (
+                          <span className={styles.product_price_value}>
+                            {data.currency.code} {data.tattoo.max_price}
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        <span className={styles.product_price_label}>
+                          {t("common:flash-doesn't-price")}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <ul className={styles.download_app}>
                   <li className={styles.download_app_title}>
                     <h6>{t("common:download-our-app")}</h6>
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_APPLE}>
-                      <Image width={134} height={41} priority src="/app-store-new.svg" alt="app store" />
+                      <Image
+                        src="/app-store-new.svg"
+                        alt="app store"
+                        width={134}
+                        height={41}
+                      />
                     </Link>
                   </li>
                   <li>
                     <Link target="_blank" href={APP_LINK_GOOGLE}>
-                      <Image width={134} height={41} src="/g-play-new.svg" alt="g play" />
+                      <Image
+                        src="/g-play-new.svg"
+                        alt="g play"
+                        width={134}
+                        height={41}
+                      />
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className={styles.titleWrapper}>
-              <h1>{t("common:you-might-like")}</h1>
-            </div>
+          
 
             {loading === true ? null : tattoo && tattoo.length > 0 ? (
+
+              <>
+                <div className={styles.titleWrapper}>
+              <h1>{t("common:you-might-like")}</h1>
+            </div>
+         
               <div className={styles.grid_wrapper_tattoo}>
                 {tattoo.map((item) => (
                   <Link
-                    href={`/${router.locale}/explore/tattoos/${item.tattoo_uid}`}
-                    
+                    href={`/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch
@@ -318,19 +351,21 @@ export default function Detail({ data, status, locale }) {
                   >
                     <Image
                       alt={item.style_name}
-                      loading="lazy"
                       src={item.image_medium}
-                      fill
+                      layout="fill"
                       objectFit="cover"
                       placeholder="blur"
                       blurDataURL={BLUR_URL}
+                      loading="lazy"
                       quality={62}
                     />
                   </Link>
                 ))}
               </div>
+              </>
             ) : null}
           </div>
+
           <TattooSearchModal
             className="custom-modal"
             isOpen={isPopupOpen}

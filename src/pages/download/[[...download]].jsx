@@ -3,7 +3,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import Klarna from "@/marketingScreens/KlarnaPage/Klarna";
 import Voucher from "@/marketingScreens/VoucherPage/Voucher";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
-import { referralCode } from "@/apiConfig/webService";
+import { referralCode } from "../api/web.service";
 import Head from "next/head";
 
 

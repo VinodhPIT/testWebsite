@@ -1,6 +1,6 @@
 
 import { create } from "zustand";
-import { offerCountFilter } from "@/apiConfig/offerAnalyticsService";
+import { offerCountFilter } from "@/pages/api/offerAnalytics.service";
 import {offerApitype} from '@/analyticsComponents/common/constant';
 
 const useAnalyticsStore = create((set) => ({

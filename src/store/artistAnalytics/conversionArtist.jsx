@@ -1,7 +1,7 @@
 //
 
 import { create } from "zustand";
-import { artistConvertion } from "@/apiConfig/artistAnalyticsService";
+import { artistConvertion } from "@/pages/api/artistAnalytics.service";
 const useSArtistConversionStore = create((set) => ({
   registered: [],
   contacted:[],

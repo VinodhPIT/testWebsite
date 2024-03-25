@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { analyticsArtistCountWithFIlter } from "@/apiConfig/artistAnalyticsService";
+import { analyticsArtistCountWithFIlter } from "@/pages/api/customerAnalytics.service";
 import Apitype from '@/analyticsComponents/common/constant'
 
 const useAnalyticsStore = create((set) => ({

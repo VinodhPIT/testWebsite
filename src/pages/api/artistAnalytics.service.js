@@ -1,13 +1,10 @@
-import { analyticsGetApiCall } from "./api.service";
-import API_URL from "./api.config";
+import axiosInstance from "../../apiConfig/axios.instance";
+import API_URL from "@/apiConfig/api.config";
 
 export const analyticsArtistCount = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
-      API_URL.ANALYTICS_ARTISTS.GET_ARTIST_COUNT,
-      token
-    );
-    return response;
+    const response = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.GET_ARTIST_COUNT, { token });
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -15,11 +12,11 @@ export const analyticsArtistCount = async (token) => {
 
 export const analyticsArtistCountWithFIlter = async (params, token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_ARTISTS.ARTIST_FILTER_BY_DATE(params),
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -27,11 +24,11 @@ export const analyticsArtistCountWithFIlter = async (params, token) => {
 
 export const analyticsArtistLeadSourceCount = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_ARTISTS.GET_ARTIST_DETAILS,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -39,11 +36,11 @@ export const analyticsArtistLeadSourceCount = async (token) => {
 
 export const artistConvertion = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_ARTISTS.GET_ARTIST_CONVERSION,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -51,8 +48,8 @@ export const artistConvertion = async (token) => {
 
 export const artistConvesionWithCountryFilter = async (country, token) => {
   try {
-    const response = await analyticsGetApiCall(API_URL.ANALYTICS_ARTISTS.CONVERSION_COUNTRY(country) ,token);
-    return response;
+    const response = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.CONVERSION_COUNTRY(country) ,{token});
+    return response.data;
   } catch (error) {
     return [];
   }

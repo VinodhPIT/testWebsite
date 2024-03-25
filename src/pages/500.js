@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
-const Custom404 = () => {
+const Custom500 = () => {
   const { t } = useTranslation();
 
   return (
@@ -13,15 +13,21 @@ const Custom404 = () => {
             <div className="container">
               <div className="error_block">
                 <Image
-                  src="/404_img.svg"
-                  alt="404"
-                  width={410}
-                  height={98}
+                  src="/error.png"
+                  alt="500"
+                  width={128}
+                  height={128}
                   priority
                 />
 
-                <h1 className="page_title">{t("common:pageNotfound")}</h1>
-                <p>{t("common:cantfind")}</p>
+                <div className="mt_25 mb_25">
+                  <h1 className="page_title">
+                    We&apos;re experiencing technical difficulties. Please try
+                    again later. In the meantime, feel free to explore some of
+                    our other pages.
+                  </h1>
+                </div>
+
                 <Link
                   href="/"
                   alt="back to home"
@@ -38,4 +44,4 @@ const Custom404 = () => {
   );
 };
 
-export default Custom404;
+export default Custom500;

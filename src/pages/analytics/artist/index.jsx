@@ -7,7 +7,7 @@ import Header from "@/analyticsComponents/common/header";
 import {
   analyticsArtistCount,
   analyticsArtistLeadSourceCount,
-} from "@/apiConfig/artistAnalyticsService";
+} from "../../api/artistAnalytics.service";
 import ArtistsByCountryTable from "@/analyticsComponents/artist/artistsByCountry";
 import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
 import YourComponent from "@/analyticsComponents/common/keys";

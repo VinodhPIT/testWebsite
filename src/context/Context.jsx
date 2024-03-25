@@ -9,7 +9,7 @@ import {
   fetchCategoryData,
   fetchMultiData,
   getStyles,
-} from "@/apiConfig/webService";
+} from "@/pages/api/web.service";
 import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/utils/params";
 

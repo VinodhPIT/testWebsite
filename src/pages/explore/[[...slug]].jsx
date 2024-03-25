@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
-import {
-  fetchCategoryData,
-  fetchMultiData,
-} from "@/apiConfig/webService";
+import { fetchCategoryData, fetchMultiData } from "../api/web.service";
 import { Parameters } from "@/utils/params";
 import { renderCategoryComponent } from "@/components/exploreScreens/tab";
 import style from "@/pages/explore/search.module.css";
@@ -17,6 +14,7 @@ import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
 import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
 import { categoryMapping } from "@/constants/categoryMappings";
+import ErrorBoundary from "@/components/errorBoundary/errrorBoundary";
 
 const MobileDetect = require("mobile-detect");
 const Search = ({
@@ -130,20 +128,7 @@ const Search = ({
   };
 
   return (
-    <>
-      {/* <Head>
-        <title>
-          Explore Tattoo images, designs, and find tattoo artists with ease
-        </title>
-        <meta
-          name="description"
-          content="Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience."
-        />
-        <meta
-          name="keywords"
-          content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
-        />
-      </Head> */}
+ 
       <main>
         <div className={style.page_search_wrapper}>
           <div className="container">
@@ -163,7 +148,7 @@ const Search = ({
                   </div>
                 </div>
               </div>
-
+          
               <SelectDropdown
                 searchKey={searchKey}
                 currentTab={currentTab}
@@ -173,6 +158,7 @@ const Search = ({
                 router={router}
                 isDetail={false}
               />
+          
             </div>
 
             <div className={style.tab_container}>
@@ -208,12 +194,18 @@ const Search = ({
               </div>
             </div>
 
-            {renderCategoryComponent(
-              state.currentTab,
-              state.categoryCollection
-            )}
+   
 
-            {!state.loading &&
+ <ErrorBoundary>
+              {renderCategoryComponent(
+                state.currentTab,
+                state.categoryCollection
+              )}
+   </ErrorBoundary>
+
+
+
+             {!state.loading &&
               collectionLength.length !== 0 &&
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
@@ -231,11 +223,13 @@ const Search = ({
                     </button>
                   </div>
                 </div>
-              )}
+              )}       
+
+
           </div>
         </div>
       </main>
-    </>
+   
   );
 };
 
@@ -270,8 +264,8 @@ export async function getServerSideProps(context) {
       category,
       style: styleId,
       search_key: query.keyword ?? "",
-      latitude: placeDetails?.latitude??'0.00',
-      longitude: placeDetails?.longitude??"0.00",
+      latitude: placeDetails?.latitude ?? "0.00",
+      longitude: placeDetails?.longitude ?? "0.00",
       seed: getRandomSeed(),
     };
 
@@ -290,14 +284,16 @@ export async function getServerSideProps(context) {
         totalItems,
         searchKey: query.keyword ?? "",
         selectedStyle: query.style ?? "",
-        lat: placeDetails?.latitude??"0.00",
-        lon: placeDetails?.longitude??"0.00",
+        lat: placeDetails?.latitude ?? "0.00",
+        lon: placeDetails?.longitude ?? "0.00",
         locale,
         seed: fetchParams.seed,
         slugIds: styleId,
       },
     };
   } catch (error) {
-    return { props: { data: null } };
+ 
+    throw new  Error ('Error' ,error)
+     
   }
 }

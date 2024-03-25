@@ -6,7 +6,7 @@ import { currentYear, options, months } from "@/helpers/helper";
 import ConversionDataComponent from "../common/keys";
 import { percentageCalculate } from "../customer/customerConversion";
 import Loader from "@/components/loading/loader";
-import { artistConvesionWithCountryFilter } from "@/apiConfig/artistAnalyticsService";
+import { artistConvesionWithCountryFilter } from "@/pages/api/artistAnalytics.service";
 import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
 
 const ArtistConversion = ({ data, title, token, types }) => {

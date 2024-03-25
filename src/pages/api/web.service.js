@@ -1,15 +1,19 @@
 import { searchParam, fetchMulticategory } from "@/helpers/helper";
-import API_URL from "./api.config";
-import { getApiCall, postApiCall } from "./api.service";
+// import API_URL from "./api.config";
+// import { getApiCall, postApiCall } from "./api.service";
+
+import axiosInstance from "../../apiConfig/axios.instance";
+import API_URL from "@/apiConfig/api.config";
+
 
 export const fetchCategoryData = async (params) => {
   try {
-    const responseCategory = await postApiCall(
+    const responseCategory = await axiosInstance.post(
       API_URL.SEARCH.SEARCH_BY_CATRGORY(params),
       searchParam(params)
     );
 
-    return responseCategory; 
+    return responseCategory.data; 
   } catch (error) {
     return [];
   }
@@ -17,9 +21,9 @@ export const fetchCategoryData = async (params) => {
 
 export const getStyles = async () => {
   try {
-    const reponseStyles = await getApiCall(API_URL.SEARCH.GET_STYLE_ALL);
+    const reponseStyles = await axiosInstance.get(API_URL.SEARCH.GET_STYLE_ALL);
 
-    return reponseStyles;
+    return reponseStyles.data;
   } catch (error) {
     return [];
   }
@@ -97,8 +101,8 @@ export async function fetchMultiData(param) {
 
 export const fetchTattooDetail = async (params) => {
   try {
-    const response = await getApiCall(API_URL.SEARCH.GET_TATTOO_DETAIL(params));
-    return response;
+    const response = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(params));
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -106,8 +110,8 @@ export const fetchTattooDetail = async (params) => {
 
 export const fetchArtistDetail = async (slug) => {
   try {
-    const response = await getApiCall(API_URL.SEARCH.GET_ARTIST_DETAIL(slug));
-    return response;
+    const response = await axiosInstance.get(API_URL.SEARCH.GET_ARTIST_DETAIL(slug));
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -115,9 +119,9 @@ export const fetchArtistDetail = async (slug) => {
 
 export const artistGallery = async (uid) => {
   try {
-    const response = await getApiCall(API_URL.SEARCH.GET_ARTIST_GALLERY(uid));
+    const response = await axiosInstance.get(API_URL.SEARCH.GET_ARTIST_GALLERY(uid));
 
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -125,8 +129,8 @@ export const artistGallery = async (uid) => {
 
 export const referralCode = async (slug) => {
   try {
-    const response = await getApiCall(API_URL.SEARCH.GET_REFERRAL_CODE(slug));
-    return response;
+    const response = await axiosInstance.get(API_URL.SEARCH.GET_REFERRAL_CODE(slug));
+    return response.data;
   } catch (error) {
     return [];
   }

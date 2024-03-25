@@ -5,7 +5,7 @@ import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
 import Header from "@/analyticsComponents/common/header";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { offerCount } from "@/apiConfig/offerAnalyticsService";
+import { offerCount } from "../../api/offerAnalytics.service";
 import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import useOfferDetail from "@/store/offerAnalytics/offerDetails";
 import PieChart from "@/analyticsComponents/common/chart";

@@ -1,13 +1,13 @@
-import { analyticsGetApiCall } from "./api.service";
-import API_URL from "./api.config";
+import axiosInstance from "../../apiConfig/axios.instance";
+import API_URL from "@/apiConfig/api.config";
 
 export const analyticsCustomerCount = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_COUNT,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -15,11 +15,11 @@ export const analyticsCustomerCount = async (token) => {
 
 export const analyticsCustomerCountWithFIlter = async (params, token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_CUSTOMER.FILTER_BY_TYPE(params),
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -27,11 +27,11 @@ export const analyticsCustomerCountWithFIlter = async (params, token) => {
 
 export const analyticsCustomerLeadSourceCount = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_DETAILS,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -42,11 +42,11 @@ export const analyticsCustomerLeadSourceCountWithFIlter = async (
   token
 ) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_CUSTOMER.CUSTOEMR_FILTER_BY_DATE(params),
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -54,12 +54,12 @@ export const analyticsCustomerLeadSourceCountWithFIlter = async (
 
 export const analyticsRevenueDetails = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_CUSTOMER.GET_REVENUE_DETAILS,
-      token
+      {token}
     );
 
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }
@@ -67,11 +67,11 @@ export const analyticsRevenueDetails = async (token) => {
 
 export const analyticsConvertion = async (token) => {
   try {
-    const response = await analyticsGetApiCall(
+    const response = await axiosInstance.get(
       API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_CONVERSION,
-      token
+      {token}
     );
-    return response;
+    return response.data;
   } catch (error) {
     return [];
   }

@@ -4,10 +4,10 @@ import {
 
   analyticsCustomerCountWithFIlter,
   analyticsCustomerLeadSourceCountWithFIlter,
-} from "@/apiConfig/customerAnalyticsService"; // Importing analytics services
+} from "@/pages/api/customerAnalytics.service"; // Importing analytics services
 
 import useTranslation from "next-translate/useTranslation";
-import { downloadExcel } from "@/apiConfig/downloadService"; // Importing download service
+import { downloadExcel } from "@/pages/api/download.service"; // Importing download service
 import CountDisplayCard from "../common/countDisplayCard";
 
 const Apitype = {
