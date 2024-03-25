@@ -129,7 +129,7 @@ export default function CarouselSection({
           </div>
 
           <div className="d_flex align_item_left flex_direction_column mb_80 m_mb_0 m_pb_30 m_max_100 container">
-            <p class="custom_fs_20 custom_fs_m_18 color_gray_550 lh_33 mb_0 m_pb_15 text_left w_850 max_w_100pc">
+            <p class="custom_fs_18 color_gray_550 fw_300 mb_0 m_pb_15 text_left w_850 max_w_100pc">
               {content}
             </p>
           </div>

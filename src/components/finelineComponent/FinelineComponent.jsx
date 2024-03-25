@@ -46,7 +46,7 @@ const router = useRouter()
                     <h2>
                       <span>{t("common:homePage.TattooStyles")}</span>
                     </h2>                    
-                    <p className="m_mt_15 m_mb_20">{t("common:homePage.StylesContent")}</p>
+                    <p className="mt_20 m_mt_15 m_mb_20">{t("common:homePage.StylesContent")}</p>
                     <Link
                       href={`/${router.locale}/tattoo-styleguide`}
                       class="btn_secondary btn_cutom_new btn_img"
