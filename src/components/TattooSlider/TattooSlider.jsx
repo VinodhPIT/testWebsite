@@ -85,11 +85,11 @@ export default function FourColumnCarousel({
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_55 max_w_100pc m_pt_0 m_pb_30">
-              <h2 className="color_gray_550 text_center heading_h2 mb_30 m_mb_0 m_text_left">
+            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_30">
+              <h2 className="color_gray_550 text_center heading_h2 mb_20 m_mb_0 m_text_left">
                 <span>{title}</span>
               </h2>
-              <p className="custom_fs_24 custom_fs_m_18 color_gray_550 lh_33 m_mt_15 mb_0 m_text_left">
+              <p className="custom_fs_18 color_gray_550 m_mt_15 mb_0 m_text_left fw_300">
                 {content}
               </p>
             </div>

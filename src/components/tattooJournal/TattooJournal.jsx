@@ -90,7 +90,7 @@ export default function ListingPage({ data, error }) {
               <h2 className="color_gray_550 text_center heading_h2 mb_30 m_mb_0">
                 <span>{t("common:homePage.Tattoo Journal")}</span>
               </h2>
-              <p className="custom_fs_26 custom_fs_m_18 color_gray_550 lh_33 mb_0 m_mt_20 m_mb_0">{t("common:homePage.journalContent")}</p>
+              <p className="custom_fs_18 color_gray_550 mb_0 m_mt_20 m_mb_0">{t("common:homePage.journalContent")}</p>
             </div>
             <div className={`${'mt_45 mb_80 m_mb_30 m_mt_25'} ${styles.listing_pageContainer}`}>
               <Slider

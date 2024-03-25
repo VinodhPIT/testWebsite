@@ -20,7 +20,7 @@ const router = useRouter()
                   <h2>
                     <span>{t("common:homePage.TattooArtist")}</span>
                   </h2>
-                  <p className="m_mt_15 m_mb_20">{t("common:homePage.ArtistContent")}</p>
+                  <p className="mt_20 m_mt_15 m_mb_20">{t("common:homePage.ArtistContent")}</p>
                   <Link
                     href={`/${router.locale}/for-tattoo-artists`}
                     class="btn_secondary btn_cutom_new btn_img"

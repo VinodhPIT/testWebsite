@@ -1977,7 +1977,8 @@ button.btn_view_more:hover {
   height: 48px;
   padding: 8px 20px 8px 20px;
   font-size: 16px;
-  line-height: 21px;
+  line-height: 20px;
+  font-weight: 500;
 }
 
 .btn_cutom_new.btn_img { 
@@ -2231,6 +2232,9 @@ ul.download_app li:last-child {
 ul.download_app li.download_app_title {
   width: 100%;
   margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
 }
 
 ul.download_app li.download_app_title h6 {
@@ -2253,9 +2257,9 @@ ul.download_app li.download_app_title h6 {
 }
 
 .text_box_wrap .img_text_box_inner .text_box_content h2 {
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 80px;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
   margin: 0;
   padding: 0;
   letter-spacing: -2px;
@@ -2263,9 +2267,9 @@ ul.download_app li.download_app_title h6 {
 }
 
 .text_box_wrap .img_text_box_inner .text_box_content p {
-  font-size: 26px;
-  font-weight: 400;
-  line-height: 31px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 27px;
   margin-bottom: 32px;
   margin-top: 29px;
 }
@@ -2436,10 +2440,10 @@ ul.custom-listing li img {
 }
 
 .heading_h2 {
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   padding: 0;
-  letter-spacing: -2px;
+  letter-spacing: -1.4px;
 }
 
 .heading_h2_sub {
@@ -2488,8 +2492,8 @@ ul.custom-listing li img {
 }
 
 .custom_fs_63 {
-  font-size: 63px !important;
-  line-height: 75px !important;
+  font-size: 60px !important;
+  line-height: 60px !important;
 }
 
 .lh_30 {
@@ -4950,10 +4954,10 @@ button.language_switcher img {
     line-height: 45px;
   }
 
-  .text_box_wrap .img_text_box_inner .text_box_content p {
+  /*.text_box_wrap .img_text_box_inner .text_box_content p {
     font-size: 18px;
     line-height: 27px;
-  }
+  }*/
 
   .text_box_wrap .img_text_box_inner .text_box_content {
     width: 100%;
@@ -5619,9 +5623,7 @@ button.language_switcher img {
   }
 
   .heading_h2 {
-    /*font-size: 45px!important;
-    line-height: 50px!important;*/
-    font-size: 38px!important;
+    font-size: 34px!important;
     line-height: 45px!important;
   }
   .heading_h2_sub {
@@ -6718,7 +6720,7 @@ button.language_switcher img {
     display: block;
     position: absolute;
     inset: 0px;
-    left: 55%;
+    left: 58.33333333333333%;
   }
   .img_text_box_inner.custom_two_col_banner .img_box_wrap > span {
     display: block;
@@ -7423,15 +7425,15 @@ button.language_switcher img {
   header .nav_block {
     display: none;
   }
-  .text_box_wrap .img_text_box_inner .text_box_content h2 {
+ /* .text_box_wrap .img_text_box_inner .text_box_content h2 {
     font-size: 50px;
     line-height: 55px;
-  }
+  }*/
 
-  .text_box_wrap .img_text_box_inner .text_box_content p {
-    font-size: 22px;
+  /*.text_box_wrap .img_text_box_inner .text_box_content p {
+    font-size: 18px;
     line-height: 27px;
-  }
+  }*/
 
   .box_text_img_over h2 {
     font-size: 50px;
@@ -7473,8 +7475,8 @@ button.language_switcher img {
   }
 
   .heading_h2 {
-    font-size: 50px!important;
-    line-height: 55px!important;
+    font-size: 34px!important;
+    line-height: 60px!important;
   }
   
   .heading_h2_sub {

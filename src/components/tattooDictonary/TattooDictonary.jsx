@@ -27,7 +27,7 @@ export default function TattooDictonary() {
                     {t("common:homePage.Dictionary")}
                     </span>
                     </h2>
-                    <p className="m_mt_15 m_mb_20">{t("common:homePage.TattooDictionaryContent")}</p>
+                    <p className="mt_20 m_mt_15 m_mb_20">{t("common:homePage.TattooDictionaryContent")}</p>
                   <Link
                     href={`/${router.locale}/tattoo-dictionary`}
                     class="btn_secondary btn_cutom_new btn_img"
