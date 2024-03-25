@@ -14,7 +14,7 @@ import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
 import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
 import { categoryMapping } from "@/constants/categoryMappings";
-import ErrorBoundary from "@/components/errorBoundary/errrorBoundary";
+
 
 const MobileDetect = require("mobile-detect");
 const Search = ({
@@ -196,12 +196,12 @@ const Search = ({
 
    
 
- <ErrorBoundary>
+
               {renderCategoryComponent(
                 state.currentTab,
                 state.categoryCollection
               )}
-   </ErrorBoundary>
+
 
 
 
@@ -243,9 +243,7 @@ export async function getServerSideProps(context) {
   const isMobile = md.mobile();
   const category = categoryMapping[slug[0]] || null;
 
-  if (!category) {
-    return { notFound: true };
-  }
+
 
   const placeDetails = await getPlaceDetails(query.location ?? "");
 
@@ -293,7 +291,9 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
  
-    throw new  Error ('Error' ,error)
+    return {
+      notFound: true,
+    };
      
   }
 }

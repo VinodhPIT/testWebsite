@@ -21,7 +21,7 @@ import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import myPromise from "@/utils/myPromise";
 import Loader from "@/components/loading/loader";
 
-export default function Detail({ data, status }) {
+export default function Detail({ data }) {
   const router = useRouter();
   const { state, styleCollection, setSelectedIds, clearStyleId, onSearch } =
     useGlobalState();
@@ -333,7 +333,7 @@ export default function Detail({ data, status }) {
 
           
 
-            {loading === true ? null : tattoo && tattoo.length > 0 ? (
+            {!loading && tattoo && tattoo.length > 0 && (
 <>
 
 <div className={styles.titleWrapper}>
@@ -365,7 +365,7 @@ export default function Detail({ data, status }) {
                 ))}
               </div>
               </>
-            ) : null}
+            )}
             
           </div>
 
