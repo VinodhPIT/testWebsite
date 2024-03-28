@@ -5,6 +5,9 @@ import useWindowResize from "@/hooks/useWindowSize";
 import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
+import useTranslation from "next-translate/useTranslation";
+
+
 
 export default function LocationSearch({
   currentTab,
@@ -16,7 +19,10 @@ export default function LocationSearch({
   const { getAddress, state } = useGlobalState();
   const { isMobileView } = useWindowResize();
   const [address, setAddress] = useState("");
+  const { t } = useTranslation();
 
+
+ 
   const clear = async () => {
     setAddress("");
     getAddress("Location");
@@ -45,7 +51,7 @@ export default function LocationSearch({
     >
       <div className={styles.custom_toggleBox}>
         <div className={styles.custom_toggle_title}>
-          <h4>Search by Location</h4>
+          <h4>{t("common:Search by Location")}</h4>
           {isMobileView && (
             <div
               onClick={() => onToggle()}
@@ -77,12 +83,12 @@ export default function LocationSearch({
               <div className={styles.custom_toggle_col}>
                 <input
                   {...getInputProps({
-                    placeholder: "Search Location",
+                    placeholder: t("common:Search Location")
                   })}
                   className={styles.location_search_input}
                 />
                 <div className={styles.autocomplete_dropdown_container}>
-                  {loading && <div>Loading...</div>}
+                  {loading && <div>{t("common:Loading")}</div>}
                   {suggestions.map((suggestion, index) => {
                     const className = suggestion.active
                       ? "suggestion-item--active"
@@ -124,7 +130,7 @@ export default function LocationSearch({
             disabled={state.location === "" ? true : false}
             className="btn_outline_secondary w_100pc"
           >
-            Clear All
+            {t("common:Clear All")}
           </button>
 
           <button
@@ -132,7 +138,7 @@ export default function LocationSearch({
             disabled={address === ""}
             className="btn_secondary w_100pc"
           >
-            Show Results
+            {t("common:Show Results")}
           </button>
         </div>
       </div>

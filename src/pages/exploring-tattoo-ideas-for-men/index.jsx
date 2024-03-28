@@ -819,7 +819,7 @@ export default function TattooIdeasForMen() {
           content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
           button="Explore more artists"
           trendingArtist={trendingArtist}
-          linkUrl={`/${router.locale}/explore/tatttoo-artists`}
+          linkUrl={`/${router.locale}/explore/tattoo-artists`}
         />
 
         <SideBySideContentWithImage

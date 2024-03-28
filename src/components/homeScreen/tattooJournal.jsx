@@ -8,11 +8,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import useWindowResize from "@/hooks/useWindowSize";
-
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function ListingPage({ data, error }) {
   const { isMobileView } = useWindowResize();
+  const { t } = useTranslation();
+
   const router = useRouter();
 
   let sliderSettings = {};
@@ -86,9 +88,9 @@ export default function ListingPage({ data, error }) {
           <div className="justify_content_start block_bg_aero_blue_lite container w_100pc">
             <div class="text_box_content_inner max_w_100pc pt_80 pb_20 m_pt_40 m_pb_0">
               <h2 className="color_gray_550 text_center heading_h2 mb_30 m_mb_0">
-                <span>Tattoo Journal</span>
+                <span>{t("common:homePage.Tattoo Journal")}</span>
               </h2>
-              <p className="custom_fs_26 custom_fs_m_18 color_gray_550 lh_33 mb_0 m_mt_20 m_mb_0">Stay in the know with our Tattoo Journal. Get updates on the latest trends, legally required health and safety guidelines, and insider tips from the tattoo industry.</p>
+              <p className="custom_fs_18 color_gray_550 mb_0 m_mt_20 m_mb_0">{t("common:homePage.journalContent")}</p>
             </div>
             <div className={`${'mt_45 mb_80 m_mb_30 m_mt_25'} ${styles.listing_pageContainer}`}>
               <Slider

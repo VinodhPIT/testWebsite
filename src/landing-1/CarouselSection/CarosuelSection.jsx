@@ -118,12 +118,8 @@ export default function CarouselSection({
           </div>
           <div className="d_flex align_item_left flex_direction_column mb_20  m_max_100 container">
             <p
-              className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15"
-              style={{
-                width: "990px",
-                maxWidth: "100%",
-                textAlign: "left",
-              }}
+              className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_15 w_990 text_left max_w_100pc"
+             
             >
               {content}
             </p>

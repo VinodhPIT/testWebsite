@@ -1,10 +1,10 @@
 import React from "react";
-import style from "./privacy.module.css";
+import style from "./style.module.css";
 export default function Privacy() {
   return (
     <div className={style.mainWrapper}>
       <div className="container">
-        <h1 className={style.mainTitle}>Privacy Policy</h1>
+        
 
         <h2 className={style.title}>inckd. Datenschutzrichtlinie</h2>
 

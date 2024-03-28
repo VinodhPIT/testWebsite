@@ -25,19 +25,19 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                     <div className="text_box_content_inner max_w_100pc pt_80 pb_80 m_pt_40 m_pb_40">
                                         <div className="d_flex flex_direction_column mb_45 mt_0 m_mb_30">
                                             <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title1}</h4>
-                                            <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33">{content1}</p>
+                                            <p className="color_gray_550 mb_0 mt-15">{content1}</p>
                                         </div>
                                         
                                             <div className="d_flex flex_direction_column mb_45 m_mb_30">
                                                 <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title2}</h4>
-                                                <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content2}</p>
+                                                <p className="color_gray_550 mb_0 mt-15">{content2}</p>
                                             </div>
                                             
 
                                       
                                             <div className="d_flex flex_direction_column mb_0">
                                                 <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title3}</h4>
-                                                <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33 ">{content3}</p>
+                                                <p className="color_gray_550 mb_0 mt-15">{content3}</p>
                                             </div>
                                            
                                     </div>

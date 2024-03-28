@@ -85,7 +85,7 @@ function KlarnaNew({}) {
 
       city: "Wuppertal",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/patgry_bnxm5pks`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/patgry_bnxm5pks`,
     },
 
     {
@@ -97,7 +97,7 @@ function KlarnaNew({}) {
 
       city: "Rudgwick",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/samscylla_vxnki0ls`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/samscylla_vxnki0ls`,
     },
 
     {
@@ -109,7 +109,7 @@ function KlarnaNew({}) {
 
       city: "Norwich",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/cesarmesquita_v9yu3mul`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/cesarmesquita_v9yu3mul`,
     },
 
     {
@@ -121,7 +121,7 @@ function KlarnaNew({}) {
 
       city: "Madrid",
       country: "Spain",
-      url: `${process.env.LIVE_URL}/artists/Eani13_uao6eo6d`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/Eani13_uao6eo6d`,
     },
 
     {
@@ -133,7 +133,7 @@ function KlarnaNew({}) {
 
       city: "Katowice",
       country: "Poland",
-      url: `${process.env.LIVE_URL}/artists/maya-kubitza_f6y17wwp`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/maya-kubitza_f6y17wwp`,
     },
 
     {
@@ -145,7 +145,7 @@ function KlarnaNew({}) {
 
       city: "London",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/artists/luciatattoos_n98rnvgl`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/luciatattoos_n98rnvgl`,
     },
     {
       artistImage:
@@ -157,9 +157,10 @@ function KlarnaNew({}) {
       city: "Carlisle",
       country: "United Kingdom",
 
-      url: `${process.env.LIVE_URL}/artists/meganrae_4dszyy98`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/meganrae_4dszyy98`,
     },
   ];
+
 
   return (
     <>

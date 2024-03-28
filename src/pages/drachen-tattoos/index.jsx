@@ -27,6 +27,7 @@ export default function DrachenTattoos() {
   //   { image: "/benet-3.png" }
   //   ];
 
+
   const Discoverdiversity = [
     {
       artistImage:
@@ -37,7 +38,7 @@ export default function DrachenTattoos() {
 
       city: "Birmingham",
       country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/tattoo/b121f441-0033-4295-baf4-f83b77fffce5`,
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b121f441-0033-4295-baf4-f83b77fffce5`,
       altTag:"Dragon Tattoos"
     },
 
@@ -49,7 +50,7 @@ export default function DrachenTattoos() {
 
       city: "Barcelona",
       country: "Spain",
-      url: `${process.env.LIVE_URL}/tattoo/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`, altTag:"Dragon Tattoos"
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b4d0825e-f1dc-4721-8e21-fd4d18079ad1`, altTag:"Dragon Tattoos"
     },
 
     {
@@ -62,7 +63,7 @@ export default function DrachenTattoos() {
       city: "Zürich",
 
       country: "Switzerland",
-      url: `${process.env.LIVE_URL}/tattoo/f775f716-4f76-4335-a41a-0ec2b5b9596a`, altTag:"Dragon Tattoos"
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f775f716-4f76-4335-a41a-0ec2b5b9596a`, altTag:"Dragon Tattoos"
     },
   ];
 
@@ -76,7 +77,7 @@ export default function DrachenTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/jackquadri_lz7r97vb`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/jackquadri_lz7r97vb`,
     },
     {
       artistImage:
@@ -86,7 +87,7 @@ export default function DrachenTattoos() {
       name: "Pablo Ferrukt",
       city: "Berlin",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/pablo-ferrukt_znfil6iu`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/pablo-ferrukt_znfil6iu`,
     },
 
     {
@@ -97,7 +98,7 @@ export default function DrachenTattoos() {
       name: "Roots-n-wings",
       city: "Berlin",
       country: "Germany",
-      url: `${process.env.LIVE_URL}/artists/roots-n-wings_m5uw8u0h`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/roots-n-wings_m5uw8u0h`,
     },
 
     {
@@ -109,9 +110,10 @@ export default function DrachenTattoos() {
       city: "Berlin",
       country: "Germany",
 
-      url: `${process.env.LIVE_URL}/artists/jackquadri_lz7r97vb`,
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/jackquadri_lz7r97vb`,
     },
   ];
+
 
   return (
     <>

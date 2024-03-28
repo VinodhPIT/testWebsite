@@ -109,12 +109,7 @@ export default function SelectDropdown({
                 className={style.filter_icon}
                 priority
               />
-              <span>Styles</span>
-              {state.styleId.length !== 0 && (
-                <span className={style.notification_count}>
-                  {state.styleId.length}
-                </span>
-              )}
+              <span>{t("common:Style")}</span>{state.styleId.length!==0 && <span className={style.notification_count}>{state.styleId.length}</span>}
             </button>
 
             {toggle && !isMobileView && (

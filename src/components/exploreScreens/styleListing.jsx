@@ -3,6 +3,8 @@ import { useGlobalState } from "@/context/Context";
 import styles from "./styles/dropdown.module.css";
 import { getUrl } from "@/utils/getUrl";
 import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
+
 export default function StyleDropdown({
   searchKey,
   currentTab,
@@ -18,6 +20,9 @@ export default function StyleDropdown({
     await getUrl(currentTab, searchKey, "", state.location, router);
     onToggle();
   };
+
+    const { t } = useTranslation();
+
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
@@ -40,7 +45,7 @@ export default function StyleDropdown({
 
   return (
     <div className={styles.custom_dropdown}>
-      <h4>Style</h4>
+      <h4>{t("common:Style")}</h4>
       <div className={styles.custom_dropdown_close} onClick={() => onToggle()}>
         <Image
           src="/icon-close-drop.svg"
@@ -77,14 +82,14 @@ export default function StyleDropdown({
           onClick={() => clearAll()}
           className="btn_outline_secondary w_100pc"
         >
-          Clear All
+         {t("common:Clear All")}
         </button>
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
           className="btn_secondary w_100pc"
         >
-          Show Results
+          {t("common:Show Results")}
         </button>
       </div>
     </div>

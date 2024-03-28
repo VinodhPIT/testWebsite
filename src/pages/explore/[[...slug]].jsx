@@ -210,7 +210,7 @@ const Search = ({
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
                   <p>
-                    See out of {collectionLength.length}/{state.totalItems}
+                  {t("common:See out of")} {collectionLength.length}/{state.totalItems}
                   </p>
                   <div className={style.btn_wrapper}>
                     <button
@@ -268,8 +268,7 @@ export async function getServerSideProps(context) {
     };
 
     const results = await fetchFunction(fetchParams);
-    const totalItems =
-      category === "all" ? results.totalCount : results.rows.total.value;
+    const totalItems  =category === "all" ? results.totalCount : results.rows.total.value;
     const data = category === "all" ? results.data : results.rows.hits;
 
     const addData = await addAdsToResults(data, isMobile);

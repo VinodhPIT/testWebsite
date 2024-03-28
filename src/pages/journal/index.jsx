@@ -10,22 +10,23 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 
 export default function ListingPage({ data, locale }) {
+  const [listing, setListing] = useState([]);
+  const [error, setError] = useState(false);
+  const router = useRouter();
+  const { t } = useTranslation();
 
-
-// Constants and state variables
-const [error, setError] = useState(false);
-const [listing, setListing] = useState([]);
-const router = useRouter();
-const { t } = useTranslation();
-// Effect to set listing and handle error
-useEffect(() => {
-  if (!data[locale] || !Array.isArray(data[locale]) || data[locale].length === 0) {
-    setError(true);
-  } else {
-    setListing(data[locale]);
-    setError(false);
-  }
-}, [data, locale, router, error]);
+  useEffect(() => {
+    if (
+      !data[locale] ||
+      !Array.isArray(data[locale]) ||
+      data[locale].length === 0
+    ) {
+      setError(true);
+    } else {
+      setListing(data[locale]);
+      setError(false);
+    }
+  }, [data, locale, router, error]);
 
 
 
@@ -33,10 +34,10 @@ useEffect(() => {
   return (
     <>
       <Head>
-        <title>{t("common:journalListing.title")}</title>
+        <title>{t("common:journalTitle")}</title>
         <meta
           name="description"
-          content={t("common:journalListing.tips&Techniques")}
+          content={t("common:subText")}
         />
 
       </Head>
@@ -62,10 +63,10 @@ useEffect(() => {
               <div className={`${""} ${styles.banner_content}`}>
                 <div className={styles.banner_caption}>
                   <h1>
-                    <span>{t("common:journalListing.title")}</span>
+                    <span>{t("common:journalTitle")}</span>
                   </h1>
                   <p className="max_w_100pc mb_0 mt_20">
-                  {t("common:journalListing.tips&Techniques")}
+                  {t("common:subText")}
                   </p>
                 </div>
               </div>
@@ -120,7 +121,7 @@ useEffect(() => {
                                     <div
                                       className="btn_primary btn_img btn_custom_48"
                                     >
-                                      {t("common:Read more")}
+                                       {t("common:Read more")}
                                       <Image
                                         src="/arow-white-right.svg"
                                         width={24}

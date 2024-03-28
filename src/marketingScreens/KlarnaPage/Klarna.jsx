@@ -138,7 +138,7 @@ function KlarnaPage() {
           <div className="img_text_box_wrapper">
             <div className={"text_box_wrap right pb_75 pt_75 m_pt_30 m_pb_40"}>
               <div className="container">                
-                <h3 className="color_gray_550 text_left heading_h2 pb_50 pt_0 m_pb_30 m_text_Black">You choose how you want to pay!</h3>
+                <h3 className="color_gray_550 text_left heading_h2 pb_50 pt_0 m_pb_30 m_text_Black">{t("common:klarnaPage.MainTitle2")}</h3>
                 <div className={style.listGrid}>
                   {listingItems.map((el, index) => {
                     return (

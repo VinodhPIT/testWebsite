@@ -21,6 +21,8 @@ import {
   LABEL,
 } from "@/constants/sharedConstants";
 
+
+
 export default function ArtistAnalytics({ data: initialData }) {
   const { artistConversion } = YourComponent();
   const { status, data } = useSession();

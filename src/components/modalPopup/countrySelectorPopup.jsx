@@ -5,6 +5,7 @@ import countriesData from "@/data/countries.json";
 import styles from "./style.module.css";
 import { useRouter } from "next/router";
 import setLanguage from "next-translate/setLanguage";
+import useTranslation from "next-translate/useTranslation";
 
 const customStyles = {
   overlay: {
@@ -27,14 +28,19 @@ const customStyles = {
   },
 };
 const CountrySelectorModel = ({ isOpen, closeModal }) => {
-  const router = useRouter();
-  const [country, setCountry] = useState([]);
+
+  const router = useRouter()
+  const [country, setCountry] = useState([])
+  const { t } = useTranslation();
+
 
   useEffect(() => {
     setCountry(countriesData);
   }, []);
 
   const chooseLanguage = async (id, domain, li) => {
+
+
     await setLanguage(`${domain}-${li}`);
     closeModal();
     const newUrl = `/${domain}-${li}${router.asPath}`;
@@ -58,13 +64,9 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
           </button>
 
           <div className={styles.language_popup}>
-            <h3>Choose your region and language</h3>
-            <p>Tailor Your Experience by Choosing Region and Language</p>
-            <div
-              className={`${"language_popup_block"} ${
-                styles.language_popup_block
-              }`}
-            >
+            <h3>{t("common:Choose your region and language")}</h3>
+            <p>{t("common:LanguagePopup-subText")}</p>
+            <div className={`${'language_popup_block'} ${styles.language_popup_block}`}>
               <ul>
                 {country.map((e) => {
                   return (

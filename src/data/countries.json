@@ -11,11 +11,11 @@
   {
     "id": 2,
     "country": "Germany",
-    "language": "English",
+    "language": "German",
     "image": "/germany.svg",
     "domain": "de",
-    "lng": "en",
-    "set": "de-en"
+    "lng": "de",
+    "set": "de-de"
   },
 
   {
@@ -150,11 +150,11 @@
   {
     "id": 17,
     "country": "Spain",
-    "language": "English",
+    "language": "Spanish",
     "image": "/spain.svg",
     "domain": "es",
-    "lng": "en",
-    "set": "es-en"
+    "lng": "es",
+    "set": "es-es"
   },
   {
     "id": 18,

@@ -12,7 +12,7 @@ export default function FourColumnCarousel({
   title_sub,
   content,
   button,
-  trendingArtist,
+  trendingArtist,btnLink
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -85,11 +85,11 @@ export default function FourColumnCarousel({
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_55 max_w_100pc m_pt_0 m_pb_30">
-              <h2 className="color_gray_550 text_center heading_h2 mb_30 m_mb_0 m_text_left">
+            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_30">
+              <h2 className="color_gray_550 text_center heading_h2 mb_20 m_mb_0 m_text_left">
                 <span>{title}</span>
               </h2>
-              <p className="custom_fs_24 custom_fs_m_18 color_gray_550 lh_33 m_mt_15 mb_0 m_text_left">
+              <p className="custom_fs_18 color_gray_550 m_mt_15 mb_0 m_text_left fw_300">
                 {content}
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function FourColumnCarousel({
               </div>
               <div className="d_flex flex_flow_wrap justify_content_center">
                 <Link
-                  href="/explore/tattoo-artists"
+                  href={btnLink}
                   className="btn_secondary btn_cutom_new btn_img mt_30 mob_hidden"
                 >
                   {button}
@@ -186,7 +186,7 @@ export default function FourColumnCarousel({
           <div className="text_box_content_inner container max_w_100pc pt_80 pb_25 m_pt_0 m_pb_20 ml_0 desk_hidden mt_30">
             <div className="d_flex align_item_start text_left justify_space_between m_justify_content_center">
               <Link
-                href="/explore/tattoo-artists"
+                href={btnLink}
                 className="btn_secondary btn_cutom_new btn_img m_mt_20 m_mb_20"
               >
                 {button}

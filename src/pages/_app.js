@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
+import "@/styles/cms.css";
 import loadGoogleMapsAPI from "@/utils/google-maps";
 import NProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
@@ -18,7 +19,7 @@ NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
   style: ["normal"],
-  weight: ["400", "700", "900", "600"],
+  weight: ["300", "400", "700", "900", "500", "600"],
   subsets: ["latin"],
 });
 
@@ -118,7 +119,11 @@ function MyApp({ Component, pageProps }) {
         );
 
       case "/faq":
-      case "/privacy-policy":
+      case "/privacy_policy":
+      case "/terms&conditions":
+      case "/impressum":
+        case"/user_data_policy":
+        case"/privacy-policy":
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
