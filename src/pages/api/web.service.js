@@ -29,75 +29,55 @@ export const getStyles = async () => {
   }
 };
 
+
+
+
 export async function fetchMultiData(param) {
   try {
-    const tattooFetch = await fetch(
+    const tattooRes = await axiosInstance.post(
       `${process.env.apiDomain}${API_URL.SEARCH.GET_TATTOO_SEARCH}`,
       {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-          fetchMulticategory({
-            ...param,
-            category: (param.category = "tattoo"),
-          })
-        ),
-      }
+        ...fetchMulticategory({
+          ...param,
+          category: "tattoo",
+        }),
+      },
     );
 
-    const flashFetch = await fetch(
+    const flashRes = await axiosInstance.post(
       `${process.env.apiDomain}${API_URL.SEARCH.GET_FLASH_SEARCH}`,
       {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-          fetchMulticategory({ ...param, category: (param.category = "flash") })
-        ),
-      }
+        ...fetchMulticategory({
+          ...param,
+          category: "flash",
+        }),
+      },
     );
 
-    // const artistsFetch = await fetch(`${process.env.apiDomain}/artist/search`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(
-    //     fetchMulticategory({ ...param, category: (param.category = "artist") })
-    //   ),
-    // });
-
-    const [tattooRes, flashRes, artistsRes] = await Promise.all([
-      tattooFetch,
-      flashFetch,
-      // artistsFetch,
-    ]);
-
-    const [tattoosResult, flashesResult, artistsResult] = await Promise.all([
-      tattooRes.json(),
-      flashRes.json(),
-      // artistsRes.json(),
+    const [tattoosResult, flashesResult] = await Promise.all([
+      tattooRes.data,
+      flashRes.data,
     ]);
 
     const shuffledResults = [
       ...tattoosResult.rows.hits,
       ...flashesResult.rows.hits,
-      // ...artistsResult.rows.hits,
     ];
 
     const resultsCount =
       tattoosResult.rows.total.value + flashesResult.rows.total.value;
-    // artistsResult.rows.total.value;
 
     return {
       data: shuffledResults,
       totalCount: resultsCount,
     };
-  } catch (error) {}
+    
+  } catch (error) {
+    throw error; // Rethrow the error to propagate it
+  }
 }
+
+
 
 export const fetchTattooDetail = async (params) => {
   try {
