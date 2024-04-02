@@ -1,0 +1,208 @@
+.full_col_block {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+.full_col_banner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    z-index: -1;
+}
+.banner_fixed_block {
+    width: 100%;
+    height: 100%;
+}
+.banner_fixed_block:after {
+    content: "";
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 113.37%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.request_landing_block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;    
+    justify-content: center;
+
+}
+/*
+ul.request_landing_progressbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: relative;
+    gap: 101px
+}
+ul.request_landing_progressbar li {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    position: relative;
+    margin-top: 16px;
+    text-align: center;
+}
+ul.request_landing_progressbar li span {
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+ul.request_landing_progressbar li:before {
+  content: "";
+  background: #ffffff;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  top: -16px;
+}
+
+
+ul.request_landing_progressbar:before {
+    content: "";
+    background: #E1E4E8;
+    height: 2px;
+    top: 7px;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+}
+ul.request_landing_progressbar li:first-child span {
+    left: -40%;
+    background-color: red;
+}
+ul.request_landing_progressbar li:last-child:before {
+    right: 0;
+    left: inherit;
+}
+ul.request_landing_progressbar li:first-child:before {
+    margin: 0;
+}
+ul.request_landing_progressbar li:last-child span {
+    right: -40%;
+    background-color: red;
+}
+
+*/
+
+.request_stepper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: start;
+    justify-content: center;
+    max-width: 913px;
+    margin: 0 auto;
+    position: relative;
+    top: 5px;
+  }
+  .request_stepper_item{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: auto;  
+  }
+  .request_stepper_item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #E1E4E8;
+    width: 100%;
+    top: 0px;
+    left: -50%;
+    z-index: 2;
+  }
+  .request_stepper_item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #E1E4E8;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    z-index: 2;
+  }
+  .request_stepper_item .request_stepper_counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    top: -7px;
+  }
+  .request_stepper_item .request_stepper_name {
+      color: #fff;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      height: 100%;
+      display: inline-block;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+  }
+  .request_stepper_item:first-child::before {
+    content: none;
+  }
+  .request_stepper_item:last-child::after {
+    content: none;
+  }
+  .request_landing_caption {
+    margin-top: 55px;
+}
+
+.request_landing_caption h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 60px;
+    margin: 0 0 15px;
+    padding: 0;
+    color: #fff;
+}
+
+.request_landing_caption p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    color: #fff;
+    margin: 0;
+}
+
+.request_back_arrow {
+    position: absolute;
+    top: 60px;
+    left: 5.5vw;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border-radius: 60px;
+    border: 1px solid #FFF;
+    cursor: pointer;
+}
