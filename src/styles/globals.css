@@ -1657,6 +1657,11 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .b_radius {
   border-radius: 22px!important;
 }
+
+.min_h_100_vh {
+  min-height: 100Vh!important;
+}
+
 /* button style */
 .btn_primary {
   display: inline-flex;
@@ -1989,6 +1994,13 @@ button.btn_view_more:hover {
   height: 20px !important;
 }
 
+.btn_cutom_40 {
+  height: 40px;
+  padding: 6px 16px 6px 16px;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500;
+}
 .btn_regist {
   display: inline-flex;
   height: 43px;
