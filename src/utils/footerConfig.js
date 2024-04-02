@@ -3,7 +3,7 @@ const pagesWithoutFooter = [
     "/analytics/login",
     "/analytics/customer",
     "/analytics/artist",
-    "/analytics/offer",
+    "/analytics/offer",'/requestForm'
   ];
   
   export default pagesWithoutFooter;
