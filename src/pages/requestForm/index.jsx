@@ -2,13 +2,12 @@ import React from "react";
 import dynamic from "next/dynamic";
 import TattooSize from "@/components/stepperComponents/tattooSize";
 import BodyPart from "@/components/stepperComponents/bodyPart";
-import Description from '@/components/stepperComponents/description'
-import Reference from '@/components/stepperComponents/reference'
-import Artist from '@/components/stepperComponents/artist'
-import  Contact from '@/components/stepperComponents/contact'
-import  Review from '@/components/stepperComponents/review'
+import Description from "@/components/stepperComponents/description";
+import Reference from "@/components/stepperComponents/reference";
+import Artist from "@/components/stepperComponents/artist";
+import Contact from "@/components/stepperComponents/contact";
+import Review from "@/components/stepperComponents/review";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
-
 
 const StepperComponent = dynamic(
   () => import("@/components/stepperComponents/stepper"),
@@ -29,11 +28,11 @@ const steps = [
 export default function Index() {
   const components = [
     <TattooSize />,
-     <BodyPart />,
-     <Description />,
-     <Reference />,
-      <Artist />,
-     <Contact />,
+    <BodyPart />,
+    <Description />,
+    <Reference />,
+    <Artist />,
+    <Contact />,
     <Review />,
   ];
 
@@ -52,6 +51,7 @@ export default function Index() {
   return (
     <div>
       <StepperComponent steps={steps} activeStep={activeStep} />
+
       {getPageComponent(pageNo)}
     </div>
   );

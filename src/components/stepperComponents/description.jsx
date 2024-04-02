@@ -1,10 +1,12 @@
-// components/Reference.js
+
 import React, { useState } from "react";
-import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+import { useRequestForm } from "@/store/requestManagement/requestForm"; 
+import useTranslation from "next-translate/useTranslation";
+
 
 const Description = () => {
   const { message, setDescription, nextPage } = useRequestForm(); // Zustand store and setter
-
+  const { t } = useTranslation();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -13,17 +15,16 @@ const Description = () => {
 
   return (
     <div>
-      <h2>Description</h2>
+       <h2>{t("common:stepper.title3")}</h2>
       <form onSubmit={handleSubmit}>
         <textarea
           value={message}
           onChange={(event) => setDescription(event.target.value)}
-          placeholder="Enter your  message..."
+          placeholder={t("common:stepper.typeDescription")}
           rows={4} // Set the number of rows for the textarea
           cols={50} // Set the number of columns for the textarea
         />
-        <br />
-        {message && <button type="submit">Save</button>}
+        {message && <button type="submit">{t("common:next")}</button>}
       </form>
     </div>
   );

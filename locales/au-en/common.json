@@ -266,7 +266,8 @@
     "Please select one option": "Please select one option",
     "Email is required": "Email is required",
     "Message is required": "Message is required",
-    "Invalid email": "Invalid email"
+    "Invalid email": "Invalid email",
+    "InvalidNumber" :"Invalid phone number"
   },
 
   "faqScreen": {
@@ -416,20 +417,21 @@
   "Month": "Month",
   "Percentage": "Percentage",
 
-   "journalTitle":"inckd. Tattoo Journal:",
-    "subText":"Latest Tattoo Trends, Tips, and Techniques",
-    "See out of":"See out of",
-    "Style":"Style",
-    "Search by Location":"Search by Location",
-    "Clear All":"Clear All",
-    "Show Results":"Show Results",
-    "Loading":"Loading...",
-    "Search Location":"Search Location",
 
-
-
-
+  "journalTitle":"inckd. Tattoo Journal:",
+  "subText":"Latest Tattoo Trends, Tips, and Techniques",
+  "See out of":"See out of",
+  "Style":"Style",
+  "Search by Location":"Search by Location",
+  "Clear All":"Clear All",
+  "Show Results":"Show Results",
+  "Loading":"Loading...",
+  "Search Location":"Search Location",
+  "next" :"Next",
+  "goBack" :"Go back",
   
+   
+
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
     "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
@@ -520,10 +522,36 @@
   },
 
    "terms-conditions":{"title":"Terms and Conditions"},
-   "privacy-policy":{"title":"Privacy-Policy"},
-     "Impressum" :{"title":"Impressum"},
-     "User Data Policy" :{"title":"User Data Policy"},
+  "privacy-policy":{"title":"Privacy-Policy"},
+  "Impressum" :{"title":"Impressum"},
+  "User Data Policy" :{"title":"User Data Policy"},
 
+
+"requestForm":{
+  "landingTitle": "Describe your tattoo idea and share it with multiple artists.",
+  "subText":"Get personalized quotes and choose the artist who perfectly captures your vision.",
+  "startDescribing" :"Start describing"
+},
+
+"stepper":{
+   "title1":"How big would you like your tattoo to be?",
+   "title2":"Where do you want your tattoo?",
+   "title3":"How would your dream tattoo look like?",
+   "title4":"Add reference images",
+   "title5":"Now, choose among multiple artists",
+   "title6":"Share your contact information",
+   "title7":"Review your selections and confirm",
+  "typeDescription" :"Type your description here",
+  "description" :"Description",
+  "contactInformation" :"Contact information",
+  "referenceImages" :"Reference images",
+  "selectedArtists" :"Selected artists",
+  "enterEmail" :"Enter your Email",
+  "enterPhone" :"Enter your phone number(optional)",
+  "save" :"Save",
+  "tattooSize" :"Tattoo Size",
+  "tatooPosition" :"Tatoo position"
+},
 
 
   "AnalyticLogin":{

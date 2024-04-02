@@ -2,17 +2,16 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+import useTranslation from "next-translate/useTranslation";
+
+
+
+
+
+
+
 
 const ContactForm = () => {
-  const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-      phone: Yup.string()
-      .matches(/^[0-9()+\- ]+$/, "Invalid phone number")
-  });
-
-
 
   const {
     setEmail,
@@ -27,10 +26,23 @@ const ContactForm = () => {
     setPhone(values.phone); // Update phone in Zustand state
     nextPage();
   };
+  const { t } = useTranslation();
+
+
+
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email(t("common:contactUsPage.Invalid email"))
+      .required(t("common:contactUsPage.Email is required")),
+      phone: Yup.string()
+      .matches(/^[0-9()+\- ]+$/, t("common:contactUsPage.InvalidNumber"))
+  });
+
+  
 
   return (
     <div>
-      <h2>Contact Form</h2>
+     <h5>{t("common:stepper.title6")}</h5>
       <Formik
         initialValues={{ email: storedEmail, phone: storedPhone }}
         validationSchema={validationSchema}
@@ -39,16 +51,16 @@ const ContactForm = () => {
         {({ errors, touched }) => (
           <Form>
             <div>
-              <label htmlFor="email">Enter your email</label>
+              <label htmlFor="email">{t("common:stepper.enterEmail")}</label>
               <Field type="email" id="email" name="email" />
               <ErrorMessage name="email" component="div" className="error" />
             </div>
             <div>
-              <label htmlFor="phone">Enter your phone number (optional)</label>
+              <label htmlFor="phone">{t("common:stepper.enterPhone")}</label>
               <Field type="text" id="phone" name="phone" />
               <ErrorMessage name="phone" component="div" className="error" />
             </div>
-            <button type="submit">Submit</button>
+             <button type="submit">{t("common:next")}</button>
           </Form>
         )}
       </Formik>

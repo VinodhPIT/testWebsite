@@ -4,7 +4,7 @@ import Stepper from "react-stepper-horizontal";
 
 const StepperComponent = ({ steps, activeStep }) => {
   const generateStepTitle = (title, index) => {
-    const isCompleted = index < activeStep; // Check if step is completed
+    const isCompleted = index < activeStep; 
 
     return (
       <div style={{ textAlign: "center" }}>
@@ -31,6 +31,8 @@ const StepperComponent = ({ steps, activeStep }) => {
   };
 
   return (
+
+
     <Stepper
       steps={steps.map((step, index) => ({
         title: generateStepTitle(step.title, index),
@@ -50,6 +52,8 @@ const StepperComponent = ({ steps, activeStep }) => {
       circleFontSize={0}
       circleTop={0}
     />
+
+    
   );
 };
 
