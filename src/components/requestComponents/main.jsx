@@ -2,7 +2,13 @@ import React from 'react'
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 
+import Link from "next/link";
+
+import {useNavigation} from "@/hooks/useRouter"
 export default function Main() {
+
+const {router} = useNavigation()
+
   return (
     <>  
         <div className="full_col_block min_h_100_vh">
@@ -26,6 +32,7 @@ export default function Main() {
                     <div className="row">
                         <div className="col-md-12">
                             <div class="request_back_arrow">
+                                <Link  href={`${router.locale}/`}>
                                 <Image
                                     priority
                                     alt="backArrow"
@@ -35,6 +42,7 @@ export default function Main() {
                                     blurDataURL={blurDataURL}
                                     className="m_object_position_center"
                                 />
+                                </Link>
                             </div>
                             <div class="request_stepper">
                                 <div class="request_stepper_item">
@@ -67,7 +75,11 @@ export default function Main() {
                                     <span>Describe your tattoo idea and share it with multiple artists.</span>
                                 </h1>
                                 <p>Get personalized quotes and choose the artist who perfectly captures your vision.</p>
-                                <a className="btn_default btn_cutom_40 mt_40 m_mt_0" href="#">Start describing</a>
+
+
+                                <Link className="btn_default btn_cutom_40 mt_40 m_mt_0" href={`${router.locale}/requestForm`}>Start describing</Link>
+
+                                
                             </div>
                             
                         </div>
