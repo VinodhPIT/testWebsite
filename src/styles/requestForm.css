@@ -1,39 +1,44 @@
 .full_col_block {
-    width: 100%;
-    position: relative;
-    padding: 0;
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  padding: 0;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
 }
+
 .full_col_banner {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    padding: 0;
-    position: absolute;
-    z-index: -1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 0;
+  position: absolute;
+  z-index: -1;
 }
+
 .banner_fixed_block {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
+
 .banner_fixed_block:after {
-    content: "";
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 113.37%);
-    position: absolute;
-    height: 100%;
-    width: 100%;
+  content: "";
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 113.37%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
+
 .request_landing_block {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    text-align: center;    
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
 
 }
+
 /*
 ul.request_landing_progressbar {
     list-style: none;
@@ -109,100 +114,184 @@ ul.request_landing_progressbar li:last-child span {
 */
 
 .request_stepper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    text-align: start;
-    justify-content: center;
-    max-width: 913px;
-    margin: 0 auto;
-    position: relative;
-    top: 5px;
-  }
-  .request_stepper_item{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: auto;  
-  }
-  .request_stepper_item::before {
-    position: absolute;
-    content: "";
-    border-bottom: 2px solid #E1E4E8;
-    width: 100%;
-    top: 0px;
-    left: -50%;
-    z-index: 2;
-  }
-  .request_stepper_item::after {
-    position: absolute;
-    content: "";
-    border-bottom: 2px solid #E1E4E8;
-    width: 100%;
-    top: 0;
-    left: 50%;
-    z-index: 2;
-  }
-  .request_stepper_item .request_stepper_counter {
-    position: relative;
-    z-index: 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #fff;
-    top: -7px;
-  }
-  .request_stepper_item .request_stepper_name {
-      color: #fff;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 18px;
-      height: 100%;
-      display: inline-block;
-      position: relative;
-      text-align: center;
-      cursor: pointer;
-  }
-  .request_stepper_item:first-child::before {
-    content: none;
-  }
-  .request_stepper_item:last-child::after {
-    content: none;
-  }
-  .request_landing_caption {
-    margin-top: 55px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: start;
+  justify-content: center;
+  max-width: 913px;
+  margin: 0 auto;
+  position: relative;
+  top: 5px;
+}
+
+.request_stepper_item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: auto;
+}
+
+.request_stepper_item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #E1E4E8;
+  width: 100%;
+  top: 0px;
+  left: -50%;
+  z-index: 2;
+}
+
+.request_stepper_item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 2px solid #E1E4E8;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+}
+
+.request_stepper_item .request_stepper_counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  top: -7px;
+}
+
+.request_stepper_item .request_stepper_name {
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.request_stepper_item:first-child::before {
+  content: none;
+}
+
+.request_stepper_item:last-child::after {
+  content: none;
+}
+
+.request_landing_caption {
+  margin-top: 55px;
 }
 
 .request_landing_caption h1 {
-    text-align: center;
-    font-size: 50px;
-    font-weight: 600;
-    line-height: 60px;
-    margin: 0 0 15px;
-    padding: 0;
-    color: #fff;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 60px;
+  margin: 0 0 15px;
+  padding: 0;
+  color: #fff;
 }
 
 .request_landing_caption p {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
-    color: #fff;
-    margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #fff;
+  margin: 0;
 }
 
 .request_back_arrow {
-    position: absolute;
-    top: 60px;
-    left: 5.5vw;
-    width: 44px;
-    height: 44px;
-    padding: 10px;
-    border-radius: 60px;
-    border: 1px solid #FFF;
-    cursor: pointer;
+  position: absolute;
+  top: 60px;
+  left: 5.5vw;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 60px;
+  border: 1px solid #FFF;
+  cursor: pointer;
+}
+
+.request_landing_header {
+  background-color: #F8F8F8;
+  padding: 32px 0;
+}
+.request_header_container {
+  max-width: 913px;
+  margin: 0 auto;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.request_landing_content {
+  display: flex;
+  width: 100%;
+  max-width: 790px;
+  padding: 40px 80px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  margin: 0 auto;
+}
+.request_landing_content_col {
+  display: flex;
+  flex-direction: column;
+  min-height: 396px;
+  justify-content: center;
+}
+.request_landing_content_col h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 38px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.request_list_item {
+  display: flex;  
+  gap: 10px;
+  flex-flow: wrap;
+  justify-content: center;
+}
+.request_list_item button {
+  background: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #212121;
+  margin: 0;
+  width: auto;
+  display: flex;
+  min-width: 100px;
+  height: 60px;
+  padding: 10px 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #E1E4E8;
+}
+.request_text_area textarea {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 4px;
+  border: 1px solid #E1E4E8;
+  height: 151px;
+}
+
+.request_landing_header .request_back_arrow { 
+  top: 40px;
+  border: 1px solid #707070;
 }

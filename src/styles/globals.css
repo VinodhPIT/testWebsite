@@ -906,7 +906,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .h_63_vh{
   height: 63vh !important;
 } 
-
+.h_126_vh{
+  height: calc(100vh - 126px)!important;
+} 
 .h_inherit {
   height: inherit !important;
 } 
@@ -1026,6 +1028,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   display: inline-block;
 }
 
+.pull_right {
+  float: right;
+}
+.pull_left {
+  float: left;
+}
 .d_flex {
   display: flex !important;
 }
@@ -1054,6 +1062,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .flex_flow_wrap {
   flex-flow: wrap !important;
+}
+
+.v_align_top {
+  vertical-align: top!important;
 }
 
 .ml_0 {
@@ -1098,6 +1110,14 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .mt_10pc {
   margin-top: 10% !important;
+}
+
+.mt_3 {
+  margin-top: 3px !important;
+}
+
+.mt_4 {
+  margin-top: 4px !important;
 }
 
 .mt_5 {
