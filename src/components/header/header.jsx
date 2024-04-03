@@ -1,5 +1,4 @@
-Header
-
+Header;
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -12,15 +11,17 @@ import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 import { useModal } from "@/utils/modalUtils";
 import links from "@/constants/linkData";
 import generateLinkComponent from "@/utils/linkGenerator";
-import getButtonClass from "@/utils/getButtonClass"; 
+import getButtonClass from "@/utils/getButtonClass";
 
 export default function Header({
   logo,
   theme,
   isPosition,
   imgWidth,
-  imgHeight,hamburger,languageSwitch ,isFullwidth
-
+  imgHeight,
+  hamburger,
+  languageSwitch,
+  isFullwidth,
 }) {
   const router = useRouter();
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
@@ -49,16 +50,21 @@ export default function Header({
     setToggle(false);
   };
 
-
-    const baseImageUrl =
-    hamburger === "white" ? "/hamburger-menu.svg" : "/blackHamburger.svg"  ;
+  const baseImageUrl =
+    hamburger === "white" ? "/hamburger-menu.svg" : "/blackHamburger.svg";
 
   return (
     <>
       {router.pathname === "/" && (
         <div className="header_cookies">
           <div className="header_cookie_img">
-            <Image src="/logo-cookies.svg"  alt="klarna"  width={68} height={16}  loading="eager"></Image>
+            <Image
+              src="/logo-cookies.svg"
+              alt="klarna"
+              width={68}
+              height={16}
+              loading="eager"
+            ></Image>
           </div>
           <div className="header_cookie_txt">
             <p>
@@ -84,7 +90,9 @@ export default function Header({
 
       <header className={isPosition === true ? "header_wrapper" : null}>
         <div>
-          <div className= {isFullwidth  === true ?  "container_full" :  "container"}>
+          <div
+            className={isFullwidth === true ? "container_full" : "container"}
+          >
             <nav className="header_navigation">
               <div className="header_logo_nav">
                 <div className="header_logo">
@@ -104,13 +112,13 @@ export default function Header({
                       <li key={link.id} className="nav_item">
                         <Link
                           href={`/${router.locale}${link.url}`}
-                          className=  {router.pathname=="/journal" ?   "textWhite" :    "textBlack"}
+                          className={"textWhite"}
                         >
                           {t(link.title)}
                         </Link>
                       </li>
                     ))}
-                    <li >{linkComponent}</li>
+                    <li>{linkComponent}</li>
                   </ul>
                 </div>
               </div>
@@ -121,12 +129,16 @@ export default function Header({
                   onClick={() =>
                     router.push(`/${router.locale}/for-tattoo-artists`)
                   }
-                  className={`btn btn_tattoo_art bgBlack`}
+                  className={`btn btn_tattoo_art bgWhite`}
                 >
-                  {t("common:menus.forTattooArtists")}
+                  {isMobileView
+                    ? t("common:menus.forArtists")
+                    : t("common:menus.forTattooArtists")}
                 </button>
 
-                {router.pathname === '/journal' || router.pathname === '/explore/[[...slug]]' || router.pathname==="/404" ? null :
+                {router.pathname === "/journal" ||
+                router.pathname === "/explore/[[...slug]]" ||
+                router.pathname === "/404" ? null : (
                   <button
                     className={`language_switcher  ${languageSwitch}`}
                     onClick={openPopup}
@@ -139,13 +151,16 @@ export default function Header({
                       priority
                     />
                     <span
-                      className={`${languageSwitch === 'switcherThemeWhite' ? 'textWhite' : "textBlack"
-                        }`}
+                      className={`${
+                        languageSwitch === "switcherThemeWhite"
+                          ? "textWhite"
+                          : "textBlack"
+                      }`}
                     >
-                      {getLanguage(router.locale)}
+                      {isMobileView ? "" : getLanguage(router.locale)}
                     </span>
                   </button>
-                }
+                )}
 
                 <Image
                   className="nav_btn_toggle"

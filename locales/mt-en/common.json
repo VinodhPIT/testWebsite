@@ -5,6 +5,7 @@
     "styleGuide": "Styleguide",
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
+    "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
     "faq": "FAQ",
@@ -416,19 +417,15 @@
   "Month": "Month",
   "Percentage": "Percentage",
 
-
-  "journalTitle":"inckd. Tattoo Journal:",
-  "subText":"Latest Tattoo Trends, Tips, and Techniques",
-  "See out of":"See out of",
-  "Style":"Style",
-  "Search by Location":"Search by Location",
-  "Clear All":"Clear All",
-  "Show Results":"Show Results",
-  "Loading":"Loading...",
-  "Search Location":"Search Location",
-
-  
-   
+  "journalTitle": "inckd. Tattoo Journal:",
+  "subText": "Latest Tattoo Trends, Tips, and Techniques",
+  "See out of": "See out of",
+  "Style": "Style",
+  "Search by Location": "Search by Location",
+  "Clear All": "Clear All",
+  "Show Results": "Show Results",
+  "Loading": "Loading...",
+  "Search Location": "Search Location",
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
@@ -519,20 +516,18 @@
     "title": "General App Download"
   },
 
-   "terms-conditions":{"title":"Terms and Conditions"},
-  "privacy-policy":{"title":"Privacy-Policy"},
-  "Impressum" :{"title":"Impressum"},
-  "User Data Policy" :{"title":"User Data Policy"},
+  "terms-conditions": { "title": "Terms and Conditions" },
+  "privacy-policy": { "title": "Privacy-Policy" },
+  "Impressum": { "title": "Impressum" },
+  "User Data Policy": { "title": "User Data Policy" },
 
-  
-  "AnalyticLogin":{
-  "User name is required":"User name is required",
-  "Password is required":"Password is required",
-  "Login":"Login",
-  "NotUser":" Not an analytic user",
-  "EnterUser":"Enter Your username",
-  "EnterPassword":"Enter Your Password"
-
+  "AnalyticLogin": {
+    "User name is required": "User name is required",
+    "Password is required": "Password is required",
+    "Login": "Login",
+    "NotUser": " Not an analytic user",
+    "EnterUser": "Enter Your username",
+    "EnterPassword": "Enter Your Password"
   },
 
   "AnalyticsCustomer": {

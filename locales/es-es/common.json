@@ -5,6 +5,7 @@
     "styleGuide": "Styleguide",
     "dictionary": "Diccionario",
     "forTattooArtists": "Para Artistas de Tatuajes",
+    "forArtists": "Para artistas",
     "klarna": "Klarna",
     "contactUs": "Contáctanos",
     "faq": "Preguntas Frecuentes",
@@ -144,9 +145,9 @@
     "fun": "Diversión",
     "creativity": "Creatividad",
 
-  "title2": "Zodiaco",
-  "title2-Sub": "Signos",
-  "content2": "Obtén más información sobre los signos del zodiaco y encuentra el tatuaje con el significado adecuado para ti en la aplicación",
+    "title2": "Zodiaco",
+    "title2-Sub": "Signos",
+    "content2": "Obtén más información sobre los signos del zodiaco y encuentra el tatuaje con el significado adecuado para ti en la aplicación",
     "ZodiacCarousel": {
       "title1": "Tauro",
       "content1": "Tauro es el segundo signo del zodiaco y es el símbolo del toro. El símbolo consiste en un...",
@@ -190,7 +191,7 @@
 
     "title3": "Azteca",
     "title3-Sub": "Símbolos",
-  
+
     "content3": "Aprende más sobre los símbolos aztecas y encuentra el tatuaje con el significado adecuado para ti en la aplicación.",
 
     "title4": "Mitología",
@@ -416,19 +417,15 @@
   "Month": "Mes",
   "Percentage": "Porcentaje",
 
-  
-  "journalTitle":"inckd. Diario de tatuajes:",
-  "subText":"Últimas tendencias, consejos y técnicas de tatuaje",
-  "See out of":"Ver fuera de",
-  "Style":"Estilo",
-  "Search by Location":"Buscar por ubicación",
-  "Clear All":"Borrar todo",
-  "Show Results":"Mostrar resultados",
-  "Loading":"Carga...",
-  "Search Location":"Ubicación de búsqueda",
-
-
-
+  "journalTitle": "inckd. Diario de tatuajes:",
+  "subText": "Últimas tendencias, consejos y técnicas de tatuaje",
+  "See out of": "Ver fuera de",
+  "Style": "Estilo",
+  "Search by Location": "Buscar por ubicación",
+  "Clear All": "Borrar todo",
+  "Show Results": "Mostrar resultados",
+  "Loading": "Carga...",
+  "Search Location": "Ubicación de búsqueda",
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
@@ -519,22 +516,18 @@
     "title": "General App Download"
   },
 
+  "terms-conditions": { "title": "Terms and Conditions" },
+  "privacy-policy": { "title": "Privacy-Policy" },
+  "Impressum": { "title": "Impressum" },
+  "User Data Policy": { "title": "User Data Policy" },
 
-   "terms-conditions":{"title":"Terms and Conditions"},
-  "privacy-policy":{"title":"Privacy-Policy"},
-  "Impressum" :{"title":"Impressum"},
-  "User Data Policy" :{"title":"User Data Policy"},
-
-
-
-  "AnalyticLogin":{
-  "User name is required":"User name is required",
-  "Password is required":"Password is required",
-  "Login":"Login",
-  "NotUser":" Not an analytic user",
-  "EnterUser":"Enter Your username",
-  "EnterPassword":"Enter Your Password"
-
+  "AnalyticLogin": {
+    "User name is required": "User name is required",
+    "Password is required": "Password is required",
+    "Login": "Login",
+    "NotUser": " Not an analytic user",
+    "EnterUser": "Enter Your username",
+    "EnterPassword": "Enter Your Password"
   },
 
   "AnalyticsCustomer": {

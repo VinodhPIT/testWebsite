@@ -53,109 +53,34 @@ function MyApp({ Component, pageProps }) {
       case "/for-tattoo-artists":
       case "/klarna":
       case "/tattoo-dictionary":
-        case "/tattoo-styleguide":
-        return (
-          <Header
-            logo={
-              isMobileView ? "/inckd-logo.svg" : "/Inckd-logo-footer-black.svg"
-            }
-            theme={"white"}
-            isPosition={true}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"white"}
-            languageSwitch="switcherThemeWhite"
-            isFullwidth={true}
-          />
-        );
-
+      case "/tattoo-styleguide":
       case "/explore/[[...slug]]":
       case "/artists/[detail]":
       case `/explore/tattoos/[detail]`:
       case "/explore/flash-tattoos/[detail]":
       case "/404":
-        return (
-          <Header
-            logo={"/Inckd-logo-footer-black.svg"}
-            theme={"white"}
-            isPosition={false}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"black"}
-            languageSwitch="switcherThemeBlack"
-            isFullwidth={true}
-          />
-        );
-
       case "/journal":
+      case "/contact":
+      case "/join-tattoo-artists":
+      case "/faq":
+      case "/privacy_policy":
+      case "/terms&conditions":
+      case "/impressum":
+      case "/user_data_policy":
+      case "/privacy-policy":
+      case "/download/[[...download]]":
         return (
           <Header
             logo={"/inckd-logo.svg"}
-            theme={"normal"}
+            theme={"white"}
             isPosition={true}
             imgWidth="105"
             imgHeight="31"
             hamburger={"white"}
             languageSwitch="switcherThemeWhite"
-            isFullwidth={false}
-          />
-        );
-
-      case "/contact":
-      case "/join-tattoo-artists":
-        return (
-          <Header
-            logo={"/Inckd-logo-footer-black.svg"}
-            theme={"black"}
-            isPosition={true}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"black"}
-            languageSwitch={
-              isMobileView ? "switcherThemeBlack" : "switcherThemeWhite"
-            }
             isFullwidth={true}
           />
         );
-
-      case "/faq":
-      case "/privacy_policy":
-      case "/terms&conditions":
-      case "/impressum":
-        case"/user_data_policy":
-        case"/privacy-policy":
-        return (
-          <Header
-            logo={"/Inckd-logo-footer-black.svg"}
-            theme={"white"}
-            isPosition={false}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"black"}
-            languageSwitch={"switcherThemeBlack"}
-            isFullwidth={false}
-          />
-        );     
-
-   
-
-      case "/download/[[...download]]":
-        return (
-          <MarketngScreens
-            logo={
-              isMobileView &&
-              (router.query.type === "campaign" ||
-                router.query.type === "klarna")
-                ? "/inckd-logo.svg"
-                : "/Inckd-logo-b.svg"
-            }
-            theme={"white"}
-            isPosition={true}
-            imgWidth="105"
-            imgHeight="31"
-          />
-        );
-
       default:
         return null;
     }
@@ -163,17 +88,17 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <SessionProvider session={pageProps.session}>
-      <GlobalStateProvider>
-        <div className={figtree.className}>
-          {getHeaderComponent(router.locale, router.pathname)}
+        <GlobalStateProvider>
+          <div className={figtree.className}>
+            {getHeaderComponent(router.locale, router.pathname)}
 
-          <UseLayout pathname={router.pathname}>
-            <Component {...pageProps} />
-          </UseLayout>
+            <UseLayout pathname={router.pathname}>
+              <Component {...pageProps} />
+            </UseLayout>
 
-          <Footer />
-        </div>
-      </GlobalStateProvider>
+            <Footer />
+          </div>
+        </GlobalStateProvider>
       </SessionProvider>
     </>
   );
