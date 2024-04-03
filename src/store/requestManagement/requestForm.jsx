@@ -1,7 +1,5 @@
 import { create } from "zustand";
 
-
-
 export const useRequestForm = create((set) => ({
   pageNo: 0,
   bodyPart: "",
@@ -9,6 +7,7 @@ export const useRequestForm = create((set) => ({
   message: "",
   email: "",
   phone: "",
+  images: [],
 
   setPageNo: (value) => set((state) => ({ ...state, pageNo: value })),
   setTattooSize: (value, state) => {
@@ -23,8 +22,20 @@ export const useRequestForm = create((set) => ({
   setEmail: (value) => set((state) => ({ ...state, email: value })),
   setPhone: (value) => set((state) => ({ ...state, phone: value })),
 
-  nextPage: () => set((prevState) => ({ ...prevState, pageNo: prevState.pageNo + 1 })),
-  prevPage: () => set((prevState) => ({ ...prevState, pageNo: prevState.pageNo - 1 }))
+  addImage: (image, index) =>
+    set((state) => {
+      const updatedImages = [...state.images];
+      updatedImages[index] = image;
+      return { images: updatedImages };
+    }),
+
+  deleteImage: (index) =>
+    set((state) => ({
+      images: state.images.filter((image, i) => i !== index),
+    })),
+
+  nextPage: () =>
+    set((prevState) => ({ ...prevState, pageNo: prevState.pageNo + 1 })),
+  prevPage: () =>
+    set((prevState) => ({ ...prevState, pageNo: prevState.pageNo - 1 })),
 }));
-
-

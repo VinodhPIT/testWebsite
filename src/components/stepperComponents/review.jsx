@@ -1,10 +1,11 @@
 import React from "react";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
+import Image from 'next/image'
 
 
 const Review = () => {
-  const { pageNo, bodyPart, tattooSize, message, email, phone, prevPage } =
+  const { pageNo, bodyPart, tattooSize, message, email, phone, prevPage  ,images } =
     useRequestForm(); // Zustand store and setter
     const { t } = useTranslation();
   return (
@@ -29,6 +30,30 @@ const Review = () => {
 
 
 <h5>{t("common:stepper.referenceImages")}</h5>
+
+
+  {images.map((el,id)=>{
+
+
+return (
+
+  <div style={{"position":"relative","width":"87px" ,'height':"87px"}}>
+<Image
+      src={images[id].url}
+      alt="PreferredImage"
+      
+      objectFit="cover"
+      fill
+    />
+    </div>
+)
+
+  })}
+
+
+
+
+
 
 
 <h5>{t("common:stepper.selectedArtists")}</h5>
