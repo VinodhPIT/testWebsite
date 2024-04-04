@@ -11,6 +11,8 @@ const API_URL = {
     GET_REFERRAL_CODE: (slug) => `/web/api/customer/referral/${slug}`,
     GET_ARTIST_GALLERY: (params) => `/web/api/tattoo/artist?artist_uid=${params}`,
     ARTIST_FORM: "/api/profile/artist/verification/request",
+    ARTIST_LISTING :'/v2/api/search/artist/list'
+    
   },
 
   ANALYTICS_LOGIN: {

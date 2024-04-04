@@ -40,6 +40,44 @@ const createRequestObject = (parameters, paginatorCount) => {
   return request;
 };
 
+
+const createRequestObject1 = (parameters, paginatorCount) => {
+  const request = {
+    sort:null,
+    page_no: parameters.page_no,
+    paginator_count: paginatorCount,
+    search_key: parameters.search_key,
+    distance:"50km",
+    
+  };
+
+  if (parameters.latitude) {
+    request.longitude = parameters.longitude;
+    request.latitude = parameters.latitude;
+  }
+
+  if (parameters.style) {
+    if (typeof parameters.style === "string") {
+      request.style = parameters.style.split(",").map((item) => item.trim());
+    } else if (Array.isArray(parameters.style)) {
+      request.style = parameters.style;
+    } else {
+      request.style = [];
+    }
+  } else {
+    request.style = [];
+  }
+console.log(request ,"clmsd;cs'lcs")
+  return request;
+};
+
+
+
+
+export const searchParam1 = (parameters) => {
+  return createRequestObject1(parameters, 10);
+};
+
 export const searchParam = (parameters) => {
   return createRequestObject(parameters, 24);
 };

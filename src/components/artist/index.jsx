@@ -14,6 +14,7 @@ export default function Artist({ data }) {
   const { router } = useNavigation();
   const { t } = useTranslation();
   const getCountry = (locations) => {
+    console.log(state.location ,"dcmldls;c")
     const textBeforeComma = state.location.split(",")[0].trim();
 
     let locationCity = [];
