@@ -190,6 +190,7 @@
   flex-direction: column;
   min-height: 396px;
   justify-content: center;
+  width: 100%;
 }
 .request_landing_content_col h2 {
   font-size: 32px;
@@ -269,6 +270,8 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 .request_upload_field {
   height: 100%;
@@ -397,6 +400,7 @@
   display: block;
   max-width: 100%;
   word-break: break-word;
+  padding: 0;
 }
 
 .request_filter_profile_dtls .request_filter_profile_address {
@@ -406,4 +410,104 @@
   line-height: 19px;
   color: #fff;
   text-align: left;
+}
+
+.request_contact_form form.form_floating .form_block {
+  position: relative;
+  margin-bottom: 24px;
+}
+.request_contact_form form .form_control {
+  background: none;
+  border: 1px solid var(--gray-light-300);
+  border-radius: 4px;
+  height: 48px;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 19px;
+  color: var(--black-500);
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+.request_contact_form form.form_floating .form_control::placeholder {
+  color: var(--gray-300);
+  opacity: 1
+}
+.request_contact_form form.form_floating label {   
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #212121;
+  font-weight: 400
+}
+
+.request_review_filter {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.request_review_block h6 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #212121;
+  margin: 0;
+  padding: 0 0 10px 0;
+}
+.request_review_block p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #212121;
+  margin: 0;
+  padding: 0;
+}
+.request_filter_opt:first-child:after {
+  content: "";
+  background: #E1E4E8;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  right: 27px;
+  top: 0;
+}
+.request_filter_opt {
+  position: relative;
+  padding-right: 54px;
+}
+.request_filter_opt:last-child {
+  padding-right: 0;
+}
+.request_review_desc {
+  margin-bottom: 24px;
+}
+.request_review_contact_info {
+  margin-bottom: 24px;
+}
+.request_contact_info_wrap {
+  display: flex;
+  align-items: flex-start;
+}
+.request_contact_info_col {
+  padding-right: 60px;
+}
+.request_contact_info_col:last-child {
+  padding-right: 0;
+}
+.request_contact_info_col img {
+  margin-right: 8px;
+}
+.request_review_ref {
+  display: flex;
+  gap: 9px;
+}
+.request_review_ref_img img {
+  width: 87px;
+  height: 87px;
+  border-radius: 7px;
+}
+.request_review_selected_artist .request_filter_wrap {
+  margin: 0;
 }

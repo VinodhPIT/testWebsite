@@ -40,31 +40,49 @@ const ContactForm = () => {
 
   
 
-  return (
-    <div>
-     <h5>{t("common:stepper.title6")}</h5>
-      <Formik
-        initialValues={{ email: storedEmail, phone: storedPhone }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <div>
-              <label htmlFor="email">{t("common:stepper.enterEmail")}</label>
-              <Field type="email" id="email" name="email" />
-              <ErrorMessage name="email" component="div" className="error" />
+  return (    
+      <>
+      <div className="full_col_block h_126_pc">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 align_content">
+              <section className="request_landing_content">
+                <div className="request_landing_content_col">
+                  <h2>{t("common:stepper.title6")}</h2>
+                  <div className="request_contact_form">
+                    <Formik
+                      initialValues={{ email: storedEmail, phone: storedPhone }}
+                      validationSchema={validationSchema}
+                      onSubmit={handleSubmit}
+                    >
+                      {({ errors, touched }) => (
+                        <Form class="form_floating">
+                          <div class="form_block">
+                            <label htmlFor="email">{t("common:stepper.enterEmail")}</label>
+                            <Field type="email" id="email" name="email" className="form_control" placeholder="Your e-mail"/>
+                            <ErrorMessage name="email" component="div"  className="error"/>
+                          </div>
+                          <div class="form_block"> 
+                            <label htmlFor="phone">{t("common:stepper.enterPhone")}</label>
+                            <Field type="text" id="phone" name="phone" className="form_control" placeholder="Your phone number" />
+                            <ErrorMessage name="phone" component="div" className="error" />
+                          </div>
+                          <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end">{t("common:next")}</button>
+                        </Form> 
+                      )}
+                    </Formik>
+                  </div>
+                </div>
+              </section>
             </div>
-            <div>
-              <label htmlFor="phone">{t("common:stepper.enterPhone")}</label>
-              <Field type="text" id="phone" name="phone" />
-              <ErrorMessage name="phone" component="div" className="error" />
-            </div>
-             <button type="submit">{t("common:next")}</button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+          </div>
+        </div>
+      </div>
+      </>
+
+
+
+
   );
 };
 
