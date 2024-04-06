@@ -24,7 +24,13 @@ const ContactForm = () => {
   const handleSubmit = (values) => {
     setEmail(values.email); // Update email in Zustand state
     setPhone(values.phone); // Update phone in Zustand state
+
+
+
     nextPage();
+
+
+    
   };
   const { t } = useTranslation();
 

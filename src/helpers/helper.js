@@ -67,7 +67,8 @@ const createRequestObject1 = (parameters, paginatorCount) => {
   } else {
     request.style = [];
   }
-console.log(request ,"clmsd;cs'lcs")
+
+
   return request;
 };
 
@@ -194,3 +195,30 @@ export const getContactTimeDifference = (chartData) => {
 
   return dateDifferenceArray;
 };
+
+
+
+
+
+const getCountry = (locations, location) => {
+  const textBeforeComma = location.split(",")[0].trim();
+
+  let locationCity = [];
+  let otherStudiocity = [];
+  if (textBeforeComma) {
+    locationCity = locations.filter(
+      (e) => e.city === textBeforeComma || e.country === textBeforeComma
+    );
+
+    otherStudiocity = locations.filter(
+      (e) => e.city !== textBeforeComma || e.country !== textBeforeComma
+    );
+
+    const filterLocations = [...locationCity, ...otherStudiocity];
+
+    return ` ${filterLocations[0].city} , ${filterLocations[0].country} `;
+  }
+  return `${locations[0].city} , ${locations[0].country}`;
+};
+
+export { getCountry };

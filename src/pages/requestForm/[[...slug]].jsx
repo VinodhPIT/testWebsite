@@ -9,6 +9,8 @@ import Artist from "@/components/stepperComponents/artist";
 import Contact from "@/components/stepperComponents/contact";
 import Review from "@/components/stepperComponents/review";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+
+
 const StepperComponent = dynamic(
   () => import("@/components/stepperComponents/stepper"),
   {
@@ -57,9 +59,13 @@ export default function Requestform() {
   return (
     <>
     
+
+
    
     
       <StepperComponent steps={steps} activeStep={activeStep} />
+
+
 
       {getPageComponent(pageNo)}
     </>

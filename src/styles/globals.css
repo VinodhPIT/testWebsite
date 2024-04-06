@@ -909,6 +909,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .h_126_vh{
   height: calc(100vh - 126px)!important;
 } 
+.h_126_pc{
+  height: calc(100% - 126px)!important;
+} 
 .h_inherit {
   height: inherit !important;
 } 
@@ -995,6 +998,17 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .align_self_center {
   align-self: center !important;
+}
+
+.align_self_stretch {
+  align-self: stretch !important;
+}
+
+.align_self_end {
+  align-self: flex-end !important;
+}
+.align_content {
+  align-content: center !important;
 }
 
 .text_left {

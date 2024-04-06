@@ -8,9 +8,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm";
 function SearchBar() {
   const { setSearchState, searchState } = useGlobalState();
 
-  const {  searchArtist } =
-    useRequestForm();
-
+  const { searchArtist } = useRequestForm();
 
   const { t } = useTranslation();
 
@@ -26,21 +24,15 @@ function SearchBar() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-    searchArtist(searchState.query)
-    
-
+    searchArtist(searchState.query);
   };
 
   const clearText = async () => {
- 
-
     setSearchState((prevSearchState) => ({
-        ...prevSearchState,
-        query: '',
-      }));
-    window.location.reload();
-
+      ...prevSearchState,
+      query: "",
+    }));
+    // window.location.reload();
   };
 
   return (
@@ -48,7 +40,6 @@ function SearchBar() {
       <form onSubmit={handleSubmit}>
         <div className="input_group position_relative" ref={inputRef}>
           <input
-            placeholder={t("common:menus.search")}
             type="text"
             required="required"
             className={style.input_txt}
@@ -69,8 +60,6 @@ function SearchBar() {
               height={16}
             />
           </button>
-
-          
         </div>
       </form>
       {searchState.query && (

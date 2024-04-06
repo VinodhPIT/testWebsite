@@ -8,32 +8,13 @@ import { blurDataURL } from "@/constants/constants";
 import { useNavigation } from "@/hooks/useRouter";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
+import {getCountry} from '@/helpers/helper'
 
 export default function Artist({ data }) {
   const { state } = useGlobalState();
   const { router } = useNavigation();
   const { t } = useTranslation();
-  const getCountry = (locations) => {
-    console.log(state.location ,"dcmldls;c")
-    const textBeforeComma = state.location.split(",")[0].trim();
 
-    let locationCity = [];
-    let otherStudiocity = [];
-    if (textBeforeComma) {
-      locationCity = locations.filter(
-        (e) => e.city === textBeforeComma || e.country === textBeforeComma
-      );
-
-      otherStudiocity = locations.filter(
-        (e) => e.city !== textBeforeComma || e.country !== textBeforeComma
-      );
-
-      const filterLocations = [...locationCity, ...otherStudiocity];
-
-      return ` ${filterLocations[0].city} , ${filterLocations[0].country} `;
-    }
-    return `${locations[0].city} , ${locations[0].country}`;
-  };
 
   return (
     <>
@@ -93,7 +74,7 @@ export default function Artist({ data }) {
                             `${item._source.first_name} ${item._source.last_name}`}
                         </h6>
                         <span className={styles.grid_profile_address}>
-                          {getCountry(item._source.studios)}
+                          {getCountry(item._source.studios ,state.location)}
                         </span>
                         {/* <div className={styles.grid_profile_link}>
                             <Link href={`/artist/${item._source.slug}`} >

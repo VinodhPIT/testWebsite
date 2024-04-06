@@ -6,11 +6,13 @@ import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
 
 export default function StyleDropdown({ onToggle }) {
-  const { state, selectedIds, setSelectedIds, clearStyleId, styleCollection } =
+  const { state, selectedIds, setSelectedIds,  styleCollection } =
     useGlobalState();
 
-  const { nextPage, prevPage, fetchArtistBystyle, artistList } =
-    useRequestForm();
+  const {
+    fetchArtistByStyle,
+    fetchArtistList,clearStyle
+  } = useRequestForm();
 
   useEffect(() => {
     styleCollection();
@@ -27,12 +29,12 @@ export default function StyleDropdown({ onToggle }) {
   };
 
   const clearAll = async () => {
+    clearStyle();
     setSelectedIds([]);
-    window.location.reload();
   };
 
   const onSearchStyle = async () => {
-    fetchArtistBystyle(selectedIds);
+    fetchArtistByStyle(selectedIds);
   };
 
   return (

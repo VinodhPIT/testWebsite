@@ -26,42 +26,68 @@ export default function Reference() {
     }
   };
   return (
-    <div>
-      <h5>{t("common:stepper.title4")}</h5>
+    <>
+      <div className="full_col_block h_126_pc">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 align_content">
+              <section className="request_landing_content">
+                <div className="request_landing_content_col align_self_stretch">
+                  <h2>{t("common:stepper.title4")}</h2>
+                  <div className="request_file_uploader">
+                    {[0, 1, 2].map((index) => (
+                      <div key={index} className="request_file_up_list">
+                        {images[index] ? (
+                          <div className="request_upload_img">
+                            <button onClick={() => deleteImage(index)} className="request_upload_close">
+                              <Image
+                                src="/Trash_Bin.svg"
+                                width={18}
+                                height={18}
+                                alt="Trash"
+                              />
+                            </button>
+                            <img
+                              src={images[index].url}
+                              alt={`Uploaded ${index}`}
+                              style={{ maxWidth: "180px", maxHeight: "180px" }}
+                            />
+                          </div>
+                        ) : (
+                          <div className="request_upload_field">
+                            <input
+                              type="file"
+                              onChange={(event) => handleFileUpload(event, index)}
+                              accept="image/*"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
 
-      <div>
-        {[0, 1, 2].map((index) => (
-          <div key={index}>
-            {images[index] ? (
-              <div>
-                <button onClick={() => deleteImage(index)}>
-                  <Image
-                    src="/deleteIcon.svg"
-                    width={30}
-                    height={30}
-                    alt="Trash"
-                  />
-                </button>
-                <img
-                  src={images[index].url}
-                  alt={`Uploaded ${index}`}
-                  style={{ maxWidth: "200px", maxHeight: "200px" }}
-                />
-              </div>
-            ) : (
-              <input
-                type="file"
-                onChange={(event) => handleFileUpload(event, index)}
-                accept="image/*"
-              />
-            )}
+                  {images.length > 0 && (
+                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end">{t("common:next")}</button>
+                  )}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+              </section>
+            </div>
           </div>
-        ))}
+        </div>
       </div>
-
-      {images.length > 0 && (
-        <button onClick={() => nextPage()}>{t("common:next")}</button>
-      )}
-    </div>
+    </>
   );
 }
