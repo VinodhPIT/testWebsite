@@ -18,6 +18,8 @@ export const useNavigation = () => {
     router.push('/');
   };
 
+  
+
   return {
     navigateTo,
     goBack,

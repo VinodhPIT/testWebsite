@@ -7,7 +7,12 @@ import {
 import { getPlaceDetails } from "@/utils/placesApi";
 import axios from "axios";
 
-export const useRequestForm = create((set) => ({
+
+// Define initial states
+const initialState = {
+  tattoondex: '',
+  bodyPartIndex: "",
+  stepNumber: 0,
   pageNo: 0,
   bodyPart: "",
   tattooSize: "",
@@ -24,24 +29,29 @@ export const useRequestForm = create((set) => ({
   selectedArtists: [],
   location: "",
   totalCount: "",
+};
+
+export const useRequestForm = create((set) => ({
+  
+  ...initialState,
 
   // Function to set the page number
-  setPageNo: (value) => set((state) => ({ ...state, pageNo: value })),
+  setPageNo: (value) => set((state) => ({ ...state, stepNumber: value })),
 
   // Function to set the tattoo size and increment the page number
-  setTattooSize: (value, state) => {
+  setTattooSize: (value, index) => {
     // Set tattoo size
-    set((prevState) => ({ ...prevState, tattooSize: value }));
+    set((prevState) => ({ ...prevState, tattooSize: value  ,tattoondex:index }));
     // Increment page number
-    set((prevState) => ({ ...prevState, pageNo: prevState.pageNo + 1 }));
+    set((prevState) => ({ ...prevState, stepNumber: prevState.stepNumber + 1 }));
   },
 
   // Function to set the selected body part and increment the page number
-  setSelectedPart: (value, state) => {
+  setSelectedPart: (value, index) => {
     // Set selected body part
-    set((prevState) => ({ ...prevState, bodyPart: value }));
+    set((prevState) => ({ ...prevState, bodyPart: value ,bodyPartIndex:index }));
     // Increment page number
-    set((prevState) => ({ ...prevState, pageNo: prevState.pageNo + 1 }));
+    set((prevState) => ({ ...prevState, stepNumber: prevState.stepNumber + 1 }));
   },
 
   // Function to set the description/message
@@ -227,7 +237,7 @@ export const useRequestForm = create((set) => ({
 
         const { searchKey, styleId, pageNo } = useRequestForm.getState();
 
-        // Fetch artists based on location and other parameters
+        // Fetch artists based on current location and other parameters
         const artistResponse = await artistListing({
             ...requestFormParameters,
             page_no: pageNo,
@@ -294,9 +304,19 @@ export const useRequestForm = create((set) => ({
 
   // Function to move to the next page
   nextPage: () =>
-    set((prevState) => ({ ...prevState, pageNo: prevState.pageNo + 1 })),
+    set((prevState) => ({ ...prevState, stepNumber: prevState.stepNumber + 1 })),
 
   // Function to move to the previous page
   prevPage: () =>
-    set((prevState) => ({ ...prevState, pageNo: prevState.pageNo - 1 })),
+    set((prevState) => ({ ...prevState, stepNumber: prevState.stepNumber - 1 })),
+
+    resetState: () =>
+    set({
+      ...initialState,
+    }),
 }));
+
+// Export function to reset Zustand state
+export const useResetRequestFormState = () => {
+  useRequestForm.getState().resetState();
+};

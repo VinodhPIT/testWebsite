@@ -1,11 +1,11 @@
 // components/TattooComponent.js
-import React from 'react';
+import React ,{useState} from 'react';
 import { useRequestForm } from '@/store/requestManagement/requestForm'; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
 
 
 const TattooSize = () => {
-  const { tattooSize, setTattooSize } = useRequestForm(); // Zustand store and setter
+  const { setTattooSize ,tattoondex } = useRequestForm(); // Zustand store and setter
 
   const { t } = useTranslation();
  
@@ -13,12 +13,6 @@ const TattooSize = () => {
 
 
 
-  // Function to handle button click and update Zustand state
-  const handleClick = (value) => {
-    setTattooSize(value);
-
-
-  };
 
   return (
     <>
@@ -31,7 +25,7 @@ const TattooSize = () => {
                   <h2>{t("common:stepper.title1")}</h2>
                   <div className="request_list_item">
                     {tattooValues.map((value, index) => (                    
-                      <button key={index} onClick={() => handleClick(value)}>
+                      <button key={index} onClick={() => setTattooSize(value ,index)} className={tattoondex === index ? 'requestActive' : 'inActiveRequest'}>
                         {value}
                       </button>                    
                     ))}

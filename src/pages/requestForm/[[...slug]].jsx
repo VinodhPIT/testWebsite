@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import dynamic from "next/dynamic";
 import TattooSize from "@/components/stepperComponents/tattooSize";
@@ -9,7 +9,6 @@ import Artist from "@/components/stepperComponents/artist";
 import Contact from "@/components/stepperComponents/contact";
 import Review from "@/components/stepperComponents/review";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
-
 
 const StepperComponent = dynamic(
   () => import("@/components/stepperComponents/stepper"),
@@ -28,10 +27,7 @@ export default function Requestform() {
     { title: "Contact" },
   ];
 
-  
-
   const components = [
-   
     <TattooSize />,
     <BodyPart />,
     <Description />,
@@ -41,7 +37,6 @@ export default function Requestform() {
     <Review />,
   ];
 
-
   const getPageComponent = (pageNo) => {
     if (pageNo >= 0 && pageNo < components.length) {
       return components[pageNo];
@@ -50,27 +45,15 @@ export default function Requestform() {
     }
   };
 
-  const { pageNo, prevPage } = useRequestForm(); // Zustand store and setter
-
-  const activeStep = pageNo;
+  const { stepNumber } = useRequestForm();
 
 
 
   return (
     <>
-    
+      <StepperComponent steps={steps} activeStep={stepNumber} />
 
-
-   
-    
-      <StepperComponent steps={steps} activeStep={activeStep} />
-
-
-
-      {getPageComponent(pageNo)}
+      {getPageComponent(stepNumber)}
     </>
-  )
+  );
 }
-
-
-

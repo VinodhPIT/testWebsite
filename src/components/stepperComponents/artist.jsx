@@ -35,17 +35,21 @@ const Artist = () => {
     fetchArtistList();
   }, []);
 
-  const handleCheckboxChange = (id, image) => {
+  const handleCheckboxChange = (id, image ,names,
+    studios, location ,slug  ,artistImage ) => {
     if (selectedArtists.some((artist) => artist.id === id)) {
       removeSelectedArtist(id);
     } else {
       if (selectedArtists.length < 10) {
-        addSelectedArtist({ id, image });
+        addSelectedArtist({ id, image ,names,
+         studios, location ,slug ,artistImage});
       }
     }
   };
 
   const { isMobileView } = useWindowResize();
+
+
 
   return (
     <>
@@ -111,7 +115,9 @@ const Artist = () => {
                               onClick={() =>
                                 handleCheckboxChange(
                                   e._id,
-                                  e._source.tattoos[0].image
+                                  e._source.tattoos[0].image,
+                                  e._source.name,
+                                  e._source.studios, location  ,e._source.slug  ,e._source.profile_image
                                 )
                               }
                             >

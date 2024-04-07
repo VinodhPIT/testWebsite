@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Reference() {
   const { t } = useTranslation();
@@ -11,20 +13,28 @@ export default function Reference() {
 
   const handleFileUpload = (event, index) => {
     const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const newImage = {
-        id: uuidv4(),
-        url: reader.result,
-      };
+    // Check if the selected file is an image
+    if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const newImage = {
+                id: uuidv4(),
+                url: reader.result,
+            };
+            addImage(newImage, index);
+        };
 
-      addImage(newImage, index);
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
+    } else {
+        toast.error('Please select an image file.', {
+          position: toast.POSITION.TOP_CENTER
+          
+      });
     }
-  };
+};
+
+
+
   return (
     <>
       <div className="full_col_block h_126_pc">
@@ -59,6 +69,7 @@ export default function Reference() {
                               type="file"
                               onChange={(event) => handleFileUpload(event, index)}
                               accept="image/*"
+                              capture="camera"
                             />
                           </div>
                         )}
@@ -88,6 +99,8 @@ export default function Reference() {
           </div>
         </div>
       </div>
+
+      <ToastContainer />
     </>
   );
 }
