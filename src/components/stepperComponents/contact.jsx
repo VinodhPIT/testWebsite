@@ -1,18 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
-
-
-
-
-
-
-
+import { artistContact } from "@/apiConfig/webService";
 
 const ContactForm = () => {
-
   const {
     setEmail,
     setPhone,
@@ -20,34 +13,35 @@ const ContactForm = () => {
     email: storedEmail,
     phone: storedPhone,
   } = useRequestForm(); // Zustand setters
+  const [loader, setLoader] = useState(false);
 
-  const handleSubmit = (values) => {
-    setEmail(values.email); // Update email in Zustand state
-    setPhone(values.phone); // Update phone in Zustand state
-
-
-
-    nextPage();
-
-
-    
+  const handleSubmit = async (values) => {
+    setLoader(true);
+    setEmail(values.email);
+    setPhone(values.phone);
+    let res = await artistContact(values);
+    setLoader(false);
+    if (res.exists === true) {
+      //
+    } else {
+      nextPage();
+    }
   };
+
   const { t } = useTranslation();
-
-
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email(t("common:contactUsPage.Invalid email"))
       .required(t("common:contactUsPage.Email is required")),
-      phone: Yup.string()
-      .matches(/^[0-9()+\- ]+$/, t("common:contactUsPage.InvalidNumber"))
+    phone: Yup.string().matches(
+      /^[0-9()+\- ]+$/,
+      t("common:contactUsPage.InvalidNumber")
+    ),
   });
 
-  
-
-  return (    
-      <>
+  return (
+    <>
       <div className="full_col_block h_126_pc">
         <div className="container">
           <div className="row">
@@ -64,17 +58,53 @@ const ContactForm = () => {
                       {({ errors, touched }) => (
                         <Form class="form_floating">
                           <div class="form_block">
-                            <label htmlFor="email">{t("common:stepper.enterEmail")}</label>
-                            <Field type="email" id="email" name="email" className="form_control" placeholder="Your e-mail"/>
-                            <ErrorMessage name="email" component="div"  className="error"/>
+                            <label htmlFor="email">
+                              {t("common:stepper.enterEmail")}
+                            </label>
+                            <Field
+                              type="email"
+                              id="email"
+                              name="email"
+                              className="form_control"
+                              placeholder="Your e-mail"
+                            />
+                            <ErrorMessage
+                              name="email"
+                              component="div"
+                              className="error"
+                            />
                           </div>
-                          <div class="form_block"> 
-                            <label htmlFor="phone">{t("common:stepper.enterPhone")}</label>
-                            <Field type="text" id="phone" name="phone" className="form_control" placeholder="Your phone number" />
-                            <ErrorMessage name="phone" component="div" className="error" />
+                          <div class="form_block">
+                            <label htmlFor="phone">
+                              {t("common:stepper.enterPhone")}
+                            </label>
+                            <Field
+                              type="text"
+                              id="phone"
+                              name="phone"
+                              className="form_control"
+                              placeholder="Your phone number"
+                            />
+                            <ErrorMessage
+                              name="phone"
+                              component="div"
+                              className="error"
+                            />
                           </div>
-                          <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end">{t("common:next")}</button>
-                        </Form> 
+                          <button
+                            type="submit"
+                            className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end"
+                          >
+                            {t("common:next")}
+
+                            {loader ? (
+                            <span
+                              className="spinner-border spinner-border-sm"
+                              aria-hidden="true"
+                            ></span>
+                          ) : null}
+                          </button>
+                        </Form>
                       )}
                     </Formik>
                   </div>
@@ -84,11 +114,7 @@ const ContactForm = () => {
           </div>
         </div>
       </div>
-      </>
-
-
-
-
+    </>
   );
 };
 
