@@ -36,7 +36,7 @@ function SearchBar() {
   };
 
   return (
-    <div className={style.search_bar} style={{ position: "relative" }}>
+    <div className={style.search_bar}>
       <form onSubmit={handleSubmit}>
         <div className="input_group position_relative" ref={inputRef}>
           <input
@@ -54,10 +54,10 @@ function SearchBar() {
           />
           <button type="submit" tabindex="-1" className={style.btn_search}>
             <Image
-              src="/tattoo-magnifer.svg"
+              src="/magni.svg"
               alt="search"
-              width={16}
-              height={16}
+              width={20}
+              height={20}
             />
           </button>
         </div>

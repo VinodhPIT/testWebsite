@@ -55,9 +55,9 @@ export default function StyleDropdown({ onToggle }) {
             <div key={el.slug} className={styles.custom_dropdown_col}>
               <label className={styles.custom_dropdown_label}>
                 <p>{el.name}</p>
-                <div className={styles.custom_checkbox}>
+                <div className={styles.custom_radio}>
                   <input
-                    type="checkbox"
+                    type="radio"
                     id={`checkbox_${el.slug}`}
                     onChange={() => handleCheckboxChange(el.slug)}
                     checked={selectedIds.includes(el.slug)}
@@ -72,14 +72,14 @@ export default function StyleDropdown({ onToggle }) {
         <button
           disabled={selectedIds.length === 0}
           onClick={() => clearAll()}
-          className="btn_outline_secondary w_100pc"
+          className="btn_outline_secondary w_100pc btn_cutom_new"
         >
           {t("common:Clear All")}
         </button>
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_secondary w_100pc"
+          className="btn_secondary w_100pc btn_cutom_new"
         >
           {t("common:Show Results")}
         </button>

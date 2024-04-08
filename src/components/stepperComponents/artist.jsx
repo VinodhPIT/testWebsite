@@ -61,44 +61,29 @@ const Artist = () => {
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title5")}</h2>
 
-                  <div style={{ display: "flex", gap: "4px" }}>
-                    <div
-                      style={{
-                        backgroundColor: "#fff",
-                        padding: "11px",
-                        border: "1px solid red",
-                        position: "relative",
-                        flex: "1",
-                      }}
-                    >
-                      <button onClick={onToggle} style={{ width: "100%" }}>
-                        <p>style</p>
-                      </button>
-                      {toggle && !isMobileView && (
-                        <OutsideClickHandler onOutsideClick={onToggle}>
-                          <StyleDropdown />
-                        </OutsideClickHandler>
-                      )}
-                    </div>
+                  <div className="request_filter_col_wrap" style={{ display: "flex", gap: "4px" }}>
+                    <div className="request_filter_block">
+                      <div className="request_style_drop">
+                        <button onClick={onToggle}>
+                          <p>style</p>
+                        </button>
+                        {toggle && (
+                          <OutsideClickHandler onOutsideClick={onToggle}>
+                            <StyleDropdown />
+                          </OutsideClickHandler>
+                        )}
+                      </div>
+                      <div className="request_location_drop">
+                        <button onClick={onToggleLoc}>
+                          <p>Location</p>
+                        </button>
 
-                    <div
-                      style={{
-                        backgroundColor: "#fff",
-                        padding: "11px",
-                        border: "1px solid red",
-                        position: "relative",
-                        flex: "1",
-                      }}
-                    >
-                      <button style={{ width: "100%" }} onClick={onToggleLoc}>
-                        <p>Location</p>
-                      </button>
-
-                      {toggleLocation && (
-                        <OutsideClickHandler onOutsideClick={onToggleLoc}>
-                          <Location />
-                        </OutsideClickHandler>
-                      )}
+                        {toggleLocation && (
+                          <OutsideClickHandler onOutsideClick={onToggleLoc}>
+                            <Location />
+                          </OutsideClickHandler>
+                        )}
+                      </div>
                     </div>
 
                     <SearchBar />
@@ -122,6 +107,9 @@ const Artist = () => {
                               }
                             >
                               <div class="request_filter_img">
+                                <div className="request_ref_checkbox">
+                                  <input type="checkbox" />
+                                </div>
                                 {/* <input
             type="checkbox"
             checked={selectedArtists.includes(e._id)}
@@ -162,12 +150,13 @@ const Artist = () => {
                     </div>
                   </div>
 
-                  {artistList.length !== 0 &&
-                    artistList.length !== totalCount && (
-                      <button onClick={() => loadMore()}>Load More</button>
+                  <div className="request_ref_loadmore">
+                    {artistList.length !== 0 &&
+                      artistList.length !== totalCount && (
+                        <button className="btn_secondary btn_view_more" onClick={() => loadMore()}>Load More</button>
                     )}
-
-                  <div className="">
+                  </div>
+                  <div className="request_ref_btn">
                     <button
                       onClick={() => prevPage()}
                       className="btn_outline_secondary btn_cutom_40 mt_15"
@@ -177,9 +166,23 @@ const Artist = () => {
 
                     {selectedArtists.length ===
                     0 ? null : selectedArtists.length === 10 ? (
-                      <p>Maximum limit of 10 reached</p>
+                      <p className="mt_15">Maximum limit of 10 reached 
+                        <Image
+                          src="Alt Arrow Right.svg"
+                          width={16}
+                          height={16}
+                          alt="arrow"
+                        />
+                      </p>
                     ) : (
-                      <p>{selectedArtists.length} Artists Selected</p>
+                      <p className="mt_15">{selectedArtists.length} Artists Selected 
+                        <Image
+                          src="Alt Arrow Right.svg"
+                          width={16}
+                          height={16}
+                          alt="arrow"
+                        />
+                      </p>
                     )}
 
                     {selectedArtists.length > 0 && (
