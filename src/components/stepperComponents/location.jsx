@@ -6,7 +6,7 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import { useRequestForm } from "@/store/requestManagement/requestForm"; 
 import useWindowResize from "@/hooks/useWindowSize";
-import styles from "../styleDropdown/dropdown.module.css";
+import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
@@ -89,26 +89,26 @@ export default function LocationSearch() {
         <div className={styles.custom_toggle_content}>
 
 
-        <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-        />
-        Use current location
-      </label>
-      {error && <p>{error}</p>}
+        <div className="request_current_location">
+          <label>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            Use current location
+          </label>
+          {error && <p>{error}</p>}
 
-      {/* {isChecked && currentLocation && (
-        <p>
-          Latitude: {currentLocation.latitude}, Longitude:{' '}
-          {currentLocation.longitude}
-        </p>
+          {/* {isChecked && currentLocation && (
+            <p>
+              Latitude: {currentLocation.latitude}, Longitude:{' '}
+              {currentLocation.longitude}
+            </p>
 
-        
-      )} */}
-    </div>
+            
+          )} */}
+        </div>
 
 
           <PlacesAutocomplete
@@ -172,7 +172,7 @@ export default function LocationSearch() {
           <button
             onClick={() => clear()}
             disabled={state.location === "" ? true : false}
-            className="btn_outline_secondary w_100pc"
+            className="btn_outline_secondary w_100pc btn_cutom_new"
           >
             {t("common:Clear All")}
           </button>
@@ -180,7 +180,7 @@ export default function LocationSearch() {
           <button
             onClick={() => searchLocation()}
             disabled={address === ""}
-            className="btn_secondary w_100pc"
+            className="btn_secondary w_100pc btn_cutom_new"
           >
             {t("common:Show Results")}
           </button>

@@ -877,7 +877,6 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_50pc {
   width: 50% !important;
 }
-
 .w_100pc {
   width: 100% !important;
 }
@@ -894,12 +893,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_990 {
   width: 990px !important;
 }
-
-
 .w_1090 {
   width: 1090px !important;
 }
-
 .h_100pc {
   height: 100% !important;
 }
@@ -1048,6 +1044,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .pull_left {
   float: left;
 }
+.d_block {
+  display: block!important;
+}
 .d_flex {
   display: flex !important;
 }
@@ -1080,6 +1079,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .v_align_top {
   vertical-align: top!important;
+}
+.ml_auto {
+  margin-left: auto !important;
 }
 
 .ml_0 {
@@ -1283,6 +1285,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .m_0 {
   margin: 0px !important;
+}
+
+.mr_auto {
+  margin-right: auto !important;
 }
 
 .mr_0 {
@@ -1564,6 +1570,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .mxw_720 {
   max-width: 720px!important;
+}
+
+.d_max_248 {
+  max-width: 248px!important;
 }
 
 .d_max_320 {
@@ -5606,6 +5616,9 @@ button.language_switcher img {
   .m_max_270 {
     max-width: 270px!important;
   }
+  .m_max_242 {
+    max-width: 242px!important;
+  } 
   .m_mxw_280 {
     max-width: 280px!important;
   }
@@ -6385,6 +6398,22 @@ button.language_switcher img {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .popup_wrap.custom_popup_design .popup_box_inner .popup_right {
+    border-radius: 8px;
+  }
+  .popup_wrap.custom_popup_design .popup_container {
+    top: inherit;
+  }
+  .popup_wrap.custom_popup_design .popup_container .popup_box_inner {
+    justify-content: center;
+  }
+  .popup_wrap.custom_popup_design {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  
   ul.download_mob_center li {
     width: auto;
     max-width: inherit;
@@ -6589,10 +6618,10 @@ button.language_switcher img {
   .h_390 {
     height: 390px!important;
   }
-
+ 
   .m_max_218 {
     max-width: 218px!important;
-  }  
+  }
 
   .down_klarna-right-spc .img_box_wrap ul.app_download_img_list {
     margin-right: 5.5vw;
@@ -6957,7 +6986,10 @@ button.language_switcher img {
   .popup_wrap.explore_feature_app_popup .popup_content_wrap {
     padding-right: 15px;
   }
-
+  .popup_wrap.custom_popup_design {
+    padding-left: 15px;
+    padding-right: 15px;
+  }  
 }
 
 @media screen and (max-width: 991.98px) {

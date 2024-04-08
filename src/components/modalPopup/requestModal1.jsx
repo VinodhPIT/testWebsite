@@ -28,7 +28,7 @@ const customStyles = {
     borderRadius: '8px'
   },
 };
-const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
+const TattooSearchModal1Popup = ({ isOpen, closeModal }) => {
 
   const { t } = useTranslation();
 
@@ -66,23 +66,9 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                       />
                     </div>                
                     <h5 class="color_gray_550 mb_0">Great idea for a tattoo!</h5>                  
-                    <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.</p>
-                  </div>                 
-                  <ul class="download_app d_block mt_25 m_mt_0 m_pt_30 ml_auto mr_auto text_center m_max_242">
-                    <li class="download_app_title">
-                      <h6 className="text_center">{t("common:downloadOurApp")}</h6>
-                    </li>
-                    <li>
-                      <Link target="_blank" href={APP_LINK_APPLE}>
-                        <Image width={134} height={41} src="/app-store-new.svg" alt="Appstore" />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link target="_blank" href={APP_LINK_GOOGLE}>
-                        <Image src="/g-play-new.svg" alt="Googleplay" width={134} height={41} />
-                      </Link>
-                    </li>
-                  </ul>
+                    <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.</p>
+                    <a class="btn_outline_secondary btn_cutom_new fw_600 mt_30 w_100pc d_max_248" href="#">Open your app</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -94,4 +80,4 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
   );
 };
 
-export default TattooSearchModalPopup;
+export default TattooSearchModal1Popup;

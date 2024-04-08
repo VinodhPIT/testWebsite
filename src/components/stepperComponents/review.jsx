@@ -1,7 +1,7 @@
 import React from "react";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
-import Modal from "@/components/modalPopup/requestModal";
+import Modal from "@/components/modalPopup/requestModal1";
 import Image from 'next/image'
 import { getCountry } from "@/helpers/helper";
 
