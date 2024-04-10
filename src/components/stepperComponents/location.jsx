@@ -1,40 +1,31 @@
 import React, { useState } from "react";
 import { getUrl } from "@/utils/getUrl";
 import PlacesAutocomplete, {
-  geocodeByAddress,
-  getLatLng,
-} from 'react-places-autocomplete';
-import { useRequestForm } from "@/store/requestManagement/requestForm"; 
+} from "react-places-autocomplete";
+import { useRequestForm } from "@/store/requestManagement/requestForm";
 import useWindowResize from "@/hooks/useWindowSize";
 import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
-import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
-import useCurrentLocation from '@/hooks/useCurrentLocation';
+import useCurrentLocation from "@/hooks/useCurrentLocation";
 
-
-
-
-export default function LocationSearch() {
+export default function LocationSearch({ onToggleLoc }) {
   const [address, setAddress] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const { currentLocation, error } = useCurrentLocation();
   const { t } = useTranslation();
   const { isMobileView } = useWindowResize();
-  const { getAddress, state } = useGlobalState();
 
-  const { filterLocation ,filterCurrentLocation } = useRequestForm(); // Zustand store and setter
-
-
+  const { filterLocation, filterCurrentLocation, location, clearLocation } =
+    useRequestForm(); // Zustand store and setter
 
   const handleSelect = async (value) => {
     setAddress(value);
   };
 
   const clear = async () => {
-    setAddress("");
-    getAddress("Location");
-    // await getUrl(currentTab, searchKey, selectedStyle, "", router);
+    clearLocation();
+    onToggleLoc();
   };
 
   const onError = (status, clearSuggestions) => {
@@ -42,23 +33,14 @@ export default function LocationSearch() {
   };
 
   const searchLocation = async () => {
-
-    filterLocation(address)
-
-    
-
+    filterLocation(address);
+    onToggleLoc();
   };
 
-
-
-  const handleCheckboxChange =  () => {
+  const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-
-    filterCurrentLocation(currentLocation ,isChecked)
-
+    filterCurrentLocation(currentLocation, isChecked);
   };
-
-
 
   return (
     <div
@@ -70,12 +52,8 @@ export default function LocationSearch() {
         <div className={styles.custom_toggle_title}>
           <h4>{t("common:Search by Location")}</h4>
 
-
           {isMobileView && (
-            <div
-              onClick={() => onToggle()}
-              className={styles.custom_toggle_close}
-            >
+            <div onClick={onToggleLoc} className={styles.custom_toggle_close}>
               <Image
                 src="/icon-close-drop.svg"
                 width={24}
@@ -87,20 +65,21 @@ export default function LocationSearch() {
         </div>
 
         <div className={styles.custom_toggle_content}>
+          <div className="request_current_location">
+            <label>
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
+              Use current location
+            </label>
+            
+            {error && <p className="errorMessage">{error}</p>}
+          
+         
 
-
-        <div className="request_current_location">
-          <label>
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={handleCheckboxChange}
-            />
-            Use current location
-          </label>
-          {error && <p>{error}</p>}
-
-          {/* {isChecked && currentLocation && (
+            {/* {isChecked && currentLocation && (
             <p>
               Latitude: {currentLocation.latitude}, Longitude:{' '}
               {currentLocation.longitude}
@@ -108,8 +87,10 @@ export default function LocationSearch() {
 
             
           )} */}
-        </div>
 
+ 
+
+          </div>
 
           <PlacesAutocomplete
             value={address}
@@ -126,7 +107,7 @@ export default function LocationSearch() {
               <div className={styles.custom_toggle_col}>
                 <input
                   {...getInputProps({
-                    placeholder: t("common:Search Location")
+                    placeholder: t("common:Search Location"),
                   })}
                   className={styles.location_search_input}
                   disabled={isChecked}
@@ -171,7 +152,7 @@ export default function LocationSearch() {
         <div className={styles.custom_dropdown_btn}>
           <button
             onClick={() => clear()}
-            disabled={state.location === "" ? true : false}
+            disabled={location === "" ? true : false}
             className="btn_outline_secondary w_100pc btn_cutom_new"
           >
             {t("common:Clear All")}

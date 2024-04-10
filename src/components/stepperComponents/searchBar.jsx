@@ -8,7 +8,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm";
 function SearchBar() {
   const { setSearchState, searchState } = useGlobalState();
 
-  const { searchArtist } = useRequestForm();
+  const { searchArtist ,clearField } = useRequestForm();
 
   const { t } = useTranslation();
 
@@ -32,7 +32,13 @@ function SearchBar() {
       ...prevSearchState,
       query: "",
     }));
+
+    clearField()
     // window.location.reload();
+
+
+
+
   };
 
   return (

@@ -1,10 +1,8 @@
 import { create } from "zustand";
 import { artistListing, getStyles } from "@/apiConfig/webService";
 import {
-  Parameters,
   requestFormParameters,
 } from "@/components/parameters/params";
-import { getPlaceDetails } from "@/utils/placesApi";
 import axios from "axios";
 
 
@@ -29,6 +27,7 @@ const initialState = {
   selectedArtists: [],
   location: "",
   totalCount: "",
+  loader:false
 };
 
 export const useRequestForm = create((set) => ({
@@ -71,6 +70,10 @@ export const useRequestForm = create((set) => ({
       return { images: updatedImages };
     }),
 
+
+
+
+
   // Function to delete an image at a specified index
   deleteImage: (index) =>
     set((state) => ({
@@ -80,6 +83,7 @@ export const useRequestForm = create((set) => ({
   // Function to fetch the initial artist list
   fetchArtistList: async () => {
     try {
+
       const response = await artistListing({
         ...requestFormParameters,
         search_key:  "",
@@ -101,6 +105,9 @@ export const useRequestForm = create((set) => ({
   // Function to fetch artists by style
   fetchArtistByStyle: async (slug) => {
     try {
+
+      set((prevState) => ({ loadNo: 0 ,loader:true }));
+
       let styleId = [];
       const slugsToCheck = Array.isArray(slug) ? slug : [slug]; // Ensure slug is an array
       const stylesArray = await getStyles();
@@ -122,14 +129,16 @@ export const useRequestForm = create((set) => ({
         search_key: searchKey ?? "",
         latitude: latitude ?? "",
         longitude: longitude ?? "",
-        page_no: loadNo,
+        page_no: 0,
         style: styleId,
+
       });
 
       useRequestForm.setState({
         artistList: response.rows.hits,
         styleId,
         totalCount: response.rows.total.value,
+        loader:false
       });
     } catch (error) {
       console.error("Error fetching artists by style:", error);
@@ -142,20 +151,23 @@ export const useRequestForm = create((set) => ({
 
   clearStyle: async () => {
     try {
-     
+      set((prevState) => ({ loader:true }));
+      const { searchKey, latitude, longitude, loadNo, totalCount } =useRequestForm.getState();
+      
       const response = await artistListing({
         ...requestFormParameters,
-        search_key: "",
-        latitude:  "",
-        longitude:  "",
+        search_key: searchKey??'',
+        latitude: latitude ?? "",
+        longitude:longitude ?? "",
         page_no: 0,
-        style: '',
+        style: [],
       });
 
       useRequestForm.setState({
         artistList: response.rows.hits,
         styleId: '', 
         totalCount: response.rows.total.value,
+        loader:false
       });
     } catch (error) {
       console.error("Error on clearStyles:", error);
@@ -165,9 +177,41 @@ export const useRequestForm = create((set) => ({
 
 
 
+
+  clearField: async () => {
+    try {
+
+      set((prevState) => ({ loader:true }));
+      const {  latitude, longitude , styleId } =useRequestForm.getState();
+      
+      const response = await artistListing({
+        ...requestFormParameters,
+        search_key:'',
+        latitude: latitude ?? "",
+        longitude:longitude ?? "",
+        page_no: 0,
+        style: styleId??[],
+      });
+
+      useRequestForm.setState({
+        artistList: response.rows.hits,
+        totalCount: response.rows.total.value,
+        searchKey :"",
+        loader:false
+      });
+    } catch (error) {
+      console.error("Error on clearField", error);
+    }
+  },
+
+
+
+
   // Function to search artists by a given key
   searchArtist: async (key) => {
     try {
+      set((prevState) => ({ loadNo: 0  ,searchKey:key ,loader:true})); 
+
       const { loadNo, styleId, latitude, longitude } =
         useRequestForm.getState(); // Destructure values
 
@@ -176,13 +220,16 @@ export const useRequestForm = create((set) => ({
         search_key: key,
         latitude: latitude ?? "", // Ensuring latitude and longitude are defined before destructuring
         longitude: longitude ?? "",
-        page_no: loadNo,
+        page_no: 0,
         style: styleId,
       });
 
       set({
         artistList: response.rows.hits,
         totalCount: response.rows.total.value,
+        loader:false
+       
+
       });
     } catch (error) {
       console.error("Error fetching artists by style:", error);
@@ -193,7 +240,7 @@ export const useRequestForm = create((set) => ({
   filterLocation: async (address) => {
     try {
       // Fetch place details
-
+      set((prevState) => ({ loader:true }));
       const placeResponse = await axios.get(
         `/api/getPlaceDetails?location=${encodeURIComponent(address)}`
       );
@@ -209,6 +256,7 @@ export const useRequestForm = create((set) => ({
         latitude: latitude ?? "",
         longitude: longitude ?? "",
         style: styleId ?? "",
+      
       });
 
       // Update state with fetched data
@@ -218,14 +266,18 @@ export const useRequestForm = create((set) => ({
         latitude,
         longitude,
         totalCount: artistResponse.rows.total.value,
+        loader:false
       });
     } catch (error) {
       console.error("Error fetching artists by location:", error);
     }
   },
 
+
+
   // Function to filter artists by currentLocation
   filterCurrentLocation: async (currentLocation, isChecked) => {
+    set((prevState) => ({ loader:true }));
     try {
         let latitude = "";
         let longitude = "";
@@ -254,12 +306,40 @@ export const useRequestForm = create((set) => ({
             latitude,
             longitude,
             totalCount: artistResponse.rows.total.value,
+            loader:false
         });
     } catch (error) {
         console.error("Error fetching artists by location:", error);
     }
 }
 ,
+
+clearLocation: async () => {
+  try {
+    const { searchKey, loadNo, styleId } =useRequestForm.getState();
+    set((prevState) => ({ loader:true }));
+    const response = await artistListing({
+      ...requestFormParameters,
+      search_key: searchKey??'',
+      latitude:  "",
+      longitude:"",
+      page_no: 0,
+      style: styleId??[],
+    });
+
+    useRequestForm.setState({
+      artistList: response.rows.hits,
+      totalCount: response.rows.total.value,
+      location :"",
+      latitude:  "",
+      longitude:"",
+      loader:false
+    });
+  } catch (error) {
+    console.error("Error on clearLocation:", error);
+  }
+},
+
 
   // Function to load more artists
   loadMore: async () => {
@@ -287,6 +367,9 @@ export const useRequestForm = create((set) => ({
       console.error("Error loading more artists:", error);
     }
   },
+
+
+
 
   // Function to add a selected artist
   addSelectedArtist: (artist) =>
@@ -316,7 +399,7 @@ export const useRequestForm = create((set) => ({
     }),
 }));
 
-// Export function to reset Zustand state
+//Function to reset
 export const useResetRequestFormState = () => {
   useRequestForm.getState().resetState();
-};
+};   

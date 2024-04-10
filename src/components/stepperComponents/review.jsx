@@ -8,7 +8,50 @@ import { getCountry } from "@/helpers/helper";
 const Review = () => {
   const { pageNo, bodyPart, tattooSize, message, email, phone, prevPage, images ,selectedArtists } =
     useRequestForm(); // Zustand store and setter
+    console.log(images,"cnslkncs")
   const { t } = useTranslation();
+
+  const uploadDataToAPI = () => {
+    const formData = new FormData();
+
+    // Append other parameters
+    formData.append('body_part', 'head');
+    formData.append('artist_uids', 'f7f533e6-2fe9-477a-9eac-b0367e0f6843');
+    formData.append('size', '10 cm');
+    formData.append('comments', 'hi');
+    formData.append('customer_email', 'vio@gmail.com');
+    formData.append('customer_phone_no', '');
+  
+    // Append secondary_images
+  
+      // Append secondary_images
+      secondaryImages.forEach((image, index) => {
+        formData.append(`secondary_images[${index}][data]`, image.data);
+        formData.append(`secondary_images[${index}][type]`, image.type);
+        formData.append(`secondary_images[${index}][filename]`, image.filename);
+        formData.append(`secondary_images[${index}][name]`, image.name);
+      });
+  
+  
+    // Call your API with formData
+    fetch('https://admin.inckd.com/web/api/customer-request/save', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data ,"response")
+        // Handle API response
+    })
+    .catch(error => {
+      console.log(error)
+        // Handle error
+    });
+};
+
+
+
+
   return ( 
     <>
       <div className="full_col_block h_126_pc">
@@ -144,7 +187,7 @@ return (
                  
                                    <div className="">
                     <button onClick={() => prevPage()} class="btn_outline_secondary btn_cutom_40 mt_15 align_self">{t("common:goBack")}</button>
-                    <button class="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end">{t("common:submit")}</button>
+                    <button class="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end" onClick={()=>uploadDataToAPI()}>{t("common:submit")}</button>
                   </div>
                             
                 </div>

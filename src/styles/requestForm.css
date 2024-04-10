@@ -519,6 +519,9 @@
   margin: 0;
 }
 
+.errorMessage{color: #ff0000; margin: 0;}
+
+
 .custom_text_with_icon h5 {
   font-size: 22px;
   font-weight: 700;

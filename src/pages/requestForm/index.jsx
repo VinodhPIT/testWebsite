@@ -28,8 +28,10 @@ export default function Requestform() {
   ];
 
   const components = [
+
     <TattooSize />,
     <BodyPart />,
+
     <Description />,
     <Reference />,
     <Artist />,

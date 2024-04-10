@@ -6,13 +6,10 @@ import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
 
 export default function StyleDropdown({ onToggle }) {
-  const { state, selectedIds, setSelectedIds,  styleCollection } =
+  const { state, selectedIds, setSelectedIds, styleCollection } =
     useGlobalState();
 
-  const {
-    fetchArtistByStyle,
-    fetchArtistList,clearStyle
-  } = useRequestForm();
+  const { fetchArtistByStyle, fetchArtistList, clearStyle } = useRequestForm();
 
   useEffect(() => {
     styleCollection();
@@ -31,10 +28,12 @@ export default function StyleDropdown({ onToggle }) {
   const clearAll = async () => {
     clearStyle();
     setSelectedIds([]);
+   
   };
 
   const onSearchStyle = async () => {
     fetchArtistByStyle(selectedIds);
+    onToggle();
   };
 
   return (
@@ -55,9 +54,9 @@ export default function StyleDropdown({ onToggle }) {
             <div key={el.slug} className={styles.custom_dropdown_col}>
               <label className={styles.custom_dropdown_label}>
                 <p>{el.name}</p>
-                <div className={styles.custom_radio}>
+                <div className={styles.custom_checkbox}>
                   <input
-                    type="radio"
+                    type="checkbox"
                     id={`checkbox_${el.slug}`}
                     onChange={() => handleCheckboxChange(el.slug)}
                     checked={selectedIds.includes(el.slug)}

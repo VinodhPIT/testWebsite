@@ -11,28 +11,55 @@ export default function Reference() {
   const { t } = useTranslation();
   const { images, addImage, deleteImage, nextPage } = useRequestForm();
 
-  const handleFileUpload = (event, index) => {
-    const file = event.target.files[0];
-    // Check if the selected file is an image
-    if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            const newImage = {
-                id: uuidv4(),
-                url: reader.result,
-            };
-            addImage(newImage, index);
-        };
+  console.log(images,"dokcsc")
 
-        reader.readAsDataURL(file);
-    } else {
-        toast.error('Please select an image file.', {
-          position: toast.POSITION.TOP_CENTER
+//   const handleFileUpload = (event, index) => {
+//     const file = event.target.files[0];
+//     // Check if the selected file is an image
+//     if (file && file.type.startsWith('image/')) {
+//         const reader = new FileReader();
+//         reader.onloadend = () => {
+//             const newImage = {
+//                 id: uuidv4(),
+//                 url: reader.result,
+//             };
+//             addImage(newImage, index);
+//         };
+
+//         reader.readAsDataURL(file);
+//     } else {
+//         toast.error('Please select an image file.', {
+//           position: toast.POSITION.TOP_CENTER
           
-      });
-    }
-};
+//       });
+//     }
+// };
 
+const handleFileUpload = (event, index) => {
+  const file = event.target.files[0];
+
+  if (file && file.type.startsWith('image/')) {
+      // Create object URL for the file
+      const imageUrl = URL.createObjectURL(file);
+
+      // Display the selected image in the UI
+      const newImage = {
+          id: uuidv4(),
+          url: imageUrl,
+          file: file // Optionally, you can store the file object if needed
+      };
+      addImage(newImage, index);
+  } else {
+      toast.error('Please select an image file.', {
+        position: toast.POSITION.TOP_CENTER
+    });
+  }
+
+
+
+
+
+};
 
 
   return (
