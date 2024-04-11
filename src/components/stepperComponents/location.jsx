@@ -1,23 +1,25 @@
 import React, { useState } from "react";
-import { getUrl } from "@/utils/getUrl";
-import PlacesAutocomplete, {
-} from "react-places-autocomplete";
+import PlacesAutocomplete from "react-places-autocomplete";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
 import useWindowResize from "@/hooks/useWindowSize";
 import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import useCurrentLocation from "@/hooks/useCurrentLocation";
 
 export default function LocationSearch({ onToggleLoc }) {
   const [address, setAddress] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
-  const { currentLocation, error } = useCurrentLocation();
+
   const { t } = useTranslation();
   const { isMobileView } = useWindowResize();
 
-  const { filterLocation, filterCurrentLocation, location, clearLocation } =
-    useRequestForm(); // Zustand store and setter
+  const {
+    filterLocation,
+    filterCurrentLocation,
+    location,
+    clearLocation,
+    setIsChecked,
+    isChecked, locationDenied
+  } = useRequestForm(); // Zustand store and setter
 
   const handleSelect = async (value) => {
     setAddress(value);
@@ -38,9 +40,19 @@ export default function LocationSearch({ onToggleLoc }) {
   };
 
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-    filterCurrentLocation(currentLocation, isChecked);
+    setIsChecked();
+    filterCurrentLocation(isChecked);
+    onToggleLoc();
   };
+
+
+
+
+
+
+
+
+
 
   return (
     <div
@@ -72,24 +84,9 @@ export default function LocationSearch({ onToggleLoc }) {
                 checked={isChecked}
                 onChange={handleCheckboxChange}
               />
-              Use current location
+              {t("common:currentLocation")}
+            
             </label>
-            
-            {error && <p className="errorMessage">{error}</p>}
-          
-         
-
-            {/* {isChecked && currentLocation && (
-            <p>
-              Latitude: {currentLocation.latitude}, Longitude:{' '}
-              {currentLocation.longitude}
-            </p>
-
-            
-          )} */}
-
- 
-
           </div>
 
           <PlacesAutocomplete

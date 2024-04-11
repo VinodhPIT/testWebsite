@@ -11,21 +11,24 @@ const ContactForm = () => {
     setPhone,
     nextPage,
     email: storedEmail,
-    phone: storedPhone,
+    phone: storedPhone, checkUserExists ,userExists
   } = useRequestForm(); // Zustand setters
   const [loader, setLoader] = useState(false);
+
+
+
+
 
   const handleSubmit = async (values) => {
     setLoader(true);
     setEmail(values.email);
     setPhone(values.phone);
     let res = await artistContact(values);
-    setLoader(false);
-    if (res.exists === true) {
-      //
-    } else {
+    console.log(res,"dcmdlmc;")
+     setLoader(false);
+     checkUserExists(res.exists)
       nextPage();
-    }
+    
   };
 
   const { t } = useTranslation();
@@ -40,9 +43,11 @@ const ContactForm = () => {
     ),
   });
 
-  return (
-    <>
-      <div className="full_col_block h_126_pc">
+  
+
+  return (    
+      <>
+      <div className="full_col_block h_126_vh m_h_118_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content">

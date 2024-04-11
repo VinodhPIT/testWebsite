@@ -6,12 +6,12 @@ import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import axios from 'axios';
 export default function Reference() {
   const { t } = useTranslation();
-  const { images, addImage, deleteImage, nextPage } = useRequestForm();
+  const { images, addImage, deleteImage, nextPage  } = useRequestForm();
 
-  console.log(images,"dokcsc")
+
 
 //   const handleFileUpload = (event, index) => {
 //     const file = event.target.files[0];
@@ -36,7 +36,11 @@ export default function Reference() {
 // };
 
 const handleFileUpload = (event, index) => {
+ 
   const file = event.target.files[0];
+
+  console.log(file ,"d';,c;'sd,cs'")
+
 
   if (file && file.type.startsWith('image/')) {
       // Create object URL for the file
@@ -50,7 +54,7 @@ const handleFileUpload = (event, index) => {
       };
       addImage(newImage, index);
   } else {
-      toast.error('Please select an image file.', {
+      toast.error(t("common:select an image file"), {
         position: toast.POSITION.TOP_CENTER
     });
   }
@@ -59,12 +63,42 @@ const handleFileUpload = (event, index) => {
 
 
 
+
+  
+    // console.log(file);
+  
+    // const formData = new FormData();
+    // formData.append('body_part', 'head');
+    // formData.append('artist_uids', 'f7f533e6-2fe9-477a-9eac-b0367e0f6843');
+    // formData.append('size', '10 cm');
+    // formData.append('comments', 'hi');
+    // formData.append('customer_email', 'vio@gmail.com');
+    // formData.append('customer_phone_no', '');
+    // formData.append('secondary_images', file);
+  
+  
+    // axios.post('https://admin.inckd.com/web/api/customer-request/save', formData, {
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   }
+    // })
+    // .then(response => {
+    //   console.log(response.data, "response");
+    //   // Handle API response
+    // })
+    // .catch(error => {
+    //   console.error(error);
+    //   // Handle error
+    // });
+  
+  
+
 };
 
 
   return (
     <>
-      <div className="full_col_block h_126_pc">
+      <div className="full_col_block h_126_vh m_h_118_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content">
@@ -96,7 +130,7 @@ const handleFileUpload = (event, index) => {
                               type="file"
                               onChange={(event) => handleFileUpload(event, index)}
                               accept="image/*"
-                              capture="camera"
+                             
                             />
                           </div>
                         )}

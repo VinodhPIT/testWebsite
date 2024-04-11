@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import {APP_LINK_APPLE,APP_LINK_GOOGLE} from '@/constants/constants'
 import useTranslation from "next-translate/useTranslation";
 import Image from 'next/image'
+import {useResetRequestFormState} from '@/store/requestManagement/requestForm'
 
 
 
@@ -28,16 +29,15 @@ const customStyles = {
     borderRadius: '8px'
   },
 };
-const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
+const sucessModal = ({  }) => {
 
   const { t } = useTranslation();
 
 
-
   return (
     <Modal
-    isOpen={false}
-    onRequestClose={closeModal}
+    isOpen={true}
+    
     contentLabel="Example Modal"
     style={customStyles} 
     ariaHideApp={false}
@@ -49,7 +49,7 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
               <Image src="/Great-idea-tattoo!.png" alt="Manage your business" className="w_auto max_w_100pc object_fit_contain object_position"   width={398} height={500}/>
             </div>
             <div className="popup_right">
-              <button className="close_button" onClick={closeModal}>
+              <button className="close_button" onClick={useResetRequestFormState}>
                 <Image  width={25} height={25} src="/popup-close.svg" alt="close"/>        
               </button>
               <div className="popup_right_content justify_content_center pl_16 pr_16">
@@ -65,8 +65,8 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                         className="custom_download_icons"
                       />
                     </div>                
-                    <h5 class="color_gray_550 mb_0">Great idea for a tattoo!</h5>                  
-                    <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.</p>
+                    <h5 class="color_gray_550 mb_0">{t("common:stepper.ideaForTattoo")}</h5>                  
+                    <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">{t("common:stepper.bringYouridea")}</p>
                   </div>                 
                   <ul class="download_app d_block mt_25 m_mt_0 m_pt_30 ml_auto mr_auto text_center m_max_242">
                     <li class="download_app_title">
@@ -94,4 +94,4 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
   );
 };
 
-export default TattooSearchModalPopup;
+export default sucessModal;

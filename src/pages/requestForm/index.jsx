@@ -9,6 +9,8 @@ import Artist from "@/components/stepperComponents/artist";
 import Contact from "@/components/stepperComponents/contact";
 import Review from "@/components/stepperComponents/review";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+import useTranslation from "next-translate/useTranslation";
+
 
 const StepperComponent = dynamic(
   () => import("@/components/stepperComponents/stepper"),
@@ -18,25 +20,26 @@ const StepperComponent = dynamic(
 );
 
 export default function Requestform() {
+  const { t } = useTranslation();
   const steps = [
-    { title: "Tatto size" },
-    { title: "Body part" },
-    { title: "Descripton" },
-    { title: "Reference" },
-    { title: "Artist" },
-    { title: "Contact" },
+    { title: t("common:stepper.tattooSize")},
+    { title:  t("common:stepper.bodyPart") },
+    { title: t("common:stepper.description")},
+    { title: t("common:stepper.reference") },
+    { title: t("common:stepper.artists")},
+    { title: t("common:stepper.contact")},
   ];
 
   const components = [
-
+    
     <TattooSize />,
     <BodyPart />,
-
     <Description />,
     <Reference />,
-    <Artist />,
     <Contact />,
+    <Artist />,
     <Review />,
+    
   ];
 
   const getPageComponent = (pageNo) => {

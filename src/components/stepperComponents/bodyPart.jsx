@@ -20,7 +20,7 @@ const BodyPart = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_pc">
+      <div className="full_col_block h_126_vh m_h_118_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content">

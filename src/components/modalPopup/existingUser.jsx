@@ -3,10 +3,8 @@ import Modal from 'react-modal';
 import {APP_LINK_APPLE,APP_LINK_GOOGLE} from '@/constants/constants'
 import useTranslation from "next-translate/useTranslation";
 import Image from 'next/image'
-
-
-
-import Link from 'next/link';
+import {useResetRequestFormState} from '@/store/requestManagement/requestForm'
+import { detectOS } from "@/utils/detectOS";
 
 const customStyles = {
   overlay: {
@@ -28,16 +26,28 @@ const customStyles = {
     borderRadius: '8px'
   },
 };
-const TattooSearchModal1Popup = ({ isOpen, closeModal }) => {
+const TattooSearchModal1Popup = ({}) => {
 
   const { t } = useTranslation();
 
 
+  const openApp = () => {
+    const os = detectOS();
+    let appLink = APP_LINK_GOOGLE; // Default to Google Play Store link
+  
+    if (os === 'iOS' || os === 'MacOS' || os === 'iPad' || os === 'iPod') {
+      appLink = APP_LINK_APPLE; // Update to App Store link for iOS and macOS
+    }
+  
+    window.open(appLink, '_blank');
+  };
+  
+
 
   return (
     <Modal
-    isOpen={false}
-    onRequestClose={closeModal}
+    isOpen={true}
+    
     contentLabel="Example Modal"
     style={customStyles} 
     ariaHideApp={false}
@@ -49,7 +59,7 @@ const TattooSearchModal1Popup = ({ isOpen, closeModal }) => {
               <Image src="/Great-idea-tattoo!.png" alt="Manage your business" className="w_auto max_w_100pc object_fit_contain object_position"   width={398} height={500}/>
             </div>
             <div className="popup_right">
-              <button className="close_button" onClick={closeModal}>
+              <button className="close_button" onClick={useResetRequestFormState}>
                 <Image  width={25} height={25} src="/popup-close.svg" alt="close"/>        
               </button>
               <div className="popup_right_content justify_content_center pl_16 pr_16">
@@ -65,9 +75,9 @@ const TattooSearchModal1Popup = ({ isOpen, closeModal }) => {
                         className="custom_download_icons"
                       />
                     </div>                
-                    <h5 class="color_gray_550 mb_0">Great idea for a tattoo!</h5>                  
-                    <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.</p>
-                    <a class="btn_outline_secondary btn_cutom_new fw_600 mt_30 w_100pc d_max_248" href="#">Open your app</a>
+                    <h5 class="color_gray_550 mb_0">{t("common:stepper.ideaForTattoo")}</h5>                  
+                    <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">{t("common:stepper.Login with your existing account")}</p>
+                    <button onClick={()=>openApp()} class="btn_outline_secondary btn_cutom_new fw_600 mt_30 w_100pc d_max_248">{t("common:stepper.openApp")}</button>
                   </div>
                 </div>
               </div>

@@ -4,11 +4,12 @@ import { useGlobalState } from "@/context/Context";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+import useWindowResize from "@/hooks/useWindowSize";
 
 function SearchBar() {
   const { setSearchState, searchState } = useGlobalState();
-
-  const { searchArtist ,clearField } = useRequestForm();
+  const { isMobileView } = useWindowResize();
+  const { searchArtist, clearField } = useRequestForm();
 
   const { t } = useTranslation();
 
@@ -33,12 +34,15 @@ function SearchBar() {
       query: "",
     }));
 
-    clearField()
+    clearField();
     // window.location.reload();
+  };
 
-
-
-
+  const onSearch = () => {
+    setSearchState((prevSearchState) => ({
+      ...prevSearchState,
+      isButtonClicked: !prevSearchState.isButtonClicked,
+    }));
   };
 
   return (
@@ -58,13 +62,9 @@ function SearchBar() {
             }
             value={searchState.query}
           />
-          <button type="submit" tabindex="-1" className={style.btn_search}>
-            <Image
-              src="/magni.svg"
-              alt="search"
-              width={20}
-              height={20}
-            />
+
+          <button type="submit" className={style.btn_search}>
+            <Image src="/magni.svg" alt="search" width={20} height={20} />
           </button>
         </div>
       </form>

@@ -1,24 +1,27 @@
-
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 import Stepper from "react-stepper-horizontal";
-import useWindowResize from '@/hooks/useWindowSize'
-import {useNavigation} from '@/hooks/useRouter'
-import {useRequestForm} from '@/store/requestManagement/requestForm'
+import useWindowResize from "@/hooks/useWindowSize";
+import { useNavigation } from "@/hooks/useRouter";
+import { useRequestForm } from "@/store/requestManagement/requestForm";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 const StepperComponent = ({ steps, activeStep }) => {
+  const { isMobileView } = useWindowResize();
 
-const {isMobileView} =useWindowResize()
-const {prevPage, stepNumber} =useRequestForm ()
-const {navigateTo} = useNavigation()
+  const { prevPage, stepNumber, locationDenied } = useRequestForm();
 
+  const { navigateTo } = useNavigation();
+  const { t } = useTranslation();
   const generateStepTitle = (title, index) => {
-    const isCompleted = index < activeStep; 
+    const isCompleted = index < activeStep;
 
     return (
       <div style={{ textAlign: "center" }}>
-        {isCompleted ? ( 
+        {isCompleted ? (
           <span
             style={{
               position: "absolute",
@@ -28,54 +31,63 @@ const {navigateTo} = useNavigation()
               color: "#fff",
             }}
           >
-          <Image
-            priority
-            alt="tick"
-            src="/icon-tick.svg"
-            width="10" 
-            height="8"
-            className="v_align_top mt_4"
-          />
+            <Image
+              priority
+              alt="tick"
+              src="/icon-tick.svg"
+              width="10"
+              height="8"
+              className="v_align_top mt_4"
+            />
           </span>
         ) : (
           // If step is not completed, display an empty null
           <span></span>
         )}
 
-        {!isMobileView &&   title}
+        {!isMobileView && title}
       </div>
     );
   };
 
   const onNavigate = () => {
-    (stepNumber === 0) ? navigateTo('/createRequest') : prevPage();
-}
+    stepNumber === 0 ? navigateTo("/createRequest") : prevPage();
+  };
+
+  useEffect(() => {
+    if (locationDenied === true)
+      toast.error(t("common:deniedGeolocation"), {
+        position: toast.POSITION.TOP_CENTER,
+      });
+  }, [locationDenied]);
+
   return (
-
     <div className="request_landing_header">
-    
-           <button   onClick={onNavigate} className="pr_0 pl_0 request_back_arrow">
-              <Image
-                priority
-                alt="backArrow"
-                src="/back_arrow_left_grey.svg" 
-                width="24" 
-                height="24"
-              
-            />
-             </button>
-          
-                {isMobileView && stepNumber === 0&&
-                <div>
+      <button onClick={onNavigate} className="pr_0 pl_0 request_back_arrow">
+        <Image
+          priority
+          alt="backArrow"
+          src="/back_arrow_left_grey.svg"
+          width="24"
+          height="24"
+        />
+      </button>
 
+      {isMobileView && stepNumber === 0 && (
+        <div className="request_landing_caption_mob">
+          <h1>
+            <span>
+            {t("common:stepper.mainTitle")}
+             
+            </span>
+          </h1>
+          <p>
+          {t("common:stepper.subText")}
+          </p>
+        </div>
+      )}
 
-             <h1><span>Describe your tattoo idea and share it with multiple artists.</span>   </h1>
-         
-                             
-             <p>Get personalized quotes and choose the artist who perfectly captures your vision.</p>         
-             </div>}
-      
-      <div className="request_header_container">        
+      <div className="request_header_container">
         <Stepper
           steps={steps.map((step, index) => ({
             title: generateStepTitle(step.title, index),
@@ -98,8 +110,8 @@ const {navigateTo} = useNavigation()
           titleFontSize={12}
         />
       </div>
+      <ToastContainer />
     </div>
-    
   );
 };
 

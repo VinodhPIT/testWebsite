@@ -5756,6 +5756,10 @@ button.language_switcher img {
     height: 16px !important;
   }
 
+  .m_h_118_vh{
+    height: calc(100vh - 118px)!important;
+  } 
+
   .m_h_inherit {
     height: inherit !important;
   }

@@ -67,6 +67,7 @@ const createRequestObject1 = (parameters, paginatorCount) => {
   } else {
     request.style = [];
   }
+  console.log(request ,"dlcsl;dc")
 
 
   return request;
