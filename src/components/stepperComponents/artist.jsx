@@ -28,11 +28,10 @@ const Artist = () => {
     loader,
   } = useRequestForm();
 
-  
-
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
 
   const [visible, setVisible] = useState(false);
+  const [visible1, setVisible1] = useState(true);
 
   const { t } = useTranslation();
   const { isMobileView } = useWindowResize();
@@ -64,13 +63,8 @@ const Artist = () => {
 
   const onSearch = () => {
     setVisible(!visible);
+    setVisible1(!visible1);
   };
-
-
-
-
-
-
 
   return (
     <>
@@ -81,56 +75,67 @@ const Artist = () => {
               <section className="request_landing_content">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title5")}</h2>
-<div style={{"position":"relative"}}>
+                  <div style={{ position: "relative" }}>
+                    <div
+                      className="request_filter_col_wrap"
+                      style={{ display: "flex", gap: "4px" }}
+                    >
+                      
+                        <div className="request_filter_block">
+                          <div className="request_style_drop">
+                            <button onClick={onToggle}>
+                              <p>{t("common:Style")}</p>
+                            </button>
+                            {toggle && (
+                              <OutsideClickHandler onOutsideClick={onToggle}>
+                                <StyleDropdown onToggle={onToggle} />
+                              </OutsideClickHandler>
+                            )}
+                          </div>
+                          <div className="request_location_drop">
+                            <button onClick={onToggleLoc}>
+                              <p>
+                                {" "}
+                                {location !== ""
+                                  ? location
+                                  : t("common:locations")}
+                              </p>
+                            </button>
 
+                            {toggleLocation && (
+                              <OutsideClickHandler onOutsideClick={onToggleLoc}>
+                                <Location onToggleLoc={onToggleLoc} />
+                              </OutsideClickHandler>
+                            )}
+                          </div>
+                        </div>
+                      
 
-                  <div
-                    className="request_filter_col_wrap"
-                    style={{ display: "flex", gap: "4px" }}
-                  >
-                    <div className="request_filter_block">
-                      <div className="request_style_drop">
-                        <button onClick={onToggle}>
-                          <p>{t("common:Style")}</p>
+                      {/* {!visible1 && <SearchBar />} */}
+
+                      {isMobileView === true ? (
+                        <button
+                          type="submit"
+                          onClick={() => onSearch()}
+                          className="mobileSearch"
+                        >
+                          <Image
+                            src="/magni.svg"
+                            alt="search"
+                            width={20}
+                            height={20}
+                          />
                         </button>
-                        {toggle && (
-                          <OutsideClickHandler onOutsideClick={onToggle}>
-                            <StyleDropdown onToggle={onToggle} />
-                          </OutsideClickHandler>
-                        )}
-                      </div>
-                      <div className="request_location_drop">
-                        <button onClick={onToggleLoc}>
-                          <p> {location !== "" ? location : t("common:locations")}</p>
-                        </button>
-
-                        {toggleLocation && (
-                          <OutsideClickHandler onOutsideClick={onToggleLoc}>
-                            <Location onToggleLoc={onToggleLoc} />
-                          </OutsideClickHandler>
-                        )}
-                      </div>
+                      ) : (
+                        <SearchBar />
+                      )}
                     </div>
-
-                    {isMobileView === true ? (
-                      <button type="submit" onClick={() => onSearch()} className="mobileSearch">
-                        <Image
-                          src="/magni.svg"
-                          alt="search"
-                          width={20}
-                          height={20}
-                        />
-                      </button>
-                    ) : (
-                      <SearchBar />
-                    )}
-                  </div>
-                  {visible && (
+                    {visible && (
                     <div className="mt_25">
                       <SearchBar />
                     </div>
                   )}
-</div>
+                  </div>
                   {loader === true ? (
                     <SkeletonArtistList />
                   ) : (
@@ -214,8 +219,8 @@ const Artist = () => {
                             <button
                               className="btn_secondary btn_view_more"
                               onClick={() => loadMore()}
-                            >{t("common:loadMore")}
-                             
+                            >
+                              {t("common:loadMore")}
                             </button>
                           )}
                       </div>
@@ -240,7 +245,8 @@ const Artist = () => {
                           </p>
                         ) : (
                           <p className="mt_15 request_ref_selected">
-                            {selectedArtists.length} {t("common:artistsSelected")}
+                            {selectedArtists.length}{" "}
+                            {t("common:artistsSelected")}
                             <Image
                               src="Alt Arrow Right.svg"
                               width={16}

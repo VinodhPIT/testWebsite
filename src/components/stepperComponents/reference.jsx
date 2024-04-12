@@ -12,7 +12,7 @@ export default function Reference() {
   const { images, addImage, deleteImage, nextPage  } = useRequestForm();
 
 
-
+console.log(images ,'lckd')
 //   const handleFileUpload = (event, index) => {
 //     const file = event.target.files[0];
 //     // Check if the selected file is an image
@@ -39,7 +39,7 @@ const handleFileUpload = (event, index) => {
  
   const file = event.target.files[0];
 
-  console.log(file ,"d';,c;'sd,cs'")
+
 
 
   if (file && file.type.startsWith('image/')) {
@@ -48,9 +48,17 @@ const handleFileUpload = (event, index) => {
 
       // Display the selected image in the UI
       const newImage = {
-          id: uuidv4(),
+          id: index,
           url: imageUrl,
-          file: file // Optionally, you can store the file object if needed
+          data:"file path",
+          filename:"0.jpg",
+          name:"secondary_images",
+          type:file.type
+
+
+
+
+
       };
       addImage(newImage, index);
   } else {
