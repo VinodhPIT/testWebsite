@@ -121,7 +121,7 @@ const Review = () => {
                       <div class="request_review_ref">
                         {images.map((el, id) => {
                           return (
-                            <div class="request_review_ref_img">
+                            <div class="request_review_ref_img" key={id}>
                               <Image
                                 src={images[id].url}
                                 width={175}

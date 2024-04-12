@@ -89,7 +89,7 @@ export const useRequestForm = create((set, get) => ({
 
   fetchArtistByStyle: async (slug) => {
     try {
-      set({ loader: true ,loadNo:0 });
+      set({ loader: true ,loadNo:0  ,selectedArtists:[] });
       let styleId = [];
       const slugsToCheck = Array.isArray(slug) ? slug : [slug];
       const stylesArray = await getStyles();
@@ -122,7 +122,7 @@ export const useRequestForm = create((set, get) => ({
     // Function to clear selected style
     clearStyle: async () => {
       try {
-        set({ loader: true });
+        set({ loader: true ,selectedArtists:[] });
         const { searchKey, latitude, longitude, styleId } = get();
         const response = await artistListing({
           ...requestFormParameters,
@@ -146,7 +146,7 @@ export const useRequestForm = create((set, get) => ({
     // Function to clear search key
     clearField: async () => {
       try {
-        set({ loader: true });
+        set({ loader: true  ,selectedArtists:[]});
         const { latitude, longitude, styleId } = get();
         const response = await artistListing({
           ...requestFormParameters,
@@ -192,7 +192,7 @@ export const useRequestForm = create((set, get) => ({
     // Function to filter artists by location
     filterLocation: async (address) => {
       try {
-        set({ loader: true });
+        set({ loader: true  ,selectedArtists:[] });
         const placeResponse = await axios.get(
           `/api/getPlaceDetails?location=${encodeURIComponent(address)}`
         );
@@ -221,7 +221,7 @@ export const useRequestForm = create((set, get) => ({
     // Function to filter artists by current location
     filterCurrentLocation: async (isChecked) => {
       try {
-        set({ loader: true, locationDenied: false});
+        set({ loader: true, locationDenied: false ,selectedArtists:[] });
     
         let latitude = "" 
         let longitude =  ""; 
@@ -262,7 +262,7 @@ export const useRequestForm = create((set, get) => ({
     // Function to clear location
     clearLocation: async () => {
       try {
-        set({ loader: true });
+        set({ loader: true  ,selectedArtists:[]});
         const { searchKey, styleId } = get();
         const response = await artistListing({
           ...requestFormParameters,

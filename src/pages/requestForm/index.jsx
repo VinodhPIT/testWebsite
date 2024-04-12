@@ -32,14 +32,13 @@ export default function Requestform() {
 
   const components = [
     
-    <TattooSize />,
-    <BodyPart />,
-    <Description />,
-    <Artist />,
-    <Reference />,
-    <Contact />,
-    
-    <Review />,
+    <TattooSize key="tattooSize" />,
+    <BodyPart key="bodyPart" />,
+    <Description key="description" />,
+    <Artist key="artist" />,
+    <Reference key="reference" />,
+    <Contact key="contact" />,
+    <Review key="review" />,
     
   ];
 

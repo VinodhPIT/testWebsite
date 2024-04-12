@@ -29,7 +29,7 @@ const customStyles = {
     borderRadius: '8px'
   },
 };
-const sucessModal = ({  }) => {
+const SucessModal = ({  }) => {
 
   const { t } = useTranslation();
 
@@ -94,4 +94,4 @@ const sucessModal = ({  }) => {
   );
 };
 
-export default sucessModal;
+export default SucessModal;
