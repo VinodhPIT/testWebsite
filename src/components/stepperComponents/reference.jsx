@@ -39,6 +39,8 @@ const handleFileUpload = (event, index) => {
  
   const file = event.target.files[0];
 
+  console.log(file,"dc,l;d,c';s")
+
 
 
 

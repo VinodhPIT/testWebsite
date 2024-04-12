@@ -232,29 +232,26 @@ const Artist = () => {
                           {t("common:goBack")}
                         </button>
 
-                        {selectedArtists.length ===
-                        0 ? null : selectedArtists.length === 10 ? (
-                          <p className="mt_15 request_ref_selected">
-                            Maximum limit of 10 reached
-                            <Image
-                              src="Alt Arrow Right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                            />
-                          </p>
-                        ) : (
-                          <p className="mt_15 request_ref_selected">
-                            {selectedArtists.length}{" "}
-                            {t("common:artistsSelected")}
-                            <Image
-                              src="Alt Arrow Right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                            />
-                          </p>
-                        )}
+                    {selectedArtists.length ===
+                    0 ? null : selectedArtists.length === 10 ? (
+                      <p className="mt_15 request_ref_selected max_reached">Maximum limit of 10 reached 
+                        {/* <Image
+                          src="Alt Arrow Right.svg"
+                          width={16}
+                          height={16}
+                          alt="arrow"
+                        /> */}
+                      </p>
+                    ) : (
+                      <p className="mt_15 request_ref_selected">{selectedArtists.length} Artists Selected 
+                        <Image
+                          src="Alt Arrow Right.svg"
+                          width={16}
+                          height={16}
+                          alt="arrow"
+                        />
+                      </p>
+                    )}
 
                         {selectedArtists.length > 0 && (
                           <button
