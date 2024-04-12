@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
 import Modal from "@/components/modalPopup/newUser";
 import Modal1 from "@/components/modalPopup/existingUser";
 import Image from "next/image";
 import { getCountry } from "@/helpers/helper";
-
-
+import axios from "axios";
 const Review = () => {
   const {
     bodyPart,
@@ -16,50 +15,53 @@ const Review = () => {
     phone,
     prevPage,
     images,
-    selectedArtists, userExists
+    selectedArtists,
+    userExists,
   } = useRequestForm();
 
 
 
+  const array = selectedArtists.map((e) => e.artistId);
+
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
 
   const uploadDataToAPI = () => {
+    setLoading(true)
     const formData = new FormData();
-    // Append other parameters
-    formData.append('body_part', 'head');
-    formData.append('artist_uids', 'f7f533e6-2fe9-477a-9eac-b0367e0f6843');
-    formData.append('size', '10 cm');
-    formData.append('comments', 'hi');
-    formData.append('customer_email', 'vio@gmail.com');
-    formData.append('customer_phone_no', '');
-    // Append secondary_images
-      // Append secondary_images
-      secondaryImages.forEach((image, index) => {
-        formData.append(`secondary_images[${index}][data]`, image.data);
-        formData.append(`secondary_images[${index}][type]`, image.type);
-        formData.append(`secondary_images[${index}][filename]`, image.filename);
-        formData.append(`secondary_images[${index}][name]`, image.name);
-      });
-    // Call your API with formData
-    fetch('https://admin.inckd.com/web/api/customer-request/save', {
-        method: 'POST',
-        body: formData,
+
+    formData.append("body_part", bodyPart);
+    formData.append("artist_uids", array.join(","));
+    formData.append("size", tattooSize);
+    formData.append("comments", message);
+    formData.append("customer_email", email);
+    formData.append("customer_phone_no",phone);
+ 
+
+    // images.forEach((image, index) => {
+    //   formData.append(`secondary_images[${index}]`, image.data);
+    //   formData.append(`secondary_images[${index}]`, image.type);
+    //   formData.append(`secondary_images[${index}]`, image.filename);
+    //   formData.append(`secondary_images[${index}]`, image.name);
+    // });
+
+
+
+    axios
+      .post("https://admin.inckd.com/web/api/customer-request/save", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data ,"response")
-        // Handle API response
-    })
-    .catch(error => {
-      console.log(error)
-        // Handle error
-    });
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        setLoading(false)
+        setSuccess(true);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
-
-
 
   return (
     <>
@@ -186,6 +188,14 @@ const Review = () => {
                       onClick={() => uploadDataToAPI()}
                     >
                       {t("common:submit")}
+
+                      {loading ? (
+                            <span
+                              className="spinner-border spinner-border-sm"
+                              aria-hidden="true"
+                            ></span>
+                          ) : null}
+                      
                     </button>
                   </div>
                 </div>
@@ -194,9 +204,9 @@ const Review = () => {
           </div>
         </div>
       </div>
-      
- {userExists === false   ? <Modal />   :<Modal1/>}
-   
+
+      {success && !userExists && <Modal />}
+      {success && userExists && <Modal1 />}
     </>
   );
 };

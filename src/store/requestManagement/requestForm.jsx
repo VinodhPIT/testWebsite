@@ -310,6 +310,7 @@ export const useRequestForm = create((set, get) => ({
     addSelectedArtist: (artist) =>
       set((state) => ({
         selectedArtists: [...state.selectedArtists, artist]
+        
       })),
   
     removeSelectedArtist: (id) =>

@@ -177,6 +177,17 @@ export const artistSave = async (params) => {
 
 
 
+export const customerRequest = async () => {
+  try {
+    const response = await getApiCall(API_URL.SEARCH.CUSTOMER_REQUEST);
+  
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+
 
 
 

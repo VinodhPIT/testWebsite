@@ -42,7 +42,8 @@ const Artist = () => {
     studios,
     location,
     slug,
-    artistImage
+    artistImage,
+    artistId
   ) => {
     if (selectedArtists.some((artist) => artist.id === id)) {
       removeSelectedArtist(id);
@@ -56,6 +57,7 @@ const Artist = () => {
           location,
           slug,
           artistImage,
+          artistId,
         });
       }
     }
@@ -80,36 +82,34 @@ const Artist = () => {
                       className="request_filter_col_wrap"
                       style={{ display: "flex", gap: "4px" }}
                     >
-                      
-                        <div className="request_filter_block">
-                          <div className="request_style_drop">
-                            <button onClick={onToggle}>
-                              <p>{t("common:Style")}</p>
-                            </button>
-                            {toggle && (
-                              <OutsideClickHandler onOutsideClick={onToggle}>
-                                <StyleDropdown onToggle={onToggle} />
-                              </OutsideClickHandler>
-                            )}
-                          </div>
-                          <div className="request_location_drop">
-                            <button onClick={onToggleLoc}>
-                              <p>
-                                {" "}
-                                {location !== ""
-                                  ? location
-                                  : t("common:locations")}
-                              </p>
-                            </button>
-
-                            {toggleLocation && (
-                              <OutsideClickHandler onOutsideClick={onToggleLoc}>
-                                <Location onToggleLoc={onToggleLoc} />
-                              </OutsideClickHandler>
-                            )}
-                          </div>
+                      <div className="request_filter_block">
+                        <div className="request_style_drop">
+                          <button onClick={onToggle}>
+                            <p>{t("common:Style")}</p>
+                          </button>
+                          {toggle && (
+                            <OutsideClickHandler onOutsideClick={onToggle}>
+                              <StyleDropdown onToggle={onToggle} />
+                            </OutsideClickHandler>
+                          )}
                         </div>
-                      
+                        <div className="request_location_drop">
+                          <button onClick={onToggleLoc}>
+                            <p>
+                              {" "}
+                              {location !== ""
+                                ? location
+                                : t("common:locations")}
+                            </p>
+                          </button>
+
+                          {toggleLocation && (
+                            <OutsideClickHandler onOutsideClick={onToggleLoc}>
+                              <Location onToggleLoc={onToggleLoc} />
+                            </OutsideClickHandler>
+                          )}
+                        </div>
+                      </div>
 
                       {/* {!visible1 && <SearchBar />} */}
 
@@ -131,10 +131,10 @@ const Artist = () => {
                       )}
                     </div>
                     {visible && (
-                    <div className="mt_25">
-                      <SearchBar />
-                    </div>
-                  )}
+                      <div className="mt_25">
+                        <SearchBar />
+                      </div>
+                    )}
                   </div>
                   {loader === true ? (
                     <SkeletonArtistList />
@@ -159,7 +159,8 @@ const Artist = () => {
                                       e._source.studios,
                                       location,
                                       e._source.slug,
-                                      e._source.profile_image
+                                      e._source.profile_image,
+                                      e._source.tattoos[0].profile_uid
                                     )
                                   }
                                 >
@@ -224,6 +225,7 @@ const Artist = () => {
                             </button>
                           )}
                       </div>
+
                       <div className="request_ref_btn">
                         <button
                           onClick={() => prevPage()}
@@ -232,26 +234,23 @@ const Artist = () => {
                           {t("common:goBack")}
                         </button>
 
-                    {selectedArtists.length ===
-                    0 ? null : selectedArtists.length === 10 ? (
-                      <p className="mt_15 request_ref_selected max_reached">Maximum limit of 10 reached 
-                        {/* <Image
-                          src="Alt Arrow Right.svg"
-                          width={16}
-                          height={16}
-                          alt="arrow"
-                        /> */}
-                      </p>
-                    ) : (
-                      <p className="mt_15 request_ref_selected">{selectedArtists.length} Artists Selected 
-                        <Image
-                          src="Alt Arrow Right.svg"
-                          width={16}
-                          height={16}
-                          alt="arrow"
-                        />
-                      </p>
-                    )}
+                        {selectedArtists.length ===
+                        0 ? null : selectedArtists.length === 10 ? (
+                          <p className="mt_15 request_ref_selected max_reached">
+                            Maximum limit of 10 reached
+                           
+                          </p>
+                        ) : (
+                          <p className="mt_15 request_ref_selected">
+                            {selectedArtists.length} Artists Selected
+                            <Image
+                              src="Alt Arrow Right.svg"
+                              width={16}
+                              height={16}
+                              alt="arrow"
+                            />
+                          </p>
+                        )}
 
                         {selectedArtists.length > 0 && (
                           <button
