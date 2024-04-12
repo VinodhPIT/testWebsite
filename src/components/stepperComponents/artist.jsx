@@ -131,8 +131,18 @@ const Artist = () => {
                       )}
                     </div>
                     {visible && (
-                    <div className="mt_25">
+                    <div className="request_mobile_search">
                       <SearchBar />
+                      <div className="mob_search_close">
+                        <button>
+                          <Image
+                            src="/mob_search_close.svg"
+                            alt="search"
+                            width={24}
+                            height={24}
+                          />
+                        </button>
+                      </div>
                     </div>
                   )}
                   </div>
@@ -224,6 +234,24 @@ const Artist = () => {
                             </button>
                           )}
                       </div>
+                      {isMobileView === true ? (
+                        selectedArtists.length ===
+                        0 ? null : selectedArtists.length === 10 ? (
+                          <p className="mt_15 request_ref_selected max_reached">
+                            Maximum limit of 10 reached
+                          </p>
+                        ) : (
+                          <p className="mt_15 request_ref_selected">
+                            {selectedArtists.length} Artists Selected
+                            <Image
+                              src="Alt Arrow Right.svg"
+                              width={16}
+                              height={16}
+                              alt="arrow"
+                            />
+                          </p>
+                        )
+                      ) : null}
                       <div className="request_ref_btn">
                         <button
                           onClick={() => prevPage()}
@@ -231,28 +259,24 @@ const Artist = () => {
                         >
                           {t("common:goBack")}
                         </button>
-
-                    {selectedArtists.length ===
-                    0 ? null : selectedArtists.length === 10 ? (
-                      <p className="mt_15 request_ref_selected max_reached">Maximum limit of 10 reached 
-                        {/* <Image
-                          src="Alt Arrow Right.svg"
-                          width={16}
-                          height={16}
-                          alt="arrow"
-                        /> */}
-                      </p>
-                    ) : (
-                      <p className="mt_15 request_ref_selected">{selectedArtists.length} Artists Selected 
-                        <Image
-                          src="Alt Arrow Right.svg"
-                          width={16}
-                          height={16}
-                          alt="arrow"
-                        />
-                      </p>
-                    )}
-
+                        {isMobileView === false ? (
+                          selectedArtists.length ===
+                          0 ? null : selectedArtists.length === 10 ? (
+                            <p className="mt_15 request_ref_selected max_reached">
+                              Maximum limit of 10 reached
+                            </p>
+                          ) : (
+                            <p className="mt_15 request_ref_selected">
+                              {selectedArtists.length} Artists Selected
+                              <Image
+                                src="Alt Arrow Right.svg"
+                                width={16}
+                                height={16}
+                                alt="arrow"
+                              />
+                            </p>
+                          )
+                        ) : null}
                         {selectedArtists.length > 0 && (
                           <button
                             onClick={nextPage}

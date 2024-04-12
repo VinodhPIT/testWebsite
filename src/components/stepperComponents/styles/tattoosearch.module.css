@@ -136,13 +136,13 @@
 @media screen and (max-width: 767px) {
   .search_bar  {
     min-width: inherit;
+    width: calc(100% - 35px);
   }
   .search_bar input.input_txt {
-    /* width: 42px;
-    padding: 0; */
+    padding-left: 16px;
   }
   .search_bar .btn_search {
-    padding: 10px 10px;
+    padding: 10px 16px;
   }
 }
 
