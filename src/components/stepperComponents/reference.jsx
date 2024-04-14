@@ -35,74 +35,20 @@ export default function Reference() {
 //     }
 // };
 
+
 const handleFileUpload = (event, index) => {
- 
+  console.log(index,'dcdc')
   const file = event.target.files[0];
-
-  console.log(file,"dc,l;d,c';s")
-
-
-
-
   if (file && file.type.startsWith('image/')) {
-      // Create object URL for the file
-      const imageUrl = URL.createObjectURL(file);
-
-      // Display the selected image in the UI
-      const newImage = {
-        
-           url:imageUrl,
-          data:file,
-          filename:"0.jpg",
-          name:"secondary_images",
-          type:file.type
-
-
-
-
-
-      };
-      addImage(newImage, index);
+    // Create object URL for the file
+    const imageUrl = URL.createObjectURL(file);
+    const uuid = uuidv4(); // Generate UUID for the image
+    addImage(file, imageUrl, uuid ,index); // Add image to Zustand store
   } else {
-      toast.error(t("common:select an image file"), {
-        position: toast.POSITION.TOP_CENTER
+    toast.error(t("common:select an image file"), {
+      position: toast.POSITION.TOP_CENTER
     });
   }
-
-
-
-
-
-
-  
-    // console.log(file);
-  
-    // const formData = new FormData();
-    // formData.append('body_part', 'head');
-    // formData.append('artist_uids', 'f7f533e6-2fe9-477a-9eac-b0367e0f6843');
-    // formData.append('size', '10 cm');
-    // formData.append('comments', 'hi');
-    // formData.append('customer_email', 'vio@gmail.com');
-    // formData.append('customer_phone_no', '');
-    // formData.append('secondary_images', file);
-  
-  
-    // axios.post('https://admin.inckd.com/web/api/customer-request/save', formData, {
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data'
-    //   }
-    // })
-    // .then(response => {
-    //   console.log(response.data, "response");
-    //   // Handle API response
-    // })
-    // .catch(error => {
-    //   console.error(error);
-    //   // Handle error
-    // });
-  
-  
-
 };
 
 
@@ -120,7 +66,8 @@ const handleFileUpload = (event, index) => {
                       <div key={index} className="request_file_up_list">
                         {images[index] ? (
                           <div className="request_upload_img">
-                            <button onClick={() => deleteImage(index)} className="request_upload_close">
+                                  <button onClick={() => deleteImage(images[index].uuid)} className="request_upload_close">
+
                               <Image
                                 src="/Trash_Bin.svg"
                                 width={18}
@@ -128,10 +75,12 @@ const handleFileUpload = (event, index) => {
                                 alt="Trash"
                               />
                             </button>
-                            <img
-                              src={images[index].url}
+                            <Image
+                              src={images[index].imageUrl}
                               alt={`Uploaded ${index}`}
-                              style={{ maxWidth: "180px", maxHeight: "180px" }}
+                              width={180}
+                              height= {180}
+                             
                             />
                           </div>
                         ) : (

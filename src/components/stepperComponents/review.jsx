@@ -40,10 +40,9 @@ const Review = () => {
  
 
     // images.forEach((image, index) => {
-    //   formData.append(`secondary_images[${index}]`, image.data);
-    //   formData.append(`secondary_images[${index}]`, image.type);
-    //   formData.append(`secondary_images[${index}]`, image.filename);
-    //   formData.append(`secondary_images[${index}]`, image.name);
+    //   formData.append(`secondary_images${index}`, image.data.file);
+    //   formData.append(`secondary_images${index}`, image.name);
+    
     // });
 
 
@@ -123,7 +122,8 @@ const Review = () => {
                           return (
                             <div class="request_review_ref_img" key={id}>
                               <Image
-                                src={images[id].url}
+                                src={images[id].imageUrl
+                                }
                                 width={175}
                                 height={175}
                                 alt="Reference"

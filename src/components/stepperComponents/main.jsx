@@ -1,13 +1,32 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+import {customerRequest} from '@/apiConfig/webService'
+import { useRequestForm } from "@/store/requestManagement/requestForm";
 
 import { useNavigation } from "@/hooks/useRouter";
 export default function Main() {
   const { t } = useTranslation();
   const { router } = useNavigation();
+
+
+
+  
+    const { getSizes} = useRequestForm();
+
+    useEffect(() => {
+      const fetchDatas = async () => {
+        const res = await customerRequest();
+        getSizes(res.details.tatoo_sizes)
+     
+      };
+    
+      fetchDatas();
+    }, []);
+
+    
 
   return (
     <>

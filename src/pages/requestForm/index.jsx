@@ -35,9 +35,11 @@ export default function Requestform() {
     <TattooSize key="tattooSize" />,
     <BodyPart key="bodyPart" />,
     <Description key="description" />,
-    <Artist key="artist" />,
+   
     <Reference key="reference" />,
+    <Artist key="artist" />,
     <Contact key="contact" />,
+    
     <Review key="review" />,
     
   ];

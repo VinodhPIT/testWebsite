@@ -14,7 +14,7 @@ const API_URL = {
     ARTIST_LISTING :'/v2/api/search/artist/list',
      REQUEST_CONTACT : (params) => `/web/api/customer-request/user-exists?customer_email=${params.email}&customer_phone_no=${params.phone}`,
      REQUEST_SAVE :`/web/api/customer-request/save`,
-     CUSTOMER_REQUEST:`/web/api/customer/request?artist_uid=${1}`
+     CUSTOMER_REQUEST:`/web/api/customer-request/detail?artist_uid=${1}`
     
   },
 
