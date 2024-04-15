@@ -1,3 +1,5 @@
+///
+
 import React, {
   createContext,
   useReducer,
@@ -7,6 +9,7 @@ import React, {
 } from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { getUrl } from "@/utils/getUrl";
+
 import { Parameters } from "@/components/parameters/params";
 
 
@@ -140,6 +143,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   const [searchState, setSearchState] = useState({
     query: "",
+
   });
 
   useEffect(() => {

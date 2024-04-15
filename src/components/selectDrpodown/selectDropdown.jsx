@@ -1,16 +1,14 @@
-import React ,{useRef ,useEffect, useState} from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import StyleDropdown from "@/components/styleDropdown/styleDropdown";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useToggle } from "@/hooks/useToggle";
 import style from "@/pages/explore/search.module.css";
-
 import useTranslation from "next-translate/useTranslation";
 import LocationSearch from "@/components/filterByLocation/location";
 import { useGlobalState } from "@/context/Context";
-import { formatText } from '@/utils/textUtils';
-import { useRouter } from 'next/router';
-import OutsideClickHandler from 'react-outside-click-handler';
+import { formatText } from "@/utils/textUtils";
+import OutsideClickHandler from "react-outside-click-handler";
 
 export default function SelectDropdown({
   searchKey,
@@ -22,7 +20,7 @@ export default function SelectDropdown({
   isDetail,
 }) {
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
-  const { state ,selectedIds} = useGlobalState();
+  const { state, selectedIds } = useGlobalState();
   const { isMobileView } = useWindowResize();
 
   const { t } = useTranslation();
@@ -30,7 +28,7 @@ export default function SelectDropdown({
   return (
     <div>
       {isMobileView === true ? (
-          // Mobile  View //
+        // Mobile  View //
         <div className={style.main_wrap}>
           <div className={style.custom_search_filter_mob}>
             <div className={style.wrapper_filter}>
@@ -63,8 +61,13 @@ export default function SelectDropdown({
         // Desktop View //
         <div className={style.main_wrap}>
           {currentTab === "artist" && (
-            <div className={style.wrapper_block} >
-              <button className={ `${style.wrapper_block_loc} ${toggleLocation ? 'onActive' :null}`   } onClick={onToggleLoc} >
+            <div className={style.wrapper_block}>
+              <button
+                className={`${style.wrapper_block_loc} ${
+                  toggleLocation ? "onActive" : null
+                }`}
+                onClick={onToggleLoc}
+              >
                 <Image
                   src="/location-small.svg"
                   width={16}
@@ -74,82 +77,74 @@ export default function SelectDropdown({
                   priority
                 />
 
-                <span>{formatText(state.address)}</span>    
-
-                
+                <span>{formatText(state.address)}</span>
               </button>
-            
-              {toggleLocation && 
-                <OutsideClickHandler  onOutsideClick={onToggleLoc}>
-              <LocationSearch 
-                 searchKey={searchKey}
-                 currentTab={currentTab}
-                 selectedStyle={selectedStyle}
-                 router={router}
-                 onToggle={onToggleLoc}/>
-                 </OutsideClickHandler>
-                }
-                 
-                 
+
+              {toggleLocation && (
+                <OutsideClickHandler onOutsideClick={onToggleLoc}>
+                  <LocationSearch
+                    searchKey={searchKey}
+                    currentTab={currentTab}
+                    selectedStyle={selectedStyle}
+                    router={router}
+                    onToggle={onToggleLoc}
+                  />
+                </OutsideClickHandler>
+              )}
             </div>
           )}
 
           <div className={style.wrapper_filter}>
-            <button onClick={onToggle} className={`${style.filter_block }  ${toggle ? 'onActive' :null}`}>
+            <button
+              onClick={onToggle}
+              className={`${style.filter_block}  ${toggle ? "onActive" : null}`}
+            >
               <Image
                 src="/setting-tuning.svg"
                 width={20}
                 height={21}
                 alt="style"
                 className={style.filter_icon}
-              
                 priority
               />
-              <span>{t("common:Style")}</span>{state.styleId.length!==0 && <span className={style.notification_count}>{state.styleId.length}</span>}
+              <span>{t("common:Style")}</span>
+              {state.styleId.length !== 0 && (
+                <span className={style.notification_count}>
+                  {state.styleId.length}
+                </span>
+              )}
             </button>
 
-
-
-
-
             {toggle && !isMobileView && (
-              <OutsideClickHandler  onOutsideClick={onToggle}>
-
-                
-              <StyleDropdown
-                searchKey={searchKey}
-                currentTab={currentTab}
-                lat={lat}
-                lon={lon}
-                router={router}
-                isDetail={false}
-                onToggle={onToggle}
-              />
+              <OutsideClickHandler onOutsideClick={onToggle}>
+                <StyleDropdown
+                  searchKey={searchKey}
+                  currentTab={currentTab}
+                  lat={lat}
+                  lon={lon}
+                  router={router}
+                  isDetail={false}
+                  onToggle={onToggle}
+                />
               </OutsideClickHandler>
-
             )}
-           
           </div>
         </div>
       )}
 
       {toggleLocation && isMobileView && (
-       
-        <div> 
-          
-        <LocationSearch 
-        searchKey={searchKey}
-        currentTab={currentTab}
-        selectedStyle={selectedStyle}
-        router={router}
-        onToggle={onToggleLoc} />
-        
+        <div>
+          <LocationSearch
+            searchKey={searchKey}
+            currentTab={currentTab}
+            selectedStyle={selectedStyle}
+            router={router}
+            onToggle={onToggleLoc}
+          />
         </div>
-       
       )}
 
-
-        {toggle && isMobileView && (
+      {toggle && isMobileView && (
         <div>
           <StyleDropdown
             searchKey={searchKey}
@@ -162,11 +157,6 @@ export default function SelectDropdown({
           />
         </div>
       )}
-
-
-
-
-
     </div>
   );
 }
