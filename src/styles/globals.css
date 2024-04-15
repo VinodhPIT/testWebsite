@@ -673,7 +673,7 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   font-weight: var(--fw-semi-bold)!important;
 }
 .fw_700 {
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-bold)!important;
 }
 .fw_800 {
   font-weight: var(--fw-extra-bold);
@@ -881,7 +881,6 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_100pc {
   width: 100% !important;
 }
-
 .w_auto {
   width: auto !important;
 }
@@ -894,8 +893,6 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_990 {
   width: 990px !important;
 }
-
-
 .w_1090 {
   width: 1090px !important;
 }
@@ -1535,11 +1532,19 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .d_max_320 {
   max-width: 320px!important;
 }
+.d_max_350 {
+  max-width: 350px!important;
+}
 
 .d_max_380 {
   max-width: 380px!important;
 }
-
+.d_max_420 {
+  max-width: 420px!important;
+}
+.d_max_550 {
+  max-width: 550px!important;
+}
 .no_space_center {
   padding-left: 15px !important;
   padding-right: 15px !important;
@@ -1972,7 +1977,9 @@ button.btn_view_more:hover {
 .bdr_rad_4 {
   border-radius: 4px !important;
 }
-
+.bdr_rad_16 {
+  border-radius: 16px !important;
+}
 .btn_cutom_new {
   height: 48px;
   padding: 8px 20px 8px 20px;
@@ -2404,7 +2411,7 @@ ul.custom-listing {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 48px 0 0 0;
+  margin: 35px 0 40px 0;
   padding: 0;
   list-style: none;
   width: 100%;
@@ -2412,12 +2419,11 @@ ul.custom-listing {
 
 ul.custom-listing li {
   display: flex;
-  align-items: flex-start;
-  margin: 0 0 40px 0;
+  margin: 0 0 16px 0;
   color: var(--white);
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 27px;
   align-items: center;
 }
 
@@ -2485,7 +2491,10 @@ ul.custom-listing li img {
   font-size: 32px !important;
   line-height: 38px !important;
 }
-
+.custom_fs_40 {
+  font-size: 40px !important;
+  line-height: 48px !important;
+}
 .custom_fs_58 {
   font-size: 58px !important;
   line-height: 69px !important;
@@ -2503,7 +2512,9 @@ ul.custom-listing li img {
 .lh_33 {
   line-height: 33px!important;
 }
-
+.lh_72 {
+  line-height: 72px!important;
+}
 .full-block-wrap .img_text_box_inner .text_box_content_inner {
   text-align: center;
   max-width: 70%;
@@ -5093,12 +5104,14 @@ button.language_switcher img {
 
   /** custom listing */
   ul.custom-listing {
-    margin-top: 35px;
+    margin-top: 16px;
+    margin-bottom: 25px;
   }
 
   ul.custom-listing li {
-    margin-bottom: 25px;
-    font-size: 16px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 21px;
   }
 
   ul.custom-listing li:last-child {
@@ -5551,7 +5564,7 @@ button.language_switcher img {
   .m_max_100 {
     max-width: 100%!important;
   }
-    .m_mxw_305 {
+  .m_mxw_305 {
     max-width: 305px!important;
   }
   .m_mxw_320 {
@@ -5562,14 +5575,16 @@ button.language_switcher img {
   }
   .m_mxw_280 {
     max-width: 280px!important;
-  }
-  
+  }  
   .m_mxw_290 {
     max-width: 290px!important;
   }
   .m_mxw_200 {
     max-width: 200px!important;
   } 
+  .m_max_410 {
+    max-width: 410px!important;
+  }
   .m_max_h_440 {
     max-height: 440px!important;
   }
@@ -5602,6 +5617,16 @@ button.language_switcher img {
     line-height: 37px!important;
   }
 
+  .custom_fs_m_38 {
+    font-size: 38px!important;
+    line-height: 45px!important;
+  }
+
+  .custom_fs_m_28 {
+    font-size: 28px!important;
+    line-height: 33px!important;
+  }
+
   .custom_fs_m_27 {
     font-size: 27px!important;
     line-height: 30px!important;
@@ -5621,7 +5646,10 @@ button.language_switcher img {
     font-size: 18px !important;
     line-height: 27px !important;
   }
-
+  .custom_fs_m_14 {
+    font-size: 14px !important;
+    line-height: 21px !important;
+  }
   .heading_h2 {
     font-size: 34px!important;
     line-height: 45px!important;
@@ -5770,7 +5798,13 @@ button.language_switcher img {
   .btn_cutom_new.btn_img {
     padding-right: 6px;
   }
-  
+  .btn_cutom_new_mob {
+    height: 48px;
+    padding: 8px 20px 8px 20px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+  }
   .header_cookie_desktop {
     display: none;
   }
