@@ -266,7 +266,8 @@
     "Please select one option": "Please select one option",
     "Email is required": "Email is required",
     "Message is required": "Message is required",
-    "Invalid email": "Invalid email"
+    "Invalid email": "Invalid email",
+    "InvalidNumber" :"Invalid phone number"
   },
 
   "faqScreen": {
@@ -426,8 +427,13 @@
   "Show Results":"Show Results",
   "Loading":"Loading...",
   "Search Location":"Search Location",
+  "next" :"Next",
+  "goBack" :"Go back",
+  "currentLocation" :" Use current location",
+  "select an image file" :"Please select an image file.",
+  "deniedGeolocation" :"User Denied Geolocation",
+  "artistsSelected" :"Artists Selected",
 
-  
    
 
   "homeScreenSEO": {
@@ -524,7 +530,47 @@
   "Impressum" :{"title":"Impressum"},
   "User Data Policy" :{"title":"User Data Policy"},
 
+
+"requestForm":{
+  "landingTitle": "Describe your tattoo idea and share it with multiple artists.",
+  "subText":"Get personalized quotes and choose the artist who perfectly captures your vision.",
+  "startDescribing" :"Start describing"
+},
+
+"stepper":{
+  "tattooSize" :"Tattoo Size",
+  "bodyPart":"Body part",
+  "description" :"Description",
+  "reference":"Reference",
+  "artists" :"Artists",
+  "contact":"contact",
+   "mainTitle":"Describe your tattoo idea and share it with multiple artists.",
+   "subText":"Get personalized quotes and choose the artist who perfectly captures your vision.",
+   "startDescribe":"Start describing",
   
+   "title1":"How big would you like your tattoo to be?",
+   "title2":"Where do you want your tattoo?",
+   "title3":"How would your dream tattoo look like?",
+   "title4":"Add reference images",
+   "title5":"Now, choose among multiple artists",
+   "title6":"Share your contact information",
+   "title7":"Review your selections and confirm",
+  "typeDescription" :"Type your description here",
+  "contactInformation" :"Contact information",
+  "referenceImages" :"Reference images",
+  "selectedArtists" :"Selected artists",
+  "enterEmail" :"Enter your Email",
+  "enterPhone" :"Enter your phone number(optional)",
+  "save" :"Save",
+  "tatooPosition" :"Tatoo position",
+  "ideaForTattoo" :"Great idea for a tattoo!",
+  "bringYouridea":"Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
+  "Login with your existing account" :"Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
+  "openApp":"Open your app"
+
+},
+
+
   "AnalyticLogin":{
   "User name is required":"User name is required",
   "Password is required":"Password is required",
