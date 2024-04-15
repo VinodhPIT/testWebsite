@@ -19,8 +19,8 @@
   "homePage": {
     "bannerTitle": "¡Reserva tu tatuaje soñado ahora!",
     "bannerContent": "Explora Estilos de Tatuajes, Consejos de Negocios para Artistas, Actualizaciones del Journal, Opciones de Financiamiento y Reservas sin Problemas",
-    "ArtistSliderTitle": "¡Encuentra al artista adecuado para tu próximo tatuaje!",
-    "ArtistSliderContent": "Reservas sin problemas y eficientes al alcance de tus manos. Conéctate con artistas y estudios de renombre, programando tu próxima sesión sin esfuerzo a través de nuestra aplicación de reserva de tatuajes.",
+    "ArtistSliderTitle": "Encuentra el tatuador adecuado",
+    "ArtistSliderContent": "Descubra el tatuador perfecto para cada proyecto, adaptado a su visión única.",
     "Pay all at once": "¿Pagar todo de una vez?",
     "Never again": "¡Nunca más!",
     "TattooFinancing": "Financiamiento de Tatuajes",
@@ -45,8 +45,11 @@
     "Rest easy knowing": "Descansa tranquilo sabiendo que tus pagos son seguros. inckd. emplea tecnología de encriptación para transacciones seguras y sin preocupaciones.",
     "FullWidthCarouselTitle": "Explora tatuajes",
     "FullWidthCarouselContent": "Mantente informado con nuestro Journal de Tatuajes. Obtén actualizaciones sobre las últimas tendencias, pautas de salud y seguridad legalmente requeridas, y consejos internos de la industria del tatuaje.",
-    "Download the inckd": "Descarga la aplicación inckd. ahora - ¡Es gratis!",
-    "Check the Styleguide": "Revisa el Styleguide"
+    "Download the inckd": "Descarga nuestra aplicación, es gratis!",
+    "Check the Styleguide": "Revisa el Styleguide",
+    "Share your tattoo idea": "Comparte tu idea de tatuaje!",
+    "TattooIdeaDesc": "Envía fácilmente tu idea de tatuaje una vez y conéctate con varios artistas adecuados. Relájate y recibe propuestas variadas de forma gratuita, encontrando tu artista ideal sin esfuerzo.",
+    "CreateATattooRequest": "Crear una solicitud de tatuaje"
   },
 
   "styleGuidePage": {
