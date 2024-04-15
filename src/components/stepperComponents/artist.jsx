@@ -56,7 +56,7 @@ const Artist = () => {
     ) : (
       <p className="mt_15 request_ref_selected">
         {selectedArtists.length} {t("common:artistsSelected")}{" "}
-        <Image src="Alt Arrow Right.svg" width={16} height={16} alt="arrow" />
+        <Image src="/arrowRight.svg" width={16} height={16} alt="arrow" />
       </p>
     );
   };
