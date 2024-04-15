@@ -1,9 +1,8 @@
 
-import React, { useState } from "react";
+import React  from "react";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; 
 import useTranslation from "next-translate/useTranslation";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Description = () => {
@@ -32,7 +31,7 @@ const Description = () => {
                           setDescription(event.target.value);
                         }
                         else {
-                          alert('You can write only up to 500 characters.'); 
+                          alert(t("common:writeUp500char")); 
                         }
                       }}
                       placeholder={t("common:stepper.typeDescription")}
@@ -42,7 +41,7 @@ const Description = () => {
                         const pastedText = event.clipboardData.getData('text/plain');
                         if (message.length + pastedText.length > 500) {
                           event.preventDefault();
-                          alert('You can only paste up to 500 characters.');
+                          alert(t("common:pasteUp500char")); 
                         
                         }
                       }}

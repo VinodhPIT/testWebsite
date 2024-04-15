@@ -51,7 +51,7 @@ const Review = () => {
         setSuccess(true);
       })
       .catch((error) => {
-        console.error(error);
+        setLoading(false)
       });
   };
 

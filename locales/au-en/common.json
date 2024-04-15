@@ -428,11 +428,13 @@
   "Loading":"Loading...",
   "Search Location":"Search Location",
   "next" :"Next",
-  "goBack" :"Go back",
-  "currentLocation" :" Use current location",
+  "goBack" :"Go back", 
+   "currentLocation" :" Use current location",
   "select an image file" :"Please select an image file.",
   "deniedGeolocation" :"User Denied Geolocation",
   "artistsSelected" :"Artists Selected",
+  "writeUp500char" :"You can write only up to 500 characters.",
+  "pasteUp500char" :"You can only paste up to 500 characters.",
    
 
   "homeScreenSEO": {
@@ -566,7 +568,6 @@
   "bringYouridea":"Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
   "Login with your existing account" :"Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
   "openApp":"Open your app"
-
 
 },
 
