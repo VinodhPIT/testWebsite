@@ -91,6 +91,14 @@
   border: 1px solid #E1E4E8;
   outline: none;
 }
+.search_bar input.input_txt:focus {
+  border-color: var(--black-200);
+  outline: none;
+}
+.search_bar input.input_txt:focus-visible {
+  border-color: var(--black-200);
+  outline: none;
+}
 .search_bar input.input_txt::placeholder {
   color: #C3C3C3;
   opacity: 1;
