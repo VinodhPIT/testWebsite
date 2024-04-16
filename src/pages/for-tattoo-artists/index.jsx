@@ -331,7 +331,7 @@ export default function Tattooartists({}) {
                             href={`/${router.locale}/join-tattoo-artists`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
-                            {t("common:forArtistPage.button")}                            
+                            {t("common:forArtistPage.button")}
                           </Link>
                         </div>
                       </div>
