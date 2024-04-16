@@ -122,10 +122,10 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc pt_80 m_md_pt_40 m_pt_20">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 m_order_2">
+                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
                           src="/artist_0_01.png"
@@ -140,8 +140,8 @@ export default function Tattooartists({}) {
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 pt_80 m_md_pt_40 m_pt_30 pb_80 m_md_pb_40 m_pb_30 w_100pc h_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
                           <h2 className="d_max_550 m_max_410 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title1")}
                           </h2>
@@ -204,11 +204,11 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 pt_80 m_md_pt_40 m_pt_30 pb_80 m_md_pb_40 m_pb_30 w_100pc h_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
                           <h2 className="d_max_420 m_max_270 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title2")}
                           </h2>
@@ -224,8 +224,8 @@ export default function Tattooartists({}) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center pt_80 m_md_pt_40 m_pt_20">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
                         <Image
                           priority
                           alt={t("common:forArtistPage.title2")}
@@ -247,10 +247,10 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc pt_80 m_md_pt_40 m_pt_20">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 m_order_2">
+                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
                           src="/artist_03.png"
@@ -265,8 +265,8 @@ export default function Tattooartists({}) {
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 pt_80 m_md_pt_40 m_pt_30 pb_80 m_md_pb_40 m_pb_30 w_100pc h_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
                           <h2 className="d_max_420 m_max_270 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title3")}
                           </h2>
@@ -316,11 +316,11 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 pt_80 m_md_pt_40 m_pt_30 pb_80 m_md_pb_40 m_pb_30 w_100pc h_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
                           <h2 className="custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title5")}
                           </h2>
@@ -336,8 +336,8 @@ export default function Tattooartists({}) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center pt_80 m_md_pt_40 m_pt_20">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
                         <Image
                           priority
                           alt={t("common:forArtistPage.title5")}
@@ -359,10 +359,10 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc pt_80 m_md_pt_40 m_pt_20">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 m_order_2">
+                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
                           src="/artist_05.png"
@@ -377,8 +377,8 @@ export default function Tattooartists({}) {
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 pt_80 m_md_pt_40 m_pt_30 pb_80 m_md_pb_40 m_pb_30 w_100pc h_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
                           <h2 className="custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title6")}
                           </h2>
@@ -402,11 +402,11 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 pt_80 m_md_pt_40 m_pt_30 pb_80 m_md_pb_40 m_pb_30 w_100pc h_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
                           <h2 className="d_max_420 m_max_100 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title7")}
                           </h2>
@@ -422,8 +422,8 @@ export default function Tattooartists({}) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center pt_80 m_md_pt_40 m_pt_20">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
                         <Image
                           priority
                           alt={t("common:forArtistPage.title7")}
