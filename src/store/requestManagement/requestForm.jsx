@@ -46,8 +46,9 @@ export const useRequestForm = create((set, get) => ({
   },
 
   setTattooSize: (value, index) => {
+
     set({
-      tattooSize: value.name + value.type,
+      tattooSize: value,
       tattoondex: index,
       stepNumber: get().stepNumber + 1,
     });
