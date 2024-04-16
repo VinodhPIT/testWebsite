@@ -67,21 +67,30 @@ export const useRequestForm = create((set, get) => ({
 
   setPhone: (value) => set({ phone: value }),
 
-  addImage: (file, imageUrl, uuid) => {
-    set((state) => ({
-      images: [
-        ...state.images,
-        {
-          data: file,
-          imageUrl,
-          uuid,
-          filename: `${state.images.length}.jpg`,
-          name: "secondary_images",
-          type: file.type,
-        }, // Add the new image with dynamically assigned name
-      ],
-    }));
+
+  addImage: (file, imageUrl, uuid, index) => {
+    set((state) => {
+      const newFileName = `${state.images.length}.jpg`; 
+      const newFile = new File([file], newFileName, {
+        type: file.type,
+      });
+  
+      return {
+        images: [
+          ...state.images,
+          {
+            File: newFile,
+            imageUrl,
+            uuid,
+          },
+        ],
+      };
+    });
   },
+  
+  
+
+  
 
   deleteImage: (uuid) =>
     set((state) => {

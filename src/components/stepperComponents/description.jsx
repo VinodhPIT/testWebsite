@@ -1,7 +1,8 @@
 
-import React, { useState } from "react";
+import React  from "react";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; 
 import useTranslation from "next-translate/useTranslation";
+
 
 
 const Description = () => {
@@ -9,7 +10,6 @@ const Description = () => {
   const { t } = useTranslation();
   const handleSubmit = (event) => {
     event.preventDefault();
-
     nextPage();
   };
 
@@ -26,10 +26,26 @@ const Description = () => {
                   <form onSubmit={handleSubmit}>
                     <textarea
                       value={message}
-                      onChange={(event) => setDescription(event.target.value)}
+                      onChange={(event) => {
+                        if (event.target.value.length <= 500) {
+                          setDescription(event.target.value);
+                        }
+                        else {
+                          alert(t("common:writeUp500char")); 
+                        }
+                      }}
                       placeholder={t("common:stepper.typeDescription")}
                       rows={4} // Set the number of rows for the textarea
                       cols={50} // Set the number of columns for the textarea
+                      onPaste={(event) => {
+                        const pastedText = event.clipboardData.getData('text/plain');
+                        if (message.length + pastedText.length > 500) {
+                          event.preventDefault();
+                          alert(t("common:pasteUp500char")); 
+                        
+                        }
+                      }}
+                      
                     />
                     {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right">{t("common:next")}</button>}
                   </form>
