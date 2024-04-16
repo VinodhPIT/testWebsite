@@ -12,6 +12,9 @@ const UseLayout = ({ children, pathname }) => {
     } else if (pathname === "/klarna") {
       document.body.style.backgroundColor = "#fff";
       document.body.className = "klarna";
+    } 
+    else if (pathname === "/requestForm") {
+      document.body.className = "request_land_body";
     } else {
       // Reset styles for other pages
       document.body.style.backgroundColor = "#fff";

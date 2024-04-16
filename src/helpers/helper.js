@@ -40,6 +40,46 @@ const createRequestObject = (parameters, paginatorCount) => {
   return request;
 };
 
+
+const artistRequest = (parameters, paginatorCount) => {
+  const request = {
+    sort:null,
+    page_no: parameters.page_no,
+    paginator_count: paginatorCount,
+    search_key: parameters.search_key,
+    distance:"50km",
+    
+  };
+
+  if (parameters.latitude) {
+    request.longitude = parameters.longitude;
+    request.latitude = parameters.latitude;
+  }
+
+  if (parameters.style) {
+    if (typeof parameters.style === "string") {
+      request.style = parameters.style.split(",").map((item) => item.trim());
+    } else if (Array.isArray(parameters.style)) {
+      request.style = parameters.style;
+    } else {
+      request.style = [];
+    }
+  } else {
+    request.style = [];
+  }
+ 
+
+
+  return request;
+};
+
+
+
+
+export const stepperParam = (parameters) => {
+  return artistRequest(parameters, 9);
+};
+
 export const searchParam = (parameters) => {
   return createRequestObject(parameters, 24);
 };
@@ -156,3 +196,30 @@ export const getContactTimeDifference = (chartData) => {
 
   return dateDifferenceArray;
 };
+
+
+
+
+
+const getCountry = (locations, location) => {
+  const textBeforeComma = location.split(",")[0].trim();
+
+  let locationCity = [];
+  let otherStudiocity = [];
+  if (textBeforeComma) {
+    locationCity = locations.filter(
+      (e) => e.city === textBeforeComma || e.country === textBeforeComma
+    );
+
+    otherStudiocity = locations.filter(
+      (e) => e.city !== textBeforeComma || e.country !== textBeforeComma
+    );
+
+    const filterLocations = [...locationCity, ...otherStudiocity];
+
+    return ` ${filterLocations[0].city} , ${filterLocations[0].country} `;
+  }
+  return `${locations[0].city} , ${locations[0].country}`;
+};
+
+export { getCountry };

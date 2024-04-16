@@ -124,7 +124,7 @@ button {
   outline: none;
 }
 .onActive {
-  border: 1px solid #000 !important;
+  border: 1px solid var(--black-200) !important;
 }
 button:disabled {
   opacity: 0.5; /* Adjust the opacity value as needed */
@@ -142,8 +142,9 @@ button:disabled {
 #nprogress {
   pointer-events: none;
 }
+
 #nprogress .bar {
-  background: #101010;
+  background: var(--black-200);
   height: 4px;
   position: fixed;
   z-index: 1031;
@@ -151,6 +152,7 @@ button:disabled {
   left: 0;
   width: 100%;
 }
+
 #nprogress .peg {
   display: block;
   position: absolute;
@@ -162,7 +164,6 @@ button:disabled {
   -ms-transform: rotate(3deg) translate(0, -4px);
   transform: rotate(3deg) translate(0, -4px);
 }
-
 .textBlock {
   display: block;
 }
@@ -192,7 +193,6 @@ header.header_wrapper {
   transition: height 225ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
   position: relative;
   z-index: 2;
-  background-color: var(--black-200);
 }
 
 header ul.nav.main_nav {
@@ -904,7 +904,6 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_50pc {
   width: 50% !important;
 }
-
 .w_100pc {
   width: 100% !important;
 }
@@ -921,18 +920,21 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .w_990 {
   width: 990px !important;
 }
-
 .w_1090 {
   width: 1090px !important;
 }
-
 .h_100pc {
   height: 100% !important;
 }
 .h_63_vh {
   height: 63vh !important;
 }
-
+.h_126_vh {
+  height: calc(100vh - 126px) !important;
+}
+.h_126_pc {
+  height: calc(100% - 126px) !important;
+}
 .h_inherit {
   height: inherit !important;
 }
@@ -1021,6 +1023,17 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   align-self: center !important;
 }
 
+.align_self_stretch {
+  align-self: stretch !important;
+}
+
+.align_self_end {
+  align-self: flex-end !important;
+}
+.align_content {
+  align-content: center !important;
+}
+
 .text_left {
   text-align: left !important;
 }
@@ -1052,6 +1065,15 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   display: inline-block;
 }
 
+.pull_right {
+  float: right;
+}
+.pull_left {
+  float: left;
+}
+.d_block {
+  display: block !important;
+}
 .d_flex {
   display: flex !important;
 }
@@ -1080,6 +1102,13 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .flex_flow_wrap {
   flex-flow: wrap !important;
+}
+
+.v_align_top {
+  vertical-align: top !important;
+}
+.ml_auto {
+  margin-left: auto !important;
 }
 
 .ml_0 {
@@ -1124,6 +1153,14 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .mt_10pc {
   margin-top: 10% !important;
+}
+
+.mt_3 {
+  margin-top: 3px !important;
+}
+
+.mt_4 {
+  margin-top: 4px !important;
 }
 
 .mt_5 {
@@ -1275,6 +1312,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .m_0 {
   margin: 0px !important;
+}
+
+.mr_auto {
+  margin-right: auto !important;
 }
 
 .mr_0 {
@@ -1558,6 +1599,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   max-width: 720px !important;
 }
 
+.d_max_248 {
+  max-width: 248px !important;
+}
+
 .d_max_320 {
   max-width: 320px !important;
 }
@@ -1683,6 +1728,11 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .b_radius {
   border-radius: 22px !important;
 }
+
+.min_h_100_vh {
+  min-height: 100vh !important;
+}
+
 /* button style */
 .btn_primary {
   display: inline-flex;
@@ -1923,12 +1973,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .btn_tattoo_art {
   display: inline-flex;
-  height: 47px;
+  height: 43px;
   padding: 8px 16px;
   margin: 0;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 18px;
   line-height: 27px;
   font-weight: 500;
@@ -2015,6 +2065,13 @@ button.btn_view_more:hover {
   height: 20px !important;
 }
 
+.btn_cutom_40 {
+  height: 40px;
+  padding: 6px 16px 6px 16px;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500;
+}
 .btn_regist {
   display: inline-flex;
   height: 43px;
@@ -4545,7 +4602,7 @@ li {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  max-height: 230px;
+  max-height: 300px;
   width: 100%;
   overflow: hidden;
 }
@@ -4563,7 +4620,7 @@ li {
 }
 button.language_switcher {
   display: flex;
-  padding: 10px 14px;
+  padding: 8px 14px;
   margin-right: 25px;
   justify-content: center;
   align-items: center;
@@ -4792,12 +4849,6 @@ button.language_switcher img {
   width: auto;
   height: auto;
   max-width: 100%;
-}
-.app-qr-home {
-  border: 1px solid var(--black);
-  border-radius: 16px;
-  width: 120px;
-  height: 120px;
 }
 .contact_form_block
   .img_text_box_wrapper
@@ -5820,6 +5871,9 @@ button.language_switcher img {
   .m_max_270 {
     max-width: 270px !important;
   }
+  .m_max_242 {
+    max-width: 242px !important;
+  }
   .m_mxw_280 {
     max-width: 280px !important;
   }
@@ -5963,6 +6017,10 @@ button.language_switcher img {
   .btn_img img {
     width: 16px !important;
     height: 16px !important;
+  }
+
+  .m_h_118_vh {
+    height: calc(100vh - 118px) !important;
   }
 
   .m_h_inherit {
@@ -6675,6 +6733,20 @@ button.language_switcher img {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .popup_wrap.custom_popup_design .popup_box_inner .popup_right {
+    border-radius: 8px;
+  }
+  .popup_wrap.custom_popup_design .popup_container {
+    top: inherit;
+  }
+  .popup_wrap.custom_popup_design .popup_container .popup_box_inner {
+    justify-content: center;
+  }
+  .popup_wrap.custom_popup_design {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   ul.download_mob_center li {
     width: auto;
     max-width: inherit;
@@ -7343,6 +7415,10 @@ button.language_switcher img {
   .popup_wrap.explore_feature_app_popup .popup_content_wrap {
     padding-right: 15px;
   }
+  .popup_wrap.custom_popup_design {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 @media screen and (max-width: 991.98px) {
@@ -7441,22 +7517,20 @@ button.language_switcher img {
     display: none;
   }
 
+  .header_right .btn_tattoo_art {
+    display: none;
+  }
+
   header .navbar {
     padding: 0px 13px;
   }
 
   .header_logo {
-    margin-top: 0px;
+    margin-top: 16px;
   }
   .header_logo .navbar_brand img {
-    height: 22px;
+    height: 25px;
     width: auto;
-  }
-  .header_right button.btn_tattoo_art {
-    margin-right: 16px;
-  }
-  .header_logo_nav .header_logo {
-    margin-right: 35px;
   }
   .header_logo .style_guide_logo_mob img {
     height: 45px;
@@ -7468,7 +7542,7 @@ button.language_switcher img {
   }
 
   img.nav_btn_toggle {
-    margin-top: 0;
+    margin-top: 22px;
   }
 
   .keywords_wrap ul.keywords_list {
@@ -7555,29 +7629,15 @@ button.language_switcher img {
   }
   button.language_switcher {
     position: relative;
-    top: 0;
-    padding: 7px 8px;
-    margin-right: 16px;
+    top: 10px;
+    padding: 5px 10px;
+    margin-right: 20px;
     font-size: 16px;
-    line-height: 12px;
-  }
-  button.language_switcher img {
-    width: 16px;
-    height: 16px;
+    line-height: 24px;
   }
   .partner_tattoo_block .partner_tattoo_list {
     grid-template-columns: repeat(1, 1fr);
     grid-column-gap: 0px;
-  }
-  .header_right button.btn_tattoo_art {
-    height: auto;
-    padding: 6px 8px;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-  }
-  header.header_wrapper {
-    padding: 10px 0;
   }
 }
 
@@ -7674,16 +7734,13 @@ button.language_switcher img {
 
   header .header_navigation {
     align-items: start;
-    padding: 16px 0;
-  }
-  .header_logo_nav {
-    margin-top: 9px;
+    padding-top: 29px;
   }
   .header_logo {
     margin-top: 0;
   }
   header ul.nav.main_nav {
-    margin-top: 2px;
+    margin-top: 8px;
   }
   .header_right {
     margin: 0;
@@ -8063,7 +8120,7 @@ button.language_switcher img {
     max-height: 300px;
   }
   .custom_content_slick_slider .listing_gridItem .listing_grid_four_col {
-    max-height: 230px;
+    max-height: 300px;
     overflow: hidden;
   }
   .custom_slick_container .listing_gridItem .listing_grid_img_col {

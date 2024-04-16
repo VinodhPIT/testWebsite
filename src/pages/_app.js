@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
+import "@/styles/requestForm.css";
 import "@/styles/cms.css";
 import loadGoogleMapsAPI from "@/components/google-maps";
 import NProgress from "nprogress";
