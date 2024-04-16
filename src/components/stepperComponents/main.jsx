@@ -5,7 +5,6 @@ import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import {customerRequest} from '@/apiConfig/webService'
 import { useRequestForm } from "@/store/requestManagement/requestForm";
-
 import { useNavigation } from "@/hooks/useRouter";
 export default function Main() {
   const { t } = useTranslation();
@@ -51,7 +50,7 @@ export default function Main() {
             <div className="row">
               <div className="col-md-12">
                 <div class="request_back_arrow">
-                  <Link href={`${router.locale}/`}>
+                  <Link href={`/${router.locale}/`}>
                     <Image
                       priority
                       alt="backArrow"
@@ -97,7 +96,7 @@ export default function Main() {
 
                   <Link
                     className="btn_default btn_cutom_40 mt_40 m_mt_0"
-                    href={`${router.locale}/requestForm`}
+                    href={`/${router.locale}/request-Form`}
                   >
                     {t("common:stepper.startDescribe")}
                   </Link>
