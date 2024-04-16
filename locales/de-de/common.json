@@ -434,7 +434,9 @@
   "select an image file" :"Please select an image file.",
   "deniedGeolocation" :"User Denied Geolocation",
   "artistsSelected" :"Artists Selected",
-
+  "writeUp500char" :"You can write only up to 500 characters.",
+  "pasteUp500char" :"You can only paste up to 500 characters.",
+   
   
 
   "homeScreenSEO": {

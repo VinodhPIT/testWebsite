@@ -37,18 +37,11 @@ const Review = () => {
     formData.append("comments", message);
     formData.append("customer_email", email);
     formData.append("customer_phone_no",phone);
- 
-
-    // images.forEach((image, index) => {
-    //   formData.append(`secondary_images${index}`, image.data.file);
-    //   formData.append(`secondary_images${index}`, image.name);
-    
-    // });
-
-
-
+    images.map((el )=>{
+      formData.append('secondary_images', el.File);
+    })
     axios
-      .post("https://admin.inckd.com/web/api/customer-request/save", formData, {
+      .post(`${process.env.apiDomain}/web/api/customer-request/save`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -58,7 +51,7 @@ const Review = () => {
         setSuccess(true);
       })
       .catch((error) => {
-        console.error(error);
+        setLoading(false)
       });
   };
 
