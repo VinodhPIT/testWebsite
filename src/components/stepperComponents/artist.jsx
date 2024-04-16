@@ -11,6 +11,8 @@ import OutsideClickHandler from "react-outside-click-handler";
 import useWindowResize from "@/hooks/useWindowSize";
 import { getCountry } from "@/helpers/helper";
 import SkeletonArtistList from "@/components/placeholders/artistList";
+import Link from "next/link";
+import { useNavigation } from "@/hooks/useRouter";
 
 const Artist = () => {
   const {
@@ -28,6 +30,7 @@ const Artist = () => {
 
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
 
+  const { router } = useNavigation();
 
   const [searchVisible, setSearchVisible] = useState(false);
   const { t } = useTranslation();
@@ -76,7 +79,7 @@ const Artist = () => {
                   >
                     <div className="request_filter_block">
                       <div className="request_style_drop">
-                        <button onClick={onToggle}>
+                        <button onClick={onToggle}   className={`${toggle ? "onActive" : null}`}>
                           <p>{t("common:Style")}</p>
                         </button>
                         {toggle && (
@@ -88,7 +91,9 @@ const Artist = () => {
                         )}
                       </div>
                       <div className="request_location_drop">
-                        <button onClick={onToggleLoc}>
+                        <button onClick={onToggleLoc}  className={`${
+                  toggleLocation ? "onActive" : null}`} >
+                
                           <p>
                             {location !== "" ? location : t("common:locations")}
                           </p>
@@ -150,7 +155,9 @@ const Artist = () => {
                               <div
                                 className="request_filter_grid"
                                 key={e._id}
-                                onClick={() =>
+                               
+                              >
+                                <div className="request_filter_img"  onClick={() =>
                                   handleCheckboxChange({
                                     id: e._id,
                                     image: e._source.tattoos[0].image,
@@ -161,9 +168,7 @@ const Artist = () => {
                                     artistImage: e._source.profile_image,
                                     artistId: e._source.tattoos[0].profile_uid,
                                   })
-                                }
-                              >
-                                <div className="request_filter_img">
+                                }>
                                   <div className="request_ref_checkbox">
                                     <input
                                       type="checkbox"
@@ -181,7 +186,11 @@ const Artist = () => {
                                     blurDataURL={blurDataURL}
                                   />
                                 </div>
-                                <div className="request_filter_dtls">
+                                
+
+                                <div className="request_filter_dtls" >
+                               
+                         
                                   <div className="request_filter_profile">
                                     <Image
                                       src={e._source.profile_image}
@@ -190,15 +199,22 @@ const Artist = () => {
                                       alt={e._source.slug}
                                     />
                                   </div>
+
                                   <div className="request_filter_profile_dtls">
+                                  <Link   href={`/${router.locale}/artists/${e._source.slug}`}  target="_blank">
                                     <h6 className="request_filter_profile_title">
                                       {e._source.name}
                                     </h6>
                                     <span className="request_filter_profile_address">
                                       {getCountry(e._source.studios, location)}
                                     </span>
+</Link>
                                   </div>
+                                 
+
                                 </div>
+                                
+
                               </div>
                             );
                           })}

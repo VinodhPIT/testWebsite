@@ -1,4 +1,4 @@
-import { searchParam, fetchMulticategory ,searchParam1 ,searchParam2 } from "@/helpers/helper";
+import { searchParam, fetchMulticategory ,stepperParam  } from "@/helpers/helper";
 import API_URL from "./api.config";
 import { getApiCall, postApiCall } from "./api.service";
 
@@ -141,7 +141,7 @@ export const referralCode = async (slug) => {
 export const artistListing = async (params) => {
   
   try {
-    const response = await postApiCall(API_URL.SEARCH.ARTIST_LISTING, searchParam1(params));
+    const response = await postApiCall(API_URL.SEARCH.ARTIST_LISTING, stepperParam(params));
     return response;
   } catch (error) {
     return [];
@@ -163,17 +163,6 @@ export const artistContact = async (params) => {
 
 
 
-export const artistSave = async (params) => {
-  
-  try {
-    const response = await postApiCall(API_URL.SEARCH.REQUEST_CONTACT,searchParam2);
-    return response;
-  } catch (error) {
-
-
-    return [];
-  }
-};
 
 
 
