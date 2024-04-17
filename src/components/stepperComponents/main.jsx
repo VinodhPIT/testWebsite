@@ -1,31 +1,12 @@
-import React ,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import {customerRequest} from '@/apiConfig/webService'
-import { useRequestForm } from "@/store/requestManagement/requestForm";
 import { useNavigation } from "@/hooks/useRouter";
 export default function Main() {
   const { t } = useTranslation();
   const { router } = useNavigation();
-
-
-
-  
-    const { getSizes} = useRequestForm();
-
-    useEffect(() => {
-      const fetchDatas = async () => {
-        const res = await customerRequest();
-        getSizes(res.details.tatoo_sizes)
-     
-      };
-    
-      fetchDatas();
-    }, []);
-
-    
 
   return (
     <>
@@ -65,27 +46,39 @@ export default function Main() {
                 <div class="request_stepper">
                   <div class="request_stepper_item">
                     <div class="request_stepper_counter"></div>
-                    <div class="request_stepper_name">{t("common:stepper.tattooSize")}</div>
+                    <div class="request_stepper_name">
+                      {t("common:stepper.tattooSize")}
+                    </div>
                   </div>
                   <div class="request_stepper_item">
                     <div class="request_stepper_counter"></div>
-                    <div class="request_stepper_name">{t("common:stepper.bodyPart")}</div>
+                    <div class="request_stepper_name">
+                      {t("common:stepper.bodyPart")}
+                    </div>
                   </div>
                   <div class="request_stepper_item">
                     <div class="request_stepper_counter"></div>
-                    <div class="request_stepper_name">{t("common:stepper.description")}</div>
+                    <div class="request_stepper_name">
+                      {t("common:stepper.description")}
+                    </div>
                   </div>
                   <div class="request_stepper_item">
                     <div class="request_stepper_counter"></div>
-                    <div class="request_stepper_name">{t("common:stepper.reference")}</div>
+                    <div class="request_stepper_name">
+                      {t("common:stepper.reference")}
+                    </div>
                   </div>
                   <div class="request_stepper_item">
                     <div class="request_stepper_counter"></div>
-                    <div class="request_stepper_name">{t("common:stepper.artists")}</div>
+                    <div class="request_stepper_name">
+                      {t("common:stepper.artists")}
+                    </div>
                   </div>
                   <div class="request_stepper_item">
                     <div class="request_stepper_counter"></div>
-                    <div class="request_stepper_name">{t("common:stepper.contact")}</div>
+                    <div class="request_stepper_name">
+                      {t("common:stepper.contact")}
+                    </div>
                   </div>
                 </div>
                 <div className="request_landing_caption">

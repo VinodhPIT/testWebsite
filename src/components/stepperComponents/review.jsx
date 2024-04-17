@@ -34,12 +34,7 @@ const Review = () => {
     const sizeKey = Object.keys(CustomerRequestSize).find(
       (key) => CustomerRequestSize[key] === tattooSize
     );
-    const isValuePresent =
-      Object.values(CustomerRequestSize).includes(tattooSize);
-
-    console.log("sizeKey", sizeKey);
-    console.log("isValuePresent", isValuePresent);
-
+    const isValuePresent = Object.values(CustomerRequestSize).includes(tattooSize);
     formData.append("body_part", bodyPart);
     formData.append("artist_uids", array.join(","));
     formData.append("size", !isValuePresent ? "nil" : sizeKey);

@@ -6,6 +6,7 @@ import useTranslation from "next-translate/useTranslation";
 const BodyPart = () => {
   const {setSelectedPart ,bodyPartIndex } = useRequestForm(); // Zustand store and setter
   const { t } = useTranslation();
+  
   const tattooValues = [
     "Head",
     "Upper Body",

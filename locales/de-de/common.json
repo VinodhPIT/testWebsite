@@ -19,8 +19,8 @@
   "homePage": {
     "bannerTitle": "Buche jetzt dein Traumtattoo!",
     "bannerContent": "Erkunde Tattoo Stile, Artist Business Tipps, Journal Updates, Finanzierungsoptionen und nahtlose Buchungen",
-    "ArtistSliderTitle": "Finde den richtigen Artist für dein nächstes Tattoo!",
-    "ArtistSliderContent": "Nahtloses und effizientes Buchen auf Knopfdruck. Verbinde dich mit renommierten Artists und Studios und plane deine nächste Sitzung mühelos über unsere Tattoo-Buchungs-App.",
+    "ArtistSliderTitle": "Finden Sie den richtigen Tätowierer",
+    "ArtistSliderContent": "Entdecken Sie den perfekten Tätowierer für jedes Projekt, maßgeschneidert auf Ihre einzigartige Vision.",
     "Pay all at once": "Alles auf einmal bezahlen?",
     "Never again": "Nie wieder!",
     "TattooFinancing": "Tattoo Finanzierung",
@@ -45,8 +45,9 @@
     "Rest easy knowing": "Sei unbesorgt, deine Zahlungen sind sicher. inckd. verwendet Verschlüsselungstechnologie für sichere und sorgenfreie Transaktionen.",
     "FullWidthCarouselTitle": "Erkunde Tattoos",
     "FullWidthCarouselContent": "Bleib auf dem Laufenden mit unserem Tattoo Journal. Erhalte Updates zu den neuesten Trends, gesetzlich vorgeschriebenen Gesundheits- und Sicherheitsrichtlinien und Insider-Tipps aus der Tattoo-Branche.",
-    "Download the inckd": "Lade jetzt die inckd. App herunter - sie ist kostenlos!",
-    "Check the Styleguide": "Entdecke den Styleguide"
+    "Download the inckd": "Laden Sie unsere App herunter, sie ist kostenlos!",
+    "Check the Styleguide": "Entdecke den Styleguide",
+    "Share your tattoo idea": "Teilen Sie Ihre Tattoo-Idee!"
   },
 
   "styleGuidePage": {

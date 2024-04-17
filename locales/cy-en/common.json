@@ -19,8 +19,8 @@
   "homePage": {
     "bannerTitle": "Book your dream tattoo now!",
     "bannerContent": "Explore Tattoo Styles, Artist Business Tips, Journal Updates, Financing Options, and Seamless Booking",
-    "ArtistSliderTitle": "Find the right artist for your next tattoo!",
-    "ArtistSliderContent": "Seamless and efficient booking at your fingertips. Connect with reputable artists and studios, scheduling your next session effortlessly through our Tattoo Booking App.",
+    "ArtistSliderTitle": "Find the right tattoo artist",
+    "ArtistSliderContent": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
     "Pay all at once": "Pay all at once?",
     "Never again": "Never again!",
     "TattooFinancing": "Tattoo Financing",
@@ -45,8 +45,11 @@
     "Rest easy knowing": "Rest easy knowing that your payments are secure. inckd employs encryption technology for safe and worry-free transactions.",
     "FullWidthCarouselTitle": "Explore tattoos",
     "FullWidthCarouselContent": "Stay in the know with our Tattoo Journal. Get updates on the latest trends, legally required health and safety guidelines, and insider tips from the tattoo industry.",
-    "Download the inckd": "Download the inckd. app now - It's free!",
-    "Check the Styleguide": "Check the Styleguide"
+    "Download the inckd": "Download our app, its free!",
+    "Check the Styleguide": "Check the Styleguide",
+    "Share your tattoo idea": "Share your tattoo idea",
+    "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+    "CreateATattooRequest": "Create a tattoo request"
   },
 
   "styleGuidePage": {
@@ -336,7 +339,7 @@
     "YourVoucher": "your voucher via email upon completion"
   },
 
-  "Download the inckd": "Download the inckd. app now - It's free!",
+  "Download the inckd": "Download our app, its free!",
   "MyStyleis": "My Style is",
   "ExploreMoreArtist": "Explore more artists",
   "ExploreMoreTattoos": "Explore more tattoos",
