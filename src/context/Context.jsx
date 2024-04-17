@@ -143,6 +143,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   const [searchState, setSearchState] = useState({
     query: "",
+
   });
 
   useEffect(() => {

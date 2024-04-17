@@ -12,18 +12,19 @@ export default function FourColumnCarousel({
   title_sub,
   content,
   button,
-  trendingArtist,btnLink
+  trendingArtist,
+  btnLink,
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
   sliderSettings = {
-    infinite: true,
-    arrows: false,
+    infinite: false,
+    arrows: isMobileView ? false : true,
     speed: 300,
-    slidesToShow: isMobileView ? 1 : 4,
-    slidesToScroll: isMobileView ? 1 : 4,
-    dots: isMobileView ? true : false,
+    slidesToShow: isMobileView ? 1.5 : 5,
+    slidesToScroll: isMobileView ? 1 : 5,
+    dots: false,
 
     responsive: [
       {
@@ -31,7 +32,6 @@ export default function FourColumnCarousel({
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false,
         },
       },
       {
@@ -39,7 +39,6 @@ export default function FourColumnCarousel({
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false,
         },
       },
 
@@ -48,14 +47,12 @@ export default function FourColumnCarousel({
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false,
         },
       },
 
       {
         breakpoint: 900,
         settings: {
-          infinite: true,
           slidesToShow: 2,
           slidesToScroll: 3,
         },
@@ -63,8 +60,7 @@ export default function FourColumnCarousel({
       {
         breakpoint: 600,
         settings: {
-          infinite: true,
-          slidesToShow: 1,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
         },
       },
@@ -72,8 +68,7 @@ export default function FourColumnCarousel({
       {
         breakpoint: 400,
         settings: {
-          infinite: true,
-          slidesToShow: 1,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
         },
       },
@@ -85,9 +80,9 @@ export default function FourColumnCarousel({
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_30">
-              <h2 className="color_gray_550 text_center heading_h2 mb_20 m_mb_0 m_text_left">
-                <span>{title}</span>
+            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_30 m_mb_25 m_mt_25">
+              <h2 className="color_gray_550 heading_h2 m_mb_0 m_text_left position_relative">
+                <span className="heading_with_arrow">{title}</span>
               </h2>
               <p className="custom_fs_18 color_gray_550 m_mt_15 mb_0 m_text_left fw_300">
                 {content}
@@ -166,38 +161,6 @@ export default function FourColumnCarousel({
                   ))}
                 </Slider>
               </div>
-              <div className="d_flex flex_flow_wrap justify_content_center">
-                <Link
-                  href={btnLink}
-                  className="btn_secondary btn_cutom_new btn_img mt_30 mob_hidden"
-                >
-                  {button}
-                  <Image
-                    src="/arow-white-right.svg"
-                    width={24}
-                    height={24}
-                    alt="logo"
-                    className="ml-8 mt-2"
-                  />
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="text_box_content_inner container max_w_100pc pt_80 pb_25 m_pt_0 m_pb_20 ml_0 desk_hidden mt_30">
-            <div className="d_flex align_item_start text_left justify_space_between m_justify_content_center">
-              <Link
-                href={btnLink}
-                className="btn_secondary btn_cutom_new btn_img m_mt_20 m_mb_20"
-              >
-                {button}
-                <Image
-                  src="/arow-white-right.svg"
-                  width={24}
-                  height={24}
-                  alt="arrow"
-                  className="ml-8 mt-2"
-                />
-              </Link>
             </div>
           </div>
         </div>
