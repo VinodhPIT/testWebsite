@@ -6,7 +6,7 @@ import Modal1 from "@/components/modalPopup/existingUser";
 import Image from "next/image";
 import { getCountry } from "@/helpers/helper";
 import axios from "axios";
-import { CustomerRequestSize } from "@/utils/customerRequestSize";
+import { CustomerRequestSize, BodyPart } from "@/utils/customerRequestType";
 
 const Review = () => {
   const {
@@ -34,10 +34,12 @@ const Review = () => {
     const sizeKey = Object.keys(CustomerRequestSize).find(
       (key) => CustomerRequestSize[key] === tattooSize
     );
-    const isValuePresent = Object.values(CustomerRequestSize).includes(tattooSize);
-    formData.append("body_part", bodyPart);
+
+    const isSizePresent = Object.values(CustomerRequestSize).includes(tattooSize);
+    const isBodyPartPresent = Object.values(BodyPart).includes(bodyPart);
+    formData.append("body_part", !isBodyPartPresent ? "nil" : bodyPart);
     formData.append("artist_uids", array.join(","));
-    formData.append("size", !isValuePresent ? "nil" : sizeKey);
+    formData.append("size", !isSizePresent ? "nil" : sizeKey);
     formData.append("comments", message);
     formData.append("customer_email", email);
     formData.append("customer_phone_no", phone);

@@ -8,15 +8,16 @@ const BodyPart = () => {
   const { t } = useTranslation();
   
   const tattooValues = [
-    "Head",
-    "Upper Body",
-    "Back",
-    "Arm",
-    "Leg",
-    "Foot",
-    "Other",
-    "I don't Know yet",
-  ];
+    { id: 0, title: 'Head' ,key:"Head" },
+    { id: 1, title: 'Upper Body' ,key:"Upper Body"},
+    { id: 2, title: 'Back' ,key:"Back"},
+    { id: 3, title: 'Arm' ,key:"Arm"},
+    { id: 4, title: 'Leg'  ,key:"Leg"},
+    { id: 5, title: 'Foot' ,key:"Foot"},
+    { id: 6, title: 'Other'  ,key:"Other"},
+    { id: 7, title: t("common:stepper.dontKnowYet") ,key:"nil"}
+  ]
+
 
 
   return (
@@ -29,9 +30,9 @@ const BodyPart = () => {
                 <div className="request_landing_content_col">
                   <h2>{t("common:stepper.title2")}</h2>
                   <div className="request_list_item">
-                    {tattooValues.map((value, index) => (
-                      <button key={index} onClick={() => setSelectedPart(value ,index)}  className={bodyPartIndex === index ? 'requestActive' : 'inActiveRequest'}>
-                        {value}
+                    {tattooValues.map((el, index) => (
+                      <button key={el.id} onClick={() => setSelectedPart(el.title ,index)}  className={bodyPartIndex === index ? 'requestActive' : 'inActiveRequest'}>
+                        {el.title}
                       </button>
                     ))}
                   </div>
@@ -42,10 +43,6 @@ const BodyPart = () => {
         </div>
       </div>
     </>
-
-
-
-
 
   );
 };

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
-import { CustomerRequestSize } from "@/utils/customerRequestSize";
+import { CustomerRequestSize } from "@/utils/customerRequestType";
 
 const TattooSize = () => {
   const { setTattooSize, tattoondex, fetchArtistList } = useRequestForm(); // Zustand store and setter
