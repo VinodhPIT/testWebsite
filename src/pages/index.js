@@ -205,7 +205,7 @@ export default function Home({ data, locale }) {
                 <div className="text_box_content justify_content_center m_min_h_reset">
                   <div className="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="tiny_payment_block pr_10_pc m_pr_0">
-                      <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs38 mt_0">
+                      <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
                       <p className="m_mt_20 m_mb_20 txt_mob_fs14">
@@ -215,21 +215,7 @@ export default function Home({ data, locale }) {
                         <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block download_mob_center">
                           <li className="download_app_title mb_10">
                             {t("common:homePage.Download the inckd")}
-                          </li>
-                          {/* <li>
-                            <Link href={APP_LINK_APPLE} target="_blank">
-                              <Image
-                                priority
-                                src="/qr-code-inckd.png"
-                                alt="App store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons app-qr-home"
-                              />
-                            </Link>
-                          </li> */}
+                          </li>                          
                           <li>
                             <Link href={APP_LINK_APPLE} target="_blank">
                               <Image
@@ -240,7 +226,7 @@ export default function Home({ data, locale }) {
                                 height={41}
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
-                                className="custom_download_icons"
+                                className="custom_download_icons desk_hidden"
                               />
                             </Link>
                           </li>
@@ -254,7 +240,21 @@ export default function Home({ data, locale }) {
                                 height={41}
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
-                                className="custom_download_icons"
+                                className="custom_download_icons desk_hidden"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="#" target="_blank">
+                              <Image
+                                priority
+                                src="/qr-code-inckd.png"
+                                alt="qr code"
+                                width={121}
+                                height={121}
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="custom_download_icons app_qr_home mob_hidden"
                               />
                             </Link>
                           </li>

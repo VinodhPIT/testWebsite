@@ -47,7 +47,7 @@ export default function TattooIdea() {
                   </p>
                   <Link
                     href={`/${router.locale}/klarna`}
-                    className="btn_secondary btn_cutom_new btn_img"
+                    className="btn_secondary btn_cutom_new"
                   >
                     {t("common:homePage.CreateATattooRequest")}
                   </Link>
