@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGlobalState } from "@/context/Context";
 import Head from "next/head";
-import KlarnaBanner from "@/components/klarnaBanner/klarnaBanner";
+import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import KlarnaComponent from "@/components/klarnaComponent/KlarnaComponent";
 import FinelineComponent from "@/components/finelineComponent/FinelineComponent";
 import TattooSlider from "@/components/TattooSlider/TattooSlider";
