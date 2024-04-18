@@ -19,7 +19,7 @@ export default function TattooIdea() {
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_40 m_pb_0 hidden m_d_block">
                 <div className="text_box_content_inner m_pr_0 pr_0">
-                  <h2>{t("common:homePage.Share your tattoo idea")}</h2>
+                  <h2 className="custom_fs_m_28">{t("common:homePage.Share your tattoo idea")}</h2>
                 </div>
               </div>
               <div className="img_box_wrap m_mb_25 m_mt_10">
@@ -38,11 +38,8 @@ export default function TattooIdea() {
             </div>
             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 offset-md-1">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_35">
-                <div className="text_box_content_inner m_pr_0 pr_0">
-                  <h2 className="mob_hidden">
-                    {t("common:homePage.Share your tattoo idea")}
-                  </h2>
-                  <p className="mt_20 mb_30 m_mt_15 m_mb_20">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
+                <div className="text_box_content_inner m_pr_0 pr_0">                 
+                  <p className="mt_20 mb_30 m_mt_0 m_mb_20 custom_fs_m_14">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
                   </p>
                   <Link
                     href={`/${router.locale}/klarna`}

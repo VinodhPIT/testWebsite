@@ -102,7 +102,7 @@ export default function CarouselSection({
                   {datas.map((imgPath, index) => (
                     <div className={`${"listing_gridItem"} `} key={index}>
                       <Link href={imgPath.url}>
-                        <div className={`${"listing_grid_img_col h_256"}`}>
+                        <div className={`${"listing_grid_img_col position_relative m_w_cal_100_10 h_256"}`}>
                           <Image
                             src={imgPath.image}
                             alt={altTag}
@@ -115,6 +115,9 @@ export default function CarouselSection({
                             layout="responsive"
                             style={{ borderRadius: "10px" }}
                           />
+                          <div class="title_bg_trans">
+                            <span>Chinese Dragons</span>
+                          </div>
                         </div>
                       </Link>
                     </div>

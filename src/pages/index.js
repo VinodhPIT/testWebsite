@@ -251,17 +251,17 @@ export default function Home({ data, locale }) {
           <div className="img_text_box_wrapper exciting_offer_wrap mb_8 m_mb_0">
             <div className="text_box_wrap right">
               <div className="img_text_box_inner custom_two_col_banner m_switcher">
-                <div className="text_box_content justify_content_center m_min_h_reset">
+                <div className="text_box_content justify_content_center m_min_h_reset m_pt_15 m_pb_25">
                   <div className="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="tiny_payment_block pr_10_pc m_pr_0">
                       <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="m_mt_20 m_mb_20 txt_mob_fs14">
+                      <p className="m_mt_10 m_mb_10 txt_mob_fs14 m_lh_21">
                         {t("common:homePage.bannerContent")}
                       </p>
                       <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">
-                        <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block download_mob_center">
+                        <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_10 text_left d_inline_block download_mob_center">
                           <li className="download_app_title mb_10">
                             {t("common:homePage.Download the inckd")}
                           </li>                          
@@ -388,7 +388,7 @@ export default function Home({ data, locale }) {
         content2={t("common:homePage.Navigate inckd effortlessly")}
         title3={t("common:homePage.Secure Transactions")}
         content3={t("common:homePage.Rest easy knowing")}
-        leftSectionImage="/verified_tattoo_artists.png"
+        leftSectionImage="/verified_tattoo_artists_01.png"
       />
       {/* <HomeFullWidthcarosuel
         title={t("common:homePage.FullWidthCarouselTitle")}

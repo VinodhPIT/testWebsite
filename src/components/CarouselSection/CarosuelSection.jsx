@@ -90,7 +90,7 @@ export default function CarouselSection({
               </p>
             </div>
             <div
-              className={`${"mt_0 mb_40 m_mb_40 trending_artist_slider slider_nav_arrows"} ${
+              className={`${"mt_0 mb_30 m_mb_40 trending_artist_slider slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >

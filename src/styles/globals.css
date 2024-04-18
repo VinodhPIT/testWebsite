@@ -15,10 +15,11 @@
   --indigo-900: #8120ff;
   --indigo-800: #9340ff;
   --indigo-700: #a560ff;
-  --purple: #b366ff;
+  --purple: #b366ff; 
   --purple-500: #bf80ff;
   --purple-400: #cc99ff;
   --purple-300: #d999ff;
+  --purple-250: #F5C0FF;
   --purple-200: #e6ccff;
   --purple-100: #f2e6ff;
   --blue: #6666ff;
@@ -806,7 +807,6 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .block_bg_blue {
   background-color: var(--blue);
 }
-
 .block_bg_gray_light_200 {
   background-color: var(--gray-light-200);
 }
@@ -819,6 +819,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .block_bg_cool_aero_blue {
   background-color: var(--color_aero_blue) !important;
 }
+.block_bg_purple_250 {
+  background-color: var(--purple-250) !important;
+}
+
 .color_pink {
   color: var(--pink);
 }
@@ -5091,7 +5095,7 @@ button.language_switcher img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  top: 9px;
+  bottom: 5px;
   margin-left: 5px;
 }
 #viewdv_c237_view_1 {
@@ -5100,7 +5104,24 @@ button.language_switcher img {
 #viewfr_c237_view_1 {
   display: none !important;
 }
-
+.title_bg_trans {
+  position: absolute;
+  z-index: 1;
+  padding: 4px 12px;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 21px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 14px;
+  background: rgba(28, 28, 28, 0.80);
+  min-width: 150px;
+  width: max-content;
+} 
 /* responsive */
 @media screen and (max-width: 767.98px) {
   .toggleModel {
@@ -5965,7 +5986,7 @@ button.language_switcher img {
   }
   .m_max_h_440 {
     max-height: 440px !important;
-  }
+  }  
   .btn_sm_m {
     height: 48px;
     padding: 8px 20px;
@@ -6004,6 +6025,11 @@ button.language_switcher img {
     line-height: 37px !important;
   }
 
+  .custom_fs_m_28 {
+    font-size: 28px !important;
+    line-height: 34px !important;
+  }
+
   .custom_fs_m_27 {
     font-size: 27px !important;
     line-height: 30px !important;
@@ -6014,6 +6040,11 @@ button.language_switcher img {
     line-height: 30px !important;
   }
 
+  .custom_fs_m_14 {
+    font-size: 14px !important;
+    line-height: 21px !important;
+  }
+
   .custom_fs_m_16 {
     font-size: 16px !important;
     line-height: 24px !important;
@@ -6022,6 +6053,9 @@ button.language_switcher img {
   .custom_fs_m_18 {
     font-size: 18px !important;
     line-height: 27px !important;
+  }
+  .m_lh_21 {
+    line-height: 21px!important;
   }
 
   .heading_h2 {
@@ -6871,9 +6905,9 @@ button.language_switcher img {
   button.language_switcher img {
     margin-right: 0;
   }
-  .heading_with_arrow:after {
+  /*.heading_with_arrow:after {
     bottom: 8px;
-  }
+  }*/
   .klarna_banner_section h1 span {
     font-size: 34px;
     line-height: 40px;
