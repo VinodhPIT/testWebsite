@@ -24,6 +24,9 @@ import {
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
+import tattoo from "@/data/datas.json";
+
+
 export default function Home({ data, locale }) {
   const router = useRouter();
   const { t } = useTranslation();
@@ -350,17 +353,13 @@ export default function Home({ data, locale }) {
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
         button={t("common:ExploreMoreArtist")}
-        trendingArtist={trendingArtist}
-        btnLink={`/${router.locale}/explore/tattoo-artists`}
+        trendingArtist={tattoo.artists}
       />
       <KlarnaBanner />
       <CarouselSection
         title="Explore tattoos"
         content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
-        buttonName="Explore more tattoos"
-        datas={wolfTattoo}
-        keyword={"Wolf"}
-        altTag="Wolf Tattoo"
+        datas={tattoo.tattoo_images}
       />
 
       <CarouselSectionnew

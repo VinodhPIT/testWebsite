@@ -4,13 +4,15 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
+import useWindowResize from "@/hooks/useWindowSize";
+
+
 export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
+  const { isMobileView } = useWindowResize();
   return (
     <div className="img_text_box_wrapper block_bg_cool_aero_blue m_pb_0">
       <div className="text_box_wrap left container custom_left_img_new">
@@ -45,7 +47,7 @@ export default function TattooIdea() {
                   <p className="mt_20 mb_30 m_mt_15 m_mb_20">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
                   </p>
                   <Link
-                    href={`/${router.locale}/klarna`}
+                    href={ isMobileView ? `/${router.locale}/request-Form` :  `/${router.locale}/createRequest`}
                     className="btn_secondary btn_cutom_new b_radius_16"
                   >
                     Create a tattoo request
