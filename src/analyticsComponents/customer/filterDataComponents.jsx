@@ -7,7 +7,7 @@ import { currentYear, options, months } from "@/helpers/helper";
 import DatePicker, { utils } from "@hassanmojab/react-modern-calendar-datepicker";
 import Image from "next/image";
 
-export default function FilterDataComponents({ onFilterDashbardData, handleDateFilter }) {
+export default function FilterDataComponents({ onFilterDashbardData }) {
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
 
   const [selectedYear, setSelectedYear] = useState('Yearly');
