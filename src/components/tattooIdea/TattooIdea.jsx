@@ -42,14 +42,13 @@ export default function TattooIdea() {
                   <h2 className="mob_hidden">
                     {t("common:homePage.Share your tattoo idea")}
                   </h2>
-                  <p className="mt_20 mb_30 m_mt_15 m_mb_20">
-                    {t("common:homePage.TattooIdeaDesc")}
+                  <p className="mt_20 mb_30 m_mt_15 m_mb_20">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
                   </p>
                   <Link
                     href={`/${router.locale}/klarna`}
-                    className="btn_secondary btn_cutom_new"
+                    className="btn_secondary btn_cutom_new b_radius_16"
                   >
-                    {t("common:homePage.CreateATattooRequest")}
+                    Create a tattoo request
                   </Link>
                 </div>
               </div>

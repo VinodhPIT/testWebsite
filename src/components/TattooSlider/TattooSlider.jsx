@@ -30,8 +30,8 @@ export default function FourColumnCarousel({
       {
         breakpoint: 1365,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 4,
+          slidesToScroll: 4,
         },
       },
       {
@@ -89,7 +89,7 @@ export default function FourColumnCarousel({
               </p>
             </div>
             <div
-              className={`${"mt_0 mb_80 m_mb_30 trending_artist_slider artistSlider"} ${
+              className={`${"mt_0 mb_80 m_mb_30 trending_artist_slider slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -100,7 +100,7 @@ export default function FourColumnCarousel({
                 >
                   {trendingArtist.map((el, index) => (
                     <div
-                      className={`${"listing_gridItem"} ${
+                      className={`${"listing_gridItem pl_0 pr_10"} ${
                         styles.listing_gridItem
                       }`}
                       key={index}

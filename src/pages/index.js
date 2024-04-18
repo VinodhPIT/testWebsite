@@ -13,6 +13,8 @@ import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreApps from "@/components/exploreApps/ExploreApps";
 import TattooArtistComponent from "@/components/tatooartistComponent/TattooArtistComponent";
+import CarouselSection from "@/components/CarouselSection/CarosuelSection";
+import CarouselSectionnew from "@/components/CarouselSection/CarosuelSectionnew";
 import jsonData from "@/data/journal.json";
 import { useRouter } from "next/router";
 import {
@@ -186,6 +188,53 @@ export default function Home({ data, locale }) {
     styleCollection();
   }, []);
 
+  const wolfTattoo = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15791_20230123114449181-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d5341b19-53fa-452a-a48d-5939e8447567`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8921_20221113205418987-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b688a83f-7af7-42ab-8c6d-edd2fcdf6412`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11485_20221211114627901-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/36ee28fd-6985-468a-afcb-b78b8f807959`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13918_20230106083756566-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/edbf815f-b1ce-456a-afc1-3f9a0b0b6cff`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/691_20220412032624728-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f63585f8-c917-4a17-b2f0-c8e7e50cd573`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9049_20221115155833283-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f5eeea9a-60f8-4aad-918a-49edba55e566`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14421_20230110024759369-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/17f6cf8d-d8c9-4048-b5e7-1bc13289bac6`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3595_20220925051912507-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b602e50a-03a6-40d0-a231-b324e35f2517`,
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -199,7 +248,7 @@ export default function Home({ data, locale }) {
 
       <section className="img_text_banner_box">
         <div className="col_full">
-          <div className="img_text_box_wrapper exciting_offer_wrap">
+          <div className="img_text_box_wrapper exciting_offer_wrap mb_8 m_mb_0">
             <div className="text_box_wrap right">
               <div className="img_text_box_inner custom_two_col_banner m_switcher">
                 <div className="text_box_content justify_content_center m_min_h_reset">
@@ -305,14 +354,32 @@ export default function Home({ data, locale }) {
         btnLink={`/${router.locale}/explore/tattoo-artists`}
       />
       <KlarnaBanner />
-      <KlarnaComponent />
-      <TattooDictonary />
+      <CarouselSection
+        title="Explore tattoos"
+        content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
+        buttonName="Explore more tattoos"
+        datas={wolfTattoo}
+        keyword={"Wolf"}
+        altTag="Wolf Tattoo"
+      />
+
+      <CarouselSectionnew
+        title="Explore tattoo styles"
+        content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
+        buttonName="Explore more tattoos"
+        datas={wolfTattoo}
+        keyword={"Wolf"}
+        altTag="Wolf Tattoo"
+      />
+      
+      {/* <KlarnaComponent /> */}
+      {/* <TattooDictonary /> */}
       {/* <TattooJournal data={listing} error={error} /> */}
       {SwitchJournal(router.locale)}
 
-      <FinelineComponent />
+      {/* <FinelineComponent /> */}
 
-      <TattooArtistComponent />
+      {/* <TattooArtistComponent /> */}
 
       <PaymentTypes
         title1={t("common:homePage.Verified tattoo artists")}
@@ -323,7 +390,7 @@ export default function Home({ data, locale }) {
         content3={t("common:homePage.Rest easy knowing")}
         leftSectionImage="/verified_tattoo_artists.png"
       />
-      <HomeFullWidthcarosuel
+      {/* <HomeFullWidthcarosuel
         title={t("common:homePage.FullWidthCarouselTitle")}
         content={t("common:homePage.FullWidthCarouselContent")}
         datas={tattoos}
@@ -331,8 +398,8 @@ export default function Home({ data, locale }) {
         keyword={`/${router.locale}/explore/tattoos`}
         sectionBg="block_bg_gray_150"
         altTag={"Tattoos"}
-      />
-      <ExploreApps />
+      /> */}
+      {/* <ExploreApps /> */}
     </>
   );
 }
