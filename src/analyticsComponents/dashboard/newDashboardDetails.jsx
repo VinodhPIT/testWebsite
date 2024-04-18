@@ -6,9 +6,8 @@ import useTranslation from "next-translate/useTranslation";
 export default function NewDashboardDetails({ initialCounts, token }) {
   const { t } = useTranslation();
   const singleRequestCount = initialCounts.filter(item => item.single_request === true);
-  const multipleRequestCount = initialCounts.filter(item => item.multiple_request === true);
-  const allRequestCount = singleRequestCount.length + multipleRequestCount.length;
-  const conversionRate = Math.floor(allRequestCount / initialCounts.length * 100) + '%';
+  const allRequestCount = initialCounts.filter(item => item.multiple_request === true);
+  const conversionRate = Math.floor((allRequestCount.length / initialCounts.length) * 100);
 
   return (
     <section className="container-fluid">
@@ -28,7 +27,7 @@ export default function NewDashboardDetails({ initialCounts, token }) {
           />
 
           <NewCountDisplayCard
-            count={singleRequestCount.length + multipleRequestCount.length}
+            count={allRequestCount.length}
             iconBgColor="block_bg_green_200"
             icon="/chat-round-dots.svg"
             title="All Request"
@@ -36,7 +35,7 @@ export default function NewDashboardDetails({ initialCounts, token }) {
 
           <NewCountDisplayCard
             withRightIcon
-            count={conversionRate}
+            count={`${conversionRate}%`}
             iconBgColor="block_bg_blue_200"
             rightIconBgColor="block_bg_green_200"
             icon="/users.svg"

@@ -171,7 +171,7 @@ return (
     <section className="pt_20 pb_20 block_bg_gray_150">
       <FilterDataComponents />
       <NewDashboardDetails
-        initialCounts={responseFormat.customer_request_data}
+        initialCounts={initialData.artistData}
         token={initialData.sessionToken}
       />
       {/* <DashboardDetails
@@ -221,11 +221,12 @@ export async function getServerSideProps(context) {
       props: {
         data: {
           androidDownloads: data.android_download_count || 0,
-          iosDownloads: data.ios_download_count || 0,
-          sessionToken: session.user.myToken ?? "",
-          offerData,
           artistCount,
+          artistData:responseFormat.customer_request_data,
           customerCount,
+          iosDownloads: data.ios_download_count || 0,
+          offerData,
+          sessionToken: session.user.myToken ?? ""
         },
       },
     };
