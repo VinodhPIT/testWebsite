@@ -8,7 +8,7 @@ const generateLinkComponent = (router, theme, t) => {
       return (
         <Link
           href={`/${router.locale}/journal`}
-          className=  {router.pathname=="/journal" ?   "textWhite" :    "textBlack"}
+          className= {"textWhite"}
         >
           {t("common:menus.journal")}
         </Link>
