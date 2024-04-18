@@ -12,3 +12,15 @@ export const analyticsDashboardCount = async (token) => {
     return [];
   }
 };
+
+export const getCustomerRequestAnalyticsData = async (params, token) => {
+  try {
+    const response = await analyticsGetApiCall(
+      API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA(params),
+      token
+    );
+    return response;
+  } catch (error) {
+    return [];
+  }
+}

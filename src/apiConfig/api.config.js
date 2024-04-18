@@ -53,6 +53,7 @@ const API_URL = {
 
   ANALYTICS_DASHBOARD: {
     GET_DOWNLOAD_COUNT: "/analytics/download/count",
+    GET_CUSTOMER_REQUEST_DETAILS_DATA:"/analytics/customer/customer-request"
   },
 
   EXCEL_DOWNLOAD: {
