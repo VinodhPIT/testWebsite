@@ -19,7 +19,7 @@ export default function TattooIdea() {
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_40 m_pb_0 hidden m_d_block">
                 <div className="text_box_content_inner m_pr_0 pr_0">
-                  <h2 className="custom_fs_m_28">{t("common:homePage.Share your tattoo idea")}</h2>
+                  <h2 className="custom_fs_m_28 desk_hidden">Share your tattoo idea</h2>
                 </div>
               </div>
               <div className="img_box_wrap m_mb_25 m_mt_10">
@@ -27,18 +27,58 @@ export default function TattooIdea() {
                   priority={true}
                   src="/tattooIdeaBG.jpeg"
                   alt={t("common:homePage.TattooFinancing")}
-                  width={572}
-                  height={389}
+                  width={594}
+                  height={390}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
                   className="object_position_left"
                 />
+                <div class="chat_block bubble_top_mid floating_animation">                  
+                  <Image
+                    priority={true}
+                    src="/pro-pic-d-1.png"
+                    alt="profile image"
+                    width={50}
+                    height={50}
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                  />
+                  <div class="chat_bubble_msg bubble_top_mid">
+                    <div class="chat_bubble_msg_desc">
+                      <p>450 for butterfly tattoo</p>
+                    </div>
+                    <div class="chat_bubble_msg_date">
+                      <p>07:20 pm</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="chat_block bubble_bottom_left floating_animation">
+                  <Image
+                    priority={true}
+                    src="/pro-pic-d-1.png"
+                    alt="profile image"
+                    width={50}
+                    height={50}
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                  />
+                  <div class="chat_bubble_msg bubble_top_mid">
+                    <div class="chat_bubble_msg_desc">
+                      <p>I would love to do your project</p>
+                    </div>
+                    <div class="chat_bubble_msg_date">
+                      <p>07:20 pm</p>
+                    </div>
+                  </div>
+                </div>                
               </div>
             </div>
             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 offset-md-1">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_35">
-                <div className="text_box_content_inner m_pr_0 pr_0">                 
+                <div className="text_box_content_inner m_pr_0 pr_0">                  
+                  <h2 className="mob_hidden">Share your tattoo idea</h2>
                   <p className="mt_20 mb_30 m_mt_0 m_mb_20 custom_fs_m_14">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
                   </p>
                   <Link
