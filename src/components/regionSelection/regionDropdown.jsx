@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useGlobalState } from "@/context/Context";
 import styles from "./region.module.css";
 import { getUrl } from "@/utils/getUrl";
@@ -10,15 +10,16 @@ export default function RegionDropdown({ onFilterData }) {
 
   const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } =
     useGlobalState();
+  const [selectedRegion, setSelectedRegion] = useState({});
 
   const { t } = useTranslation();
 
-
-  const handleCheckboxChange = (elId) => {
-    if (selectedIds.includes(elId)) {
-      setSelectedIds(selectedIds.filter((id) => id !== elId));
+  const handleCheckboxChange = (el) => {
+    if (selectedIds.includes(el.id)) {
+      setSelectedIds(selectedIds.filter((id) => id !== el.id));
     } else {
-      setSelectedIds([...selectedIds, elId]);
+      setSelectedIds([...selectedIds, el.id]);
+      setSelectedRegion(el);
     }
   };
 
@@ -26,12 +27,10 @@ export default function RegionDropdown({ onFilterData }) {
     setSelectedIds([]);
     clearStyleId();
     await getUrl(currentTab, searchKey, "", state.location, router);
-    onToggle();
   };
 
   const onSearchStyle = async () => {
-    onFilterData();
-    onToggle();
+    onFilterData(selectedRegion);
   };
 
   const regionCollection = [
@@ -49,10 +48,14 @@ export default function RegionDropdown({ onFilterData }) {
     },
     {
       id: 4,
-      name: 'Switzerland'
+      name: 'United States'
     },
     {
       id: 5,
+      name: 'Switzerland'
+    },
+    {
+      id: 6,
       name: 'United Kingdom'
     }
   ]
@@ -70,7 +73,7 @@ export default function RegionDropdown({ onFilterData }) {
                   <input
                     type="checkbox"
                     id={`checkbox_${el.id}`}
-                    onChange={() => handleCheckboxChange(el.id)}
+                    onChange={() => handleCheckboxChange(el)}
                     checked={selectedIds.includes(el.id)}
                   />
                 </div>

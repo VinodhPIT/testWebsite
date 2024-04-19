@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import DashboardDetails from "@/analyticsComponents/dashboard/dashboardDetails";
 import Header from "@/analyticsComponents/common/header";
-import { analyticsDashboardCount } from "@/apiConfig/dashboardService";
+import { analyticsDashboardCount, getCustomerRequestAnalyticsData } from "@/apiConfig/dashboardService";
 import { offerCount } from "@/apiConfig/offerAnalyticsService";
 import { analyticsArtistCount } from "@/apiConfig/artistAnalyticsService";
 import { analyticsCustomerCount } from "@/apiConfig/customerAnalyticsService";
@@ -154,47 +154,53 @@ export default function Dashboard({ data: initialData }) {
   useEffect(() => {
     fetchTotalRevenue(initialData.sessionToken);
   }, [fetchTotalRevenue, initialData.sessionToken]);
-//api implementation not completed
+  //api implementation not completed
 
-// useEffect(()=>{
-//   getCustomerRequestAnalyticsData()
-// })
+  // useEffect(()=>{
+  //   getCustomerRequestAnalyticsData()
+  // })
 
-return (
-  <>
-    <Head>
-      <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
-    </Head>
+  const onFilterDashbardData = (region) => {
+    getCustomerRequestAnalyticsData({region});
+  }
 
-    <Header data={status === "authenticated" && sessionData.user.name} />
+  return (
+    <>
+      <Head>
+        <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
+      </Head>
 
-    <section className="pt_20 pb_20 block_bg_gray_150">
-      <FilterDataComponents />
-      <NewDashboardDetails
-        initialCounts={responseFormat.customer_request_data}
-        token={initialData.sessionToken}
-      />
-      {/* <DashboardDetails
+      <Header data={status === "authenticated" && sessionData.user.name} />
+
+      <section className="pt_20 pb_20 block_bg_gray_150">
+        <FilterDataComponents
+          onFilterDashbardData={onFilterDashbardData}
+        />
+        <NewDashboardDetails
+          initialCounts={responseFormat.customer_request_data}
+          token={initialData.sessionToken}
+        />
+        {/* <DashboardDetails
           initialCounts={initialData}  // old component
           token={initialData.sessionToken}
         /> */}
 
-      <section className="container-fluid">
-        <div className="db_customer_detail_wrap">
-          <div className="row">
-            <div className="col-lg-9 col-md-12 col-sm-12">
-              <TotalAmountEarned
-                title={t("common:AnalyticsDashboard.Total revenue earned")}
-                revenueData={totalAmount}
-                isTest={true}
-              />
+        <section className="container-fluid">
+          <div className="db_customer_detail_wrap">
+            <div className="row">
+              <div className="col-lg-9 col-md-12 col-sm-12">
+                <TotalAmountEarned
+                  title={t("common:AnalyticsDashboard.Total revenue earned")}
+                  revenueData={totalAmount}
+                  isTest={true}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
-  </>
-);
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {
