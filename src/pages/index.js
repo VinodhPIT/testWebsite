@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGlobalState } from "@/context/Context";
 import Head from "next/head";
+import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import KlarnaComponent from "@/components/klarnaComponent/KlarnaComponent";
 import FinelineComponent from "@/components/finelineComponent/FinelineComponent";
 import TattooSlider from "@/components/TattooSlider/TattooSlider";
@@ -20,6 +21,7 @@ import {
   blurDataURL,
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
+import TattooIdea from "@/components/tattooIdea/TattooIdea";
 export default function Home({ data, locale }) {
   const router = useRouter();
   const { t } = useTranslation();
@@ -151,7 +153,6 @@ export default function Home({ data, locale }) {
       url: `${process.env.LIVE_URL}/${router.locale}/artists/cinar-efe_acwe82ae`,
     },
   ];
-  
 
   const {
     styleCollection,
@@ -161,8 +162,6 @@ export default function Home({ data, locale }) {
     clearStyleId,
     setSearchState,
   } = useGlobalState();
-
-
 
   function SwitchJournal(locale) {
     switch (locale) {
@@ -206,10 +205,10 @@ export default function Home({ data, locale }) {
                 <div className="text_box_content justify_content_center m_min_h_reset">
                   <div className="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="tiny_payment_block pr_10_pc m_pr_0">
-                      <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_0">
+                      <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs38 mt_0">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="m_mt_20 m_mb_20">
+                      <p className="m_mt_20 m_mb_20 txt_mob_fs14">
                         {t("common:homePage.bannerContent")}
                       </p>
                       <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">
@@ -217,6 +216,20 @@ export default function Home({ data, locale }) {
                           <li className="download_app_title mb_10">
                             {t("common:homePage.Download the inckd")}
                           </li>
+                          {/* <li>
+                            <Link href={APP_LINK_APPLE} target="_blank">
+                              <Image
+                                priority
+                                src="/qr-code-inckd.png"
+                                alt="App store"
+                                width={134}
+                                height={41}
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="custom_download_icons app-qr-home"
+                              />
+                            </Link>
+                          </li> */}
                           <li>
                             <Link href={APP_LINK_APPLE} target="_blank">
                               <Image
@@ -283,6 +296,7 @@ export default function Home({ data, locale }) {
           </div>
         </div>
       </section>
+      <TattooIdea></TattooIdea>
       <TattooSlider
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
@@ -290,7 +304,7 @@ export default function Home({ data, locale }) {
         trendingArtist={trendingArtist}
         btnLink={`/${router.locale}/explore/tattoo-artists`}
       />
-
+      <KlarnaBanner />
       <KlarnaComponent />
       <TattooDictonary />
       {/* <TattooJournal data={listing} error={error} /> */}

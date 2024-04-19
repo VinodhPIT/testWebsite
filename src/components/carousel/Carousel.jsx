@@ -39,7 +39,7 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
+          <Image src="/arrowRight.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
@@ -135,7 +135,7 @@ const MythologyCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
+          <Image src="/arrowRight.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
@@ -234,7 +234,7 @@ const AztecCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
+          <Image src="/arrowRight.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >

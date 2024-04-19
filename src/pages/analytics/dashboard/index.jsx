@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import DashboardDetails from "@/analyticsComponents/dashboard/dashboardDetails";
 import Header from "@/analyticsComponents/common/header";
-import { analyticsDashboardCount, getCustomerRequestAnalyticsData } from "@/apiConfig/dashboardService";
+import { analyticsDashboardCount } from "@/apiConfig/dashboardService";
 import { offerCount } from "@/apiConfig/offerAnalyticsService";
 import { analyticsArtistCount } from "@/apiConfig/artistAnalyticsService";
 import { analyticsCustomerCount } from "@/apiConfig/customerAnalyticsService";
@@ -154,53 +154,47 @@ export default function Dashboard({ data: initialData }) {
   useEffect(() => {
     fetchTotalRevenue(initialData.sessionToken);
   }, [fetchTotalRevenue, initialData.sessionToken]);
-  //api implementation not completed
+//api implementation not completed
 
-  // useEffect(()=>{
-  //   getCustomerRequestAnalyticsData()
-  // })
+// useEffect(()=>{
+//   getCustomerRequestAnalyticsData()
+// })
 
-  const onFilterDashbardData = (region) => {
-    getCustomerRequestAnalyticsData({region});
-  }
+return (
+  <>
+    <Head>
+      <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
+    </Head>
 
-  return (
-    <>
-      <Head>
-        <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
-      </Head>
+    <Header data={status === "authenticated" && sessionData.user.name} />
 
-      <Header data={status === "authenticated" && sessionData.user.name} />
-
-      <section className="pt_20 pb_20 block_bg_gray_150">
-        <FilterDataComponents
-          onFilterDashbardData={onFilterDashbardData}
-        />
-        <NewDashboardDetails
-          initialCounts={responseFormat.customer_request_data}
-          token={initialData.sessionToken}
-        />
-        {/* <DashboardDetails
+    <section className="pt_20 pb_20 block_bg_gray_150">
+      <FilterDataComponents />
+      <NewDashboardDetails
+        initialCounts={initialData.artistData}
+        token={initialData.sessionToken}
+      />
+      {/* <DashboardDetails
           initialCounts={initialData}  // old component
           token={initialData.sessionToken}
         /> */}
 
-        <section className="container-fluid">
-          <div className="db_customer_detail_wrap">
-            <div className="row">
-              <div className="col-lg-9 col-md-12 col-sm-12">
-                <TotalAmountEarned
-                  title={t("common:AnalyticsDashboard.Total revenue earned")}
-                  revenueData={totalAmount}
-                  isTest={true}
-                />
-              </div>
+      <section className="container-fluid">
+        <div className="db_customer_detail_wrap">
+          <div className="row">
+            <div className="col-lg-9 col-md-12 col-sm-12">
+              <TotalAmountEarned
+                title={t("common:AnalyticsDashboard.Total revenue earned")}
+                revenueData={totalAmount}
+                isTest={true}
+              />
             </div>
           </div>
-        </section>
+        </div>
       </section>
-    </>
-  );
+    </section>
+  </>
+);
 }
 
 export async function getServerSideProps(context) {
@@ -227,11 +221,12 @@ export async function getServerSideProps(context) {
       props: {
         data: {
           androidDownloads: data.android_download_count || 0,
-          iosDownloads: data.ios_download_count || 0,
-          sessionToken: session.user.myToken ?? "",
-          offerData,
           artistCount,
+          artistData:responseFormat.customer_request_data,
           customerCount,
+          iosDownloads: data.ios_download_count || 0,
+          offerData,
+          sessionToken: session.user.myToken ?? ""
         },
       },
     };

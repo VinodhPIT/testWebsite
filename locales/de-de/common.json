@@ -5,6 +5,7 @@
     "styleGuide": "Styleguide",
     "dictionary": "Dictionary",
     "forTattooArtists": "Für Artists",
+    "forArtists": "Für Künstler",
     "klarna": "Klarna",
     "contactUs": "Kontaktiere uns",
     "faq": "FAQ",
@@ -18,8 +19,8 @@
   "homePage": {
     "bannerTitle": "Buche jetzt dein Traumtattoo!",
     "bannerContent": "Erkunde Tattoo Stile, Artist Business Tipps, Journal Updates, Finanzierungsoptionen und nahtlose Buchungen",
-    "ArtistSliderTitle": "Finde den richtigen Artist für dein nächstes Tattoo!",
-    "ArtistSliderContent": "Nahtloses und effizientes Buchen auf Knopfdruck. Verbinde dich mit renommierten Artists und Studios und plane deine nächste Sitzung mühelos über unsere Tattoo-Buchungs-App.",
+    "ArtistSliderTitle": "Finden Sie den richtigen Tätowierer",
+    "ArtistSliderContent": "Entdecken Sie den perfekten Tätowierer für jedes Projekt, maßgeschneidert auf Ihre einzigartige Vision.",
     "Pay all at once": "Alles auf einmal bezahlen?",
     "Never again": "Nie wieder!",
     "TattooFinancing": "Tattoo Finanzierung",
@@ -44,8 +45,9 @@
     "Rest easy knowing": "Sei unbesorgt, deine Zahlungen sind sicher. inckd. verwendet Verschlüsselungstechnologie für sichere und sorgenfreie Transaktionen.",
     "FullWidthCarouselTitle": "Erkunde Tattoos",
     "FullWidthCarouselContent": "Bleib auf dem Laufenden mit unserem Tattoo Journal. Erhalte Updates zu den neuesten Trends, gesetzlich vorgeschriebenen Gesundheits- und Sicherheitsrichtlinien und Insider-Tipps aus der Tattoo-Branche.",
-    "Download the inckd": "Lade jetzt die inckd. App herunter - sie ist kostenlos!",
-    "Check the Styleguide": "Entdecke den Styleguide"
+    "Download the inckd": "Laden Sie unsere App herunter, sie ist kostenlos!",
+    "Check the Styleguide": "Entdecke den Styleguide",
+    "Share your tattoo idea": "Teilen Sie Ihre Tattoo-Idee!"
   },
 
   "styleGuidePage": {
@@ -63,7 +65,7 @@
     "Explore traditional tattoos": "Erkunde Traditional Tattoos",
     "Explore lettering tattoos": "Erkunde Lettering Tattoos",
     "Explore realistic tattoos": "Erkunde Realistic Tattoos",
-	
+
     "Type lettering": "Lettering",
     "Type fineline": "Fineline",
     "Type realistic": "Realistic",
@@ -201,7 +203,7 @@
 
   "forArtistPage": {
     "button": "Loslegen",
-    "bannerTitle": "Booste dein",
+    "bannerTitle": "Booste dein Business mit inckd.",
     "bannerSubtitle": "Business",
     "bannerSubtitle3": "mit inckd.",
     "bannerContent": "Booste dein Tattoo Business, indem du die Tattoo Visionen deiner Kunden erfüllst und ihnen flexible Zahlungsoptionen anbietest.",
@@ -221,7 +223,9 @@
 
     "title3": "Halte deine Kunden auf dem Laufenden",
     "content3": "Chatte live mit deinen Kunden, um ihre Vorstellungen direkt zu erfahren. Verwalte Termine effizient und sei bereit, auf die Bedürfnisse deiner Kunden einzugehen. Besprich Angebote und halte deine Kunden mit inckd. auf dem Laufenden, damit ihre Tattoo Wünsche Wirklichkeit werden.",
-    "title4": "Erhalte inckd. Kunden, die sich von dir tätowieren lassen. Bist du bereit?",
+
+    "title4": "Erhalte inckd. Kunden, die sich von dir tätowieren lassen.",
+    "title8": "Bist du bereit?",
 
     "title5": "Dein Buchungs-Buddy",
     "content5": "inckd. ermöglicht es dir, deinen Tattoo Businesskalender selbst zu gestalten und bietet einen umfassenden Überblick über alle Buchungen durch ein Echtzeit-Dashboard. Definiere deine Verfügbarkeit und erleichtere es den Kunden, Termine entsprechend ihren Vorlieben zu vereinbaren.",
@@ -267,9 +271,7 @@
     "Email is required": "E-Mail ist erforderlich",
     "Message is required": "Nachricht ist erforderlich",
     "Invalid email": "Ungültige E-Mail-Adresse",
-    "InvalidNumber" :"Ungültige Telefonnummer"
-    
-
+    "InvalidNumber": "Ungültige Telefonnummer"
   },
 
   "faqScreen": {
@@ -289,31 +291,31 @@
 
     "title7": "Welche Bedingungen gelten für die Teilnahme an inckd. als Künstler? Und was bringt mir das?",
     "content7": "inckd. überprüft jeden Künstler, der auf der Plattform live sein möchte, da Tattoo-Liebhaber großartige und professionelle Künstler in Europa finden möchten. Mit inckd. erreicht deine Arbeit neue Kunden aus ganz Europa! Wir bieten dir einen vereinfachten Buchungsprozess, der den Verwaltungsaufwand reduziert und es dir ermöglicht, dich auf deine Kunst zu konzentrieren!",
-        
+
     "title8": "Kann ich auf inckd. sein, aber außerhalb der App bezahlt werden?",
     "content8": "Sobald eine Buchung bestätigt wurde, sammeln wir die Zahlungsanzahlung und überweisen sie auf dein Bankkonto zusammen mit der Endkundenzahlung. Wir raten davon ab, die Zahlung in der App nicht abzuschließen.",
-        
+
     "title9": "Wann erhalte ich die Anzahlung?",
     "content9": "Sobald die Tattoositzung abgeschlossen ist, erhältst du die vollständige Zahlung des Gesamtbetrags des Tattoos auf dein Bankkonto.",
 
     "title10": "Es gibt viele Apps wie diese, was macht diese anders?",
     "content10": "Instagram, Messenger, WhatsApp, E-Mail... Sie müssen sich keine Sorgen um mehrere Apps machen. Alle Kunden können Sie über inckd. erreichen. Nur ein Ort und Ruhe.",
-        
+
     "title11": "Wie kann ich den inckd. Support erreichen?",
     "content11": "Sie können uns über das Kontaktformular auf der Webseite und auf Instagram erreichen: inckd_support",
-        
+
     "title12": "Bleibe ich Eigentümer meiner Bilder und Designs?",
     "content12": "Natürlich, deine Kunst bleibt immer deine. Was du auf inckd. postest, könnte in Werbematerial für die App vorgestellt werden, was dich als Künstler zeigt.",
-        
+
     "title13": "Muss ich ein Profil erstellen, um inckd. zu verwenden?",
     "content13": "Sie können Designs und Künstler frei durchsuchen, aber um Ihre Favoriten zu speichern oder eine Sitzung zu buchen, müssen Sie ein Profil erstellen. Dies ermöglicht es dem Künstler, zu überprüfen, wer Sie sind, und dem inckd. Team zu überprüfen, ob Sie Unterstützung benötigen.",
-        
+
     "title14": "Sind die Künstler professionell und arbeiten sie in einem sicheren Studio?",
     "content14": "Ja, jeder Tattoo-Künstler und jedes Studio wird von inckd. verifiziert.",
-        
+
     "title15": "Wie kann ich Kontakt mit einem Künstler aufnehmen?",
     "content15": "Gehen Sie auf die Künstlerseite, und oben rechts sehen Sie den Button \"Chat starten\". Einige Künstler möchten möglicherweise, dass Sie ein Anfrageformular ausfüllen, bevor Sie eine Nachricht senden.",
-        
+
     "title16": "Wie kann ich das inckd. Team um Hilfe bitten?",
     "content16": "Sie können uns über das Kontaktformular auf der Webseite und auf Instagram erreichen: inckd.support"
   },
@@ -419,23 +421,23 @@
   "Month": "Monat",
   "Percentage": "Prozentsatz",
 
-  "journalTitle":"inckd. Tattoo Journal:",
-  "subText":"Neueste Tattoo-Trends, Tipps und Techniken",
-  "See out of":"Aus dem Effeff",
-  "Style":"Stil",
-  "Search by Location":"Suche nach Standort",
-  "Clear All":"Alle löschen",
-  "Show Results":"Ergebnisse anzeigen",
-  "Loading":"Laden...",
-  "Search Location":"Standort suchen",
-  "next" :"Next",
-  "goBack" :"Go back",
-  "currentLocation" :" Use current location",
-  "select an image file" :"Please select an image file.",
-  "deniedGeolocation" :"User Denied Geolocation",
-  "artistsSelected" :"Artists Selected",
-
-  
+  "journalTitle": "inckd. Tattoo Journal:",
+  "subText": "Neueste Tattoo-Trends, Tipps und Techniken",
+  "See out of": "Aus dem Effeff",
+  "Style": "Stil",
+  "Search by Location": "Suche nach Standort",
+  "Clear All": "Alle löschen",
+  "Show Results": "Ergebnisse anzeigen",
+  "Loading": "Laden...",
+  "Search Location": "Standort suchen",
+  "next": "Next",
+  "goBack": "Go back",
+  "currentLocation": " Use current location",
+  "select an image file": "Please select an image file.",
+  "deniedGeolocation": "User Denied Geolocation",
+  "artistsSelected": "Artists Selected",
+  "writeUp500char": "You can write only up to 500 characters.",
+  "pasteUp500char": "You can only paste up to 500 characters.",
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
@@ -526,60 +528,56 @@
     "title": "General App Download"
   },
 
+  "terms-conditions": { "title": "Terms and Conditions" },
+  "privacy-policy": { "title": "Privacy-Policy" },
+  "Impressum": { "title": "Impressum" },
+  "User Data Policy": { "title": "User Data Policy" },
 
-   "terms-conditions":{"title":"Terms and Conditions"},
-  "privacy-policy":{"title":"Privacy-Policy"},
-  "Impressum" :{"title":"Impressum"},
-  "User Data Policy" :{"title":"User Data Policy"},
-
-  "requestForm":{
+  "requestForm": {
     "landingTitle": "Describe your tattoo idea and share it with multiple artists.",
-    "subText":"Get personalized quotes and choose the artist who perfectly captures your vision.",
-    "startDescribing" :"Start describing"
+    "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
+    "startDescribing": "Start describing"
   },
 
-  
-  "stepper":{
-    "tattooSize" :"Tattoo Size",
-    "bodyPart":"Body part",
-    "description" :"Description",
-    "reference":"Reference",
-    "artists" :"Artists",
-    "contact":"contact",
-     "mainTitle":"Describe your tattoo idea and share it with multiple artists.",
-     "subText":"Get personalized quotes and choose the artist who perfectly captures your vision.",
-     "startDescribe":"Start describing",
-    
-     "title1":"How big would you like your tattoo to be?",
-     "title2":"Where do you want your tattoo?",
-     "title3":"How would your dream tattoo look like?",
-     "title4":"Add reference images",
-     "title5":"Now, choose among multiple artists",
-     "title6":"Share your contact information",
-     "title7":"Review your selections and confirm",
-    "typeDescription" :"Type your description here",
-    "contactInformation" :"Contact information",
-    "referenceImages" :"Reference images",
-    "selectedArtists" :"Selected artists",
-    "enterEmail" :"Enter your Email",
-    "enterPhone" :"Enter your phone number(optional)",
-    "save" :"Save",
-    "tatooPosition" :"Tatoo position",
-    "ideaForTattoo" :"Great idea for a tattoo!",
-    "bringYouridea":"Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
-    "Login with your existing account" :"Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
-    "openApp":"Open your app"
-  
+  "stepper": {
+    "tattooSize": "Tattoo Size",
+    "bodyPart": "Body part",
+    "description": "Description",
+    "reference": "Reference",
+    "artists": "Artists",
+    "contact": "contact",
+    "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
+    "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
+    "startDescribe": "Start describing",
+    "dontKnowYet": "I don't know yet",
+    "title1": "How big would you like your tattoo to be?",
+    "title2": "Where do you want your tattoo?",
+    "title3": "How would your dream tattoo look like?",
+    "title4": "Add reference images",
+    "title5": "Now, choose among multiple artists",
+    "title6": "Share your contact information",
+    "title7": "Review your selections and confirm",
+    "typeDescription": "Type your description here",
+    "contactInformation": "Contact information",
+    "referenceImages": "Reference images",
+    "selectedArtists": "Selected artists",
+    "enterEmail": "Enter your Email",
+    "enterPhone": "Enter your phone number(optional)",
+    "save": "Save",
+    "tatooPosition": "Tatoo position",
+    "ideaForTattoo": "Great idea for a tattoo!",
+    "bringYouridea": "Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
+    "Login with your existing account": "Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
+    "openApp": "Open your app"
   },
 
-  "AnalyticLogin":{
-  "User name is required":"User name is required",
-  "Password is required":"Password is required",
-  "Login":"Login",
-  "NotUser":" Not an analytic user",
-  "EnterUser":"Enter Your username",
-  "EnterPassword":"Enter Your Password"
-
+  "AnalyticLogin": {
+    "User name is required": "User name is required",
+    "Password is required": "Password is required",
+    "Login": "Login",
+    "NotUser": " Not an analytic user",
+    "EnterUser": "Enter Your username",
+    "EnterPassword": "Enter Your Password"
   },
 
   "AnalyticsCustomer": {

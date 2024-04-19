@@ -236,12 +236,22 @@
   border-radius: 4px;
 }
 
-.requestActive {
+/* .requestActive {
   border: 1px solid var(--black-500);
 }
+*/
 
 .inActiveRequest {
   border: 1px solid var(--gray-light-300);
+} 
+
+.request_list_item .inActiveRequest:hover {
+  border: 1px solid var(--black-200);
+  background: var(--gray-light-150);
+}
+.request_list_item .requestActive {
+  border: 1px solid var(--black-200);
+  background: var(--gray-light-150);
 }
 
 .request_text_area {
@@ -265,7 +275,15 @@
 .request_text_area textarea:not(:placeholder-shown) {
   color: var(--black-500);
 }
+.request_text_area textarea:focus {
+  border-color: var(--black-200);
+  outline: none;
+}
 
+.request_text_area textarea:focus-visible {
+  border-color: var(--black-200);
+  outline: none;
+}
 .request_text_area button.btn_secondary {
   position: absolute;
   bottom: -57px;
@@ -400,7 +418,16 @@
   border-top: 0;
   position: absolute;
 }
-
+.request_filter_dtls:after {
+  content: "";
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  z-index: 0;
+}
 .request_filter_profile {
   width: 36px;
   min-width: 36px;
@@ -413,7 +440,9 @@
   justify-content: center;
   border-radius: 50%;
   background: #d3d3d3 -10.896px 2.989px / 133.789% 89.193% no-repeat;
-  border: 1px solid #E1E4E8;
+  border: 1px solid var(--gray-light-300);
+  position: relative;
+  z-index: 1;
 }
 
 .request_filter_profile img {
@@ -428,6 +457,8 @@
   justify-content: center;
   align-items: self-start;
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .request_filter_profile_dtls h6.request_filter_profile_title {
@@ -435,7 +466,7 @@
   line-height: 21px;
   font-size: 14px;
   font-weight: 400;
-  color: #fff;
+  color: var(--white);
   display: block;
   max-width: 100%;
   word-break: break-word;
@@ -447,7 +478,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 19px;
-  color: #fff;
+  color: var(--white);
   text-align: left;
 }
 
@@ -475,13 +506,20 @@
   color: var(--gray-300);
   opacity: 1
 }
+.request_contact_form form .form_control:focus {
+  border-color: var(--black-200);
+  box-shadow: none;
+}
+.request_contact_form form .form_control:focus-visible {
+  outline-color: var(--black-200);
+}
 
 .request_contact_form form.form_floating label {
   padding: 0 0 10px 0;
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  color: #212121;
+  color: var(--black-500);
   font-weight: 400
 }
 
@@ -495,7 +533,7 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 27px;
-  color: #212121;
+  color: var(--black-500);
   margin: 0;
   padding: 0 0 10px 0;
 }
@@ -504,14 +542,14 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  color: #212121;
+  color: var(--black-500);
   margin: 0;
   padding: 0;
 }
 
 .request_filter_opt:first-child:after {
   content: "";
-  background: #E1E4E8;
+  background: var(--gray-light-300);
   width: 1px;
   height: 100%;
   position: absolute;
@@ -582,8 +620,10 @@
   margin: 0;
 }
 
-.errorMessage{color: #ff0000; margin: 0;}
-
+.errorMessage {
+  color: #ff0000;
+  margin: 0;
+}
 
 .custom_text_with_icon h5 {
   font-size: 22px;
@@ -620,8 +660,8 @@
   display: flex;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #E1E4E8;
-  background: #FFF;
+  border: 1px solid var(--gray-light-300);
+  background: var(--white);
   line-height: 22px;
   width: 100%;
   position: relative;
@@ -655,8 +695,8 @@
   display: flex;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #E1E4E8;
-  background: #FFF;
+  border: 1px solid var(--gray-light-300);
+  background: var(--white);
   line-height: 22px;
   width: 100%;
 }
@@ -696,8 +736,8 @@
   height: 16px;
   padding: 0;
   border-radius: 2px;
-  border: 1px solid #E1E4E8;
-  background: #FFF;
+  border: 1px solid var(--gray-light-300);
+  background: var(--white);
   transform: translateY(-0.075em);
   position: relative;
   right: 0;
@@ -706,7 +746,7 @@
 }
 
 .request_current_location input[type="checkbox"]:focus {
-  border: 1px solid #E1E4E8;
+  border: 1px solid var(--gray-light-300);
 }
 
 .request_current_location input[type="checkbox"]:before {
@@ -722,8 +762,8 @@
 }
 
 .request_current_location input[type="checkbox"]:checked {
-  border: 1px solid #1C1C1C;
-  background-color: #1C1C1C;
+  border: 1px solid var(--black-450);
+  background-color: var(--black-450);
 }
 
 .request_current_location input[type="checkbox"]:checked:before {
@@ -761,8 +801,8 @@
   height: 16px;
   padding: 0;
   border-radius: 2px;
-  border: 1px solid #E1E4E8;
-  background: #FFF;
+  border: 1px solid var(--gray-light-300);
+  background: var(--white);
   transform: translateY(-0.075em);
   position: relative;
   right: 0;
@@ -771,7 +811,7 @@
 }
 
 .request_ref_checkbox input[type="checkbox"]:focus {
-  border: 1px solid #E1E4E8;
+  border: 1px solid var(--gray-light-300);
 }
 
 .request_ref_checkbox input[type="checkbox"]:before {
@@ -787,8 +827,8 @@
 }
 
 .request_ref_checkbox input[type="checkbox"]:checked {
-  border: 1px solid #1C1C1C;
-  background-color: #1C1C1C;
+  border: 1px solid var(--black-450);
+  background-color: var(--black-450);
 }
 
 .request_ref_checkbox input[type="checkbox"]:checked:before {
@@ -811,13 +851,13 @@
 
 .request_ref_selected.max_reached {
   border-radius: 4px;
-  background: #F44336;
+  background: var(--red-100);
   height: 29px;
   padding: 4px 16px;
   font-size: 14px;
   line-height: 21px;
   font-weight: 400;
-  color: #fff;
+  color: var(--white);
 }
 
 .request_ref_selected.max_reached img {
@@ -1071,28 +1111,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #212121;
-    border: 1px solid #E1E4E8;
+    color: var(--black-500);
+    border: 1px solid var(--gray-light-300);
     outline: none;
   }
   .request_mobile_search {
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--white);
   }
   .mob_search_close {
     position: absolute;
     right: 0;
     top: 7px;
-}
+  }
 
-.mob_search_close button {
+  .mob_search_close button {
     padding: 0;
     width: 26px;
     height: 26px;
     cursor: pointer;
-}
+  }
+  .request_filter_dtls:after {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 100%);
+  }
 
 }
 
