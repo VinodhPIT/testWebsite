@@ -1,5 +1,4 @@
 import React from "react";
-
 import dynamic from "next/dynamic";
 import TattooSize from "@/components/stepperComponents/tattooSize";
 import BodyPart from "@/components/stepperComponents/bodyPart";

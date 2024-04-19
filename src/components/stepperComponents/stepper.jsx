@@ -14,7 +14,7 @@ const StepperComponent = ({ steps, activeStep }) => {
 
   const { prevPage, stepNumber, locationDenied } = useRequestForm();
 
-  const { navigateTo } = useNavigation();
+  const { navigateTo  ,router} = useNavigation();
   const { t } = useTranslation();
   const generateStepTitle = (title, index) => {
     const isCompleted = index < activeStep;
@@ -51,7 +51,7 @@ const StepperComponent = ({ steps, activeStep }) => {
   };
 
   const onNavigate = () => {
-    stepNumber === 0 ? navigateTo("/createRequest") : prevPage();
+    stepNumber === 0 ? navigateTo(`/${router.locale}/createRequest`) : prevPage();
   };
 
   useEffect(() => {

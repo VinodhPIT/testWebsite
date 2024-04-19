@@ -41,7 +41,7 @@ const createRequestObject = (parameters, paginatorCount) => {
 };
 
 
-const createRequestObject1 = (parameters, paginatorCount) => {
+const artistRequest = (parameters, paginatorCount) => {
   const request = {
     sort:null,
     page_no: parameters.page_no,
@@ -67,7 +67,7 @@ const createRequestObject1 = (parameters, paginatorCount) => {
   } else {
     request.style = [];
   }
-  console.log(request ,"dlcsl;dc")
+ 
 
 
   return request;
@@ -76,8 +76,8 @@ const createRequestObject1 = (parameters, paginatorCount) => {
 
 
 
-export const searchParam1 = (parameters) => {
-  return createRequestObject1(parameters, 10);
+export const stepperParam = (parameters) => {
+  return artistRequest(parameters, 9);
 };
 
 export const searchParam = (parameters) => {

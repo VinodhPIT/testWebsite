@@ -46,7 +46,7 @@ export default function Header({ data }) {
 
   return (
     <>
-      <header className="header_wrapper db_header_wrap">
+      <header className="db_header_wrap">
         <div className="container-fluid pr_40 m_pr_12">
           <div className="row">
             <div className="col-md-12">

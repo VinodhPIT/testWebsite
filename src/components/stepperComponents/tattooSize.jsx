@@ -1,26 +1,17 @@
 // components/TattooComponent.js
-import React ,{useEffect ,useState} from 'react';
-import { useRequestForm } from '@/store/requestManagement/requestForm'; // Import Zustand store hook
+import React, { useEffect, useState } from "react";
+import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
-
-
+import { CustomerRequestSize } from "@/utils/customerRequestType";
 
 const TattooSize = () => {
-
-  const { getTattooSize , setTattooSize ,tattoondex  ,fetchArtistList} = useRequestForm(); // Zustand store and setter
+  const { setTattooSize, tattoondex, fetchArtistList } = useRequestForm(); // Zustand store and setter
 
   const { t } = useTranslation();
- 
 
   useEffect(() => {
-    
-      fetchArtistList();
-  
-  
-   
+    fetchArtistList();
   }, []);
-
-
 
   return (
     <>
@@ -32,10 +23,27 @@ const TattooSize = () => {
                 <div className="request_landing_content_col">
                   <h2>{t("common:stepper.title1")}</h2>
                   <div className="request_list_item">
-                    {getTattooSize&&getTattooSize.map((value, index) => (                    
-                      <button key={index} onClick={() => setTattooSize(value ,index)} className={tattoondex === index ? 'requestActive' : 'inActiveRequest'}>
-                        {value.name} {value.type} 
-                      </button>                    
+                    {Object.keys(CustomerRequestSize).map((size, index) => (
+                      <button
+                        key={size}
+                        onClick={() =>
+                          setTattooSize(
+                            size === "nil"
+                              ? t("common:stepper.dontKnowYet")
+                              : CustomerRequestSize[size],
+                            index
+                          )
+                        }
+                        className={
+                          tattoondex === index
+                            ? "requestActive"
+                            : "inActiveRequest"
+                        }
+                      >
+                        {size === "nil"
+                          ? t("common:stepper.dontKnowYet")
+                          : CustomerRequestSize[size]}
+                      </button>
                     ))}
                   </div>
                 </div>
