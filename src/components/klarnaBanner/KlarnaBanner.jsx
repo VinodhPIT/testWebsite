@@ -20,7 +20,7 @@ export default function KlarnaBanner() {
         <h2 className="color_white heading_h2 custom_d_fs_50 fw_700 mb_10 m_mb_0">
           <span>Tattoo now, Pay later</span>
         </h2>
-        <p className="color_white custom_fs_18 mb_30 m_mb_25">
+        <p className="color_white custom_fs_18 mb_30 m_mb_25 txt_mob_fs14 m_lh_21">
           Our app offers credit checks, finance options, and flexible payment
           plans, ensuring everyone can afford their dream tattoo.
         </p>

@@ -32,7 +32,7 @@ export default function TattooIdea() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
-                  className="object_position_left"
+                  className=""
                 />
                 <div class="chat_block bubble_top_mid floating_animation">                  
                   <Image
@@ -76,14 +76,14 @@ export default function TattooIdea() {
               </div>
             </div>
             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 offset-md-1">
-              <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_35">
+              <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_25">
                 <div className="text_box_content_inner m_pr_0 pr_0">                  
                   <h2 className="mob_hidden">Share your tattoo idea</h2>
-                  <p className="mt_20 mb_30 m_mt_0 m_mb_20 custom_fs_m_14">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
+                  <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.
                   </p>
                   <Link
                     href={`/${router.locale}/klarna`}
-                    className="btn_secondary btn_cutom_new b_radius_16"
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
                   >
                     Create a tattoo request
                   </Link>

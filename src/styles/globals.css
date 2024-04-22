@@ -1367,6 +1367,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .h_48 {
   height: 48px !important;
 }
+.sqr_resp_280 {
+  height: 280px !important;
+}
 
 .p_0 {
   padding: 0px !important;
@@ -2002,9 +2005,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  font-size: 18px;
-  line-height: 27px;
-  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
   text-align: center;
   border: 0;
   text-decoration: none;
@@ -5993,6 +5996,9 @@ button.language_switcher img {
   .m_mb_0 {
     margin-bottom: 0px !important;
   }
+  .m_mb_5 {
+    margin-bottom: 5px !important;
+  }
   .m_mb_10 {
     margin-bottom: 10px !important;
   }
@@ -6094,6 +6100,15 @@ button.language_switcher img {
     padding: 8px 24px;
   }
 
+  .heading_h2 {
+    font-size: 34px !important;
+    line-height: 45px !important;
+  }
+  .heading_h2_sub {
+    font-size: 25px !important;
+    line-height: 35px !important;
+  }
+
   .txt_mob_fs50 {
     font-size: 50px !important;
     line-height: 50px !important;
@@ -6149,17 +6164,11 @@ button.language_switcher img {
     font-size: 18px !important;
     line-height: 27px !important;
   }
+  .m_lh_19 {
+    line-height: 19px!important;
+  }
   .m_lh_21 {
     line-height: 21px!important;
-  }
-
-  .heading_h2 {
-    font-size: 34px !important;
-    line-height: 45px !important;
-  }
-  .heading_h2_sub {
-    font-size: 25px !important;
-    line-height: 35px !important;
   }
 
   .m_left_0 {
@@ -6304,6 +6313,12 @@ button.language_switcher img {
   .btn_cutom_new.btn_img {
     padding-right: 6px;
   }
+
+  .btn_cutom_mob {
+    height: 48px;
+    padding: 8px 20px;
+  }
+  
 
   .header_cookie_desktop {
     display: none;
@@ -7023,6 +7038,11 @@ button.language_switcher img {
     bottom: 20px;
     left: 18px;
   }
+  .heading_with_arrow:after {
+    bottom: 4px;
+    width: 18px;
+    height: 18px;
+  }
 }
 @media screen and (max-width: 640px) {
   .img_box_wrap.custom_slick_slider_one {
@@ -7049,7 +7069,6 @@ button.language_switcher img {
     font-size: 14px;
   }
 }
-
 @media screen and (max-width: 420px) {
   .faq_tab_wrap .tabSection ul li {
     padding-right: 10px;
@@ -7749,9 +7768,9 @@ button.language_switcher img {
     display: none;
   }
 
-  .header_right .btn_tattoo_art {
+  /*.header_right .btn_tattoo_art {
     display: none;
-  }
+  }*/
 
   header .navbar {
     padding: 0px 13px;
@@ -7766,6 +7785,8 @@ button.language_switcher img {
   }
   .header_right button.btn_tattoo_art {
     margin-right: 16px;
+    height: 32px;
+    padding: 6px 8px;
   }
   .header_logo_nav .header_logo {
     margin-right: 35px;
@@ -8395,6 +8416,9 @@ button.language_switcher img {
   .custom_slick_container .listing_gridItem .listing_grid_img_col {
     height: 250px;
   }
+  .sqr_resp_224 {
+    height: 224px!important;
+  }
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1380px) {
@@ -8410,5 +8434,11 @@ button.language_switcher img {
 @media screen and (min-width: 1200px) and (max-width: 1300px) {
   header ul.nav.main_nav > li > a {
     font-size: 17px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .header_right button.btn_tattoo_art {
+    margin-right: 10px;
+    padding: 6px 6px;
   }
 }

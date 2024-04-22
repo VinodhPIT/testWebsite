@@ -262,7 +262,7 @@ export default function Home({ data, locale }) {
                       </p>
                       <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">
                         <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_10 text_left d_inline_block download_mob_center">
-                          <li className="download_app_title mb_10">
+                          <li className="download_app_title mb_10 m_mb_5 m_lh_19">
                             {t("common:homePage.Download the inckd")}
                           </li>                          
                           <li>
