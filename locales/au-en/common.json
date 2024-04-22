@@ -226,7 +226,9 @@
 
     "title3": "Keep clients in the Loop",
     "content3": "Engage in real-time chats to understand your clients preferences firsthand. Efficiently handle appointments and stay prepared to meet your clients needs. Discuss offers and provide progress updates with inckd, ensuring their tattoo vision becomes a reality at every stage.",
-    "title4": "Get inckd. customers tattoing with you now. Are you ready?",
+
+    "title4": "Get inckd. customers tattoing with you now.",
+    "title8": "Are you ready?",
 
     "title5": "Your booking buddy",
     "content5": "inckd. puts you in the drivers seat of your tattoo business schedule, providing a comprehensive overview of all bookings through a real-time dashboard right at your fingertips. Define your availability and make it easier for clients to schedule appointments according to their preferences.",
@@ -550,7 +552,7 @@
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
-
+    "dontKnowYet": "I don't know yet",
     "title1": "How big would you like your tattoo to be?",
     "title2": "Where do you want your tattoo?",
     "title3": "How would your dream tattoo look like?",

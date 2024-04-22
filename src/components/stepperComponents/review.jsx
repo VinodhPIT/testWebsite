@@ -6,6 +6,8 @@ import Modal1 from "@/components/modalPopup/existingUser";
 import Image from "next/image";
 import { getCountry } from "@/helpers/helper";
 import axios from "axios";
+import { CustomerRequestSize, BodyPart } from "@/utils/customerRequestType";
+
 const Review = () => {
   const {
     bodyPart,
@@ -19,8 +21,6 @@ const Review = () => {
     userExists,
   } = useRequestForm();
 
-
-
   const array = selectedArtists.map((e) => e.artistId);
 
   const [success, setSuccess] = useState(false);
@@ -28,30 +28,40 @@ const Review = () => {
   const { t } = useTranslation();
 
   const uploadDataToAPI = () => {
-    setLoading(true)
+    setLoading(true);
     const formData = new FormData();
 
-    formData.append("body_part", bodyPart);
+    const sizeKey = Object.keys(CustomerRequestSize).find(
+      (key) => CustomerRequestSize[key] === tattooSize
+    );
+
+    const isSizePresent = Object.values(CustomerRequestSize).includes(tattooSize);
+    const isBodyPartPresent = Object.values(BodyPart).includes(bodyPart);
+    formData.append("body_part", !isBodyPartPresent ? "nil" : bodyPart);
     formData.append("artist_uids", array.join(","));
-    formData.append("size", tattooSize);
+    formData.append("size", !isSizePresent ? "nil" : sizeKey);
     formData.append("comments", message);
     formData.append("customer_email", email);
-    formData.append("customer_phone_no",phone);
-    images.map((el )=>{
-      formData.append('secondary_images', el.File);
-    })
+    formData.append("customer_phone_no", phone);
+    images.map((el) => {
+      formData.append("secondary_images", el.File);
+    });
     axios
-      .post(`${process.env.apiDomain}/web/api/customer-request/save`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
+      .post(
+        `${process.env.apiDomain}/web/api/customer-request/save`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
       .then((response) => {
-        setLoading(false)
+        setLoading(false);
         setSuccess(true);
       })
       .catch((error) => {
-        setLoading(false)
+        setLoading(false);
       });
   };
 
@@ -115,8 +125,7 @@ const Review = () => {
                           return (
                             <div class="request_review_ref_img" key={id}>
                               <Image
-                                src={images[id].imageUrl
-                                }
+                                src={images[id].imageUrl}
                                 width={175}
                                 height={175}
                                 alt="Reference"
@@ -183,12 +192,11 @@ const Review = () => {
                       {t("common:submit")}
 
                       {loading ? (
-                            <span
-                              className="spinner-border spinner-border-sm"
-                              aria-hidden="true"
-                            ></span>
-                          ) : null}
-                      
+                        <span
+                          className="spinner-border spinner-border-sm"
+                          aria-hidden="true"
+                        ></span>
+                      ) : null}
                     </button>
                   </div>
                 </div>

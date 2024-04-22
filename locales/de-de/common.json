@@ -203,7 +203,7 @@
 
   "forArtistPage": {
     "button": "Loslegen",
-    "bannerTitle": "Booste dein",
+    "bannerTitle": "Booste dein Business mit inckd.",
     "bannerSubtitle": "Business",
     "bannerSubtitle3": "mit inckd.",
     "bannerContent": "Booste dein Tattoo Business, indem du die Tattoo Visionen deiner Kunden erfüllst und ihnen flexible Zahlungsoptionen anbietest.",
@@ -223,7 +223,9 @@
 
     "title3": "Halte deine Kunden auf dem Laufenden",
     "content3": "Chatte live mit deinen Kunden, um ihre Vorstellungen direkt zu erfahren. Verwalte Termine effizient und sei bereit, auf die Bedürfnisse deiner Kunden einzugehen. Besprich Angebote und halte deine Kunden mit inckd. auf dem Laufenden, damit ihre Tattoo Wünsche Wirklichkeit werden.",
-    "title4": "Erhalte inckd. Kunden, die sich von dir tätowieren lassen. Bist du bereit?",
+
+    "title4": "Erhalte inckd. Kunden, die sich von dir tätowieren lassen.",
+    "title8": "Bist du bereit?",
 
     "title5": "Dein Buchungs-Buddy",
     "content5": "inckd. ermöglicht es dir, deinen Tattoo Businesskalender selbst zu gestalten und bietet einen umfassenden Überblick über alle Buchungen durch ein Echtzeit-Dashboard. Definiere deine Verfügbarkeit und erleichtere es den Kunden, Termine entsprechend ihren Vorlieben zu vereinbaren.",
@@ -547,7 +549,7 @@
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
-
+    "dontKnowYet": "I don't know yet",
     "title1": "How big would you like your tattoo to be?",
     "title2": "Where do you want your tattoo?",
     "title3": "How would your dream tattoo look like?",
