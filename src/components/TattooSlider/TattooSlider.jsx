@@ -7,14 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function FourColumnCarousel({
-  title,
-  title_sub,
-  content,
-  button,
-  trendingArtist,
-  btnLink,
-}) {
+export default function FourColumnCarousel({ title, content, trendingArtist }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
@@ -105,15 +98,15 @@ export default function FourColumnCarousel({
                       }`}
                       key={index}
                     >
-                      <Link href={el.url}>
+                 
                         <div
                           className={`${"listing_grid_four_col"} ${
                             styles.listing_grid_img_col
                           }`}
                         >
                           <Image
-                            src={el.image}
-                            alt={el.name}
+                            src={el.latest_tattoo}
+                            alt={el.artist_name}
                             width={752}
                             height={776}
                             loading="lazy"
@@ -135,7 +128,7 @@ export default function FourColumnCarousel({
                         >
                           <div className={styles.listing_grid_img_profile}>
                             <Image
-                              src={el.artistImage}
+                              src={el.profile_image_url}
                               alt={el.name}
                               width={97}
                               height={97}
@@ -147,16 +140,16 @@ export default function FourColumnCarousel({
                           </div>
                           <div className={styles.listing_grid_profile_details}>
                             <h6 className={styles.listing_grid_profile_title}>
-                              {el.name}
+                              {el.first_name}
                             </h6>
                             <span
                               className={styles.listing_grid_profile_address}
                             >
-                              {el.city}, {el.country}
+                              {el.studio_city}, {el.studio_country}
                             </span>
                           </div>
                         </div>
-                      </Link>
+                   
                     </div>
                   ))}
                 </Slider>

@@ -12,11 +12,6 @@ export default function CarouselSection({
   title,
   content,
   datas,
-  buttonName,
-  isButtonVisible,
-  keyword,
-  bottomButton,
-  altTag,
 }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -99,13 +94,13 @@ export default function CarouselSection({
                   {...sliderSettings}
                   className="custom_slick_slider custom_slick_container"
                 >
-                  {datas.map((imgPath, index) => (
+                  {datas.map((el, index) => (
                     <div className={`${"listing_gridItem"} `} key={index}>
-                      <Link href={imgPath.url}>
+                      
                         <div className={`${"listing_grid_img_col sqr_resp_224 m_w_cal_100_10"}`}>
                           <Image
-                            src={imgPath.image}
-                            alt={altTag}
+                            src={el.image_url}
+                            alt={el.style.style_name}
                             width={224}
                             height={224}
                             loading="lazy"
@@ -116,7 +111,7 @@ export default function CarouselSection({
                             style={{ borderRadius: "10px" }}
                           />
                         </div>
-                      </Link>
+                 
                     </div>
                   ))}
                 </Slider>

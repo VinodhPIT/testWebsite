@@ -4,7 +4,7 @@ const UseLayout = ({ children, pathname }) => {
   
   useEffect(() => {
     if (pathname === "/") {
-      document.body.style.backgroundColor = "#F8F8F8";
+      document.body.style.backgroundColor = "#fff";
       document.body.className = "home";
     } else if (pathname === "/dictionary") {
       document.body.style.backgroundColor = "#fff";
