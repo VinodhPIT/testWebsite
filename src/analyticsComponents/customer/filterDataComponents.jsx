@@ -4,20 +4,33 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { useToggle } from "@/hooks/useToggle";
 import RegionDropdown from "@/components/regionSelection/regionDropdown";
 import { currentYear, options, months } from "@/helpers/helper";
-import DatePicker, { utils } from "@hassanmojab/react-modern-calendar-datepicker";
+import Calendar, { utils } from "@hassanmojab/react-modern-calendar-datepicker";
 import Image from "next/image";
+import {
 
-export default function FilterDataComponents({ onFilterDashbardData }) {
-  const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
+  analyticsCustomerCountWithFIlter,
+  analyticsCustomerLeadSourceCountWithFIlter,
+} from "@/apiConfig/customerAnalyticsService"; // Importing analytics services
+import useAnalyticsStore from "@/store/customerAnalytics/calenderFilter";
+
+export default function FilterDataComponents({ filterDashBoardData, onUpdateDateFilter }) {
+  const [toggle, onToggle] = useToggle(false);
 
   const [selectedYear, setSelectedYear] = useState('Yearly');
+  const [selectedDayRange, setSelectedDayRange] = useState({
+    from: null,
+    to: null,
+  });
+
+  const [selectedFilter, setSelectedFilter] = useState({
+    start_date: null,
+    end_date: null,
+    region: null,
+    year: null
+  });
 
   const selectedOption = { value: selectedYear, label: selectedYear };
-
-  const handleChange = (selectedOption) => {
-    const yearToFilter = selectedOption.value;
-    setSelectedYear(yearToFilter);
-  };
+  // const formattedDate = utils.formatDate(new Date(selectedDayRange.from.year, day.month, day.day), 'MMM dd, yyyy');
 
   const customStyles = {
     control: base => ({
@@ -58,119 +71,50 @@ export default function FilterDataComponents({ onFilterDashbardData }) {
     </button>
   );
 
-  const initialValue = {
-    // Initial date range values
-    contactedWithNoOffer: {
-      from: null,
-      to: null,
-    },
-    deletedCustomers: {
-      from: null,
-      to: null,
-    },
-    joinedFromApp: {
-      from: null,
-      to: null,
-    },
-    joinedFromWeb: {
-      from: null,
-      to: null,
-    },
-    noCompletedOffer: {
-      from: null,
-      to: null,
-    },
-    notContacted: {
-      from: null,
-      to: null,
-    },
-    referralUsedCustomers: {
-      from: null,
-      to: null,
-    },
-    totalCustomers: {
-      from: null,
-      to: null,
-    },
-    voucherUserCustomers: {
-      from: null,
-      to: null,
-    },
+  const onFilterDashbardData = (data) => {
+    setSelectedFilter({
+      ...selectedFilter,
+      region: data
+    });
+    filterDashBoardData(selectedFilter);
   };
 
-  const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
+  const handleChange = (selectedOption) => {
+    const yearToFilter = selectedOption.value;
+    setSelectedYear(yearToFilter);
+    setSelectedFilter({ ...selectedFilter, year: yearToFilter })
+    filterDashBoardData(selectedFilter);
+  };
 
-
-  // Function to handle date filter
-  const handleDateFilter = async (key, dateRangeValue) => {
+  const resetYear = () => {
+    setSelectedYear('Yearly');
+  };
+  console.log('<><> sele', selectedFilter)
+  const resetCalender = () => {
     setSelectedDayRange({
       ...selectedDayRange,
-      [key]: dateRangeValue
-    });
-    const { from, to } = dateRangeValue;
-    const fromDate = `${from?.year}-${from?.month > 9 ? from?.month : `0${from?.month}`}-${from?.day > 9 ? from?.day : `0${from?.day}`}` || '';
-    const toDate = to ? `${to?.year}-${to?.month > 9 ? to?.month : `0${to?.month}`}-${to?.day > 9 ? to?.day : `0${to?.day}`}` : null;
-    if (fromDate && toDate) {
-      if (key === "joinedFromWeb" || key === "joinedFromApp") {
-        const res = await analyticsCustomerLeadSourceCountWithFIlter({
-          startDate: fromDate,
-          endDate: toDate
-        }, token);
-        setCountData({
-          ...countData,
-          ...(key === "joinedFromApp" && { joinedFromApp: res.filter((custData) => custData.lead_source === "APP").length }),
-          ...(key === "joinedFromWeb" && { joinedFromWeb: res.filter((custData) => custData.lead_source === "WEB").length })
-        })
-        setDateRange({
-          ...dateRange,
-          [key]: {
-            from: fromDate,
-            to: toDate
-          }
-        });
-      } else {
-        const res = await analyticsCustomerCountWithFIlter({
-          type: Apitype[key],
-          startDate: fromDate,
-          endDate: toDate
-        }, token);
-        setCountData({
-          ...countData,
-          [key]: res[Apitype[key]]
-        });
-        setDateRange({
-          ...dateRange,
-          [key]: {
-            from: fromDate,
-            to: toDate
-          }
-        });
-      }
-    }
-  }
-
-  const resetCalender = (key) => {
-    setSelectedDayRange({
-      ...selectedDayRange,
-      [key]: {
-        from: null,
-        to: null,
-      },
-    });
-
-    setDateRange({
-      ...dateRange,
-      [key]: {
-        from: null,
-        to: null,
-      },
-    });
-
-    setCountData({
-      ...countData,
-      [key]: initialCounts[key],
+      from: null,
+      to: null,
     });
   };
+
+  const onClickToday = () => {
+    resetCalender();
+    resetYear();
+    filterDashBoardData(selectedFilter);
+  };
+
+  // Filter the data based on the selected date range
+  //  const filteredData = data.filter((item) => {
+  //   const itemDate = item.date;
+  //   if (!selectedDayRange.from || !selectedDayRange.to) {
+  //     return true; // Return all items if no date range is selected
+  //   }
+  //   return (
+  //     itemDate >= utils.startOfDay(selectedDayRange.from) &&
+  //     itemDate <= utils.endOfDay(selectedDayRange.to)
+  //   );
+  // });
 
   return (
     <>
@@ -191,7 +135,7 @@ export default function FilterDataComponents({ onFilterDashbardData }) {
           <div className="db_flex">
             <button
               type="button"
-              // onClick={onToggle}
+              onClick={onClickToday}
               class="btn_selection btn_style"
             >
               Today
@@ -213,15 +157,20 @@ export default function FilterDataComponents({ onFilterDashbardData }) {
         </div>
         <div className="db_list_drop_down">
           <div className="db_flex">
-            <DatePicker
-              calendarPopperPosition="bottom"
+            <Calendar
               maximumDate={utils("en").getToday()}
-              onChange={(val) => handleDateFilter('joinedFromWeb', val)}
-              renderInput={renderCustomInput}
+              value={selectedDayRange}
+              onChange={(range) => {
+                setSelectedDayRange(range);
+                setSelectedFilter({
+                  ...selectedFilter,
+                  start_date: selectedDayRange.from,
+                  end_date: selectedDayRange.to
+                })
+              }}
               shouldHighlightWeekends
-              value={selectedDayRange.deletedCustomers}
+              calendarPopperPosition="bottom-end"
             />
-
           </div>
         </div>
       </div >

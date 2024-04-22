@@ -10,23 +10,26 @@ export default function RegionDropdown({ onFilterData }) {
 
   const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } =
     useGlobalState();
-  const [selectedRegion, setSelectedRegion] = useState({});
+  const [selectedRegion, setSelectedRegion] = useState([]);
 
   const { t } = useTranslation();
 
   const handleCheckboxChange = (el) => {
     if (selectedIds.includes(el.id)) {
       setSelectedIds(selectedIds.filter((id) => id !== el.id));
+      setSelectedRegion(selectedRegion.filter((item) => item.id !== el.id))
     } else {
       setSelectedIds([...selectedIds, el.id]);
-      setSelectedRegion(el);
+      setSelectedRegion([
+        ...selectedRegion,
+        el
+      ]);
     }
   };
 
   const clearAll = async () => {
     setSelectedIds([]);
     clearStyleId();
-    await getUrl(currentTab, searchKey, "", state.location, router);
   };
 
   const onSearchStyle = async () => {
@@ -85,7 +88,7 @@ export default function RegionDropdown({ onFilterData }) {
       </div>
       <div className={styles.custom_dropdown_btn}>
         <button
-          disabled={state.selectedStyle === "" ? true : false}
+          disabled={selectedIds.length == 0}
           onClick={() => clearAll()}
           className="btn_outline_secondary w_100pc"
         >

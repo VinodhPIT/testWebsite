@@ -13,6 +13,7 @@ import useTotalRevenue from "@/store/dashboardAnalytics/totalRevenue";
 import useTranslation from "next-translate/useTranslation";
 import FilterDataComponents from "@/analyticsComponents/customer/filterDataComponents";
 import NewDashboardDetails from "@/analyticsComponents/dashboard/newDashboardDetails";
+import useAnalyticsStore from "@/store/customerAnalytics/calenderFilter";
 
 
 const responseFormat = {
@@ -150,51 +151,57 @@ export default function Dashboard({ data: initialData }) {
   const { status, data: sessionData } = useSession();
   const { totalAmount, fetchTotalRevenue } = useTotalRevenue();
   const { t } = useTranslation();
-
+  const {
+    handleDateFilter
+  } = useAnalyticsStore();
   useEffect(() => {
     fetchTotalRevenue(initialData.sessionToken);
   }, [fetchTotalRevenue, initialData.sessionToken]);
-//api implementation not completed
+  //api implementation not completed
 
-// useEffect(()=>{
-//   getCustomerRequestAnalyticsData()
-// })
+  // useEffect(()=>{
+  //   getCustomerRequestAnalyticsData()
+  // })
 
-return (
-  <>
-    <Head>
-      <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
-    </Head>
+  const filterDashBoardData = (data) => {
+    console.log('<>< sele reg', data)
+  };
 
-    <Header data={status === "authenticated" && sessionData.user.name} />
+  return (
+    <>
+      <Head>
+        <title>{t("common:AnalyticsDashboard.MetaTitle")}</title>
+      </Head>
 
-    <section className="pt_20 pb_20 block_bg_gray_150">
-      <FilterDataComponents />
-      <NewDashboardDetails
-        initialCounts={initialData.artistData}
-        token={initialData.sessionToken}
-      />
-      {/* <DashboardDetails
+      <Header data={status === "authenticated" && sessionData.user.name} />
+
+      <section className="pt_20 pb_20 block_bg_gray_150">
+        <FilterDataComponents filterDashBoardData={filterDashBoardData} onUpdateDateFilter={handleDateFilter}/>
+        <NewDashboardDetails
+          initialCounts={initialData.artistData}
+          token={initialData.sessionToken}
+        />
+        {/* <DashboardDetails
           initialCounts={initialData}  // old component
           token={initialData.sessionToken}
         /> */}
 
-      <section className="container-fluid">
-        <div className="db_customer_detail_wrap">
-          <div className="row">
-            <div className="col-lg-9 col-md-12 col-sm-12">
-              <TotalAmountEarned
-                title={t("common:AnalyticsDashboard.Total revenue earned")}
-                revenueData={totalAmount}
-                isTest={true}
-              />
+        <section className="container-fluid">
+          <div className="db_customer_detail_wrap">
+            <div className="row">
+              <div className="col-lg-9 col-md-12 col-sm-12">
+                <TotalAmountEarned
+                  title={t("common:AnalyticsDashboard.Total revenue earned")}
+                  revenueData={totalAmount}
+                  isTest={true}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
-  </>
-);
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {
@@ -222,7 +229,7 @@ export async function getServerSideProps(context) {
         data: {
           androidDownloads: data.android_download_count || 0,
           artistCount,
-          artistData:responseFormat.customer_request_data,
+          artistData: responseFormat.customer_request_data,
           customerCount,
           iosDownloads: data.ios_download_count || 0,
           offerData,

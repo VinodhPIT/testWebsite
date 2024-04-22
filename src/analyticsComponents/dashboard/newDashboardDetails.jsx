@@ -26,7 +26,7 @@ export default function NewDashboardDetails({ initialCounts, token }) {
   return (
     <section className="container-fluid">
       <div className="db_customer_detail_wrap db_card_margin ">
-        <div className="row">
+        <div className="db_customer_rqst_data">
           <NewCountDisplayCard
             iconBgColor="block_bg_blue_200"
             count={initialCounts.length}

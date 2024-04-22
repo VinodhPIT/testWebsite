@@ -28,10 +28,10 @@ export default function NewCountDisplayCard({
   icon
 }) {
   return (
-    <div className="db_card_wrapper db_card_margin_between">
+    <div className="db_card_wrapper">
       <div className="db_card_body p_16">
         <div>
-          <div className="db_margin_left">
+          <div className="">
             <div className="flex_direction_row d_flex">
               <div className={`db_card_icon_wrapper ${iconBgColor}`}>
                 <Image
@@ -51,7 +51,7 @@ export default function NewCountDisplayCard({
               </div>}
             </div>
             <div className="db_count_text">{count}</div>
-            <div className="flex_direction_row justify_space_between d_flex align_item_center">
+            <div className="db_customer_rqst_type">
               <div className="db_card_title_text">{title}</div>
               <div className="db_card_conversion_percent_text">41.3%</div>
             </div>
