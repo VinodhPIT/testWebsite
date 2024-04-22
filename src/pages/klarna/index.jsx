@@ -241,7 +241,7 @@ function KlarnaNew({}) {
                 <div class="img_box_wrap custom_download_shadow no_shadow_before">
                   <Image
                     priority
-                    src="/klarnaBanner.png"
+                    src="/klarnaBanner1.png"
                     alt={`${t("common:klarnaPage.bannerTitle1")} ${t(
                       "common:klarnaPage.bannerTitle1-Sub"
                     )}`}
@@ -311,6 +311,36 @@ function KlarnaNew({}) {
           </div>
         </div>
       </section>
+
+
+
+      <section
+        className="img_text_banner_box block_bg_aero_blue">
+        <div className={`${"col_full"}`}>
+          <div className="img_text_box_wrapper">
+            <div className={"text_box_wrap right pt_65 pb_65 m_pt_pb_50"}>
+              <div className="img_text_box_inner container">
+                <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
+                  <div className="text_box_content_inner max_w_100pc text_center">
+                    <h2 className="color_gray_550 mb_30">Need help to find the right tattoo artist?</h2>
+                    <Link
+                      href={`/${router.locale}/klarna`}
+                      className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
+                    >
+                      Create a tattoo request
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
 
       <section className="img_text_banner_box">
         <div className="img_text_box_wrapper">
