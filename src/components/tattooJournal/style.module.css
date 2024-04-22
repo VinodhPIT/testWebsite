@@ -135,10 +135,11 @@ a.link_with_arrow {
         min-height: 215px
     }
 }
+
 @media screen and (max-width: 600px) {
 	.listing_gridItem {		
 		padding: 0px;
-	}
+    }
     .listing_grid_content_wrap {       
         min-height: 195px
     }
