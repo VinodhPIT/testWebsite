@@ -3,10 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
+
+
+import useWindowResize from "@/hooks/useWindowSize";
+
+
+
 import {
   blurDataURL,
 } from "@/constants/constants";
-import useWindowResize from "@/hooks/useWindowSize";
+
+
+
+
 
 
 export default function TattooIdea() {

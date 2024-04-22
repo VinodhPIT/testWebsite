@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import React from "react";
+
+
 export default function KlarnaBanner() {
   const router = useRouter();
 
