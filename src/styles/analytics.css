@@ -640,6 +640,50 @@ header.db_header_wrap {
   align-items: center;
 }
 
+.db_filter_data_comp {
+  margin-right: 0;
+}
+.db_filter_data_comp button.btn_selection {
+  margin-right: 11px;
+  padding: 5px 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  height: 38px;
+}
+.db_filter_data_comp button.btn_selection:hover {
+  border-color: hsl(0, 0%, 70%);
+}
+.db_filter_data_comp input.DatePicker__input {
+  display: inline-flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid var(--gray-light-300);
+  background: var(--white);
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  margin-right: 0;
+  padding: 5px 23px 5px 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+  height: 38px;
+  min-width: 85px;
+  max-width: 100px;
+  background-image: url(/accordion-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 26% 50%;
+
+}
+.db_filter_data_comp input.DatePicker__input::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;

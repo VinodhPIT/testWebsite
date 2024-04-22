@@ -118,9 +118,10 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
 
   return (
     <>
+    <section class="container-fluid">
       <div className="db_selection_wrapper">
         <div className="db_list_drop_down">
-          <div className="db_flex">
+          <div className="db_filter_data_comp">
             <button
               type="button"
               onClick={onToggle}
@@ -132,7 +133,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           </div>
         </div>
         <div className="db_list_drop_down">
-          <div className="db_flex">
+          <div className="db_filter_data_comp">
             <button
               type="button"
               onClick={onClickToday}
@@ -143,7 +144,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           </div>
         </div>
         <div className="db_list_drop_down">
-          <div className="db_flex">
+          <div className="db_filter_data_comp">
             <Select
               id="yearSelect"
               options={options}
@@ -156,7 +157,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           </div>
         </div>
         <div className="db_list_drop_down">
-          <div className="db_flex">
+          <div className="db_filter_data_comp">
             <Calendar
               maximumDate={utils("en").getToday()}
               value={selectedDayRange}
@@ -174,6 +175,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           </div>
         </div>
       </div >
+    </section>
       {
         toggle && (
           <OutsideClickHandler
