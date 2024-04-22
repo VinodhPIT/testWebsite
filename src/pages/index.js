@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useGlobalState } from "@/context/Context";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
+
+
+
+import { useGlobalState } from "@/context/Context";
+import useStyleListing from "@/store/styleListing/styleListing";
+
+
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
+import TattooIdea from "@/components/tattooIdea/TattooIdea";
 import TattooSlider from "@/components/TattooSlider/TattooSlider";
 import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
-import CarouselSection from "@/components/CarouselSection/CarosuelSection";
-import CarouselSectionnew from "@/components/CarouselSection/CarosuelSectionnew";
-import jsonData from "@/data/journal.json";
-import { useRouter } from "next/router";
+import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
+import ExploreStyle from "@/components/homeCarousel/exploreStyles";
+
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-import useTranslation from "next-translate/useTranslation";
-import TattooIdea from "@/components/tattooIdea/TattooIdea";
+
+
+import jsonData from "@/data/journal.json";
 import tattoo from "@/data/datas.json";
-import useStyleListing from "@/store/styleListing/styleListing";
+
 
 export default function Home({ data, locale }) {
   const router = useRouter();
@@ -177,13 +187,13 @@ export default function Home({ data, locale }) {
         trendingArtist={tattoo.artists}
       />
       <KlarnaBanner />
-      <CarouselSection
+      <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
         datas={tattoo.tattoo_images}
       />
 
-      <CarouselSectionnew
+      <ExploreStyle
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}

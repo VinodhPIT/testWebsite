@@ -1,14 +1,18 @@
 import React from 'react'
 import Image from "next/image";
 import Link from "next/link";
-import styles from './style.module.css'
+import useTranslation from "next-translate/useTranslation";
+
+
 import {
     APP_LINK_APPLE,
     APP_LINK_GOOGLE,
     blurDataURL,
 } from "@/constants/constants";
 
-import useTranslation from "next-translate/useTranslation";
+
+import styles from './style.module.css'
+
 
 export default function PaymentTypes({  title1, title2, title3, content1, content2, content3, leftSectionImage }) {
     const { t } = useTranslation();
