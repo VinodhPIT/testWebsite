@@ -7,8 +7,9 @@ import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooSlider from "@/components/TattooSlider/TattooSlider";
 import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
-import CarouselSection from "@/components/CarouselSection/CarosuelSection";
-import CarouselSectionnew from "@/components/CarouselSection/CarosuelSectionnew";
+import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
+import ExploreStyles from "@/components/homeCarousel/exploreStyles";
+
 import jsonData from "@/data/journal.json";
 import { useRouter } from "next/router";
 import {
@@ -349,13 +350,13 @@ export default function Home({ data, locale }) {
         trendingArtist={tattoo.artists}
       />
       <KlarnaBanner />
-      <CarouselSection
+      <ExploreTattoos
         title="Explore tattoos"
         content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
         datas={tattoo.tattoo_images}
       />
 
-      <CarouselSectionnew
+      <ExploreStyles
         title="Explore tattoo styles"
         content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
         buttonName="Explore more tattoos"

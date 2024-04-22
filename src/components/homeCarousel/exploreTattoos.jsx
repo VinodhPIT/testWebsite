@@ -4,72 +4,17 @@ import Image from "next/image";
 import useWindowResize from "@/hooks/useWindowSize";
 import { blurDataURL } from "@/constants/constants";
 
+import sliderSettings from "@/constants/homeSliderSettings";
+
+
 import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
-
-export default function CarouselSection({ title, content, datas }) {
+export default function ExploreTattoos({ title, content, datas }) {
   const { isMobileView } = useWindowResize();
-  let sliderSettings = {};
-
-  sliderSettings = {
-    infinite: false,
-    arrows: isMobileView ? false : true,
-    speed: 300,
-    slidesToShow: isMobileView ? 1.5 : 5,
-    slidesToScroll: isMobileView ? 1 : 4,
-
-    responsive: [
-      {
-        breakpoint: 1365,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-
-      {
-        breakpoint: 1025,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-        },
-      },
-
-      {
-        breakpoint: 400,
-        settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const settings = sliderSettings(isMobileView);
 
   return (
     <section className="img_text_banner_box">
@@ -93,7 +38,7 @@ export default function CarouselSection({ title, content, datas }) {
             >
               <div className={styles.listing_grid_wrapper}>
                 <Slider
-                  {...sliderSettings}
+                  {...settings}
                   className="custom_slick_slider custom_slick_container"
                 >
                   {datas.map((el, index) => (
