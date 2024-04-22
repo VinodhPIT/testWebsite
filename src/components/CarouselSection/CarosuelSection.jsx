@@ -80,7 +80,7 @@ export default function CarouselSection({
               <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 position_relative">
                 <span className="heading_with_arrow position_relative">{title}</span>
               </h2> 
-              <p className="custom_fs_18 color_gray_550 m_mt_0 mb_0 m_text_left fw_300 txt_mob_fs14 m_lh_21">
+              <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
                 {content}
               </p>
             </div>

@@ -260,7 +260,7 @@ export default function Home({ data, locale }) {
                       <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="m_mt_10 m_mb_10 txt_mob_fs14 m_lh_21">
+                      <p className="m_mt_10 m_mb_10 custom_fs_m_14">
                         {t("common:homePage.bannerContent")}
                       </p>
                       <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">

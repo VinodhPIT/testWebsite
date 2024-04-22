@@ -79,21 +79,19 @@ export default function ListingPage({ data, error }) {
   };
   return (
     <>
-      <div className="text_box_wrap full-block-wrap block_bg_white  m_pt_35 pb_20 m_pb_0">
+      <div className="text_box_wrap full-block-wrap block_bg_white m_pt_0 pb_20 m_pb_0">
         <div className="img_text_box_inner">
-          <div className="justify_content_start  container w_100pc">
-     
-
-            <div className="text_box_content_inner m_pr_0 pt_35 pb_40 max_w_100pc m_pt_0 m_pb_20 m_mb_0 m_mt_25">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left position_relative">
+          <div className="justify_content_start container w_100pc">
+            <div className="text_box_content_inner m_pr_0 pt_35 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
+              <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 position_relative">
                 <span className="heading_with_arrow position_relative"> {t("common:homePage.Tattoo Journal")}</span>
               </h2>
-              <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_15 mb_0 m_text_left fw_300">
+              <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
               {t("common:homePage.journalContent")}
               </p>
             </div>
             <div
-              className={`${"mt_0 mb_80 m_mb_30 slider_nav_arrows"} ${
+              className={`${"mt_0 mb_80 m_mb_25 slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >
