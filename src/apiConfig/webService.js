@@ -1,17 +1,19 @@
-import { searchParam, fetchMulticategory ,stepperParam  } from "@/helpers/helper";
+import {
+  searchParam,
+  fetchMulticategory,
+  stepperParam,
+} from "@/helpers/helper";
 import API_URL from "./api.config";
 import { getApiCall, postApiCall } from "./api.service";
 
 export const fetchCategoryData = async (params) => {
-
-
   try {
     const responseCategory = await postApiCall(
       API_URL.SEARCH.SEARCH_BY_CATRGORY(params),
       searchParam(params)
     );
 
-    return responseCategory; 
+    return responseCategory;
   } catch (error) {
     return [];
   }
@@ -134,49 +136,43 @@ export const referralCode = async (slug) => {
   }
 };
 
-
-
-
-
 export const artistListing = async (params) => {
-  
   try {
-    const response = await postApiCall(API_URL.SEARCH.ARTIST_LISTING, stepperParam(params));
+    const response = await postApiCall(
+      API_URL.SEARCH.ARTIST_LISTING,
+      stepperParam(params)
+    );
     return response;
   } catch (error) {
     return [];
   }
 };
 
-
 export const artistContact = async (params) => {
-  
   try {
     const response = await getApiCall(API_URL.SEARCH.REQUEST_CONTACT(params));
     return response;
   } catch (error) {
-
-
     return [];
   }
 };
 
-
-
-
-
-
 export const customerRequest = async () => {
   try {
     const response = await getApiCall(API_URL.SEARCH.CUSTOMER_REQUEST);
-  
+
     return response;
   } catch (error) {
     return [];
   }
 };
 
+export const exploreStyle = async () => {
+  try {
+    const response = await getApiCall(API_URL.SEARCH.STYLE_LIST);
 
-
-
-
+    return response;
+  } catch (error) {
+    return [];
+  }
+};

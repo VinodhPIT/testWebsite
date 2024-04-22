@@ -8,16 +8,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function CarouselSection({
-  title,
-  content,
-  datas,
-  buttonName,
-  isButtonVisible,
-  keyword,
-  bottomButton,
-  altTag,
-}) {
+export default function CarouselSection({ title, content, data }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
@@ -83,7 +74,9 @@ export default function CarouselSection({
           <div className="justify_content_start container w_100pc">
             <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
               <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 position_relative">
-                <span className="heading_with_arrow position_relative">{title}</span>
+                <span className="heading_with_arrow position_relative">
+                  {title}
+                </span>
               </h2>
               <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
                 {content}
@@ -99,13 +92,15 @@ export default function CarouselSection({
                   {...sliderSettings}
                   className="custom_slick_slider custom_slick_container"
                 >
-                  {datas.map((imgPath, index) => (
-                    <div className={`${"listing_gridItem"} `} key={index}>
-                      <Link href={imgPath.url}>
-                        <div className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}>
+                  {data &&
+                    data.map((el, index) => (
+                      <div className={`${"listing_gridItem"} `} key={index}>
+                        <div
+                          className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
+                        >
                           <Image
-                            src={imgPath.image}
-                            alt={altTag}
+                            src={el.image}
+                            alt={el.style_name}
                             width={224}
                             height={256}
                             loading="lazy"
@@ -116,16 +111,15 @@ export default function CarouselSection({
                             style={{ borderRadius: "10px" }}
                           />
                           <div class="title_bg_trans">
-                            <span>Chinese Dragons</span>
+                            <span>{el.style_name}</span>
                           </div>
                         </div>
-                      </Link>
-                    </div>
-                  ))}
+                      </div>
+                    ))}
                 </Slider>
               </div>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
     </section>
