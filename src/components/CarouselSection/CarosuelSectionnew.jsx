@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-import styles from "./style.module.css";
-import useWindowResize from "@/hooks/useWindowSize";
 import Link from "next/link";
+
+import useWindowResize from "@/hooks/useWindowSize";
+import { blurDataURL } from "@/constants/constants";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import styles from "./style.module.css";
+
 
 export default function CarouselSection({
   title,

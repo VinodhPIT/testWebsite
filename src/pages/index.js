@@ -4,15 +4,9 @@ import Link from "next/link";
 import { useGlobalState } from "@/context/Context";
 import Head from "next/head";
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
-import KlarnaComponent from "@/components/klarnaComponent/KlarnaComponent";
-import FinelineComponent from "@/components/finelineComponent/FinelineComponent";
 import TattooSlider from "@/components/TattooSlider/TattooSlider";
-import TattooDictonary from "@/components/tattooDictonary/TattooDictonary";
-import HomeFullWidthcarosuel from "@/components/homeFullwidthcarousel/HomeFullwidthCarousel";
 import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
-import ExploreApps from "@/components/exploreApps/ExploreApps";
-import TattooArtistComponent from "@/components/tatooartistComponent/TattooArtistComponent";
 import CarouselSection from "@/components/CarouselSection/CarosuelSection";
 import CarouselSectionnew from "@/components/CarouselSection/CarosuelSectionnew";
 import jsonData from "@/data/journal.json";
@@ -25,7 +19,6 @@ import {
 import useTranslation from "next-translate/useTranslation";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
 import tattoo from "@/data/datas.json";
-
 
 export default function Home({ data, locale }) {
   const router = useRouter();
@@ -212,25 +205,25 @@ export default function Home({ data, locale }) {
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13918_20230106083756566-medium.jpg",
       url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/edbf815f-b1ce-456a-afc1-3f9a0b0b6cff`,
     },
- 
+
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/691_20220412032624728-medium.jpg",
       url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f63585f8-c917-4a17-b2f0-c8e7e50cd573`,
     },
- 
+
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9049_20221115155833283-medium.jpg",
       url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f5eeea9a-60f8-4aad-918a-49edba55e566`,
     },
- 
+
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14421_20230110024759369-medium.jpg",
       url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/17f6cf8d-d8c9-4048-b5e7-1bc13289bac6`,
     },
- 
+
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3595_20220925051912507-medium.jpg",
@@ -267,7 +260,7 @@ export default function Home({ data, locale }) {
                         <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_10 text_left d_inline_block download_mob_center">
                           <li className="download_app_title mb_10 m_mb_5 m_lh_19">
                             {t("common:homePage.Download the inckd")}
-                          </li>                          
+                          </li>
                           <li>
                             <Link href={APP_LINK_APPLE} target="_blank">
                               <Image
@@ -370,15 +363,8 @@ export default function Home({ data, locale }) {
         keyword={"Wolf"}
         altTag="Wolf Tattoo"
       />
-      
-      {/* <KlarnaComponent /> */}
-      {/* <TattooDictonary /> */}
-      {/* <TattooJournal data={listing} error={error} /> */}
+
       {SwitchJournal(router.locale)}
-
-      {/* <FinelineComponent /> */}
-
-      {/* <TattooArtistComponent /> */}
 
       <PaymentTypes
         title1={t("common:homePage.Verified tattoo artists")}
@@ -389,16 +375,6 @@ export default function Home({ data, locale }) {
         content3={t("common:homePage.Rest easy knowing")}
         leftSectionImage="/verified_tattoo_artists_01.png"
       />
-      {/* <HomeFullWidthcarosuel
-        title={t("common:homePage.FullWidthCarouselTitle")}
-        content={t("common:homePage.FullWidthCarouselContent")}
-        datas={tattoos}
-        buttonName={t("common:ExploreMoreTattoos")}
-        keyword={`/${router.locale}/explore/tattoos`}
-        sectionBg="block_bg_gray_150"
-        altTag={"Tattoos"}
-      /> */}
-      {/* <ExploreApps /> */}
     </>
   );
 }

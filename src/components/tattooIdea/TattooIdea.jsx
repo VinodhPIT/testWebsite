@@ -34,7 +34,7 @@ export default function TattooIdea() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
-                  className=""
+                 
                 />
                 <div class="chat_block bubble_top_mid floating_animation">                  
                   <Image

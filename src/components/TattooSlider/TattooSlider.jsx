@@ -6,7 +6,9 @@ import useWindowResize from "@/hooks/useWindowSize";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+
+
+
 export default function FourColumnCarousel({ title, content, trendingArtist }) {
   const { isMobileView } = useWindowResize();
   let sliderSettings = {};
@@ -161,3 +163,4 @@ export default function FourColumnCarousel({ title, content, trendingArtist }) {
     </section>
   );
 }
+
