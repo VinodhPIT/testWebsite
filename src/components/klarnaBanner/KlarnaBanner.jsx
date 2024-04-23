@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import useTranslation from "next-translate/useTranslation";
 
+
 export default function KlarnaBanner() {
   const router = useRouter();
   const { t } = useTranslation();
