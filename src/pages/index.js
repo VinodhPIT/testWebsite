@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import { useGlobalState } from "@/context/Context";
 import useStyleListing from "@/store/styleListing/styleListing";
-
+import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
@@ -28,7 +28,9 @@ import {
 
 
 import jsonData from "@/data/journal.json";
-import tattoo from "@/data/datas.json";
+
+
+
 
 
 export default function Home({ data, locale }) {
@@ -37,6 +39,10 @@ export default function Home({ data, locale }) {
   
   const { t } = useTranslation();
   const { fetchStyle, styleList } = useStyleListing();
+
+  const {fetchAll ,allListing} = useDisplayAll();
+
+
 
   const {
     styleCollection,
@@ -74,6 +80,7 @@ export default function Home({ data, locale }) {
 
   useEffect(() => {
     fetchStyle(router.locale.split('-')[1]);
+    fetchAll(router.locale.split('-')[1])
  }, [router.locale]);
 
 
@@ -189,18 +196,22 @@ export default function Home({ data, locale }) {
         </div>
       </section>
       <TattooIdea></TattooIdea>
+       
       <TattooSlider
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
-        button={t("common:ExploreMoreArtist")}
-        trendingArtist={tattoo.artists}
-      />
+      />  
+
+
+
       <KlarnaBanner />
-      <ExploreTattoos
+
+      
+    <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
-        datas={tattoo.tattoo_images}
-      />
+        datas={allListing.tattoo_images}
+      />  
 
       <ExploreStyle
         title={t("common:homePage.exploreStyle")}

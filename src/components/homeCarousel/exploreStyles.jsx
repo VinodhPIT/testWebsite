@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+
 
 import useWindowResize from "@/hooks/useWindowSize";
+
 import { blurDataURL } from "@/constants/constants";
-
-
 import sliderSettings from "@/constants/homeSliderSettings";
+
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

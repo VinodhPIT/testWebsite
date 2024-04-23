@@ -53,13 +53,26 @@ export async function analyticsGetApiCall(endpoint, token) {
 
 
 export async function styleListGetApiCall(endpoint, lng) {
-  console.log('lng',lng)
   try {
     const response = await fetch(`${process.env.pitsDomain}${endpoint}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         "Accept-Language": lng, 
+      },
+    });
+    return handleResponse(response);
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function styleLisAll(endpoint) {
+  try {
+    const response = await fetch(`${process.env.pitsDomain}${endpoint}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
     });
     return handleResponse(response);

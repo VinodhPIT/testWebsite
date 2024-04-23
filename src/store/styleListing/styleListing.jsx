@@ -9,6 +9,7 @@ const useStyleListing = create((set) => ({
     try {
       set({ loading: true });
       const response = await exploreStyle(lng);
+    
       set({ styleList: response.data, loading: false });
     } catch (error) {
       set({ loading: false });
