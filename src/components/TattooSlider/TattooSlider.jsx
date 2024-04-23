@@ -8,11 +8,10 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
 
-import styles from "./processdragontattoo.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import styles from "./processdragontattoo.module.css";
 
 export default function FourColumnCarousel({ title, content }) {
   const { isMobileView } = useWindowResize();
@@ -43,7 +42,7 @@ export default function FourColumnCarousel({ title, content }) {
               <div >
                 <Slider
                   {...settings}
-                  className="custom_content_slick_slider custom_d_block"
+                  className="custom_content_slick_slider"
                
                 >
                   {allListing.artists && allListing.artists.map((el, index) => (

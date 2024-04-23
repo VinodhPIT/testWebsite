@@ -4617,8 +4617,9 @@ li {
 }
 .custom_content_slick_slider {
   height: 100%;
-  display: flex !important;
+  display: flex ;
   flex-direction: row;
+
 }
 .custom_content_slick_slider .slick-track {
   margin-left: 0 !important;
@@ -4631,6 +4632,7 @@ li {
   display: flex !important;
   flex-flow: column;
   padding-bottom: 10px;
+  height: auto;
 }
 .custom_content_slick_slider .slick-track .slick-slide > div {
   height: 100%;
@@ -5241,10 +5243,6 @@ button.language_switcher img {
   animation: alltuchtopdown 1.5s ease-in-out 0s infinite alternate;
   -webkit-animation-duration: 2.5s;
   animation-duration: 2.5s;
-}
-
-.custom_d_block{
-display: block!important;
 }
 
 /* responsive */
