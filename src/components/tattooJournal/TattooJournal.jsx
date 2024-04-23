@@ -153,7 +153,7 @@ export default function ListingPage({ data, error }) {
                             href={el.url}
                             className={styles.link_with_arrow}
                           >
-                            Read more
+                           {t("common:Read more")}
                             <Image
                               src="/arrowBlack.svg"
                               width={16}

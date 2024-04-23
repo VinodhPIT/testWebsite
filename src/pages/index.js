@@ -8,13 +8,16 @@ import useTranslation from "next-translate/useTranslation";
 
 
 import { useGlobalState } from "@/context/Context";
+import useStyleListing from "@/store/styleListing/styleListing";
+
+
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
+import TattooIdea from "@/components/tattooIdea/TattooIdea";
 import TattooSlider from "@/components/TattooSlider/TattooSlider";
 import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
-import ExploreStyles from "@/components/homeCarousel/exploreStyles";
-import TattooIdea from "@/components/tattooIdea/TattooIdea";
+import ExploreStyle from "@/components/homeCarousel/exploreStyles";
 
 
 import {
@@ -24,18 +27,14 @@ import {
 } from "@/constants/constants";
 
 
-
 import jsonData from "@/data/journal.json";
 import tattoo from "@/data/datas.json";
-
-
 
 
 export default function Home({ data, locale }) {
   const router = useRouter();
   const { t } = useTranslation();
-  
-  
+  const { fetchStyle, styleList } = useStyleListing();
 
   const {
     styleCollection,
@@ -58,6 +57,7 @@ export default function Home({ data, locale }) {
   }
 
   useEffect(() => {
+    fetchStyle();
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -68,53 +68,6 @@ export default function Home({ data, locale }) {
 
     styleCollection();
   }, []);
-
-  const wolfTattoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15791_20230123114449181-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d5341b19-53fa-452a-a48d-5939e8447567`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8921_20221113205418987-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b688a83f-7af7-42ab-8c6d-edd2fcdf6412`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11485_20221211114627901-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/36ee28fd-6985-468a-afcb-b78b8f807959`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13918_20230106083756566-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/edbf815f-b1ce-456a-afc1-3f9a0b0b6cff`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/691_20220412032624728-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f63585f8-c917-4a17-b2f0-c8e7e50cd573`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9049_20221115155833283-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f5eeea9a-60f8-4aad-918a-49edba55e566`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14421_20230110024759369-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/17f6cf8d-d8c9-4048-b5e7-1bc13289bac6`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3595_20220925051912507-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b602e50a-03a6-40d0-a231-b324e35f2517`,
-    },
-  ];
 
   return (
     <>
@@ -138,7 +91,7 @@ export default function Home({ data, locale }) {
                       <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="m_mt_10 m_mb_10 custom_fs_m_14">
+                      <p className="m_mt_10 m_mb_10 txt_mob_fs14 m_lh_21">
                         {t("common:homePage.bannerContent")}
                       </p>
                       <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">
@@ -234,20 +187,16 @@ export default function Home({ data, locale }) {
         trendingArtist={tattoo.artists}
       />
       <KlarnaBanner />
-
       <ExploreTattoos
-        title="Explore tattoos"
-        content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
+        title={t("common:menus.tattooSearch")}
+        content={t("common:homePage.worldOfInk")}
         datas={tattoo.tattoo_images}
       />
 
-      <ExploreStyles
-        title="Explore tattoo styles"
-        content="Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting"
-        buttonName="Explore more tattoos"
-        datas={wolfTattoo}
-        keyword={"Wolf"}
-        altTag="Wolf Tattoo"
+      <ExploreStyle
+        title={t("common:homePage.exploreStyle")}
+        content={t("common:homePage.worldOfInk")}
+        data={styleList}
       />
 
       {SwitchJournal(router.locale)}

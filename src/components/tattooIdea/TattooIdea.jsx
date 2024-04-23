@@ -30,7 +30,7 @@ export default function TattooIdea() {
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_40 m_pb_0 hidden m_d_block">
                 <div className="text_box_content_inner m_pr_0 pr_0">
-                  <h2 className="custom_fs_m_28 desk_hidden">Share your tattoo idea</h2>
+                  <h2 className="custom_fs_m_28 desk_hidden">{t("common:homePage.Share your tattoo idea")}</h2>
                 </div>
               </div>
               <div className="img_box_wrap m_mb_25 m_mt_10">
