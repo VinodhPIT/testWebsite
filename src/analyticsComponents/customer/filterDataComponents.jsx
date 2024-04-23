@@ -33,7 +33,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
       alignItems: 'center',
       justifyContent: 'center',
       boxShadow: 'none',
-      marginRight: 16,
+      marginLeft: 16,
     }),
     option: (provided) => ({
       ...provided,
@@ -125,19 +125,6 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           </div>
           <div className="db_list_drop_down">
             <div className="db_filter_data_comp">
-              <Select
-                id="yearSelect"
-                options={options}
-                value={selectedOption}
-                onChange={handleChange}
-                placeholder="Yearly"
-                isSearchable={false}
-                styles={customStyles}
-              />
-            </div>
-          </div>
-          <div className="db_list_drop_down">
-            <div className="db_filter_data_comp">
               <Calendar
                 maximumDate={utils("en").getToday()}
                 value={selectedDayRange}
@@ -152,6 +139,20 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
                 }}
                 shouldHighlightWeekends
                 calendarPopperPosition="bottom-end"
+                inputPlaceholder="Monthly"
+              />
+            </div>
+          </div>
+          <div className="db_list_drop_down">
+            <div className="db_filter_data_comp">
+              <Select
+                id="yearSelect"
+                options={options}
+                value={selectedOption}
+                onChange={handleChange}
+                placeholder="Yearly"
+                isSearchable={false}
+                styles={customStyles}
               />
             </div>
           </div>
