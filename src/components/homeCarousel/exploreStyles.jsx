@@ -52,7 +52,7 @@ export default function ExploreStyles({ title, content, data }) {
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
                           <Image
-                            src={el.image}
+                            src={el.image ?? '/placeHolder.png'}
                             alt={el.style_name}
                             width={224}
                             height={256}

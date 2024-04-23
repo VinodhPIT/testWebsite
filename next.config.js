@@ -8,6 +8,8 @@ const nextConfig = {
     apiDomain: process.env.VERCEL ?"https://apiadmin.inckd.com" :"https://admin.inckd.com",
     googlePlacesApiKey: "AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
     LIVE_URL: "https://www.inckd.com",
+    pitsDomain:'http://14.140.178.211:8000'
+
   },
 
   i18n: {

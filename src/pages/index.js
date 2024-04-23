@@ -32,7 +32,9 @@ import tattoo from "@/data/datas.json";
 
 
 export default function Home({ data, locale }) {
+
   const router = useRouter();
+  
   const { t } = useTranslation();
   const { fetchStyle, styleList } = useStyleListing();
 
@@ -57,7 +59,7 @@ export default function Home({ data, locale }) {
   }
 
   useEffect(() => {
-    fetchStyle();
+    
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -68,6 +70,13 @@ export default function Home({ data, locale }) {
 
     styleCollection();
   }, []);
+
+
+  useEffect(() => {
+    fetchStyle(router.locale.split('-')[1]);
+ }, [router.locale]);
+
+
 
   return (
     <>

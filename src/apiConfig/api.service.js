@@ -42,6 +42,24 @@ export async function analyticsGetApiCall(endpoint, token) {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
+
+      },
+    });
+    return handleResponse(response);
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+export async function styleListGetApiCall(endpoint, lng) {
+  console.log('lng',lng)
+  try {
+    const response = await fetch(`${process.env.pitsDomain}${endpoint}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept-Language": lng, 
       },
     });
     return handleResponse(response);
