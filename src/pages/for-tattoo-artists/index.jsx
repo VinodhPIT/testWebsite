@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import useTranslation from "next-translate/useTranslation";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-import useTranslation from "next-translate/useTranslation";
-import { useNavigation } from "@/hooks/useRouter";
+
+
 
 export default function Tattooartists({}) {
   const { router } = useNavigation();
