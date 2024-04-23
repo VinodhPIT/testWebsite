@@ -53,9 +53,8 @@ export async function analyticsGetApiCall(endpoint, token) {
 
 
 export async function styleListGetApiCall(endpoint, lng) {
-  console.log('lng',lng)
   try {
-    const response = await fetch(`${process.env.pitsDomain}${endpoint}`, {
+    const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
