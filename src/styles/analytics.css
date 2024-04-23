@@ -654,6 +654,21 @@ header.db_header_wrap {
 .db_filter_data_comp button.btn_selection:hover {
   border-color: hsl(0, 0%, 70%);
 }
+.db_filter_data_comp .DatePicker {
+  position: relative;
+}
+.db_filter_data_comp .DatePicker:after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 21px;
+  height: 20px;
+  background-image: url(/arrow-down-dark.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.5;
+}
 .db_filter_data_comp input.DatePicker__input {
   display: inline-flex;
   align-items: flex-start;
@@ -666,18 +681,12 @@ header.db_header_wrap {
   position: relative;
   cursor: pointer;
   margin-right: 0;
-  padding: 5px 23px 5px 13px;
+  padding: 5px 35px 5px 13px;
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
   height: 38px;
   min-width: 85px;
-  max-width: 100px;
-  background-image: url(/accordion-arrow.svg);
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 26% 50%;
-
 }
 .db_filter_data_comp input.DatePicker__input::placeholder {
   color: #000;
