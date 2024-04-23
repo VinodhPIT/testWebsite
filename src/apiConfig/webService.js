@@ -183,7 +183,7 @@ export const exploreAll = async (lng) => {
 
 
   try {
-    const response = await styleLisAll(API_URL.SEARCH.TATTOO_LIST(lng));
+    const response = await getApiCall(API_URL.SEARCH.TATTOO_LIST(lng));
 
     return response;
   } catch (error) {
