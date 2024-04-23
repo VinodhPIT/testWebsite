@@ -5,13 +5,6 @@ import { useToggle } from "@/hooks/useToggle";
 import RegionDropdown from "@/components/regionSelection/regionDropdown";
 import { currentYear, options, months } from "@/helpers/helper";
 import Calendar, { utils } from "@hassanmojab/react-modern-calendar-datepicker";
-import Image from "next/image";
-import {
-
-  analyticsCustomerCountWithFIlter,
-  analyticsCustomerLeadSourceCountWithFIlter,
-} from "@/apiConfig/customerAnalyticsService"; // Importing analytics services
-import useAnalyticsStore from "@/store/customerAnalytics/calenderFilter";
 
 export default function FilterDataComponents({ filterDashBoardData, onUpdateDateFilter }) {
   const [toggle, onToggle] = useToggle(false);
@@ -61,22 +54,13 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     color: '#333'
   };
 
-  const renderCustomInput = ({ onClick }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      class="btn_selection btn_style"
-    >
-      Monthly
-    </button>
-  );
-
   const onFilterDashbardData = (data) => {
     setSelectedFilter({
       ...selectedFilter,
       region: data
     });
     filterDashBoardData(selectedFilter);
+    onToggle();
   };
 
   const handleChange = (selectedOption) => {
@@ -89,10 +73,9 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
   const resetYear = () => {
     setSelectedYear('Yearly');
   };
-  console.log('<><> sele', selectedFilter)
+
   const resetCalender = () => {
     setSelectedDayRange({
-      ...selectedDayRange,
       from: null,
       to: null,
     });
@@ -104,87 +87,76 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     filterDashBoardData(selectedFilter);
   };
 
-  // Filter the data based on the selected date range
-  //  const filteredData = data.filter((item) => {
-  //   const itemDate = item.date;
-  //   if (!selectedDayRange.from || !selectedDayRange.to) {
-  //     return true; // Return all items if no date range is selected
-  //   }
-  //   return (
-  //     itemDate >= utils.startOfDay(selectedDayRange.from) &&
-  //     itemDate <= utils.endOfDay(selectedDayRange.to)
-  //   );
-  // });
-
   return (
     <>
-    <section class="container-fluid">
-      <div className="db_selection_wrapper">
-        <div className="db_list_drop_down">
-          <div className="db_filter_data_comp">
-            <button
-              type="button"
-              onClick={onToggle}
-              class="btn_selection btn_style"
-              style={buttonTextStyle}
-            >
-              Regions
-            </button>
+      <section class="container-fluid">
+        <div className="db_selection_wrapper">
+          <div className="db_list_drop_down">
+            <div className="db_filter_data_comp">
+              <button
+                type="button"
+                onClick={onToggle}
+                class="btn_selection btn_style"
+                style={buttonTextStyle}
+              >
+                Regions
+              </button>
+              {
+                toggle && (
+                  <OutsideClickHandler
+                    onOutsideClick={onToggle}
+                  >
+                    <RegionDropdown onToggle={onToggle} onFilterData={onFilterDashbardData} />
+                  </OutsideClickHandler>
+                )
+              }
+            </div>
           </div>
-        </div>
-        <div className="db_list_drop_down">
-          <div className="db_filter_data_comp">
-            <button
-              type="button"
-              onClick={onClickToday}
-              class="btn_selection btn_style"
-            >
-              Today
-            </button>
+          <div className="db_list_drop_down">
+            <div className="db_filter_data_comp">
+              <button
+                type="button"
+                onClick={onClickToday}
+                class="btn_selection btn_style"
+              >
+                Today
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="db_list_drop_down">
-          <div className="db_filter_data_comp">
-            <Select
-              id="yearSelect"
-              options={options}
-              value={selectedOption}
-              onChange={handleChange}
-              placeholder="Yearly"
-              isSearchable={false}
-              styles={customStyles}
-            />
+          <div className="db_list_drop_down">
+            <div className="db_filter_data_comp">
+              <Select
+                id="yearSelect"
+                options={options}
+                value={selectedOption}
+                onChange={handleChange}
+                placeholder="Yearly"
+                isSearchable={false}
+                styles={customStyles}
+              />
+            </div>
           </div>
-        </div>
-        <div className="db_list_drop_down">
-          <div className="db_filter_data_comp">
-            <Calendar
-              maximumDate={utils("en").getToday()}
-              value={selectedDayRange}
-              onChange={(range) => {
-                setSelectedDayRange(range);
-                setSelectedFilter({
-                  ...selectedFilter,
-                  start_date: selectedDayRange.from,
-                  end_date: selectedDayRange.to
-                })
-              }}
-              shouldHighlightWeekends
-              calendarPopperPosition="bottom-end"
-            />
+          <div className="db_list_drop_down">
+            <div className="db_filter_data_comp">
+              <Calendar
+                maximumDate={utils("en").getToday()}
+                value={selectedDayRange}
+                onChange={(range) => {
+                  setSelectedDayRange(range);
+                  setSelectedFilter({
+                    ...selectedFilter,
+                    start_date: selectedDayRange.from,
+                    end_date: selectedDayRange.to
+                  });
+                  filterDashBoardData(selectedFilter)
+                }}
+                shouldHighlightWeekends
+                calendarPopperPosition="bottom-end"
+              />
+            </div>
           </div>
-        </div>
-      </div >
-    </section>
-      {
-        toggle && (
-          <OutsideClickHandler
-            onOutsideClick={onToggle}
-          >
-            <RegionDropdown onToggle={onToggle} onFilterData={onFilterDashbardData} />
-          </OutsideClickHandler>
-        )
-      }
+        </div >
+      </section>
     </>
   )
 }
