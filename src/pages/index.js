@@ -141,9 +141,7 @@ export default function Home({}) {
                             <Link href="#" target="_blank">
                               <Image
                                 priority
-                                src={
-                                  qrCodeSrc
-                                }
+                                src={qrCodeSrc}
                                 alt="QR"
                                 width={121}
                                 height={121}
