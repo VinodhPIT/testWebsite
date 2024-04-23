@@ -270,6 +270,118 @@ function KlarnaNew({}) {
         </div>
       </section>
 
+      <section className="img_text_banner_box klarna_pay_opt_block">
+        <div className="text_box_wrap full-block-wrap">
+          <div className="img_text_box_wrapper">
+            <div className={"text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_20 m_pb_40"}>
+              <div className="container">
+                <div className="text_box_content_inner max_w_100pc">
+                  <h3 className="color_gray_550 text_center mb_0 custom_fs_40 fw_400 pb_35 m_pb_30">
+                    Available payment options:
+                  </h3>
+                </div>
+                <div className="klarna_pay_opt_grid">
+                  <div className="klarna_pay_opt_items">
+                    <span className="klarna_pay_opt_badge">
+                      <Image
+                      src="/klarna-marketing-badge.svg"
+                      alt="klarna"
+                      width={70}
+                      height={29}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      />
+                      <span className="klarna_pay_opt_label">Pay in 30 days</span>
+                    </span>
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">Get an extra 30 days to pay.</h4>
+                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">Take your time deciding on your perfect tattoo. We offer an extra 30 days to complete your payment, totally interest-free.</p>
+                  </div>
+
+                  <div className="klarna_pay_opt_items">
+                    <span className="klarna_pay_opt_badge">
+                      <Image
+                      src="/klarna-marketing-badge.svg"
+                      alt="klarna"
+                      width={70}
+                      height={29}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      />
+                      <span className="klarna_pay_opt_label">Instalments</span>
+                    </span>
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">Enjoy 3 interest-free instalments.</h4>
+                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">Experience a modern way to commit to your next tattoo with the option to pay in 3 equal, interest-free instalments.</p>
+                  </div>
+
+                  <div className="klarna_pay_opt_items">
+                    <span className="klarna_pay_opt_badge">
+                      <Image
+                      src="/klarna-marketing-badge.svg"
+                      alt="klarna"
+                      width={70}
+                      height={29}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      />
+                      <span className="klarna_pay_opt_label">Instalments</span>
+                    </span>
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">Enjoy 4 interest-free instalments.</h4>
+                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">Experience a modern way to commit to your next tattoo with the option to pay in 3 equal, interest-free instalments.</p>
+                  </div>
+
+                  <div className="klarna_pay_opt_items">
+                    <span className="klarna_pay_opt_badge">
+                      <Image
+                      src="/klarna-marketing-badge.svg"
+                      alt="klarna"
+                      width={70}
+                      height={29}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      />
+                      <span className="klarna_pay_opt_label">Financing</span>
+                    </span>
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">Up to 36 months to pay for your tattoo.</h4>
+                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">Experience a modern way to commit to your next tattoo with the option to pay in 3 equal, interest-free instalments.</p>
+                  </div>
+                </div>
+                <div className="klarna_pay_terms">
+                  <p>Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status. <Link href="#" target="_blank">Ts&Cs</Link> and late fees apply.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="img_text_banner_box block_bg_aero_blue">
+        <div className={`${"col_full"}`}>
+          <div className="img_text_box_wrapper">
+            <div className={"text_box_wrap right pt_65 pb_65 m_pt_pb_50"}>
+              <div className="img_text_box_inner container">
+                <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
+                  <div className="text_box_content_inner max_w_100pc text_center">
+                    <h2 className="color_gray_550 mb_30">Need help to find the right tattoo artist?</h2>
+                    <Link
+                      href={`/${router.locale}/klarna`}
+                      className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
+                    >
+                      Create a tattoo request
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
       <section className="img_text_banner_box partner_tattoo_block">
         <div className="text_box_wrap full-block-wrap">
           <div className="img_text_box_wrapper">
@@ -314,28 +426,7 @@ function KlarnaNew({}) {
 
 
 
-      <section
-        className="img_text_banner_box block_bg_aero_blue">
-        <div className={`${"col_full"}`}>
-          <div className="img_text_box_wrapper">
-            <div className={"text_box_wrap right pt_65 pb_65 m_pt_pb_50"}>
-              <div className="img_text_box_inner container">
-                <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
-                  <div className="text_box_content_inner max_w_100pc text_center">
-                    <h2 className="color_gray_550 mb_30">Need help to find the right tattoo artist?</h2>
-                    <Link
-                      href={`/${router.locale}/klarna`}
-                      className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
-                    >
-                      Create a tattoo request
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
 
 
