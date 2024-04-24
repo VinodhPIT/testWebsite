@@ -11,6 +11,7 @@
   "dependencies": {
     "@hassanmojab/react-modern-calendar-datepicker": "^3.1.7",
     "@next/font": "^14.1.0",
+    "@types/ua-parser-js": "^0.7.39",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.1",
     "chart.js": "^3.9.1",
@@ -53,6 +54,7 @@
     "regenerator-runtime": "^0.14.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^8.4.5",
+    "ua-parser-js": "^1.0.37",
     "uuidv4": "^6.2.13",
     "yup": "^1.2.0",
     "zustand": "^4.5.0"

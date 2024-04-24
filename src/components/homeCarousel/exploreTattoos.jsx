@@ -41,7 +41,7 @@ export default function ExploreTattoos({ title, content, datas }) {
                   {...settings}
                   className="custom_slick_slider custom_slick_container"
                 >
-                  {datas.map((el, index) => (
+                  {datas&&datas.map((el, index) => (
                     <div className={`${"listing_gridItem"} `} key={index}>
                       <div
                         className={`${"listing_grid_img_col sqr_resp_224 m_w_cal_100_10"}`}
