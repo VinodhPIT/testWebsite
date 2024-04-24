@@ -49,3 +49,19 @@ export async function analyticsGetApiCall(endpoint, token) {
     throw error;
   }
 }
+
+export async function analyticsPostApiCall(endpoint, requestData,token) {
+  try {
+    const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify(requestData),
+    });
+    return handleResponse(response);
+  } catch (error) {
+    throw error;
+  }
+}

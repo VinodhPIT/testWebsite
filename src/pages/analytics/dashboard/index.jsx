@@ -169,23 +169,26 @@ export default function Dashboard({ data: initialData }) {
     });
   }, []);
 
-  useEffect(() => {
-    getCustomerRequestAnalyticsData({
-      start_date: filterData?.start_date,
-      end_date: filterData?.end_date,
-      region: filterData?.region,
-      year: filterData?.year
-    }, initialData.sessionToken).then(response => {
-      setFilteredData(response.customer_request_data)
-    });
-  }, [filterData]);
+  // useEffect(() => {
+  //   getCustomerRequestAnalyticsData({
+  //     data: {
+  //       start_date: filterData?.start_date,
+  //       end_date: filterData?.end_date,
+  //       region: filterData?.region,
+  //       year: filterData?.year
+  //     }
+  //   }).then(response => {
+  //     setFilteredData(response.customer_request_data)
+  //   });
+  // }, [filterData]);
 
   useEffect(() => {
-    getCustomerRequestAnalyticsData({}, initialData.sessionToken).then(response => {
+    getCustomerRequestAnalyticsData(initialData.sessionToken).then(response => {
+      console.log('<><> response',response)
       setFilteredData(response.customer_request_data)
     });
   }, []);
-  
+
   const filterDashBoardData = (data) => {
     setFilerData(data);
   };
