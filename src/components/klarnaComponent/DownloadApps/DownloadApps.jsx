@@ -15,12 +15,12 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
           <div className="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
             <div class="text_box_content justify_content_start align_item_start p_0">
               <div class="text_box_content_inner w_100pc m_pr_0 pb_40">
-                <ul class="download_app ml_0 w_100pc max_w_100pc">
-                  <li class="download_app_title">
-                    <h6 className="fw_600 custom_fs_34">   
+                <ul class="download_app ml_0 w_100pc max_w_100pc m_text_left">
+                  <li class="download_app_title m_mb_15">
+                    <h6 className="fw_600 custom_fs_34 custom_fs_m_24">   
                       <span className="m_dis_inline">{title}
                       </span>
-                      <span className="textBlock m_dis_inline">{subTitle}
+                      <span className="textBlock">{subTitle}
                       </span>
                     </h6>
                   </li>
@@ -44,9 +44,9 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                 <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
                   <li className="pl_0">
                     <Image
-                      src="/exploreKlarna1.png"
+                      src="/exploreKlarna-web-01.png"
                       width={193}
-                      height={369}
+                      height={187}
                       alt="Download the App & Explore more!"
                       priority
                       placeholder="blur"
@@ -56,9 +56,9 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                   </li>
                   <li className="pl_0">
                     <Image
-                      src="/exploreKlarna2.png"
+                      src="/exploreKlarna-web-01.png"
                       width={193}
-                      height={369}
+                      height={187}
                       alt="Download the App & Explore more!"
                       priority
                       placeholder="blur"
@@ -66,18 +66,18 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                       className="m_max_218"
                     />
                   </li>
-                  {/* <li className="pl_0">
+                  <li className="pl_0">
                     <Image
-                      src="/image_2895.png"
+                      src="/exploreKlarna-web-01.png"
                       width={193}
-                      height={322}
+                      height={187}
                       alt="Download the App & Explore more!"
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
                       className="m_max_218"
                     />
-                  </li> */}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -88,11 +88,11 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
       </div>
       {isMobileView ? (
         <ImageSlider
-          imagePaths={["/exploreKlarna1.png", "/exploreKlarna2.png"]}
+          imagePaths={["/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png"]}
           imgAlt="Download the App & Explore more!"
           imgblurDataURL={blurDataURL}
           imgWidth={193}
-          imgHeight={369}
+          imgHeight={338}
         ></ImageSlider>
         ) : (
           ""
