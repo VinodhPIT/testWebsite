@@ -66,3 +66,4 @@ export async function styleListGetApiCall(endpoint, lng) {
     throw error;
   }
 }
+

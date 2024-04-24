@@ -1,15 +1,14 @@
-import React, {useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
-
-
+import { getOs } from "../lib/os-detector";
 import { useGlobalState } from "@/context/Context";
 import useStyleListing from "@/store/styleListing/styleListing";
-
+import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
@@ -19,34 +18,32 @@ import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
 
-
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-
-
 import jsonData from "@/data/journal.json";
-import tattoo from "@/data/datas.json";
 
-
-export default function Home({ data, locale }) {
-
+export default function Home({}) {
+  const [qrCodeSrc, setQrCodeSrc] = useState('/PlayStore_QR.png');
+  const osName = getOs();
   const router = useRouter();
   
-  const { t } = useTranslation();
+  const { fetchAll, allListing } = useDisplayAll();
   const { fetchStyle, styleList } = useStyleListing();
-
+  
   const {
-    styleCollection,
-    getLocale,
     getAddress,
-    setSelectedIds,
     clearStyleId,
     setSearchState,
+    setSelectedIds,
+    styleCollection,
   } = useGlobalState();
+  
+  const { t } = useTranslation();
 
+   
   function SwitchJournal(locale) {
     switch (locale) {
       case "uk-en":
@@ -58,8 +55,14 @@ export default function Home({ data, locale }) {
     }
   }
 
+
   useEffect(() => {
-    
+    const correctQRCode = osName === 'Mac OS' ? '/AppStore_QR.png' : '/PlayStore_QR.png';
+    setQrCodeSrc(correctQRCode);
+  }, [osName]);
+
+
+  useEffect(() => {
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -71,12 +74,10 @@ export default function Home({ data, locale }) {
     styleCollection();
   }, []);
 
-
   useEffect(() => {
-    fetchStyle(router.locale.split('-')[1]);
- }, [router.locale]);
-
-
+    fetchStyle(router.locale.split("-")[0]);
+    fetchAll(router.locale.split("-")[0]);
+  }, [router.locale]);
 
   return (
     <>
@@ -140,8 +141,8 @@ export default function Home({ data, locale }) {
                             <Link href="#" target="_blank">
                               <Image
                                 priority
-                                src="/qr-code-inckd.png"
-                                alt="qr code"
+                                src={qrCodeSrc}
+                                alt="QR"
                                 width={121}
                                 height={121}
                                 placeholder="blur"
@@ -189,17 +190,18 @@ export default function Home({ data, locale }) {
         </div>
       </section>
       <TattooIdea></TattooIdea>
+
       <TattooSlider
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
-        button={t("common:ExploreMoreArtist")}
-        trendingArtist={tattoo.artists}
       />
+
       <KlarnaBanner />
+
       <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
-        datas={tattoo.tattoo_images}
+        datas={allListing.tattoo_images}
       />
 
       <ExploreStyle
@@ -221,12 +223,4 @@ export default function Home({ data, locale }) {
       />
     </>
   );
-}
-
-export async function getServerSideProps(context) {
-  return {
-    props: {
-      locale: context.locale,
-    },
-  };
 }

@@ -15,7 +15,9 @@ const API_URL = {
     REQUEST_CONTACT : (params) =>`/web/api/customer-request/user-exists?customer_email=${params.email}&customer_phone_no=${params.phone}`,
      REQUEST_SAVE :`/web/api/customer-request/save`,
      CUSTOMER_REQUEST:`/web/api/customer-request/detail?artist_uid=${1}`,
-     STYLE_LIST:"/web/api/style/detail"
+     STYLE_LIST:"/web/api/style/detail",
+     TATTOO_LIST:(lng)=>`/web/api/explore/tattoo/details?country_code=${lng}`
+
 
     
   },

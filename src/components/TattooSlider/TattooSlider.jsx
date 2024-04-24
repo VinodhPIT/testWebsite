@@ -1,81 +1,25 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-
 import useWindowResize from "@/hooks/useWindowSize";
+import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 
+import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
-
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./processdragontattoo.module.css";
 
-
-
-
-export default function FourColumnCarousel({ title, content, trendingArtist }) {
+export default function FourColumnCarousel({ title, content }) {
   const { isMobileView } = useWindowResize();
-  let sliderSettings = {};
+  const settings = sliderSettings(isMobileView);
 
-  sliderSettings = {
-    infinite: false,
-    arrows: isMobileView ? false : true,
-    speed: 300,
-    slidesToShow: isMobileView ? 1.5 : 5,
-    slidesToScroll: isMobileView ? 1 : 5,
-    dots: false,
+  const {allListing} = useDisplayAll();
 
-    responsive: [
-      {
-        breakpoint: 1365,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
 
-      {
-        breakpoint: 1025,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-        },
-      },
-
-      {
-        breakpoint: 400,
-        settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
   return (
     <section className="img_text_banner_box">
@@ -87,7 +31,7 @@ export default function FourColumnCarousel({ title, content, trendingArtist }) {
                 <span className="heading_with_arrow position_relative">{title}</span>
               </h2>
               <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
-                {content}
+                {content} 
               </p>
             </div>
             <div
@@ -95,26 +39,26 @@ export default function FourColumnCarousel({ title, content, trendingArtist }) {
                 styles.listing_pageContainer
               }`}
             >
-              <div className={styles.listing_grid_wrapper}>
+              <div >
                 <Slider
-                  {...sliderSettings}
+                  {...settings}
                   className="custom_content_slick_slider"
+               
                 >
-                  {trendingArtist.map((el, index) => (
+                  {allListing.artists && allListing.artists.map((el, index) => (
                     <div
                       className={`${"listing_gridItem pl_0 pr_10"} ${
                         styles.listing_gridItem
                       }`}
                       key={index}
                     >
-                 
                         <div
-                          className={`${"listing_grid_four_col"} ${
+                          className={`${"listing_grid_four_col max_h_230"} ${
                             styles.listing_grid_img_col
                           }`}
                         >
                           <Image
-                            src={el.latest_tattoo}
+                            src={el.latest_tattoo === '' || el.latest_tattoo === null || el.latest_tattoo === undefined ? '/placeHolder.png' : el.latest_tattoo}
                             alt={el.artist_name}
                             width={752}
                             height={776}

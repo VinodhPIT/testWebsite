@@ -1,10 +1,10 @@
 import {
   searchParam,
   fetchMulticategory,
-  stepperParam,
+  stepperParam, 
 } from "@/helpers/helper";
 import API_URL from "./api.config";
-import { getApiCall, postApiCall ,styleListGetApiCall } from "./api.service";
+import { getApiCall, postApiCall ,styleListGetApiCall ,styleLisAll } from "./api.service";
 
 export const fetchCategoryData = async (params) => {
   try {
@@ -171,6 +171,19 @@ export const exploreStyle = async (lng) => {
 
   try {
     const response = await styleListGetApiCall(API_URL.SEARCH.STYLE_LIST ,lng);
+
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+
+export const exploreAll = async (lng) => {
+
+
+  try {
+    const response = await getApiCall(API_URL.SEARCH.TATTOO_LIST(lng));
 
     return response;
   } catch (error) {
