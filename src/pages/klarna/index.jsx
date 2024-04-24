@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -26,6 +26,8 @@ import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumn
 function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
+  
+ 
 
   const list = [
     {
@@ -63,6 +65,7 @@ function KlarnaNew({}) {
       num: "6",
     },
   ];
+  const [preExpandedItems, setPreExpandedItems] = useState([list[0].num]);
 
   const trendingArtist = [
     {
@@ -149,6 +152,8 @@ function KlarnaNew({}) {
       url: `${process.env.LIVE_URL}/${router.locale}/artists/meganrae_4dszyy98`,
     },
   ];
+
+
 
   return (
     <>
@@ -437,9 +442,9 @@ function KlarnaNew({}) {
                 </div>
 
                 <div className="klarna_works_accordion">
-                  <Accordion allowZeroExpanded={true}>
+                  <Accordion allowZeroExpanded={true} preExpanded={preExpandedItems}>
                     {list.map((el, index) => (
-                    <AccordionItem key={index}>
+                    <AccordionItem key={index} uuid={el.num}>
                       <AccordionItemHeading className="klarna_works_items">
                         <AccordionItemButton><span className="klarna_num_count">{el.num}</span><h4 className="color_gray_550">{el.title}</h4></AccordionItemButton>
                       </AccordionItemHeading>
