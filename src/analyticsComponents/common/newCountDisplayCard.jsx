@@ -53,7 +53,15 @@ export default function NewCountDisplayCard({
             <div className="db_count_text">{count}</div>
             <div className="db_customer_rqst_type">
               <div className="db_card_title_text">{title}</div>
-              <div className="db_card_conversion_percent_text">41.3%</div>
+              <div className="d_flex flex_direction_row db_customer_conversion_rate">
+                <div className="db_card_conversion_percent_text">41.3%</div>
+                <Image
+                  src='/up-arrow-green.svg'
+                  alt="arrow"
+                  width={10}
+                  height={10}
+                />
+              </div>
             </div>
           </div>
         </div>

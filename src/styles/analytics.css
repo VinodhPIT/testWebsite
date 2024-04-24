@@ -240,7 +240,8 @@ header.db_header_wrap {
   font-size: 14px;
   line-height: 31.2px;
   font-weight: 500;
-  color: #4CAF50;
+  color: #45CB85;
+  margin-right: 5px;
 }
 
 .db_card_title_text {
@@ -657,6 +658,11 @@ header.db_header_wrap {
   align-items: center;
 }
 
+.db_customer_conversion_rate{
+  align-items: center;
+  justify-content: center;
+}
+
 .db_filter_data_comp {
   margin-right: 0;
 }
@@ -677,14 +683,14 @@ header.db_header_wrap {
 .db_filter_data_comp .DatePicker:after {
   content: "";
   position: absolute;
-  right: 8px;
+  right: 0px;
   top: 8px;
-  width: 21px;
+  width: 20px;
   height: 20px;
   background-image: url(/arrow-down-dark.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .db_filter_data_comp input.DatePicker__input {
   display: inline-flex;

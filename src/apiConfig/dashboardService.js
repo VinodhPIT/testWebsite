@@ -13,36 +13,17 @@ export const analyticsDashboardCount = async (token) => {
   }
 };
 
-export const getCustomerRequestAnalyticsData = async (token, params) => {
-  console.log('<><> token', params)
+export const getCustomerRequestAnalyticsData = async (token) => {
   try {
     const response = await analyticsPostApiCall(
-      API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA(
-        params,
-        token
-      )
+      API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA,
+      token
     );
-    console.log('<><> ress', response);
     return response;
   } catch (error) {
     return [];
   }
 };
-
-// export const fetchCategoryData = async (params) => {
-
-
-//   try {
-//     const responseCategory = await postApiCall(
-//       API_URL.SEARCH.SEARCH_BY_CATRGORY(params),
-//       searchParam(params)
-//     );
-
-//     return responseCategory;
-//   } catch (error) {
-//     return [];
-//   }
-// };
 
 export const getCountriesData = async (token) => {
   try {

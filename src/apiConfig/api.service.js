@@ -50,16 +50,16 @@ export async function analyticsGetApiCall(endpoint, token) {
   }
 }
 
-export async function analyticsPostApiCall(endpoint, requestData,token) {
+export async function analyticsPostApiCall(endpoint,token) {
   try {
     const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
-      },
-      body: JSON.stringify(requestData),
+      }
     });
+    console.log('<><> res',response)
     return handleResponse(response);
   } catch (error) {
     throw error;

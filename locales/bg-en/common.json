@@ -648,8 +648,9 @@
     "All requests": "All Request",
     "Single request": "Single Request",
     "Conversion rate": "Conversion Rate",
-    "Avg.time": "Avg.time",
-    "Our Region":"Our Region"
+    "Avg time" : "Avg.time",
+    "Our Region":"Our Region",
+    "Regions":"Regions"
   },
 
   "TableConversion": {

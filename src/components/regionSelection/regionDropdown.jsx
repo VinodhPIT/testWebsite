@@ -10,21 +10,21 @@ export default function RegionDropdown({ onFilterData, countryData }) {
   const { selectedIds, setSelectedIds } =  useGlobalState();
 
   const [selectedRegionCode, setSelectedRegionCode] = useState([]);
+  const { t } = useTranslation();
+
   const [countries] = useState([
     {
-      countryId: 1,
-      title: 'All',
+      countryId: 2,
+      title: t("common:AnalyticsArtist.All"),
       countryGoogleId: 'al'
     },
     {
-      countryId: 2,
-      title: 'Our region',
+      countryId: 1,
+      title: t("common:AnalyticsDashboard.Our Region"),
       countryGoogleId: 'or'
     },
     ...countryData
   ]);
-
-  const { t } = useTranslation();
 
   const clearAll = async () => {
     setSelectedIds([]);
@@ -53,7 +53,7 @@ export default function RegionDropdown({ onFilterData, countryData }) {
 
   return (
     <div className={styles.custom_dropdown}>
-      <div className={styles.custom_title}>Regions</div>
+      <div className={styles.custom_title}>{t("common:AnalyticsDashboard.Regions")}</div>
       <div className={styles.custom_dropdown_content}>
         {countries.map((el) => {
           return (
@@ -87,7 +87,7 @@ export default function RegionDropdown({ onFilterData, countryData }) {
           onClick={() => onSearchStyle()}
           className="btn_secondary w_100pc"
         >
-          Apply
+          {t("common:AnalyticsDashboard.Apply")}
         </button>
       </div>
     </div>

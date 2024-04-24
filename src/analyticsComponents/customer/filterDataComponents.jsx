@@ -138,7 +138,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
                 class="btn_selection btn_style"
                 style={buttonTextStyle}
               >
-                Regions
+               {t("common:AnalyticsDashboard.Regions")}
               </button>
             </div>
             {
@@ -165,7 +165,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           <div className="db_list_drop_down">
             <div className="db_filter_data_comp">
               <DatePicker
-                inputPlaceholder="Monthly"
+                inputPlaceholder={t("common:AnalyticsDashboard.Monthly")}
                 calendarPopperPosition="bottom-end"
                 maximumDate={utils("en").getToday()}
                 value={selectedDayRange}
@@ -200,7 +200,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
                 options={options}
                 value={selectedOption}
                 onChange={handleChange}
-                placeholder="Yearly"
+                placeholder={t("common:AnalyticsDashboard.Yearly")}
                 isSearchable={false}
                 styles={customStyles}
               />
