@@ -29,37 +29,37 @@ function KlarnaNew({}) {
 
   const list = [
     {
-      title: t("common:klarnaPage.Download App"),
-      content: t("common:klarnaPage.Seamlessly download"),
+      title: t("common:klarnaPage.workingStep1"),
+      content: t("common:klarnaPage.workingStepContent-1"),
       num: "1",
     },
     {
-      title: t("common:klarnaPage.Choose an artist"),
-      content: t("common:klarnaPage.Explore thousands"),
+      title: t("common:klarnaPage.workingStep2"),
+      content: t("common:klarnaPage.workingStepContent-2"),
       num: "2",
     },
 
     {
-      title: t("common:klarnaPage.Accept an offer"),
-      content: t("common:klarnaPage.Effortlessly accept"),
+      title: t("common:klarnaPage.workingStep3"),
+      content: t("common:klarnaPage.workingStepContent-3"),
       num: "3",
     },
 
     {
-      title: t("common:klarnaPage.Select Klarna"),
-      content: t("common:klarnaPage.Select Klarna at checkout"),
+      title: t("common:klarnaPage.workingStep4"),
+      content: t("common:klarnaPage.workingStepContent-4"),
       num: "4",
     },
 
     {
-      title: t("common:klarnaPage.Tattoo day"),
-      content: t("common:klarnaPage.Now that the details are settled"),
+      title: t("common:klarnaPage.workingStep5"),
+      content: t("common:klarnaPage.workingStepContent-5"),
       num: "5",
     },
 
     {
-      title: t("common:klarnaPage.Pay later"),
-      content: t("common:klarnaPage.Congratulations on Your New Tattoo"),
+      title: t("common:klarnaPage.workingStep6"),
+      content: t("common:klarnaPage.workingStepContent-6"),
       num: "6",
     },
   ];
@@ -273,7 +273,7 @@ function KlarnaNew({}) {
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
                   <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_35 m_pb_15">
-                    Available payment options:
+                    {t("common:klarnaPage.availablePayment")}
                   </h3>
                 </div>
                 <div className="klarna_pay_opt_grid">
@@ -288,16 +288,14 @@ function KlarnaNew({}) {
                         blurDataURL={blurDataURL}
                       />
                       <span className="klarna_pay_opt_label">
-                        Pay in 30 days
+                      {t("common:klarnaPage.tag1")}
                       </span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Get an extra 30 days to pay.
+                    {t("common:klarnaPage.optionTitle-1")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Take your time deciding on your perfect tattoo. We offer
-                      an extra 30 days to complete your payment, totally
-                      interest-free.
+                    {t("common:klarnaPage.optionContent-1")}
                     </p>
                   </div>
 
@@ -311,14 +309,13 @@ function KlarnaNew({}) {
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                       />
-                      <span className="klarna_pay_opt_label">Instalments</span>
+                      <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag2")}</span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Enjoy 3 interest-free instalments.
+                    {t("common:klarnaPage.optionTitle-2")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Experience a modern way to commit to your next tattoo with
-                      the option to pay in 3 equal, interest-free instalments.
+                    {t("common:klarnaPage.optionContent-2")}
                     </p>
                   </div>
 
@@ -332,14 +329,13 @@ function KlarnaNew({}) {
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                       />
-                      <span className="klarna_pay_opt_label">Instalments</span>
+                      <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag3")}</span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Enjoy 4 interest-free instalments.
+                    {t("common:klarnaPage.optionTitle-3")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Experience a modern way to commit to your next tattoo with
-                      the option to pay in 3 equal, interest-free instalments.
+                    {t("common:klarnaPage.optionContent-3")}
                     </p>
                   </div>
 
@@ -353,14 +349,13 @@ function KlarnaNew({}) {
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                       />
-                      <span className="klarna_pay_opt_label">Financing</span>
+                      <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag4")}</span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Up to 36 months to pay for your tattoo.
+                    {t("common:klarnaPage.optionTitle-4")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Experience a modern way to commit to your next tattoo with
-                      the option to pay in 3 equal, interest-free instalments.
+                    {t("common:klarnaPage.optionContent-4")}
                     </p>
                   </div>
                 </div>
@@ -370,9 +365,9 @@ function KlarnaNew({}) {
                     agreements. Borrowing more than you can afford or paying
                     late may negatively impact your financial status and ability
                     to obtain credit. 18+, UK residents only. Subject to status.{" "}
-                    <Link href="#" target="_blank">
+                    <Link href="https://www.klarna.com/uk/terms-and-conditions" target="_blank">
                       Ts&Cs
-                    </Link>{" "}
+                    </Link>
                     and late fees apply.
                   </p>
                 </div>
@@ -390,13 +385,13 @@ function KlarnaNew({}) {
                 <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
                   <div className="text_box_content_inner max_w_100pc text_center">
                     <h2 className="color_gray_550 mb_30 m_mb_25 custom_fs_m_28">
-                      Need help to find the right tattoo artist?
+                    {t("common:klarnaPage.findArtists")}
                     </h2>
                     <Link
                       href={`/${router.locale}/klarna`}
                       className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
                     >
-                      Create a tattoo request
+                      {t("common:homePage.CreateATattooRequest")}
                     </Link>
                   </div>
                 </div>
