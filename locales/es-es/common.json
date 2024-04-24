@@ -24,7 +24,7 @@
     "Pay all at once": "¿Pagar todo de una vez?",
     "Never again": "¡Nunca más!",
     "TattooFinancing": "Financiamiento de Tatuajes",
-    "Finance your ink": "Financia tu tatuaje sin preocupaciones. Nuestra aplicación ofrece verificación de crédito, opciones de financiamiento y planes de pago flexibles, asegurando que todos puedan costear su tatuaje soñado.",
+    "financeInk": "Financia tu tatuaje sin preocupaciones. Nuestra aplicación ofrece verificación de crédito, opciones de financiamiento y planes de pago flexibles, asegurando que todos puedan costear su tatuaje soñado.",
     "Tattoo": "Tatuaje",
     "Dictionary": "Diccionario",
     "TattooDictionaryContent": "Sumérgete en el lenguaje de los tatuajes. Desde estilos clásicos hasta las últimas tendencias, nuestro Diccionario de Tatuajes asegura que entiendas el arte antes de elegir tu tinta.",
@@ -49,7 +49,9 @@
     "Check the Styleguide": "Revisa el Styleguide",
     "Share your tattoo idea": "Comparte tu idea de tatuaje!",
     "TattooIdeaDesc": "Envía fácilmente tu idea de tatuaje una vez y conéctate con varios artistas adecuados. Relájate y recibe propuestas variadas de forma gratuita, encontrando tu artista ideal sin esfuerzo.",
-    "CreateATattooRequest": "Crear una solicitud de tatuaje"
+    "CreateATattooRequest": "Crear una solicitud de tatuaje",
+    "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
+    "exploreStyle":"Explore tattoo styles"
   },
 
   "styleGuidePage": {
@@ -495,7 +497,8 @@
   "artistsSelected": "Artists Selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
-
+  "learnMore" :"Learn more",
+  
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
     "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",

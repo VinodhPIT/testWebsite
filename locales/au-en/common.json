@@ -25,7 +25,7 @@
     "Pay all at once": "Pay all at once?",
     "Never again": "Never again!",
     "TattooFinancing": "Tattoo Financing",
-    "Finance your ink": "Finance your ink without worries. Our app offers credit checks, finance options, and flexible payment plans, ensuring everyone can afford their dream tattoo.",
+    "financeInk": "Our app offers credit checks, finance options, and flexible payment plans, ensuring everyone can afford their dream tattoo.",
     "Tattoo": "Tattoo",
     "Dictionary": "Dictionary",
     "TattooDictionaryContent": "Dive into the language of tattoos. From classic styles to the latest trends, our Tattoo Dictionary ensures you understand the art before choosing your ink.",
@@ -50,7 +50,12 @@
     "Check the Styleguide": "Check the Styleguide",
     "Share your tattoo idea": "Share your tattoo idea",
     "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
-    "CreateATattooRequest": "Create a tattoo request"
+    "CreateATattooRequest": "Create a tattoo request",
+    "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
+    "exploreStyle":"Explore tattoo styles"
+
+
+  
   },
 
   "styleGuidePage": {
@@ -483,6 +488,7 @@
   "artistsSelected": "Artists Selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
+  "learnMore" :"Learn more",
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",

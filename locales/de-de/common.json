@@ -24,7 +24,7 @@
     "Pay all at once": "Alles auf einmal bezahlen?",
     "Never again": "Nie wieder!",
     "TattooFinancing": "Tattoo Finanzierung",
-    "Finance your ink": "Finanziere dein Tattoo sorgenfrei. Unsere App bietet Bonitätsprüfungen, Finanzierungsoptionen und flexible Zahlungspläne, damit jeder sich sein Traumtattoo leisten kann.",
+    "financeInk": "Finanziere dein Tattoo sorgenfrei. Unsere App bietet Bonitätsprüfungen, Finanzierungsoptionen und flexible Zahlungspläne, damit jeder sich sein Traumtattoo leisten kann.",
     "Tattoo": "Tattoo",
     "Dictionary": "Wörterbuch",
     "TattooDictionaryContent": "Tauche in die Sprache der Tattoos ein. Von klassischen Stilen bis zu den neuesten Trends, unser Tattoo-Wörterbuch stellt sicher, dass du die Kunst verstehst, bevor du dein Ink wählst.",
@@ -47,10 +47,12 @@
     "FullWidthCarouselContent": "Bleib auf dem Laufenden mit unserem Tattoo Journal. Erhalte Updates zu den neuesten Trends, gesetzlich vorgeschriebenen Gesundheits- und Sicherheitsrichtlinien und Insider-Tipps aus der Tattoo-Branche.",
     "Download the inckd": "Laden Sie unsere App herunter, sie ist kostenlos!",
     "Check the Styleguide": "Entdecke den Styleguide",
-    "Share your tattoo idea": "Share your tattoo idea",
-    "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
-    "CreateATattooRequest": "Create a tattoo request"
 
+    "Share your tattoo idea": "Teilen Sie Ihre Tattoo-Idee!",
+    "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+    "CreateATattooRequest": "Create a tattoo request",
+    "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
+    "exploreStyle":"Explore tattoo styles"
 
   },
 
@@ -499,7 +501,8 @@
   "artistsSelected": "Artists Selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
-
+  "learnMore" :"Learn more",
+  
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
     "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
