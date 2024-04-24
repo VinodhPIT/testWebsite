@@ -91,7 +91,7 @@
     "Choose an artist": "Choose an artist",
     "Explore thousands": "Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
     "Accept an offer": "Accept an offer",
-    "Effortlessly accept": "Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
+    "Effortlessly accept": "Accept an offer from your chosen artist within the inckd app and embark on the journey to bring your tattoo idea to life.",
     "Select Klarna": "Select Klarna",
     "Select Klarna at checkout": "Select Klarna at checkout. This allows you to choose a payment plan that suits your financial comfort",
     "Tattoo day": "Tattoo day",
@@ -99,12 +99,19 @@
     "Pay later": "Pay Later",
     "Congratulations on Your New Tattoo": "Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
 
+    "MainTitle2": "You choose how you want to pay!",
+    "heading1": "Pay Later",
+    "heading2": "Pay in 3",
+    "heading3": "Pay in 4",
+    "heading4": "Financing",
+
     "Text1": "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
     "Text2": "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
     "Text3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
     "Text4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
     "carosuelTitle": "Find the right tattoo artist",
-    "content_sub": "Discover the perfect tattoo artist for every project, tailored to your unique vision."
+    "content_sub": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
+    "carosuelTitle-Sub": "tattoo artist to finance your tattoo"
   },
 
   "dictionaryPage": {

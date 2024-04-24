@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import DownloadApps from "@/marketingScreens/DownloadApps/DownloadApps";
+import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
 import style from "./style.module.css";
 import useTranslation from "next-translate/useTranslation";
 import { useNavigation } from "@/hooks/useRouter";
@@ -392,7 +392,7 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center mb_0 custom_fs_40 fw_400 pb_40 m_pb_30">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_40 m_pb_15">
                     {t("common:klarnaPage.MainTitle1")}
                   </h3>
                 </div>

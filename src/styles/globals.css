@@ -2632,7 +2632,10 @@ ul.custom-listing li img {
   font-size: 32px !important;
   line-height: 38px !important;
 }
-
+.custom_fs_34 {
+  font-size: 34px !important;
+  line-height: 40px !important;
+}
 .custom_d_fs_50 {
   font-size: 50px !important;
   line-height: 60px !important;
