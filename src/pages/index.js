@@ -138,7 +138,7 @@ export default function Home({}) {
                             </Link>
                           </li>
                           <li>
-                            <Link href="#" target="_blank">
+                            
                               <Image
                                 priority
                                 src={qrCodeSrc}
@@ -149,7 +149,7 @@ export default function Home({}) {
                                 blurDataURL={blurDataURL}
                                 className="custom_download_icons app_qr_home mob_hidden"
                               />
-                            </Link>
+                           
                           </li>
                         </ul>
                       </div>
