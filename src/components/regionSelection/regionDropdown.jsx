@@ -6,78 +6,66 @@ import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Modal from 'react-modal';
 
-export default function RegionDropdown({ onFilterData }) {
+export default function RegionDropdown({ onFilterData, countryData }) {
+  const { selectedIds, setSelectedIds } =  useGlobalState();
 
-  const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } =
-    useGlobalState();
-  const [selectedRegion, setSelectedRegion] = useState([]);
+  const [selectedRegionCode, setSelectedRegionCode] = useState([]);
+  const [countries] = useState([
+    {
+      countryId: 1,
+      title: 'All',
+      countryGoogleId: 'al'
+    },
+    {
+      countryId: 2,
+      title: 'Our region',
+      countryGoogleId: 'or'
+    },
+    ...countryData
+  ]);
 
   const { t } = useTranslation();
 
-  const handleCheckboxChange = (el) => {
-    if (selectedIds.includes(el.id)) {
-      setSelectedIds(selectedIds.filter((id) => id !== el.id));
-      setSelectedRegion(selectedRegion.filter((item) => item.id !== el.id))
-    } else {
-      setSelectedIds([...selectedIds, el.id]);
-      setSelectedRegion([
-        ...selectedRegion,
-        el
-      ]);
-    }
-  };
-
   const clearAll = async () => {
     setSelectedIds([]);
-    clearStyleId();
+    setSelectedRegionCode([]);
+  };
+
+  const handleCheckboxChange = (id) => {
+    if (selectedIds.includes(id)) {
+      setSelectedIds(selectedIds.filter((ids) => ids !== id));
+    } else {
+      setSelectedIds([...selectedIds, id]);
+    }
   };
 
   const onSearchStyle = async () => {
-    onFilterData(selectedRegion);
-  };
+    const selectedIdObj = selectedIds.reduce((obj, item) => {
+      obj[item] = true;
+      return obj;
+    }, {});
+    const formattedSelectedIds = `${Object.keys(selectedIdObj)
+      .map(id => `${id}`)
+      .join(', ')}`;
 
-  const regionCollection = [
-    {
-      id: 1,
-      name: 'All'
-    },
-    {
-      id: 2,
-      name: 'Our region'
-    },
-    {
-      id: 3,
-      name: 'Germany'
-    },
-    {
-      id: 4,
-      name: 'United States'
-    },
-    {
-      id: 5,
-      name: 'Switzerland'
-    },
-    {
-      id: 6,
-      name: 'United Kingdom'
-    }
-  ]
+    onFilterData(formattedSelectedIds);
+  };
 
   return (
     <div className={styles.custom_dropdown}>
       <div className={styles.custom_title}>Regions</div>
       <div className={styles.custom_dropdown_content}>
-        {regionCollection.map((el) => {
+        {countries.map((el) => {
           return (
-            <div key={el.id} className={styles.custom_dropdown_col}>
+            <div key={el.countryId} className={styles.custom_dropdown_col}>
               <label className={styles.custom_dropdown_label}>
-                <p>{el.name}</p>
+                <p>{el.title}</p>
                 <div className={styles.custom_checkbox}>
                   <input
                     type="checkbox"
-                    id={`checkbox_${el.id}`}
-                    onChange={() => handleCheckboxChange(el)}
-                    checked={selectedIds.includes(el.id)}
+                    id={`checkbox_${el.countryId}`}
+                    onChange={() => handleCheckboxChange(el.countryId)}
+                    checked={selectedIds.includes(el.countryId)}
                   />
                 </div>
               </label>

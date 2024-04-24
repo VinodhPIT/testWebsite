@@ -14,9 +14,23 @@ export const analyticsDashboardCount = async (token) => {
 };
 
 export const getCustomerRequestAnalyticsData = async (params, token) => {
+  console.log('<><> token',token)
   try {
     const response = await analyticsGetApiCall(
       API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA(params),
+      token
+    );
+    console.log('<><> ress',response);
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+export const getCountriesData = async (token) => {
+  try {
+    const response = await analyticsGetApiCall(
+      API_URL.ANALYTICS_DASHBOARD.GET_COUNTRIES,
       token
     );
     return response;

@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import OutsideClickHandler from "react-outside-click-handler";
 import { useToggle } from "@/hooks/useToggle";
 import RegionDropdown from "@/components/regionSelection/regionDropdown";
 import { currentYear, options, months } from "@/helpers/helper";
 import Calendar, { utils } from "@hassanmojab/react-modern-calendar-datepicker";
+import useTranslation from "next-translate/useTranslation";
+import moment from "moment";
+import DatePicker from "@hassanmojab/react-modern-calendar-datepicker";
 
-export default function FilterDataComponents({ filterDashBoardData, onUpdateDateFilter }) {
+export default function FilterDataComponents({ filterDashBoardData, onUpdateDateFilter, countryData }) {
   const [toggle, onToggle] = useToggle(false);
+  const { t } = useTranslation();
 
   const [selectedYear, setSelectedYear] = useState('Yearly');
   const [selectedDayRange, setSelectedDayRange] = useState({
@@ -21,9 +25,9 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     region: null,
     year: null
   });
+  const inputRef = useRef(null);
 
   const selectedOption = { value: selectedYear, label: selectedYear };
-  // const formattedDate = utils.formatDate(new Date(selectedDayRange.from.year, day.month, day.day), 'MMM dd, yyyy');
 
   const customStyles = {
     control: base => ({
@@ -59,7 +63,10 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
       ...selectedFilter,
       region: data
     });
-    filterDashBoardData(selectedFilter);
+    filterDashBoardData({
+      ...selectedFilter,
+      region: data
+    });;
     onToggle();
   };
 
@@ -67,7 +74,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     const yearToFilter = selectedOption.value;
     setSelectedYear(yearToFilter);
     setSelectedFilter({ ...selectedFilter, year: yearToFilter })
-    filterDashBoardData(selectedFilter);
+    filterDashBoardData({ ...selectedFilter, year: yearToFilter });
   };
 
   const resetYear = () => {
@@ -84,8 +91,40 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
   const onClickToday = () => {
     resetCalender();
     resetYear();
-    filterDashBoardData(selectedFilter);
+    setSelectedFilter({
+      ...selectedFilter,
+      start_date: moment().format('YYYY-MM-DD'),
+      end_date: moment().format('YYYY-MM-DD'),
+    })
+    filterDashBoardData({
+      ...selectedFilter,
+      year: '',
+      start_date: moment().format('YYYY-MM-DD'),
+      end_date: moment().format('YYYY-MM-DD'),
+    });
   };
+
+  const renderCustomInput = ({ ref }) => (
+    <div className="db_list_drop_down">
+      <div className="db_filter_data_comp">
+        <input
+          readOnly
+          ref={ref}
+          placeholder="Monthly"
+          value={selectedDayRange &&
+            selectedDayRange.from &&
+            selectedDayRange.to
+            ? `${moment(selectedDayRange.from).format("DD MMM YYYY")} ${moment(selectedDayRange.to).format("DD MMM YYYY") !==
+              moment(selectedDayRange.from).format("DD MMM YYYY")
+              ? `- ${moment(selectedDayRange.to).format("DD MMM YYYY")}`
+              : ""
+            }`
+            : ""}
+          className="filter_month_selection btn_style"
+        />
+      </div>
+    </div>
+  )
 
   return (
     <>
@@ -101,16 +140,16 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
               >
                 Regions
               </button>
-              {
-                toggle && (
-                  <OutsideClickHandler
-                    onOutsideClick={onToggle}
-                  >
-                    <RegionDropdown onToggle={onToggle} onFilterData={onFilterDashbardData} />
-                  </OutsideClickHandler>
-                )
-              }
             </div>
+            {
+              toggle && (
+                <OutsideClickHandler
+                  onOutsideClick={onToggle}
+                >
+                  <RegionDropdown onToggle={onToggle} onFilterData={onFilterDashbardData} countryData={countryData} />
+                </OutsideClickHandler>
+              )
+            }
           </div>
           <div className="db_list_drop_down">
             <div className="db_filter_data_comp">
@@ -125,21 +164,32 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
           </div>
           <div className="db_list_drop_down">
             <div className="db_filter_data_comp">
-              <Calendar
+              <DatePicker
+                inputPlaceholder="Monthly"
+                calendarPopperPosition="bottom-end"
                 maximumDate={utils("en").getToday()}
                 value={selectedDayRange}
                 onChange={(range) => {
                   setSelectedDayRange(range);
+                  const fromDay = range.from?.day.toString().padStart(2, '0');
+                  const fromMonth = range.from?.month.toString().padStart(2, '0');
+                  const toDay = range.to?.day.toString().padStart(2, '0');
+                  const toMonth = range.to?.month.toString().padStart(2, '0');
+                  const fromDate = `${range.from?.year}-${fromMonth}-${fromDay}`;
+                  const toDate = `${range.to?.year}-${toMonth}-${toDay}`;
                   setSelectedFilter({
                     ...selectedFilter,
-                    start_date: selectedDayRange.from,
-                    end_date: selectedDayRange.to
+                    start_date: fromDate,
+                    end_date: toDate
                   });
-                  filterDashBoardData(selectedFilter)
+                  filterDashBoardData({
+                    ...selectedFilter,
+                    start_date: fromDate,
+                    end_date: toDate
+                  })
                 }}
+                renderInput={renderCustomInput}
                 shouldHighlightWeekends
-                calendarPopperPosition="bottom-end"
-                inputPlaceholder="Monthly"
               />
             </div>
           </div>

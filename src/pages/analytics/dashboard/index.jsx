@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import DashboardDetails from "@/analyticsComponents/dashboard/dashboardDetails";
 import Header from "@/analyticsComponents/common/header";
-import { analyticsDashboardCount } from "@/apiConfig/dashboardService";
+import { analyticsDashboardCount, getCountriesData, getCustomerRequestAnalyticsData } from "@/apiConfig/dashboardService";
 import { offerCount } from "@/apiConfig/offerAnalyticsService";
 import { analyticsArtistCount } from "@/apiConfig/artistAnalyticsService";
 import { analyticsCustomerCount } from "@/apiConfig/customerAnalyticsService";
@@ -150,6 +150,10 @@ const responseFormat = {
 export default function Dashboard({ data: initialData }) {
   const { status, data: sessionData } = useSession();
   const { totalAmount, fetchTotalRevenue } = useTotalRevenue();
+  const [filterData, setFilerData] = useState();
+  const [countryData, setCountryData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
   const { t } = useTranslation();
   const {
     handleDateFilter
@@ -159,13 +163,33 @@ export default function Dashboard({ data: initialData }) {
   }, [fetchTotalRevenue, initialData.sessionToken]);
   //api implementation not completed
 
-  // useEffect(()=>{
-  //   getCustomerRequestAnalyticsData()
-  // })
+  useEffect(() => {
+    getCountriesData(initialData.sessionToken).then(response => {
+      setCountryData(response);
+    });
+  }, []);
 
+  useEffect(() => {
+    getCustomerRequestAnalyticsData({
+      start_date: filterData?.start_date,
+      end_date: filterData?.end_date,
+      region: filterData?.region,
+      year: filterData?.year
+    }, initialData.sessionToken).then(response => {
+      setFilteredData(response.customer_request_data)
+    });
+  }, [filterData]);
+
+  useEffect(() => {
+    getCustomerRequestAnalyticsData({}, initialData.sessionToken).then(response => {
+      setFilteredData(response.customer_request_data)
+    });
+  }, []);
+  
   const filterDashBoardData = (data) => {
-    console.log('<>< sele reg', data)
+    setFilerData(data);
   };
+  console.log('<>< filterData reg', filterData)
 
   return (
     <>
@@ -176,10 +200,13 @@ export default function Dashboard({ data: initialData }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <FilterDataComponents filterDashBoardData={filterDashBoardData} onUpdateDateFilter={handleDateFilter}/>
+        <FilterDataComponents
+          filterDashBoardData={filterDashBoardData}
+          onUpdateDateFilter={handleDateFilter}
+          countryData={countryData}
+        />
         <NewDashboardDetails
-          initialCounts={initialData.artistData}
-          token={initialData.sessionToken}
+          initialCounts={filteredData}
         />
         {/* <DashboardDetails
           initialCounts={initialData}  // old component
@@ -229,7 +256,6 @@ export async function getServerSideProps(context) {
         data: {
           androidDownloads: data.android_download_count || 0,
           artistCount,
-          artistData: responseFormat.customer_request_data,
           customerCount,
           iosDownloads: data.ios_download_count || 0,
           offerData,

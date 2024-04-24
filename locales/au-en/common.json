@@ -640,7 +640,17 @@
     "MetaTitle": "Dashboard-Analytics",
     "Total revenue earned": "Total revenue earned",
     "IOS Downloads": "IOS Downloads",
-    "Android Downloads": "Android Downloads"
+    "Android Downloads": "Android Downloads",
+    "Region": "Region",
+    "Apply": "Apply",
+    "Monthly": "Monthly",
+    "Yearly": "Yearly",
+    "Customers": "Customers",
+    "All requests": "All Request",
+    "Single request": "Single Request",
+    "Conversion rate": "Conversion Rate",
+    "Avg.time": "Avg.time",
+    "Our Region":"Our Region"
   },
 
   "TableConversion": {

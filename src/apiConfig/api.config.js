@@ -11,11 +11,11 @@ const API_URL = {
     GET_REFERRAL_CODE: (slug) => `/web/api/customer/referral/${slug}`,
     GET_ARTIST_GALLERY: (params) => `/web/api/tattoo/artist?artist_uid=${params}`,
     ARTIST_FORM: "/api/profile/artist/verification/request",
-    ARTIST_LISTING :'/v2/api/search/artist/list',
-    REQUEST_CONTACT : (params) =>`/web/api/customer-request/user-exists?customer_email=${params.email}&customer_phone_no=${params.phone}`,
-     REQUEST_SAVE :`/web/api/customer-request/save`,
-     CUSTOMER_REQUEST:`/web/api/customer-request/detail?artist_uid=${1}`
-    
+    ARTIST_LISTING: '/v2/api/search/artist/list',
+    REQUEST_CONTACT: (params) => `/web/api/customer-request/user-exists?customer_email=${params.email}&customer_phone_no=${params.phone}`,
+    REQUEST_SAVE: `/web/api/customer-request/save`,
+    CUSTOMER_REQUEST: `/web/api/customer-request/detail?artist_uid=${1}`
+
   },
 
   ANALYTICS_LOGIN: {
@@ -27,7 +27,7 @@ const API_URL = {
     FILTER_BY_TYPE: (params) => `/analytics/customer/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`,
     GET_CUSTOMER_DETAILS: "/analytics/customer/details",
     GET_CUSTOMER_CONVERSION: "/analytics/customer/conversion",
-    CUSTOEMR_FILTER_BY_DATE: (params) =>`/analytics/customer/details?start_date=${params.startDate}&end_date=${params.endDate}`,
+    CUSTOEMR_FILTER_BY_DATE: (params) => `/analytics/customer/details?start_date=${params.startDate}&end_date=${params.endDate}`,
     GET_REVENUE_DETAILS: `/analytics/offer/revenue/details`,
     DOWNLOAD_EXCEL: "/analytics/customer",
   },
@@ -39,8 +39,8 @@ const API_URL = {
     GET_ARTIST_CONVERSION: "/analytics/artist/conversion",
     DOWNLOAD_EXCEL: "/analytics/artist",
 
-    CONVERSION_COUNTRY:(country)=>`/analytics/artist/conversion?country=${country}`
-    
+    CONVERSION_COUNTRY: (country) => `/analytics/artist/conversion?country=${country}`
+
 
   },
 
@@ -53,24 +53,24 @@ const API_URL = {
 
   ANALYTICS_DASHBOARD: {
     GET_DOWNLOAD_COUNT: "/analytics/download/count",
-    GET_CUSTOMER_REQUEST_DETAILS_DATA:"/analytics/customer/customer-request"
+    GET_COUNTRIES: "/analytics/country/list",
+    GET_CUSTOMER_REQUEST_DETAILS_DATA: (params) => `/analytics/customer/customer-request?region=${params.region}&start_date=${params.start_date}&end_date=${params.end_date}&year=${params.year}`
   },
 
   EXCEL_DOWNLOAD: {
     GET_EXCEL_FILE: (path, type, startDate, endDate) =>
-      `${path}/csv/${type}${
-        startDate && endDate
-          ? `?start_date=${moment(startDate).format(
-              "YYYY-MM-DD"
-            )}&end_date=${moment(endDate).format("YYYY-MM-DD")}`
-          : ""
+      `${path}/csv/${type}${startDate && endDate
+        ? `?start_date=${moment(startDate).format(
+          "YYYY-MM-DD"
+        )}&end_date=${moment(endDate).format("YYYY-MM-DD")}`
+        : ""
       }`,
   },
 
 
-    GET_CONTENT:"/v2/api/cms/list"
+  GET_CONTENT: "/v2/api/cms/list"
 
-  
+
 
 
 };

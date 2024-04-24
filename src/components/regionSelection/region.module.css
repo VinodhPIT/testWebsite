@@ -4,7 +4,9 @@
     z-index: 9;
     width: 375px;
     height: 450px;
-    right: 300px;
+    right: 360px;
+    top: 150px;
+    overflow: hidden;
     padding: 0;
     box-shadow: 4px 4px 22px 0px rgba(0, 0, 0, 0.10);
     border-radius: 8px 8px 6px 6px;
@@ -66,7 +68,7 @@
 
 .custom_dropdown_content {
     overflow-y: auto;
-    height: 450px;
+    height: 350px;
 }
 
 .custom_checkbox {
