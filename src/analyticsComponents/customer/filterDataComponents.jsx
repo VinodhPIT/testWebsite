@@ -75,19 +75,24 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
       from: null,
       to: null,
     });
-    setSelectedFilter({
-      ...selectedFilter,
-      start_date: null,
-      end_date: null
-    })
   };
 
   const handleChange = (selectedOption) => {
     const yearToFilter = selectedOption.value;
     setSelectedYear(yearToFilter);
     resetCalender();
-    setSelectedFilter({ ...selectedFilter, year: yearToFilter })
-    filterDashBoardData({ ...selectedFilter, year: yearToFilter });
+    setSelectedFilter({
+      ...selectedFilter,
+      start_date: null,
+      end_date: null,
+      year: yearToFilter
+    })
+    filterDashBoardData({
+      ...selectedFilter,
+      start_date: null,
+      end_date: null,
+      year: yearToFilter
+    });
   };
 
   const resetYear = () => {
@@ -144,7 +149,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
                 class="btn_selection btn_style"
                 style={buttonTextStyle}
               >
-               {t("common:AnalyticsDashboard.Regions")}
+                {t("common:AnalyticsDashboard.Regions")}
               </button>
             </div>
             {
