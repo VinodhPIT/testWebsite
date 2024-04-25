@@ -852,14 +852,11 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .block_bg_blue {
   background-color: var(--blue);
 }
-<<<<<<< HEAD
 
 .block_bg_green_200 {
   background-color: var(--bg-green-200);
 }
 
-=======
->>>>>>> 8f08698ba63c27ea96a71f3bbf28c3d99a03e744
 .block_bg_gray_light_200 {
   background-color: var(--gray-light-200);
 }

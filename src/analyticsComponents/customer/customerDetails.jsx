@@ -157,7 +157,7 @@ export default function CustomerDetails({ initialCounts, token }) {
         <div className="row">
           <div className="col-lg-3 col-md-6 col-sm-6">
             <CountDisplayCard
-              bgColorClass="#fff"
+              bgColorClass="block_bg_yellow_300"
               count={countData.totalCustomers}
               filteredDateRange={dateRange.totalCustomers}
               onClickDownload={() => handleDownload('total_count', dateRange.totalCustomers.from, dateRange.totalCustomers.to)}

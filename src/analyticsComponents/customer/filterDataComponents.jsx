@@ -1,19 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Select from "react-select";
-import OutsideClickHandler from "react-outside-click-handler";
-import { useToggle } from "@/hooks/useToggle";
-import RegionDropdown from "@/components/regionSelection/regionDropdown";
-import { currentYear, options, months } from "@/helpers/helper";
-import Calendar, { utils } from "@hassanmojab/react-modern-calendar-datepicker";
-import useTranslation from "next-translate/useTranslation";
 import moment from "moment";
+import OutsideClickHandler from "react-outside-click-handler";
+import { utils } from "@hassanmojab/react-modern-calendar-datepicker";
 import DatePicker from "@hassanmojab/react-modern-calendar-datepicker";
+
+import { useToggle } from "@/hooks/useToggle";
+
+import useTranslation from "next-translate/useTranslation";
+
+import RegionDropdown from "@/components/regionSelection/regionDropdown";
+
+import { options } from "@/helpers/helper";
 
 export default function FilterDataComponents({ filterDashBoardData, onUpdateDateFilter, countryData }) {
   const [toggle, onToggle] = useToggle(false);
   const { t } = useTranslation();
 
-  const [selectedYear, setSelectedYear] = useState('Yearly');
+  const [selectedYear, setSelectedYear] = useState(
+    { value: t("common:AnalyticsDashboard.Yearly"), label: 'Yearly' });
   const [selectedDayRange, setSelectedDayRange] = useState({
     from: null,
     to: null,
@@ -27,17 +32,12 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
   });
   const inputRef = useRef(null);
 
-  const selectedOption = { value: selectedYear, label: selectedYear };
+  const selectedOption = { value: selectedYear.value, label: selectedYear.label };
 
   const customStyles = {
     control: base => ({
       ...base,
-      border: '1px solid #E1E4E8',
-      borderRadius: 8,
-      alignItems: 'center',
-      justifyContent: 'center',
-      boxShadow: 'none',
-      marginLeft: 16,
+
     }),
     option: (provided) => ({
       ...provided,
@@ -51,11 +51,6 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     }),
     indicatorSeparator: () => ({ display: 'none' }),
     dropdownIndicator: () => ({ marginRight: 8, color: '#707070' })
-  };
-
-  const buttonTextStyle = {
-    fontSize: '14px',
-    color: '#333'
   };
 
   const onFilterDashbardData = (data) => {
@@ -87,13 +82,15 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
       end_date: null,
       year: yearToFilter
     })
-    filterDashBoardData({ ...selectedFilter,
+    filterDashBoardData({
+      ...selectedFilter,
       start_date: null,
-      end_date: null, year: yearToFilter });
+      end_date: null, year: yearToFilter
+    });
   };
 
   const resetYear = () => {
-    setSelectedYear('Yearly');
+    setSelectedYear({ label: 'Yearly', value: 'Yearly' });
   };
 
   const onClickToday = () => {
@@ -113,7 +110,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
   };
 
   const divClassName = `filter_month_selection btn_style ${selectedDayRange.from &&
-    selectedDayRange.to  ? 'db_calendar_max_width' : 'db_calendar_min_width'}`;
+    selectedDayRange.to ? 'db_calendar_max_width' : 'db_calendar_min_width'}`;
 
   const renderCustomInput = ({ ref }) => (
     <div className="db_list_drop_down">
@@ -121,7 +118,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
         <input
           readOnly
           ref={ref}
-          placeholder="Monthly"
+          placeholder={t("common:AnalyticsDashboard.Monthly")}
           value={selectedDayRange &&
             selectedDayRange.from &&
             selectedDayRange.to
@@ -147,7 +144,6 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
                 type="button"
                 onClick={onToggle}
                 class="btn_selection btn_style"
-                style={buttonTextStyle}
               >
                 {t("common:AnalyticsDashboard.Regions")}
               </button>
@@ -169,7 +165,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
                 onClick={onClickToday}
                 class="btn_selection btn_style"
               >
-                Today
+                {t("common:AnalyticsDashboard.Today")}
               </button>
             </div>
           </div>
@@ -209,7 +205,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
               <Select
                 id="yearSelect"
                 options={options}
-                value={selectedOption}
+                value={selectedOption.value}
                 onChange={handleChange}
                 placeholder={t("common:AnalyticsDashboard.Yearly")}
                 isSearchable={false}

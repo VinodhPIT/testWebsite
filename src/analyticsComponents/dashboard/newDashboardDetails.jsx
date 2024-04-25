@@ -1,8 +1,9 @@
 import React from "react";
-import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import NewCountDisplayCard from "../common/newCountDisplayCard";
-import useTranslation from "next-translate/useTranslation";
 import moment from "moment";
+import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
+import useTranslation from "next-translate/useTranslation";
+
+import NewCountDisplayCard from "../common/newCountDisplayCard";
 
 export default function NewDashboardDetails({ initialCounts, token }) {
   const { t } = useTranslation();
@@ -62,7 +63,7 @@ export default function NewDashboardDetails({ initialCounts, token }) {
             count={`${getAverageTime().hours || 0}h ${getAverageTime().minutes || 0}min`}
             icon="/users.svg"
             rightIcon="/chat-round-dots.svg"
-            title="Avg.time"
+            title={t("common:AnalyticsDashboard.Avg time")}
           />
         </div>
       </div>

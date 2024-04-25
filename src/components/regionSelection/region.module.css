@@ -1,6 +1,6 @@
 .custom_dropdown {
     position: absolute;
-    background: #fff;
+    background:var(--white);
     z-index: 9;
     width: 375px;
     height: 450px;
