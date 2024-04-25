@@ -142,7 +142,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
       <section class="container-fluid">
         <div className="db_selection_wrapper">
           <div className="db_list_drop_down">
-            <div className="db_filter_data_comp">
+            <div className="db_filter_data_comp db_filter_region">
               <button
                 type="button"
                 onClick={onToggle}
@@ -174,7 +174,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
             </div>
           </div>
           <div className="db_list_drop_down">
-            <div className="db_filter_data_comp">
+            <div className="db_filter_data_comp db_filter_monthly">
               <DatePicker
                 inputPlaceholder={t("common:AnalyticsDashboard.Monthly")}
                 calendarPopperPosition="bottom-end"
@@ -205,7 +205,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
             </div>
           </div>
           <div className="db_list_drop_down">
-            <div className="db_filter_data_comp">
+            <div className="db_filter_data_comp db_filter_yearly">
               <Select
                 id="yearSelect"
                 options={options}

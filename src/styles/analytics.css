@@ -174,7 +174,6 @@ header.db_header_wrap {
   flex-direction: row;
   display: flex;
   width: auto;
-  margin-left: 16px;
   margin-bottom: 20px;
   justify-content: flex-end;
 }
@@ -693,8 +692,9 @@ header.db_header_wrap {
   border-color: hsl(0, 0%, 70%);
 }
 
-.db_filter_data_comp .DatePicker {
+.db_filter_data_comp > .DatePicker {
   position: relative;
+  z-index: 1;
 }
 
 .db_filter_data_comp .DatePicker:after {
@@ -735,6 +735,34 @@ header.db_header_wrap {
   opacity: 1;
 }
 
+.db_filter_region button.btn_selection {
+  position: relative;
+  padding-right: 32px;
+}
+.db_filter_region button.btn_selection:after {
+   content: "";
+   position: absolute;
+   right: 8px;
+   top: 8px;
+   width: 20px;
+   height: 20px;
+   background-image: url(/arrow-down-dark.svg);
+   background-repeat: no-repeat;
+   background-size: contain;
+   opacity: 0.6;
+}
+
+.db_filter_data_comp.db_filter_yearly {
+  min-width: 100px;
+}
+.db_filter_data_comp.db_filter_yearly .css-1clxpor-control,
+.db_filter_data_comp.db_filter_yearly .css-oycuyy-control {
+  margin-left: 0;
+}
+.db_filter_monthly .DatePicker {
+  margin-right: 11px;
+}
+
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;
@@ -764,7 +792,20 @@ header.db_header_wrap {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
+@media screen and (max-width: 560px) {
+  .db_selection_wrapper {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  .db_list_drop_down {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  .db_list_drop_down  .db_list_drop_down {
+    display: flex;
+    margin-bottom: 0;
+  }
+}
 @media screen and (max-width: 439px) {
   .db_customer_rqst_data {
     grid-template-columns: repeat(1, minmax(0, 1fr));
