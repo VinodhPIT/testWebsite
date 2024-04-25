@@ -18,7 +18,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
   const { t } = useTranslation();
 
   const [selectedYear, setSelectedYear] = useState(
-    { value: t("common:AnalyticsDashboard.Yearly"), label: 'Yearly' });
+    { value: 0, label: t("common:AnalyticsDashboard.Yearly") });
   const [selectedDayRange, setSelectedDayRange] = useState({
     from: null,
     to: null,
@@ -37,7 +37,11 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
   const customStyles = {
     control: base => ({
       ...base,
-
+      border: '1px solid --gray-light-300',
+      borderRadius: 8,
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: 'none'
     }),
     option: (provided) => ({
       ...provided,
@@ -205,7 +209,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
               <Select
                 id="yearSelect"
                 options={options}
-                value={selectedOption.value}
+                value={selectedOption.label}
                 onChange={handleChange}
                 placeholder={t("common:AnalyticsDashboard.Yearly")}
                 isSearchable={false}

@@ -41,23 +41,23 @@ export default function Dashboard({ data: initialData }) {
     const fetchData = async () => {
       try {
         const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA}`;
-        const params = {};
+        const body = {};
         if (filterData?.region) {
-          params.region = filterData?.region;
+          body.region = filterData?.region;
         }
 
         if (filterData?.start_date) {
-          params.start_date = filterData?.start_date;
+          body.start_date = filterData?.start_date;
         }
 
         if (filterData?.end_date) {
-          params.end_date = filterData?.end_date;
+          body.end_date = filterData?.end_date;
         }
 
         if (filterData?.year) {
-          params.year = filterData?.year;
+          body.year = filterData?.year;
         }
-        const response = await axios.post(url, params,
+        const response = await axios.post(url, body,
           {
             headers: {
               'Authorization': `Bearer ${initialData.sessionToken}`,
@@ -65,7 +65,7 @@ export default function Dashboard({ data: initialData }) {
           });
         setFilteredData(response.data.customer_request_data)
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setFilteredData([]);
       }
     }
     fetchData();
@@ -97,11 +97,6 @@ export default function Dashboard({ data: initialData }) {
         <NewDashboardDetails
           initialCounts={filteredData}
         />
-        {/* <DashboardDetails
-          initialCounts={initialData}  // old component
-          token={initialData.sessionToken}
-        /> */}
-
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
