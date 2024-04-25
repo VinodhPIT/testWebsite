@@ -25,7 +25,7 @@ export default function SideBySideContentWithImage({
           <div className="img_text_box_inner">
             <div className="justify_content_start container w_100pc">
               <div className="text_box_content_inner pt_pb_80 max_w_100pc m_pt_pb_50">
-                <h2 className="color_gray_550 mb_0 heading_h2">{mainTitle}</h2>
+                <h2 className="color_gray_550 mb_0 heading_h2 text_center">{mainTitle}</h2>
               </div>
             </div>
           </div>

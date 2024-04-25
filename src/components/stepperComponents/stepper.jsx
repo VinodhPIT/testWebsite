@@ -14,7 +14,7 @@ const StepperComponent = ({ steps, activeStep }) => {
 
   const { prevPage, stepNumber, locationDenied } = useRequestForm();
 
-  const { navigateTo  ,router} = useNavigation();
+  const { navigateTo, router } = useNavigation();
   const { t } = useTranslation();
   const generateStepTitle = (title, index) => {
     const isCompleted = index < activeStep;
@@ -49,10 +49,26 @@ const StepperComponent = ({ steps, activeStep }) => {
       </div>
     );
   };
-
   const onNavigate = () => {
-    stepNumber === 0 ? navigateTo(`/${router.locale}/createRequest`) : prevPage();
+    // Defined the base URL based on the current locale
+    const baseUrl = `/${router.locale}/`;
+  
+    // Defined the target URL based on the step number and view mode
+    let targetUrl;
+    if (isMobileView) {
+      targetUrl = stepNumber === 0 ? baseUrl : null;
+    } else {
+      targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
+    }
+  
+    // Navigate to the target URL or go back to stepper 
+    if (targetUrl) {
+      navigateTo(targetUrl);
+    } else {
+      prevPage();
+    }
   };
+
 
   useEffect(() => {
     if (locationDenied === true)
@@ -76,14 +92,9 @@ const StepperComponent = ({ steps, activeStep }) => {
       {isMobileView && stepNumber === 0 && (
         <div className="request_landing_caption_mob">
           <h1>
-            <span>
-            {t("common:stepper.mainTitle")}
-             
-            </span>
+            <span>{t("common:stepper.mainTitle")}</span>
           </h1>
-          <p>
-          {t("common:stepper.subText")}
-          </p>
+          <p>{t("common:stepper.subText")}</p>
         </div>
       )}
 

@@ -42,6 +42,7 @@ export async function analyticsGetApiCall(endpoint, token) {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
+
       },
     });
     return handleResponse(response);
@@ -58,6 +59,21 @@ export async function analyticsPostApiCall(endpoint,token) {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
       }
+    });
+    return handleResponse(response);
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function styleListGetApiCall(endpoint, lng) {
+  try {
+    const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept-Language": lng, 
+      },
     });
     return handleResponse(response);
   } catch (error) {

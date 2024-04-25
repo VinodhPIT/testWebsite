@@ -47,7 +47,7 @@ const router = useRouter()
                   <div className="text_box_content_inner m_pr_0 pr_0">
                     <h2>{t("common:homePage.TattooFinancing")}
                     </h2>              
-                    <p className="mt_20 m_mt_15 m_mb_20">{t("common:homePage.Finance your ink")}</p>
+                    <p className="mt_20 m_mt_15 m_mb_20">{t("common:homePage.financeInk")}</p>
                     <Link
                       href={`/${router.locale}/klarna`}
                       className="btn_secondary btn_cutom_new btn_img"
