@@ -70,22 +70,28 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     onToggle();
   };
 
+  const resetCalender = () => {
+    setSelectedDayRange({
+      from: null,
+      to: null,
+    });
+    setSelectedFilter({
+      ...selectedFilter,
+      start_date: null,
+      end_date: null
+    })
+  };
+
   const handleChange = (selectedOption) => {
     const yearToFilter = selectedOption.value;
     setSelectedYear(yearToFilter);
+    resetCalender();
     setSelectedFilter({ ...selectedFilter, year: yearToFilter })
     filterDashBoardData({ ...selectedFilter, year: yearToFilter });
   };
 
   const resetYear = () => {
     setSelectedYear('Yearly');
-  };
-
-  const resetCalender = () => {
-    setSelectedDayRange({
-      from: null,
-      to: null,
-    });
   };
 
   const onClickToday = () => {

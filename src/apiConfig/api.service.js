@@ -59,7 +59,6 @@ export async function analyticsPostApiCall(endpoint,token) {
         "Authorization": `Bearer ${token}`,
       }
     });
-    console.log('<><> res',response)
     return handleResponse(response);
   } catch (error) {
     throw error;
