@@ -161,13 +161,15 @@ header.db_header_wrap {
   cursor: pointer;
 }
 
-.btn_style{
+.btn_style {
   font-weight: 400;
   color: #212121;
 }
-.db_text{
+
+.db_text {
   border-width: 0;
 }
+
 .db_selection_wrapper {
   flex-direction: row;
   display: flex;
@@ -189,6 +191,7 @@ header.db_header_wrap {
   margin: 0 0 20px 0;
   height: calc(100% - 20px);
 }
+
 .db_customer_rqst_data {
   margin-bottom: 18px;
   display: grid;
@@ -206,7 +209,7 @@ header.db_header_wrap {
   border-radius: 8px;
   flex: none;
   padding: 0;
-  margin: 0;  
+  margin: 0;
 }
 
 .db_card_icon_wrapper {
@@ -224,9 +227,11 @@ header.db_header_wrap {
   margin-top: 23px;
   line-height: 31px;
 }
+
 .db_card_margin_between {
   margin: 17px
 }
+
 .db_card_body {
   padding: 20px;
   display: flex;
@@ -658,14 +663,23 @@ header.db_header_wrap {
   align-items: center;
 }
 
-.db_customer_conversion_rate{
+.db_customer_conversion_rate {
   align-items: center;
   justify-content: center;
+}
+
+.db_calendar_min_width {
+  width: 98px
+}
+
+.db_calendar_max_width {
+  width: 220px;
 }
 
 .db_filter_data_comp {
   margin-right: 0;
 }
+
 .db_filter_data_comp button.btn_selection {
   margin-right: 11px;
   padding: 5px 13px;
@@ -674,16 +688,19 @@ header.db_header_wrap {
   line-height: 26px;
   height: 38px;
 }
+
 .db_filter_data_comp button.btn_selection:hover {
   border-color: hsl(0, 0%, 70%);
 }
+
 .db_filter_data_comp .DatePicker {
   position: relative;
 }
+
 .db_filter_data_comp .DatePicker:after {
   content: "";
   position: absolute;
-  right: 0px;
+  right: 8px;
   top: 8px;
   width: 20px;
   height: 20px;
@@ -692,6 +709,7 @@ header.db_header_wrap {
   background-size: contain;
   opacity: 0.6;
 }
+
 .db_filter_data_comp input.DatePicker__input {
   display: inline-flex;
   align-items: flex-start;
@@ -711,6 +729,7 @@ header.db_header_wrap {
   height: 38px;
   min-width: 85px;
 }
+
 .db_filter_data_comp input.DatePicker__input::placeholder {
   color: #000;
   opacity: 1;
@@ -733,21 +752,25 @@ header.db_header_wrap {
     display: inline-block;
   }
 }
+
 @media screen and (min-width: 640px) and (max-width: 1024px) {
-  .db_customer_rqst_data {   
+  .db_customer_rqst_data {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
 @media screen and (min-width: 440px) and (max-width: 639px) {
-  .db_customer_rqst_data {   
+  .db_customer_rqst_data {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 @media screen and (max-width: 439px) {
-  .db_customer_rqst_data {   
+  .db_customer_rqst_data {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
+
 @media screen and (max-width: 767.98px) {
   .header_dashboard {
     align-items: center;

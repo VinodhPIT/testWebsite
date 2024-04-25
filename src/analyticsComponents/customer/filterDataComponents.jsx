@@ -87,12 +87,9 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
       end_date: null,
       year: yearToFilter
     })
-    filterDashBoardData({
-      ...selectedFilter,
+    filterDashBoardData({ ...selectedFilter,
       start_date: null,
-      end_date: null,
-      year: yearToFilter
-    });
+      end_date: null, year: yearToFilter });
   };
 
   const resetYear = () => {
@@ -115,6 +112,9 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
     });
   };
 
+  const divClassName = `filter_month_selection btn_style ${selectedDayRange.from &&
+    selectedDayRange.to  ? 'db_calendar_max_width' : 'db_calendar_min_width'}`;
+
   const renderCustomInput = ({ ref }) => (
     <div className="db_list_drop_down">
       <div className="db_filter_data_comp">
@@ -131,7 +131,7 @@ export default function FilterDataComponents({ filterDashBoardData, onUpdateDate
               : ""
             }`
             : ""}
-          className="filter_month_selection btn_style"
+          className={divClassName}
         />
       </div>
     </div>
