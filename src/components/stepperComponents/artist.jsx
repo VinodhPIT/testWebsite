@@ -25,7 +25,8 @@ const Artist = () => {
     selectedArtists,
     location,
     totalCount,
-    loader, loadData
+    loader,
+    loadData,
   } = useRequestForm();
 
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
@@ -79,29 +80,32 @@ const Artist = () => {
                   >
                     <div className="request_filter_block">
                       <div className="request_style_drop">
-                        <button onClick={onToggle}   className={`${toggle ? "onActive" : null}`}>
+                        <button
+                          onClick={onToggle}
+                          className={`${toggle ? "onActive" : null}`}
+                        >
                           <p>{t("common:Style")}</p>
                         </button>
                         {toggle && (
-                          <OutsideClickHandler
-                          onOutsideClick={onToggle}
-                          >
+                          <OutsideClickHandler onOutsideClick={onToggle}>
                             <StyleDropdown onToggle={onToggle} />
                           </OutsideClickHandler>
                         )}
                       </div>
                       <div className="request_location_drop">
-                        <button onClick={onToggleLoc}  className={`${
-                  toggleLocation ? "onActive" : null}`} >
-                
-                          <p>
+                        <button
+                          onClick={onToggleLoc}
+                          className={`${toggleLocation ? "onActive" : null}`}
+                        >
+                          
+                          <p className="trimText">
                             {location !== "" ? location : t("common:locations")}
                           </p>
                         </button>
+
+
                         {toggleLocation && (
-                          <OutsideClickHandler
-                            onOutsideClick={onToggleLoc}
-                          >
+                          <OutsideClickHandler onOutsideClick={onToggleLoc}>
                             <Location onToggleLoc={onToggleLoc} />
                           </OutsideClickHandler>
                         )}
@@ -152,23 +156,23 @@ const Artist = () => {
                               (artist) => artist.id === e._id
                             );
                             return (
-                              <div
-                                className="request_filter_grid"
-                                key={e._id}
-                               
-                              >
-                                <div className="request_filter_img"  onClick={() =>
-                                  handleCheckboxChange({
-                                    id: e._id,
-                                    image: e._source.tattoos[0].image,
-                                    names: e._source.name,
-                                    studios: e._source.studios,
-                                    location,
-                                    slug: e._source.slug,
-                                    artistImage: e._source.profile_image,
-                                    artistId: e._source.tattoos[0].profile_uid,
-                                  })
-                                }>
+                              <div className="request_filter_grid" key={e._id}>
+                                <div
+                                  className="request_filter_img"
+                                  onClick={() =>
+                                    handleCheckboxChange({
+                                      id: e._id,
+                                      image: e._source.tattoos[0].image,
+                                      names: e._source.name,
+                                      studios: e._source.studios,
+                                      location,
+                                      slug: e._source.slug,
+                                      artistImage: e._source.profile_image,
+                                      artistId:
+                                        e._source.tattoos[0].profile_uid,
+                                    })
+                                  }
+                                >
                                   <div className="request_ref_checkbox">
                                     <input
                                       type="checkbox"
@@ -186,11 +190,8 @@ const Artist = () => {
                                     blurDataURL={blurDataURL}
                                   />
                                 </div>
-                                
 
-                                <div className="request_filter_dtls" >
-                               
-                         
+                                <div className="request_filter_dtls">
                                   <div className="request_filter_profile">
                                     <Image
                                       src={e._source.profile_image}
@@ -201,20 +202,22 @@ const Artist = () => {
                                   </div>
 
                                   <div className="request_filter_profile_dtls">
-                                  <Link   href={`/${router.locale}/artists/${e._source.slug}`}  target="_blank">
-                                    <h6 className="request_filter_profile_title">
-                                      {e._source.name}
-                                    </h6>
-                                    <span className="request_filter_profile_address">
-                                      {getCountry(e._source.studios, location)}
-                                    </span>
-</Link>
+                                    <Link
+                                      href={`/${router.locale}/artists/${e._source.slug}`}
+                                      target="_blank"
+                                    >
+                                      <h6 className="request_filter_profile_title">
+                                        {e._source.name}
+                                      </h6>
+                                      <span className="request_filter_profile_address">
+                                        {getCountry(
+                                          e._source.studios,
+                                          location
+                                        )}
+                                      </span>
+                                    </Link>
                                   </div>
-                                 
-
                                 </div>
-                                
-
                               </div>
                             );
                           })}
@@ -234,12 +237,12 @@ const Artist = () => {
                           >
                             {t("common:loadMore")}
 
-                             {loadData&&  <span
-                              className="spinner-border spinner-border-sm"
-                              aria-hidden="true"
-                            ></span>}
-
-
+                            {loadData && (
+                              <span
+                                className="spinner-border spinner-border-sm"
+                                aria-hidden="true"
+                              ></span>
+                            )}
                           </button>
                         )}
                     </div>

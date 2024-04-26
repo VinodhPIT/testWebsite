@@ -21,7 +21,7 @@ const StepperComponent = ({ steps, activeStep }) => {
 
     return (
       <div style={{ textAlign: "center" }}>
-        {isCompleted ? (
+        {isCompleted && (
           <span
             style={{
               position: "absolute",
@@ -40,12 +40,9 @@ const StepperComponent = ({ steps, activeStep }) => {
               className="v_align_top mt_4"
             />
           </span>
-        ) : (
-          // If step is not completed, display an empty null
-          <span></span>
         )}
 
-        {!isMobileView && title}
+       <span className="fw_400">{!isMobileView && title}</span> 
       </div>
     );
   };
@@ -119,6 +116,8 @@ const StepperComponent = ({ steps, activeStep }) => {
           circleTop={0}
           lineMarginOffset={0}
           titleFontSize={12}
+          defaultTitleColor="#212121"
+          
         />
       </div>
       <ToastContainer />

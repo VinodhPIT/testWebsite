@@ -19,7 +19,7 @@ export default function Main() {
               src="/pexels-cottonbro-studio-4123767-1.png"
               fill
               objectFit="cover"
-              objectPosition="center"
+              objectPosition="top"
               blurDataURL={blurDataURL}
               className="m_object_position_center"
             />

@@ -53,7 +53,6 @@
     "CreateATattooRequest": "Create a tattoo request",
     "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
     "exploreStyle":"Explore tattoo styles"
-
   },
 
   "styleGuidePage": {
@@ -545,12 +544,12 @@
   },
 
   "stepper": {
-    "tattooSize": "Tattoo Size",
+    "tattooSize": "Tattoo size",
     "bodyPart": "Body part",
     "description": "Description",
     "reference": "Reference",
     "artists": "Artists",
-    "contact": "contact",
+    "contact": "Contact",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",

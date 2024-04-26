@@ -75,7 +75,7 @@ export default function Home({}) {
   }, []);
 
   useEffect(() => {
-    fetchStyle(router.locale.split("-")[0]);
+    fetchStyle(router.locale.split("-")[1]);
     fetchAll(router.locale.split("-")[0]);
   }, [router.locale]);
 
