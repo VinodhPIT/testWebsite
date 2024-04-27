@@ -1,6 +1,8 @@
 // components/TattooComponent.js
 import React from "react";
+
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+
 import useTranslation from "next-translate/useTranslation";
 
 const BodyPart = () => {

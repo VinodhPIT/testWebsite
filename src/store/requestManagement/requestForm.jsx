@@ -46,7 +46,6 @@ export const useRequestForm = create((set, get) => ({
   },
 
   setTattooSize: (value, index) => {
-
     set({
       tattooSize: value,
       tattoondex: index,
@@ -68,14 +67,13 @@ export const useRequestForm = create((set, get) => ({
 
   setPhone: (value) => set({ phone: value }),
 
-
   addImage: (file, imageUrl, uuid, index) => {
     set((state) => {
-      const newFileName = `${state.images.length}.jpg`; 
+      const newFileName = `${state.images.length}.jpg`;
       const newFile = new File([file], newFileName, {
         type: file.type,
       });
-  
+
       return {
         images: [
           ...state.images,
@@ -88,10 +86,6 @@ export const useRequestForm = create((set, get) => ({
       };
     });
   },
-  
-  
-
-  
 
   deleteImage: (uuid) =>
     set((state) => {
@@ -124,7 +118,7 @@ export const useRequestForm = create((set, get) => ({
 
   fetchArtistByStyle: async (slug) => {
     try {
-      set({ loader: true, loadNo: 0, selectedArtists: [] });
+      set({ loader: true, loadNo: 0 });
       let styleId = [];
       const slugsToCheck = Array.isArray(slug) ? slug : [slug];
       const stylesArray = await getStyles();
@@ -157,7 +151,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to clear selected style
   clearStyle: async () => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const { searchKey, latitude, longitude, styleId } = get();
       const response = await artistListing({
         ...requestFormParameters,
@@ -181,7 +175,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to clear search key
   clearField: async () => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const { latitude, longitude, styleId } = get();
       const response = await artistListing({
         ...requestFormParameters,
@@ -227,7 +221,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to filter artists by location
   filterLocation: async (address) => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const placeResponse = await axios.get(
         `/api/getPlaceDetails?location=${encodeURIComponent(address)}`
       );
@@ -256,7 +250,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to filter artists by current location
   filterCurrentLocation: async (isChecked) => {
     try {
-      set({ loader: true, locationDenied: false, selectedArtists: [] });
+      set({ loader: true, locationDenied: false });
 
       let latitude = "";
       let longitude = "";
@@ -295,7 +289,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to clear location
   clearLocation: async () => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const { searchKey, styleId } = get();
       const response = await artistListing({
         ...requestFormParameters,
@@ -343,15 +337,50 @@ export const useRequestForm = create((set, get) => ({
 
   addSelectedArtist: (artist) =>
     set((state) => ({
-      selectedArtists: [...state.selectedArtists, artist],
+      selectedArtists: [
+        ...state.selectedArtists,
+        {
+          ...artist,
+          isSelected: true,
+        },
+      ],
     })),
 
   removeSelectedArtist: (id) =>
     set((state) => ({
-      selectedArtists: state.selectedArtists.filter(
-        (artist) => artist.id !== id
-      ),
+      selectedArtists: state.selectedArtists
+        .map((artist) => {
+          if (artist.id === id) {
+            return {
+              ...artist,
+              isSelected: false,
+            };
+          }
+          return artist;
+        })
+        .filter((artist) => artist.id !== id),
     })),
+
+  //
+
+  checkBoxTrigger: (id) => {
+    set((state) => ({
+      selectedArtists: state.selectedArtists.map((artist) => {
+        if (artist.id === id) {
+          return { ...artist, isSelected: !artist.isSelected };
+        }
+        return artist;
+      }),
+    }));
+  },
+
+  removeUncheckArtist: () => {
+    set((state) => ({
+      selectedArtists: state.selectedArtists.filter(
+        (artist) => artist.isSelected
+      ),
+    }));
+  },
 
   nextPage: () =>
     set((prevState) => ({
