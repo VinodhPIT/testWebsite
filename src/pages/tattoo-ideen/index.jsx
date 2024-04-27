@@ -1,16 +1,18 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import Banner from "@/landing-3/Banner/Banner";
 import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-import Head from "next/head";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import UniquePartner from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
 import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
 import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
-import Image from "next/image";
-import { useNavigation } from "@/hooks/useRouter";
-import Link from "next/link";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 

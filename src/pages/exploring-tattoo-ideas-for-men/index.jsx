@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import Banner from "@/landing-1/Banner/Banner";
 import LeftContentRightImage from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
 import SideBySideContentWithImage from "@/landing-1/SideBySideContentWithImage/SideBySideContentWithImage";
@@ -7,11 +9,12 @@ import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarous
 import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
 import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
-import { useRouter } from "next/router";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
+
+
 
 export default function TattooIdeasForMen() {
   const router = useRouter();

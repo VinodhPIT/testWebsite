@@ -1,15 +1,17 @@
 import Link from "next/link";
 import Image from 'next/image'
 
-import useTranslation from "next-translate/useTranslation";
-
-import ImageSlider from "@/components/slider/ImageSlider";
 import useWindowResize from "@/hooks/useWindowSize";
+
+import useTranslation from "next-translate/useTranslation";
+import ImageSlider from "@/components/slider/ImageSlider";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
+
 function Appdownload() {
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();

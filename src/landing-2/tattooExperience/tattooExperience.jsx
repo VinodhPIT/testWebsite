@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import {
   BLUR_URL,
   APP_LINK_GOOGLE,

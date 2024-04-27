@@ -1,4 +1,7 @@
 import React from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+
 import Banner from "@/landing-3/Banner/Banner";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import SquareBoxTattooSlider from "@/landing-3/SquareBoxTattooSlider/SquareBoxTattooSlider";
@@ -7,10 +10,8 @@ import SliderSection from "@/landing-3/Slider/Slider";
 import LeftContentWithBackgroundImage from "@/landing-3/LeftContentWithBackgroundImage/LeftContentWithBackgroundImage";
 import VerticalImageLayout from "@/landing-3/VerticalImageLayout/VerticalImageLayout";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-import Head from "next/head";
 import SplitText from "@/landing-3/SplitText&Image/SplitText";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
-import { useRouter } from "next/router";
 import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
 
 export default function DrachenTattoos() {

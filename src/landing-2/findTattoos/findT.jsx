@@ -1,12 +1,10 @@
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
+
 import { BLUR_URL } from "@/constants/constants";
+
 import styles from "./findtattoos.module.css"
-
-
-
-
 
 export default function FindT({title ,button ,img1 ,img2}) {
   return (

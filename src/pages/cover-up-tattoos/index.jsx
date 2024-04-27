@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import Banner from "@/landing-2/Banner/Banner";
 import ListingGridThreeColumn from "@/landing-2/ListingGrid-ThreeColumn/ListingGridTwoColumn";
-import { useRouter } from "next/router";
 import UniquePartner from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
 import MediaContent from "@/landing-3/MediaContent/MediaContent";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";

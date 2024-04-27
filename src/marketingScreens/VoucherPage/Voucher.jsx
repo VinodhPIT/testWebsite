@@ -1,17 +1,20 @@
 
-
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import useTranslation from "next-translate/useTranslation";
 import DownloadApps from "../DownloadApps-klarna/DownloadApps";
-import style from "./style.module.css";
+import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
-import useTranslation from "next-translate/useTranslation";
-import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
+
+import style from "./style.module.css";
+
 
 function OfferPage({data}) {
   const currency =

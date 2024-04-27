@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
+
 import { BLUR_URL } from "@/constants/constants";
+
 import styles from "./style.module.css";
 
 export default function SideBySideContentWithImage({

@@ -1,13 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import DownloadApps from "../DownloadApps-klarna/DownloadApps";
-import style from "./style.module.css";
+
 import useTranslation from "next-translate/useTranslation";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
+
+import style from "./style.module.css";
+
 function KlarnaPage() {
   const { t } = useTranslation();
 

@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
+
 import {
   BLUR_URL,
 } from "@/constants/constants";
-
 
 export default function MediaItem({
   title1,

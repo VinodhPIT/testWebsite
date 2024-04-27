@@ -1,13 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ImageSlider from "@/components/slider/ImageSlider";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import ImageSlider from "@/components/slider/ImageSlider";
+
 import {
   BLUR_URL,
   APP_LINK_GOOGLE,
   APP_LINK_APPLE,
 } from "@/constants/constants";
+
 
 export default function DownloadApps({ title, subTitle }) {
   const { isMobileView } = useWindowResize();

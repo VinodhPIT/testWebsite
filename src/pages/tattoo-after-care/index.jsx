@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React  from "react";
+import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import Banner from "@/landing-3/Banner/Banner";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-import Head from "next/head";
-import { useNavigation } from "@/hooks/useRouter";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
