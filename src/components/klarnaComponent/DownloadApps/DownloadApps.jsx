@@ -1,13 +1,21 @@
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
-import ImageSlider from "@/components/slider/ImageSlider";
+import useTranslation from "next-translate/useTranslation";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import ImageSlider from "@/components/slider/ImageSlider";
+
 import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constants";
 
 
-export default function DownloadApps ({title ,subTitle ,bgColor}) {
+
+export default function DownloadApps ({title ,subTitle}) {
+
   const { isMobileView } = useWindowResize();
+  const { t } = useTranslation();
+
   return (
     <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_purple_250 landing_app_download_wrap mt_20 ${bgColor}"}>
       <div class="img_text_box_inner container pt_80 m_md_pt_40 m_pt_20 flex_direction_column app_download_custom_new">
@@ -38,7 +46,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
               </div>
             </div>
           </div>
-          {!isMobileView ? (
+          {!isMobileView && (
             <div className="col-xl-7 col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="img_box_wrap">
                 <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
@@ -47,7 +55,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                       src="/exploreKlarna-web-01.png"
                       width={193}
                       height={187}
-                      alt="Download the App & Explore more!"
+                      alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
@@ -59,7 +67,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                       src="/exploreKlarna-web-01.png"
                       width={193}
                       height={187}
-                      alt="Download the App & Explore more!"
+                      alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
@@ -71,7 +79,7 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                       src="/exploreKlarna-web-01.png"
                       width={193}
                       height={187}
-                      alt="Download the App & Explore more!"
+                      alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
@@ -81,22 +89,18 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                 </ul>
               </div>
             </div>
-          ) : (
-            ""
           )}
         </div>
       </div>
-      {isMobileView ? (
+      {isMobileView && (
         <ImageSlider
           imagePaths={["/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png"]}
-          imgAlt="Download the App & Explore more!"
+          imgAlt={t("common:downloadApp")}
           imgblurDataURL={blurDataURL}
           imgWidth={193}
           imgHeight={338}
         ></ImageSlider>
-        ) : (
-          ""
-      )}
+        )}
     </div>
   )
 }

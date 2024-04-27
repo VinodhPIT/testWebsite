@@ -5254,7 +5254,7 @@ button.language_switcher img {
   right: 65px;
   bottom: 47px;
   border-radius: 15px;
-  background: #F5B6C7;
+  background: var(--pink);
   z-index: 1;
 }
 .klarna_banner_badge img {
