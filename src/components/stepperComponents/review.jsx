@@ -42,7 +42,7 @@ const Review = () => {
     formData.append("size", !isSizePresent ? "nil" : sizeKey);
     formData.append("comments", message);
     formData.append("customer_email", email);
-    formData.append("customer_phone_no", phone);
+    formData.append("customer_phone_no", '+'+phone);
     images.map((el) => {
       formData.append("secondary_images", el.File);
     });
@@ -76,37 +76,37 @@ const Review = () => {
                   <h2>{t("common:stepper.title7")}</h2>
 
                   <div className="request_review_block">
-                    <div class="request_review_filter">
-                      <div class="request_filter_opt">
+                    <div className="request_review_filter">
+                      <div className="request_filter_opt">
                         <h6>{t("common:stepper.tattooSize")}</h6>
                         <p>{tattooSize}</p>
                       </div>
-                      <div class="request_filter_opt">
+                      <div className="request_filter_opt">
                         <h6>{t("common:stepper.tatooPosition")}</h6>
                         <p>{bodyPart}</p>
                       </div>
                     </div>
 
-                    <div class="request_review_desc">
+                    <div className="request_review_desc">
                       <h6>{t("common:stepper.description")}</h6>
                       <p>{message}</p>
                     </div>
 
-                    <div class="request_review_contact_info">
+                    <div className="request_review_contact_info">
                       <h6>{t("common:stepper.contactInformation")}</h6>
-                      <div class="request_contact_info_wrap">
+                      <div className="request_contact_info_wrap">
                         {phone && (
-                          <div class="request_contact_info_col">
+                          <div className="request_contact_info_col">
                             <Image
                               src="/review_call.svg"
                               width={16}
                               height={16}
                               alt="Review call"
                             />
-                            <p>{phone}</p>
+                            <p>+{phone}</p>
                           </div>
                         )}
-                        <div class="request_contact_info_col">
+                        <div className="request_contact_info_col">
                           <Image
                             src="/review_mail.svg"
                             width={16}
@@ -118,12 +118,12 @@ const Review = () => {
                       </div>
                     </div>
 
-                    <div class="request_review_desc">
+                    <div className="request_review_desc">
                       <h6>{t("common:stepper.referenceImages")}</h6>
-                      <div class="request_review_ref">
+                      <div className="request_review_ref">
                         {images.map((el, id) => {
                           return (
-                            <div class="request_review_ref_img" key={id}>
+                            <div className="request_review_ref_img" key={id}>
                               <Image
                                 src={images[id].imageUrl}
                                 width={175}
@@ -136,14 +136,14 @@ const Review = () => {
                       </div>
                     </div>
 
-                    <div class="request_review_selected_artist">
+                    <div className="request_review_selected_artist">
                       <h6>{t("common:stepper.selectedArtists")}</h6>
-                      <div class="request_filter_wrap">
-                        <div class="request_filter_col">
+                      <div className="request_filter_wrap">
+                        <div className="request_filter_col">
                           {selectedArtists.map((el, index) => {
                             return (
-                              <div class="request_filter_grid" key={index}>
-                                <div class="request_filter_img">
+                              <div className="request_filter_grid" key={index}>
+                                <div className="request_filter_img">
                                   <Image
                                     src={el.image}
                                     fill
@@ -152,8 +152,8 @@ const Review = () => {
                                     alt={el.slug}
                                   />
                                 </div>
-                                <div class="request_filter_dtls">
-                                  <div class="request_filter_profile">
+                                <div className="request_filter_dtls">
+                                  <div className="request_filter_profile">
                                     <Image
                                       src={el.artistImage}
                                       width={36}
@@ -161,11 +161,11 @@ const Review = () => {
                                       alt={el.slug}
                                     />
                                   </div>
-                                  <div class="request_filter_profile_dtls">
-                                    <h6 class="request_filter_profile_title">
+                                  <div className="request_filter_profile_dtls">
+                                    <h6 className="request_filter_profile_title">
                                       {el.names}
                                     </h6>
-                                    <span class="request_filter_profile_address">
+                                    <span className="request_filter_profile_address">
                                       {getCountry(el.studios, el.location)}
                                     </span>
                                   </div>
@@ -181,12 +181,12 @@ const Review = () => {
                   <div className="">
                     <button
                       onClick={() => prevPage()}
-                      class="btn_outline_secondary btn_cutom_40 mt_15 align_self"
+                      className="btn_outline_secondary btn_cutom_40 mt_15 align_self"
                     >
                       {t("common:goBack")}
                     </button>
                     <button
-                      class="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end"
+                      className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end"
                       onClick={() => uploadDataToAPI()}
                     >
                       {t("common:submit")}

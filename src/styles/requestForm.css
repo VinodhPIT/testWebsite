@@ -864,6 +864,26 @@
   display: none;
 }
 
+
+.request_contact_form .Dropdown-control{
+  width: 105px;
+  height: 50px;
+  font-size: 16px;
+  background-color: var(--gray-light-150);
+  border: 0;
+  padding: 8px 18px 8px 10px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+} 
+
+.request_contact_form .Dropdown-arrow {
+  top: 21px;
+}
+
+
+
+
 @media screen and (min-width: 768px) and (max-width: 1068px) {
   .request_landing_header .request_back_arrow {
     position: relative;
@@ -1136,6 +1156,10 @@
   .request_filter_dtls:after {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 100%);
   }
+  .get_country_code .css-1jqq78o-placeholder {
+  
+   font-size: 14px;
+}
 
 }
 
