@@ -1812,14 +1812,14 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .btn_secondary {
   display: inline-flex;
   height: 40px;
-  padding: 10px 13px;
+  padding: 8px 20px;
   margin: 0;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 16px;
+  font-size: 16px;
   line-height: 24px;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   border: 0;
   background: var(--black-450);
@@ -2849,11 +2849,11 @@ ul.progressbar li.completed:after {
 }
 
 .form_right_wrap h4 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
-  line-height: 32px;
+  line-height: 33px;
   margin: 0 0 27px 0;
-  color: var(--black);
+  color: var(--black-450);
 }
 
 .form_row {
@@ -2867,7 +2867,7 @@ ul.progressbar li.completed:after {
 
 form.form_floating .form_group {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .forms_section form .form_control {
@@ -2876,12 +2876,12 @@ form.form_floating .form_group {
   border-radius: 4px;
   height: 58px;
   padding: 8px 12px;
-  font-size: 15px;
-  line-height: 19px;
+  font-size: 18px;
+  line-height: 27px;
   color: var(--black-500);
   display: block;
   width: 100%;
-  font-weight: 400;
+  font-weight: 300;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -2992,7 +2992,9 @@ form.form_floating .form_group > .form_control:focus ~ label {
   color: var(--gray-300);
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
-
+form.form_floating  .radio_block.radio_form_grid {
+  margin-bottom: 20px;
+}
 .required:after {
   content: "*";
   color: var(--gray-300);
@@ -3015,12 +3017,13 @@ div.error {
 
 .form_submit_block {
   text-align: center;
-  min-height: 55vh;
+  /*min-height: 55vh;*/
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 30px;
 }
 
 .form_submit_block h4 {
@@ -3028,10 +3031,10 @@ div.error {
 }
 
 .form_submit_block p {
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
+  font-weight: 300;
+  line-height: 27px;
   color: rgba(0, 0, 0, 0.6);
   padding: 0;
   margin: 10px 0 30px 0;
@@ -3040,7 +3043,18 @@ div.error {
 form.form_floating .form_block:last-child .form_group {
   margin-bottom: 0;
 }
-
+form.form_floating .radio_block.radio_form_grid + div.error {
+  margin-bottom: 5px;
+}
+.default_form_block.contact_form_block .form_submit_block img {
+  margin-bottom: 20px;
+}
+.default_form_block.contact_form_block .form_submit_block p {
+  margin: 0 0 35px 0;
+}
+.default_form_block.contact_form_block .form_submit_block h4 {
+  margin-bottom: 10px;
+}
 /* klarna wrap */
 .klarna_wrap ul.custom-listing li {
   color: var(--black);
@@ -3099,10 +3113,10 @@ form.form_floating .form_group.radio_block > label {
   left: inherit;
   padding: 0 0 0 28px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 24px;
-  color: rgba(33, 33, 33, 1);
-  margin-right: 25px;
+  color: var(--black-500);
+  margin-right: 5px;
   height: auto;
   cursor: pointer;
 }
@@ -3150,8 +3164,8 @@ form.form_floating .form_group.radio_block > label {
 .radio_form_grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
 }
 
 /* contact form */
@@ -3169,14 +3183,15 @@ form.form_floating .form_group.radio_block > label {
 }
 
 .default_form_block.contact_form_block .form_right_wrap h4 {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .default_form_block.contact_form_block .form_right_wrap h6 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 27px;
-  margin-bottom: 13px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  color: var(--black-450);
 }
 
 .default_form_block.contact_form_block .form_block_right {
@@ -3189,7 +3204,7 @@ form.form_floating .form_group.radio_block > label {
 
 .default_form_block.contact_form_block .form_right_wrap {
   max-height: inherit;
-  padding: 35px 32px;
+  padding: 25px 32px;
 }
 
 .contact_form_block form.form_floating .form_group .form_control:focus,
@@ -3844,13 +3859,28 @@ form.form_floating .form_group.radio_block > label {
 .styleguide_xmas {
   padding: 40px 40px;
 }
-.form_submit_block ul.download_app {
+.form_submit_block .form_submit_download_app {
   text-align: center;
+  border-radius: 0 0 16px 16px;
+  background: #F8F8F8;
+  margin-top: 38px;
+  margin-left: -32px;
+  margin-right: -32px;
+  margin-bottom: -25px;
+  width: calc(100% + 64px);
+  padding-bottom: 10px;
 }
-.form_submit_block ul.download_app li.download_app_title h6 {
-  color: var(--black);
+.form_submit_block ul.download_app {
+  padding-top: 16px;
+  margin-top: 0;
 }
 
+.form_submit_block ul.download_app li.download_app_title h6 {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 27px;
+  color: var(--black-500);
+}
 /*swiper style*/
 
 .testimonials-profile-circle {
@@ -6668,8 +6698,7 @@ button.language_switcher img {
   }
   .default_form_block.contact_form_block .form_right_wrap {
     max-height: inherit;
-    padding: 25px 25px;
-    margin-top: 25px;
+    padding: 32px 16px 8px 16px;
   }
   .contact_form_block .form_block_left p {
     font-size: 16px;
@@ -6678,6 +6707,46 @@ button.language_switcher img {
   }
   .default_form_block.contact_form_block .form_submit_block {
     min-height: 43.5vh;
+  }
+  .form_right_wrap h4 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+  .default_form_block.contact_form_block .form_right_wrap h4 {    
+    margin-top: 16px;
+  }
+  .default_form_block.contact_form_block .form_right_wrap h6 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  form.form_floating .form_group.radio_block > label {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .forms_section form .form_control {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .form_submit_block .form_submit_download_app {
+    border-radius: 0;
+    background: transparent;
+    margin-top: 38px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 100%;
+    padding-bottom: 0px;
+  }
+  .default_form_block.contact_form_block .form_submit_block h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  .form_submit_block ul.download_app {
+      padding-top: 5px;
+  }
+  .form_submit_block ul.download_app li.download_app_title h6 {
+    font-size: 14px;
+    line-height: 21px;
   }
   ul.download_app.style_guide_down li a img {
     max-width: 133.878px;
