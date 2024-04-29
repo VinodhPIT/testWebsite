@@ -17,6 +17,8 @@ import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
+import Modal from "@/components/modalPopup/comingSoon"
+
 
 import {
   APP_LINK_APPLE,
@@ -221,6 +223,8 @@ export default function Home({}) {
         content3={t("common:homePage.Rest easy knowing")}
         leftSectionImage="/verified_tattoo_artists_01.png"
       />
+
+      <Modal />
     </>
   );
 }
