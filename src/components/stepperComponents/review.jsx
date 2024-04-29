@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import Link from "next/link";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import useTranslation from "next-translate/useTranslation";
 import Modal from "@/components/modalPopup/newUser";
@@ -26,6 +30,7 @@ const Review = () => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
+  const { router } = useNavigation();
 
   const uploadDataToAPI = () => {
     setLoading(true);
@@ -162,12 +167,16 @@ const Review = () => {
                                     />
                                   </div>
                                   <div class="request_filter_profile_dtls">
+                                    <Link  href={`/${router.locale}/artists/${el.slug}`}  target="_blank">
+                                  
                                     <h6 class="request_filter_profile_title">
                                       {el.names}
                                     </h6>
                                     <span class="request_filter_profile_address">
                                       {getCountry(el.studios, el.location)}
                                     </span>
+
+                                    </Link>
                                   </div>
                                 </div>
                               </div>

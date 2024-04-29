@@ -75,7 +75,7 @@ const Artist = () => {
                 <div style={{ position: "relative" }}>
                   <div
                     className="request_filter_col_wrap"
-                    style={{ display: "flex", gap: "4px" }}
+                   
                   >
                     <div className="request_filter_block">
                       <div className="request_style_drop">
