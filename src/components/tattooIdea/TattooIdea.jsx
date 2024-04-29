@@ -4,27 +4,14 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
-
-import useWindowResize from "@/hooks/useWindowSize";
-
-
-
 import {
   blurDataURL,
 } from "@/constants/constants";
 
 
-
-
-
-
 export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { isMobileView } = useWindowResize();
-
-console.log(isMobileView ,"isMobileView")
-
 
   return (
     <div className="img_text_box_wrapper block_bg_cool_aero_blue m_pb_0">
