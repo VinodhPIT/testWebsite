@@ -6,6 +6,7 @@
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
+    "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
     "faq": "FAQ",
@@ -52,6 +53,9 @@
     "CreateATattooRequest": "Create a tattoo request",
     "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
     "exploreStyle":"Explore tattoo styles"
+
+
+  
   },
 
   "styleGuidePage": {
@@ -208,7 +212,7 @@
   "forArtistPage": {
     "button": "Get Started",
     "bannerTitle": "Boost your business with inckd.",
-    "bannerSubtitle": "business ",
+    "bannerSubtitle": "business",
     "bannerSubtitle3": "with inckd.",
     "bannerContent": "Grow your tattoo business by fulfilling your customers' tattoo vision and offering them flexible payment options.",
 
@@ -227,6 +231,7 @@
 
     "title3": "Keep clients in the Loop",
     "content3": "Engage in real-time chats to understand your clients preferences firsthand. Efficiently handle appointments and stay prepared to meet your clients needs. Discuss offers and provide progress updates with inckd, ensuring their tattoo vision becomes a reality at every stage.",
+
     "title4": "Get inckd. customers tattoing with you now.",
     "title8": "Are you ready?",
 
@@ -433,16 +438,20 @@
   "Show Results": "Show Results",
   "Loading": "Loading...",
   "Search Location": "Search Location",
+
   "next": "Next",
   "goBack": "Go back",
   "currentLocation": " Use current location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",
-  "artistsSelected": "Artists Selected",
+  "artistsSelected": "Artists selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
   "learnMore" :"Learn more",
-  
+  "location":"Location",
+  "maximumLimit" :"Maximum limit of 10 reached",
+
+
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
     "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",

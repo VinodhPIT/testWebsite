@@ -54,7 +54,7 @@ const Artist = () => {
     return selectedArtists.length === 0 ? null : selectedArtists.length ===
       10 ? (
       <p className="mt_15 request_ref_selected max_reached">
-        Maximum limit of 10 reached
+        {t("common:maximumLimit")}
       </p>
     ) : (
       <p className="mt_15 request_ref_selected">
@@ -95,7 +95,7 @@ const Artist = () => {
                   toggleLocation ? "onActive" : null}`} >
                 
                           <p>
-                            {location !== "" ? location : t("common:locations")}
+                            {location !== "" ? location : t("common:location")}
                           </p>
                         </button>
                         {toggleLocation && (
