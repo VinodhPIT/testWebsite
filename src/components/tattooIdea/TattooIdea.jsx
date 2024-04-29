@@ -22,6 +22,10 @@ export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
   const { isMobileView } = useWindowResize();
+
+console.log(isMobileView ,"isMobileView")
+
+
   return (
     <div className="img_text_box_wrapper block_bg_cool_aero_blue m_pb_0">
       <div className="text_box_wrap left container custom_left_img_new">
@@ -93,11 +97,20 @@ export default function TattooIdea() {
                   <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">{t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
-                     href={ isMobileView ? `/${router.locale}/request-Form` :  `/${router.locale}/createRequest`}
-                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
+                     href={`/${router.locale}/createRequest`}
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden"
                   >
                    {t("common:homePage.CreateATattooRequest")}
                   </Link>
+
+
+                  <Link
+                     href={`/${router.locale}/request-Form`}
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 desk_hidden " 
+                  >
+                   {t("common:homePage.CreateATattooRequest")}
+                  </Link>
+
                 </div>
               </div>
             </div>
