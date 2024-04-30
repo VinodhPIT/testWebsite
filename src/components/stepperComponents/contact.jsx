@@ -1,15 +1,22 @@
-import React, { useState } from "react";
-import useTranslation from "next-translate/useTranslation";
+import React, { useState, useEffect } from "react";
 
+import useTranslation from "next-translate/useTranslation";
+import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+import useCountryCode from "@/store/countryCode/getcountryCode"; // Import Zustand store hook
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
-import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 
 import { artistContact } from "@/apiConfig/webService";
 
 
 const ContactForm = () => {
+
+  const [loader, setLoader] = useState(false);
+  const { t } = useTranslation();
+
   const {
     setEmail,
     setPhone,
@@ -17,21 +24,35 @@ const ContactForm = () => {
     email: storedEmail,
     phone: storedPhone,
     checkUserExists,
-    userExists,
   } = useRequestForm(); // Zustand setters
-  const [loader, setLoader] = useState(false);
+
+  const {
+    fetchCountryCodelists,
+    getCountryCodeList,
+    getSingleCountryCode,
+    countrycode,
+  } = useCountryCode(); // Zustand setters
+
+
+  const handleCountryChange = (selectedOptions) => {
+    getSingleCountryCode(selectedOptions.label);
+  };
+
+
 
   const handleSubmit = async (values) => {
     setLoader(true);
     setEmail(values.email);
-    setPhone(values.phone);
+    setPhone(
+      values.phone && countrycode.split("+")[1].trim() + values.phone
+    );
     let res = await artistContact(values);
     setLoader(false);
     checkUserExists(res.exists);
     nextPage();
   };
 
-  const { t } = useTranslation();
+
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -42,6 +63,20 @@ const ContactForm = () => {
       t("common:contactUsPage.InvalidNumber")
     ),
   });
+
+  useEffect(() => {
+    fetchCountryCodelists();
+  }, []);
+
+
+  const options = getCountryCodeList.map((country, index) => ({
+    value: index,
+    label: `${country.countryGoogleId} ${country.countryCode}`,
+    key: country.countryId,
+  }));
+
+
+
 
   return (
     <>
@@ -59,8 +94,8 @@ const ContactForm = () => {
                       onSubmit={handleSubmit}
                     >
                       {({ errors, touched }) => (
-                        <Form class="form_floating">
-                          <div class="form_block">
+                        <Form className="form_floating">
+                          <div className="form_block">
                             <label htmlFor="email">
                               {t("common:stepper.enterEmail")}
                             </label>
@@ -79,17 +114,34 @@ const ContactForm = () => {
                               className="error"
                             />
                           </div>
-                          <div class="form_block">
+                          <div className="form_block">
                             <label htmlFor="phone">
                               {t("common:stepper.enterPhone")}
                             </label>
-                            <Field
-                              type="text"
-                              id="phone"
-                              name="phone"
-                              className="form_control"
-                              placeholder="Your phone number"
-                            />
+
+                            <div style={{ display: "flex", gap: "8px" }}>
+                          
+
+<Dropdown
+    options={options}
+    value={countrycode}
+    onChange={handleCountryChange}
+  >
+    {options.map(option => (
+      <option key={option.key} value={option.value}>
+        {option.label}
+      </option>
+    ))}
+  </Dropdown>
+
+                              <Field
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                className="form_control"
+                                placeholder="Your phone number"
+                              />
+                            </div>
                             <ErrorMessage
                               name="phone"
                               component="div"
