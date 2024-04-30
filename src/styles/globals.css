@@ -948,7 +948,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .h_inherit {
   height: inherit !important;
 }
-
+.h_auto {
+  height: auto !important;
+}
 .h_400 {
   height: 400px !important;
 }
@@ -967,11 +969,15 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .max_h_100pc {
   max-height: 100% !important;
 }
-
+.max_h_inherit {
+  max-height: inherit !important;
+}
 .max_w_100pc {
   max-width: 100% !important;
 }
-
+.max_w_360 {
+  max-width: 360px !important;
+}
 .letter_spacing_01 {
   letter-spacing: -1.68px !important;
 }
@@ -2606,6 +2612,10 @@ ul.custom-listing li img {
   margin: 0;
   padding: 0;
   letter-spacing: -1.4px;
+}
+.custom_fs_14 {
+  font-size: 14px !important;
+  line-height: 21px !important;
 }
 .custom_fs_16 {
   font-size: 16px !important;
@@ -5279,6 +5289,61 @@ button.language_switcher img {
   -webkit-animation-duration: 2.5s;
   animation-duration: 2.5s;
 }
+
+
+/* coming soon page */
+.coming_soon_wrap {
+  min-height: 68vh;
+  padding-top: 12vh;
+  padding-bottom: 10vh;
+}
+.coming_soon_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* coming soon popup */
+.popup_wrap .popup_box_inner .popup_coming_soon {
+  width: 100%;
+  max-width: 560px;
+  padding: 0;
+  display: flex;
+  margin: 0;
+  align-items: flex-start;
+  position: relative;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+.popup_wrap .popup_box_inner .popup_coming_soon_content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  padding: 40px 30px;
+}
+/*
+.popup_wrap .popup_box_inner .popup_logo {
+  display: flex;
+}
+
+.popup_wrap .popup_box_inner .popup_content_wrap {
+  margin: auto 0 0 0;
+  width: 100%;
+  display: inline-block;
+}
+
+.popup_wrap .popup_box_inner .popup_content_wrap h2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -1.6px;
+  color: #000;
+  margin-bottom: 35px;
+}
+*/
 
 .klarna_banner_badge {
   display: flex;

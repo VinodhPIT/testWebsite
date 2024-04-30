@@ -5,7 +5,7 @@ function getCountryIcon(locale) {
       return "/switzerland.svg";
     case "de":
       return "/germany.svg";
-    case "uk":
+    case "gb":
       return "/united-kingdom.svg";
 
     case "pl":
