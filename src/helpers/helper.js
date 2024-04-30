@@ -3,6 +3,7 @@ import moment from "moment";
 
 
 
+
 const getPaginatorCount = () => {
   // Check if window is defined (only run on the client-side)
   if (typeof window !== 'undefined') {
@@ -18,6 +19,10 @@ export { getPaginatorCount };
 
 const pageCount = getPaginatorCount();
 
+
+
+export const MAX_RANDOM = 3409357923759259;
+export const MIN_RANDOM = 3;
 
 
 export const prepareRequest = (parameters) => {
@@ -243,3 +248,10 @@ const getCountry = (locations, location) => {
 };
 
 export { getCountry };
+
+
+export const getRandomSeed = () => {
+  const randomValues = new Uint32Array(1);
+  crypto.getRandomValues(randomValues);
+  return randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM;
+};

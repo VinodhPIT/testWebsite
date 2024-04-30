@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
+import Image from "next/image";
+
 import { useNavigation } from "@/hooks/useRouter";
+
+import useTranslation from "next-translate/useTranslation";
+
+import { blurDataURL } from "@/constants/constants";
+
+
 export default function Main() {
   const { t } = useTranslation();
   const { router } = useNavigation();

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
-import useTranslation from "next-translate/useTranslation";
+
 import { artistContact } from "@/apiConfig/webService";
+
 
 const ContactForm = () => {
   const {
@@ -66,6 +70,8 @@ const ContactForm = () => {
                               name="email"
                               className="form_control"
                               placeholder="Your e-mail"
+                          
+                      
                             />
                             <ErrorMessage
                               name="email"
