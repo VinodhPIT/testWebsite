@@ -1,7 +1,29 @@
 import moment from "moment";
 
+
+
+
+
+const getPaginatorCount = () => {
+  // Check if window is defined (only run on the client-side)
+  if (typeof window !== 'undefined') {
+    const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
+    return isMobile ? 10 : 9;
+  }
+  // Return a default value if window is not available (e.g., for server-side rendering)
+  return 10; // or any default value you prefer
+};
+
+export { getPaginatorCount };
+
+
+const pageCount = getPaginatorCount();
+
+
+
 export const MAX_RANDOM = 3409357923759259;
 export const MIN_RANDOM = 3;
+
 
 export const prepareRequest = (parameters) => {
   const request = {
@@ -44,11 +66,11 @@ const createRequestObject = (parameters, paginatorCount) => {
 };
 
 
-const artistRequest = (parameters, paginatorCount) => {
+const artistRequest = (parameters) => {
   const request = {
     sort:null,
     page_no: parameters.page_no,
-    paginator_count: paginatorCount,
+    paginator_count: pageCount,
     search_key: parameters.search_key,
     distance:"50km",
     
@@ -80,7 +102,7 @@ const artistRequest = (parameters, paginatorCount) => {
 
 
 export const stepperParam = (parameters) => {
-  return artistRequest(parameters, 9);
+  return artistRequest(parameters);
 };
 
 export const searchParam = (parameters) => {
