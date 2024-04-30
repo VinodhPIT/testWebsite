@@ -47,8 +47,8 @@ export default function ExploreTattoos({ title, content, datas }) {
                         className={`${"listing_grid_img_col sqr_resp_224 m_w_cal_100_10"}`}
                       >
                         <Image
-                          src={el.image}
-                          alt={'vfvvfvv'}
+                          src={el.image_url}
+                          alt={el.style.style_name}
                           width={224}
                           height={224}
                           loading="lazy"
