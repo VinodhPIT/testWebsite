@@ -25,8 +25,8 @@ export default function ExploreStyles({ title, content, data }) {
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 m_text_left custom_fs_m_24 position_relative">
+            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_40">
+              <h2 className="color_gray_550 heading_h2 lh_41 mb_0 m_text_left custom_fs_m_24 m_lh_29 position_relative">
                 <span className="heading_with_arrow position_relative">
                 Explore more tattoo styles
                 </span>
@@ -36,7 +36,7 @@ export default function ExploreStyles({ title, content, data }) {
               </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_40 m_mb_40 trending_artist_slider slider_nav_arrows"} ${
+              className={`${"mt_0 mb_40 m_mb_0 trending_artist_slider slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >

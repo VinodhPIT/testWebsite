@@ -218,7 +218,7 @@ export default function Styledeatil() {
         />
       </Head>
 
-      <div className="main_wrap_styleguide">
+      <div className="main_wrap_styleguide pb_0">
         <section className="img_text_banner_box">
           <div className="col_full">
             <div className="img_text_box_wrapper exciting_offer_wrap">
@@ -283,13 +283,13 @@ export default function Styledeatil() {
 
         <section className="text_box_wrap d_flex">
           <div className="justify_content_start container w_100pc">
-            <div className="custom_content_block mt_80">
-              <h3 className="color_black_h heading_h3 custom_fs_34 mb_12">Unveiling the Essence of Blackwork Tattoos</h3>
-              <p className="color_gray_550 custom_fs_18 fw_300 mb_40">Embark on a visual journey with Blackwork Tattoos—a tattoo style that's as captivating as it is enigmatic. Born from the deep roots of tribal and Polynesian art, blackwork tattoos celebrate the stark power of black ink, making a bold statement with every design. Their versatility in style and design options makes them a sought-after choice for those looking to express themselves through the timeless art of tattooing.</p>
-              <h3 className="color_black_h heading_h3 custom_fs_34 mb_12">The Rich History Behind Blackwork Tattoos</h3>
-              <p className="color_gray_550 custom_fs_18 fw_300 mb_40">Tracing back to the ancient traditions of tribal tattoos and Mendhi art, blackwork tattoos have carved their niche within the tattooing world. This style's origins are deeply intertwined with the ceremonial and cultural practices of tribal communities, where tattoos served as markers of identity, status, and beauty. The transition into what we now recognize as blackwork tattoos has been fueled by a fascination with Polynesian tattooing—known for its expansive use of black ink and intricate patterns. This fascination turned into a global phenomenon in the 1900s, transforming blackwork tattoos into a symbol of bold expression and artistic depth.</p>
-              <h3 className="color_black_h heading_h3 custom_fs_34 mb_12">Characteristics of Blackwork Tattoos</h3>
-              <p className="color_gray_550 custom_fs_18 fw_300 mb_40">What sets blackwork tattoos apart are the solid planes of black ink combined with bold lines that carve out each design. This style's essence lies in its simplicity and complexity—where pure black ink is used to create both minimalistic and intricate artworks. The contrast achieved through this technique emphasizes the design's shape, making each piece a standalone work of art.</p>
+            <div className="custom_content_block mt_80 m_mt_40">
+              <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">Unveiling the Essence of Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">Embark on a visual journey with Blackwork Tattoos—a tattoo style that's as captivating as it is enigmatic. Born from the deep roots of tribal and Polynesian art, blackwork tattoos celebrate the stark power of black ink, making a bold statement with every design. Their versatility in style and design options makes them a sought-after choice for those looking to express themselves through the timeless art of tattooing.</p>
+              <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">The Rich History Behind Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">Tracing back to the ancient traditions of tribal tattoos and Mendhi art, blackwork tattoos have carved their niche within the tattooing world. This style's origins are deeply intertwined with the ceremonial and cultural practices of tribal communities, where tattoos served as markers of identity, status, and beauty. The transition into what we now recognize as blackwork tattoos has been fueled by a fascination with Polynesian tattooing—known for its expansive use of black ink and intricate patterns. This fascination turned into a global phenomenon in the 1900s, transforming blackwork tattoos into a symbol of bold expression and artistic depth.</p>
+              <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">Characteristics of Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">What sets blackwork tattoos apart are the solid planes of black ink combined with bold lines that carve out each design. This style's essence lies in its simplicity and complexity—where pure black ink is used to create both minimalistic and intricate artworks. The contrast achieved through this technique emphasizes the design's shape, making each piece a standalone work of art.</p>
             </div>
           </div>
         </section>
@@ -301,9 +301,9 @@ export default function Styledeatil() {
         />
         <section className="text_box_wrap d_flex">
           <div className="justify_content_start container w_100pc">
-            <div className="custom_content_block mt_40">
-              <h3 className="color_black_h heading_h3 custom_fs_34 mb_15">A Canvas of Imagination: Common Imagery in Blackwork Tattoos</h3>
-              <p className="color_gray_550 custom_fs_18 fw_300 mb_25">The beauty of blackwork tattoos lies in their diversity - ranging from geometric shapes and abstract patterns to figurative scenes and spiritual symbols. Enthusiasts of this style often choose designs that include:</p>              
+            <div className="custom_content_block mt_40 m_mt_0">
+              <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_15">A Canvas of Imagination: Common Imagery in Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_25">The beauty of blackwork tattoos lies in their diversity - ranging from geometric shapes and abstract patterns to figurative scenes and spiritual symbols. Enthusiasts of this style often choose designs that include:</p>              
               <div className="range_patterns">
                 <ul>
                   <li>Geometric shapes and patterns</li>
@@ -319,7 +319,7 @@ export default function Styledeatil() {
                   <li>Nature Scenes</li>
                 </ul>
               </div>
-              <p className="color_gray_550 custom_fs_18 fw_300 mb_80">Each of these imagery choices not only adds to the visual appeal of blackwork tattoos but also allows for a personal touch, making each tattoo a unique reflection of the wearer's identity and beliefs.</p>
+              <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_80 m_mb_40">Each of these imagery choices not only adds to the visual appeal of blackwork tattoos but also allows for a personal touch, making each tattoo a unique reflection of the wearer's identity and beliefs.</p>
             </div>
           </div>
         </section>

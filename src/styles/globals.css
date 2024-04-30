@@ -7474,6 +7474,13 @@ button.language_switcher img {
   .klarna_works_block {
     display: none;
   }
+  .range_patterns ul {
+    row-gap: 8px;
+  }
+  .range_patterns ul li {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
 @media screen and (max-width: 640px) {
   .img_box_wrap.custom_slick_slider_one {
