@@ -224,7 +224,7 @@ export default function Home({}) {
         leftSectionImage="/verified_tattoo_artists_01.png"
       />
 
-      <Modal />
+      {/* <Modal /> */}
     </>
   );
 }

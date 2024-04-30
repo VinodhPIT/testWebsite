@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import FullWidthcarosuel from "@/components/FullwidthCarousel/FullwidthCarousel";
+import Blackworktattooslider from "@/components/styleSlider/Blackworktattooslider";
+import Sharetattooideas from "@/components/styleSlider/shareTattooideas";
+import Exploreblackworktattoos from "@/components/styleSlider/exploreblackworkTattoos";
+import ExploreStyle from "@/components/styleSlider/exploreStyles";
+import Dreamtattooai from "@/components/styleSlider/dreamtattooAi";
 import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
@@ -13,6 +17,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 import ImageSlider from "@/components/slider/ImageSlider";
 import useTranslation from "next-translate/useTranslation";
 import { getLocaleProps } from "@/utils/getlocale";
+
 export default function Styledeatil() {
 
   const router = useRouter();
@@ -20,179 +25,182 @@ export default function Styledeatil() {
   const { t } = useTranslation();
 
 
-
-
-  const letteringTattoo = [
+  const tattoos = [
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2426_20220913093723746-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2adf3477-8803-486e-9c9e-d9fe37f72eae`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21561_20230312230323292-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ba76717a-788c-42ec-a50c-c946a7deb7b7`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26257_20230821104803244-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/6f3d0066-23a9-49c7-8705-fd2da1d3b3a7`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26057_20230814190028838-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ffbb5f5b-c124-4599-9a2a-8b8fb70d0305`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7888_20221102141002810-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0125be4e-89c1-42b6-acbe-d482c43eb537`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2836_20220916175556641-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/fe25e0ec-bf1d-451d-93d4-70ac74a6286d`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10316_20221128160935591-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c1005867-9c21-4249-9376-dea1bcb3574f`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13796_20230105095643483-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1374fce3-e79a-4381-a9f7-281c84793b5c`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12866_20221227210842279-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/303ff0c3-2e92-4ad7-b5e8-b6f10b94aa4c`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/18174_20230208215617181-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c2377f90-d4c4-4056-896e-53a2da502273`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8635_20221110103751099-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/eb9e342d-55c2-44e6-89a5-2915f16be39a`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/22296_20230323003140535-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/32a4ef5e-159d-4e3a-8498-5f2244b0fb8d`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/cache/b2/8b/b28b011cda37b2f37ea0f287ecc71e21.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/04ef0f8f-2133-4f82-a1c6-7d07502132f4`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4677_20221006183710030-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/570d3a82-3d83-41b1-8b3c-ed72fe064c42`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4674_20221006183315588-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ebdd32be-7b9f-429b-8adb-4dc92161143a`,
     },
   ];
 
-  const finlineTattoo = [
+  const trendingArtist = [
     {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/8863_20231115232146356_4B0029D0-4FCF-4CC4-99BF-91A77CD4CE6C.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2667_20220914190416690-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/5a629ad1-216f-4b46-96a7-78beb7e7011e`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/29508_20231115232450433-medium.jpg",
+      name: "Mia Bella",
+
+      city: "Rotherham",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/miabella_ohshrf35`,
     },
     {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/8888_20231116231802146_3a300540-f428-49e8-8bff-7a6e76f51781.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8125_20221104174853899-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7542cf47-3213-4f9f-931d-149118d9ecbd`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/29519_20231116232704731-medium.jpg",
+      name: "Julia Blackfox",
+
+      city: "Frankfurt an der Oder",
+      country: "Germany",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/juliablackfox_4rh203ng`,
+    },
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/920_5CC75242-4928-4A0B-A72D-90E651FCA364.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9439_20221118114953632-medium.jpg",
+      name: "Alessandro Lanzafame",
+
+      city: "London",
+      country: "United Kingdom",
+
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/alessandro-lanzafame_nts3jh4k`,
+    },
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/566_175C2680-D5A1-46C6-A5BF-13055B046823.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2164_20220831155842506-medium.jpg",
+      name: "Barbara Nobody",
+
+      city: "London,",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/barbaranobody_e8w4uiq5`,
     },
 
     {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/4449_20230307153700577_7FCCE75E-1210-4929-B396-295ECE8D7D0E.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13440_20230102160802048-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2875c869-fd9a-42cd-9989-dec8888c1ac2`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21192_20230307143220227-medium.jpg",
+      name: "Mileink",
+
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/Mileink_8t07n1nk`,
+    },
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/3741_20230209033123652_D9044E0B-6D66-4491-A800-E100E428B30B.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/18214_20230209043507234-medium.jpg",
+      name: "13FoxxTattoos",
+
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/13foxxtattoos_6426m6eg`,
     },
 
     {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/3587_20230206105448273_7BBC9E76-F92B-4BBC-B743-0DD7BC4C1F31.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13458_20230102163950299-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9871b7a0-033f-4996-b8da-c3a23c793aed`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17544_20230204122643244-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/52bd353e-9f4e-4508-848d-60522d6d3212`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17550_20230204123504272-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74caf732-9d14-4f5f-8722-65c707eb687d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17547_20230204123501185-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/bb2dc20c-a35b-44f6-bed1-156624395726`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17589_20230204173826801-medium.jpg",
+      name: "Çinar Efe Tattoo",
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/cinar-efe_acwe82ae`,
     },
   ];
 
-  const realisticTattoo = [
+  const wolfTattoo = [
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9319_20221117111234098-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/a1b2a7bd-3924-4b8b-aae1-687ae23f2705`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15791_20230123114449181-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d5341b19-53fa-452a-a48d-5939e8447567`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/16382_20230128111259148-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d3ec0d7b-1bef-4274-86c4-e5b28f8eb8fb`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12754_20221226235443946-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d7fb5d39-311a-41c1-83c7-bdf867de0b5f`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/25700_20230727133039790-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/21a3b09f-919d-44be-b31b-a1b48fa8cd30`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11512_20221211152329664-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d855a985-7d30-4da5-af9c-adfab8cdf5de`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7386_20221028143844333-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0cf44262-b504-4efb-9238-9c67cd17d384`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/23534_20230409045647188-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4eee1070-98d0-4e8a-821e-cf8ced5da0dc`,
-    },
-  ];
-
-  const traditionalTattoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6074_20221020193122885-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2ba3e42b-bc43-48c4-b3e7-69a046c78342`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8921_20221113205418987-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b688a83f-7af7-42ab-8c6d-edd2fcdf6412`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2316_20220908094806542-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ea47a79a-f217-4945-a40d-243d461a27c2`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11485_20221211114627901-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/36ee28fd-6985-468a-afcb-b78b8f807959`,
     },
-
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10804_20221205141544052-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f783081d-daa9-45ef-b110-f8e0d1a08673`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13918_20230106083756566-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/edbf815f-b1ce-456a-afc1-3f9a0b0b6cff`,
     },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6168_20221021120112671-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cd332dd5-5649-4235-b511-29be55d0dd87`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3584_20220924154058732-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/031a72ae-846c-4bf3-970a-dbcca0492e66`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3049_20220920230333305-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/71c9ecfd-ff5c-46d9-b250-8ac270b24a95`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/25143_20230705093427799-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2af305a1-a209-4f26-90df-4001b3fda216`,
-    },
-  ];
-
  
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/691_20220412032624728-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f63585f8-c917-4a17-b2f0-c8e7e50cd573`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9049_20221115155833283-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f5eeea9a-60f8-4aad-918a-49edba55e566`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14421_20230110024759369-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/17f6cf8d-d8c9-4048-b5e7-1bc13289bac6`,
+    },
+ 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3595_20220925051912507-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b602e50a-03a6-40d0-a231-b324e35f2517`,
+    },
+  ];
+
 
 
   return (
@@ -221,51 +229,22 @@ export default function Styledeatil() {
                         <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_0">
                           <span>{t("common:styleGuidePage.bannerTitle")}</span>
                         </h1>
-                        <p className="m_mt_20 m_mb_20">
+                        <p className="m_mt_10 m_mb_10 txt_mob_fs14 m_lh_21">
                           {t("common:styleGuidePage.bannerContent")}
                         </p>
-                        <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
-                          <ul class="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block">
-                            <li class="download_app_title mb_10">
-                              {t("common:homePage.Download the inckd")}
-                            </li>
-                            <li>
-                              <Link href={APP_LINK_APPLE} target="_blank">
-                                <Image
-                                  priority
-                                  src="/app-store-new.svg"
-                                  alt="App store"
-                                  width={134}
-                                  height={41}
-                                  placeholder="blur"
-                                  blurDataURL={blurDataURL}
-                                  className="custom_download_icons"
-                                />
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href={APP_LINK_GOOGLE} target="_blank">
-                                <Image
-                                  priority
-                                  src="/g-play-new.svg"
-                                  alt="Play store"
-                                  width={134}
-                                  height={41}
-                                  placeholder="blur"
-                                  blurDataURL={blurDataURL}
-                                  className="custom_download_icons"
-                                />
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
+                        <Link
+                            href=""
+                            className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
+                        >
+                        {t("common:styleGuidePage.bannerTattooRequestBtn")}
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <div class="img_box_wrap custom_download_shadow no_shadow_before">
                     <Image
                       priority
-                      src="/pexels-ryan-hiebendahl-9801666-28-hd.png"
+                      src="/pexels-jayson-hinrichsen-8975668-8.png"
                       alt={t("common:styleGuidePage.bannerTitle")}
                       fill
                       objectFit="cover"
@@ -277,7 +256,7 @@ export default function Styledeatil() {
                     />
                     <Image
                       priority
-                      src="/image_2024_01_10T08_43_02_053Z.png"
+                      src="/pexels-jayson-hinrichsen-8975668-8-m.png"
                       alt={t("common:styleGuidePage.bannerTitle")}
                       fill
                       objectFit="cover"
@@ -293,391 +272,65 @@ export default function Styledeatil() {
             </div>
           </div>
         </section>
-        {/* custom_left_img_block */}
-        <div className="img_text_box_wrapper mb_35 m_mb_0">
-          <div className="text_box_wrap left block_bg_white container custom_left_img_new">
-            <div className="img_text_box_inner flex_direction_column">
-              <div className="row m_switcher_row">
-                <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
-                  <div className="img_box_wrap block_bg_gradient_1 mb_30 m_mb_25 m_mt_0">
-                    <div class="box_text_img_over color_yellow md_max_75">
-                      <h2 class="txt_mob_fs50 color_yellow">
-                        <span className="small">{t("common:MyStyleis")}</span>
-                        <span className="textBlock">
-                          {t("common:styleGuidePage.Type lettering")}
-                        </span>
-                      </h2>
-                    </div>
-                    <Image
-                      priority={true}
-                      src="/pexels-ademola-w-16248220-12_hd.png"
-                      alt={t("common:styleGuidePage.Letteringtattoos")}
-                      width={474}
-                      height={553}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      layout="responsive"
-                      className="object_position_left"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-0 m_order_1">
-                  <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_35">
-                    <div className="text_box_content_inner m_pr_0 pr_0">
-                      <h2>
-                        <span>
-                          {t("common:styleGuidePage.Letteringtattoos")}
-                        </span>
-                      </h2>
-                      <p className="m_mt_15 m_mb_20">
-                        {t("common:styleGuidePage.LetteringTattooContent")}
-                      </p>
-                      <Link
-                        href={`/${router.locale}/explore/tattoo-artists`}
-                        class="btn_secondary btn_cutom_new btn_img"
-                      >
-                        {t("common:styleGuidePage.Explore lettering artists")}
-                        <Image
-                          src="/alt-arrow-right-white.svg"
-                          alt="arrow"
-                          class="ml-8 mt-2"
-                          width={16}
-                          height={16}
-                          priority
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <FullWidthcarosuel
-          title={t("common:styleGuidePage.Explore lettering tattoos")}
-          content=""
-          datas={letteringTattoo}
-          buttonName={t("common:ExploreMoreTattoos")}
-          keyword={`/${router.locale}/explore/tattoos`}
-          sectionBg="#fff"
-          altTag={t("common:styleGuidePage.Letteringtattoos")}
+        <Blackworktattooslider
+          title={t("common:styleGuidePage.ArtistSliderTitle")}
+          content={t("common:styleGuidePage.ArtistSliderContent")}
+          button={t("common:ExploreMoreArtist")}
+          trendingArtist={trendingArtist}           
         />
+        <Sharetattooideas />
 
-        <div className="img_text_box_wrapper">
-          <div class="text_box_wrap right block_bg_white container custom_right_img_new">
-            <div class="img_text_box_inner m_switcher flex_direction_column">
-              <div className="row">
-                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
-                  <div class="text_box_content justify_content_start pl_0 pt_30 pb_100 m_pr_0 m_min_h_reset m_pt_20 m_pb_35">
-                    <div class="text_box_content_inner m_pr_0 pr_0">
-                      <h2>
-                        <span>
-                          {t("common:styleGuidePage.Finelinetattoos")}
-                        </span>
-                      </h2>
-                      <p className="m_mt_15 m_mb_20">
-                        {t("common:styleGuidePage.FinelineTattooContent")}
-                      </p>
-                      <Link
-                        href={`/${router.locale}/explore/tattoo-artists`}
-                        class="btn_secondary btn_cutom_new btn_img"
-                      >
-                        {t("common:styleGuidePage.Explore fineline artists")}
-                        <Image
-                          src="/alt-arrow-right-white.svg"
-                          alt="arrow"
-                          class="ml-8 mt-2"
-                          width={16}
-                          height={16}
-                          priority
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                  <div class="img_box_wrap block_bg_gradient_1 mt_30 m_mt_0 m_mb_25">
-                    <div class="box_text_img_over color_yellow md_max_75 tattoo_fine_custom_left">
-                      <h2 class="txt_mob_fs50">
-                        <span className="small">{t("common:MyStyleis")}</span>{" "}
-                        <span className="textBlock">
-                          {t("common:styleGuidePage.Type fineline")}
-                        </span>
-                      </h2>
-                    </div>
-                    <Image
-                      priority={true}
-                      src="/pexels-ozan-15020597-45-hd.png"
-                      alt={t("common:styleGuidePage.Finelinetattoos")}
-                      width={474}
-                      height={565}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      layout="responsive"
-                      className="object_position_left"
-                    />
-                  </div>
-                </div>
-              </div>
+        <section className="text_box_wrap d_flex">
+          <div className="justify_content_start container w_100pc">
+            <div className="custom_content_block mt_80">
+              <h3 className="color_black_h heading_h3 custom_fs_34 mb_12">Unveiling the Essence of Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 fw_300 mb_40">Embark on a visual journey with Blackwork Tattoos—a tattoo style that's as captivating as it is enigmatic. Born from the deep roots of tribal and Polynesian art, blackwork tattoos celebrate the stark power of black ink, making a bold statement with every design. Their versatility in style and design options makes them a sought-after choice for those looking to express themselves through the timeless art of tattooing.</p>
+              <h3 className="color_black_h heading_h3 custom_fs_34 mb_12">The Rich History Behind Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 fw_300 mb_40">Tracing back to the ancient traditions of tribal tattoos and Mendhi art, blackwork tattoos have carved their niche within the tattooing world. This style's origins are deeply intertwined with the ceremonial and cultural practices of tribal communities, where tattoos served as markers of identity, status, and beauty. The transition into what we now recognize as blackwork tattoos has been fueled by a fascination with Polynesian tattooing—known for its expansive use of black ink and intricate patterns. This fascination turned into a global phenomenon in the 1900s, transforming blackwork tattoos into a symbol of bold expression and artistic depth.</p>
+              <h3 className="color_black_h heading_h3 custom_fs_34 mb_12">Characteristics of Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 fw_300 mb_40">What sets blackwork tattoos apart are the solid planes of black ink combined with bold lines that carve out each design. This style's essence lies in its simplicity and complexity—where pure black ink is used to create both minimalistic and intricate artworks. The contrast achieved through this technique emphasizes the design's shape, making each piece a standalone work of art.</p>
             </div>
           </div>
-        </div>
-
-        <FullWidthcarosuel
-          title={t("common:styleGuidePage.Explore fineline")}
-          content=""
-          datas={finlineTattoo}
-          buttonName={t("common:ExploreMoreTattoos")}
-          keyword={`/${router.locale}/explore/tattoos`}
-          sectionBg="#fff"
-          altTag={t("common:styleGuidePage.Finelinetattoos")}
+        </section>
+        
+        <Exploreblackworktattoos
+          title={t("common:menus.tattooSearch")}
+          content={t("common:homePage.worldOfInk")}
+          datas={wolfTattoo}
         />
-
-        <div class="text_box_wrap right app_download_box_wrap mb_0 block_bg_gray_150 mt_25">
-          <div class="img_text_box_inner container pt_90 m_md_pt_40 m_pt_20 pb_90 m_md_pb_40 m_pb_20 flex_direction_column app_download_custom_new">
-            <div className="row">
-              <div className="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                <div class="text_box_content justify_content_start pl_0 m_pt_0 m_pb_20 m_pr_0">
-                  <div class="text_box_content_inner w_100pc m_pr_0">
-                    <ul class="download_app ml_0 w_100pc max_w_100pc">
-                      <li class="download_app_title">
-                        <h6>
-                          <span>{t("common:styleGuidePage.download")}</span>
-
-                          <span className="textBlock">
-                            {t("common:styleGuidePage.exploreApp")}
-                          </span>
-                        </h6>
-                      </li>
-                      <li>
-                        <Link href={APP_LINK_APPLE} target="_blank">
-                          <Image
-                            src="/app-store-new.svg"
-                            alt="Appstore"
-                            width={134}
-                            height={41}
-                            priority
-                          />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href={APP_LINK_GOOGLE} target="_blank">
-                          <Image
-                            src="/g-play-new.svg"
-                            alt="Playstore"
-                            width={134}
-                            height={41}
-                            priority
-                          />
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+        <section className="text_box_wrap d_flex">
+          <div className="justify_content_start container w_100pc">
+            <div className="custom_content_block mt_40">
+              <h3 className="color_black_h heading_h3 custom_fs_34 mb_15">A Canvas of Imagination: Common Imagery in Blackwork Tattoos</h3>
+              <p className="color_gray_550 custom_fs_18 fw_300 mb_25">The beauty of blackwork tattoos lies in their diversity - ranging from geometric shapes and abstract patterns to figurative scenes and spiritual symbols. Enthusiasts of this style often choose designs that include:</p>              
+              <div className="range_patterns">
+                <ul>
+                  <li>Geometric shapes and patterns</li>
+                  <li>Floral Patterns</li>
+                  <li>Skulls and Skeletons</li>
+                  <li>Abstract Art</li>
+                  <li>Sacred Geometry</li>
+                  <li>Animal Imagery</li>
+                  <li>Cosmic and Celestial Bodies</li>
+                  <li>Mandalas</li>
+                  <li>Architectural Designs</li>
+                  <li>Horror and Gothic Imagery</li>
+                  <li>Nature Scenes</li>
+                </ul>
               </div>
-              {!isMobileView ? (
-                <div className="col-xl-7 col-lg-6 col-md-5 col-sm-12 col-xs-12">
-                  <div class="img_box_wrap">
-                    <ul class="app_download_img_list after_none justify_content_start m_0">
-                      <li>
-                        <Image
-                          src="/Sytlepage1.png"
-                          width={221}
-                          height={447}
-                          alt={t("common:styleGuidePage.download")}
-                          className="b_radius_0"
-                          loading="lazy"
-                          placeholder="blur"
-                          blurDataURL={blurDataURL}
-                        />
-                      </li>
-                      <li>
-                        <Image
-                          src="/Stylepage2.png"
-                          width={221}
-                          height={447}
-                          alt={t("common:styleGuidePage.download")}
-                          className="b_radius_0"
-                          loading="lazy"
-                          placeholder="blur"
-                          blurDataURL={blurDataURL}
-                        />
-                      </li>
-                      <li>
-                        <Image
-                          src="/Sytlepage3.png"
-                          alt={t("common:styleGuidePage.download")}
-                          className="b_radius_0"
-                          width={221}
-                          height={447}
-                          loading="lazy"
-                          placeholder="blur"
-                          blurDataURL={blurDataURL}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )}
+              <p className="color_gray_550 custom_fs_18 fw_300 mb_80">Each of these imagery choices not only adds to the visual appeal of blackwork tattoos but also allows for a personal touch, making each tattoo a unique reflection of the wearer's identity and beliefs.</p>
             </div>
           </div>
-          {isMobileView ? (
-            <ImageSlider
-              imagePaths={[
-                "/Sytlepage1.png",
-                "/Stylepage2.png",
-                "/Sytlepage3.png",
-              ]}
-              imgAlt={t("common:styleGuidePage.download")}
-              imgblurDataURL={blurDataURL}
-              imgWidth={221}
-              imgHeight={447}
-            ></ImageSlider>
-          ) : (
-            ""
-          )}
-        </div>
+        </section>
 
-        <div className="img_text_box_wrapper mb_35 m_mb_0">
-          <div class="text_box_wrap left block_bg_white container custom_left_img_new">
-            <div class="img_text_box_inner m_switcher m_mt_0 flex_direction_column">
-              <div className="row">
-                <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 m_order_2">
-                  <div class="img_box_wrap block_bg_gradient_1 mb_30 m_mt_0 m_mb_25">
-                    <div class="box_text_img_over color_yellow md_max_75">
-                      <h2 class="txt_mob_fs50 color_green_100">
-                        <span className="small">{t("common:MyStyleis")}</span>{" "}
-                        <span className="textBlock">
-                          {t("common:styleGuidePage.Type realistic")}
-                        </span>
-                      </h2>
-                    </div>
-                    <Image
-                      priority={true}
-                      src="/pexels-elena-rubtsova-12301327-4-hd.png"
-                      alt={t("common:styleGuidePage.Realistictattoos")}
-                      width={474}
-                      height={565}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      layout="responsive"
-                      className="object_position_left"
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-0 m_order_1">
-                  <div class="text_box_content justify_content_start m_min_h_reset m_pt_30 m_pb_35">
-                    <div class="text_box_content_inner m_pr_0 pr_0">
-                      <h2>
-                        <span>
-                          {t("common:styleGuidePage.Realistictattoos")}
-                        </span>
-                      </h2>
-                      <p className="m_mt_15 m_mb_20">
-                        {t("common:styleGuidePage.RealisticTattooContent")}
-                      </p>
-                      <Link
-                        href={`/${router.locale}/explore/tattoo-artists`}
-                        class="btn_secondary btn_cutom_new btn_img"
-                      >
-                        {t("common:styleGuidePage.Explore realistic artists")}
-                        <Image
-                          src="/alt-arrow-right-white.svg"
-                          alt="arrow"
-                          class="ml-8 mt-2"
-                          width={16}
-                          height={16}
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Dreamtattooai />
 
-        <FullWidthcarosuel
-          title={t("common:styleGuidePage.Explore realistic tattoos")}
-          content=""
-          datas={realisticTattoo}
-          buttonName={t("common:ExploreMoreTattoos")}
-          keyword={`/${router.locale}/explore/tattoos`}
-          sectionBg="#fff"
-          altTag={t("common:styleGuidePage.Realistictattoos")}
-        />
+        <ExploreStyle
+          title={t("common:homePage.exploreStyle")}
+          content={t("common:homePage.worldOfInk")}
+          data={wolfTattoo}
+        />       
 
-        <div className="img_text_box_wrapper">
-          <div class="text_box_wrap right block_bg_white container custom_right_img_new">
-            <div class="img_text_box_inner m_switcher flex_direction_column">
-              <div className="row">
-                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1 offset-md-right-0">
-                  <div class="text_box_content justify_content_start pl_0 pt_30 pb_100 m_pr_0 m_min_h_reset m_pt_20 m_pb_35">
-                    <div class="text_box_content_inner m_pr_0 pr_0">
-                      <h2>
-                        <span>
-                          {t("common:styleGuidePage.Traditionaltattoos")}
-                        </span>
-                      </h2>
-                      <p className="m_mt_15 m_mb_20">
-                        {t("common:styleGuidePage.TraditionalTattooContent")}
-                      </p>
-                      <Link
-                        href={`/${router.locale}/explore/tattoo-artists`}
-                        class="btn_secondary btn_cutom_new btn_img"
-                      >
-                        {t("common:styleGuidePage.Explore traditional artists")}
-                        <Image
-                          src="/alt-arrow-right-white.svg"
-                          alt="arrow"
-                          class="ml-8 mt-2"
-                          width={16}
-                          height={16}
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                  <div class="img_box_wrap block_bg_gradient_1 justify_content_right mt_30 m_mt_0 m_mb_25">
-                    <div class="box_text_img_over color_aero_blue md_max_75">
-                      <h2 class="txt_mob_fs50 text_right">
-                        <span className="small">{t("common:MyStyleis")}</span>{" "}
-                        <span className="textBlock">
-                          {t("common:styleGuidePage.Type traditional")}
-                        </span>
-                      </h2>
-                    </div>
-                    <Image
-                      priority={true}
-                      src="/pexels-ralph-rabago-3214805-6-hd.png"
-                      alt="TraditionalTattoos"
-                      width={474}
-                      height={565}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      layout="responsive"
-                      className="object_position_left"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <FullWidthcarosuel
-          title={t("common:styleGuidePage.Explore traditional tattoos")}
-          content=""
-          datas={traditionalTattoo}
-          buttonName={t("common:ExploreMoreTattoos")}
-          keyword={`/${router.locale}/explore/tattoos`}
-          sectionBg="#fff"
-          altTag={t("common:styleGuidePage.Traditionaltattoos")}
-        />
       </div>
     </>
   );

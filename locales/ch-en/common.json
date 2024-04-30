@@ -55,8 +55,11 @@
   },
 
   "styleGuidePage": {
-    "bannerTitle": "Tattoo Styles",
-    "bannerContent": "Explore unique tattoo styles in our app! find your perfect ink. Dive into endless options today.",
+    "bannerTitle": "Blackwork Tattoos",
+    "bannerContent": "Boldly Defining Individuality: The Art of Blackwork Tattoos - Where Tradition Meets Modern Expression",
+    "bannerTattooRequestBtn": "Create tattoo request",
+    "ArtistSliderTitle": "Find the right blackwork tattoo artist",
+    "ArtistSliderContent": "Discover the perfect blackwork tattoo artist for every project, tailored to your unique vision.",
     "Letteringtattoos": "Lettering tattoos",
     "LetteringTattooContent": "Elevate your self-expression with captivating lettering tattoos. Find skilled artists on our Tattoo Booking App for personalized and impactful ink that tells your unique story. Explore now!",
     "Finelinetattoos": "Fineline tattoos",
