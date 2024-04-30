@@ -4,10 +4,7 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
-import {
-  blurDataURL,
-} from "@/constants/constants";
-
+import { blurDataURL } from "@/constants/constants";
 
 export default function TattooIdea() {
   const { t } = useTranslation();
@@ -21,7 +18,9 @@ export default function TattooIdea() {
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_40 m_pb_0 hidden m_d_block">
                 <div className="text_box_content_inner m_pr_0 pr_0">
-                  <h2 className="custom_fs_m_28 desk_hidden">{t("common:homePage.Share your tattoo idea")}</h2>
+                  <h2 className="custom_fs_m_28 desk_hidden">
+                    {t("common:homePage.Share your tattoo idea")}
+                  </h2>
                 </div>
               </div>
               <div className="img_box_wrap m_mb_25 m_mt_10">
@@ -34,9 +33,8 @@ export default function TattooIdea() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
-                 
                 />
-                <div class="chat_block bubble_top_mid floating_animation">                  
+                <div class="chat_block bubble_top_mid floating_animation">
                   <Image
                     priority={true}
                     src="/pro-pic-d-1.png"
@@ -74,35 +72,32 @@ export default function TattooIdea() {
                       <p>07:20 pm</p>
                     </div>
                   </div>
-                </div>                
+                </div>
               </div>
             </div>
             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 offset-md-1">
               <div className="text_box_content justify_content_start m_min_h_reset m_pt_0 m_pb_25">
-                <div className="text_box_content_inner m_pr_0 pr_0">                  
-                  <h2 className="mob_hidden"> {t("common:homePage.Share your tattoo idea")}</h2>
-                  <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">{t("common:homePage.TattooIdeaDesc")}
+                <div className="text_box_content_inner m_pr_0 pr_0">
+                  <h2 className="mob_hidden">
+                    {" "}
+                    {t("common:homePage.Share your tattoo idea")}
+                  </h2>
+                  <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">
+                    {t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
-
-                     href={`/${router.locale}/createRequest`}
-                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden"
+                    href={`/${router.locale}/createRequest`}
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden custom_fs_m_16 m_lh_20"
                   >
-                   {t("common:homePage.CreateATattooRequest")}
+                    {t("common:homePage.CreateATattooRequest")}
                   </Link>
-
 
                   <Link
-                    
-                    // className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 desk_hidden " 
-
                     className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 desk_hidden"
-                     href={`/${router.locale}/request-Form`}
-
+                    href={`/${router.locale}/request-Form`}
                   >
-                   {t("common:homePage.CreateATattooRequest")}
+                    {t("common:homePage.CreateATattooRequest")}
                   </Link>
-
                 </div>
               </div>
             </div>
@@ -112,4 +107,3 @@ export default function TattooIdea() {
     </div>
   );
 }
-
