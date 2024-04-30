@@ -164,9 +164,11 @@
     
 
     "workingStep6":"Pay Later",
-    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain"
+    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
     
-
+    "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
+    "ts&amp;cs": "Ts&Cs",
+    "lateFeesApply":" and late fees apply."
 
   },
 

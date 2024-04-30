@@ -152,9 +152,10 @@
     
 
     "workingStep6":"Pay Later",
-    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain"
-    
-
+    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
+    "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
+    "ts&amp;cs": "Ts&Cs",
+    "lateFeesApply":" and late fees apply."
   },
 
   "dictionaryPage": {
@@ -258,8 +259,8 @@
     "bannerSubtitle3": "with inckd.",
     "bannerContent": "Grow your tattoo business by fulfilling your customers' tattoo vision and offering them flexible payment options.",
 
-    "title1": "Manage your business",
-    "Download our app from": " Download our app from",
+    "title1": "Manage your business with inckd.",
+    "Download our app from": "Download our app, it’s free",
     "easySetup": "Easy setup",
     "free-to-use": "Free to use",
     "easy-payments": "Easy payments",
@@ -492,6 +493,7 @@
   "learnMore" :"Learn more",
   "location":"Location",
   "maximumLimit" :"Maximum limit of 10 reached",
+
 
 
   "homeScreenSEO": {
