@@ -46,7 +46,7 @@ const TattooSearchModal1Popup = ({}) => {
 
   return (
     <Modal
-    isOpen={true}
+    isOpen={false}
     
     contentLabel="Example Modal"
     style={customStyles} 

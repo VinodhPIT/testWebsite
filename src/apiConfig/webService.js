@@ -190,3 +190,14 @@ export const exploreAll = async (lng) => {
     return [];
   }
 };
+
+
+export const getCountryCode = async () => {
+  try {
+    const response = await getApiCall(API_URL.SEARCH.GET_COUNTRY_CODE);
+    return response;
+  } catch (error) {
+   
+    return [];
+  }
+};
