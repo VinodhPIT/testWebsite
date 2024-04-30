@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -26,46 +26,43 @@ import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumn
 function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
-  
- 
 
   const list = [
     {
-      title: t("common:klarnaPage.Download App"),
-      content: t("common:klarnaPage.Seamlessly download"),
+      title: t("common:klarnaPage.workingStep1"),
+      content: t("common:klarnaPage.workingStepContent-1"),
       num: "1",
     },
     {
-      title: t("common:klarnaPage.Choose an artist"),
-      content: t("common:klarnaPage.Explore thousands"),
+      title: t("common:klarnaPage.workingStep2"),
+      content: t("common:klarnaPage.workingStepContent-2"),
       num: "2",
     },
 
     {
-      title: t("common:klarnaPage.Accept an offer"),
-      content: t("common:klarnaPage.Effortlessly accept"),
+      title: t("common:klarnaPage.workingStep3"),
+      content: t("common:klarnaPage.workingStepContent-3"),
       num: "3",
     },
 
     {
-      title: t("common:klarnaPage.Select Klarna"),
-      content: t("common:klarnaPage.Select Klarna at checkout"),
+      title: t("common:klarnaPage.workingStep4"),
+      content: t("common:klarnaPage.workingStepContent-4"),
       num: "4",
     },
 
     {
-      title: t("common:klarnaPage.Tattoo day"),
-      content: t("common:klarnaPage.Now that the details are settled"),
+      title: t("common:klarnaPage.workingStep5"),
+      content: t("common:klarnaPage.workingStepContent-5"),
       num: "5",
     },
 
     {
-      title: t("common:klarnaPage.Pay later"),
-      content: t("common:klarnaPage.Congratulations on Your New Tattoo"),
+      title: t("common:klarnaPage.workingStep6"),
+      content: t("common:klarnaPage.workingStepContent-6"),
       num: "6",
     },
   ];
-  const [preExpandedItems, setPreExpandedItems] = useState([list[0].num]);
 
   const trendingArtist = [
     {
@@ -152,8 +149,6 @@ function KlarnaNew({}) {
       url: `${process.env.LIVE_URL}/${router.locale}/artists/meganrae_4dszyy98`,
     },
   ];
-
-
 
   return (
     <>
@@ -277,8 +272,8 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_35 m_pb_15">
-                    Available payment options:
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_35 m_pb_15">
+                    {t("common:klarnaPage.availablePayment")}
                   </h3>
                 </div>
                 <div className="klarna_pay_opt_grid">
@@ -293,16 +288,14 @@ function KlarnaNew({}) {
                         blurDataURL={blurDataURL}
                       />
                       <span className="klarna_pay_opt_label">
-                        Pay in 30 days
+                      {t("common:klarnaPage.tag1")}
                       </span>
                     </span>
-                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0 m_mt_15">
-                      Get an extra 30 days to pay.
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
+                    {t("common:klarnaPage.optionTitle-1")}
                     </h4>
-                    <p className="custom_fs_18 custom_fs_m_14 color_gray_550 mb_0 mt_8">
-                      Take your time deciding on your perfect tattoo. We offer
-                      an extra 30 days to complete your payment, totally
-                      interest-free.
+                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
+                    {t("common:klarnaPage.optionContent-1")}
                     </p>
                   </div>
 
@@ -316,14 +309,13 @@ function KlarnaNew({}) {
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                       />
-                      <span className="klarna_pay_opt_label">Instalments</span>
+                      <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag2")}</span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Enjoy 3 interest-free instalments.
+                    {t("common:klarnaPage.optionTitle-2")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Experience a modern way to commit to your next tattoo with
-                      the option to pay in 3 equal, interest-free instalments.
+                    {t("common:klarnaPage.optionContent-2")}
                     </p>
                   </div>
 
@@ -337,14 +329,13 @@ function KlarnaNew({}) {
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                       />
-                      <span className="klarna_pay_opt_label">Instalments</span>
+                      <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag3")}</span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Enjoy 4 interest-free instalments.
+                    {t("common:klarnaPage.optionTitle-3")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Experience a modern way to commit to your next tattoo with
-                      the option to pay in 3 equal, interest-free instalments.
+                    {t("common:klarnaPage.optionContent-3")}
                     </p>
                   </div>
 
@@ -358,14 +349,13 @@ function KlarnaNew({}) {
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                       />
-                      <span className="klarna_pay_opt_label">Financing</span>
+                      <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag4")}</span>
                     </span>
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
-                      Up to 36 months to pay for your tattoo.
+                    {t("common:klarnaPage.optionTitle-4")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
-                      Experience a modern way to commit to your next tattoo with
-                      the option to pay in 3 equal, interest-free instalments.
+                    {t("common:klarnaPage.optionContent-4")}
                     </p>
                   </div>
                 </div>
@@ -375,9 +365,9 @@ function KlarnaNew({}) {
                     agreements. Borrowing more than you can afford or paying
                     late may negatively impact your financial status and ability
                     to obtain credit. 18+, UK residents only. Subject to status.{" "}
-                    <Link href="#" target="_blank">
+                    <Link href="https://www.klarna.com/uk/terms-and-conditions" target="_blank">
                       Ts&Cs
-                    </Link>{" "}
+                    </Link>
                     and late fees apply.
                   </p>
                 </div>
@@ -395,13 +385,13 @@ function KlarnaNew({}) {
                 <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
                   <div className="text_box_content_inner max_w_100pc text_center">
                     <h2 className="color_gray_550 mb_30 m_mb_25 custom_fs_m_28">
-                      Need help to find the right tattoo artist?
+                    {t("common:klarnaPage.findArtists")}
                     </h2>
                     <Link
-                      href={`/${router.locale}/klarna`}
+                      href={`/${router.locale}/createRequest`}
                       className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
                     >
-                      Create a tattoo request
+                      {t("common:homePage.CreateATattooRequest")}
                     </Link>
                   </div>
                 </div>
@@ -416,16 +406,16 @@ function KlarnaNew({}) {
           <div className="img_text_box_wrapper">
             <div
               className={
-                "text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_30 m_pb_20"
+                "text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_20 m_pb_40"
               }
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_40 m_pb_10">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_40 m_pb_15">
                     {t("common:klarnaPage.MainTitle1")}
                   </h3>
                 </div>
-                <div className="klarna_works_block">
+                <div className="klarna_works_block mob_hidden">
                   {list.map((el, index) => {
                     return (
                       <div className="klarna_works_items" key={index}>
@@ -441,8 +431,8 @@ function KlarnaNew({}) {
                   })}
                 </div>
 
-                <div className="klarna_works_accordion">
-                  <Accordion allowZeroExpanded={true} preExpanded={preExpandedItems}>
+                <div className="klarna_works_accordion desk_hidden">
+                  <Accordion allowZeroExpanded={true}>
                     {list.map((el, index) => (
                     <AccordionItem key={index} uuid={el.num}>
                       <AccordionItemHeading className="klarna_works_items">
@@ -456,11 +446,16 @@ function KlarnaNew({}) {
                   </Accordion>
                 </div>
 
+
+
               </div>
             </div>
           </div>
         </div>
-      </section>     
+      </section>
+
+
+    
 
 
 
