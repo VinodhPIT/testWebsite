@@ -1,3 +1,5 @@
+
+
 const Parameters = {
    sort: "newest",
    page_no: 0,
@@ -20,12 +22,12 @@ const requestFormParameters = {
    latitude:"",
    longitude:"",
    distance:"50km",
+   seed:''
 };
 
 
 
 export { Parameters ,requestFormParameters }; // Named export
-
 
 
 

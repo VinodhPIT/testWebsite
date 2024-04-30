@@ -1,49 +1,40 @@
-import React, { useState, useEffect, useRef } from "react";
-import style from "./styles/tattoosearch.module.css";
-import { useGlobalState } from "@/context/Context";
+import React, { useRef } from "react";
 import Image from "next/image";
-import useTranslation from "next-translate/useTranslation";
+
+import { useGlobalState } from "@/context/Context";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
-import useWindowResize from "@/hooks/useWindowSize";
+
+import style from "./styles/tattoosearch.module.css";
 
 function SearchBar() {
-  const { setSearchState, searchState } = useGlobalState();
-  const { isMobileView } = useWindowResize();
   const { searchArtist, clearField } = useRequestForm();
-
-  const { t } = useTranslation();
-
+  const { setSearchState, searchState } = useGlobalState();
+  
   const inputRef = useRef(null);
-
+  
   const handleChange = (e) => {
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: e,
     }));
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     searchArtist(searchState.query);
   };
-
+  
   const clearText = async () => {
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: "",
     }));
-
+  
     clearField();
-    // window.location.reload();
   };
 
-  const onSearch = () => {
-    setSearchState((prevSearchState) => ({
-      ...prevSearchState,
-      isButtonClicked: !prevSearchState.isButtonClicked,
-    }));
-  };
+
 
   return (
     <div className={style.search_bar}>

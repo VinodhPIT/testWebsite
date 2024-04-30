@@ -180,19 +180,34 @@
   align-items: center;
 }
 
-.request_landing_content {
-  display: flex;
+.request_landing_content,
+.selectedArtistblock {
   width: 100%;
+  border: 1px solid #ccc;
+  margin: 25px auto;
+}
+
+.request_landing_content {
   max-width: 790px;
   padding: 40px 80px;
+  border-radius: 16px;
+  display: flex; 
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  margin: 25px auto;
 }
+
+.selectedArtistblock {
+  max-width: 750px;
+  padding: 40px 77px;
+  background-color: var(--white);
+  border-radius: 11px;
+   height: 578px;
+   position: relative;
+
+}
+
 
 .request_landing_content_col {
   display: flex;
@@ -256,6 +271,9 @@
 
 .request_text_area {
   position: relative;
+  width: 584px;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 .request_text_area textarea {
@@ -459,7 +477,17 @@
   padding: 0;
   position: relative;
   z-index: 1;
+   overflow: hidden;
 }
+.request_filter_profile_dtls a {
+  word-break: break-word;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:var(--white)
+}
+
 
 .request_filter_profile_dtls h6.request_filter_profile_title {
   margin: 0;
@@ -467,10 +495,12 @@
   font-size: 14px;
   font-weight: 400;
   color: var(--white);
-  display: block;
+  /* display: block;
   max-width: 100%;
   word-break: break-word;
-  padding: 0;
+  padding: 0; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .request_filter_profile_dtls .request_filter_profile_address {
@@ -681,7 +711,8 @@
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 21px
+  line-height: 21px;
+  color: var(--black-200);
 }
 
 .request_location_drop {
@@ -715,7 +746,12 @@
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 21px
+  line-height: 21px;
+    word-break: break-word;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;padding: 0px 12px 0px 0px
 }
 
 .request_current_location {
@@ -863,6 +899,28 @@
 .request_ref_selected.max_reached img {
   display: none;
 }
+.picked_ArtistsPanel{
+  height:386px;
+  overflow: hidden;
+  overflow:scroll ;margin-bottom: 20px;
+}
+
+.request_contact_form .Dropdown-control{
+  width: 105px;
+  height: 50px;
+  font-size: 16px;
+  background-color: var(--gray-light-150);
+  border: 0;
+  padding: 8px 18px 8px 10px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+} 
+
+.request_contact_form .Dropdown-arrow {
+  top: 21px;
+}
+
 
 @media screen and (min-width: 768px) and (max-width: 1068px) {
   .request_landing_header .request_back_arrow {
@@ -953,7 +1011,7 @@
     height: 42px;
     padding: 8px 10px;
   }
-
+ 
   .request_text_area textarea {
     padding: 8px 12px;
   }
@@ -982,27 +1040,18 @@
   }
 
   .request_filter_block {
-    gap: 10px;
+    gap: 4px;
   }
 
   .request_style_drop {
-    max-width: 129px;
+    max-width: 100%;
   }
 
   .request_location_drop {
-    max-width: 129px;
+    max-width: 100%;
   }
-
-  .request_filter_block {
-    gap: 10px;
-  }
-
-  .request_style_drop {
-    max-width: 129px;
-  }
-
-  .request_location_drop {
-    max-width: 129px;
+  .request_filter_col_wrap {
+    gap: 4px;
   }
 
   .request_ref_btn {
@@ -1102,7 +1151,8 @@
 
   .request_filter_col_wrap button.mobileSearch {
     border-radius: 8px;
-    width: 36px;
+    width: 38px;
+    min-width: 38px;
     height: 39px;
     padding: 0;
     font-size: 14px;
@@ -1137,7 +1187,20 @@
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 100%);
   }
 
+
 }
+
+
+@media screen and (max-width: 699px) {
+  .selectedArtistblock {
+    padding: 26px;
+    height: auto;
+   
+  }
+}
+
+
+
 
 @media screen and (max-width: 405px) {
   .request_review_ref_img img {

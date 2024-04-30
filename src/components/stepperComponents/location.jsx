@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import PlacesAutocomplete from "react-places-autocomplete";
-import { useRequestForm } from "@/store/requestManagement/requestForm";
-import useWindowResize from "@/hooks/useWindowSize";
-import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
+
+import useWindowResize from "@/hooks/useWindowSize";
+
 import useTranslation from "next-translate/useTranslation";
+import { useRequestForm } from "@/store/requestManagement/requestForm";
+import PlacesAutocomplete from "react-places-autocomplete";
+
+import styles from "./styles/dropdown.module.css";
+
+
 
 export default function LocationSearch({ onToggleLoc }) {
   const [address, setAddress] = useState("");
@@ -150,7 +155,7 @@ export default function LocationSearch({ onToggleLoc }) {
           <button
             onClick={() => clear()}
             disabled={location === "" ? true : false}
-            className="btn_outline_secondary w_100pc btn_cutom_new"
+            className="btn_outline_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
           >
             {t("common:Clear All")}
           </button>
@@ -158,7 +163,7 @@ export default function LocationSearch({ onToggleLoc }) {
           <button
             onClick={() => searchLocation()}
             disabled={address === ""}
-            className="btn_secondary w_100pc btn_cutom_new"
+            className="btn_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
           >
             {t("common:Show Results")}
           </button>

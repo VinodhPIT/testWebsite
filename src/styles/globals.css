@@ -688,7 +688,7 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   font-weight: var(--fw-light);
 }
 .fw_400 {
-  font-weight: var(--fw-regular);
+  font-weight: var(--fw-regular) !important;
 }
 .fw_500 {
   font-weight: var(--fw-medium);
@@ -1319,7 +1319,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mb_50 {
   margin-bottom: 50px !important;
 }
-
+.mb_60 {
+  margin-bottom: 60px !important;
+}
 .mb_65 {
   margin-bottom: 65px !important;
 }
@@ -2109,7 +2111,7 @@ button.btn_view_more:hover {
   width: 20px !important;
   height: 20px !important;
 }
-
+.btn_disabled_40,
 .btn_cutom_40 {
   height: 40px;
   padding: 6px 16px 6px 16px;
@@ -2117,6 +2119,13 @@ button.btn_view_more:hover {
   line-height: 28px;
   font-weight: 500;
 }
+
+.btn_disabled_40 {
+  background-color: rgb(248, 248, 248);
+  color: rgb(217, 217, 217);
+  border-radius: 4px;
+}
+
 .btn_regist {
   display: inline-flex;
   height: 43px;
@@ -2635,17 +2644,18 @@ ul.custom-listing li img {
   font-size: 26px !important;
   line-height: 32px !important;
 }
-
+.custom_fs_28 {
+  font-size: 28px !important;
+  line-height: 33px !important;
+}
 .custom_fs_32 {
   font-size: 32px !important;
   line-height: 38px !important;
 }
-
 .custom_fs_34 {
   font-size: 34px !important;
   line-height: 40px !important;
 }
-
 .custom_d_fs_50 {
   font-size: 50px !important;
   line-height: 60px !important;
@@ -5069,16 +5079,6 @@ button.language_switcher img {
 .main_wrap_styleguide {
   padding-bottom: 30px;
 }
-.klarna_num_count {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 52px;
-  letter-spacing: -2.2px;
-  color: var(--black-200);
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
 .footer_switcher {
   display: inline-block;
   padding: 10px 10px;
@@ -5344,6 +5344,170 @@ button.language_switcher img {
   margin-bottom: 35px;
 }
 */
+
+.klarna_banner_badge {
+  display: flex;
+  padding: 13px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 13px;
+  position: absolute;
+  right: 65px;
+  bottom: 47px;
+  border-radius: 15px;
+  background: var(--pink);
+  z-index: 1;
+}
+.klarna_banner_badge img {
+  width: auto !important;
+}
+.klarna_pay_opt_grid {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column-gap: 68px;
+  grid-row-gap: 68px;
+  margin-bottom: 32px;
+}
+.klarna_pay_opt_items {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid var(--gray-light-300);
+  min-height: 227px;
+}
+.klarna_pay_opt_badge {
+  display: flex;
+  align-items: center;
+}
+.klarna_pay_opt_badge img {
+  margin-right: 16px;
+}
+.klarna_pay_opt_label {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.klarna_pay_terms p {
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 21px;
+  margin: 0;
+}
+.klarna_pay_terms p a {
+  color: #2D61C9;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 21px;
+  text-decoration: underline;
+}
+.klarna_pay_terms p a:hover {
+  text-decoration: none;
+}
+
+.klarna_works_block {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 40px;
+  grid-row-gap: 64px;
+  margin-bottom: 0;
+}
+.klarna_works_items {
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.klarna_num_count {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 2px solid var(--gray-light-300);
+  background: #FFF;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 41px
+}
+.klarna_works_accordion .accordion {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+.klarna_works_accordion .accordion .accordion__item {
+  padding-bottom: 24px;
+}
+.klarna_works_accordion .klarna_works_items {
+  padding-bottom: 0;
+}
+.klarna_works_accordion .klarna_works_items .accordion__button {
+  background-color: transparent;
+  display: flex;
+  padding: 24px 0 0 0;
+  align-items: center;
+  position: relative;
+}
+.klarna_works_accordion .klarna_works_items .accordion__button:before {
+  display: none;
+}
+.klarna_works_accordion .klarna_works_items .accordion__button:after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  top: 26px;
+  background: url("/accordion-arrow.svg") no-repeat;
+
+}
+.klarna_works_accordion .klarna_works_items .accordion__button[aria-expanded='true']:after, 
+.klarna_works_accordion .klarna_works_items .accordion__button[aria-selected='true']:after {
+  transform: rotate(180deg);
+}
+.klarna_works_accordion .klarna_works_items .klarna_num_count {
+  width: 24px;
+  height: 24px;
+  padding: 0px 6px;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0 8px 0 0;
+}
+.klarna_works_accordion .klarna_works_items h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+}
+.klarna_works_accordion .accordion .accordion__panel {
+  padding: 0 0 0 32px;
+}
+.klarna_works_accordion .accordion .accordion__panel p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  margin: 10px 0 0 0;
+}
+.klarna_works_accordion .accordion .accordion__item + .accordion__item {
+  border-top: 1px solid var(--gray-light-300);
+}
+.klarna_works_accordion .accordion .accordion__item:last-child {
+  border-bottom: 1px solid var(--gray-light-300);
+}
+
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
@@ -6094,6 +6258,9 @@ button.language_switcher img {
   .m_mt_0 {
     margin-top: 0px !important;
   }
+  .m_mt_5 {
+    margin-top: 5px !important;
+  }
   .m_mt_10 {
     margin-top: 10px !important;
   }
@@ -6282,10 +6449,10 @@ button.language_switcher img {
     line-height: 30px !important;
   }
 
-  .custom_fs_m_14 {
-    font-size: 14px !important;
-    line-height: 21px !important;
-  }
+  .custom_fs_m_20 {
+    font-size: 20px !important;
+    line-height: 24px !important;
+  }  
 
   .custom_fs_m_16 {
     font-size: 16px !important;
@@ -6299,7 +6466,15 @@ button.language_switcher img {
 
   .m_lh_19 {
     line-height: 19px!important;
-  }  
+  }
+  .custom_fs_m_14 {
+    font-size: 14px !important;
+    line-height: 21px !important;
+  }
+
+  .m_lh_20 {
+    line-height: 20px!important;
+  }
   
   .m_lh_21 {
     line-height: 21px!important;
@@ -7162,12 +7337,6 @@ button.language_switcher img {
     > div {
     margin-right: 0;
   }
-  .klarna_num_count {
-    font-size: 27px;
-    line-height: 30px;
-    margin-bottom: 7px;
-    font-weight: 400;
-  }
 
   button.btn_view_more {
     height: 40px;
@@ -7219,6 +7388,42 @@ button.language_switcher img {
     bottom: 4px;
     width: 18px;
     height: 18px;
+  }
+  .klarna_pay_opt_grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-column-gap: 0;
+    grid-row-gap: 16px;
+    margin-bottom: 24px;
+  }
+  .klarna_pay_opt_items {
+    padding: 24px 16px;
+    min-height: inherit;
+  }
+  .klarna_pay_opt_badge img {
+    height: 20px;
+    width: 49px;
+    margin-right: 9px;
+  }
+  .klarna_pay_opt_label {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .klarna_pay_terms p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .klarna_banner_badge {
+    padding: 6px;
+    border-radius: 7px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .klarna_banner_badge img {
+      width: 57px!important;
+      height: auto;
+  }
+  .klarna_works_block {
+    display: none;
   }
 }
 @media screen and (max-width: 640px) {
