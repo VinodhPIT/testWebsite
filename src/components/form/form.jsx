@@ -175,7 +175,7 @@ const _Form = () => {
                         />
                       </div>
                     </div>
-                    <div class="form_block">
+                    <div class="form_block mt_3 mb_10">
                       <div className="form_group">
                         <button
                           type="submit"
@@ -207,44 +207,46 @@ const _Form = () => {
               </p>
               <button
                 type="submit"
-                class="btn_outline_secondary w_100pc h_48 hidden"
+                class="btn_outline_secondary w_100pc h_48 btn_cutom_new_mob bdr_rad_16"
                 onClick={() => onSubmit()}
               >
-                test
+                Ok. got it!
               </button>
-              <ul className="download_app">
-                <li className="download_app_title">
-                  <h6>{t("common:download-our-app")}</h6>
-                </li>
-                <li>
-                  <Link href={APP_LINK_APPLE} target="_blank">
-                    <Image
-                      priority
-                      src="/app-store-new.svg"
-                      alt="App store"
-                      width={134}
-                      height={41}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="custom_download_icons"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link href={APP_LINK_GOOGLE} target="_blank">
-                    <Image
-                      priority
-                      src="/g-play-new.svg"
-                      alt="Play store"
-                      width={134}
-                      height={41}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="custom_download_icons"
-                    />
-                  </Link>
-                </li>
-              </ul>
+              <div className="form_submit_download_app">
+                <ul className="download_app">
+                  <li className="download_app_title">
+                    <h6>{t("common:download-our-app")}</h6>
+                  </li>
+                  <li>
+                    <Link href={APP_LINK_APPLE} target="_blank">
+                      <Image
+                        priority
+                        src="/app-store-new.svg"
+                        alt="App store"
+                        width={134}
+                        height={41}
+                        placeholder="blur"
+                        blurDataURL={blurDataURL}
+                        className="custom_download_icons"
+                      />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={APP_LINK_GOOGLE} target="_blank">
+                      <Image
+                        priority
+                        src="/g-play-new.svg"
+                        alt="Play store"
+                        width={134}
+                        height={41}
+                        placeholder="blur"
+                        blurDataURL={blurDataURL}
+                        className="custom_download_icons"
+                      />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           )}
         </div>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const generateLinkComponent = (router, theme, t) => {
   switch (router.locale) {
-    case "uk-en":
+    case "gb-en":
     case "de-de":
       return (
         <Link

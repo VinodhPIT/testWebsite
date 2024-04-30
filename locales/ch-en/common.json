@@ -6,6 +6,7 @@
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
+    "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
     "faq": "FAQ",
@@ -24,7 +25,7 @@
     "Pay all at once": "Pay all at once?",
     "Never again": "Never again!",
     "TattooFinancing": "Tattoo Financing",
-    "Finance your ink": "Finance your ink without worries. Our app offers credit checks, finance options, and flexible payment plans, ensuring everyone can afford their dream tattoo.",
+    "financeInk": "Our app offers credit checks, finance options, and flexible payment plans, ensuring everyone can afford their dream tattoo.",
     "Tattoo": "Tattoo",
     "Dictionary": "Dictionary",
     "TattooDictionaryContent": "Dive into the language of tattoos. From classic styles to the latest trends, our Tattoo Dictionary ensures you understand the art before choosing your ink.",
@@ -47,9 +48,14 @@
     "FullWidthCarouselContent": "Stay in the know with our Tattoo Journal. Get updates on the latest trends, legally required health and safety guidelines, and insider tips from the tattoo industry.",
     "Download the inckd": "Download our app, its free!",
     "Check the Styleguide": "Check the Styleguide",
-    "Share your tattoo idea": "Share your tattoo idea",
+    "Share your tattoo idea": "Share your tattoo idea!",
     "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
-    "CreateATattooRequest": "Create a tattoo request"
+    "CreateATattooRequest": "Create a tattoo request",
+    "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
+    "exploreStyle":"Explore tattoo styles"
+
+
+  
   },
 
   "styleGuidePage": {
@@ -81,20 +87,11 @@
   },
 
   "klarnaPage": {
-    "bannerTitle1": "Big Ink.",
-    "bannerTitle1-Sub": "Tiny Payments.",
-    "MainTitle1": "How it works!",
-    "Download App": "Download App",
-    "Seamlessly download": "Seamlessly download our user-friendly app, its free",
-    "Accept an offer": "Accept an offer",
-    "Effortlessly accept": "Effortlessly accept your preferred tattoo offer",
-    "Select Klarna": "Select Klarna",
-    "Select Klarna for a smooth and safe payment": "Select Klarna for a smooth and safe payment experience",
-    "Get your tattoo done": "Get your tattoo done",
-    "Enjoy superior tattoo skills": "Enjoy superior tattoo skills with your preferred artist",
-    "Pay later": "Pay later or in  installments",
-    "Enjoy convenient": "Enjoy convenient, flexible payment terms for your tattoo",
-
+    "bannerTitle1": "Tattoo now.",
+    "bannerTitle1-Sub": "Pay Later.",
+    "bannerContent": "Exciting news: We've teamed up with Klarna to offer you the flexibility of installment payments for tattoos by the tattoo artist of your choice. Your dream tattoo is now more accessible than ever!",
+    "MainTitle1": "Here's how it works:",
+  
     "MainTitle2": "You choose how you want to pay!",
     "heading1": "Pay Later",
     "heading2": "Pay in 3",
@@ -105,8 +102,60 @@
     "Text2": "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
     "Text3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
     "Text4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
-    "carosuelTitle": "Check ",
-    "carosuelTitle-Sub": "tattoo artist to finance your tattoo"
+
+    
+    "carosuelTitle": "Find the right tattoo artist",
+    "content_sub": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
+    "carosuelTitle-Sub": "tattoo artist to finance your tattoo",
+
+    "availablePayment": "Available payment options:",
+
+    "tag1": "Pay in 30 days",
+    "optionTitle-1": "Get an extra 30 days to pay.",
+    "optionContent-1": "Take your time deciding on your perfect tattoo. We offer an extra 30 days to complete your payment, totally interest-free.",
+
+    "tag2": "Instalments",
+    "optionTitle-2": "Enjoy 3 interest-free instalments.",
+    "optionContent-2": "Experience a modern way to commit to your next tattoo with the option to pay in 3 equal, interest-free instalments.",
+
+    "tag3": "Instalments",
+    "optionTitle-3": "Enjoy 4 interest-free instalments.",
+    "optionContent-3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
+
+    "tag4": "Financing",
+    "optionTitle-4": "Up to 36 months to pay for your tattoo.",
+    "optionContent-4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
+
+    "terms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.Ts&Cs and late fees apply.",
+
+    "findArtists": "Need help to find the right tattoo artist?",
+
+
+
+    "workingStep1":"Download the app",
+    "workingStepContent-1":"Download our user-friendly app for free and dive into the vibrant world of tattoos, packed with features to explore!",
+    
+    "workingStep2":"Choose an artist",
+    "workingStepContent-2":"Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
+    
+
+    "workingStep3":"Accept an offer",
+    "workingStepContent-3":"Accept an offer from your chosen artist within the inckd app and embark on the journey to bring your tattoo idea to life.",
+    
+
+    "workingStep4":"Select Klarna",
+    "workingStepContent-4":"Select Klarna at checkout. This allows you to choose a payment plan that suits your financial comfort",
+    
+
+    "workingStep5":"Tattoo day",
+    "workingStepContent-5":"Now that the details are settled, look forward to an exciting session with your chosen artist. It’s time to relax, have fun, and watch your tattoo come to life",
+    
+
+    "workingStep6":"Pay Later",
+    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
+    "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
+    "ts&amp;cs": "Ts&Cs",
+    "lateFeesApply":" and late fees apply."
   },
 
   "dictionaryPage": {
@@ -206,7 +255,7 @@
   "forArtistPage": {
     "button": "Get Started",
     "bannerTitle": "Boost your business with inckd.",
-    "bannerSubtitle": "business ",
+    "bannerSubtitle": "business",
     "bannerSubtitle3": "with inckd.",
     "bannerContent": "Grow your tattoo business by fulfilling your customers' tattoo vision and offering them flexible payment options.",
 
@@ -225,6 +274,7 @@
 
     "title3": "Keep clients in the Loop",
     "content3": "Engage in real-time chats to understand your clients preferences firsthand. Efficiently handle appointments and stay prepared to meet your clients needs. Discuss offers and provide progress updates with inckd, ensuring their tattoo vision becomes a reality at every stage.",
+
     "title4": "Get inckd. customers tattoing with you now.",
     "title8": "Are you ready?",
 
@@ -368,7 +418,7 @@
   "visitTattoo": "Visit Tattoo Dictionary",
   "checkStyle": "Check the Styleguide",
   "download-our-app": "Download our app from",
-  "tattooNow": "Get tattoo now, pay later.",
+  "tattooNow": "Tattoo now, Pay later",
   "payLater": "That's right, there's a new way to get tattooed smoooth!",
   "findArtist's": "Find artists",
   "pageNotfound": "Ooops... Page not found",
@@ -436,14 +486,20 @@
   "Show Results": "Show Results",
   "Loading": "Loading...",
   "Search Location": "Search Location",
+
   "next": "Next",
   "goBack": "Go back",
   "currentLocation": " Use current location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",
-  "artistsSelected": "Artists Selected",
+  "artistsSelected": "Artists selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
+  "learnMore" :"Learn more",
+  "location":"Location",
+  "maximumLimit" :"Maximum limit of 10 reached",
+
+
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
@@ -546,12 +602,12 @@
   },
 
   "stepper": {
-    "tattooSize": "Tattoo Size",
+    "tattooSize": "Tattoo size",
     "bodyPart": "Body part",
     "description": "Description",
     "reference": "Reference",
     "artists": "Artists",
-    "contact": "contact",
+    "contact": "Contact",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",

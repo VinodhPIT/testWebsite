@@ -75,4 +75,12 @@
     font-size: 30px!important;
     line-height: 40px!important;
   }
+  .custom_d_fs_50 {
+    font-size: 50px !important;
+    line-height: 60px !important;
+  }
+}
+
+.lh_40 {
+  line-height: 40px !important;
 }
