@@ -1,13 +1,21 @@
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
-import ImageSlider from "@/components/slider/ImageSlider";
+import useTranslation from "next-translate/useTranslation";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import ImageSlider from "@/components/slider/ImageSlider";
+
 import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constants";
 
 
-export default function DownloadApps ({title ,subTitle ,bgColor}) {
+
+export default function DownloadApps ({title ,subTitle}) {
+
   const { isMobileView } = useWindowResize();
+  const { t } = useTranslation();
+
   return (
     <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_purple_250 landing_app_download_wrap mt_20 ${bgColor}"}>
       <div class="img_text_box_inner container pt_80 m_md_pt_40 m_pt_20 flex_direction_column app_download_custom_new">
@@ -15,12 +23,12 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
           <div className="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
             <div class="text_box_content justify_content_start align_item_start p_0">
               <div class="text_box_content_inner w_100pc m_pr_0 pb_40">
-                <ul class="download_app ml_0 w_100pc max_w_100pc">
-                  <li class="download_app_title">
-                    <h6 className="fw_600 custom_fs_34">   
+                <ul class="download_app ml_0 w_100pc max_w_100pc m_text_left">
+                  <li class="download_app_title m_mb_15">
+                    <h6 className="fw_600 custom_fs_34 custom_fs_m_24">   
                       <span className="m_dis_inline">{title}
                       </span>
-                      <span className="textBlock m_dis_inline">{subTitle}
+                      <span className="textBlock">{subTitle}
                       </span>
                     </h6>
                   </li>
@@ -38,16 +46,16 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
               </div>
             </div>
           </div>
-          {!isMobileView ? (
+          {!isMobileView && (
             <div className="col-xl-7 col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="img_box_wrap">
                 <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
                   <li className="pl_0">
                     <Image
-                      src="/exploreKlarna1.png"
+                      src="/exploreKlarna-web-01.png"
                       width={193}
-                      height={369}
-                      alt="Download the App & Explore more!"
+                      height={187}
+                      alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
@@ -56,47 +64,43 @@ export default function DownloadApps ({title ,subTitle ,bgColor}) {
                   </li>
                   <li className="pl_0">
                     <Image
-                      src="/exploreKlarna2.png"
+                      src="/exploreKlarna-web-01.png"
                       width={193}
-                      height={369}
-                      alt="Download the App & Explore more!"
+                      height={187}
+                      alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
                       className="m_max_218"
                     />
                   </li>
-                  {/* <li className="pl_0">
+                  <li className="pl_0">
                     <Image
-                      src="/image_2895.png"
+                      src="/exploreKlarna-web-01.png"
                       width={193}
-                      height={322}
-                      alt="Download the App & Explore more!"
+                      height={187}
+                      alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
                       className="m_max_218"
                     />
-                  </li> */}
+                  </li>
                 </ul>
               </div>
             </div>
-          ) : (
-            ""
           )}
         </div>
       </div>
-      {isMobileView ? (
+      {isMobileView && (
         <ImageSlider
-          imagePaths={["/exploreKlarna1.png", "/exploreKlarna2.png"]}
-          imgAlt="Download the App & Explore more!"
+          imagePaths={["/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png"]}
+          imgAlt={t("common:downloadApp")}
           imgblurDataURL={blurDataURL}
           imgWidth={193}
-          imgHeight={369}
+          imgHeight={338}
         ></ImageSlider>
-        ) : (
-          ""
-      )}
+        )}
     </div>
   )
 }

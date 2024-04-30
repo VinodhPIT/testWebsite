@@ -128,7 +128,7 @@ export default function Tattooartists({}) {
               <div className="text_box_wrap left block_bg_gray_150">
                 <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 m_order_2">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
@@ -228,7 +228,7 @@ export default function Tattooartists({}) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
                         <Image
                           priority
@@ -253,7 +253,7 @@ export default function Tattooartists({}) {
               <div className="text_box_wrap left block_bg_gray_150">
                 <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 m_order_2">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
@@ -296,9 +296,9 @@ export default function Tattooartists({}) {
               <div className="img_text_box_wrapper fortattoo_artists">
                 <div className="text_box_wrap full-block-wrap block_bg_aero_blue">
                   <div className="img_text_box_inner">
-                    <div className="justify_content_start container w_100pc">
+                    <div className="justify_content_start container w_100pc text_center">
                       <div className="text_box_content_inner m_pr_0 pt_40 pb_40 m_pt_30 m_pb_30 max_w_100pc">
-                        <h3 className="m_m_auto custom_fs_40 custom_fs_m_28">
+                        <h3 className="m_m_auto custom_fs_40 custom_fs_m_28 mb_35 m_mb_25">
                           {t("common:forArtistPage.title4")}
                           <span class="textBlock">
                             {t("common:forArtistPage.title8")}
@@ -340,7 +340,7 @@ export default function Tattooartists({}) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
                         <Image
                           priority
@@ -365,7 +365,7 @@ export default function Tattooartists({}) {
               <div className="text_box_wrap left block_bg_gray_150">
                 <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 m_order_2">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
@@ -426,7 +426,7 @@ export default function Tattooartists({}) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
                         <Image
                           priority

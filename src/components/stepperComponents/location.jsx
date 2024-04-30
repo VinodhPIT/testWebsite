@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import PlacesAutocomplete from "react-places-autocomplete";
-import { useRequestForm } from "@/store/requestManagement/requestForm";
-import useWindowResize from "@/hooks/useWindowSize";
-import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
+
+import useWindowResize from "@/hooks/useWindowSize";
+
 import useTranslation from "next-translate/useTranslation";
+import { useRequestForm } from "@/store/requestManagement/requestForm";
+import PlacesAutocomplete from "react-places-autocomplete";
+
+import styles from "./styles/dropdown.module.css";
+
+
 
 export default function LocationSearch({ onToggleLoc }) {
   const [address, setAddress] = useState("");

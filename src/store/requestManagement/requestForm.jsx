@@ -3,7 +3,7 @@ import { artistListing, getStyles } from "@/apiConfig/webService";
 import { requestFormParameters } from "@/components/parameters/params";
 import axios from "axios";
 import { getLocation } from "@/utils/getLocation";
-import { v4 as uuidv4 } from "uuid";
+import { getRandomSeed } from "@/helpers/helper";
 
 // Define initial states
 const initialState = {
@@ -32,6 +32,7 @@ const initialState = {
   locationDenied: false,
   userExists: null,
   loadData: false,
+  seed: "",
 };
 
 export const useRequestForm = create((set, get) => ({
@@ -46,7 +47,6 @@ export const useRequestForm = create((set, get) => ({
   },
 
   setTattooSize: (value, index) => {
-
     set({
       tattooSize: value,
       tattoondex: index,
@@ -68,14 +68,13 @@ export const useRequestForm = create((set, get) => ({
 
   setPhone: (value) => set({ phone: value }),
 
-
   addImage: (file, imageUrl, uuid, index) => {
     set((state) => {
-      const newFileName = `${state.images.length}.jpg`; 
+      const newFileName = `${state.images.length}.jpg`;
       const newFile = new File([file], newFileName, {
         type: file.type,
       });
-  
+
       return {
         images: [
           ...state.images,
@@ -88,10 +87,6 @@ export const useRequestForm = create((set, get) => ({
       };
     });
   },
-  
-  
-
-  
 
   deleteImage: (uuid) =>
     set((state) => {
@@ -104,18 +99,22 @@ export const useRequestForm = create((set, get) => ({
     }),
 
   fetchArtistList: async () => {
+    const fetchParams = {
+      ...requestFormParameters,
+      search_key: get().searchKey,
+      latitude: get().latitude,
+      longitude: get().longitude,
+      page_no: 0,
+      style: get().styleId,
+      seed: getRandomSeed(),
+    };
+
     try {
-      const response = await artistListing({
-        ...requestFormParameters,
-        search_key: get().searchKey,
-        latitude: get().latitude,
-        longitude: get().longitude,
-        page_no: 0,
-        style: get().styleId,
-      });
+      const response = await artistListing(fetchParams);
       set({
         artistList: response.rows.hits,
         totalCount: response.rows.total.value,
+        seed: fetchParams.seed,
       });
     } catch (error) {
       console.error("Error fetching artist list:", error);
@@ -124,7 +123,7 @@ export const useRequestForm = create((set, get) => ({
 
   fetchArtistByStyle: async (slug) => {
     try {
-      set({ loader: true, loadNo: 0, selectedArtists: [] });
+      set({ loader: true, loadNo: 0 });
       let styleId = [];
       const slugsToCheck = Array.isArray(slug) ? slug : [slug];
       const stylesArray = await getStyles();
@@ -135,19 +134,25 @@ export const useRequestForm = create((set, get) => ({
         return matchingStyle ? matchingStyle.id : null;
       });
       styleId = matchingStyles.filter((id) => id !== null);
-      const response = await artistListing({
+
+      const fetchParams = {
         ...requestFormParameters,
         search_key: get().searchKey,
         latitude: get().latitude,
         longitude: get().longitude,
         page_no: 0,
         style: styleId,
-      });
+        seed: getRandomSeed(),
+      };
+
+      const response = await artistListing(fetchParams);
+
       set({
         artistList: response.rows.hits,
         styleId,
         totalCount: response.rows.total.value,
         loader: false,
+        seed: fetchParams.seed,
       });
     } catch (error) {
       console.error("Error fetching artists by style:", error);
@@ -157,8 +162,9 @@ export const useRequestForm = create((set, get) => ({
   // Function to clear selected style
   clearStyle: async () => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const { searchKey, latitude, longitude, styleId } = get();
+
       const response = await artistListing({
         ...requestFormParameters,
         search_key: searchKey || "",
@@ -172,6 +178,7 @@ export const useRequestForm = create((set, get) => ({
         styleId: "",
         totalCount: response.rows.total.value,
         loader: false,
+        seed: getRandomSeed(),
       });
     } catch (error) {
       console.error("Error on clearStyles:", error);
@@ -181,7 +188,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to clear search key
   clearField: async () => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const { latitude, longitude, styleId } = get();
       const response = await artistListing({
         ...requestFormParameters,
@@ -196,6 +203,7 @@ export const useRequestForm = create((set, get) => ({
         totalCount: response.rows.total.value,
         searchKey: "",
         loader: false,
+        seed: getRandomSeed(),
       });
     } catch (error) {
       console.error("Error on clearField:", error);
@@ -206,18 +214,24 @@ export const useRequestForm = create((set, get) => ({
   searchArtist: async (key) => {
     try {
       set({ loadNo: 0, searchKey: key, loader: true });
-      const response = await artistListing({
+
+      const fetchParams = {
         ...requestFormParameters,
         search_key: key,
         latitude: get().latitude || "",
         longitude: get().longitude || "",
         page_no: 0,
         style: get().styleId,
-      });
+        seed: getRandomSeed(),
+      };
+
+      const response = await artistListing(fetchParams);
+
       set({
         artistList: response.rows.hits,
         totalCount: response.rows.total.value,
         loader: false,
+        seed: fetchParams.seed,
       });
     } catch (error) {
       console.error("Error fetching artists by style:", error);
@@ -227,19 +241,24 @@ export const useRequestForm = create((set, get) => ({
   // Function to filter artists by location
   filterLocation: async (address) => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const placeResponse = await axios.get(
         `/api/getPlaceDetails?location=${encodeURIComponent(address)}`
       );
       const { latitude, longitude } = placeResponse.data;
-      const artistResponse = await artistListing({
+
+      const fetchParams = {
         ...requestFormParameters,
         page_no: get().pageNo,
         search_key: get().searchKey || "",
         latitude,
         longitude,
         style: get().styleId || "",
-      });
+        seed: getRandomSeed(),
+      };
+
+      const artistResponse = await artistListing(fetchParams);
+
       set({
         artistList: artistResponse.rows.hits,
         location: address,
@@ -247,6 +266,7 @@ export const useRequestForm = create((set, get) => ({
         longitude,
         totalCount: artistResponse.rows.total.value,
         loader: false,
+        seed: fetchParams.seed,
       });
     } catch (error) {
       console.error("Error fetching artists by location:", error);
@@ -256,7 +276,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to filter artists by current location
   filterCurrentLocation: async (isChecked) => {
     try {
-      set({ loader: true, locationDenied: false, selectedArtists: [] });
+      set({ loader: true, locationDenied: false });
 
       let latitude = "";
       let longitude = "";
@@ -270,14 +290,16 @@ export const useRequestForm = create((set, get) => ({
         }
       }
 
-      const artistResponse = await artistListing({
+      const fetchParams = {
         ...requestFormParameters,
         page_no: get().pageNo,
         search_key: get().searchKey || "",
         latitude,
         longitude,
         style: get().styleId || "",
-      });
+      };
+
+      const artistResponse = await artistListing(fetchParams);
       set({
         artistList: artistResponse.rows.hits,
         location: "",
@@ -285,6 +307,7 @@ export const useRequestForm = create((set, get) => ({
         longitude,
         totalCount: artistResponse.rows.total.value,
         loader: false,
+        seed: fetchParams.seed,
       });
     } catch (error) {
       set({
@@ -295,7 +318,7 @@ export const useRequestForm = create((set, get) => ({
   // Function to clear location
   clearLocation: async () => {
     try {
-      set({ loader: true, selectedArtists: [] });
+      set({ loader: true });
       const { searchKey, styleId } = get();
       const response = await artistListing({
         ...requestFormParameters,
@@ -312,6 +335,7 @@ export const useRequestForm = create((set, get) => ({
         latitude: "",
         longitude: "",
         loader: false,
+        seed: getRandomSeed(),
       });
     } catch (error) {
       console.error("Error on clearLocation:", error);
@@ -329,6 +353,7 @@ export const useRequestForm = create((set, get) => ({
         longitude: get().longitude || "",
         style: get().styleId,
         search_key: get().searchKey,
+        seed: get().seed,
       });
       set((prevState) => ({
         ...prevState,
@@ -343,15 +368,50 @@ export const useRequestForm = create((set, get) => ({
 
   addSelectedArtist: (artist) =>
     set((state) => ({
-      selectedArtists: [...state.selectedArtists, artist],
+      selectedArtists: [
+        ...state.selectedArtists,
+        {
+          ...artist,
+          isSelected: true,
+        },
+      ],
     })),
 
   removeSelectedArtist: (id) =>
     set((state) => ({
-      selectedArtists: state.selectedArtists.filter(
-        (artist) => artist.id !== id
-      ),
+      selectedArtists: state.selectedArtists
+        .map((artist) => {
+          if (artist.id === id) {
+            return {
+              ...artist,
+              isSelected: false,
+            };
+          }
+          return artist;
+        })
+        .filter((artist) => artist.id !== id),
     })),
+
+  //
+
+  checkBoxTrigger: (id) => {
+    set((state) => ({
+      selectedArtists: state.selectedArtists.map((artist) => {
+        if (artist.id === id) {
+          return { ...artist, isSelected: !artist.isSelected };
+        }
+        return artist;
+      }),
+    }));
+  },
+
+  removeUncheckArtist: () => {
+    set((state) => ({
+      selectedArtists: state.selectedArtists.filter(
+        (artist) => artist.isSelected
+      ),
+    }));
+  },
 
   nextPage: () =>
     set((prevState) => ({

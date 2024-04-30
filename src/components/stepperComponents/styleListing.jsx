@@ -1,22 +1,19 @@
 import React, { useEffect } from "react";
-import { useGlobalState } from "@/context/Context";
-import styles from "./styles/dropdown.module.css";
 import Image from "next/image";
+
 import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+import { useGlobalState } from "@/context/Context";
+
+import styles from "./styles/dropdown.module.css";
+
 
 export default function StyleDropdown({ onToggle }) {
-  const { state, selectedIds, setSelectedIds, styleCollection } =
-    useGlobalState();
-
-  const { fetchArtistByStyle, fetchArtistList, clearStyle } = useRequestForm();
-
-  useEffect(() => {
-    styleCollection();
-  }, []);
-
+  
+  const { fetchArtistByStyle, clearStyle } = useRequestForm();
+  const { state, selectedIds, setSelectedIds, styleCollection } = useGlobalState();
   const { t } = useTranslation();
-
+  
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
       setSelectedIds(selectedIds.filter((id) => id !== elId));
@@ -24,17 +21,21 @@ export default function StyleDropdown({ onToggle }) {
       setSelectedIds([...selectedIds, elId]);
     }
   };
-
+  
   const clearAll = async () => {
     clearStyle();
     setSelectedIds([]);
-   
   };
-
+  
   const onSearchStyle = async () => {
     fetchArtistByStyle(selectedIds);
     onToggle();
   };
+  
+  useEffect(() => {
+    styleCollection();
+  }, []);
+  
 
   return (
     <div className={styles.custom_dropdown}>
@@ -49,23 +50,24 @@ export default function StyleDropdown({ onToggle }) {
         />
       </div>
       <div className={styles.custom_dropdown_content}>
-        {state.styleCollection&&state.styleCollection.map((el) => {
-          return (
-            <div key={el.slug} className={styles.custom_dropdown_col}>
-              <label className={styles.custom_dropdown_label}>
-                <p>{el.name}</p>
-                <div className={styles.custom_checkbox}>
-                  <input
-                    type="checkbox"
-                    id={`checkbox_${el.slug}`}
-                    onChange={() => handleCheckboxChange(el.slug)}
-                    checked={selectedIds.includes(el.slug)}
-                  />
-                </div>
-              </label>
-            </div>
-          );
-        })}
+        {state.styleCollection &&
+          state.styleCollection.map((el) => {
+            return (
+              <div key={el.slug} className={styles.custom_dropdown_col}>
+                <label className={styles.custom_dropdown_label}>
+                  <p>{el.name}</p>
+                  <div className={styles.custom_checkbox}>
+                    <input
+                      type="checkbox"
+                      id={`checkbox_${el.slug}`}
+                      onChange={() => handleCheckboxChange(el.slug)}
+                      checked={selectedIds.includes(el.slug)}
+                    />
+                  </div>
+                </label>
+              </div>
+            );
+          })}
       </div>
       <div className={styles.custom_dropdown_btn}>
         <button

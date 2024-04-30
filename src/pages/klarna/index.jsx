@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -26,6 +26,8 @@ import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumn
 function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
+  
+ 
 
   const list = [
     {
@@ -63,6 +65,7 @@ function KlarnaNew({}) {
       num: "6",
     },
   ];
+  const [preExpandedItems, setPreExpandedItems] = useState([list[0].num]);
 
   const trendingArtist = [
     {
@@ -149,6 +152,8 @@ function KlarnaNew({}) {
       url: `${process.env.LIVE_URL}/${router.locale}/artists/meganrae_4dszyy98`,
     },
   ];
+
+
 
   return (
     <>
@@ -272,8 +277,13 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
+<<<<<<< HEAD
                   <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_35 m_pb_15">
                     {t("common:klarnaPage.availablePayment")}
+=======
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_35 m_pb_15">
+                    Available payment options:
+>>>>>>> develop
                   </h3>
                 </div>
                 <div className="klarna_pay_opt_grid">
@@ -291,11 +301,21 @@ function KlarnaNew({}) {
                       {t("common:klarnaPage.tag1")}
                       </span>
                     </span>
+<<<<<<< HEAD
                     <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
                     {t("common:klarnaPage.optionTitle-1")}
                     </h4>
                     <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
                     {t("common:klarnaPage.optionContent-1")}
+=======
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0 m_mt_15">
+                      Get an extra 30 days to pay.
+                    </h4>
+                    <p className="custom_fs_18 custom_fs_m_14 color_gray_550 mb_0 mt_8">
+                      Take your time deciding on your perfect tattoo. We offer
+                      an extra 30 days to complete your payment, totally
+                      interest-free.
+>>>>>>> develop
                     </p>
                   </div>
 
@@ -406,12 +426,12 @@ function KlarnaNew({}) {
           <div className="img_text_box_wrapper">
             <div
               className={
-                "text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_20 m_pb_40"
+                "text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_30 m_pb_20"
               }
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_40 m_pb_15">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_40 m_pb_10">
                     {t("common:klarnaPage.MainTitle1")}
                   </h3>
                 </div>
@@ -430,25 +450,27 @@ function KlarnaNew({}) {
                     );
                   })}
                 </div>
+
+                <div className="klarna_works_accordion">
+                  <Accordion allowZeroExpanded={true} preExpanded={preExpandedItems}>
+                    {list.map((el, index) => (
+                    <AccordionItem key={index} uuid={el.num}>
+                      <AccordionItemHeading className="klarna_works_items">
+                        <AccordionItemButton><span className="klarna_num_count">{el.num}</span><h4 className="color_gray_550">{el.title}</h4></AccordionItemButton>
+                      </AccordionItemHeading>
+                      <AccordionItemPanel>
+                        <p className="color_gray_550">{el.content}</p>
+                      </AccordionItemPanel>
+                    </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-
-      <Accordion allowZeroExpanded={true}>
-  {list.map((el, index) => (
-    <AccordionItem key={index}>
-      <AccordionItemHeading className="test">
-        <AccordionItemButton>{el.num} {el.title} </AccordionItemButton>
-      </AccordionItemHeading>
-      <AccordionItemPanel>
-        <p>{el.content}</p>
-      </AccordionItemPanel>
-    </AccordionItem>
-  ))}
-</Accordion>
+      </section>     
 
 
 
