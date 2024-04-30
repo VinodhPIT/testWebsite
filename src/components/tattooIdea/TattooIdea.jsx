@@ -84,6 +84,7 @@ export default function TattooIdea() {
                   <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">{t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
+
                      href={`/${router.locale}/createRequest`}
                     className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden"
                   >
@@ -94,6 +95,10 @@ export default function TattooIdea() {
                   <Link
                      href={`/${router.locale}/request-Form`}
                     className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 desk_hidden " 
+
+                    className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
+                     href={ isMobileView ? `/${router.locale}/request-Form` :  `/${router.locale}/createRequest`}
+
                   >
                    {t("common:homePage.CreateATattooRequest")}
                   </Link>
