@@ -53,6 +53,14 @@ const Artist = () => {
 
 
 
+
+
+
+
+
+
+
+
   const handleCheckboxChange = (artist) => {
     const { id } = artist;
     const artistExists = selectedArtists.some((artist) => artist.id === id);

@@ -47,30 +47,29 @@ const generateStepTitle = (title, index) => {
         <span></span>
       )}
 
-      {!isMobileView && title}
-    </div>
-  );
-};
-
-const onNavigate = () => {
-  // Defined the base URL based on the current locale
-  const baseUrl = `/${router.locale}/`;
-
-  // Defined the target URL based on the step number and view mode
-  let targetUrl;
-  if (isMobileView) {
-    targetUrl = stepNumber === 0 ? baseUrl : null;
-  } else {
-    targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
-  }
-
-  // Navigate to the target URL or go back to stepper 
-  if (targetUrl) {
-    navigateTo(targetUrl);
-  } else {
-    prevPage();
-  }
-};
+       <span className="fw_400">{!isMobileView && title}</span> 
+      </div>
+    );
+  };
+  const onNavigate = () => {
+    // Defined the base URL based on the current locale
+    const baseUrl = `/${router.locale}/`;
+  
+    // Defined the target URL based on the step number and view mode
+    let targetUrl;
+    if (isMobileView) {
+      targetUrl = stepNumber === 0 ? baseUrl : null;
+    } else {
+      targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
+    }
+  
+    // Navigate to the target URL or go back to stepper 
+    if (targetUrl) {
+      navigateTo(targetUrl);
+    } else {
+      prevPage();
+    }
+  };
 
 
 
@@ -123,6 +122,8 @@ const onNavigate = () => {
           circleTop={0}
           lineMarginOffset={0}
           titleFontSize={12}
+          defaultTitleColor="#212121"
+          
         />
       </div>
       <ToastContainer />
