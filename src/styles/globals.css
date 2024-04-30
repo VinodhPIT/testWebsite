@@ -696,7 +696,7 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   font-weight: var(--fw-semi-bold) !important;
 }
 .fw_700 {
-  font-weight: var(--fw-bold)!important;
+  font-weight: var(--fw-bold) !important;
 }
 .fw_800 {
   font-weight: var(--fw-extra-bold);
@@ -1285,6 +1285,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   margin-bottom: 35px !important;
 }
 
+.mb_40 {
+  margin-bottom: 40px !important;
+}
+
 .mb_45 {
   margin-bottom: 45px !important;
 }
@@ -1607,17 +1611,17 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   max-width: 320px !important;
 }
 .d_max_350 {
-  max-width: 350px!important;
+  max-width: 350px !important;
 }
 
 .d_max_380 {
   max-width: 380px !important;
 }
 .d_max_420 {
-  max-width: 420px!important;
+  max-width: 420px !important;
 }
 .d_max_550 {
-  max-width: 550px!important;
+  max-width: 550px !important;
 }
 .no_space_center {
   padding-left: 15px !important;
@@ -2618,7 +2622,7 @@ ul.custom-listing li img {
   line-height: 33px !important;
 }
 .lh_72 {
-  line-height: 72px!important;
+  line-height: 72px !important;
 }
 .full-block-wrap .img_text_box_inner .text_box_content_inner {
   max-width: 70%;
@@ -2662,7 +2666,7 @@ ul.progressbar li {
 }
 
 ul.progressbar li .progressbar_block {
-  padding: 0 0 21px 70px;
+  padding: 0 0 21px 80px;
   position: relative;
 }
 
@@ -2675,10 +2679,10 @@ ul.progressbar li .progressbar_block:before {
   width: 2px;
   display: inline-block;
   position: absolute;
-  left: 14px;
+  left: 23px;
   margin-top: 10px;
   z-index: 0;
-  background: url("/border-dashed.svg") no-repeat;
+  background: url("/dashed-border.svg") no-repeat;
   height: 100%;
 }
 
@@ -2688,7 +2692,7 @@ ul.progressbar li:last-child .progressbar_block:before {
 
 ul.progressbar li h4 {
   color: var(--black-500);
-  font-weight: 400;
+  font-weight: 600;
   font-size: 26px;
   line-height: 31px;
   height: 100%;
@@ -2702,9 +2706,9 @@ ul.progressbar li h4 {
 
 ul.progressbar li p {
   color: var(--black-500);
-  font-weight: 400 !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
+  font-weight: 300 !important;
+  font-size: 18px !important;
+  line-height: 27px !important;
   height: 100%;
   display: block;
   position: relative;
@@ -2714,7 +2718,7 @@ ul.progressbar li p {
 }
 
 ul.progressbar li:before {
-  content: "";
+  content: none;
   background: rgba(195, 195, 195, 0.2);
   width: 30px;
   height: 30px;
@@ -2728,16 +2732,29 @@ ul.progressbar li:before {
 
 ul.progressbar li:after {
   content: "";
-  background: #c3c3c3;
-  width: 18px;
-  height: 18px;
+  background: #f8f8f8 url("/dwld_icon.svg") no-repeat;
+  background-size: 19px;
+  background-position: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #e1e4e8;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
   position: absolute;
   z-index: 2;
-  left: 6px;
-  top: 6px;
+  left: 0px;
+  top: -5px;
+}
+
+ul.progressbar li.dwld-app-step:after {
+  background-image: url("/dwld_icon.svg");
+}
+ul.progressbar li.create-account-step:after {
+  background-image: url("/create_user.svg");
+}
+ul.progressbar li.boost-account-step:after {
+  background-image: url("/boostt.svg");
 }
 
 ul.progressbar li.active:before {
@@ -4089,6 +4106,10 @@ header .navbar {
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
+}
+.app_dwld_img_wrap img {
+  height: 40px;
+  width: auto;
 }
 
 @media (max-width: 638px) {
@@ -5482,12 +5503,25 @@ button.language_switcher img {
   }
 
   ul.progressbar li .progressbar_block:before {
-    padding-left: 50px;
+    padding-left: 34px;
+    left: 16px;
   }
-
+  ul.progressbar li:after {
+    background-size: 16px;
+    width: 32px;
+    height: 32px;
+  }
+  ul.progressbar li .progressbar_block {
+    padding: 0px 0 38px 48px;
+    position: relative;
+  }
   ul.progressbar li h4 {
     font-size: 20px;
     line-height: 25px;
+  }
+  ul.progressbar li p {
+    font-size: 14px !important;
+    line-height: 21px !important;
   }
 
   .custom_full_block {
@@ -5902,10 +5936,10 @@ button.language_switcher img {
     max-width: 290px !important;
   }
   .m_mxw_200 {
-    max-width: 200px!important;
-  } 
+    max-width: 200px !important;
+  }
   .m_max_410 {
-    max-width: 410px!important;
+    max-width: 410px !important;
   }
   .m_max_h_440 {
     max-height: 440px !important;
@@ -5949,13 +5983,13 @@ button.language_switcher img {
   }
 
   .custom_fs_m_38 {
-    font-size: 38px!important;
-    line-height: 45px!important;
+    font-size: 38px !important;
+    line-height: 45px !important;
   }
 
   .custom_fs_m_28 {
-    font-size: 28px!important;
-    line-height: 33px!important;
+    font-size: 28px !important;
+    line-height: 33px !important;
   }
 
   .custom_fs_m_27 {
@@ -5980,6 +6014,9 @@ button.language_switcher img {
   .custom_fs_m_14 {
     font-size: 14px !important;
     line-height: 21px !important;
+  }
+  .fw_m_700 {
+    font-weight: var(--fw-bold) !important;
   }
   .heading_h2 {
     font-size: 34px !important;
@@ -7335,7 +7372,7 @@ button.language_switcher img {
 
   ul.progressbar li h4 {
     font-size: 20px;
-    line-height: 25px;
+    line-height: 30px;
   }
 
   .default_form_block.contact_form_block h1.page_title {
@@ -8028,7 +8065,7 @@ button.language_switcher img {
   }
 
   section.progress_block {
-    max-width: 540px;
+    max-width: 465px;
   }
   .custom_carousel_wrap {
     padding-right: 4vw;

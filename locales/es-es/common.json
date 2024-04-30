@@ -239,8 +239,7 @@
   },
 
   "joinartistPage": {
-    "title1": "Conviértete en un",
-    "title1-Sub": "Artista de inckd.",
+    "title1": "Conviértete en un inckd. Artista",
     "head1": "Envía el formulario de contacto",
     "text": "Cuéntanos más sobre ti.",
     "head2": "Obtén verificación",
@@ -255,7 +254,13 @@
     "Country field is required": "El campo de país es obligatorio",
     "location must be at least 2 characters": "La ubicación debe tener al menos 2 caracteres",
     "instagram must be at least 2 characters": "Instagram debe tener al menos 2 caracteres",
-    "Too Short": "Demasiado corto"
+    "Too Short": "Demasiado corto",
+    "downloadTheApp": "Descarga la aplicación",
+    "getStarted": "Comience descargando nuestra aplicación desde App Store o Google Play Store.",
+    "CreateYourAccnt": "Crea tu cuenta",
+    "CompleteYourProfile": "Complete su perfil actualizando sus detalles básicos, su estilo de tatuaje preferido y cargando impresionantes imágenes de portafolio.",
+    "BoostYourAccount": "Impulsa tu cuenta",
+    "easyVerificationProcess": "Realice nuestro proceso de verificación rápido y sencillo para recibir la aprobación del equipo de inckd."
   },
 
   "contactUsPage": {
