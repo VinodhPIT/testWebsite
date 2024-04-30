@@ -7,6 +7,7 @@ import Sharetattooideas from "@/components/styleSlider/shareTattooideas";
 import Exploreblackworktattoos from "@/components/styleSlider/exploreblackworkTattoos";
 import ExploreStyle from "@/components/styleSlider/exploreStyles";
 import Dreamtattooai from "@/components/styleSlider/dreamtattooAi";
+import DownloadApps from "@/components/styleSlider/DownloadApps"
 import { useRouter } from "next/router";
 import {
   APP_LINK_APPLE,
@@ -223,13 +224,13 @@ export default function Styledeatil() {
             <div className="img_text_box_wrapper exciting_offer_wrap">
               <div class="text_box_wrap right">
                 <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                  <div class="text_box_content justify_content_center m_min_h_reset">
+                  <div class="text_box_content justify_content_center m_min_h_reset m_pt_25 m_pb_40">
                     <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                       <div className="tiny_payment_block pr_10_pc m_pr_0">
-                        <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_0">
+                        <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
                           <span>{t("common:styleGuidePage.bannerTitle")}</span>
                         </h1>
-                        <p className="m_mt_10 m_mb_10 txt_mob_fs14 m_lh_21">
+                        <p className="m_mt_10 m_mb_30 txt_mob_fs14 m_lh_21">
                           {t("common:styleGuidePage.bannerContent")}
                         </p>
                         <Link
@@ -329,7 +330,12 @@ export default function Styledeatil() {
           title={t("common:homePage.exploreStyle")}
           content={t("common:homePage.worldOfInk")}
           data={wolfTattoo}
-        />       
+        />
+        <DownloadApps
+          title={t("common:downloadApp")}
+          subTitle={t("common:downloadApp-Sub1")}
+          bgColor="block_bg_pink"
+        />
 
       </div>
     </>

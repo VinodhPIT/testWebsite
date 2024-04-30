@@ -2698,7 +2698,9 @@ ul.custom-listing li img {
 .lh_30 {
   line-height: 30px !important;
 }
-
+.lh_41 {
+  line-height: 41px !important;
+}
 .lh_33 {
   line-height: 33px !important;
 }
@@ -6521,6 +6523,10 @@ button.language_switcher img {
   
   .m_lh_21 {
     line-height: 21px!important;
+  }
+
+  .m_lh_29 {
+    line-height: 29px!important;
   }
 
   .m_left_0 {
