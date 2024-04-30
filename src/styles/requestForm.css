@@ -474,7 +474,17 @@
   padding: 0;
   position: relative;
   z-index: 1;
+   overflow: hidden;
 }
+.request_filter_profile_dtls a {
+  word-break: break-word;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:var(--white)
+}
+
 
 .request_filter_profile_dtls h6.request_filter_profile_title {
   margin: 0;
@@ -482,10 +492,12 @@
   font-size: 14px;
   font-weight: 400;
   color: var(--white);
-  display: block;
+  /* display: block;
   max-width: 100%;
   word-break: break-word;
-  padding: 0;
+  padding: 0; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .request_filter_profile_dtls .request_filter_profile_address {
@@ -696,7 +708,8 @@
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 21px
+  line-height: 21px;
+  color: var(--black-200);
 }
 
 .request_location_drop {
@@ -730,7 +743,9 @@
   margin: 0;
   font-size: 14px;
   font-weight: 400;
-  line-height: 21px
+  line-height: 21px;
+  color: var(--black-200);
+  
 }
 
 .request_current_location {
@@ -1021,27 +1036,18 @@
   }
 
   .request_filter_block {
-    gap: 10px;
+    gap: 4px;
   }
 
   .request_style_drop {
-    max-width: 129px;
+    max-width: 100%;
   }
 
   .request_location_drop {
-    max-width: 129px;
+    max-width: 100%;
   }
-
-  .request_filter_block {
-    gap: 10px;
-  }
-
-  .request_style_drop {
-    max-width: 129px;
-  }
-
-  .request_location_drop {
-    max-width: 129px;
+  .request_filter_col_wrap {
+    gap: 4px;
   }
 
   .request_ref_btn {
@@ -1141,7 +1147,8 @@
 
   .request_filter_col_wrap button.mobileSearch {
     border-radius: 8px;
-    width: 36px;
+    width: 38px;
+    min-width: 38px;
     height: 39px;
     padding: 0;
     font-size: 14px;
