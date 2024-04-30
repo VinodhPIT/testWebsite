@@ -4,24 +4,15 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
-
-import useWindowResize from "@/hooks/useWindowSize";
-
-
-
 import {
   blurDataURL,
 } from "@/constants/constants";
 
 
-
-
-
-
 export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { isMobileView } = useWindowResize();
+
   return (
     <div className="img_text_box_wrapper block_bg_cool_aero_blue m_pb_0">
       <div className="text_box_wrap left container custom_left_img_new">
@@ -93,11 +84,25 @@ export default function TattooIdea() {
                   <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">{t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
-                    className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
-                     href={ isMobileView ? `/${router.locale}/request-Form` :  `/${router.locale}/createRequest`}
+
+                     href={`/${router.locale}/createRequest`}
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden"
                   >
                    {t("common:homePage.CreateATattooRequest")}
                   </Link>
+
+
+                  <Link
+                     href={`/${router.locale}/request-Form`}
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 desk_hidden " 
+
+                    className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
+                     href={ isMobileView ? `/${router.locale}/request-Form` :  `/${router.locale}/createRequest`}
+
+                  >
+                   {t("common:homePage.CreateATattooRequest")}
+                  </Link>
+
                 </div>
               </div>
             </div>
