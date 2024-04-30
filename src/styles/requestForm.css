@@ -180,19 +180,34 @@
   align-items: center;
 }
 
-.request_landing_content {
-  display: flex;
+.request_landing_content,
+.selectedArtistblock {
   width: 100%;
+  border: 1px solid #ccc;
+  margin: 25px auto;
+}
+
+.request_landing_content {
   max-width: 790px;
   padding: 40px 80px;
+  border-radius: 16px;
+  display: flex; 
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  margin: 25px auto;
 }
+
+.selectedArtistblock {
+  max-width: 750px;
+  padding: 40px 77px;
+  background-color: var(--white);
+  border-radius: 11px;
+   height: 578px;
+   position: relative;
+
+}
+
 
 .request_landing_content_col {
   display: flex;
@@ -863,7 +878,11 @@
 .request_ref_selected.max_reached img {
   display: none;
 }
-
+.picked_ArtistsPanel{
+  height:386px;
+  overflow: hidden;
+  overflow:scroll ;margin-bottom: 20px;
+}
 @media screen and (min-width: 768px) and (max-width: 1068px) {
   .request_landing_header .request_back_arrow {
     position: relative;
@@ -1138,6 +1157,18 @@
   }
 
 }
+
+
+@media screen and (max-width: 699px) {
+  .selectedArtistblock {
+    padding: 26px;
+    height: auto;
+   
+  }
+}
+
+
+
 
 @media screen and (max-width: 405px) {
   .request_review_ref_img img {
