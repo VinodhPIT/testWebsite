@@ -47,6 +47,20 @@ const Artist = () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const handleCheckboxChange = (artist) => {
     const { id } = artist;
     const artistExists = selectedArtists.some((artist) => artist.id === id);
@@ -66,7 +80,7 @@ const Artist = () => {
       <>
         {showLimitReached ? (
           <p className="mt_15 request_ref_selected max_reached">
-            Maximum limit of 10 reached
+            {t("common:maximumLimit")}
           </p>
         ) : (
           selectedArtists.length > 0 && (
@@ -112,7 +126,7 @@ const Artist = () => {
                   <div style={{ position: "relative" }}>
                     <div
                       className="request_filter_col_wrap"
-                      style={{ display: "flex", gap: "4px" }}
+                     
                     >
                       <div className="request_filter_block">
                         <div className="request_style_drop">

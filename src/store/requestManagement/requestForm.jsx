@@ -8,6 +8,7 @@ import { getRandomSeed } from "@/helpers/helper";
 // Define initial states
 const initialState = {
   getTattooSize: [],
+  countryCode:'',
   tattoondex: "",
   bodyPartIndex: "",
   stepNumber: 0,
@@ -438,6 +439,13 @@ export const useRequestForm = create((set, get) => ({
       userExists: value,
     });
   },
+
+
+
+
+
+
+
 }));
 
 export const useResetRequestFormState = () => {
