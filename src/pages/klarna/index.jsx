@@ -361,14 +361,11 @@ function KlarnaNew({}) {
                 </div>
                 <div className="klarna_pay_terms">
                   <p>
-                    Klarna's Pay in 3 and Pay in 30 days are unregulated credit
-                    agreements. Borrowing more than you can afford or paying
-                    late may negatively impact your financial status and ability
-                    to obtain credit. 18+, UK residents only. Subject to status.{" "}
+                  {t("common:klarnaPage.klarnaTerms")}
                     <Link href="https://www.klarna.com/uk/terms-and-conditions" target="_blank">
-                      Ts&Cs
+                    {t("common:klarnaPage.ts&amp;cs")}
                     </Link>
-                    and late fees apply.
+                    {t("common:klarnaPage.lateFeesApply")}
                   </p>
                 </div>
               </div>

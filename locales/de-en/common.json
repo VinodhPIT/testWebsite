@@ -152,9 +152,10 @@
     
 
     "workingStep6":"Pay Later",
-    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain"
-    
-
+    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
+    "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
+    "ts&amp;cs": "Ts&Cs",
+    "lateFeesApply":" and late fees apply."
   },
 
   "dictionaryPage": {
@@ -253,7 +254,7 @@
 
   "forArtistPage": {
     "button": "Get Started",
-    "bannerTitle": "Boost your",
+    "bannerTitle": "Boost your business with inckd.",
     "bannerSubtitle": "business",
     "bannerSubtitle3": "with inckd.",
     "bannerContent": "Grow your tattoo business by fulfilling your customers' tattoo vision and offering them flexible payment options.",
@@ -494,6 +495,7 @@
   "maximumLimit" :"Maximum limit of 10 reached",
 
 
+
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
     "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
@@ -595,12 +597,12 @@
   },
 
   "stepper": {
-    "tattooSize": "Tattoo Size",
+    "tattooSize": "Tattoo size",
     "bodyPart": "Body part",
     "description": "Description",
     "reference": "Reference",
     "artists": "Artists",
-    "contact": "contact",
+    "contact": "Contact",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
