@@ -53,6 +53,9 @@
     "CreateATattooRequest": "Create a tattoo request",
     "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
     "exploreStyle":"Explore tattoo styles"
+
+
+  
   },
 
   "styleGuidePage": {
@@ -477,15 +480,19 @@
   "Show Results": "Show Results",
   "Loading": "Loading...",
   "Search Location": "Search Location",
+
   "next": "Next",
   "goBack": "Go back",
   "currentLocation": " Use current location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",
-  "artistsSelected": "Artists Selected",
+  "artistsSelected": "Artists selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
   "learnMore" :"Learn more",
+  "location":"Location",
+  "maximumLimit" :"Maximum limit of 10 reached",
+
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",

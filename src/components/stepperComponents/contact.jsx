@@ -93,7 +93,7 @@ const ContactForm = () => {
                       validationSchema={validationSchema}
                       onSubmit={handleSubmit}
                     >
-                      {({ errors, touched }) => (
+                      {({ values, errors, touched }) => (
                         <Form className="form_floating">
                           <div className="form_block">
                             <label htmlFor="email">
@@ -148,19 +148,22 @@ const ContactForm = () => {
                               className="error"
                             />
                           </div>
-                          <button
-                            type="submit"
-                            className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end"
-                          >
-                            {t("common:next")}
 
-                            {loader ? (
-                              <span
-                                className="spinner-border spinner-border-sm"
-                                aria-hidden="true"
-                              ></span>
-                            ) : null}
-                          </button>
+                          {/* Conditionally render the submit button */}
+                          {values.email && (
+                            <button
+                              type="submit"
+                              className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end"
+                            >
+                              {t("common:next")}
+                              {loader && (
+                                <span
+                                  className="spinner-border spinner-border-sm"
+                                  aria-hidden="true"
+                                ></span>
+                              )}
+                            </button>
+                          )}
                         </Form>
                       )}
                     </Formik>

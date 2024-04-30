@@ -498,6 +498,9 @@
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
   "learnMore" :"Learn more",
+  "location": "ubicación",
+  "maximumLimit" :"Maximum limit of 10 reached",
+  
   
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
