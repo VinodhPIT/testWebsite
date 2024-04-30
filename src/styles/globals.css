@@ -15,11 +15,11 @@
   --indigo-900: #8120ff;
   --indigo-800: #9340ff;
   --indigo-700: #a560ff;
-  --purple: #b366ff; 
+  --purple: #b366ff;
   --purple-500: #bf80ff;
   --purple-400: #cc99ff;
   --purple-300: #d999ff;
-  --purple-250: #F5C0FF;
+  --purple-250: #f5c0ff;
   --purple-200: #e6ccff;
   --purple-100: #f2e6ff;
   --blue: #6666ff;
@@ -957,13 +957,13 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .max_h_565 {
   max-height: 565px !important;
 }
-.max_h_256{
+.max_h_256 {
   max-height: 256px !important;
 }
-.max_h_230{
+.max_h_230 {
   max-height: 230px !important;
 }
-.max_h_224{
+.max_h_224 {
   max-height: 224px !important;
 }
 .max_h_100pc {
@@ -2667,7 +2667,6 @@ ul.custom-listing li img {
 .custom_fs_40 {
   font-size: 40px !important;
   line-height: 48px !important;
-
 }
 .custom_fs_58 {
   font-size: 58px !important;
@@ -3034,7 +3033,7 @@ form.form_floating .form_group > .form_control:focus ~ label {
   color: var(--gray-300);
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
-form.form_floating  .radio_block.radio_form_grid {
+form.form_floating .radio_block.radio_form_grid {
   margin-bottom: 20px;
 }
 .required:after {
@@ -3904,7 +3903,7 @@ form.form_floating .form_group.radio_block > label {
 .form_submit_block .form_submit_download_app {
   text-align: center;
   border-radius: 0 0 16px 16px;
-  background: #F8F8F8;
+  background: #f8f8f8;
   margin-top: 38px;
   margin-left: -32px;
   margin-right: -32px;
@@ -4208,6 +4207,33 @@ header .navbar {
   line-height: 19px;
 }
 
+.app_dwld_img_wrap img {
+  height: 40px;
+  width: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .img_text_box_inner.custom_two_col_banner.two_col_reset
+    .text_box_content
+    > .text_box_content_inner {
+    min-height: inherit !important;
+    width: auto !important;
+    display: block;
+    position: absolute;
+    inset: 0px;
+    right: 58.33333333333333%;
+    left: 10%;
+  }
+  .img_text_box_inner.custom_two_col_banner.two_col_reset .img_box_wrap {
+    min-height: inherit !important;
+    width: auto !important;
+    display: block;
+    position: relative;
+    inset: 0px;
+    left: 58.33333333333333%;
+    max-width: 50%;
+  }
+}
 
 @media (max-width: 638px) {
   .swiper-container {
@@ -4326,7 +4352,10 @@ header .navbar {
   .app_img_xs img {
     max-width: 100%;
   }
-  .container .custom_slick_slider .listing_gridItem .listing_grid_img_col.m_w_cal_100_10 {
+  .container
+    .custom_slick_slider
+    .listing_gridItem
+    .listing_grid_img_col.m_w_cal_100_10 {
     width: calc(100% - 10px) !important;
   }
 }
@@ -4689,9 +4718,8 @@ li {
 }
 .custom_content_slick_slider {
   height: 100%;
-  display: flex ;
+  display: flex;
   flex-direction: row;
-
 }
 .custom_content_slick_slider .slick-track {
   margin-left: 0 !important;
@@ -5208,11 +5236,10 @@ button.language_switcher img {
   font-size: 14px;
   font-weight: 400;
   border-radius: 14px;
-  background: rgba(28, 28, 28, 0.80);
+  background: rgba(28, 28, 28, 0.8);
   min-width: 150px;
   width: max-content;
-} 
-
+}
 
 .chat_block {
   position: absolute;
@@ -5222,9 +5249,9 @@ button.language_switcher img {
   gap: 2px;
 }
 .chat_block img {
-  width: 50px!important;
+  width: 50px !important;
   height: 50px;
-  border: 1px solid #FFF;
+  border: 1px solid #fff;
   background: lightgray;
   border-radius: 50%;
   margin: 25px 0 9px 11px;
@@ -5240,7 +5267,7 @@ button.language_switcher img {
   align-items: center;
   gap: 16px;
   border-radius: 10px;
-  background: #C0FFD5;
+  background: #c0ffd5;
   position: relative;
 }
 .chat_bubble_msg_desc:after {
@@ -5251,12 +5278,12 @@ button.language_switcher img {
   width: 0;
   height: 0;
   border-top: 7px solid transparent;
-  border-right: 10px solid #C0FFD5;
+  border-right: 10px solid #c0ffd5;
   border-bottom: 7px solid transparent;
   transform: rotate(90deg);
 }
 .chat_bubble_msg_desc p {
-  margin: 0!important;
+  margin: 0 !important;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -5312,8 +5339,6 @@ button.language_switcher img {
 .klarna_works_accordion .accordion .accordion__item:last-child {
   border-bottom: 1px solid var(--gray-light-300);
 }
-
-
 
 /* coming soon page */
 .coming_soon_wrap {
@@ -5425,7 +5450,7 @@ button.language_switcher img {
   margin: 0;
 }
 .klarna_pay_terms p a {
-  color: #2D61C9;
+  color: #2d61c9;
   font-size: 14px;
   font-style: italic;
   font-weight: 300;
@@ -5462,10 +5487,10 @@ button.language_switcher img {
   align-items: center;
   border-radius: 100px;
   border: 2px solid var(--gray-light-300);
-  background: #FFF;
+  background: #fff;
   font-size: 34px;
   font-weight: 600;
-  line-height: 41px
+  line-height: 41px;
 }
 .klarna_works_accordion .accordion {
   border: 0;
@@ -5489,17 +5514,20 @@ button.language_switcher img {
   display: none;
 }
 .klarna_works_accordion .klarna_works_items .accordion__button:after {
-  content: '';
+  content: "";
   width: 24px;
   height: 24px;
   position: absolute;
   right: 0;
   top: 26px;
   background: url("/accordion-arrow.svg") no-repeat;
-
 }
-.klarna_works_accordion .klarna_works_items .accordion__button[aria-expanded='true']:after, 
-.klarna_works_accordion .klarna_works_items .accordion__button[aria-selected='true']:after {
+.klarna_works_accordion
+  .klarna_works_items
+  .accordion__button[aria-expanded="true"]:after,
+.klarna_works_accordion
+  .klarna_works_items
+  .accordion__button[aria-selected="true"]:after {
   transform: rotate(180deg);
 }
 .klarna_works_accordion .klarna_works_items .klarna_num_count {
@@ -5531,7 +5559,6 @@ button.language_switcher img {
 .klarna_works_accordion .accordion .accordion__item:last-child {
   border-bottom: 1px solid var(--gray-light-300);
 }
-
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
@@ -6419,7 +6446,10 @@ button.language_switcher img {
   }
   .m_max_h_440 {
     max-height: 440px !important;
-  }  
+  }
+  .m_max_h_265 {
+    max-height: 265px !important;
+  }
   .btn_sm_m {
     height: 48px;
     padding: 8px 20px;
@@ -6489,7 +6519,7 @@ button.language_switcher img {
   .custom_fs_m_20 {
     font-size: 20px !important;
     line-height: 24px !important;
-  }  
+  }
 
   .custom_fs_m_16 {
     font-size: 16px !important;
@@ -6502,7 +6532,7 @@ button.language_switcher img {
   }
 
   .m_lh_19 {
-    line-height: 19px!important;
+    line-height: 19px !important;
   }
   .custom_fs_m_14 {
     font-size: 14px !important;
@@ -6513,11 +6543,11 @@ button.language_switcher img {
   }
 
   .m_lh_20 {
-    line-height: 20px!important;
+    line-height: 20px !important;
   }
-  
+
   .m_lh_21 {
-    line-height: 21px!important;
+    line-height: 21px !important;
   }
 
   .m_left_0 {
@@ -6993,7 +7023,7 @@ button.language_switcher img {
     font-size: 24px;
     line-height: 29px;
   }
-  .default_form_block.contact_form_block .form_right_wrap h4 {    
+  .default_form_block.contact_form_block .form_right_wrap h4 {
     margin-top: 16px;
   }
   .default_form_block.contact_form_block .form_right_wrap h6 {
@@ -7023,7 +7053,7 @@ button.language_switcher img {
     margin-bottom: 10px;
   }
   .form_submit_block ul.download_app {
-      padding-top: 5px;
+    padding-top: 5px;
   }
   .form_submit_block ul.download_app li.download_app_title h6 {
     font-size: 14px;
@@ -7415,7 +7445,7 @@ button.language_switcher img {
     max-width: 100%;
   }
   .sqr_resp_224 {
-    height: 224px!important;
+    height: 224px !important;
   }
   .bubble_top_mid {
     left: 17%;
@@ -7459,8 +7489,8 @@ button.language_switcher img {
     bottom: 16px;
   }
   .klarna_banner_badge img {
-      width: 57px!important;
-      height: auto;
+    width: 57px !important;
+    height: auto;
   }
   .klarna_works_block {
     display: none;
@@ -8758,7 +8788,7 @@ button.language_switcher img {
     line-height: 32px !important;
   }
   .sqr_resp_224 {
-    height: 224px!important;
+    height: 224px !important;
   }
 }
 
@@ -8805,7 +8835,7 @@ button.language_switcher img {
     height: 230px;
   }
   .sqr_resp_224 {
-    height: 224px!important;
+    height: 224px !important;
   }
 }
 @media screen and (min-width: 1301px) and (max-width: 1650px) {
@@ -8816,7 +8846,7 @@ button.language_switcher img {
     height: 300px;
   }
   .sqr_resp_224 {
-    height: 224px!important;
+    height: 224px !important;
   }
 }
 @media screen and (min-width: 1520px) {
@@ -8839,7 +8869,7 @@ button.language_switcher img {
     height: 250px;
   }
   .sqr_resp_224 {
-    height: 224px!important;
+    height: 224px !important;
   }
 }
 

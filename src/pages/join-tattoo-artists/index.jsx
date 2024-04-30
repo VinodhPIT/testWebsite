@@ -32,9 +32,9 @@ export default function JoinArtist({}) {
           <div className="col_full">
             <div className="img_text_box_wrapper exciting_offer_wrap">
               <div class="text_box_wrap right">
-                <div class="img_text_box_inner custom_two_col_banner">
-                  <div class="text_box_content justify_content_center m_min_h_reset m_pb_15 m_pt_15">
-                    <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc m_pt_0 m_pb_0 m_pb_35 pt_80">
+                <div class="img_text_box_inner custom_two_col_banner two_col_reset  pt_80 pb_110 m_pb_15 m_pt_15">
+                  <div class="text_box_content justify_content_center m_min_h_reset m_pt_0">
+                    <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc m_pt_0 m_pb_0 m_pb_35 pt-0 ">
                       <Image
                         priority={true}
                         src="/pexels-jasmin-chew.png"
@@ -42,11 +42,11 @@ export default function JoinArtist({}) {
                         width={525}
                         height={661}
                         layout="responsive"
-                        className="object_position_left"
+                        className="object_position_left object_fit_cover m_max_h_265"
                       />
                     </div>
                   </div>
-                  <div class="img_box_wrap no_space_center no_shadow_before pt_80 m_pt_20 m_mb_40 m_flex_direction_column justify_content_start">
+                  <div class="img_box_wrap no_space_center no_shadow_before pt_0 pb-0 m_pt_20 m_mb_40 m_flex_direction_column justify_content_start m_pt_0">
                     <h1 className="mb_40 custom_fs_40 custom_fs_m_38 fw_600 fw_m_700 ">
                       {t("common:joinartistPage.title1")}
                     </h1>
