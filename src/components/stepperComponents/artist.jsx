@@ -152,7 +152,7 @@ const Artist = () => {
                             <p>
                               {location !== ""
                                 ? location
-                                : t("common:locations")}
+                                : t("common:location")}
                             </p>
                           </button>
                           {toggleLocation && (

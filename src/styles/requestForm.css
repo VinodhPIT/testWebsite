@@ -3,12 +3,12 @@
   min-height: 100vh;
 }
 
-.request_land_body>div {
+.request_land_body > div {
   height: 100%;
   min-height: 100vh;
 }
 
-.request_land_body>div>div {
+.request_land_body > div > div {
   height: 100%;
   min-height: 100vh;
 }
@@ -46,7 +46,11 @@
 
 .banner_fixed_block:after {
   content: "";
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 113.37%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 113.37%
+  );
   position: absolute;
   height: 100%;
   width: 100%;
@@ -173,7 +177,7 @@
 }
 
 .request_header_container {
-  max-width: 913px;
+  max-width: 743px;
   margin: 0 auto;
   min-height: 62px;
   display: flex;
@@ -191,7 +195,7 @@
   max-width: 790px;
   padding: 40px 80px;
   border-radius: 16px;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -203,11 +207,9 @@
   padding: 40px 77px;
   background-color: var(--white);
   border-radius: 11px;
-   height: 578px;
-   position: relative;
-
+  height: 578px;
+  position: relative;
 }
-
 
 .request_landing_content_col {
   display: flex;
@@ -258,7 +260,7 @@
 
 .inActiveRequest {
   border: 1px solid var(--gray-light-300);
-} 
+}
 
 .request_list_item .inActiveRequest:hover {
   border: 1px solid var(--black-200);
@@ -385,7 +387,7 @@
   background: var(--gray-600);
 }
 
-.request_upload_img>img {
+.request_upload_img > img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -438,7 +440,11 @@
 }
 .request_filter_dtls:after {
   content: "";
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   position: absolute;
   height: 100%;
   width: 100%;
@@ -477,7 +483,7 @@
   padding: 0;
   position: relative;
   z-index: 1;
-   overflow: hidden;
+  overflow: hidden;
 }
 .request_filter_profile_dtls a {
   word-break: break-word;
@@ -485,9 +491,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color:var(--white)
+  color: var(--white);
 }
-
 
 .request_filter_profile_dtls h6.request_filter_profile_title {
   margin: 0;
@@ -495,10 +500,7 @@
   font-size: 14px;
   font-weight: 400;
   color: var(--white);
-  /* display: block;
-  max-width: 100%;
-  word-break: break-word;
-  padding: 0; */
+  padding: 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -529,12 +531,12 @@
   display: block;
   width: 100%;
   font-weight: 400;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .request_contact_form form.form_floating .form_control::placeholder {
   color: var(--gray-300);
-  opacity: 1
+  opacity: 1;
 }
 .request_contact_form form .form_control:focus {
   border-color: var(--black-200);
@@ -550,7 +552,7 @@
   font-size: 16px;
   line-height: 24px;
   color: var(--black-500);
-  font-weight: 400
+  font-weight: 400;
 }
 
 .request_review_filter {
@@ -658,7 +660,7 @@
 .custom_text_with_icon h5 {
   font-size: 22px;
   font-weight: 700;
-  line-height: 26px
+  line-height: 26px;
 }
 
 .custom_popup_design ul.download_app .download_app_title h6 {
@@ -685,9 +687,8 @@
   max-width: 140px;
 }
 
-
-.request_style_drop>button {
-  padding: 8px 10px;
+.request_style_drop > button {
+  padding: 7px 10px;
   display: flex;
   align-items: center;
   border-radius: 8px;
@@ -698,7 +699,7 @@
   position: relative;
 }
 
-.request_style_drop>button:after {
+.request_style_drop > button:after {
   content: "";
   width: 16px;
   height: 16px;
@@ -708,8 +709,7 @@
   background: url("/filter_down_arrow.svg") no-repeat;
 }
 
-
-.request_style_drop>button>p {
+.request_style_drop > button > p {
   margin: 0;
   font-size: 14px;
   font-weight: 400;
@@ -722,27 +722,9 @@
   flex: 1 1 0%;
   max-width: 140px;
 }
-.request_style_drop .style_count{
-  display: flex;
-  width: 20px;
-  height: 18px;
-  padding: 0px 4px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  right: 30px;
-  top: 10px;
-  border-radius: 10px;
-  background:var(--black-200);
-  color:var(--white);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
-} 
 
-.request_location_drop>button {
-  padding: 8px 10px;
+.request_location_drop > button {
+  padding: 7px 10px;
   display: flex;
   align-items: center;
   border-radius: 8px;
@@ -752,7 +734,7 @@
   width: 100%;
 }
 
-.request_location_drop>button:after {
+.request_location_drop > button:after {
   content: "";
   width: 16px;
   height: 16px;
@@ -762,16 +744,17 @@
   background: url("/filter_down_arrow.svg") no-repeat;
 }
 
-.request_location_drop>button>p {
+.request_location_drop > button > p {
   margin: 0;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
-    word-break: break-word;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;padding: 0px 12px 0px 0px
+  word-break: break-word;
+  max-width: 92%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0px 12px 0px 0px;
 }
 
 .request_current_location {
@@ -919,13 +902,14 @@
 .request_ref_selected.max_reached img {
   display: none;
 }
-.picked_ArtistsPanel{
-  height:386px;
+.picked_ArtistsPanel {
+  height: 386px;
   overflow: hidden;
-  overflow:scroll ;margin-bottom: 20px;
+  overflow: scroll;
+  margin-bottom: 20px;
 }
 
-.request_contact_form .Dropdown-control{
+.request_contact_form .Dropdown-control {
   width: 105px;
   height: 50px;
   font-size: 16px;
@@ -935,7 +919,7 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
-} 
+}
 
 .request_contact_form .Dropdown-arrow {
   top: 21px;
@@ -943,10 +927,27 @@
 
 .req_offset_top {
   position: relative;
-  top: -45px;
+  top: -50px;
   background: #fff;
 }
-
+.request_style_drop .style_count{
+  display: flex;
+  width: 20px;
+  height: 18px;
+  padding: 0px 4px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  border-radius: 10px;
+  background:var(--black-200);
+  color:var(--white);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+} 
 
 @media screen and (min-width: 768px) and (max-width: 1068px) {
   .request_landing_header .request_back_arrow {
@@ -1037,7 +1038,7 @@
     height: 42px;
     padding: 8px 10px;
   }
- 
+
   .request_text_area textarea {
     padding: 8px 12px;
   }
@@ -1066,18 +1067,18 @@
   }
 
   .request_filter_block {
-    gap: 4px;
+    gap: 8px;
   }
 
-  .request_style_drop {
+  /* .request_style_drop {
     max-width: 100%;
   }
 
   .request_location_drop {
     max-width: 100%;
-  }
+  } */
   .request_filter_col_wrap {
-    gap: 4px;
+    gap: 8px;
   }
 
   .request_ref_btn {
@@ -1145,7 +1146,10 @@
     margin-right: 3px;
   }
 
-  .request_review_block .request_filter_wrap .request_filter_grid .request_filter_img {
+  .request_review_block
+    .request_filter_wrap
+    .request_filter_grid
+    .request_filter_img {
     min-height: 171px;
   }
 
@@ -1179,7 +1183,7 @@
     border-radius: 8px;
     width: 38px;
     min-width: 38px;
-    height: 39px;
+    height: 37px;
     padding: 0;
     font-size: 14px;
     font-weight: 400;
@@ -1210,30 +1214,31 @@
     cursor: pointer;
   }
   .request_filter_dtls:after {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
   }
 
+  .custom_text_with_icon h5 {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .selectedArtistblock {
+    padding: 15px;
+    height: auto;
+  }
+  .request_landing_content {
+    border-radius: 8px;
+  }
   .request_header_container {
     min-height: 73px;
-}
-.req_offset_top {
-  top: -38px;
-}
-
-
-}
-
-
-@media screen and (max-width: 699px) {
-  .selectedArtistblock {
-    padding: 26px;
-    height: auto;
-   
+  }
+  .req_offset_top {
+    top: -38px;
   }
 }
-
-
-
 
 @media screen and (max-width: 405px) {
   .request_review_ref_img img {
