@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import useWindowResize from "@/hooks/useWindowSize";
+import { useNavigation } from "@/hooks/useRouter";
 import { blurDataURL } from "@/constants/constants";
 
 import sliderSettings from "@/constants/homeSliderSettings";
-
 
 import styles from "./style.module.css";
 import Slider from "react-slick";
@@ -15,6 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 export default function ExploreTattoos({ title, content, datas }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
+  const { router } = useNavigation();
 
   return (
     <section className="img_text_banner_box">
@@ -41,26 +43,31 @@ export default function ExploreTattoos({ title, content, datas }) {
                   {...settings}
                   className="custom_slick_slider custom_slick_container"
                 >
-                  {datas&&datas.map((el, index) => (
-                    <div className={`${"listing_gridItem"} `} key={index}>
-                      <div
-                        className={`${"listing_grid_img_col sqr_resp_224 m_w_cal_100_10"}`}
-                      >
-                        <Image
-                          src={el.image_url}
-                          alt={el.style.style_name}
-                          width={224}
-                          height={224}
-                          loading="lazy"
-                          placeholder="blur"
-                          blurDataURL={blurDataURL}
-                          className="h_inherit"
-                          layout="responsive"
-                          style={{ borderRadius: "10px" }}
-                        />
+                  {datas &&
+                    datas.map((el, index) => (
+                      <div className={`${"listing_gridItem"} `} key={index}>
+                        <Link
+                          href={`/${router.locale}/explore/tattoos/${el.tattoo_uid}`}
+                        >
+                          <div
+                            className={`${"listing_grid_img_col sqr_resp_224 m_w_cal_100_10"}`}
+                          >
+                            <Image
+                              src={el.image_url}
+                              alt={el.style.style_name}
+                              width={224}
+                              height={224}
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL={blurDataURL}
+                              className="h_inherit"
+                              layout="responsive"
+                              style={{ borderRadius: "10px" }}
+                            />
+                          </div>
+                        </Link>
                       </div>
-                    </div>
-                  ))}
+                    ))}
                 </Slider>
               </div>
             </div>

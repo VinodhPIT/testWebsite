@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Modal from "react-modal";
 import Image from "next/image";
-import countriesData from "@/data/countries.json";
-import styles from "./style.module.css";
 import { useRouter } from "next/router";
+
 import setLanguage from "next-translate/setLanguage";
 import useTranslation from "next-translate/useTranslation";
+import Modal from "react-modal";
+import useStyleListing from "@/store/styleListing/styleListing";
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+
+import countriesData from "@/data/countries.json";
+import styles from "./style.module.css";
+
 
 const customStyles = {
   overlay: {
@@ -32,6 +37,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   const router = useRouter()
   const [country, setCountry] = useState([])
   const { t } = useTranslation();
+  const { fetchAll } = useDisplayAll();
+  const { fetchStyle } = useStyleListing();
 
 
   useEffect(() => {
@@ -46,6 +53,15 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     const newUrl = `/${domain}-${li}${router.asPath}`;
     router.replace(newUrl);
   };
+
+
+  useEffect(() => {
+    fetchStyle(router.locale.split("-")[1]);
+    fetchAll(router.locale.split("-")[0]);
+  }, [router.locale]);
+
+
+
 
   return (
     <Modal

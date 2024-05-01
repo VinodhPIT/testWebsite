@@ -4,11 +4,15 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
+import usePath from'@/store/setPath/setPath'
+
 import { blurDataURL } from "@/constants/constants";
 
 export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
+   const {setPathname} = usePath()
+
 
   return (
     <div className="img_text_box_wrapper block_bg_cool_aero_blue m_pb_0">
@@ -86,7 +90,7 @@ export default function TattooIdea() {
                     {t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
-                    href={`/${router.locale}/createRequest`}
+                    href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
                     className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden custom_fs_m_16 m_lh_20"
                   >
                     {t("common:homePage.CreateATattooRequest")}
@@ -94,7 +98,7 @@ export default function TattooIdea() {
 
                   <Link
                     className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 desk_hidden"
-                    href={`/${router.locale}/request-Form`}
+                    href={`/${router.locale}/request-Form`}  onClick={()=>setPathname(router.pathname)}
                   >
                     {t("common:homePage.CreateATattooRequest")}
                   </Link>

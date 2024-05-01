@@ -32,8 +32,8 @@ export default function Home({}) {
   const osName = getOs();
   const router = useRouter();
   
-  const { fetchAll, allListing } = useDisplayAll();
-  const { fetchStyle, styleList } = useStyleListing();
+  const { allListing } = useDisplayAll();
+  const { styleList } = useStyleListing();
   
   const {
     getAddress,
@@ -76,10 +76,6 @@ export default function Home({}) {
     styleCollection();
   }, []);
 
-  useEffect(() => {
-    fetchStyle(router.locale.split("-")[1]);
-    fetchAll(router.locale.split("-")[0]);
-  }, [router.locale]);
 
   return (
     <>

@@ -1,8 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import useWindowResize from "@/hooks/useWindowSize";
+
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 
 import { blurDataURL } from "@/constants/constants";
 import sliderSettings from "@/constants/homeSliderSettings";
@@ -15,12 +19,22 @@ import "slick-carousel/slick/slick-theme.css";
 export default function FiveColumnCarousel({
   title,
   content_sub,
-  trendingArtist,
 }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
+  const { fetchAll, allListing } = useDisplayAll();
+  const router =useRouter()
+
+
+
+  useEffect(() => {
+    fetchAll(router.locale.split("-")[0]);
+  }, [router.locale]);
 
   
+
+
+
 
   return (
     <section className="img_text_banner_box">
@@ -48,22 +62,23 @@ export default function FiveColumnCarousel({
                   {...settings}
                   className="custom_content_slick_slider"
                 >
-                  {trendingArtist.map((el, index) => (
+                {allListing.artists && allListing.artists.map((el, index) => (
                     <div
                       className={`${"listing_gridItem"} ${
                         styles.listing_gridItem
                       }`}
                       key={index}
                     >
-                      <Link href={el.url}>
+                       <Link href={"#"}>
+                   
                         <div
                           className={`${"listing_grid_five_col"} ${
                             styles.listing_grid_img_col
                           }`}
                         >
                           <Image
-                            src={el.image}
-                            alt={el.name}
+                            src={el.latest_tattoo === '' || el.latest_tattoo === null || el.latest_tattoo === undefined ? '/placeHolder.png' : el.latest_tattoo}
+                            alt={el.last_name}
                             width={752}
                             height={776}
                             loading="lazy"
@@ -77,6 +92,7 @@ export default function FiveColumnCarousel({
                             className="imggg"
                           />
                         </div>
+                      
 
                         <div
                           className={`${"listing_grid_content_wrap"} ${
@@ -85,8 +101,8 @@ export default function FiveColumnCarousel({
                         >
                           <div className={styles.listing_grid_img_profile}>
                             <Image
-                              src={el.artistImage}
-                              alt={el.name}
+                              src={el.profile_image_url}
+                              alt={el.first_name}
                               width={97}
                               height={97}
                               loading="lazy"
@@ -97,17 +113,18 @@ export default function FiveColumnCarousel({
                           </div>
                           <div className={styles.listing_grid_profile_details}>
                             <h6 className={styles.listing_grid_profile_title}>
-                              {el.name}
+                              {el.first_name}
                             </h6>
 
                             <span
                               className={styles.listing_grid_profile_address}
                             >
-                              {el.city}, {el.country}
+                              {el.studio_city}, {el.studio_country}
                             </span>
                           </div>
                         </div>
-                      </Link>
+                        </Link>
+                 
                     </div>
                   ))}
                 </Slider>
