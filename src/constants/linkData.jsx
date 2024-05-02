@@ -20,6 +20,11 @@ const links = [
       title: "common:menus.klarna",
       url: "/klarna",
     },
+    {
+      id: 5,
+      title: "common:menus.joinArtist",
+      url: "/join-tattoo-artists",
+    },
   
   ];
   
