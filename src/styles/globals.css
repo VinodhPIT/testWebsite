@@ -2735,7 +2735,7 @@ ul.progressbar li {
 }
 
 ul.progressbar li .progressbar_block {
-  padding: 0 0 21px 80px;
+  padding: 0 0 35px 80px;
   position: relative;
 }
 
@@ -2775,13 +2775,6 @@ ul.progressbar li h4 {
 
 ul.progressbar li p {
   color: var(--black-500);
-  font-weight: 300 !important;
-  font-size: 18px !important;
-  line-height: 27px !important;
-  height: 100%;
-  display: block;
-  position: relative;
-  text-align: left;
   margin: 0 !important;
   padding: 0;
 }
@@ -4212,28 +4205,6 @@ header .navbar {
   width: auto;
 }
 
-@media screen and (min-width: 768px) {
-  .img_text_box_inner.custom_two_col_banner.two_col_reset
-    .text_box_content
-    > .text_box_content_inner {
-    min-height: inherit !important;
-    width: auto !important;
-    display: block;
-    position: absolute;
-    inset: 0px;
-    right: 58.33333333333333%;
-    left: 10%;
-  }
-  .img_text_box_inner.custom_two_col_banner.two_col_reset .img_box_wrap {
-    min-height: inherit !important;
-    width: auto !important;
-    display: block;
-    position: relative;
-    inset: 0px;
-    left: 58.33333333333333%;
-    max-width: 50%;
-  }
-}
 
 @media (max-width: 638px) {
   .swiper-container {
@@ -6007,14 +5978,16 @@ button.language_switcher img {
     background-size: 16px;
     width: 32px;
     height: 32px;
+    top: 0px;
   }
   ul.progressbar li .progressbar_block {
-    padding: 0px 0 38px 48px;
+    padding: 0px 0 35px 48px;
     position: relative;
   }
   ul.progressbar li h4 {
     font-size: 20px;
-    line-height: 25px;
+    line-height: 30px;
+    max-width: 100%;
   }
   ul.progressbar li p {
     font-size: 14px !important;
@@ -7944,6 +7917,26 @@ button.language_switcher img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+  }
+  .img_text_box_inner.custom_two_col_banner.two_col_reset
+    .text_box_content
+    > .text_box_content_inner {
+    min-height: inherit !important;
+    width: auto !important;
+    display: block;
+    position: absolute;
+    inset: 0px;
+    right: 58.33333333333333%;
+    left: 10%;
+  }
+  .img_text_box_inner.custom_two_col_banner.two_col_reset .img_box_wrap {
+    min-height: inherit !important;
+    width: auto !important;
+    display: block;
+    position: relative;
+    inset: 0px;
+    left: 58.33333333333333%;
+    max-width: 50%;
   }
 }
 
