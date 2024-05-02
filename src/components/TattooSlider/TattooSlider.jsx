@@ -59,7 +59,7 @@ export default function FourColumnCarousel({ title, content }) {
                         >
                           <Image
                             src={el.latest_tattoo === '' || el.latest_tattoo === null || el.latest_tattoo === undefined ? '/placeHolder.png' : el.latest_tattoo}
-                            alt={el.artist_name}
+                            alt={el.first_name}
                             width={752}
                             height={776}
                             loading="lazy"
