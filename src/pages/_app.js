@@ -71,6 +71,7 @@ function MyApp({ Component, pageProps }) {
       case "/privacy-policy":
       case "/download/[[...download]]":
       case "/comingSoon":
+      case "/styleDetail":
         return (
           <Header
             logo={"/inckd-logo.svg"}
