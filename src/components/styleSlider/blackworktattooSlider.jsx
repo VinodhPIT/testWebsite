@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React  from "react";
 import Image from "next/image";
 
 import useWindowResize from "@/hooks/useWindowSize";
-import useDisplayAll from "@/store/exploreAll/exploreAll";
-
 
 import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
@@ -17,10 +15,7 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
 
-  const {allListing} = useDisplayAll();
-
-
-
+  
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">

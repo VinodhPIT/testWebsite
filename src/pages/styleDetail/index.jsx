@@ -1,77 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import Blackworktattooslider from "@/components/styleSlider/Blackworktattooslider";
+import { useRouter } from "next/router";
+
+import useTranslation from "next-translate/useTranslation";
+
+import Blackworktattooslider from "@/components/styleSlider/blackworktattooSlider";
 import Sharetattooideas from "@/components/styleSlider/shareTattooideas";
 import Exploreblackworktattoos from "@/components/styleSlider/exploreblackworkTattoos";
 import ExploreStyle from "@/components/styleSlider/exploreStyles";
 import Dreamtattooai from "@/components/styleSlider/dreamtattooAi";
-import DownloadApps from "@/components/styleSlider/DownloadApps"
-import { useRouter } from "next/router";
+import DownloadApps from "@/components/styleSlider/downloadApp"
+
 import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-import useWindowResize from "@/hooks/useWindowSize";
-import ImageSlider from "@/components/slider/ImageSlider";
-import useTranslation from "next-translate/useTranslation";
-import { getLocaleProps } from "@/utils/getlocale";
+
+
 
 export default function Styledeatil() {
 
   const router = useRouter();
-  const { isMobileView } = useWindowResize();
+
   const { t } = useTranslation();
 
 
-  const tattoos = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21561_20230312230323292-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ba76717a-788c-42ec-a50c-c946a7deb7b7`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26057_20230814190028838-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ffbb5f5b-c124-4599-9a2a-8b8fb70d0305`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2836_20220916175556641-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/fe25e0ec-bf1d-451d-93d4-70ac74a6286d`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13796_20230105095643483-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1374fce3-e79a-4381-a9f7-281c84793b5c`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/18174_20230208215617181-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c2377f90-d4c4-4056-896e-53a2da502273`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/22296_20230323003140535-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/32a4ef5e-159d-4e3a-8498-5f2244b0fb8d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4677_20221006183710030-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/570d3a82-3d83-41b1-8b3c-ed72fe064c42`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4674_20221006183315588-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ebdd32be-7b9f-429b-8adb-4dc92161143a`,
-    },
-  ];
+  
 
   const trendingArtist = [
     {
@@ -324,7 +279,7 @@ export default function Styledeatil() {
           </div>
         </section>
 
-        <Dreamtattooai />
+        <Dreamtattooai/>
 
         <ExploreStyle
           title={t("common:homePage.exploreStyle")}

@@ -28,7 +28,7 @@ export default function ExploreStyles({ title, content, data }) {
             <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_40">
               <h2 className="color_gray_550 heading_h2 lh_41 mb_0 m_text_left custom_fs_m_24 m_lh_29 position_relative">
                 <span className="heading_with_arrow position_relative">
-                Explore more tattoo styles
+                {"Explore more tattoo styles"}
                 </span>
               </h2>
               {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
@@ -64,7 +64,7 @@ export default function ExploreStyles({ title, content, data }) {
                             style={{ borderRadius: "10px" }}
                           />
                           <div class="title_bg_trans">
-                            <span>Chinese Dragons</span>
+                            <span>{"Chinese Dragons"}</span>
                           </div>
                         </div>
                       </div>
