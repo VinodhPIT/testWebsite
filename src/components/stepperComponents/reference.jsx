@@ -73,7 +73,7 @@ const handleFileUpload = (event, index) => {
                   </div>
 
                   {images.length > 0 && (
-                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end">{t("common:next")}</button>
+                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4">{t("common:next")}</button>
                   )}
 
 

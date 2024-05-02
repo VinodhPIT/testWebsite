@@ -1289,7 +1289,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mb_10 {
   margin-bottom: 10px !important;
 }
-
+.mb_12 {
+  margin-bottom: 12px !important;
+}
 .mb_15 {
   margin-bottom: 15px !important;
 }
@@ -1307,15 +1309,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mb_30 {
   margin-bottom: 30px !important;
 }
-
 .mb_35 {
   margin-bottom: 35px !important;
 }
-
 .mb_40 {
   margin-bottom: 40px !important;
 }
-
 .mb_45 {
   margin-bottom: 45px !important;
 }
@@ -1640,14 +1639,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .d_max_248 {
   max-width: 248px !important;
 }
-
 .d_max_320 {
   max-width: 320px !important;
 }
 .d_max_350 {
   max-width: 350px !important;
 }
-
 .d_max_380 {
   max-width: 380px !important;
 }
@@ -1656,6 +1653,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 }
 .d_max_550 {
   max-width: 550px !important;
+}
+.d_max_710 {
+  max-width: 710px!important;
+}
+.d_max_920 {
+  max-width: 920px!important;
 }
 .no_space_center {
   padding-left: 15px !important;
@@ -2644,6 +2647,10 @@ ul.custom-listing li img {
   font-size: 24px !important;
   line-height: 30px !important;
 }
+.custom_fs_25 {
+  font-size: 25px !important;
+  line-height: 30px !important;
+}
 .custom_fs_26 {
   font-size: 26px !important;
   line-height: 32px !important;
@@ -2659,6 +2666,10 @@ ul.custom-listing li img {
 .custom_fs_34 {
   font-size: 34px !important;
   line-height: 40px !important;
+}
+.custom_fs_35 {
+  font-size: 35px !important;
+  line-height: 42px !important;
 }
 .custom_d_fs_50 {
   font-size: 50px !important;
@@ -2686,7 +2697,9 @@ ul.custom-listing li img {
 .lh_30 {
   line-height: 30px !important;
 }
-
+.lh_41 {
+  line-height: 41px !important;
+}
 .lh_33 {
   line-height: 33px !important;
 }
@@ -5364,6 +5377,34 @@ button.language_switcher img {
   margin-bottom: 35px;
 }
 */
+.range_patterns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+.range_patterns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: wrap;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 16px;
+}
+.range_patterns ul li {
+  display: flex;
+  padding: 3px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #E1E4E8;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 27px;
+}
+
 
 .klarna_banner_badge {
   display: flex;
@@ -6523,6 +6564,10 @@ button.language_switcher img {
     line-height: 21px !important;
   }
 
+  .m_lh_29 {
+    line-height: 29px!important;
+  }
+
   .m_left_0 {
     left: 0 !important;
   }
@@ -7467,6 +7512,13 @@ button.language_switcher img {
   }
   .klarna_works_block {
     display: none;
+  }
+  .range_patterns ul {
+    row-gap: 8px;
+  }
+  .range_patterns ul li {
+    font-size: 14px;
+    line-height: 21px;
   }
 }
 @media screen and (max-width: 640px) {
