@@ -6,11 +6,17 @@ import useTranslation from "next-translate/useTranslation";
 
 import { useNavigation } from "@/hooks/useRouter";
 
+
+import usePath from'@/store/setPath/setPath'
+import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
+import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumnCarousel";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
+
 import {
   Accordion,
   AccordionItem,
@@ -20,12 +26,13 @@ import {
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
 
-import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
-import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumnCarousel";
+
+
 
 function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
+  const {setPathname} = usePath()
 
   const list = [
     {
@@ -64,92 +71,7 @@ function KlarnaNew({}) {
     },
   ];
 
-  const trendingArtist = [
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/8560_20231107222351494_76A967EC-A2EC-43CB-BA7C-E53504E3E3D0.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28739_20231107195304237-medium.jpg",
-      name: "PatGry",
-
-      city: "Wuppertal",
-      country: "Germany",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/patgry_bnxm5pks`,
-    },
-
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/8266_20231102220347864_4B2C093E-32F5-4067-9F84-2F7C51392B09.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28422_20231103121829921-medium.jpg",
-      name: "Sam Scylla",
-
-      city: "Rudgwick",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/samscylla_vxnki0ls`,
-    },
-
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/8224_20231102141102065_CFDBD907-6607-43EB-A93B-3DF521E7144C.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/28407_20231102142832069-medium.jpg",
-      name: "Cesar Mesquita",
-
-      city: "Norwich",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/cesarmesquita_v9yu3mul`,
-    },
-
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/5051_20230412112159932_FB7BDC47-12D1-48B2-B7F0-0C89E354E668.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24123_20230415152818767-medium.jpg",
-      name: "Eani13",
-
-      city: "Madrid",
-      country: "Spain",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/Eani13_uao6eo6d`,
-    },
-
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/2103_CC19866A-E579-4661-9CE0-A1F63AA49E6C.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9957_20221123205228266-medium.jpg",
-      name: "Maya Kubitza",
-
-      city: "Katowice",
-      country: "Poland",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/maya-kubitza_f6y17wwp`,
-    },
-
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/1742_3857121F-A33D-420C-A197-5D9EC3D02905.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8655_20221110125829007-medium.jpg",
-      name: "Luciatattoos",
-
-      city: "London",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/luciatattoos_n98rnvgl`,
-    },
-    {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/1947_02F8189E-5AD8-4922-9A1A-85845DD9E3A7.jpg",
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9164_20221116191748594-medium.jpg",
-      name: "Megan Rae",
-
-      city: "Carlisle",
-      country: "United Kingdom",
-
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/meganrae_4dszyy98`,
-    },
-  ];
-
+ 
   return (
     <>
       <Head>
@@ -385,11 +307,20 @@ function KlarnaNew({}) {
                     {t("common:klarnaPage.findArtists")}
                     </h2>
                     <Link
-                      href={`/${router.locale}/createRequest`}
-                      className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
+                      href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
+                      className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 mob_hidden"
                     >
                       {t("common:homePage.CreateATattooRequest")}
                     </Link>
+
+                    <Link
+                      href={`/${router.locale}/request-Form`} onClick={()=>setPathname(router.pathname)}
+                      className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 desk_hidden"
+                    >
+                      {t("common:homePage.CreateATattooRequest")}
+                    </Link>
+
+                    
                   </div>
                 </div>
               </div>
@@ -459,9 +390,7 @@ function KlarnaNew({}) {
       <FiveColumnCarousel
         title={t("common:klarnaPage.carosuelTitle")}
         content_sub={t("common:klarnaPage.content_sub")}
-        button={t("common:ExploreMoreArtist")}
-        trendingArtist={trendingArtist}
-        btnLink={`/${router.locale}/explore/tattoo-artists`}
+        
       />
 
       <DownloadApps

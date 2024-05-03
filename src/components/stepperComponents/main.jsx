@@ -5,13 +5,18 @@ import Image from "next/image";
 import { useNavigation } from "@/hooks/useRouter";
 
 import useTranslation from "next-translate/useTranslation";
+import usePath from  '@/store/setPath/setPath'
 
 import { blurDataURL } from "@/constants/constants";
+
 
 
 export default function Main() {
   const { t } = useTranslation();
   const { router } = useNavigation();
+
+  const {pathname} =usePath()
+  console.log(pathname ,"setPathnamesetPathname")
 
   return (
     <>
@@ -36,7 +41,7 @@ export default function Main() {
             <div className="row">
               <div className="col-md-12">
                 <div class="request_back_arrow">
-                  <Link href={`/${router.locale}/`}>
+                  
                     <Image
                       priority
                       alt="backArrow"
@@ -45,8 +50,10 @@ export default function Main() {
                       height="24"
                       blurDataURL={blurDataURL}
                       className="m_object_position_center"
+                      onClick={() => router.push(`/${router.locale}/${pathname}`)}
+
                     />
-                  </Link>
+                 
                 </div>
                 <div class="request_stepper">
                   <div class="request_stepper_item">

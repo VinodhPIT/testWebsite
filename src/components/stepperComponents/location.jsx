@@ -30,10 +30,20 @@ export default function LocationSearch({ onToggleLoc }) {
     setAddress(value);
   };
 
-  const clear = async () => {
+
+  const sharedFunction = () => {
     clearLocation();
     onToggleLoc();
   };
+  
+  const clearCurrentLocation = () => {
+    sharedFunction();
+    setIsChecked();
+  };
+  const clear = async () => {
+    sharedFunction();
+  };
+
 
   const onError = (status, clearSuggestions) => {
     clearSuggestions();
@@ -152,18 +162,36 @@ export default function LocationSearch({ onToggleLoc }) {
         </div>
 
         <div className={styles.custom_dropdown_btn}>
+
+      {isChecked === true ? 
           <button
-            onClick={() => clear()}
-            disabled={location === "" ? true : false}
+            onClick={() => clearCurrentLocation()}
+            disabled={!isChecked}
             className="btn_outline_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
           >
             {t("common:Clear All")}
           </button>
+  : <button
+  onClick={() => clear()}
+  disabled={location === ""}
+  className="btn_outline_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
+>
+ {t("common:Clear All")}
+</button>
+ }
+
+{/* <button
+  onClick={() => clear()}
+  disabled={isChecked ? !isChecked : location === ""}
+  className="btn_outline_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
+>
+  {t("common:Clear All")}
+</button> */}
 
           <button
             onClick={() => searchLocation()}
             disabled={address === ""}
-            className="btn_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
+            className="btn_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600 bdr_rad_4"
           >
             {t("common:Show Results")}
           </button>

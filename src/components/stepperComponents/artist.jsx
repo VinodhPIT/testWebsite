@@ -9,6 +9,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import OutsideClickHandler from "react-outside-click-handler";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+import { useGlobalState } from "@/context/Context";
 
 import StyleDropdown from "@/components/stepperComponents/styleListing";
 import SearchBar from "@/components/stepperComponents/searchBar";
@@ -27,7 +28,8 @@ const Artist = () => {
   const [toggleModel, setModel] = useState(false);
   const { router } = useNavigation();
   const [searchVisible, setSearchVisible] = useState(false);
-  
+  const {  selectedIds } = useGlobalState();
+ 
   const {
     addSelectedArtist,
     artistList,
@@ -116,11 +118,11 @@ const Artist = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_118_vh ">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 align_content">
-              <section className="request_landing_content">
+            <div className="col-md-12 ">
+              <section className="request_landing_content req_offset_top">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title5")}</h2>
                   <div style={{ position: "relative" }}>
@@ -134,7 +136,7 @@ const Artist = () => {
                             onClick={onToggle}
                             className={`${toggle ? "onActive" : null}`}
                           >
-                            <p>{t("common:Style")}</p>
+                            <p>{t("common:Style")}   </p>   {selectedIds.length>=1 && <p className="style_count">{selectedIds.length}</p>}
                           </button>
                           {toggle && (
                             <OutsideClickHandler onOutsideClick={onToggle}>
@@ -150,7 +152,7 @@ const Artist = () => {
                             <p>
                               {location !== ""
                                 ? location
-                                : t("common:locations")}
+                                : t("common:location")}
                             </p>
                           </button>
                           {toggleLocation && (
@@ -315,7 +317,7 @@ const Artist = () => {
                         {selectedArtists.length > 0 && (
                           <button
                             onClick={nextPage}
-                            className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end"
+                            className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4"
                           >
                             {t("common:next")}
                           </button>

@@ -2,8 +2,14 @@ import React, { useEffect } from "react";
 import _Form from "@/components/artistForm/form";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
-
-export default function JoinArtist({  }) {
+import Image from "next/image";
+import Link from "next/link";
+import {
+  APP_LINK_APPLE,
+  APP_LINK_GOOGLE,
+  blurDataURL,
+} from "@/constants/constants";
+export default function JoinArtist({}) {
   const { t } = useTranslation();
 
   return (
@@ -22,52 +28,109 @@ export default function JoinArtist({  }) {
       </Head>
 
       <div className="page-wrapper">
-        <section className="img_text_banner_box forms_section default_form_block artist_tattoo_form_block">
+        <section className="img_text_banner_box">
           <div className="col_full">
-            <div className="img_text_box_wrapper custom_new_wrap">
-              <div class="text_box_wrap right">
-                <div class="img_text_box_inner">
-                  <div class="text_box_content justify_content_center align_item_start">
-                    <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
-                      <div class="form_block_left">
-                        <h1 class="color_gray_550 heading_h1 custom_fs_58 custom_fs_50 txt_mob_fs45">
-                          <span>{t("common:joinartistPage.title1")}</span>
-                          <span className="textBlock">
-                            {t("common:joinartistPage.title1-Sub")}
-                          </span>
-                        </h1>
-                        <div class="form_left_wrap">
-                          <section class="progress_block">
-                            <ul class="progressbar">
-                              <li class="active">
+            <div className="img_text_box_wrapper">
+              <div className="text_box_wrap left container custom_left_img_new pt_80 pb_100 m_pt_0 m_mt_15 m_pb_40">
+                <div className="img_text_box_inner flex_direction_column">
+                  <div className="row m_switcher_row">
+                    <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                      <div className="img_box_wrap mb_0 mt_0">
+                        <Image
+                          priority={true}
+                          src="/pexels-jasmin-chew.png"
+                          alt={t("common:styleGuidePage.Letteringtattoos")}
+                          width={525}
+                          height={661}
+                          layout="responsive"
+                          className="mob_hidden"
+                        />
+                        <Image
+                          priority={true}
+                          src="/pexels-jasmin-chew-mob.png"
+                          alt={t("common:styleGuidePage.Letteringtattoos")}
+                          width={525}
+                          height={661}
+                          layout="responsive"
+                          className="desk_hidden"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 offset-md-1">
+                      <div className="text_box_content justify_content_start align_item_start m_min_h_reset m_0 p_0">
+                        <div className="text_box_content_inner">
+                          <h1 className="color_gray_550 custom_fs_40 custom_fs_m_38 fw_600 fw_m_700 mb_40 m_mb_15 m_mt_15 m_pt_20">
+                            {t("common:joinartistPage.title1")}
+                          </h1>
+                          <section className="progress_block">
+                            <ul className="progressbar">
+                              <li className="dwld-app-step">
                                 <div className="progressbar_block">
-                                  <h4> {t("common:joinartistPage.head1")}</h4>
-                                  <p> {t("common:joinartistPage.text")}</p>
+                                  <h4>
+                                    {t("common:joinartistPage.downloadTheApp")}
+                                  </h4>
+                                  <p>{t("common:joinartistPage.getStarted")}</p>
+                                  <div className="mt_15 app_dwld_img_wrap">
+                                    <Link href={APP_LINK_APPLE} target="_blank">
+                                      <Image
+                                        priority
+                                        src="/app-store-new.svg"
+                                        alt={t("common:appStoreDownload")}
+                                        width={134}
+                                        height={41}
+                                        placeholder="blur"
+                                        blurDataURL={blurDataURL}
+                                        className="custom_download_icons w_auto"
+                                      />
+                                    </Link>{" "}
+                                    <Link
+                                      href={APP_LINK_GOOGLE}
+                                      target="_blank"
+                                    >
+                                      <Image
+                                        priority
+                                        src="/g-play-new.svg"
+                                        alt={t("common:playStoreDownload")}
+                                        width={134}
+                                        height={41}
+                                        placeholder="blur"
+                                        blurDataURL={blurDataURL}
+                                        className="custom_download_icons w_auto"
+                                      />
+                                    </Link>
+                                  </div>
                                 </div>
                               </li>
-                              {/* <li>
-                              <div className="progressbar_block">
-                                <h4> {t("common:joinartistPage.head2")}</h4>
-                                <p> {t("common:joinartistPage.text")}</p>
-                              </div>
-                            </li> */}
-                              <li>
+                              <li className="create-account-step">
                                 <div className="progressbar_block">
-                                  <h4>{t("common:joinartistPage.head2")}</h4>
+                                  <h4>
+                                    {t("common:joinartistPage.CreateYourAccnt")}
+                                  </h4>
+                                  <p>
+                                    {t(
+                                      "common:joinartistPage.CompleteYourProfile"
+                                    )}
+                                  </p>
+                                </div>
+                              </li>
+                              <li className="boost-account-step">
+                                <div className="progressbar_block">
+                                  <h4>
+                                    {t(
+                                      "common:joinartistPage.BoostYourAccount"
+                                    )}
+                                  </h4>
+                                  <p>
+                                    {t(
+                                      "common:joinartistPage.easyVerificationProcess"
+                                    )}
+                                  </p>
                                 </div>
                               </li>
                             </ul>
                           </section>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    class="img_box_wrap"
-                    style={{ backgroundImage: "url(/joinArtist.jpg)" }}
-                  >
-                    <div class="form_block_right">
-                      <_Form />
                     </div>
                   </div>
                 </div>

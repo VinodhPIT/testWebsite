@@ -8,6 +8,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import useTranslation from "next-translate/useTranslation";
 import Stepper from "react-stepper-horizontal";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
+import usePath from "@/store/setPath/setPath";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,6 +18,9 @@ const { isMobileView } = useWindowResize();
 const { navigateTo, router } = useNavigation();
 const { prevPage, stepNumber, locationDenied } = useRequestForm();
 const { t } = useTranslation();
+const {pathname} =usePath ()
+
+
 
 const generateStepTitle = (title, index) => {
   const isCompleted = index < activeStep;
@@ -58,7 +62,7 @@ const generateStepTitle = (title, index) => {
     // Defined the target URL based on the step number and view mode
     let targetUrl;
     if (isMobileView) {
-      targetUrl = stepNumber === 0 ? baseUrl : null;
+      targetUrl = stepNumber === 0 ? `/${router.locale}/${pathname}` : null;
     } else {
       targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
     }

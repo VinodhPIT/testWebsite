@@ -55,7 +55,7 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
           <div className="popup_box_inner">
             <div className="selectedArtistblock">
               <h2 className="custom_fs_26 mb_10 text_center mb_20">
-                Selected artists
+              {t("common:stepper.selectedArtists")}
               </h2>
 
               <button className="close_button" onClick={onCloseModel}>
@@ -128,7 +128,7 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                   onClick={onCloseModel}
                   className="btn_outline_secondary btn_cutom_40 "
                 >
-                  Cancel
+                   {t("common:cancel")}
                 </button>
 
                 <button
@@ -136,11 +136,11 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                   disabled={!anyDeselected}
                   className={
                     anyDeselected
-                      ? "btn_secondary btn_cutom_40"
-                      : "btn_disabled_40"
+                      ? "btn_secondary btn_cutom_40 bdr_rad_4"
+                      : "btn_disabled_40 bdr_rad_4" 
                   }
                 >
-                  Save
+                 {t("common:stepper.save")}
                 </button>
               </div>
             </div>

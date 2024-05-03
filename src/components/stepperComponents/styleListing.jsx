@@ -80,7 +80,7 @@ export default function StyleDropdown({ onToggle }) {
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
+          className="btn_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600 bdr_rad_4"
         >
           {t("common:Show Results")}
         </button>

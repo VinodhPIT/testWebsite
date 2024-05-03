@@ -52,8 +52,8 @@ export default function ExploreStyles({ title, content, data }) {
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
                           <Image
-                            src={el.image ?? '/placeHolder.png'}
-                            alt={el.style_name}
+                            src={el.image}
+                            alt={'rgrgr'}
                             width={224}
                             height={256}
                             loading="lazy"
@@ -64,7 +64,7 @@ export default function ExploreStyles({ title, content, data }) {
                             style={{ borderRadius: "10px" }}
                           />
                           <div class="title_bg_trans">
-                            <span>{el.style_name}</span>
+                            <span>trhrthrh</span>
                           </div>
                         </div>
                       </div>
