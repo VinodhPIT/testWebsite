@@ -21,6 +21,11 @@ import { blurDataURL } from "@/constants/constants";
 
 import { getSingleStyleDetail } from "@/apiConfig/webService";
 
+
+import countriesData from "@/data/countries.json";
+
+
+
 export default function Styledeatil({ data }) {
   const { styleList } = useStyleListing();
   const { allListing } = useDisplayAll();
@@ -28,7 +33,7 @@ export default function Styledeatil({ data }) {
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
 
-  const firstThree = data.web_content.slice(0, 3);
+  const firstThree = countriesData.slice(0, 3);
 
   const second = data.web_content.slice(0, 3); // Extracting the first three objects
 
