@@ -7524,8 +7524,6 @@ button.language_switcher img {
     line-height: 10px;
     letter-spacing: -0.364px;
   }
-
-
   .heading_with_arrow:after {
     bottom: 4px;
     width: 18px;
@@ -7573,6 +7571,12 @@ button.language_switcher img {
   .range_patterns ul li {
     font-size: 14px;
     line-height: 21px;
+  }
+
+  .footer_switcher {
+    clear: left;
+    display: block;
+    width: 278px;
   }
 }
 @media screen and (max-width: 640px) {
