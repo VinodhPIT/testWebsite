@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-
+import Link from "next/link";
 import useWindowResize from "@/hooks/useWindowSize";
+import { useNavigation } from "@/hooks/useRouter";
+
 
 import { blurDataURL } from "@/constants/constants";
 import sliderSettings from "@/constants/homeSliderSettings";
@@ -18,7 +20,7 @@ export default function ExploreStyles({ title, content, data }) {
 
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
-  
+  const { router } = useNavigation();
 
   return (
     <section className="img_text_banner_box">
@@ -51,9 +53,14 @@ export default function ExploreStyles({ title, content, data }) {
                         <div
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
+                            <Link
+                            href={`/${router.locale}/explore-style/${el.style_id}`}
+                           
+                          >
+                            
                           <Image
-                            src={el.image ?? '/placeHolder.png'}
-                            alt="img"
+                            src={el.image}
+                            alt={el.style_name}
                             width={224}
                             height={256}
                             loading="lazy"
@@ -64,8 +71,9 @@ export default function ExploreStyles({ title, content, data }) {
                             style={{ borderRadius: "10px" }}
                           />
                           <div class="title_bg_trans">
-                            <span>{"Chinese Dragons"}</span>
+                          <span>{el.style_name}</span>
                           </div>
+                          </Link>
                         </div>
                       </div>
                     ))}

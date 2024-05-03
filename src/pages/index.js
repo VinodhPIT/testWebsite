@@ -34,6 +34,11 @@ export default function Home({}) {
   
   const { allListing } = useDisplayAll();
   const { styleList } = useStyleListing();
+
+
+
+
+  
   
   const {
     getAddress,
@@ -206,7 +211,7 @@ export default function Home({}) {
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
-      />
+      /> 
 
       {SwitchJournal(router.locale)}
 

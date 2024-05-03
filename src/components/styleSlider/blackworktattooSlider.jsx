@@ -5,6 +5,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
+import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -14,6 +15,8 @@ import styles from "./processdragontattoo.module.css";
 export default function Blackworktattooslider({ title, content,trendingArtist }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
+  const {allListing} = useDisplayAll();
+
 
   
   return (
@@ -39,7 +42,7 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
                   {...settings}
                   className="custom_content_slick_slider"               
                 >
-                  {trendingArtist.map((el, index) => (
+                  {trendingArtist&&trendingArtist.map((el, index) => (
                     <div
                       className={`${"listing_gridItem pl_0 pr_10"} ${
                         styles.listing_gridItem
@@ -52,8 +55,8 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
                           }`}
                         >
                           <Image
-                            src={el.image}
-                            alt={el.artist_name}
+                            src={el._source.image_url}
+                            alt={el._source.name}
                             width={752}
                             height={776}
                             loading="lazy"
@@ -75,8 +78,8 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
                         >
                           <div className={styles.listing_grid_img_profile}>
                             <Image
-                              src={el.artistImage}
-                              alt={el.name}
+                              src={el._source.profile_image}
+                              alt={el._source.name}
                               width={97}
                               height={97}
                               loading="lazy"
@@ -87,12 +90,12 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
                           </div>
                           <div className={styles.listing_grid_profile_details}>
                             <h6 className={styles.listing_grid_profile_title}>
-                            {el.city}
+                            {el._source.studios[0].city}
                             </h6>
                             <span
                               className={styles.listing_grid_profile_address}
                             >
-                              {el.country}
+                              {el._source.studios[0].country}
                             </span>
                           </div>
                         </div>

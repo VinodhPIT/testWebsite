@@ -16,6 +16,11 @@ import "@/styles/cms.css";
 import loadGoogleMapsAPI from "@/components/google-maps";
 import NProgress from "nprogress";
 import { SessionProvider } from "next-auth/react";
+
+import useStyleListing from "@/store/styleListing/styleListing";
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+
+
 NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
@@ -36,6 +41,10 @@ function MyApp({ Component, pageProps }) {
       NProgress.start();
     });
 
+    fetchStyle(router.locale.split("-")[1]);
+    fetchAll(router.locale.split("-")[0]);
+
+
     router.events.on("routeChangeComplete", (url) => {
       NProgress.done();
     });
@@ -44,7 +53,7 @@ function MyApp({ Component, pageProps }) {
 
       router.events.off("routeChangeComplete", (url) => {});
     };
-  }, [router.events]);
+  }, []);
 
   const { isMobileView } = useWindowResize();
 
@@ -71,7 +80,7 @@ function MyApp({ Component, pageProps }) {
       case "/privacy-policy":
       case "/download/[[...download]]":
       case "/comingSoon":
-      case "/styleDetail":
+      case "/explore-style/[detail]":
         return (
           <Header
             logo={"/inckd-logo.svg"}
@@ -88,6 +97,18 @@ function MyApp({ Component, pageProps }) {
         return null;
     }
   }
+
+  const { fetchAll } = useDisplayAll();
+  const { fetchStyle } = useStyleListing();
+  
+  useEffect(() => {
+
+    
+
+    
+  }, []);
+
+
   return (
     <>
       <SessionProvider session={pageProps.session}>

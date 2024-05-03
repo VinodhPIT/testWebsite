@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 import useWindowResize from "@/hooks/useWindowSize";
+import { useNavigation } from "@/hooks/useRouter";
 
 import { blurDataURL } from "@/constants/constants";
 import sliderSettings from "@/constants/homeSliderSettings";
-
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./style.module.css";
 
-
 export default function ExploreStyles({ title, content, data }) {
-
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
+  const { router } = useNavigation();
+
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDragStart = () => {
+    setIsDragging(true);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
   
 
   return (
@@ -44,6 +54,7 @@ export default function ExploreStyles({ title, content, data }) {
                 <Slider
                   {...settings}
                   className="custom_slick_slider custom_slick_container"
+
                 >
                   {data &&
                     data.map((el, index) => (
@@ -51,21 +62,29 @@ export default function ExploreStyles({ title, content, data }) {
                         <div
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
-                          <Image
-                            src={el.image}
-                            alt={'rgrgr'}
-                            width={224}
-                            height={256}
-                            loading="lazy"
-                            placeholder="blur"
-                            blurDataURL={blurDataURL}
-                            className="h_inherit"
-                            layout="responsive"
-                            style={{ borderRadius: "10px" }}
-                          />
-                          <div class="title_bg_trans">
-                            <span>trhrthrh</span>
-                          </div>
+                          
+                          <Link
+                            href={`/${router.locale}/explore-style/${el.style_id}`}
+                           
+                          >
+                            
+                            <Image
+                              src={el.image}
+                              alt={el.style_name}
+                              width={224}
+                              height={256}
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL={blurDataURL}
+                              className="h_inherit"
+                              layout="responsive"
+                              style={{ borderRadius: "10px" }}
+                            />
+                            <div class="title_bg_trans">
+                              <span>{el.style_name}</span>
+                            </div>
+                            </Link>
+                          
                         </div>
                       </div>
                     ))}

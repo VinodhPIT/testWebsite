@@ -48,17 +48,19 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   const chooseLanguage = async (id, domain, li) => {
 
 
+
     await setLanguage(`${domain}-${li}`);
     closeModal();
     const newUrl = `/${domain}-${li}${router.asPath}`;
     router.replace(newUrl);
+
+    fetchStyle(li);
+   fetchAll(domain);
+
+
+   
   };
 
-
-  useEffect(() => {
-    fetchStyle(router.locale.split("-")[1]);
-    fetchAll(router.locale.split("-")[0]);
-  }, [router.locale]);
 
 
 

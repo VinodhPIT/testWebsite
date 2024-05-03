@@ -95,6 +95,8 @@ function getLanguage(locale) {
       return "German";
     case "it":
       return "Italy";
+      case "es":
+        return "Spain";
     default:
       return "English";
   }
