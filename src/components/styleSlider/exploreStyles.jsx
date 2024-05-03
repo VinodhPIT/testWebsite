@@ -59,7 +59,7 @@ export default function ExploreStyles({ title, content, data }) {
                           >
                             
                           <Image
-                            src={el.image}
+                                 src={el.image ? el.image : '/placeHolder.png'} 
                             alt={el.style_name}
                             width={224}
                             height={256}

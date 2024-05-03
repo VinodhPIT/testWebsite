@@ -95,7 +95,7 @@ export default function Styledeatil({ data }) {
                           href=""
                           className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
                         >
-                          {t("common:styleGuidePage.bannerTattooRequestBtn")}
+                          {t("common:styleDetail.bannerTattooRequestBtn")}
                         </Link>
                       </div>
                     </div>
@@ -103,28 +103,17 @@ export default function Styledeatil({ data }) {
                   <div class="img_box_wrap custom_download_shadow no_shadow_before">
                     <Image
                       priority
-                      src={data.image}
-                      alt={t("common:styleGuidePage.bannerTitle")}
+                      src={data.image ? data.image : '/placeHolder.png'} 
+                      alt={t("common:styleDetail.bannerTitle")}
                       fill
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
-                      className="mob_hidden"
+                      
                       //layout="responsive"
                     />
-                    <Image
-                      priority
-                      src="/pexels-jayson-hinrichsen-8975668-8-m.png"
-                      alt={t("common:styleGuidePage.bannerTitle")}
-                      fill
-                      objectFit="cover"
-                      objectPosition="center"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="desk_hidden"
-                      //layout="responsive"
-                    />
+                   
                   </div>
                 </div>
               </div>
@@ -143,80 +132,93 @@ export default function Styledeatil({ data }) {
         />
         <Sharetattooideas name={data.style_name} />
 
-        <section className="text_box_wrap d_flex">
-          <div className="justify_content_start container w_100pc">
-            <div className="custom_content_block mt_60 m_mt_40">
-              {firstThreeWebcontent &&
-                firstThreeWebcontent.map((item, index) => (
-                  <div key={index}>
-                    {item.content && (
-                      <>
-                        <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
-                          {item.content.header}
-                        </h3>
+        {firstThreeWebcontent && firstThreeWebcontent.length > 0 && (
+  <section className="text_box_wrap d_flex">
+    <div className="justify_content_start container w_100pc">
+      <div className="custom_content_block mt_60 m_mt_40">
+        {firstThreeWebcontent.map((item, index) => (
+          <div key={index}>
+            {item.content && (
+              <>
+                <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
+                  {item.content.header}
+                </h3>
 
-                        <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-                          {item.content.body}
-                        </p>
+                <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
+                  {item.content.body}
+                </p>
 
-                        {item.content.data && item.content.data.imagery && (
-                          <div className="range_patterns">
-                            <ul>
-                              {item.content.data.imagery.map(
-                                (imageryItem, index) => (
-                                  <li key={index}>{imageryItem}</li>
-                                )
-                              )}
-                            </ul>
-                          </div>
-                        )}
-                      </>
-                    )}
+                {item.content.data && item.content.data.imagery && (
+                  <div className="range_patterns">
+                    <ul>
+                      {item.content.data.imagery.map(
+                        (imageryItem, index) => (
+                          <li key={index}>{imageryItem}</li>
+                        )
+                      )}
+                    </ul>
                   </div>
-                ))}
-            </div>
+                )}
+              </>
+            )}
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+
+
+
+
+
+
+
+
 
         <Exploreblackworktattoos
           data={tattooData}
           styleName={data.style_name}
         />
 
-        <section className="text_box_wrap d_flex">
-          <div className="justify_content_start container w_100pc">
-            <div className="custom_content_block mt_20 m_mt_40 mb_80">
-              {objectsAfterFirstThree &&
-                objectsAfterFirstThree.map((item, index) => (
-                  <div key={index}>
-                    {item.content && (
-                      <>
-                        <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
-                          {item.content.header}
-                        </h3>
+{objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
+  <section className="text_box_wrap d_flex">
+    <div className="justify_content_start container w_100pc">
+      <div className="custom_content_block mt_20 m_mt_40 mb_80">
+        {objectsAfterFirstThree.map((item, index) => (
+          <div key={index}>
+            {item.content && (
+              <>
+                <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
+                  {item.content.header}
+                </h3>
 
-                        <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-                          {item.content.body}
-                        </p>
+                <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
+                  {item.content.body}
+                </p>
 
-                        {item.content.data && item.content.data.imagery && (
-                          <div className="range_patterns">
-                            <ul>
-                              {item.content.data.imagery.map(
-                                (imageryItem, index) => (
-                                  <li key={index}>{imageryItem}</li>
-                                )
-                              )}
-                            </ul>
-                          </div>
-                        )}
-                      </>
-                    )}
+                {item.content.data && item.content.data.imagery && (
+                  <div className="range_patterns">
+                    <ul>
+                      {item.content.data.imagery.map(
+                        (imageryItem, index) => (
+                          <li key={index}>{imageryItem}</li>
+                        )
+                      )}
+                    </ul>
                   </div>
-                ))}
-            </div>
+                )}
+              </>
+            )}
           </div>
-        </section>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+
 
         <Dreamtattooai />
 

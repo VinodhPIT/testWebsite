@@ -41,9 +41,6 @@ function MyApp({ Component, pageProps }) {
       NProgress.start();
     });
 
-    fetchStyle(router.locale.split("-")[1]);
-    fetchAll(router.locale.split("-")[0]);
-
 
     router.events.on("routeChangeComplete", (url) => {
       NProgress.done();
@@ -102,10 +99,9 @@ function MyApp({ Component, pageProps }) {
   const { fetchStyle } = useStyleListing();
   
   useEffect(() => {
+    fetchStyle(router.locale.split("-")[1]);
+    fetchAll(router.locale.split("-")[0]);
 
-    
-
-    
   }, []);
 
 
