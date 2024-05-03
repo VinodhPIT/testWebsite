@@ -50,7 +50,7 @@ export default function SideDrawer({ onCloseToggle }) {
     {
       id: 6,
       title: t("common:menus.joinArtist"),
-      url: `/${router.locale}/join-tattoo-artists`,
+      url: `/${router.locale}/join-as-artist`,
     },
 
 

@@ -67,7 +67,7 @@ export default function Footer() {
     {
       id: 3,
       title: t("common:menus.joinArtist"),
-      url: `/${router.locale}/join-tattoo-artists`,
+      url: `/${router.locale}/join-as-artist`,
     },
 
 

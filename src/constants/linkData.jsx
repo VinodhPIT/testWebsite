@@ -23,7 +23,7 @@ const links = [
     {
       id: 5,
       title: "common:menus.joinArtist",
-      url: "/join-tattoo-artists",
+      url: "/join-as-artist",
     },
   
   ];
