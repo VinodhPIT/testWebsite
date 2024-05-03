@@ -27,16 +27,28 @@ export default function TattooIdea() {
                   </h2>
                 </div>
               </div>
-              <div className="img_box_wrap m_mb_25 m_mt_10">
+              <div className="img_box_wrap m_mb_25 m_mt_10 m_min_h_225">
                 <Image
                   priority={true}
-                  src="/tattooIdeaBG.jpeg"
+                  src="/tattooIdeaBG.png"
                   alt={t("common:homePage.TattooFinancing")}
                   width={594}
                   height={390}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
+                  className="mob_hidden"
+                />
+                <Image
+                  priority={true}
+                  src="/tattooIdeaBG-mob.png"
+                  alt={t("common:homePage.TattooFinancing")}
+                  width={343}
+                  height={225}
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                  layout="responsive"
+                  className="desk_hidden"
                 />
                 <div class="chat_block bubble_top_mid floating_animation">
                   <Image
@@ -67,7 +79,7 @@ export default function TattooIdea() {
                     height={50}
                     placeholder="blur"
                     blurDataURL={blurDataURL}
-                  />
+                  />                  
                   <div class="chat_bubble_msg bubble_top_mid">
                     <div class="chat_bubble_msg_desc">
                       <p>I would love to do your project</p>

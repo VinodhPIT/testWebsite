@@ -1,7 +1,7 @@
 {
   "menus": {
     "home": "Inicio",
-    "tattooSearch": "Explorar Tatuajes",
+    "tattooSearch": "Explorar tatuajes",
     "styleGuide": "Styleguide",
     "dictionary": "Diccionario",
     "forTattooArtists": "Para Artistas de Tatuajes",
@@ -266,7 +266,7 @@
     "easySetup": "Configuración fácil",
     "free-to-use": "Gratis para usar",
     "easy-payments": "Pagos fáciles",
-    "nosubscpriptions": "Gratis para usar y sin suscripciones",
+    "nosubscriptions": "Gratis para usar y sin subscriptions",
     "set-up-and-manage": "Fácil de configurar y gestionar",
     "verified-users": "Usuarios verificados",
 
