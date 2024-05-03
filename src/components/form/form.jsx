@@ -179,7 +179,7 @@ const _Form = () => {
                       <div className="form_group">
                         <button
                           type="submit"
-                          class="btn_secondary h_48 w_100pc"
+                          class="btn_secondary h_48 w_100pc fw_300"
                           style={{ opacity: isSubmitting ? 0.5 : 1 }}
                         >
                           {isSubmitting ?  t("common:submitting")  : t("common:submit") }
@@ -201,9 +201,11 @@ const _Form = () => {
               />
               <h4>{t("common:Form submitted")}</h4>
 
-              <p>
+              <p className="mb_0">
               {t("common:Thank you")}
-
+              </p>
+              <p>
+              {t("common:getbackto")}
               </p>
               <button
                 type="submit"
