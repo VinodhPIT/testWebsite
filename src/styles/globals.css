@@ -7522,8 +7522,6 @@ button.language_switcher img {
     line-height: 10px;
     letter-spacing: -0.364px;
   }
-
-
   .heading_with_arrow:after {
     bottom: 4px;
     width: 18px;
@@ -7578,9 +7576,11 @@ button.language_switcher img {
     display: block;
     width: 278px;
   }
+
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
     border-radius: 16px;
   }
+
 }
 @media screen and (max-width: 640px) {
   .img_box_wrap.custom_slick_slider_one {
