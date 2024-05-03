@@ -685,7 +685,7 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 /* custom styles */
 .fw_300 {
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-light) !important;
 }
 .fw_400 {
   font-weight: var(--fw-regular) !important;
@@ -3059,9 +3059,9 @@ div.error {
 }
 
 .form_right_wrap form.form_floating .form_group div.error {
-  font-size: 12px;
-  position: absolute;
-  margin-top: 0px;
+  font-size: 13px;
+  /*position: absolute;
+  margin-top: 0px;*/
 }
 
 .form_submit_block {
@@ -7523,6 +7523,7 @@ button.language_switcher img {
     letter-spacing: -0.364px;
   }
 
+
   .heading_with_arrow:after {
     bottom: 4px;
     width: 18px;
@@ -7571,6 +7572,12 @@ button.language_switcher img {
     font-size: 14px;
     line-height: 21px;
   }
+
+  .footer_switcher {
+    clear: left;
+    display: block;
+    width: 278px;
+  }
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
     border-radius: 16px;
   }
@@ -7618,7 +7625,7 @@ button.language_switcher img {
   .form_submit_block ul.download_app li a img {
     width: 105px;
   }
-  .contact_form_block
+  /* .contact_form_block
     .img_text_box_wrapper
     .text_box_wrap
     .img_text_box_inner
@@ -7627,7 +7634,7 @@ button.language_switcher img {
     .form_block
     .form_group {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
+  } */
 }
 @media screen and (max-width: 380px) {
   .mr_xs_0 {

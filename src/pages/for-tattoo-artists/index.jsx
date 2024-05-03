@@ -2,9 +2,12 @@ import React  from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
 
 import { useNavigation } from "@/hooks/useRouter";
+import { useModal } from "@/utils/modalUtils";
+
+import useTranslation from "next-translate/useTranslation";
+import ArtistPickerModel from "@/components/modalPopup/joinArtistPopup";
 
 import {
   APP_LINK_APPLE,
@@ -14,9 +17,10 @@ import {
 
 
 
+
 export default function Tattooartists({}) {
   const { router } = useNavigation();
-
+  const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
   return (
@@ -191,12 +195,12 @@ export default function Tattooartists({}) {
                               {t("common:forArtistPage.easy-payments")}
                             </li>
                           </ul>
-                          <Link
-                            href={`/${router.locale}/join-as-artist`}
+                          <button
+                            onClick={openPopup}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                            
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -219,12 +223,12 @@ export default function Tattooartists({}) {
                           <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content2")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-as-artist`}
+                          <button
+                            onClick={openPopup}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -277,12 +281,12 @@ export default function Tattooartists({}) {
                           <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content3")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-as-artist`}
+                          <button
+                           onClick={openPopup}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                            
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -304,12 +308,12 @@ export default function Tattooartists({}) {
                             {t("common:forArtistPage.title8")}
                           </span>
                         </h3>
-                        <Link
-                          href={`/${router.locale}/join-as-artist`}
+                        <button
+                           onClick={openPopup}
                           className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                         >
                           {t("common:forArtistPage.button")}                          
-                        </Link>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -331,12 +335,12 @@ export default function Tattooartists({}) {
                           <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content5")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-as-artist`}
+                          <button
+                            onClick={openPopup}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -389,12 +393,12 @@ export default function Tattooartists({}) {
                           <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content6")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-as-artist`}
+                          <button
+                            onClick={openPopup}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                           
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -417,12 +421,12 @@ export default function Tattooartists({}) {
                           <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content7")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-as-artist`}
+                          <button
+                           onClick={openPopup}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                            
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -448,6 +452,13 @@ export default function Tattooartists({}) {
           </section>
         </div>
       </main>
+
+      <ArtistPickerModel
+        className="custom-modal"
+        isOpen={isPopupOpen}
+        closeModal={closePopup}
+      />
+
     </>
   );
 }

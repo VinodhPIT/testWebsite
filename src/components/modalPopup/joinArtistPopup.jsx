@@ -35,12 +35,13 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
 
   return (
     <Modal
-      isOpen={true}
+      isOpen={isOpen}
       onRequestClose={closeModal}
-      contentLabel="Example Modal"
       style={customStyles}
       ariaHideApp={false}
     >
+
+
       <div className="popup_wrap join_artist_popup">
         <div className="popup_container">
           <div className="popup_box_inner">
