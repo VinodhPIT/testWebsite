@@ -1655,10 +1655,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   max-width: 550px !important;
 }
 .d_max_710 {
-  max-width: 710px!important;
+  max-width: 710px !important;
 }
 .d_max_920 {
-  max-width: 920px!important;
+  max-width: 920px !important;
 }
 .no_space_center {
   padding-left: 15px !important;
@@ -2040,12 +2040,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   position: relative;
   cursor: pointer;
   color: var(--black-500);
-  background: var(--white); 
+  background: var(--white);
 }
 
 .btn_tattoo_art:hover {
   color: var(--white);
-  background: var(--gray-600); 
+  background: var(--gray-600);
   text-decoration: none;
 }
 
@@ -2721,7 +2721,7 @@ ul.custom-listing li img {
   font-size: 60px;
   font-weight: 700;
   line-height: 60px;
- /* letter-spacing: -2px;*/
+  /* letter-spacing: -2px;*/
   margin: 0 0 40px 0;
   padding: 0;
 }
@@ -4220,7 +4220,6 @@ header .navbar {
   width: auto;
 }
 
-
 @media (max-width: 638px) {
   .swiper-container {
     width: 100%;
@@ -5401,12 +5400,11 @@ button.language_switcher img {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  border: 1px solid #E1E4E8;
+  border: 1px solid #e1e4e8;
   font-size: 18px;
   font-weight: 300;
   line-height: 27px;
 }
-
 
 .klarna_banner_badge {
   display: flex;
@@ -6574,7 +6572,7 @@ button.language_switcher img {
   }
 
   .m_lh_29 {
-    line-height: 29px!important;
+    line-height: 29px !important;
   }
 
   .m_left_0 {
@@ -7514,7 +7512,7 @@ button.language_switcher img {
   }
   .chat_bubble_msg_desc:after {
     border-top: 5px solid transparent;
-    border-right: 8px solid #C0FFD5;
+    border-right: 8px solid #c0ffd5;
     border-bottom: 5px solid transparent;
     top: -7px;
     left: 27px;
@@ -7524,7 +7522,6 @@ button.language_switcher img {
     line-height: 10px;
     letter-spacing: -0.364px;
   }
-
 
   .heading_with_arrow:after {
     bottom: 4px;
@@ -7573,6 +7570,9 @@ button.language_switcher img {
   .range_patterns ul li {
     font-size: 14px;
     line-height: 21px;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
+    border-radius: 16px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -7650,10 +7650,10 @@ button.language_switcher img {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-@media screen and (max-width: 350px) {  
+@media screen and (max-width: 350px) {
   .header_cookies .header_cookie_txt .header_cookie_mob a {
     font-size: 15px;
-  } 
+  }
   .header_cookies .header_cookie_img {
     padding-right: 10px;
   }
@@ -7663,10 +7663,10 @@ button.language_switcher img {
   }
 }
 
-@media screen and (max-width: 329px) {  
+@media screen and (max-width: 329px) {
   .header_cookies .header_cookie_txt .header_cookie_mob a {
     font-size: 14px;
-  } 
+  }
   .header_cookies .header_cookie_img {
     padding-right: 8px;
   }
@@ -8068,6 +8068,49 @@ button.language_switcher img {
     inset: 0px;
     left: 58.33333333333333%;
     max-width: 50%;
+  }
+
+  .join_artist_popup.popup_wrap {
+    max-height: 564px;
+  }
+  .join_artist_popup.popup_wrap .close_button {
+    right: 16px;
+    top: 16px;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_right_content {
+    padding: 80px 40px;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_left {
+    border-radius: 16px 0px 0px 16px;
+    overflow: hidden;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
+    border-radius: 0px 16px 16px 0px;
+  }
+  .join_artist_popup ul.progressbar li .progressbar_block {
+    padding: 0 0 24px 48px;
+  }
+  .join_artist_popup ul.progressbar li:after {
+    width: 32px;
+    height: 32px;
+    background-size: 16px;
+    top: 0px;
+  }
+  .join_artist_popup ul.progressbar li .progressbar_block:before {
+    left: 16px;
+  }
+  .join_artist_popup ul.progressbar li h4 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26.4px;
+  }
+  .join_artist_popup ul.progressbar li p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .join_artist_popup .app_dwld_img_wrap img {
+    height: 32px;
   }
 }
 
@@ -9019,22 +9062,19 @@ button.language_switcher img {
   }
 }
 
-
-
-@media only screen and (max-device-width:1023px) {  
+@media only screen and (max-device-width: 1023px) {
   .btn_tattoo_art:hover {
     color: var(--black-500);
-    background: var(--white); 
+    background: var(--white);
   }
 
   :not(.btn-check) + .btn_tattoo_art:active {
     color: var(--black-500);
-    background: var(--white); 
+    background: var(--white);
   }
 
   .btn_tattoo_art:focus-visible {
     color: var(--black-500);
-    background: var(--white); 
+    background: var(--white);
   }
 }
-

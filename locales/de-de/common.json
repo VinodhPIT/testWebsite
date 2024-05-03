@@ -14,7 +14,7 @@
     "search": "Suche",
     "privacypolicy": "Datenschutzrichtlinie",
     "journal": "Journal",
-    "joinArtist":"Join as artist"
+    "joinArtist": "Join as artist"
   },
 
   "homePage": {
@@ -311,7 +311,10 @@
     "CreateYourAccnt": "Erstelle deinen Account",
     "CompleteYourProfile": "Vervollständigen Sie Ihr Profil, indem Sie Ihre grundlegenden Daten und Ihren bevorzugten Tattoo-Stil aktualisieren und atemberaubende Portfolio-Bilder hochladen.",
     "BoostYourAccount": "Steigern Sie Ihr Konto",
-    "easyVerificationProcess": "Durchlaufen Sie unseren schnellen und einfachen Verifizierungsprozess, um die Genehmigung des inckd-Teams zu erhalten."
+    "easyVerificationProcess": "Durchlaufen Sie unseren schnellen und einfachen Verifizierungsprozess, um die Genehmigung des inckd-Teams zu erhalten.",
+    "getStartedDownload": "Laden Sie zunächst unsere App herunter",
+    "CompleteYourProfileByUpdate": "Vervollständigen Sie Ihr Profil, indem Sie Ihre grundlegenden Daten aktualisieren.",
+    "easyVerificationAccountProcess": "Lassen Sie sich verifizieren, schalten Sie Ihr Konto live und verbinden Sie sich mit Ihren Wunschkunden."
   },
 
   "contactUsPage": {
