@@ -191,9 +191,7 @@ export default function Home({}) {
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
       />
-
       <KlarnaBanner />
-
       <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
