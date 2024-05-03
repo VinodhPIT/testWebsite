@@ -978,6 +978,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .max_w_360 {
   max-width: 360px !important;
 }
+.max_w_520 {
+  max-width: 520px !important;
+}
 .letter_spacing_01 {
   letter-spacing: -1.68px !important;
 }
