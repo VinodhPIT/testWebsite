@@ -108,7 +108,7 @@ export default function Tattooartists({}) {
                       />
                       <Image
                         priority
-                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob.png"
+                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob_1.png"
                         alt="Book your dream tattoo now!"
                         fill
                         objectFit="cover"
@@ -154,11 +154,11 @@ export default function Tattooartists({}) {
                               <Image
                                 priority
                                 src="/heart_icon_b.svg"
-                                alt="Free to use & no subscpriptions"
+                                alt="Free to use & no subscriptions"
                                 width={24}
                                 height={24}                              
                               />
-                              {t("common:forArtistPage.nosubscpriptions")}
+                              {t("common:forArtistPage.nosubscriptions")}
                             </li>
                             <li>
                               <Image

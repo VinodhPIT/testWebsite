@@ -43,7 +43,7 @@ export default function ExploreStyles({ title, content, data }) {
               <div className={styles.listing_grid_wrapper}>
                 <Slider
                   {...settings}
-                  className="custom_slick_slider custom_slick_container"
+                  className="custom_slick_slider custom_slick_container m_mr_n_15"
                 >
                   {data &&
                     data.map((el, index) => (

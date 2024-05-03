@@ -135,19 +135,17 @@ export default function Home({}) {
                               />
                             </Link>
                           </li>
-                          <li>
-                            
-                              <Image
-                                priority
-                                src={qrCodeSrc}
-                                alt="QR"
-                                width={121}
-                                height={121}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons app_qr_home mob_hidden"
-                              />
-                           
+                          <li>                            
+                            <Image
+                              priority
+                              src={qrCodeSrc}
+                              alt="QR"
+                              width={121}
+                              height={121}
+                              placeholder="blur"
+                              blurDataURL={blurDataURL}
+                              className="custom_download_icons app_qr_home mob_hidden"
+                            />                           
                           </li>
                         </ul>
                       </div>
@@ -170,7 +168,7 @@ export default function Home({}) {
                     />
                     <Image
                       priority
-                      src="/image_2024_01_10T08_41_09_088Z.png"
+                      src="/image_2024_01_10T08_41_09_088Z1.png"
                       alt={t("common:homePage.bannerTitle")}
                       fill
                       objectFit="cover"

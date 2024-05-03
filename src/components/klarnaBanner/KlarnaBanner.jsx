@@ -28,7 +28,7 @@ export default function KlarnaBanner() {
         </p>
         <Link
           href={`/${router.locale}/klarna`}
-          className="btn_outline_secondary btn_cutom_new b_radius_16"
+          className="btn_outline_secondary btn_cutom_new btn_cutom_mob b_radius_16"
         >
            {t("common:learnMore")}
         </Link>
