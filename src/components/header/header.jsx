@@ -129,7 +129,7 @@ export default function Header({
                   onClick={() =>
                     router.push(`/${router.locale}/for-tattoo-artists`)
                   }
-                  className={`btn btn_tattoo_art bgWhite`}
+                  className={`btn btn_tattoo_art`}
                 >
                   {isMobileView
                     ? t("common:menus.forArtists")

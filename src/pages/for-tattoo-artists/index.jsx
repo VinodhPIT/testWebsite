@@ -108,7 +108,7 @@ export default function Tattooartists({}) {
                       />
                       <Image
                         priority
-                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob.png"
+                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob_1.png"
                         alt="Book your dream tattoo now!"
                         fill
                         objectFit="cover"
@@ -154,11 +154,11 @@ export default function Tattooartists({}) {
                               <Image
                                 priority
                                 src="/heart_icon_b.svg"
-                                alt="Free to use & no subscpriptions"
+                                alt="Free to use & no subscriptions"
                                 width={24}
                                 height={24}                              
                               />
-                              {t("common:forArtistPage.nosubscpriptions")}
+                              {t("common:forArtistPage.nosubscriptions")}
                             </li>
                             <li>
                               <Image
@@ -192,7 +192,7 @@ export default function Tattooartists({}) {
                             </li>
                           </ul>
                           <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
+                            href={`/${router.locale}/join-as-artist`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                            
@@ -220,7 +220,7 @@ export default function Tattooartists({}) {
                             {t("common:forArtistPage.content2")}
                           </p>
                           <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
+                            href={`/${router.locale}/join-as-artist`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}
@@ -278,7 +278,7 @@ export default function Tattooartists({}) {
                             {t("common:forArtistPage.content3")}
                           </p>
                           <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
+                            href={`/${router.locale}/join-as-artist`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                            
@@ -305,7 +305,7 @@ export default function Tattooartists({}) {
                           </span>
                         </h3>
                         <Link
-                          href={`/${router.locale}/join-tattoo-artists`}
+                          href={`/${router.locale}/join-as-artist`}
                           className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                         >
                           {t("common:forArtistPage.button")}                          
@@ -332,7 +332,7 @@ export default function Tattooartists({}) {
                             {t("common:forArtistPage.content5")}
                           </p>
                           <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
+                            href={`/${router.locale}/join-as-artist`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}
@@ -390,7 +390,7 @@ export default function Tattooartists({}) {
                             {t("common:forArtistPage.content6")}
                           </p>
                           <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
+                            href={`/${router.locale}/join-as-artist`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                           
@@ -418,7 +418,7 @@ export default function Tattooartists({}) {
                             {t("common:forArtistPage.content7")}
                           </p>
                           <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
+                            href={`/${router.locale}/join-as-artist`}
                             className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}                            

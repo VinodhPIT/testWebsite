@@ -64,6 +64,14 @@ export default function Footer() {
       title: t("common:menus.forTattooArtists"),
       url: `/${router.locale}/for-tattoo-artists`,
     },
+    {
+      id: 3,
+      title: t("common:menus.joinArtist"),
+      url: `/${router.locale}/join-as-artist`,
+    },
+
+
+
   ];
 
   const links = [

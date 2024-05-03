@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
       case "/404":
       case "/journal":
       case "/contact":
-      case "/join-tattoo-artists":
+      case "/join-as-artist":
       case "/faq":
       case "/privacy_policy":
       case "/terms&conditions":

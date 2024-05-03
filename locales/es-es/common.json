@@ -1,7 +1,7 @@
 {
   "menus": {
     "home": "Inicio",
-    "tattooSearch": "Explorar Tatuajes",
+    "tattooSearch": "Explorar tatuajes",
     "styleGuide": "Styleguide",
     "dictionary": "Diccionario",
     "forTattooArtists": "Para Artistas de Tatuajes",
@@ -13,7 +13,8 @@
     "flashSearch": "Buscar Flash",
     "search": "Buscar",
     "privacypolicy": "Política de Privacidad",
-    "journal": "Journal"
+    "journal": "Journal",
+    "joinArtist":"Join as artist"
   },
 
   "homePage": {
@@ -50,8 +51,8 @@
     "Share your tattoo idea": "Comparte tu idea de tatuaje!",
     "TattooIdeaDesc": "Envía fácilmente tu idea de tatuaje una vez y conéctate con varios artistas adecuados. Relájate y recibe propuestas variadas de forma gratuita, encontrando tu artista ideal sin esfuerzo.",
     "CreateATattooRequest": "Crear una solicitud de tatuaje",
-    "worldOfInk":"Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
-    "exploreStyle":"Explore tattoo styles"
+    "worldOfInk": "Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
+    "exploreStyle": "Explore tattoo styles"
   },
 
   "styleGuidePage": {
@@ -95,12 +96,10 @@
    
 
   "klarnaPage": {
-
     "bannerTitle1": "Tattoo now.",
     "bannerTitle1-Sub": "Pay Later.",
     "bannerContent": "Exciting news: We've teamed up with Klarna to offer you the flexibility of installment payments for tattoos by the tattoo artist of your choice. Your dream tattoo is now more accessible than ever!",
-    
-    
+
     "MainTitle1": "¡Así es como funciona!",
     "Download App": "Descargar la aplicación",
     "Seamlessly download": "Descarga nuestra aplicación fácil de usar sin problemas, es gratuito",
@@ -127,7 +126,6 @@
     "carosuelTitle-Sub": "tatuadores para financiar tu tatuaje",
     "content_sub": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
 
-
     "availablePayment": "Available payment options:",
 
     "tag1": "Pay in 30 days",
@@ -150,7 +148,11 @@
 
     "findArtists": "Need help to find the right tattoo artist?",
 
+    "workingStep1": "Download the app",
+    "workingStepContent-1": "Download our user-friendly app for free and dive into the vibrant world of tattoos, packed with features to explore!",
 
+    "workingStep2": "Choose an artist",
+    "workingStepContent-2": "Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
 
     "workingStep1":"Download the app",
     "workingStepContent-1":"Download our user-friendly app for free and dive into the vibrant world of tattoos, packed with features to explore!",
@@ -176,9 +178,7 @@
 
     "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
     "ts&amp;cs": "Ts&Cs",
-    "lateFeesApply":" and late fees apply."
-    
-    
+    "lateFeesApply": " and late fees apply."
   },
 
   "dictionaryPage": {
@@ -287,7 +287,7 @@
     "easySetup": "Configuración fácil",
     "free-to-use": "Gratis para usar",
     "easy-payments": "Pagos fáciles",
-    "nosubscpriptions": "Gratis para usar y sin suscripciones",
+    "nosubscriptions": "Gratis para usar y sin subscriptions",
     "set-up-and-manage": "Fácil de configurar y gestionar",
     "verified-users": "Usuarios verificados",
 
@@ -311,8 +311,7 @@
   },
 
   "joinartistPage": {
-    "title1": "Conviértete en un",
-    "title1-Sub": "Artista de inckd.",
+    "title1": "Conviértete en un inckd. Artista",
     "head1": "Envía el formulario de contacto",
     "text": "Cuéntanos más sobre ti.",
     "head2": "Obtén verificación",
@@ -327,7 +326,13 @@
     "Country field is required": "El campo de país es obligatorio",
     "location must be at least 2 characters": "La ubicación debe tener al menos 2 caracteres",
     "instagram must be at least 2 characters": "Instagram debe tener al menos 2 caracteres",
-    "Too Short": "Demasiado corto"
+    "Too Short": "Demasiado corto",
+    "downloadTheApp": "Descarga la aplicación",
+    "getStarted": "Comience descargando nuestra aplicación desde App Store o Google Play Store.",
+    "CreateYourAccnt": "Crea tu cuenta",
+    "CompleteYourProfile": "Complete su perfil actualizando sus detalles básicos, su estilo de tatuaje preferido y cargando impresionantes imágenes de portafolio.",
+    "BoostYourAccount": "Impulsa tu cuenta",
+    "easyVerificationProcess": "Realice nuestro proceso de verificación rápido y sencillo para recibir la aprobación del equipo de inckd."
   },
 
   "contactUsPage": {
@@ -478,6 +483,7 @@
   "Joinus": "Únete a nosotros con",
   "Form submitted": "Formulario enviado",
   "Thank you": "¡Gracias!",
+  "getbackto": "We’ll get back to you soon..",
 
   "Read more": "Leer más",
   "Download  inckd": "Descarga inckd.",
@@ -512,12 +518,14 @@
   "artistsSelected": "Artists Selected",
   "writeUp500char": "You can write only up to 500 characters.",
   "pasteUp500char": "You can only paste up to 500 characters.",
-  "learnMore" :"Learn more",
+  "learnMore": "Learn more",
   "location": "ubicación",
-  "maximumLimit" :"Maximum limit of 10 reached",
-  "cancel":"Cancel",
-  
-  
+  "maximumLimit": "Maximum limit of 10 reached",
+  "cancel": "Cancel",
+
+  "appStoreDownload": "App store download",
+  "playStoreDownload": "Play store download",
+
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
     "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import _Form from "@/components/form/form";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
@@ -41,8 +42,25 @@ export default function Contact({}) {
                     </div>
                     <div
                       class="img_box_wrap align_item_center pt_50 pb_50 m_pt_30 m_pb_15"
-                      style={{ backgroundImage: "url(/contactus-bg.jpg)" }}
-                    >
+                      >
+                        <Image
+                          priority
+                          src="/contactus-bg.png"
+                          alt={t("common:contactUsPage.title")}
+                          fill
+                          objectFit="cover"
+                          objectPosition="left"
+                          className="mob_hidden "
+                        />
+                        <Image
+                          priority
+                          src="/contactus-bg-mob.png"
+                          alt={t("common:contactUsPage.title")}
+                          fill
+                          objectFit="cover"
+                          objectPosition="center"                         
+                          className="desk_hidden"
+                        />   
                       <div class="form_block_right">
                         <_Form />
                       </div>

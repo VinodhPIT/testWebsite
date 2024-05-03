@@ -42,7 +42,7 @@ export default function FourColumnCarousel({ title, content }) {
               <div >
                 <Slider
                   {...settings}
-                  className="custom_content_slick_slider"
+                  className="custom_content_slick_slider m_mr_n_15"
                
                 >
                   {allListing.artists && allListing.artists.map((el, index) => (
