@@ -17,12 +17,12 @@ export default function Dreamtattooai() {
         <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_30 d_max_920 m_max_100">
        {"With inckd AI, we empower you to create tattoos that have yet to be unleashed from the depths of your emotions. With Inked AI, your creativity knows no limits."}
         </p>
-        <Link
-          href=""
+        <button
+         
           className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
           >
          {"Create now!"}
-        </Link>
+        </button>
       </div>
     </div>
   );

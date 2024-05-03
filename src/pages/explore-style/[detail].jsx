@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { Parameters } from "@/components/parameters/params";
+
 import { fetchCategoryData } from "@/apiConfig/webService";
-
 import useTranslation from "next-translate/useTranslation";
-
 import Blackworktattooslider from "@/components/styleSlider/blackworktattooSlider";
 import Sharetattooideas from "@/components/styleSlider/shareTattooideas";
 import Exploreblackworktattoos from "@/components/styleSlider/exploreblackworkTattoos";
@@ -15,68 +12,25 @@ import ExploreStyle from "@/components/styleSlider/exploreStyles";
 import Dreamtattooai from "@/components/styleSlider/dreamtattooAi";
 import DownloadApps from "@/components/styleSlider/downloadApp";
 import useStyleListing from "@/store/styleListing/styleListing";
-import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 
 import { blurDataURL } from "@/constants/constants";
 
 import { getSingleStyleDetail } from "@/apiConfig/webService";
 
-
-import countriesData from "@/data/countries.json";
-
-
-
 export default function Styledeatil({ data }) {
   const { styleList } = useStyleListing();
-  const { allListing } = useDisplayAll();
-
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
-
-  const firstThree = countriesData.slice(0, 3);
-
-  const second = data.web_content.slice(0, 3); // Extracting the first three objects
-
-  const router = useRouter();
-
+  let firstThreeWebcontent = [];
+  let objectsAfterFirstThree = [];
+  
+  if (data.web_content && data.web_content.length > 0) {
+    firstThreeWebcontent = data.web_content.slice(0, 3);
+    objectsAfterFirstThree = data.web_content.slice(3);
+  }
   const { t } = useTranslation();
 
-  
-
-  
-  const renderContent = (body) => {
-    if (body.includes("((imagery))")) {
-      const splitContent = body.split("((imagery))");
-      return (
-        <>
-          <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-            {splitContent[0]}
-          </p>
-          <div className="range_patterns">
-            <ul>
-              {data.web_content.map(
-                (item, index) =>
-                  item.content &&
-                  item.content.data &&
-                  item.content.data.imagery.map((imageryItem, index) => (
-                    <li key={index}>{imageryItem}</li>
-                  ))
-              )}
-            </ul>
-          </div>
-          <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-            {splitContent[1]}
-          </p>
-        </>
-      );
-    } else {
-      return (
-        <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-          {body}
-        </p>
-      );
-    }
-  };
 
   useEffect(() => {
     const fetchTattooData = async () => {
@@ -91,7 +45,7 @@ export default function Styledeatil({ data }) {
       }
     };
 
-    fetchTattooData(); // Call the async function immediately
+    fetchTattooData(); 
 
     const fetchArtistData = async () => {
       try {
@@ -105,8 +59,8 @@ export default function Styledeatil({ data }) {
       }
     };
 
-    fetchArtistData(); // Call the async function immediately
-  }, []); // Empty dependency array means this effect runs only once, on mount
+    fetchArtistData(); 
+  }, []); 
 
   return (
     <>
@@ -178,18 +132,22 @@ export default function Styledeatil({ data }) {
           </div>
         </section>
         <Blackworktattooslider
-          title={t("common:styleGuidePage.ArtistSliderTitle")}
-          content={t("common:styleGuidePage.ArtistSliderContent")}
+          title={t("common:styleDetail.artistSliderTitle", {
+            tattooStyle: data.style_name,
+          })}
+          content={t("common:styleDetail.artistSliderContent", {
+            tattooStyle: data.style_name,
+          })}
           button={t("common:ExploreMoreArtist")}
-          trendingArtist={artistData}
+          data={artistData}
         />
-        <Sharetattooideas />
+        <Sharetattooideas name={data.style_name} />
 
         <section className="text_box_wrap d_flex">
           <div className="justify_content_start container w_100pc">
-            <div className="custom_content_block mt_80 m_mt_40">
-              {firstThree &&
-                firstThree.map((item, index) => (
+            <div className="custom_content_block mt_60 m_mt_40">
+              {firstThreeWebcontent &&
+                firstThreeWebcontent.map((item, index) => (
                   <div key={index}>
                     {item.content && (
                       <>
@@ -201,29 +159,17 @@ export default function Styledeatil({ data }) {
                           {item.content.body}
                         </p>
 
-                        <div className="range_patterns">
-            <ul>
-              {/* {item.data.imagery.map(
-                (item, index) =>
-                  item.content &&
-                  item.content.data &&
-                  item.content.data.imagery.map((imageryItem, index) => (
-                    <li key={index}>{imageryItem}</li>
-                  ))
-              )} */}
-    {item.data &&item.data.map((el ,index)=>{
-
-return  <li key={index}>{el}</li>
-
-
-
-    })}
-
-
-
-            </ul>
-          </div>
-          
+                        {item.content.data && item.content.data.imagery && (
+                          <div className="range_patterns">
+                            <ul>
+                              {item.content.data.imagery.map(
+                                (imageryItem, index) => (
+                                  <li key={index}>{imageryItem}</li>
+                                )
+                              )}
+                            </ul>
+                          </div>
+                        )}
                       </>
                     )}
                   </div>
@@ -233,10 +179,44 @@ return  <li key={index}>{el}</li>
         </section>
 
         <Exploreblackworktattoos
-          title={t("common:menus.tattooSearch")}
-          content={t("common:homePage.worldOfInk")}
-          datas={tattooData}
+          data={tattooData}
+          styleName={data.style_name}
         />
+
+        <section className="text_box_wrap d_flex">
+          <div className="justify_content_start container w_100pc">
+            <div className="custom_content_block mt_20 m_mt_40 mb_80">
+              {objectsAfterFirstThree &&
+                objectsAfterFirstThree.map((item, index) => (
+                  <div key={index}>
+                    {item.content && (
+                      <>
+                        <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
+                          {item.content.header}
+                        </h3>
+
+                        <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
+                          {item.content.body}
+                        </p>
+
+                        {item.content.data && item.content.data.imagery && (
+                          <div className="range_patterns">
+                            <ul>
+                              {item.content.data.imagery.map(
+                                (imageryItem, index) => (
+                                  <li key={index}>{imageryItem}</li>
+                                )
+                              )}
+                            </ul>
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                ))}
+            </div>
+          </div>
+        </section>
 
         <Dreamtattooai />
 

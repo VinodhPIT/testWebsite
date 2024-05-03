@@ -84,6 +84,19 @@
     "exploreApp": "& entdecke 30+ Stile"
   },
 
+  "styleDetail": {
+
+    "bannerTattooRequestBtn": "Create tattoo request",
+    "artistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+    "artistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
+    "shareTattooIdea":"Share your tattoo idea",
+    "withTattooArtists" :"with {{tattooStyle}} tattoo artists",
+    "connectMultipleArtists":"Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+     "exploreTattoos" :"Explore {{tattooStyle}} tattoos"
+   },
+
+   
+
   "klarnaPage": {
   
 

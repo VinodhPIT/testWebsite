@@ -57,8 +57,6 @@
   "styleGuidePage": {
     "bannerTitle": "Estilos de Tatuajes",
     "bannerContent": "¡Explora estilos únicos de tatuajes en nuestra aplicación! Encuentra tu tattoo perfecto. Sumérgete en infinitas opciones hoy mismo.",
-
-    
     "Letteringtattoos": "Tatuajes de lettering",
     "LetteringTattooContent": "Eleva tu autoexpresión con cautivadores tatuajes de lettering. Encuentra artistas talentosos en nuestra Aplicación de Reservaciones de Tatuajes para obtener tinta personalizada e impactante que cuente tu historia única. ¡Explora ahora!",
     "Finelinetattoos": "Tatuajes de fineline",
@@ -83,6 +81,18 @@
     "download": "¡Descarga la aplicación",
     "exploreApp": "y explora 30+ estilos!"
   },
+
+  "styleDetail": {
+    "bannerTattooRequestBtn": "Create tattoo request",
+    "artistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+    "artistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
+    "shareTattooIdea":"Share your tattoo idea",
+    "withTattooArtists" :"with {{tattooStyle}} tattoo artists",
+    "connectMultipleArtists":"Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+     "exploreTattoos" :"Explore {{tattooStyle}} tattoos"
+   },
+
+   
 
   "klarnaPage": {
 

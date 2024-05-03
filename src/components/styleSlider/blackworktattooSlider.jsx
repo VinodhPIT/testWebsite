@@ -1,7 +1,10 @@
 import React  from "react";
 import Image from "next/image";
+import Link from 'next/link'
+import { useRouter } from "next/router";
 
 import useWindowResize from "@/hooks/useWindowSize";
+
 
 import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
@@ -12,11 +15,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./processdragontattoo.module.css";
 
-export default function Blackworktattooslider({ title, content,trendingArtist }) {
+
+export default function Blackworktattooslider({ title, content,data }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
   const {allListing} = useDisplayAll();
-
+   const router = useRouter()
 
   
   return (
@@ -42,18 +46,25 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
                   {...settings}
                   className="custom_content_slick_slider"               
                 >
-                  {trendingArtist&&trendingArtist.map((el, index) => (
+                  {data&&data.map((el, index) => (
                     <div
                       className={`${"listing_gridItem pl_0 pr_10"} ${
                         styles.listing_gridItem
                       }`}
                       key={index}
                     >
+                       <Link 
+                       href={{
+                        pathname: `/${router.locale}/artists/${el._source.slug}`,
+                        
+                      }}>
                         <div
                           className={`${"listing_grid_four_col max_h_230"} ${
                             styles.listing_grid_img_col
                           }`}
                         >
+                         
+                       
                           <Image
                             src={el._source.image_url}
                             alt={el._source.name}
@@ -99,6 +110,7 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
                             </span>
                           </div>
                         </div>
+                        </Link>
                    
                     </div>
                   ))}

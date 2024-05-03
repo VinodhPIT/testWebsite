@@ -50,7 +50,7 @@ export default function Main() {
                       height="24"
                       blurDataURL={blurDataURL}
                       className="m_object_position_center"
-                      onClick={() => router.push(`/${router.locale}/${pathname}`)}
+                      onClick={() =>    router.push(`/${router.locale}/${pathname}`)}
 
                     />
                  

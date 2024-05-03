@@ -28,8 +28,6 @@ export default function ExploreStyles({ title, content, data }) {
     setIsDragging(false);
   };
 
-  
-
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">
@@ -54,7 +52,6 @@ export default function ExploreStyles({ title, content, data }) {
                 <Slider
                   {...settings}
                   className="custom_slick_slider custom_slick_container"
-
                 >
                   {data &&
                     data.map((el, index) => (
@@ -62,12 +59,11 @@ export default function ExploreStyles({ title, content, data }) {
                         <div
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
-                          
                           <Link
-                            href={`/${router.locale}/explore-style/${el.style_id}`}
-                           
+                             href={`/${router.locale}/explore-style/${el.style_id}`}
+
+                        
                           >
-                            
                             <Image
                               src={el.image}
                               alt={el.style_name}
@@ -83,8 +79,7 @@ export default function ExploreStyles({ title, content, data }) {
                             <div class="title_bg_trans">
                               <span>{el.style_name}</span>
                             </div>
-                            </Link>
-                          
+                          </Link>
                         </div>
                       </div>
                     ))}

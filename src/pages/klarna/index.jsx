@@ -33,6 +33,7 @@ function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
   const {setPathname} = usePath()
+  
 
   const list = [
     {
