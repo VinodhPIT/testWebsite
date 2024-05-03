@@ -2039,6 +2039,8 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   text-decoration: none;
   position: relative;
   cursor: pointer;
+  color: var(--black-500);
+  background: var(--white); 
 }
 
 .btn_tattoo_art:hover {
@@ -2720,7 +2722,7 @@ ul.custom-listing li img {
   font-size: 60px;
   font-weight: 700;
   line-height: 60px;
-  letter-spacing: -2px;
+ /* letter-spacing: -2px;*/
   margin: 0 0 40px 0;
   padding: 0;
 }
@@ -5935,7 +5937,10 @@ button.language_switcher img {
   }
 
   ul.custom-listing li img {
-    margin-right: 15px;
+    margin-right: 20px;
+    width: 16px;
+    height: auto;
+    top: 0px;
   }
 
   .full-block-wrap .img_text_box_inner .text_box_content_inner {
@@ -8952,5 +8957,23 @@ button.language_switcher img {
   .header_right button.btn_tattoo_art {
     margin-right: 10px;
     padding: 6px 6px;
+  }
+}
+
+
+@media only screen and (max-device-width:1023px) {  
+  .btn_tattoo_art:hover {
+    color: var(--black-500);
+    background: var(--white); 
+  }
+
+  :not(.btn-check) + .btn_tattoo_art:active {
+    color: var(--black-500);
+    background: var(--white); 
+  }
+
+  .btn_tattoo_art:focus-visible {
+    color: var(--black-500);
+    background: var(--white); 
   }
 }

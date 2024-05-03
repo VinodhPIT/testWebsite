@@ -1,7 +1,7 @@
 {
   "menus": {
     "home": "Home",
-    "tattooSearch": "Explore Tattoos",
+    "tattooSearch": "Explore tattoos",
     "styleGuide": "Styleguide",
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
@@ -256,7 +256,7 @@
   },
 
   "forArtistPage": {
-    "button": "Get Started",
+    "button": "Get started",
     "bannerTitle": "Boost your business with inckd.",
     "bannerSubtitle": "business",
     "bannerSubtitle3": "with inckd.",
@@ -267,7 +267,7 @@
     "easySetup": "Easy setup",
     "free-to-use": "Free to use",
     "easy-payments": "Easy payments",
-    "nosubscpriptions": "Free to use & no subscpriptions",
+    "nosubscriptions": "Free to use & no subscriptions",
     "set-up-and-manage": "Easy to set up and manage",
     "verified-users": "Verified users",
 
@@ -278,7 +278,7 @@
     "title3": "Keep clients in the Loop",
     "content3": "Engage in real-time chats to understand your clients preferences firsthand. Efficiently handle appointments and stay prepared to meet your clients needs. Discuss offers and provide progress updates with inckd, ensuring their tattoo vision becomes a reality at every stage.",
 
-    "title4": "Get inckd. customers tattoing with you now.",
+    "title4": "Get inckd. customers tattooing with you now.",
     "title8": "Are you ready?",
 
     "title5": "Your booking buddy",
