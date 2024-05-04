@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -13,11 +13,10 @@ import sliderSettings from "@/constants/homeSliderSettings";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./style.module.css";
+import styles from "./styles/style.module.css";
 
 
-export default function ExploreStyles({ title, content, data }) {
-
+export default function ExploreStyles({ data }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
   const { router } = useNavigation();

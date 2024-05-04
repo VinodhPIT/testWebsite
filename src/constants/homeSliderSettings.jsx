@@ -9,12 +9,14 @@ const sliderSettings = (isMobileView) => {
     slidesToScroll: isMobileView ? 1 : 4,
     swipe: false, // Disable swipe by default
 
+
     responsive: [
       {
         breakpoint: 1365,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
+          
           
         },
       },
@@ -23,7 +25,8 @@ const sliderSettings = (isMobileView) => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
-          swipe:true
+          swipe:true,
+          infinite: true,
         },
       },
 
@@ -32,6 +35,8 @@ const sliderSettings = (isMobileView) => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
+          swipe:true,
+          infinite: true
         },
       },
 
@@ -40,7 +45,8 @@ const sliderSettings = (isMobileView) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          swipe:true
+          swipe:true,
+          infinite: true
         },
       },
       {
@@ -48,7 +54,8 @@ const sliderSettings = (isMobileView) => {
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
-          swipe:true
+          swipe:true,
+          infinite: true
         },
       },
 
@@ -57,7 +64,8 @@ const sliderSettings = (isMobileView) => {
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
-          swipe:true
+          swipe:true,
+          infinite: true
         },
       },
     ],

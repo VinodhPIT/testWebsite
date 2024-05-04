@@ -1,13 +1,12 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/router";
+
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function Dreamtattooai() {
-  const router = useRouter();
-  const { t } = useTranslation();
+export default function CreateAI() {
+
+
   return ( 
     <div className="block_bg_yellow container w_100pc text_center">
       <div className="text_box_content_inner max_w_100pc pt_40 pb_40 d_flex flex_direction_column align_item_center">

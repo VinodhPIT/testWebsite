@@ -6,12 +6,12 @@ import { useRouter } from "next/router";
 
 import useTranslation from "next-translate/useTranslation";
 
-import Blackworktattooslider from "@/components/styleSlider/blackworktattooSlider";
-import Sharetattooideas from "@/components/styleSlider/shareTattooideas";
-import Exploreblackworktattoos from "@/components/styleSlider/exploreblackworkTattoos";
-import ExploreStyle from "@/components/styleSlider/exploreStyles";
-import Dreamtattooai from "@/components/styleSlider/dreamtattooAi";
-import DownloadApps from "@/components/styleSlider/downloadApp"
+import Blackworktattooslider from "@/components/styleDetail/artistSlider";
+import Sharetattooideas from "@/components/styleDetail/tattooIdea";
+import Exploreblackworktattoos from "@/components/styleDetail/exploreTattoos";
+import ExploreStyle from "@/components/styleDetail/exploreStyles";
+import Dreamtattooai from "@/components/styleDetail/createAi";
+import DownloadApps from "@/components/styleDetail/downloadApp"
 
 import {
   blurDataURL,

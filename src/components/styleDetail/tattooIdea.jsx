@@ -5,11 +5,10 @@ import { useRouter } from "next/router";
 import usePath from'@/store/setPath/setPath'
 import useTranslation from "next-translate/useTranslation";
 
-export default function Sharetattooideas({ name }) {
+export default function Tattooidea({ name }) {
   const { t } = useTranslation();
   const router = useRouter();
   const {setPathname} = usePath()
-
 
   return (
     <div className="block_bg_cool_aero_blue container w_100pc text_center">

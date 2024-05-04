@@ -32,8 +32,8 @@ export default function Home({}) {
   const osName = getOs();
   const router = useRouter();
   
-  const { allListing } = useDisplayAll();
-  const { styleList } = useStyleListing();
+  const { allListing  ,loading} = useDisplayAll();
+  const { styleList  ,loader} = useStyleListing();
 
 
 
@@ -200,13 +200,15 @@ export default function Home({}) {
       <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
-        datas={allListing.tattoo_images}
+        data={allListing.tattoo_images}
+        loading={loading}
       />
 
       <ExploreStyle
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
+        loading={loader} 
       /> 
 
       {SwitchJournal(router.locale)}

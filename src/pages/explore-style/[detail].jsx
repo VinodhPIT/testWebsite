@@ -3,33 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 
-import { fetchCategoryData } from "@/apiConfig/webService";
 import useTranslation from "next-translate/useTranslation";
-import Blackworktattooslider from "@/components/styleSlider/blackworktattooSlider";
-import Sharetattooideas from "@/components/styleSlider/shareTattooideas";
-import Exploreblackworktattoos from "@/components/styleSlider/exploreblackworkTattoos";
-import ExploreStyle from "@/components/styleSlider/exploreStyles";
-import Dreamtattooai from "@/components/styleSlider/dreamtattooAi";
-import DownloadApps from "@/components/styleSlider/downloadApp";
 import useStyleListing from "@/store/styleListing/styleListing";
-
+import ArtistSlider from "@/components/styleDetail/artistSlider";
+import Tattooidea from "@/components/styleDetail/tattooIdea";
+import ExploreTattoos from "@/components/styleDetail/exploreTattoos";
+import ExploreStyle from "@/components/styleDetail/exploreStyles";
+import CreateAI from "@/components/styleDetail/createAi";
+import DownloadApps from "@/components/styleDetail/downloadApp";
 
 import { blurDataURL } from "@/constants/constants";
+import { getSingleStyleDetail ,fetchCategoryData } from "@/apiConfig/webService";
 
-import { getSingleStyleDetail } from "@/apiConfig/webService";
 
 export default function Styledeatil({ data }) {
+  const { t } = useTranslation();
   const { styleList } = useStyleListing();
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
   let firstThreeWebcontent = [];
   let objectsAfterFirstThree = [];
-  
+
   if (data.web_content && data.web_content.length > 0) {
     firstThreeWebcontent = data.web_content.slice(0, 3);
     objectsAfterFirstThree = data.web_content.slice(3);
   }
-  const { t } = useTranslation();
 
 
   useEffect(() => {
@@ -45,7 +43,7 @@ export default function Styledeatil({ data }) {
       }
     };
 
-    fetchTattooData(); 
+    fetchTattooData();
 
     const fetchArtistData = async () => {
       try {
@@ -59,8 +57,32 @@ export default function Styledeatil({ data }) {
       }
     };
 
-    fetchArtistData(); 
-  }, []); 
+    fetchArtistData();
+  }, []);
+
+  const ContentBlock = ({ item }) => (
+    <div>
+      {item.content && (
+        <>
+          <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
+            {item.content.header}
+          </h3>
+          <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
+            {item.content.body}
+          </p>
+          {item.content.data && item.content.data.imagery && (
+            <div className="range_patterns">
+              <ul>
+                {item.content.data.imagery.map((imageryItem, index) => (
+                  <li key={index}>{imageryItem}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
 
   return (
     <>
@@ -103,24 +125,23 @@ export default function Styledeatil({ data }) {
                   <div class="img_box_wrap custom_download_shadow no_shadow_before">
                     <Image
                       priority
-                      src={data.image ? data.image : '/placeHolder.png'} 
+                      src={data.image ? data.image : "/placeHolder.png"}
                       alt={t("common:styleDetail.bannerTitle")}
                       fill
                       objectFit="cover"
                       objectPosition="center"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
-                      
+
                       //layout="responsive"
                     />
-                   
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <Blackworktattooslider
+        <ArtistSlider
           title={t("common:styleDetail.artistSliderTitle", {
             tattooStyle: data.style_name,
           })}
@@ -130,97 +151,38 @@ export default function Styledeatil({ data }) {
           button={t("common:ExploreMoreArtist")}
           data={artistData}
         />
-        <Sharetattooideas name={data.style_name} />
+        <Tattooidea name={data.style_name} />
 
         {firstThreeWebcontent && firstThreeWebcontent.length > 0 && (
-  <section className="text_box_wrap d_flex">
-    <div className="justify_content_start container w_100pc">
-      <div className="custom_content_block mt_60 m_mt_40">
-        {firstThreeWebcontent.map((item, index) => (
-          <div key={index}>
-            {item.content && (
-              <>
-                <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
-                  {item.content.header}
-                </h3>
+          <section className="text_box_wrap d_flex">
+            <div className="justify_content_start container w_100pc">
+              <div className="custom_content_block mt_60 m_mt_40">
+                {firstThreeWebcontent.map((item, index) => (
+                  <ContentBlock key={index} item={item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
-                <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-                  {item.content.body}
-                </p>
-
-                {item.content.data && item.content.data.imagery && (
-                  <div className="range_patterns">
-                    <ul>
-                      {item.content.data.imagery.map(
-                        (imageryItem, index) => (
-                          <li key={index}>{imageryItem}</li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
-
-
-
-
-
-
-
-
-
-
-        <Exploreblackworktattoos
+        <ExploreTattoos
           data={tattooData}
           styleName={data.style_name}
         />
 
-{objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
-  <section className="text_box_wrap d_flex">
-    <div className="justify_content_start container w_100pc">
-      <div className="custom_content_block mt_20 m_mt_40 mb_80">
-        {objectsAfterFirstThree.map((item, index) => (
-          <div key={index}>
-            {item.content && (
-              <>
-                <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
-                  {item.content.header}
-                </h3>
+        {objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
+          <section className="text_box_wrap d_flex">
+            <div className="justify_content_start container w_100pc">
+              <div className="custom_content_block mt_20 m_mt_40 mb_80">
+                {objectsAfterFirstThree.map((item, index) => (
+                  <ContentBlock key={index} item={item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
-                <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
-                  {item.content.body}
-                </p>
-
-                {item.content.data && item.content.data.imagery && (
-                  <div className="range_patterns">
-                    <ul>
-                      {item.content.data.imagery.map(
-                        (imageryItem, index) => (
-                          <li key={index}>{imageryItem}</li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-)}
-
-
-
-        <Dreamtattooai />
+        <CreateAI/>
 
         <ExploreStyle
           title={t("common:homePage.exploreStyle")}
