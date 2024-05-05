@@ -37,7 +37,7 @@ export default function Blackworktattooslider({ title, content,trendingArtist })
               <div >
                 <Slider
                   {...settings}
-                  className="custom_content_slick_slider"               
+                  className="custom_content_slick_slider m_mr_n_15"               
                 >
                   {trendingArtist.map((el, index) => (
                     <div
