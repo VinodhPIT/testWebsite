@@ -53,9 +53,11 @@ export default function ExploreStyles({ data }) {
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
                             <Link
-                            href={`/${router.locale}/explore-style/${el.style_id}`}
-                           
-                          >
+                             href={{
+                              pathname: `/${router.locale}/explore-style`,
+                              query: {key: el.style_name ,style_id: el.style_id ,},
+                            }}
+                             >
                             
                           <Image
                                  src={el.image ? el.image : '/placeHolder.png'} 

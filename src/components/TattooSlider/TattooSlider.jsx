@@ -86,7 +86,7 @@ export default function FourColumnCarousel({ title, content }) {
                           <div className={styles.listing_grid_img_profile}>
                             <Image
                               src={el.profile_image_url}
-                              alt={el.name}
+                              alt={el.first_name}
                               width={97}
                               height={97}
                               loading="lazy"

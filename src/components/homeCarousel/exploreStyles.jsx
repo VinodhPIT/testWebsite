@@ -18,16 +18,6 @@ export default function ExploreStyles({ title, content, data }) {
   const settings = sliderSettings(isMobileView);
   const { router } = useNavigation();
 
-  const [isDragging, setIsDragging] = useState(false);
-
-  const handleDragStart = () => {
-    setIsDragging(true);
-  };
-
-  const handleDragEnd = () => {
-    setIsDragging(false);
-  };
-
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">
@@ -60,8 +50,12 @@ export default function ExploreStyles({ title, content, data }) {
                           className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
                         >
                           <Link
-                             href={`/${router.locale}/explore-style/${el.style_id}`}
-
+                             href={{
+                              pathname: `/${router.locale}/explore-style`,
+                              query: {key: el.style_name ,style_id: el.style_id ,},
+                            }}
+                             
+  
                         
                           >
                             <Image
@@ -76,7 +70,7 @@ export default function ExploreStyles({ title, content, data }) {
                               layout="responsive"
                               style={{ borderRadius: "10px" }}
                             />
-                            <div class="title_bg_trans">
+                            <div className="title_bg_trans">
                               <span>{el.style_name}</span>
                             </div>
                           </Link>

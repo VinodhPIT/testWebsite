@@ -221,7 +221,7 @@ const Review = () => {
         </div>
       </div>
 
-      {success && !userExists && <Modal />}
+      <Modal />
       {success && userExists && <Modal1 />}
     </>
   );

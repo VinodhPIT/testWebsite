@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
-import usePath from'@/store/setPath/setPath'
+import useWindowResize from "@/hooks/useWindowSize";
+import { useRequestPath } from '@/hooks/useRequestPath';
+
 import useTranslation from "next-translate/useTranslation";
 
-export default function Tattooidea({ name }) {
+export default function Tattooidea({ name ,handleLinkClick }) {
   const { t } = useTranslation();
-  const router = useRouter();
-  const {setPathname} = usePath()
+  const { isMobileView } = useWindowResize();
+  const requestPath = useRequestPath(isMobileView);
 
   return (
     <div className="block_bg_cool_aero_blue container w_100pc text_center">
@@ -26,25 +27,14 @@ export default function Tattooidea({ name }) {
         </p>
 
         <Link
-          href={`/${router.locale}/createRequest`}
-
-      
-          
-          
-          onClick={()=>setPathname(router.pathname)}
-          
-          className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 mob_hidden"
+          href={requestPath}
+          onClick={handleLinkClick}
+          className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
         >
           {t("common:styleDetail.bannerTattooRequestBtn")}
         </Link>
 
-        <Link
-          href={`/${router.locale}/request-Form`}  onClick={()=>setPathname(router.pathname)}
-       
-          className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 desk_hidden"
-        >
-          {t("common:styleDetail.bannerTattooRequestBtn")}
-        </Link>
+    
       </div>
     </div>
   );

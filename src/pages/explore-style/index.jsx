@@ -3,8 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 
+import { useNavigation } from "@/hooks/useRouter";
+import useWindowResize from "@/hooks/useWindowSize";
+import { useRequestPath } from '@/hooks/useRequestPath';
+
 import useTranslation from "next-translate/useTranslation";
 import useStyleListing from "@/store/styleListing/styleListing";
+import usePath from'@/store/setPath/setPath'
 import ArtistSlider from "@/components/styleDetail/artistSlider";
 import Tattooidea from "@/components/styleDetail/tattooIdea";
 import ExploreTattoos from "@/components/styleDetail/exploreTattoos";
@@ -13,14 +18,22 @@ import CreateAI from "@/components/styleDetail/createAi";
 import DownloadApps from "@/components/styleDetail/downloadApp";
 
 import { blurDataURL } from "@/constants/constants";
-import { getSingleStyleDetail ,fetchCategoryData } from "@/apiConfig/webService";
-
+import {
+  getSingleStyleDetail,
+  fetchCategoryData,
+} from "@/apiConfig/webService";
 
 export default function Styledeatil({ data }) {
-  const { t } = useTranslation();
-  const { styleList } = useStyleListing();
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
+  const { router } = useNavigation();
+  const { t } = useTranslation();
+  const { isMobileView } = useWindowResize();
+  const requestPath = useRequestPath(isMobileView);
+  const { styleList } = useStyleListing();
+  const {setPathname} = usePath()
+
+
   let firstThreeWebcontent = [];
   let objectsAfterFirstThree = [];
 
@@ -28,7 +41,6 @@ export default function Styledeatil({ data }) {
     firstThreeWebcontent = data.web_content.slice(0, 3);
     objectsAfterFirstThree = data.web_content.slice(3);
   }
-
 
   useEffect(() => {
     const fetchTattooData = async () => {
@@ -84,6 +96,15 @@ export default function Styledeatil({ data }) {
     </div>
   );
 
+
+  const handleLinkClick = () => {
+    // Construct the new pathname with the query parameters
+    const newQuery = `?key=${router.query.key}&style_id=${router.query.style_id}`;
+    const newPathname = `${router.pathname}${newQuery}`;
+    // Update the state
+    setPathname(newPathname);
+  };
+
   return (
     <>
       <Head>
@@ -114,7 +135,8 @@ export default function Styledeatil({ data }) {
                           {data.short_desc}
                         </p>
                         <Link
-                          href=""
+                          href={requestPath}
+                          onClick={handleLinkClick}
                           className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
                         >
                           {t("common:styleDetail.bannerTattooRequestBtn")}
@@ -151,7 +173,7 @@ export default function Styledeatil({ data }) {
           button={t("common:ExploreMoreArtist")}
           data={artistData}
         />
-        <Tattooidea name={data.style_name} />
+        <Tattooidea name={data.style_name} handleLinkClick={handleLinkClick} />
 
         {firstThreeWebcontent && firstThreeWebcontent.length > 0 && (
           <section className="text_box_wrap d_flex">
@@ -165,10 +187,7 @@ export default function Styledeatil({ data }) {
           </section>
         )}
 
-        <ExploreTattoos
-          data={tattooData}
-          styleName={data.style_name}
-        />
+        <ExploreTattoos data={tattooData} styleName={data.style_name} />
 
         {objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
           <section className="text_box_wrap d_flex">
@@ -182,7 +201,7 @@ export default function Styledeatil({ data }) {
           </section>
         )}
 
-        <CreateAI/>
+        <CreateAI />
 
         <ExploreStyle
           title={t("common:homePage.exploreStyle")}
@@ -201,7 +220,9 @@ export default function Styledeatil({ data }) {
 
 export async function getServerSideProps(context) {
   try {
-    const data = await getSingleStyleDetail(context.query.detail);
+    const { query } = context;
+    const { style_id } = query; // Access the style_id from the query object
+    const data = await getSingleStyleDetail(style_id);
 
     if (!data.data) {
       return {

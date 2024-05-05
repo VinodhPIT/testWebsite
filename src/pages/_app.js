@@ -1,24 +1,25 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Header from "@/components/header/header";
-import MarketngScreens from "@/marketingScreens/Header/header";
-import useWindowResize from "@/hooks/useWindowSize";
-import Footer from "@/components/footer/footer";
-import { GlobalStateProvider } from "@/context/Context";
 import { Figtree } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
+
 import UseLayout from "@/hooks/useLayout";
+
+import NProgress from "nprogress";
+import useStyleListing from "@/store/styleListing/styleListing";
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+import { GlobalStateProvider } from "@/context/Context";
+import loadGoogleMapsAPI from "@/components/google-maps";
+
+import Header from "@/components/header/header";
+import Footer from "@/components/footer/footer";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
-import loadGoogleMapsAPI from "@/components/google-maps";
-import NProgress from "nprogress";
-import { SessionProvider } from "next-auth/react";
-
-import useStyleListing from "@/store/styleListing/styleListing";
-import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 
 NProgress.configure({ showSpinner: false });
@@ -41,7 +42,6 @@ function MyApp({ Component, pageProps }) {
       NProgress.start();
     });
 
-
     router.events.on("routeChangeComplete", (url) => {
       NProgress.done();
     });
@@ -51,8 +51,6 @@ function MyApp({ Component, pageProps }) {
       router.events.off("routeChangeComplete", (url) => {});
     };
   }, []);
-
-  const { isMobileView } = useWindowResize();
 
   function getHeaderComponent(locale, pathname) {
     switch ((locale, pathname)) {
@@ -77,17 +75,13 @@ function MyApp({ Component, pageProps }) {
       case "/privacy-policy":
       case "/download/[[...download]]":
       case "/comingSoon":
-      case "/explore-style/[detail]":
+      case "/explore-style":
         return (
           <Header
             logo={"/inckd-logo.svg"}
             theme={"white"}
-            isPosition={true}
             imgWidth="105"
             imgHeight="31"
-            hamburger={"white"}
-            languageSwitch="switcherThemeWhite"
-            isFullwidth={true}
           />
         );
       default:
@@ -104,12 +98,12 @@ function MyApp({ Component, pageProps }) {
 
   }, []);
 
-
   return (
     <>
       <SessionProvider session={pageProps.session}>
         <GlobalStateProvider>
           <div className={figtree.className}>
+            
             {getHeaderComponent(router.locale, router.pathname)}
 
             <UseLayout pathname={router.pathname}>
@@ -125,3 +119,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+

@@ -234,6 +234,10 @@ export const GlobalStateProvider = ({ children }) => {
     } catch (error) {}
   };
 
+
+
+  
+
   return (
     <GlobalStateContext.Provider
       value={{

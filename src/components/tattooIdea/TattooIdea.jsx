@@ -1,9 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
+import { useRequestPath } from '@/hooks/useRequestPath';
+import useWindowResize from "@/hooks/useWindowSize";
+
+import useTranslation from "next-translate/useTranslation";
 import usePath from'@/store/setPath/setPath'
 
 import { blurDataURL } from "@/constants/constants";
@@ -11,7 +14,9 @@ import { blurDataURL } from "@/constants/constants";
 export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
-   const {setPathname} = usePath()
+  const { isMobileView } = useWindowResize();
+  const requestPath = useRequestPath(isMobileView);
+  const {setPathname} = usePath()
 
 
   return (
@@ -50,7 +55,7 @@ export default function TattooIdea() {
                   layout="responsive"
                   className="desk_hidden"
                 />
-                <div class="chat_block bubble_top_mid floating_animation">
+                <div className="chat_block bubble_top_mid floating_animation">
                   <Image
                     priority={true}
                     src="/pro-pic-d-1.png"
@@ -60,17 +65,17 @@ export default function TattooIdea() {
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                   />
-                  <div class="chat_bubble_msg bubble_top_mid">
-                    <div class="chat_bubble_msg_desc">
+                  <div className="chat_bubble_msg bubble_top_mid">
+                    <div className="chat_bubble_msg_desc">
                       <p>450 for butterfly tattoo</p>
                     </div>
-                    <div class="chat_bubble_msg_date">
+                    <div className="chat_bubble_msg_date">
                       <p>07:20 pm</p>
                     </div>
                   </div>
                 </div>
 
-                <div class="chat_block bubble_bottom_left floating_animation">
+                <div className="chat_block bubble_bottom_left floating_animation">
                   <Image
                     priority={true}
                     src="/pro-pic-d-1.png"
@@ -80,11 +85,11 @@ export default function TattooIdea() {
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                   />                  
-                  <div class="chat_bubble_msg bubble_top_mid">
-                    <div class="chat_bubble_msg_desc">
+                  <div className="chat_bubble_msg bubble_top_mid">
+                    <div className="chat_bubble_msg_desc">
                       <p>I would love to do your project</p>
                     </div>
-                    <div class="chat_bubble_msg_date">
+                    <div className="chat_bubble_msg_date">
                       <p>07:20 pm</p>
                     </div>
                   </div>
@@ -102,15 +107,8 @@ export default function TattooIdea() {
                     {t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
-                    href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
-                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 mob_hidden custom_fs_m_16 m_lh_20"
-                  >
-                    {t("common:homePage.CreateATattooRequest")}
-                  </Link>
-
-                  <Link
-                    className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 desk_hidden"
-                    href={`/${router.locale}/request-Form`}  onClick={()=>setPathname(router.pathname)}
+                    href={requestPath}  onClick={()=>setPathname(router.pathname)}
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20"
                   >
                     {t("common:homePage.CreateATattooRequest")}
                   </Link>

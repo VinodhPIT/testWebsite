@@ -1,32 +1,29 @@
-Header;
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import Image from "next/image";
-import useTranslation from "next-translate/useTranslation";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import useTranslation from "next-translate/useTranslation";
+import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
-import { useModal } from "@/utils/modalUtils";
+
 import links from "@/constants/linkData";
 import generateLinkComponent from "@/utils/linkGenerator";
-import getButtonClass from "@/utils/getButtonClass";
+import { useModal } from "@/utils/modalUtils";
 
 export default function Header({
   logo,
   theme,
-  isPosition,
   imgWidth,
   imgHeight,
-  hamburger,
-  languageSwitch,
-  isFullwidth,
 }) {
   const router = useRouter();
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
+
   const { t } = useTranslation();
   const [toggle, setToggle] = useState(false);
   const linkComponent = generateLinkComponent(router, theme, t);
@@ -50,8 +47,9 @@ export default function Header({
     setToggle(false);
   };
 
-  const baseImageUrl =
-    hamburger === "white" ? "/hamburger-menu.svg" : "/blackHamburger.svg";
+  const handleClick = () => {
+    router.push(`/${router.locale}/for-tattoo-artists`);
+  };
 
   return (
     <>
@@ -88,15 +86,13 @@ export default function Header({
         </div>
       )}
 
-      <header className={isPosition === true ? "header_wrapper" : null}>
+      <header className={"header_wrapper"}>
         <div>
-          <div
-            className={isFullwidth === true ? "container_full" : "container"}
-          >
+          <div className={"container_full"}>
             <nav className="header_navigation">
               <div className="header_logo_nav">
                 <div className="header_logo">
-                  <Link href={`/${router.locale}`} className=" navbar_brand">
+                  <Link href={`/${router.locale}`} className="navbar_brand">
                     <Image
                       src={logo}
                       alt="Logo"
@@ -126,23 +122,24 @@ export default function Header({
               <div className="header_right">
                 <button
                   type="button"
-                  onClick={() =>
-                    router.push(`/${router.locale}/for-tattoo-artists`)
-                  }
-                  className={`btn btn_tattoo_art`}
+                  onClick={() => handleClick()}
+                  className={`btn btn_tattoo_art mob_hidden`}
                 >
-                  {isMobileView
-                    ? t("common:menus.forArtists")
-                    : t("common:menus.forTattooArtists")}
+                  {t("common:menus.forTattooArtists")}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleClick()}
+                  className={`btn btn_tattoo_art desk_hidden`}
+                >
+                  {t("common:menus.forArtists")}
                 </button>
 
                 {router.pathname === "/journal" ||
                 router.pathname === "/explore/[[...slug]]" ||
                 router.pathname === "/404" ? null : (
-                  <button
-                    className={`language_switcher  ${languageSwitch}`}
-                    onClick={openPopup}
-                  >
+                  <button className={"language_switcher"} onClick={openPopup}>
                     <Image
                       src={getCountryIcon(router.locale)}
                       alt="countries"
@@ -150,13 +147,7 @@ export default function Header({
                       height={32}
                       priority
                     />
-                    <span
-                      className={`${
-                        languageSwitch === "switcherThemeWhite"
-                          ? "textWhite"
-                          : "textBlack"
-                      }`}
-                    >
+                    <span className={"textWhite"}>
                       {isMobileView ? "" : getLanguage(router.locale)}
                     </span>
                   </button>
@@ -165,7 +156,7 @@ export default function Header({
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
-                  src={baseImageUrl}
+                  src={"/hamburger-menu.svg"}
                   alt="hamburger"
                   width={32}
                   height={32}
