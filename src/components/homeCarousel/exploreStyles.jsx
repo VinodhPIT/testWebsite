@@ -52,11 +52,8 @@ export default function ExploreStyles({ title, content, data }) {
                           <Link
                              href={{
                               pathname: `/${router.locale}/explore-style`,
-                              query: {key: el.style_name ,style_id: el.style_id ,},
+                              query: {style_uid:el.style_uid,style_id:el.style_id},
                             }}
-                             
-  
-                        
                           >
                             <Image
                               src={el.image ? el.image : '/placeHolder.png'} 

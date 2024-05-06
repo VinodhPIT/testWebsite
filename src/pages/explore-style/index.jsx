@@ -23,7 +23,7 @@ import {
   fetchCategoryData,
 } from "@/apiConfig/webService";
 
-export default function Styledeatil({ data }) {
+export default function Styledeatil({ data ,style_id }) {
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
   const { router } = useNavigation();
@@ -47,7 +47,7 @@ export default function Styledeatil({ data }) {
       try {
         const res = await fetchCategoryData({
           category: "tattoo",
-          style: data.style_id,
+          style: style_id,
         });
         setTattooData(res.rows.hits);
       } catch (error) {
@@ -61,7 +61,7 @@ export default function Styledeatil({ data }) {
       try {
         const res = await fetchCategoryData({
           category: "artist",
-          style: data.style_id,
+          style:style_id,
         });
         setArtistData(res.rows.hits);
       } catch (error) {
@@ -221,8 +221,8 @@ export default function Styledeatil({ data }) {
 export async function getServerSideProps(context) {
   try {
     const { query } = context;
-    const { style_id } = query; // Access the style_id from the query object
-    const data = await getSingleStyleDetail(style_id);
+    const {style_uid, style_id} = query; // Access the style_id from the query object
+    const data = await getSingleStyleDetail(style_uid);
 
     if (!data.data) {
       return {
@@ -233,6 +233,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: data.data,
+        style_id
       },
     };
   } catch (error) {
