@@ -25,7 +25,7 @@ export default function ExploreStyles({ title, content, data }) {
           <div className="justify_content_start container w_100pc">
             <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
               <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 position_relative">
-                <span className="heading_with_arrow position_relative">
+                <span className="position_relative">
                   {title}
                 </span>
               </h2>
@@ -52,11 +52,8 @@ export default function ExploreStyles({ title, content, data }) {
                           <Link
                              href={{
                               pathname: `/${router.locale}/explore-style`,
-                              query: {key: el.style_name ,style_id: el.style_id ,},
+                              query: {style_uid:el.style_uid,style_id:el.style_id},
                             }}
-                             
-  
-                        
                           >
                             <Image
                               src={el.image ? el.image : '/placeHolder.png'} 

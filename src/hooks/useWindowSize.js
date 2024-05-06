@@ -13,9 +13,11 @@ function useWindowResize() {
     handleResize();
 
     window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize); // Add orientation change listener
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize); // Remove orientation change listener
     };
   }, []);
 
