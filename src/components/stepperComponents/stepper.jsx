@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const StepperComponent = ({ steps, activeStep }) => {
-const { isMobileView } = useWindowResize();
+const { isMobileView ,isSmallDevice} = useWindowResize();
 const { navigateTo, router } = useNavigation();
 const { prevPage, stepNumber, locationDenied } = useRequestForm();
 const { t } = useTranslation();
@@ -61,7 +61,7 @@ const generateStepTitle = (title, index) => {
   
     // Defined the target URL based on the step number and view mode
     let targetUrl;
-    if (isMobileView) {
+    if (isSmallDevice) {
       targetUrl = stepNumber === 0 ? `${router.locale}/${pathname}` : null;
     } else {
       targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
