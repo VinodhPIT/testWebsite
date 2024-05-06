@@ -5204,6 +5204,12 @@ button.language_switcher img {
   bottom: 6px;
   margin-left: 3px;
 }
+.link_with_arrow {
+  display: inline-flex;
+  position: relative;
+  bottom: -3px;
+  margin-left: 3px;
+}
 #viewdv_c237_view_1 {
   display: none !important;
 }
@@ -7529,6 +7535,14 @@ button.language_switcher img {
     width: 16px;
     height: 16px;
     bottom: 5px;
+  }
+  .link_with_arrow {
+    bottom: inherit;
+    margin-left: 3px;
+  }
+  .link_with_arrow img {
+    width: 16px;
+    height: 16px;
   }
   .klarna_pay_opt_grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
