@@ -12,7 +12,6 @@ import countriesData from "@/data/countries.json";
 import styles from "./style.module.css";
 import figtree from "@/helpers/fontHelper";
 
-
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(6, 6, 6, 0.78)",
@@ -34,13 +33,11 @@ const customStyles = {
   },
 };
 const CountrySelectorModel = ({ isOpen, closeModal }) => {
-
-  const router = useRouter()
-  const [country, setCountry] = useState([])
+  const router = useRouter();
+  const [country, setCountry] = useState([]);
   const { t } = useTranslation();
   const { fetchAll } = useDisplayAll();
   const { fetchStyle } = useStyleListing();
-
 
   useEffect(() => {
     setCountry(countriesData);
@@ -56,71 +53,75 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     fetchAll(domain);
   };
 
-
-
-
-
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
       style={customStyles}
       ariaHideApp={false}
-    ><div className={figtree.className}>
+    >
+      
+        <div className={`popup_wrap ${figtree.className}`}>
+          <div className={`${"popup_container"} ${styles.popup_container}`}>
+            <button
+              className={`${"close_button"} ${styles.close_button}`}
+              onClick={closeModal}
+            >
+              <Image
+                width={25}
+                height={25}
+                src="/popup-close.svg"
+                alt="close"
+              />
+            </button>
 
-
-      <div className="popup_wrap">
-        <div className={`${"popup_container"} ${styles.popup_container}`}>
-          <button
-            className={`${"close_button"} ${styles.close_button}`}
-            onClick={closeModal}
-          >
-            <Image width={25} height={25} src="/popup-close.svg" alt="close" />
-          </button>
-
-          <div className={styles.language_popup}>
-            <h3>{t("common:Choose your region and language")}</h3>
-            <p>{t("common:LanguagePopup-subText")}</p>
-            <div className={`${'language_popup_block'} ${styles.language_popup_block}`}>
-              <ul>
-                {country.map((e) => {
-                  return (
-                    <li key={e.id}>
-                      <button
-                        className={
-                          router.locale === e.set
-                            ? styles.activeCountry
-                            : styles.inActivecountry
-                        }
-                        onClick={() => chooseLanguage(e.id, e.domain, e.lng)}
-                      >
-                        <Image
-                          alt={`${e.country}${"-"}${e.language}`}
-                          src={e.image}
-                          width={32}
-                          height={32}
-                        />
-                        <span>
-                          <h4>{e.country}</h4>
-                          <p>{e.language}</p>
-                        </span>
-                        <Image
-                          width={24}
-                          height={25}
-                          src="/icon_language_link.svg"
-                          alt=""
-                          className="icon_language_link"
-                        />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
+            <div className={styles.language_popup}>
+              <h3>{t("common:Choose your region and language")}</h3>
+              <p>{t("common:LanguagePopup-subText")}</p>
+              <div
+                className={`${"language_popup_block"} ${
+                  styles.language_popup_block
+                }`}
+              >
+                <ul>
+                  {country.map((e) => {
+                    return (
+                      <li key={e.id}>
+                        <button
+                          className={
+                            router.locale === e.set
+                              ? styles.activeCountry
+                              : styles.inActivecountry
+                          }
+                          onClick={() => chooseLanguage(e.id, e.domain, e.lng)}
+                        >
+                          <Image
+                            alt={`${e.country}${"-"}${e.language}`}
+                            src={e.image}
+                            width={32}
+                            height={32}
+                          />
+                          <span>
+                            <h4>{e.country}</h4>
+                            <p>{e.language}</p>
+                          </span>
+                          <Image
+                            width={24}
+                            height={25}
+                            src="/icon_language_link.svg"
+                            alt=""
+                            className="icon_language_link"
+                          />
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      </div>
+    
     </Modal>
   );
 };
