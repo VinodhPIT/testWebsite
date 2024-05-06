@@ -203,7 +203,7 @@ export const exploreAll = async (lng) => {
 
     return response;
   } catch (error) {
-    console.log(error ,"dc;md;cs")
+
     return [];
   }
 };
