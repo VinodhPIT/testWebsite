@@ -927,7 +927,7 @@
 }
 
 .request_contact_form .Dropdown-control {
-  width: 105px;
+  width: 106px;
   height: 50px;
   font-size: 16px;
   background-color: var(--gray-light-150);
@@ -936,6 +936,7 @@
   display: flex;
   align-items: center;
   text-transform: uppercase;
+  border-radius: 4px;
 }
 .request_contact_form .Dropdown-control .Dropdown-placeholder {
   font-size: 16px;
@@ -946,6 +947,7 @@
 .request_contact_form .Dropdown-root .Dropdown-arrow-wrapper .Dropdown-arrow {
   border-color: #707070 transparent transparent;
   top: 23px;
+  right: 15px;
 }
 .request_contact_form .Dropdown-root.is-open .Dropdown-arrow-wrapper .Dropdown-arrow {
   border-color: transparent transparent #707070;
@@ -964,6 +966,7 @@
   font-weight: 400;
   line-height: 24px;
   color: var(--black-500);
+  text-transform: uppercase;
 }
 .request_contact_form .Dropdown-menu .Dropdown-option:hover {
   background-color: var(--gray-light-150);
