@@ -23,7 +23,7 @@ export default function KlarnaBanner() {
         <h2 className="color_white heading_h2 custom_d_fs_50 fw_700 mb_10 m_mb_0">
           <span>{t("common:tattooNow")}</span>
         </h2>
-        <p className="color_white custom_fs_18 mb_30 m_mb_25 custom_fs_m_14">
+        <p className="color_white custom_fs_18 mb_30 m_mb_25 custom_fs_m_14 max_w_520 m_mxw_320">
           {t("common:homePage.financeInk")}
         </p>
         <Link

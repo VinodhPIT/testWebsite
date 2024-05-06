@@ -982,6 +982,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .max_w_360 {
   max-width: 360px !important;
 }
+.max_w_520 {
+  max-width: 520px !important;
+}
 .letter_spacing_01 {
   letter-spacing: -1.68px !important;
 }
@@ -1659,10 +1662,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   max-width: 550px !important;
 }
 .d_max_710 {
-  max-width: 710px!important;
+  max-width: 710px !important;
 }
 .d_max_920 {
-  max-width: 920px!important;
+  max-width: 920px !important;
 }
 .no_space_center {
   padding-left: 15px !important;
@@ -2044,12 +2047,12 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   position: relative;
   cursor: pointer;
   color: var(--black-500);
-  background: var(--white); 
+  background: var(--white);
 }
 
 .btn_tattoo_art:hover {
   color: var(--white);
-  background: var(--gray-600); 
+  background: var(--gray-600);
   text-decoration: none;
 }
 
@@ -2725,7 +2728,7 @@ ul.custom-listing li img {
   font-size: 60px;
   font-weight: 700;
   line-height: 60px;
- /* letter-spacing: -2px;*/
+  /* letter-spacing: -2px;*/
   margin: 0 0 40px 0;
   padding: 0;
 }
@@ -4224,7 +4227,6 @@ header .navbar {
   width: auto;
 }
 
-
 @media (max-width: 638px) {
   .swiper-container {
     width: 100%;
@@ -5193,14 +5195,14 @@ button.language_switcher img {
 .heading_with_arrow:after {
   content: "";
   position: absolute;
-  width: 26px;
-  height: 26px;
-  background-image: url("/arrowRight.svg");
+  width: 25px;
+  height: 28px;
+  background-image: url("/arrow_right_n.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  bottom: 5px;
-  margin-left: 5px;
+  bottom: 6px;
+  margin-left: 3px;
 }
 #viewdv_c237_view_1 {
   display: none !important;
@@ -5401,12 +5403,11 @@ button.language_switcher img {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  border: 1px solid #E1E4E8;
+  border: 1px solid #e1e4e8;
   font-size: 18px;
   font-weight: 300;
   line-height: 27px;
 }
-
 
 .klarna_banner_badge {
   display: flex;
@@ -5529,12 +5530,12 @@ button.language_switcher img {
 }
 .klarna_works_accordion .klarna_works_items .accordion__button:after {
   content: "";
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
   position: absolute;
   right: 0;
-  top: 26px;
-  background: url("/accordion-arrow.svg") no-repeat;
+  top: 30px;
+  background: url("/accordion-arrow-n.svg") no-repeat;
 }
 .klarna_works_accordion
   .klarna_works_items
@@ -6574,7 +6575,7 @@ button.language_switcher img {
   }
 
   .m_lh_29 {
-    line-height: 29px!important;
+    line-height: 29px !important;
   }
 
   .m_left_0 {
@@ -7514,7 +7515,7 @@ button.language_switcher img {
   }
   .chat_bubble_msg_desc:after {
     border-top: 5px solid transparent;
-    border-right: 8px solid #C0FFD5;
+    border-right: 8px solid #c0ffd5;
     border-bottom: 5px solid transparent;
     top: -7px;
     left: 27px;
@@ -7525,9 +7526,9 @@ button.language_switcher img {
     letter-spacing: -0.364px;
   }
   .heading_with_arrow:after {
-    bottom: 4px;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    bottom: 5px;
   }
   .klarna_pay_opt_grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -7540,8 +7541,8 @@ button.language_switcher img {
     min-height: inherit;
   }
   .klarna_pay_opt_badge img {
-    height: 20px;
-    width: 49px;
+    height: 26px;
+    width: 56px;
     margin-right: 9px;
   }
   .klarna_pay_opt_label {
@@ -7578,6 +7579,20 @@ button.language_switcher img {
     display: block;
     width: 278px;
   }
+
+
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
+    border-radius: 16px;
+  }
+
+  img.nav_btn_toggle {
+    width: 24px;
+    height: 24px;
+  }
+  button.language_switcher {
+    margin-right: 14px!important;
+  }
+
 }
 @media screen and (max-width: 640px) {
   .img_box_wrap.custom_slick_slider_one {
@@ -7654,10 +7669,10 @@ button.language_switcher img {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
-@media screen and (max-width: 350px) {  
+@media screen and (max-width: 350px) {
   .header_cookies .header_cookie_txt .header_cookie_mob a {
     font-size: 15px;
-  } 
+  }
   .header_cookies .header_cookie_img {
     padding-right: 10px;
   }
@@ -7667,10 +7682,10 @@ button.language_switcher img {
   }
 }
 
-@media screen and (max-width: 329px) {  
+@media screen and (max-width: 329px) {
   .header_cookies .header_cookie_txt .header_cookie_mob a {
     font-size: 14px;
-  } 
+  }
   .header_cookies .header_cookie_img {
     padding-right: 8px;
   }
@@ -8072,6 +8087,49 @@ button.language_switcher img {
     inset: 0px;
     left: 58.33333333333333%;
     max-width: 50%;
+  }
+
+  .join_artist_popup.popup_wrap {
+    max-height: 564px;
+  }
+  .join_artist_popup.popup_wrap .close_button {
+    right: 16px;
+    top: 16px;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_right_content {
+    padding: 80px 40px;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_left {
+    border-radius: 16px 0px 0px 16px;
+    overflow: hidden;
+  }
+  .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
+    border-radius: 0px 16px 16px 0px;
+  }
+  .join_artist_popup ul.progressbar li .progressbar_block {
+    padding: 0 0 24px 48px;
+  }
+  .join_artist_popup ul.progressbar li:after {
+    width: 32px;
+    height: 32px;
+    background-size: 16px;
+    top: 0px;
+  }
+  .join_artist_popup ul.progressbar li .progressbar_block:before {
+    left: 16px;
+  }
+  .join_artist_popup ul.progressbar li h4 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26.4px;
+  }
+  .join_artist_popup ul.progressbar li p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .join_artist_popup .app_dwld_img_wrap img {
+    height: 32px;
   }
 }
 
@@ -9018,27 +9076,24 @@ button.language_switcher img {
 }
 @media screen and (max-width: 420px) {
   .header_right button.btn_tattoo_art {
-    margin-right: 10px;
+    margin-right: 16px;
     padding: 6px 6px;
   }
 }
 
-
-
-@media only screen and (max-device-width:1023px) {  
+@media only screen and (max-device-width: 1023px) {
   .btn_tattoo_art:hover {
     color: var(--black-500);
-    background: var(--white); 
+    background: var(--white);
   }
 
   :not(.btn-check) + .btn_tattoo_art:active {
     color: var(--black-500);
-    background: var(--white); 
+    background: var(--white);
   }
 
   .btn_tattoo_art:focus-visible {
     color: var(--black-500);
-    background: var(--white); 
+    background: var(--white);
   }
 }
-

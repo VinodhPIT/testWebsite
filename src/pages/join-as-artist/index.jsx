@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
-import _Form from "@/components/artistForm/form";
-import useTranslation from "next-translate/useTranslation";
+import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+
+import useTranslation from "next-translate/useTranslation";
+import _Form from "@/components/artistForm/form";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
-export default function JoinArtist({}) {
+
+
+export default function JoinArtist() {
   const { t } = useTranslation();
 
   return (
@@ -139,6 +143,7 @@ export default function JoinArtist({}) {
           </div>
         </section>
       </div>
+    
     </>
   );
 }

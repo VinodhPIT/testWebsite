@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TattooSearchModalPopup from "@/components/modalPopup/TattooSearchModalPopup";
 import CountrySelectorPopup from "@/components/modalPopup/countrySelectorPopup";
-
+import JoinArtistPopup from "@/components/modalPopup/joinArtistPopup";
 
 export const TattooSearchModal = ({ isOpen, closeModal }) => (
   <TattooSearchModalPopup
@@ -19,11 +19,13 @@ export const CountryPickerModel = ({ isOpen, closeModal }) => (
   />
 );
 
-
-
-
-
-
+export const ArtistPickerModel = ({ isOpen, closeModal }) => (
+  <JoinArtistPopup
+    className="custom-modal"
+    isOpen={isOpen}
+    closeModal={closeModal}
+  />
+);
 
 export const useModal = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);

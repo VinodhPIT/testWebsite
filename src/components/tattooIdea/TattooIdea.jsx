@@ -53,7 +53,7 @@ export default function TattooIdea() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
-                  className="desk_hidden"
+                  className="desk_hidden h_inherit"
                 />
                 <div className="chat_block bubble_top_mid floating_animation">
                   <Image
