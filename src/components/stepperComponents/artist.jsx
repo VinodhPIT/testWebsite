@@ -20,16 +20,14 @@ import Modal from "@/components/stepperComponents/modal";
 import { blurDataURL } from "@/constants/constants";
 import { getCountry } from "@/helpers/helper";
 
-
-
 const Artist = () => {
   const [showLimitReached, setShowLimitReached] = useState(false);
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
   const [toggleModel, setModel] = useState(false);
   const { router } = useNavigation();
   const [searchVisible, setSearchVisible] = useState(false);
-  const {  selectedIds } = useGlobalState();
- 
+  const { selectedIds } = useGlobalState();
+
   const {
     addSelectedArtist,
     artistList,
@@ -43,78 +41,80 @@ const Artist = () => {
     selectedArtists,
     totalCount,
   } = useRequestForm();
-  
+
   const { t } = useTranslation();
   const { isMobileView } = useWindowResize();
 
+  const ShowAlert = () => {
+    return (
+      <>
+        {showLimitReached && (
+          <p className="mt_15 request_ref_selected max_reached">
+            {t("common:maximumLimit")}
+          </p>
+        )}
+      </>
+    );
+  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  const showLimitReachedToast = () => {
+    setShowLimitReached(true);
+    setTimeout(() => {
+      setShowLimitReached(false);
+    }, 1000); // Hide after 1 second
+  };
 
 
   const handleCheckboxChange = (artist) => {
     const { id } = artist;
     const artistExists = selectedArtists.some((artist) => artist.id === id);
+  
     if (artistExists) {
       removeSelectedArtist(id);
     } else if (selectedArtists.length < 10) {
       addSelectedArtist(artist);
+    } else {
+      showLimitReachedToast();
     }
   };
-  
+
   const onCloseModel = () => {
     setModel(false);
   };
-  
+
   const SelectedArtistsInfo = () => {
     return (
       <>
-        {showLimitReached ? (
-          <p className="mt_15 request_ref_selected max_reached">
-            {t("common:maximumLimit")}
-          </p>
-        ) : (
-          selectedArtists.length > 0 && (
-            <button
-              className="request_ref_selected mt_15 mb_10  d_block m_auto"
-              onClick={() => setModel(true)}
-            >
-              {selectedArtists.length} {t("common:artistsSelected")}{" "}
-              <Image src="/arrowRight.svg" width={16} height={16} alt="arrow" />
-            </button>
-          )
+        {selectedArtists.length > 0 && (
+          <button
+            className="request_ref_selected mt_15 mb_10  d_block m_auto"
+            onClick={() => setModel(true)}
+          >
+            {selectedArtists.length} {t("common:artistsSelected")}{" "}
+            <Image src="/arrowRight.svg" width={16} height={16} alt="arrow" />
+          </button>
         )}
       </>
     );
   };
-  
-  useEffect(() => {
-    if (selectedArtists.length === 10) {
-      setShowLimitReached(true);
-      setTimeout(() => {
-        setShowLimitReached(false);
-      }, 1000); // Display for 1 second
-    }
-  }, [selectedArtists]);
-  
+
+  // useEffect(() => {
+  //   if (selectedArtists.length === 10) {
+  //     setShowLimitReached(true);
+  //     setTimeout(() => {
+  //       setShowLimitReached(false);
+  //     }, 1000); // Display for 1 second
+  //   }
+  // }, []);
+
+
+
+
+
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
   };
-  
-
-
-
 
   return (
     <>
@@ -126,17 +126,19 @@ const Artist = () => {
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title5")}</h2>
                   <div style={{ position: "relative" }}>
-                    <div
-                      className="request_filter_col_wrap"
-                     
-                    >
+                    <div className="request_filter_col_wrap">
                       <div className="request_filter_block">
                         <div className="request_style_drop">
                           <button
                             onClick={onToggle}
                             className={`${toggle ? "onActive" : null}`}
                           >
-                            <p>{t("common:Style")}   </p>   {selectedIds.length>=1 && <p className="style_count">{selectedIds.length}</p>}
+                            <p>{t("common:Style")} </p>{" "}
+                            {selectedIds.length >= 1 && (
+                              <p className="style_count">
+                                {selectedIds.length}
+                              </p>
+                            )}
                           </button>
                           {toggle && (
                             <OutsideClickHandler onOutsideClick={onToggle}>
@@ -232,7 +234,7 @@ const Artist = () => {
                                       <input
                                         type="checkbox"
                                         checked={isSelected}
-                                        onChange={() => {}}
+                                        onChange={() => { }}
                                       />
                                     </div>
                                     <Image
@@ -302,7 +304,7 @@ const Artist = () => {
                           )}
                       </div>
 
-                      {isMobileView &&    <SelectedArtistsInfo /> }
+                      {isMobileView && <SelectedArtistsInfo />}
 
                       <div className="request_ref_btn">
                         <button
@@ -312,7 +314,7 @@ const Artist = () => {
                           {t("common:goBack")}
                         </button>
 
-                        {!isMobileView &&  <SelectedArtistsInfo /> }
+                        {!isMobileView && <SelectedArtistsInfo />}
 
                         {selectedArtists.length > 0 && (
                           <button
@@ -331,6 +333,8 @@ const Artist = () => {
           </div>
         </div>
       </div>
+
+      <ShowAlert />
 
       <Modal
         toggleModel={toggleModel}
