@@ -978,6 +978,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .max_w_360 {
   max-width: 360px !important;
 }
+.max_w_520 {
+  max-width: 520px !important;
+}
 .letter_spacing_01 {
   letter-spacing: -1.68px !important;
 }
@@ -5192,14 +5195,14 @@ button.language_switcher img {
 .heading_with_arrow:after {
   content: "";
   position: absolute;
-  width: 26px;
-  height: 26px;
-  background-image: url("/arrowRight.svg");
+  width: 25px;
+  height: 28px;
+  background-image: url("/arrow_right_n.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  bottom: 5px;
-  margin-left: 5px;
+  bottom: 6px;
+  margin-left: 3px;
 }
 #viewdv_c237_view_1 {
   display: none !important;
@@ -5527,12 +5530,12 @@ button.language_switcher img {
 }
 .klarna_works_accordion .klarna_works_items .accordion__button:after {
   content: "";
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
   position: absolute;
   right: 0;
-  top: 26px;
-  background: url("/accordion-arrow.svg") no-repeat;
+  top: 30px;
+  background: url("/accordion-arrow-n.svg") no-repeat;
 }
 .klarna_works_accordion
   .klarna_works_items
@@ -7523,9 +7526,9 @@ button.language_switcher img {
     letter-spacing: -0.364px;
   }
   .heading_with_arrow:after {
-    bottom: 4px;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
+    bottom: 5px;
   }
   .klarna_pay_opt_grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -7538,8 +7541,8 @@ button.language_switcher img {
     min-height: inherit;
   }
   .klarna_pay_opt_badge img {
-    height: 20px;
-    width: 49px;
+    height: 26px;
+    width: 56px;
     margin-right: 9px;
   }
   .klarna_pay_opt_label {
@@ -7577,8 +7580,17 @@ button.language_switcher img {
     width: 278px;
   }
 
+
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
     border-radius: 16px;
+  }
+
+  img.nav_btn_toggle {
+    width: 24px;
+    height: 24px;
+  }
+  button.language_switcher {
+    margin-right: 14px!important;
   }
 
 }
@@ -9064,7 +9076,7 @@ button.language_switcher img {
 }
 @media screen and (max-width: 420px) {
   .header_right button.btn_tattoo_art {
-    margin-right: 10px;
+    margin-right: 16px;
     padding: 6px 6px;
   }
 }

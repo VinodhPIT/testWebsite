@@ -155,7 +155,7 @@ function KlarnaNew({}) {
                   </div>
                   <Image
                     priority
-                    src="/klarnaBanner.png"
+                    src="/klarnaBanner_n_01.png"
                     alt={`${t("common:klarnaPage.bannerTitle1")} ${t(
                       "common:klarnaPage.bannerTitle1-Sub"
                     )}`}
@@ -168,7 +168,7 @@ function KlarnaNew({}) {
                   />
                   <Image
                     priority
-                    src="/klarnaBanner_mob.png"
+                    src="/klarnaBanner_n_mob_01.png"
                     alt="Big Ink.Tiny Payments."
                     fill
                     objectFit="cover"
@@ -194,7 +194,7 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_35 m_pb_15">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_35 m_pb_15">
                     {t("common:klarnaPage.availablePayment")}
                   </h3>
                 </div>
@@ -213,10 +213,10 @@ function KlarnaNew({}) {
                       {t("common:klarnaPage.tag1")}
                       </span>
                     </span>
-                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0 m_mt_15">
                     {t("common:klarnaPage.optionTitle-1")}
                     </h4>
-                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
+                    <p className="custom_fs_18 color_gray_550 custom_fs_m_14 mb_0 mt_8">
                     {t("common:klarnaPage.optionContent-1")}
                     </p>
                   </div>
@@ -233,10 +233,10 @@ function KlarnaNew({}) {
                       />
                       <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag2")}</span>
                     </span>
-                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0 m_mt_15">
                     {t("common:klarnaPage.optionTitle-2")}
                     </h4>
-                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
+                    <p className="custom_fs_18 color_gray_550 custom_fs_m_14 mb_0 mt_8">
                     {t("common:klarnaPage.optionContent-2")}
                     </p>
                   </div>
@@ -253,10 +253,10 @@ function KlarnaNew({}) {
                       />
                       <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag3")}</span>
                     </span>
-                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0 m_mt_15">
                     {t("common:klarnaPage.optionTitle-3")}
                     </h4>
-                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
+                    <p className="custom_fs_18 color_gray_550 custom_fs_m_14 mb_0 mt_8">
                     {t("common:klarnaPage.optionContent-3")}
                     </p>
                   </div>
@@ -273,10 +273,10 @@ function KlarnaNew({}) {
                       />
                       <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag4")}</span>
                     </span>
-                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0">
+                    <h4 className="color_gray_550 custom_fs_28 custom_fs_m_20 fw_700 mt_25 mb_0 m_mt_15">
                     {t("common:klarnaPage.optionTitle-4")}
                     </h4>
-                    <p className="custom_fs_18 color_gray_550 mb_0 mt_8">
+                    <p className="custom_fs_18 color_gray_550 custom_fs_m_14 mb_0 mt_8">
                     {t("common:klarnaPage.optionContent-4")}
                     </p>
                   </div>
@@ -303,7 +303,7 @@ function KlarnaNew({}) {
               <div className="img_text_box_inner container">
                 <div className="text_box_content w_100pc justify_content_center p_0 min_h_reset m_pb_0 m_text_center">
                   <div className="text_box_content_inner max_w_100pc text_center">
-                    <h2 className="color_gray_550 mb_30 m_mb_25 custom_fs_m_28">
+                    <h2 className="color_gray_550 mb_30 m_mb_25 custom_fs_m_28 fw_700">
                     {t("common:klarnaPage.findArtists")}
                     </h2>
                     <Link
@@ -334,12 +334,12 @@ function KlarnaNew({}) {
           <div className="img_text_box_wrapper">
             <div
               className={
-                "text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_20 m_pb_40"
+                "text_box_wrap right pb_80 pt_80 m_lg_pb_40 m_pt_30 m_pb_15"
               }
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_40 m_pb_15">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_40 m_pb_0 m_mb_5">
                     {t("common:klarnaPage.MainTitle1")}
                   </h3>
                 </div>
