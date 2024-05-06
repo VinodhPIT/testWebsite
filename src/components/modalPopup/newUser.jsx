@@ -41,8 +41,8 @@ const SucessModal = ({}) => {
       style={customStyles}
       ariaHideApp={false}
     >
-      <div className={figtree.className}>
-        <div className="popup_wrap custom_popup_design">
+      
+        <div className={`popup_wrap custom_popup_design ${figtree.className}`}>
           <div className="popup_container">
             <div className="popup_box_inner">
               <div className="popup_left justify_content_center block_bg_green_100 mob_hidden">
@@ -119,7 +119,7 @@ const SucessModal = ({}) => {
             </div>
           </div>
         </div>
-      </div>
+      
     </Modal>
   );
 };

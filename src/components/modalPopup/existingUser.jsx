@@ -50,8 +50,8 @@ const TattooSearchModal1Popup = ({}) => {
       style={customStyles}
       ariaHideApp={false}
     >
-      <div className={figtree.className}>
-        <div className="popup_wrap custom_popup_design">
+
+      <div className={`popup_wrap custom_popup_design ${figtree.className}`}>
           <div className="popup_container">
             <div className="popup_box_inner">
               <div className="popup_left justify_content_center block_bg_green_100 mob_hidden">
@@ -96,7 +96,7 @@ const TattooSearchModal1Popup = ({}) => {
                       </p>
                       <button
                         onClick={() => openApp()}
-                        class="btn_outline_secondary btn_cutom_new fw_600 mt_30 w_100pc d_max_248 m_mt_15 h_48 custom_fs_16 "
+                        class="btn_outline_secondary btn_cutom_new fw_600 mt_30 w_100pc d_max_248 m_mt_15 h_48 custom_fs_16 max_m_w_100pc"
                       >
                         {t("common:stepper.openApp")}
                       </button>
@@ -107,7 +107,7 @@ const TattooSearchModal1Popup = ({}) => {
             </div>
           </div>
         </div>
-      </div>
+      
     </Modal>
   );
 };
