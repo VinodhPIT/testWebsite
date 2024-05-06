@@ -6,7 +6,6 @@
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
-    "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
     "faq": "FAQ",
@@ -512,6 +511,9 @@
 
   "appStoreDownload": "App store download",
   "playStoreDownload": "Play store download",
+ "getTattooNow":"Get tattoo now, Pay later.",
+
+
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",

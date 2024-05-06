@@ -6787,6 +6787,7 @@ button.language_switcher img {
   }
   .header_cookies .header_cookie_txt .header_cookie_mob a {
     font-size: 16px;
+    
   }
 
   .text_box_wrap.right .m_switcher .img_box_wrap {
@@ -7702,7 +7703,7 @@ button.language_switcher img {
     padding-right: 10px;
   }
   .header_cookies .header_cookie_txt p span:first-child {
-    padding-right: 10px;
+    padding-right: 7px;
     font-size: 13px;
   }
 }
@@ -9110,6 +9111,15 @@ button.language_switcher img {
     margin-right: 16px;
     padding: 6px 6px;
   }
+  .header_cookies .header_cookie_txt .header_cookie_mob a {
+    font-size: 13px;
+}
+.header_cookies {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+
 }
 
 @media only screen and (max-device-width: 1023px) {
