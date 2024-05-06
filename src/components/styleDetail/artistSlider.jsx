@@ -39,7 +39,8 @@ export default function ArtistSlider({ title, content, data }) {
               }`}
             >
               <div>
-                <Slider {...settings} className="custom_content_slick_slider">
+                <Slider {...settings} className="custom_content_slick_slider m_mr_n_15">
+
                   {data &&
                     data.map((el, index) => (
                       <div
