@@ -84,7 +84,7 @@ const ContactForm = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content">
-              <section className="request_landing_content">
+              <section className="request_landing_content mb_90">
                 <div className="request_landing_content_col">
                   <h2>{t("common:stepper.title6")}</h2>
                   <div className="request_contact_form">
