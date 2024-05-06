@@ -5574,6 +5574,15 @@ button.language_switcher img {
 .klarna_works_accordion .accordion .accordion__item:last-child {
   border-bottom: 1px solid var(--gray-light-300);
 }
+.reqst_form_popup {
+  max-height: 578px;
+}
+.reqst_form_popup .popup_container {
+  top: inherit;
+}
+.join_artist_popup .popup_container {
+  top: inherit!important
+}
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
@@ -7579,10 +7588,11 @@ button.language_switcher img {
     display: block;
     width: 278px;
   }
-
-
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
     border-radius: 16px;
+  }
+  .join_artist_popup .popup_container {
+    max-width: 375px;
   }
 
   img.nav_btn_toggle {
@@ -7592,6 +7602,7 @@ button.language_switcher img {
   button.language_switcher {
     margin-right: 14px!important;
   }
+
 
 }
 @media screen and (max-width: 640px) {
@@ -8102,9 +8113,13 @@ button.language_switcher img {
   .join_artist_popup.popup_wrap .popup_box_inner .popup_left {
     border-radius: 16px 0px 0px 16px;
     overflow: hidden;
+    max-width: 398px;
+    width: 100%;
   }
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
     border-radius: 0px 16px 16px 0px;
+    max-width: 423px;
+    width: 100%;
   }
   .join_artist_popup ul.progressbar li .progressbar_block {
     padding: 0 0 24px 48px;
@@ -8121,7 +8136,9 @@ button.language_switcher img {
   .join_artist_popup ul.progressbar li h4 {
     font-weight: 600;
     font-size: 22px;
-    line-height: 26.4px;
+    line-height: 26px;
+    max-width: 100%;
+    margin-bottom: 4px;
   }
   .join_artist_popup ul.progressbar li p {
     font-weight: 300;

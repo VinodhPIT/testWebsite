@@ -7,7 +7,7 @@ import {
 } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
-
+import figtree from "@/helpers/fontHelper";
 import Link from "next/link";
 
 const customStyles = {
@@ -18,16 +18,18 @@ const customStyles = {
   content: {
     border: "none",
     background: "transparent",
-    maxWidth: "800px",
-    margin: "0 auto",
+    maxWidth: "851px",
+    margin: "auto auto",
     padding: "0px",
     top: "0",
     bottom: "0px",
     right: "0px",
     left: "0px",
     overflow: "inherit",
-    maxHeight: "inherit",
+    maxHeight: "564px",
     borderRadius: "8px",
+    paddingLeft: "15px",
+    paddingRight: "15px"
   },
 };
 const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
@@ -42,16 +44,16 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
     >
 
 
-      <div className="popup_wrap join_artist_popup">
+      <div className={`popup_wrap join_artist_popup ${figtree.className}`}>
         <div className="popup_container">
-          <div className="popup_box_inner">
-            <div className="popup_left justify_content_center block_bg_white mob_hidden">
+          <div className="popup_box_inner m_justify_content_center">
+            <div className="popup_left justify_content_start block_bg_white mob_hidden">
               <Image
-                src="/join-artist.png"
+                src="/join-artist-n.png"
                 alt="Manage your business"
                 className="  object_fit_contain object_position"
-                width={410}
-                height={576}
+                width={398}
+                height={564}
               />{" "}
             </div>
             <div className="popup_right">
