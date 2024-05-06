@@ -58,7 +58,6 @@
   "styleGuidePage": {
     "bannerTitle": "Estilos de Tatuajes",
     "bannerContent": "¡Explora estilos únicos de tatuajes en nuestra aplicación! Encuentra tu tattoo perfecto. Sumérgete en infinitas opciones hoy mismo.",
-
     "Letteringtattoos": "Tatuajes de lettering",
     "LetteringTattooContent": "Eleva tu autoexpresión con cautivadores tatuajes de lettering. Encuentra artistas talentosos en nuestra Aplicación de Reservaciones de Tatuajes para obtener tinta personalizada e impactante que cuente tu historia única. ¡Explora ahora!",
     "Finelinetattoos": "Tatuajes de fineline",
@@ -83,6 +82,18 @@
     "download": "¡Descarga la aplicación",
     "exploreApp": "y explora 30+ estilos!"
   },
+
+  "styleDetail": {
+    "bannerTattooRequestBtn": "Create tattoo request",
+    "artistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+    "artistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
+    "shareTattooIdea":"Share your tattoo idea",
+    "withTattooArtists" :"with {{tattooStyle}} tattoo artists",
+    "connectMultipleArtists":"Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+     "exploreTattoos" :"Explore {{tattooStyle}} tattoos"
+   },
+
+   
 
   "klarnaPage": {
     "bannerTitle1": "Tattoo now.",
@@ -139,21 +150,35 @@
 
     "workingStep1": "Download the app",
     "workingStepContent-1": "Download our user-friendly app for free and dive into the vibrant world of tattoos, packed with features to explore!",
+    "workingStep1": "Download the app",
+    "workingStepContent-1": "Download our user-friendly app for free and dive into the vibrant world of tattoos, packed with features to explore!",
 
     "workingStep2": "Choose an artist",
     "workingStepContent-2": "Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
+    "workingStep2": "Choose an artist",
+    "workingStepContent-2": "Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
 
-    "workingStep3": "Accept an offer",
-    "workingStepContent-3": "Accept an offer from your chosen artist within the inckd app and embark on the journey to bring your tattoo idea to life.",
+    "workingStep1":"Download the app",
+    "workingStepContent-1":"Download our user-friendly app for free and dive into the vibrant world of tattoos, packed with features to explore!",
+    
+    "workingStep2":"Choose an artist",
+    "workingStepContent-2":"Explore thousands of tattoo artists from around the globe and choose the one that perfectly matches your style and vision.",
+    
 
-    "workingStep4": "Select Klarna",
-    "workingStepContent-4": "Select Klarna at checkout. This allows you to choose a payment plan that suits your financial comfort",
+    "workingStep3":"Accept an offer",
+    "workingStepContent-3":"Accept an offer from your chosen artist within the inckd app and embark on the journey to bring your tattoo idea to life.",
+    
 
-    "workingStep5": "Tattoo day",
-    "workingStepContent-5": "Now that the details are settled, look forward to an exciting session with your chosen artist. It’s time to relax, have fun, and watch your tattoo come to life",
+    "workingStep4":"Select Klarna",
+    "workingStepContent-4":"Select Klarna at checkout. This allows you to choose a payment plan that suits your financial comfort",
+    
 
-    "workingStep6": "Pay Later",
-    "workingStepContent-6": "Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
+    "workingStep5":"Tattoo day",
+    "workingStepContent-5":"Now that the details are settled, look forward to an exciting session with your chosen artist. It’s time to relax, have fun, and watch your tattoo come to life",
+    
+
+    "workingStep6":"Pay Later",
+    "workingStepContent-6":"Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
 
     "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
     "ts&amp;cs": "Ts&Cs",

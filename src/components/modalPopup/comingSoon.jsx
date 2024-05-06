@@ -1,10 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
-import {APP_LINK_APPLE,APP_LINK_GOOGLE} from '@/constants/constants'
-import useTranslation from "next-translate/useTranslation";
 import Image from 'next/image'
-import {useResetRequestFormState} from '@/store/requestManagement/requestForm'
-import { detectOS } from "@/utils/detectOS";
+
+import figtree from "@/helpers/fontHelper";
 
 const customStyles = {
   overlay: {
@@ -28,20 +26,6 @@ const customStyles = {
 };
 const TattooSearchModal1Popup = ({}) => {
 
-  const { t } = useTranslation();
-
-
-  const openApp = () => {
-    const os = detectOS();
-    let appLink = APP_LINK_GOOGLE; // Default to Google Play Store link
-  
-    if (os === 'iOS' || os === 'MacOS' || os === 'iPad' || os === 'iPod') {
-      appLink = APP_LINK_APPLE; // Update to App Store link for iOS and macOS
-    }
-  
-    window.open(appLink, '_blank');
-  };
-  
 
 
   return (
@@ -52,11 +36,12 @@ const TattooSearchModal1Popup = ({}) => {
     style={customStyles} 
     ariaHideApp={false}
     >
+      <div className={figtree.className}>
       <div className="popup_wrap custom_popup_design max_h_inherit">        
         <div className="popup_container align_content top_inherit m_max_100">
           <div className="popup_box_inner justify_content_center align_item_center h_auto m_h_inherit">           
             <div className="popup_coming_soon">
-              <button className="close_button" onClick={useResetRequestFormState}>
+              <button className="close_button">
                 <Image  width={25} height={25} src="/popup-close.svg" alt="close"/>        
               </button>
               <div className="popup_coming_soon_content justify_content_center">
@@ -78,7 +63,7 @@ const TattooSearchModal1Popup = ({}) => {
             </div>
           </div>
         </div>
-      </div>
+      </div>  </div>
 
     </Modal>
   );

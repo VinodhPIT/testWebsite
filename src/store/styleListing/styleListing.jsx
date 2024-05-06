@@ -4,15 +4,15 @@ import { create } from "zustand";
 import { exploreStyle } from "@/apiConfig/webService";
 const useStyleListing = create((set) => ({
   styleList: [],
-  loading: false,
+  loader: false,
   fetchStyle: async (lng) => {
     try {
-      set({ loading: true });
+      set({ loader: true });
       const response = await exploreStyle(lng);
     
-      set({ styleList: response.data, loading: false });
+      set({ styleList: response.data, loader: false });
     } catch (error) {
-      set({ loading: false });
+      set({ loader: false });
     }
   },
 }));

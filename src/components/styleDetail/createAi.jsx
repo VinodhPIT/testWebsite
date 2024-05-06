@@ -1,13 +1,12 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/router";
+
 import useTranslation from "next-translate/useTranslation";
 
 
-export default function Dreamtattooai() {
-  const router = useRouter();
-  const { t } = useTranslation();
+export default function CreateAI() {
+
+
   return ( 
     <div className="block_bg_yellow container w_100pc text_center">
       <div className="text_box_content_inner max_w_100pc pt_40 pb_40 d_flex flex_direction_column align_item_center">
@@ -17,12 +16,12 @@ export default function Dreamtattooai() {
         <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_30 d_max_920 m_max_100">
        {"With inckd AI, we empower you to create tattoos that have yet to be unleashed from the depths of your emotions. With Inked AI, your creativity knows no limits."}
         </p>
-        <Link
-          href=""
+        <button
+         
           className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
           >
          {"Create now!"}
-        </Link>
+        </button>
       </div>
     </div>
   );

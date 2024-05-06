@@ -95,6 +95,8 @@ function getLanguage(locale) {
       return "German";
     case "it":
       return "Italy";
+      case "es":
+        return "Spanish";
     default:
       return "English";
   }
@@ -104,3 +106,5 @@ module.exports = {
   getCountryIcon,
   getLanguage,
 };
+
+

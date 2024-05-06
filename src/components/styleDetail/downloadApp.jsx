@@ -10,9 +10,7 @@ import ImageSlider from "@/components/slider/ImageSlider";
 import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constants";
 
 
-
 export default function DownloadApps ({title ,subTitle}) {
-
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
 

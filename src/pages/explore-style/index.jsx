@@ -1,0 +1,243 @@
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+import useWindowResize from "@/hooks/useWindowSize";
+import { useRequestPath } from '@/hooks/useRequestPath';
+
+import useTranslation from "next-translate/useTranslation";
+import useStyleListing from "@/store/styleListing/styleListing";
+import usePath from'@/store/setPath/setPath'
+import ArtistSlider from "@/components/styleDetail/artistSlider";
+import Tattooidea from "@/components/styleDetail/tattooIdea";
+import ExploreTattoos from "@/components/styleDetail/exploreTattoos";
+import ExploreStyle from "@/components/styleDetail/exploreStyles";
+import CreateAI from "@/components/styleDetail/createAi";
+import DownloadApps from "@/components/styleDetail/downloadApp";
+
+import { blurDataURL } from "@/constants/constants";
+import {
+  getSingleStyleDetail,
+  fetchCategoryData,
+} from "@/apiConfig/webService";
+
+export default function Styledeatil({ data }) {
+  const [artistData, setArtistData] = useState([]);
+  const [tattooData, setTattooData] = useState([]);
+  const { router } = useNavigation();
+  const { t } = useTranslation();
+  const { isMobileView } = useWindowResize();
+  const requestPath = useRequestPath(isMobileView);
+  const { styleList } = useStyleListing();
+  const {setPathname} = usePath()
+
+
+  let firstThreeWebcontent = [];
+  let objectsAfterFirstThree = [];
+
+  if (data.web_content && data.web_content.length > 0) {
+    firstThreeWebcontent = data.web_content.slice(0, 3);
+    objectsAfterFirstThree = data.web_content.slice(3);
+  }
+
+  useEffect(() => {
+    const fetchTattooData = async () => {
+      try {
+        const res = await fetchCategoryData({
+          category: "tattoo",
+          style: data.style_id,
+        });
+        setTattooData(res.rows.hits);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchTattooData();
+
+    const fetchArtistData = async () => {
+      try {
+        const res = await fetchCategoryData({
+          category: "artist",
+          style: data.style_id,
+        });
+        setArtistData(res.rows.hits);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchArtistData();
+  }, []);
+
+  const ContentBlock = ({ item }) => (
+    <div>
+      {item.content && (
+        <>
+          <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
+            {item.content.header}
+          </h3>
+          <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
+            {item.content.body}
+          </p>
+          {item.content.data && item.content.data.imagery && (
+            <div className="range_patterns">
+              <ul>
+                {item.content.data.imagery.map((imageryItem, index) => (
+                  <li key={index}>{imageryItem}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+
+
+  const handleLinkClick = () => {
+    // Construct the new pathname with the query parameters
+    const newQuery = `?key=${router.query.key}&style_id=${router.query.style_id}`;
+    const newPathname = `${router.pathname}${newQuery}`;
+    // Update the state
+    setPathname(newPathname);
+  };
+
+  return (
+    <>
+      <Head>
+        <title>{t("common:styleGuideScreenSEO.title")}</title>
+        <meta
+          name="description"
+          content={t("common:styleGuideScreenSEO.description")}
+        />
+        <meta
+          name="keywords"
+          content={t("common:styleGuideScreenSEO.keyword")}
+        />
+      </Head>
+
+      <div className="main_wrap_styleguide pb_0">
+        <section className="img_text_banner_box">
+          <div className="col_full">
+            <div className="img_text_box_wrapper exciting_offer_wrap">
+              <div class="text_box_wrap right">
+                <div class="img_text_box_inner custom_two_col_banner m_switcher">
+                  <div class="text_box_content justify_content_center m_min_h_reset m_pt_25 m_pb_40">
+                    <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
+                      <div className="tiny_payment_block pr_10_pc m_pr_0">
+                        <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
+                          {data.style_name}
+                        </h1>
+                        <p className="m_mt_10 m_mb_30 txt_mob_fs14 m_lh_21">
+                          {data.short_desc}
+                        </p>
+                        <Link
+                          href={requestPath}
+                          onClick={handleLinkClick}
+                          className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
+                        >
+                          {t("common:styleDetail.bannerTattooRequestBtn")}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="img_box_wrap custom_download_shadow no_shadow_before">
+                    <Image
+                      priority
+                      src={data.image ? data.image : "/placeHolder.png"}
+                      alt={t("common:styleDetail.bannerTitle")}
+                      fill
+                      objectFit="cover"
+                      objectPosition="center"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+
+                      //layout="responsive"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <ArtistSlider
+          title={t("common:styleDetail.artistSliderTitle", {
+            tattooStyle: data.style_name,
+          })}
+          content={t("common:styleDetail.artistSliderContent", {
+            tattooStyle: data.style_name,
+          })}
+          button={t("common:ExploreMoreArtist")}
+          data={artistData}
+        />
+        <Tattooidea name={data.style_name} handleLinkClick={handleLinkClick} />
+
+        {firstThreeWebcontent && firstThreeWebcontent.length > 0 && (
+          <section className="text_box_wrap d_flex">
+            <div className="justify_content_start container w_100pc">
+              <div className="custom_content_block mt_60 m_mt_40">
+                {firstThreeWebcontent.map((item, index) => (
+                  <ContentBlock key={index} item={item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <ExploreTattoos data={tattooData} styleName={data.style_name} />
+
+        {objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
+          <section className="text_box_wrap d_flex">
+            <div className="justify_content_start container w_100pc">
+              <div className="custom_content_block mt_20 m_mt_40 mb_80">
+                {objectsAfterFirstThree.map((item, index) => (
+                  <ContentBlock key={index} item={item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <CreateAI />
+
+        <ExploreStyle
+          title={t("common:homePage.exploreStyle")}
+          content={t("common:homePage.worldOfInk")}
+          data={styleList}
+        />
+        <DownloadApps
+          title={t("common:downloadApp")}
+          subTitle={t("common:downloadApp-Sub1")}
+          bgColor="block_bg_pink"
+        />
+      </div>
+    </>
+  );
+}
+
+export async function getServerSideProps(context) {
+  try {
+    const { query } = context;
+    const { style_id } = query; // Access the style_id from the query object
+    const data = await getSingleStyleDetail(style_id);
+
+    if (!data.data) {
+      return {
+        notFound: true,
+      };
+    }
+
+    return {
+      props: {
+        data: data.data,
+      },
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
+}

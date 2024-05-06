@@ -56,13 +56,13 @@ const generateStepTitle = (title, index) => {
     );
   };
   const onNavigate = () => {
-    // Defined the base URL based on the current locale
-    const baseUrl = `/${router.locale}/`;
+    // Defined the base URL 
+    const baseUrl = `${router.locale}/`;
   
     // Defined the target URL based on the step number and view mode
     let targetUrl;
     if (isMobileView) {
-      targetUrl = stepNumber === 0 ? `/${router.locale}/${pathname}` : null;
+      targetUrl = stepNumber === 0 ? `${router.locale}/${pathname}` : null;
     } else {
       targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
     }

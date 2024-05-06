@@ -6,7 +6,6 @@
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
-    "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
     "faq": "FAQ",
@@ -57,8 +56,11 @@
   },
 
   "styleGuidePage": {
-    "bannerTitle": "Tattoo Styles",
-    "bannerContent": "Explore unique tattoo styles in our app! find your perfect ink. Dive into endless options today.",
+    "bannerTitle": "Blackwork Tattoos",
+    "bannerContent": "Boldly Defining Individuality: The Art of Blackwork Tattoos - Where Tradition Meets Modern Expression",
+    "bannerTattooRequestBtn": "Create tattoo request",
+    "ArtistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+    "ArtistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
     "Letteringtattoos": "Lettering tattoos",
     "LetteringTattooContent": "Elevate your self-expression with captivating lettering tattoos. Find skilled artists on our Tattoo Booking App for personalized and impactful ink that tells your unique story. Explore now!",
     "Finelinetattoos": "Fineline tattoos",
@@ -83,6 +85,18 @@
     "download": "Download the app",
     "exploreApp": "& explore 30+ styles"
   },
+
+  "styleDetail": {
+
+      "bannerTattooRequestBtn": "Create tattoo request",
+      "artistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+      "artistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
+      "shareTattooIdea":"Share your tattoo idea",
+      "withTattooArtists" :"with {{tattooStyle}} tattoo artists",
+      "connectMultipleArtists":"Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+       "exploreTattoos" :"Explore {{tattooStyle}} tattoos"
+     },
+
 
   "klarnaPage": {
     "bannerTitle1": "Tattoo now.",

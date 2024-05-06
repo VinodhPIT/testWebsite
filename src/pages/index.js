@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import useTranslation from "next-translate/useTranslation";
 
+import useTranslation from "next-translate/useTranslation";
 import { getOs } from "../lib/os-detector";
 import { useGlobalState } from "@/context/Context";
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
@@ -27,14 +28,17 @@ import {
 } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
-export default function Home({}) {
+
+
+export default function Home({isMobile}) {
   const [qrCodeSrc, setQrCodeSrc] = useState('/PlayStore_QR.png');
   const osName = getOs();
   const router = useRouter();
-  
-  const { allListing } = useDisplayAll();
-  const { styleList } = useStyleListing();
-  
+
+  const { allListing  ,loading} = useDisplayAll();
+  const { styleList  ,loader} = useStyleListing();
+
+
   const {
     getAddress,
     clearStyleId,
@@ -65,6 +69,7 @@ export default function Home({}) {
 
 
   useEffect(() => {
+
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -195,14 +200,16 @@ export default function Home({}) {
       <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
-        datas={allListing.tattoo_images}
+        data={allListing.tattoo_images}
+        loading={loading}
       />
 
       <ExploreStyle
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
-      />
+        loading={loader} 
+      /> 
 
       {SwitchJournal(router.locale)}
 
@@ -220,3 +227,7 @@ export default function Home({}) {
     </>
   );
 }
+
+
+
+

@@ -43,8 +43,8 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                 </div>
                             </div>
                             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                <div class="img_box_wrap justify_content_center flex_flow_wrap m_pb_25">
-                                    <ul class="justify_content_center pl_0 mb_0">
+                                <div className="img_box_wrap justify_content_center flex_flow_wrap m_pb_25">
+                                    <ul className="justify_content_center pl_0 mb_0">
                                         <li >
                                             <Image
                                                 priority
@@ -58,7 +58,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                             />
                                         </li>
                                     </ul>
-                                    <ul class="download_app ml_0 w_100pc max_w_100pc home_new_verified_tattoo mt_25 m_mt_0 m_pt_25 d_flex justify_content_center">
+                                    <ul className="download_app ml_0 w_100pc max_w_100pc home_new_verified_tattoo mt_25 m_mt_0 m_pt_25 d_flex justify_content_center">
                                         <li>
                                             <Link href={APP_LINK_APPLE} target="_blank">
                                                 <Image

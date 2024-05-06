@@ -5,7 +5,8 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 
 import { useNavigation } from "@/hooks/useRouter";
-
+import useWindowResize from "@/hooks/useWindowSize";
+import { useRequestPath } from '@/hooks/useRequestPath';
 
 import usePath from'@/store/setPath/setPath'
 import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
@@ -14,7 +15,7 @@ import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumn
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  blurDataURL, KLARNA_LINK
 } from "@/constants/constants";
 
 import {
@@ -33,6 +34,8 @@ function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
   const {setPathname} = usePath()
+  const { isMobileView } = useWindowResize();
+  const requestPath = useRequestPath(isMobileView);
 
   const list = [
     {
@@ -284,7 +287,7 @@ function KlarnaNew({}) {
                 <div className="klarna_pay_terms">
                   <p>
                   {t("common:klarnaPage.klarnaTerms")}
-                    <Link href="https://www.klarna.com/uk/terms-and-conditions" target="_blank">
+                    <Link href={KLARNA_LINK} target="_blank">
                     {t("common:klarnaPage.ts&amp;cs")}
                     </Link>
                     {t("common:klarnaPage.lateFeesApply")}
@@ -307,20 +310,11 @@ function KlarnaNew({}) {
                     {t("common:klarnaPage.findArtists")}
                     </h2>
                     <Link
-                      href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
-                      className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 mob_hidden"
+                      href={requestPath}  onClick={()=>setPathname(router.pathname)}
+                      className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16"
                     >
                       {t("common:homePage.CreateATattooRequest")}
                     </Link>
-
-                    <Link
-                      href={`/${router.locale}/request-Form`} onClick={()=>setPathname(router.pathname)}
-                      className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 desk_hidden"
-                    >
-                      {t("common:homePage.CreateATattooRequest")}
-                    </Link>
-
-                    
                   </div>
                 </div>
               </div>
@@ -339,7 +333,7 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_28 pb_40 m_pb_0 m_mb_5">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_40 m_pb_0 m_mb_5">
                     {t("common:klarnaPage.MainTitle1")}
                   </h3>
                 </div>

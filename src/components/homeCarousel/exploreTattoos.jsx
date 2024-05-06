@@ -13,7 +13,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function ExploreTattoos({ title, content, datas }) {
+export default function ExploreTattoos({ title, content, data }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
   const { router } = useNavigation();
@@ -43,8 +43,8 @@ export default function ExploreTattoos({ title, content, datas }) {
                   {...settings}
                   className="custom_slick_slider custom_slick_container m_mr_n_15"
                 >
-                  {datas &&
-                    datas.map((el, index) => (
+                  {data &&
+                    data.map((el, index) => (
                       <div className={`${"listing_gridItem"} `} key={index}>
                         <Link
                           href={`/${router.locale}/explore/tattoos/${el.tattoo_uid}`}

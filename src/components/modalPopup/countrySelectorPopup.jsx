@@ -10,6 +10,7 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import countriesData from "@/data/countries.json";
 import styles from "./style.module.css";
+import figtree from "@/helpers/fontHelper";
 
 
 const customStyles = {
@@ -46,19 +47,15 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }, []);
 
   const chooseLanguage = async (id, domain, li) => {
-
-
     await setLanguage(`${domain}-${li}`);
     closeModal();
     const newUrl = `/${domain}-${li}${router.asPath}`;
     router.replace(newUrl);
+
+    fetchStyle(li);
+    fetchAll(domain);
   };
 
-
-  useEffect(() => {
-    fetchStyle(router.locale.split("-")[1]);
-    fetchAll(router.locale.split("-")[0]);
-  }, [router.locale]);
 
 
 
@@ -69,7 +66,9 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
       onRequestClose={closeModal}
       style={customStyles}
       ariaHideApp={false}
-    >
+    ><div className={figtree.className}>
+
+
       <div className="popup_wrap">
         <div className={`${"popup_container"} ${styles.popup_container}`}>
           <button
@@ -120,6 +119,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </Modal>
   );
