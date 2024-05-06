@@ -204,13 +204,28 @@
 
 .selectedArtistblock {
   max-width: 750px;
-  padding: 40px 77px;
+  padding: 53px 89px 32px 89px;
   background-color: var(--white);
-  border-radius: 11px;
-  height: 578px;
+  border-radius: 11px;  
   position: relative;
+  margin: 0 auto;
+}
+.selectedArtistblock .request_filter_col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.selectedArtistblock .picked_ArtistsPanel {
+  height: 100%;
+  max-height: 386px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.selectedArtistblock .picked_ArtistsPanel {
+  height: 100%;
+  max-height: 386px;
+  overflow: auto;
+  overflow-x: hidden;
+}
 .request_landing_content_col {
   display: flex;
   flex-direction: column;
@@ -917,14 +932,41 @@
   font-size: 16px;
   background-color: var(--gray-light-150);
   border: 0;
-  padding: 8px 18px 8px 10px;
+  padding: 8px 15px 8px 15px;
   display: flex;
   align-items: center;
   text-transform: uppercase;
 }
-
-.request_contact_form .Dropdown-arrow {
-  top: 21px;
+.request_contact_form .Dropdown-control .Dropdown-placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--black-500);
+}
+.request_contact_form .Dropdown-root .Dropdown-arrow-wrapper .Dropdown-arrow {
+  border-color: #707070 transparent transparent;
+  top: 23px;
+}
+.request_contact_form .Dropdown-root.is-open .Dropdown-arrow-wrapper .Dropdown-arrow {
+  border-color: transparent transparent #707070;
+}
+.request_contact_form .Dropdown-menu {
+  border: 0;
+  margin-top: 0;
+  box-shadow: 4px 4px 22px 0px rgba(0, 0, 0, 0.10);
+  border-radius: 4px;
+}
+.request_contact_form .Dropdown-menu .Dropdown-option {
+  display: flex;
+  padding: 8px 0px 8px 15px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--black-500);
+}
+.request_contact_form .Dropdown-menu .Dropdown-option:hover {
+  background-color: var(--gray-light-150);
 }
 
 .req_offset_top {
@@ -1240,6 +1282,13 @@
   .req_offset_top {
     top: -38px;
   }
+
+  .reqst_form_popup .popup_container {
+    max-width: 375px;
+  }
+  .selectedArtistblock .request_filter_col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 405px) {
@@ -1266,6 +1315,12 @@
   }
 }
 
+@media screen and (max-width: 360px) { 
+  .selectedArtistblock .request_filter_col {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
 @media screen and (max-width: 349px) {
   .request_file_up_list {
     width: 80px;
@@ -1273,3 +1328,4 @@
     min-height: 80px;
   }
 }
+

@@ -7,7 +7,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import Modal from "react-modal";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
 import useTranslation from "next-translate/useTranslation";
-
+import figtree from "@/helpers/fontHelper";
 import { blurDataURL } from "@/constants/constants";
 import { getCountry } from "@/helpers/helper";
 
@@ -19,15 +19,15 @@ const customStyles = {
   content: {
     border: "none",
     background: "transparent",
-    maxWidth: "800px",
-    margin: "0 auto",
+    maxWidth: "750px",
+    margin: "auto auto",
     padding: "0px",
     top: "0",
     bottom: "0px",
     right: "0px",
     left: "0px",
     overflow: "inherit",
-    maxHeight: "inherit",
+    maxHeight: "578px",
     borderRadius: "8px",
   },
 };
@@ -50,11 +50,11 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
 
   return (
     <Modal isOpen={toggleModel} style={customStyles} ariaHideApp={false}>
-      <div className="popup_wrap custom_popup_design">
+      <div className={`popup_wrap custom_popup_design reqst_form_popup  ${figtree.className}`}>
         <div className="popup_container">
           <div className="popup_box_inner">
             <div className="selectedArtistblock">
-              <h2 className="custom_fs_26 mb_10 text_center mb_20">
+              <h2 className="color_gray_550 custom_fs_26 custom_fs_m_20 mb_10 text_center mb_20 fw_600">
               {t("common:stepper.selectedArtists")}
               </h2>
 
