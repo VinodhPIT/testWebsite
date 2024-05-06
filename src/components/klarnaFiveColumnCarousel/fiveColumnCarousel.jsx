@@ -31,11 +31,6 @@ export default function FiveColumnCarousel({
     fetchAll(router.locale.split("-")[0]);
   }, [router.locale]);
 
-  
-
-
-
-
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">
@@ -69,7 +64,7 @@ export default function FiveColumnCarousel({
                       }`}
                       key={index}
                     >
-                       <Link href={""}>
+                       <Link href={`${router.locale}/artists/${el.slug}`}>
                    
                         <div
                           className={`${"listing_grid_five_col"} ${

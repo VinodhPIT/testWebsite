@@ -61,6 +61,8 @@ export default function FourColumnCarousel({ title, content }) {
                         }`}
                         key={index}
                       >
+                        <Link href={`${router.locale}/artists/${el.slug}`}>
+                 
                         <div
                           className={`${"listing_grid_four_col max_h_230"} ${
                             styles.listing_grid_img_col
@@ -108,7 +110,7 @@ export default function FourColumnCarousel({ title, content }) {
                           </div>
                           <div className={styles.listing_grid_profile_details}>
                             <h6 className={styles.listing_grid_profile_title}>
-                              {el.first_name}
+                              {el.first_name} {el.last_name}
                             </h6>
                             <span
                               className={styles.listing_grid_profile_address}
@@ -116,7 +118,7 @@ export default function FourColumnCarousel({ title, content }) {
                               {el.studio_city}, {el.studio_country}
                             </span>
                           </div>
-                        </div>
+                        </div>       </Link>
                       </div>
                     ))}
                 </Slider>
