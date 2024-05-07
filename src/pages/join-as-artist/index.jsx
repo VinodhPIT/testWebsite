@@ -39,29 +39,29 @@ export default function JoinArtist() {
                 <div className="img_text_box_inner flex_direction_column">
                   <div className="row m_switcher_row">
                     <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap mb_0 mt_0">
+                      <div className="img_box_wrap mb_0 mt_0 m_min_h_reset join_artist_img_block">
                         <Image
                           priority={true}
-                          src="/pexels-jasmin-chew.png"
+                          src="/pexels-jasmin-chew-web-d.png"
                           alt={t("common:styleGuidePage.Letteringtattoos")}
-                          width={525}
-                          height={661}
+                          width={474}
+                          height={596}
                           layout="responsive"
                           className="mob_hidden"
                         />
                         <Image
                           priority={true}
-                          src="/pexels-jasmin-chew-mob.png"
+                          src="/pexels-jasmin-chew-web-mob.png"
                           alt={t("common:styleGuidePage.Letteringtattoos")}
-                          width={525}
-                          height={661}
+                          width={343}
+                          height={267}
                           layout="responsive"
                           className="desk_hidden"
                         />
                       </div>
                     </div>
                     <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 offset-lg-1 offset-md-1">
-                      <div className="text_box_content justify_content_start align_item_start m_min_h_reset m_0 p_0">
+                      <div className="text_box_content justify_content_start align_item_start m_min_h_reset m_0 p_0 pb_50 m_pb_0">
                         <div className="text_box_content_inner">
                           <h1 className="color_gray_550 custom_fs_40 custom_fs_m_38 fw_600 fw_m_700 mb_40 m_mb_15 m_mt_15 m_pt_20">
                             {t("common:joinartistPage.title1")}

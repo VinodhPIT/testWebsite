@@ -185,7 +185,7 @@
 }
 
 .request_landing_content,
-.selectedArtistblock {
+.selected_artistblock {
   width: 100%;
   border: 1px solid #ccc;
   margin: 25px auto;
@@ -202,7 +202,7 @@
   flex-shrink: 0;
 }
 
-.selectedArtistblock {
+.selected_artistblock {
   max-width: 750px;
   padding: 53px 89px 32px 89px;
   background-color: var(--white);
@@ -210,22 +210,17 @@
   position: relative;
   margin: 0 auto;
 }
-.selectedArtistblock .request_filter_col {
+.selected_artistblock .request_filter_col {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.selectedArtistblock .picked_ArtistsPanel {
+.selected_artistblock .picked_artists_panel {
   height: 100%;
   max-height: 386px;
   overflow: auto;
   overflow-x: hidden;
 }
-.selectedArtistblock .picked_ArtistsPanel {
-  height: 100%;
-  max-height: 386px;
-  overflow: auto;
-  overflow-x: hidden;
-}
+
 .request_landing_content_col {
   display: flex;
   flex-direction: column;
@@ -919,7 +914,7 @@
 .request_ref_selected.max_reached img {
   display: none;
 }
-.picked_ArtistsPanel {
+.picked_artists_panel {
   height: 386px;
   overflow: hidden;
   overflow: scroll;
@@ -1272,7 +1267,7 @@
     font-weight: 600;
     font-size: 20px;
   }
-  .selectedArtistblock {
+  .selected_artistblock {
     padding: 15px;
     height: auto;
   }
@@ -1289,8 +1284,11 @@
   .reqst_form_popup .popup_container {
     max-width: 375px;
   }
-  .selectedArtistblock .request_filter_col {
+  .selected_artistblock .request_filter_col {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .selected_artistblock .picked_artists_panel {
+    height: calc(100% - 104px);
   }
 }
 
@@ -1319,7 +1317,7 @@
 }
 
 @media screen and (max-width: 360px) { 
-  .selectedArtistblock .request_filter_col {
+  .selected_artistblock .request_filter_col {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }

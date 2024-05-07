@@ -32,7 +32,7 @@ export default function TattooIdea() {
                   </h2>
                 </div>
               </div>
-              <div className="img_box_wrap m_mb_25 m_mt_10 m_min_h_225">
+              <div className="img_box_wrap m_mb_25 m_mt_10  m_min_h_225">
                 <Image
                   priority={true}
                   src="/tattooIdeaBG.png"
@@ -53,7 +53,7 @@ export default function TattooIdea() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   layout="responsive"
-                  className="desk_hidden h_inherit"
+                  className="desk_hidden  m_h_100_pc"
                 />
                 <div className="chat_block bubble_top_mid floating_animation">
                   <Image

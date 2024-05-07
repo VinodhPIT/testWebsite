@@ -53,7 +53,7 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
       <div className={`popup_wrap custom_popup_design reqst_form_popup  ${figtree.className}`}>
         <div className="popup_container">
           <div className="popup_box_inner">
-            <div className="selectedArtistblock">
+            <div className="selected_artistblock">
               <h2 className="color_gray_550 custom_fs_26 custom_fs_m_20 mb_10 text_center mb_20 fw_600">
               {t("common:stepper.selectedArtists")}
               </h2>
@@ -67,7 +67,7 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                 />
               </button>
 
-              <div className="picked_ArtistsPanel">
+              <div className="picked_artists_panel">
                 <div className="request_filter_col">
                   {selectedArtists.map((e) => {
                     return (
