@@ -2757,7 +2757,7 @@ ul.progressbar li {
 }
 
 ul.progressbar li .progressbar_block {
-  padding: 0 0 35px 80px;
+  padding: 0 0 40px 80px;
   position: relative;
 }
 
@@ -2855,6 +2855,12 @@ ul.progressbar li.completed:before {
 
 ul.progressbar li.completed:after {
   background: var(--green-800);
+}
+ul.progressbar li .progressbar_block .app_dwld_img_wrap {
+  margin-bottom: 6px;
+}
+.join_artist_popup ul.progressbar li .progressbar_block .app_dwld_img_wrap {
+  margin-bottom: 0;
 }
 
 /* custom form */
@@ -6666,6 +6672,19 @@ button.language_switcher img {
     height: inherit !important;
   }
 
+  .m_min_h_inherit {
+    min-height: inherit !important;
+  }
+
+  .m_h_100_pc {
+    height: 100%!important;
+  }
+
+
+  .m_h_fit_content {
+    height: fit-content !important;
+  }
+
   .m_min_220 {
     min-height: 220px !important;
   }
@@ -6754,11 +6773,11 @@ button.language_switcher img {
   }
 
   .header_cookies {
-    justify-content: center;
+    justify-content: space-between;
     padding-left: 15px;
     padding-right: 15px;
     gap: 0px;
-    padding-top: 12px;
+    padding-top: 10px;
     padding-bottom: 10px;
   }
   .header_cookies .header_cookie_txt p {
@@ -6776,7 +6795,7 @@ button.language_switcher img {
     /*height: 13px;*/
   }
   .header_cookies .header_cookie_img {
-    padding-right: 14px;
+    padding-right: 0px;
   }
   .header_cookies .header_cookie_txt p span:first-child {
     padding-right: 14px;
@@ -7617,6 +7636,13 @@ button.language_switcher img {
   button.language_switcher {
     margin-right: 14px!important;
   }
+  .head_paylater_link{
+    position: relative;
+    top: 2px;
+  }
+  .head_paylater_link:hover{
+    color: var(--black-200);
+  }
 
 
 }
@@ -8162,6 +8188,9 @@ button.language_switcher img {
   }
   .join_artist_popup .app_dwld_img_wrap img {
     height: 32px;
+  }
+  .join_artist_img_block {
+    height: 100%;
   }
 }
 
@@ -9090,7 +9119,11 @@ button.language_switcher img {
     height: 224px !important;
   }
 }
-
+@media screen and (min-width: 1450px) {
+  .join_artist_img_block {
+    max-height: 596px;
+  }
+}
 @media screen and (min-width: 1200px) and (max-width: 1380px) {
   .header_logo_nav .header_logo {
     margin-right: 20px;
