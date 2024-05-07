@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
 
-export function useRequestPath(isMobileView) {
+export function useRequestPath(isSmallDevice) {
   const router = useRouter();
 
   return useMemo(() => {
-    return isMobileView
+    return isSmallDevice
       ? `/${router.locale}/request-Form`
       : `/${router.locale}/createRequest`;
-  }, [isMobileView, router.locale]);
+  }, [isSmallDevice, router.locale]);
 }

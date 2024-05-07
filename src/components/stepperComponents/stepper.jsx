@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const StepperComponent = ({ steps, activeStep }) => {
-const { isMobileView } = useWindowResize();
+const { isMobileView ,isSmallDevice} = useWindowResize();
 const { navigateTo, router } = useNavigation();
 const { prevPage, stepNumber, locationDenied } = useRequestForm();
 const { t } = useTranslation();
@@ -51,7 +51,7 @@ const generateStepTitle = (title, index) => {
         <span></span>
       )}
 
-       <span className="fw_400">{!isMobileView && title}</span> 
+       <span className="fw_400">{!isSmallDevice && title}</span> 
       </div>
     );
   };
@@ -61,7 +61,7 @@ const generateStepTitle = (title, index) => {
   
     // Defined the target URL based on the step number and view mode
     let targetUrl;
-    if (isMobileView) {
+    if (isSmallDevice) {
       targetUrl = stepNumber === 0 ? `${router.locale}/${pathname}` : null;
     } else {
       targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;
@@ -96,7 +96,7 @@ const generateStepTitle = (title, index) => {
         />
       </button>
 
-      {isMobileView && stepNumber === 0 && (
+      {isSmallDevice && stepNumber === 0 && (
         <div className="request_landing_caption_mob">
           <h1>
             <span>{t("common:stepper.mainTitle")}</span>

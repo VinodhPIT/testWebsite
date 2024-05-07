@@ -14,8 +14,8 @@ import { blurDataURL } from "@/constants/constants";
 export default function TattooIdea() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { isMobileView } = useWindowResize();
-  const requestPath = useRequestPath(isMobileView);
+  const { isMobileView  ,isSmallDevice} = useWindowResize();
+  const requestPath = useRequestPath(isSmallDevice);
   const {setPathname} = usePath()
 
 
