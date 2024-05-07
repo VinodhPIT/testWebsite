@@ -51,7 +51,7 @@ const generateStepTitle = (title, index) => {
         <span></span>
       )}
 
-       <span className="fw_400">{!isMobileView && title}</span> 
+       <span className="fw_400">{!isSmallDevice && title}</span> 
       </div>
     );
   };
@@ -96,7 +96,7 @@ const generateStepTitle = (title, index) => {
         />
       </button>
 
-      {isMobileView && stepNumber === 0 && (
+      {isSmallDevice && stepNumber === 0 && (
         <div className="request_landing_caption_mob">
           <h1>
             <span>{t("common:stepper.mainTitle")}</span>

@@ -9,7 +9,7 @@ function useWindowResize() {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 767.98);
 
-      setSmallDevice(window.innerWidth <= 1199)
+      setSmallDevice(window.innerWidth <= 875)
 
       setCookieDropdown(window.innerWidth <= 767.98);
     };
