@@ -909,6 +909,14 @@
   line-height: 21px;
   font-weight: 400;
   color: var(--white);
+  width: 215px;
+   max-width: 100%;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    z-index: 99;
 }
 
 .request_ref_selected.max_reached img {
