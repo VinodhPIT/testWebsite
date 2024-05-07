@@ -6,7 +6,6 @@
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
-    "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
     "faq": "FAQ",
@@ -30,7 +29,7 @@
     "Tattoo": "Tattoo",
     "Dictionary": "Dictionary",
     "TattooDictionaryContent": "Dive into the language of tattoos. From classic styles to the latest trends, our Tattoo Dictionary ensures you understand the art before choosing your ink.",
-    "Tattoo Journal": "Tattoo Journal",
+    "Tattoo Journal": "Tattoo journal",
     "journalContent": "Stay in the know with our Tattoo Journal. Get updates on the latest trends, legally required health and safety guidelines, and insider tips from the tattoo industry.",
     "TattooStyles": "Tattoo Styles",
     "StylesContent": "Explore a world of creativity. From fine line details to bold black ink, our app showcases diverse tattoo styles, helping you find the perfect match for your vision.",
@@ -512,6 +511,9 @@
 
   "appStoreDownload": "App store download",
   "playStoreDownload": "Play store download",
+ "getTattooNow":"Get tattoo now, Pay later.",
+
+
 
   "homeScreenSEO": {
     "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",

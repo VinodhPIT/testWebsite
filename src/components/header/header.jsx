@@ -66,7 +66,7 @@ export default function Header({
           </div>
           <div className="header_cookie_txt">
             <p>
-              <span>{t("common:tattooNow")}</span>
+              <span>{t("common:getTattooNow")}</span>
               <span className="header_cookie_desktop">
                 {t("common:payLater")}
                 <Link href={`/${router.locale}/klarna`}>
@@ -120,26 +120,22 @@ export default function Header({
               </div>
 
               <div className="header_right">
-                <button
-                  type="button"
-                  onClick={() => handleClick()}
-                  className={`btn btn_tattoo_art mob_hidden`}
-                >
-                  {t("common:menus.forTattooArtists")}
-                </button>
+              
 
                 <button
                   type="button"
                   onClick={() => handleClick()}
-                  className={`btn btn_tattoo_art desk_hidden`}
+                  className={`btn btn_tattoo_art `}
                 >
                   {t("common:menus.forArtists")}
                 </button>
 
+
+
                 {router.pathname === "/journal" ||
                 router.pathname === "/explore/[[...slug]]" ||
                 router.pathname === "/404" ? null : (
-                  <button className={"language_switcher"} onClick={openPopup}>
+                  <button className={"language_switcher mob_hidden"} onClick={openPopup}>
                     <Image
                       src={getCountryIcon(router.locale)}
                       alt="countries"
@@ -148,10 +144,28 @@ export default function Header({
                       priority
                     />
                     <span className={"textWhite"}>
-                      {isMobileView ? "" : getLanguage(router.locale)}
+                      { getLanguage(router.locale)}
                     </span>
                   </button>
                 )}
+
+
+{router.pathname === "/journal" ||
+                router.pathname === "/explore/[[...slug]]" ||
+                router.pathname === "/404" ? null : (
+                  <button className={"language_switcher desk_hidden"} onClick={openPopup} >
+                    <Image
+                      src={getCountryIcon(router.locale)}
+                      alt="countries"
+                      width={32}
+                      height={32}
+                      priority
+                    />
+                   
+                  </button>
+                )}
+
+
 
                 <Image
                   className="nav_btn_toggle"
