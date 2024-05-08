@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useRef} from "react";
 
 import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
@@ -33,11 +33,19 @@ const ContactForm = () => {
     countrycode,
   } = useCountryCode(); // Zustand setters
 
+  const emailInputRef = useRef(null);
+  const phoneInputRef = useRef(null); 
 
   const handleCountryChange = (selectedOptions) => {
     getSingleCountryCode(selectedOptions.label);
   };
 
+  const handleCountryFocus = () => {
+    if (emailInputRef.current || phoneInputRef.current) {
+      emailInputRef.current.blur();
+      phoneInputRef.current.blur();
+    }
+  };
 
 
   const handleSubmit = async (values) => {
@@ -105,7 +113,8 @@ const ContactForm = () => {
                               name="email"
                               className="form_control"
                               placeholder="Your e-mail"
-                          
+                              innerRef={emailInputRef} // Assign the ref
+
                       
                             />
                             <ErrorMessage
@@ -126,6 +135,7 @@ const ContactForm = () => {
     options={options}
     value={countrycode}
     onChange={handleCountryChange}
+    onFocus={handleCountryFocus} // Blur email input field on focus
   >
     {options.map(option => (
       <option key={option.key} value={option.value}>
@@ -140,6 +150,7 @@ const ContactForm = () => {
                                 name="phone"
                                 className="form_control"
                                 placeholder="Your phone number"
+                                innerRef={phoneInputRef} // Assign the ref
                               />
                             </div>
                             <ErrorMessage
