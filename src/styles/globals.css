@@ -5419,6 +5419,8 @@ button.language_switcher img {
   font-size: 18px;
   font-weight: 300;
   line-height: 27px;
+  min-height: 40px;
+  color:var(--black-500)
 }
 
 .klarna_banner_badge {
@@ -5594,6 +5596,12 @@ button.language_switcher img {
 }
 .join_artist_popup .popup_container {
   top: inherit!important
+}
+.slider_nav_arrows .slick-arrow.slick-next {
+  right: 7px;
+}
+.slider_nav_arrows .slick-arrow.slick-prev {
+  right: 40px;
 }
 
 /* responsive */
@@ -6470,7 +6478,7 @@ button.language_switcher img {
   }
   .m_mxw_320 {
     max-width: 320px !important;
-  }
+  }  
   .m_max_270 {
     max-width: 270px !important;
   }
@@ -6494,6 +6502,12 @@ button.language_switcher img {
   }
   .m_max_h_265 {
     max-height: 265px !important;
+  }
+  .m_max_w_312 {
+    max-width: 312px !important;
+  }
+  .m_max_w_360 {
+    max-width: 360px !important;
   }
   .btn_sm_m {
     height: 48px;
@@ -6582,6 +6596,9 @@ button.language_switcher img {
   .custom_fs_m_14 {
     font-size: 14px !important;
     line-height: 21px !important;
+  }
+  .fw_m_400 {
+    font-weight: var(--fw-regular) !important;
   }
   .fw_m_700 {
     font-weight: var(--fw-bold) !important;

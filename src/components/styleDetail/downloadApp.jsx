@@ -15,7 +15,7 @@ export default function DownloadApps ({title ,subTitle}) {
   const { t } = useTranslation();
 
   return (
-    <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_purple_250 landing_app_download_wrap mt_20 ${bgColor}"}>
+    <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_purple_250 landing_app_download_wrap mt_0 m_mt_25 ${bgColor}"}>
       <div class="img_text_box_inner container pt_80 m_md_pt_40 m_pt_20 flex_direction_column app_download_custom_new">
         <div className="row">
           <div className="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
