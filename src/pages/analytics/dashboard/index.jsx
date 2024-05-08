@@ -81,7 +81,6 @@ export default function Dashboard({ data: initialData }) {
 
   useEffect(() => {
     getOfferRequestAnalyticsData(initialData.sessionToken).then(response => {
-      console.log('<><> res offer', response)
       setAnalyticsOfferData(response.send_offer_details)
     })
   }, []);

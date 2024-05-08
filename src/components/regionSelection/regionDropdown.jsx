@@ -38,7 +38,6 @@ export default function RegionDropdown({ onFilterData, countryData }) {
       setSelectedIds([...selectedIds, id]);
     }
   };
-console.log('<><> selected id',selectedIds)
   const onSearchStyle = async () => {
     const selectedIdObj = selectedIds.reduce((obj, item) => {
       obj[item] = true;
