@@ -57,7 +57,7 @@ export default function ExploreStyles({ title, content, data }) {
                           >
                             <Image
                               src={el.image ? el.image : '/placeHolder.png'} 
-                              alt={el.style_name}
+                              alt={el.name}
                               width={224}
                               height={256}
                               loading="lazy"
@@ -68,7 +68,7 @@ export default function ExploreStyles({ title, content, data }) {
                               style={{ borderRadius: "10px" }}
                             />
                             <div className="title_bg_trans">
-                              <span>{el.style_name}</span>
+                              <span>{el.name}</span>
                             </div>
                           </Link>
                         </div>

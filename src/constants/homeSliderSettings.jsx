@@ -6,7 +6,7 @@ const sliderSettings = (isMobileView) => {
     arrows: isMobileView ? false : true,
     speed: 300,
     slidesToShow: isMobileView ? 1.5 : 5,
-    slidesToScroll: isMobileView ? 1 : 4,
+    slidesToScroll: isMobileView ? 1 : 5,
     swipe: false, // Disable swipe by default
 
 

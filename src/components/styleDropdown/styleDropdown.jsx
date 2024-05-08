@@ -25,6 +25,9 @@ export default function StyleDropdown({
     }
   };
 
+
+  
+
   const clearAll = async () => {
     setSelectedIds([]);
     clearStyleId();
@@ -65,7 +68,7 @@ export default function StyleDropdown({
                   <input
                     type="checkbox"
                     id={`checkbox_${el.slug}`}
-                    onChange={() => handleCheckboxChange(el.slug)}
+                    onChange={() =>handleCheckboxChange(el.slug)}
                     checked={selectedIds.includes(el.slug)}
                   />
                 </div>
@@ -86,7 +89,7 @@ export default function StyleDropdown({
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_secondary w_100pc"
+          className="btn_secondary w_100pc bdr_rad_4"
         >
           {t("common:Show Results")}
         </button>
