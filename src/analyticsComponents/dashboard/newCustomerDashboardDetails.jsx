@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import NewCountDisplayCard from "../common/newCountDisplayCard";
 
-export default function NewDashboardDetails({ initialCounts, token }) {
+export default function NewCustomerDashboardDetails({ initialCounts, token }) {
   const { t } = useTranslation();
   const allRequestProfiles = initialCounts?.filter(item => item.multiple_request);
   const singleRequestProfiles = initialCounts?.filter(item => item.single_request);

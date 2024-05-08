@@ -16,12 +16,12 @@ export default function RegionDropdown({ onFilterData, countryData }) {
     {
       countryId: 2,
       title: t("common:AnalyticsArtist.All"),
-      countryGoogleId: 'al'
+      countryGoogleId: 'ALL'
     },
     {
       countryId: 1,
       title: t("common:AnalyticsDashboard.Our Region"),
-      countryGoogleId: 'or'
+      countryGoogleId: 'OR'
     },
     ...countryData
   ]);
@@ -38,7 +38,7 @@ export default function RegionDropdown({ onFilterData, countryData }) {
       setSelectedIds([...selectedIds, id]);
     }
   };
-
+console.log('<><> selected id',selectedIds)
   const onSearchStyle = async () => {
     const selectedIdObj = selectedIds.reduce((obj, item) => {
       obj[item] = true;
@@ -57,15 +57,15 @@ export default function RegionDropdown({ onFilterData, countryData }) {
       <div className={styles.custom_dropdown_content}>
         {countries.map((el) => {
           return (
-            <div key={el.countryId} className={styles.custom_dropdown_col}>
+            <div key={el.countryGoogleId} className={styles.custom_dropdown_col}>
               <label className={styles.custom_dropdown_label}>
                 <p>{el.title}</p>
                 <div className={styles.custom_checkbox}>
                   <input
                     type="checkbox"
-                    id={`checkbox_${el.countryId}`}
-                    onChange={() => handleCheckboxChange(el.countryId)}
-                    checked={selectedIds.includes(el.countryId)}
+                    id={`checkbox_${el.countryGoogleId}`}
+                    onChange={() => handleCheckboxChange(el.countryGoogleId.toUpperCase())}
+                    checked={selectedIds.includes(el.countryGoogleId.toUpperCase())}
                   />
                 </div>
               </label>

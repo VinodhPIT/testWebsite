@@ -25,6 +25,18 @@ export const getCustomerRequestAnalyticsData = async (token) => {
   }
 };
 
+export const getOfferRequestAnalyticsData = async (token) => {
+  try {
+    const response = await analyticsPostApiCall(
+      API_URL.ANALYTICS_DASHBOARD.GET_OFFER_DASHBOARD_DETAILS,
+      token
+    );
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
 export const getCountriesData = async (token) => {
   try {
     const response = await analyticsGetApiCall(

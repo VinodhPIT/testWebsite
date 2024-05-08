@@ -4,7 +4,7 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 import Header from "@/analyticsComponents/common/header";
-import { analyticsDashboardCount, getCountriesData, getCustomerRequestAnalyticsData } from "@/apiConfig/dashboardService";
+import { analyticsDashboardCount, getCountriesData, getCustomerRequestAnalyticsData, getOfferRequestAnalyticsData } from "@/apiConfig/dashboardService";
 import { offerCount } from "@/apiConfig/offerAnalyticsService";
 import { analyticsArtistCount } from "@/apiConfig/artistAnalyticsService";
 import { analyticsCustomerCount } from "@/apiConfig/customerAnalyticsService";
@@ -12,9 +12,10 @@ import TotalAmountEarned from "@/analyticsComponents/dashboard/totalRevenue";
 import useTotalRevenue from "@/store/dashboardAnalytics/totalRevenue";
 import useTranslation from "next-translate/useTranslation";
 import FilterDataComponents from "@/analyticsComponents/customer/filterDataComponents";
-import NewDashboardDetails from "@/analyticsComponents/dashboard/newDashboardDetails";
+import NewCustomerDashboardDetails from "@/analyticsComponents/dashboard/newCustomerDashboardDetails";
 import useAnalyticsStore from "@/store/customerAnalytics/calenderFilter";
 import API_URL from "@/apiConfig/api.config";
+import NewOfferDashboardDetails from "@/analyticsComponents/dashboard/newOfferDashboardDetails";
 
 export default function Dashboard({ data: initialData }) {
   const { status, data: sessionData } = useSession();
@@ -22,6 +23,7 @@ export default function Dashboard({ data: initialData }) {
   const [filterData, setFilerData] = useState();
   const [countryData, setCountryData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [analyticsOfferData, setAnalyticsOfferData] = useState([]);
 
   const { t } = useTranslation();
   const {
@@ -77,6 +79,13 @@ export default function Dashboard({ data: initialData }) {
     });
   }, []);
 
+  useEffect(() => {
+    getOfferRequestAnalyticsData(initialData.sessionToken).then(response => {
+      console.log('<><> res offer', response)
+      setAnalyticsOfferData(response.send_offer_details)
+    })
+  }, []);
+
   const filterDashBoardData = (data) => {
     setFilerData(data);
   };
@@ -94,8 +103,12 @@ export default function Dashboard({ data: initialData }) {
           onUpdateDateFilter={handleDateFilter}
           countryData={countryData}
         />
-        <NewDashboardDetails
+        <NewCustomerDashboardDetails
           initialCounts={filteredData}
+        />
+        <NewOfferDashboardDetails
+          initialCounts={analyticsOfferData}
+          customerRequestCount={filteredData?.filter(item => item.offer_created === true).length || 0}
         />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
