@@ -78,10 +78,10 @@ export default function Styledeatil({ data ,style_id ,slug }) {
     <div>
       {item.content && (
         <>
-          <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12">
+          <h3 className="color_black_h heading_h3 custom_fs_34 custom_fs_m_24 mb_12 m_mb_15">
             {item.content.header}
           </h3>
-          <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_40">
+          <p className="color_gray_550 custom_fs_18 custom_fs_m_14 fw_300 mb_25">
             {item.content.body}
           </p>
           {item.content.data && item.content.data.imagery && (
@@ -141,7 +141,7 @@ export default function Styledeatil({ data ,style_id ,slug }) {
                         <Link
                           href={requestPath}
                           onClick={handleLinkClick}
-                          className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16"
+                          className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20 fw_m_400"
                         >
                           {t("common:styleDetail.bannerTattooRequestBtn")}
                         </Link>
@@ -184,7 +184,7 @@ export default function Styledeatil({ data ,style_id ,slug }) {
         {firstThreeWebcontent && firstThreeWebcontent.length > 0 && (
           <section className="text_box_wrap d_flex">
             <div className="justify_content_start container w_100pc">
-              <div className="custom_content_block mt_60 m_mt_40">
+              <div className="custom_content_block mt_15 pb_20 m_pb_0 m_mt_0">
                 {firstThreeWebcontent.map((item, index) => (
                   <ContentBlock key={index} item={item} />
                 ))}
@@ -199,7 +199,7 @@ export default function Styledeatil({ data ,style_id ,slug }) {
         {objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
           <section className="text_box_wrap d_flex">
             <div className="justify_content_start container w_100pc">
-              <div className="custom_content_block mt_20 m_mt_40 mb_80">
+              <div className="custom_content_block mt_0 m_mt_0 mb_80 m_mb_40">
                 {objectsAfterFirstThree.map((item, index) => (
                   <ContentBlock key={index} item={item} />
                 ))}
