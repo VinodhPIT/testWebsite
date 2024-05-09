@@ -9,6 +9,7 @@ import { useRequestPath } from '@/hooks/useRequestPath';
 
 import useTranslation from "next-translate/useTranslation";
 import useStyleListing from "@/store/styleListing/styleListing";
+import { useGlobalState } from "@/context/Context";
 import usePath from'@/store/setPath/setPath'
 import ArtistSlider from "@/components/styleDetail/artistSlider";
 import Tattooidea from "@/components/styleDetail/tattooIdea";
@@ -23,7 +24,7 @@ import {
   fetchCategoryData,
 } from "@/apiConfig/webService";
 
-export default function Styledeatil({ data ,style_id ,slug }) {
+export default function Styledeatil({ data ,style_id}) {
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
   const { router } = useNavigation();
@@ -32,16 +33,24 @@ export default function Styledeatil({ data ,style_id ,slug }) {
   const requestPath = useRequestPath(isSmallDevice);
   const { styleList } = useStyleListing();
   const {setPathname} = usePath()
+  const { selectedIds, setSelectedIds } = useGlobalState();
 
 
-  let firstThreeWebcontent = [];
-  let objectsAfterFirstThree = [];
+  const withImagery = [];
+  const withoutImagery = [];
 
-  if (data.web_content && data.web_content.length > 0) {
-    firstThreeWebcontent = data.web_content.slice(0, 3);
-    objectsAfterFirstThree = data.web_content.slice(3);
+  if (data && data.web_content && data.web_content.length > 0) {
+      data.web_content.forEach(item => {
+          if (item.content.data && item.content.data.imagery) {
+              withImagery.push(item);
+          } else {
+              withoutImagery.push(item);
+          }
+      });
   }
 
+
+ 
 
 
   useEffect(() => {
@@ -55,6 +64,7 @@ export default function Styledeatil({ data ,style_id ,slug }) {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+      setSelectedIds([])
     };
 
     fetchTattooData();
@@ -105,6 +115,12 @@ export default function Styledeatil({ data ,style_id ,slug }) {
     const newPathname = `${router.pathname}${newQuery}`;
     // Update the state
     setPathname(newPathname);
+
+    const updatedIds = [...new Set([...selectedIds,data.slug])]
+    setSelectedIds(updatedIds);
+
+
+
   };
 
   return (
@@ -172,8 +188,8 @@ export default function Styledeatil({ data ,style_id ,slug }) {
             tattooStyle: data.style_name.toLowerCase(),
           })}
           content={t("common:styleDetail.artistSliderContent", {
-            tattooStyle: data.style_name.toLowerCase(),
-          })}
+            tattooStyle: data.style_name.charAt(0).toLowerCase() + data.style_name.slice(1),
+        })}
         data={artistData}
         slug={data.slug}
         
@@ -181,11 +197,11 @@ export default function Styledeatil({ data ,style_id ,slug }) {
         />
         <Tattooidea name={data.style_name} handleLinkClick={handleLinkClick} />
 
-        {firstThreeWebcontent && firstThreeWebcontent.length > 0 && (
+        {withoutImagery && withoutImagery.length > 0 && (
           <section className="text_box_wrap d_flex">
             <div className="justify_content_start container w_100pc">
               <div className="custom_content_block mt_15 pb_20 m_pb_0 m_mt_0">
-                {firstThreeWebcontent.map((item, index) => (
+                {withoutImagery.map((item, index) => (
                   <ContentBlock key={index} item={item} />
                 ))}
               </div>
@@ -196,11 +212,11 @@ export default function Styledeatil({ data ,style_id ,slug }) {
         <ExploreTattoos data={tattooData} styleName={data.style_name}
         slug={data.slug} />
 
-        {objectsAfterFirstThree && objectsAfterFirstThree.length > 0 && (
+        {withImagery && withImagery.length > 0 && (
           <section className="text_box_wrap d_flex">
             <div className="justify_content_start container w_100pc">
               <div className="custom_content_block mt_0 m_mt_0 mb_80 m_mb_40">
-                {objectsAfterFirstThree.map((item, index) => (
+                {withImagery.map((item, index) => (
                   <ContentBlock key={index} item={item} />
                 ))}
               </div>
@@ -227,21 +243,19 @@ export default function Styledeatil({ data ,style_id ,slug }) {
 
 export async function getServerSideProps(context) {
   try {
-    const { query } = context;
-    const {style_uid, style_id ,slug} = query; // Access the style_id from the query object
-    const data = await getSingleStyleDetail(style_uid);
-
+    const { query ,locale } = context;
+    const lng= locale.split('-')[1]
+    const {style_uid, style_id} = query; // Access the style_id & style_uid from the query object
+    const data = await getSingleStyleDetail(style_uid ,lng) ;
     if (!data.data) {
       return {
         notFound: true,
       };
     }
-
     return {
       props: {
         data: data.data,
-        style_id,
-        
+        style_id
       },
     };
   } catch (error) {

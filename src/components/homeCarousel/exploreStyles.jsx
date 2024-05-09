@@ -46,15 +46,16 @@ export default function ExploreStyles({ title, content, data }) {
                   {data &&
                     data.map((el, index) => (
                       <div className={`${"listing_gridItem"} `} key={index}>
-                        <div
-                          className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
-                        >
-                          <Link
+                        <Link
                              href={{
                               pathname: `/${router.locale}/explore-style`,
                               query: {style_uid:el.style_uid,style_id:el.style_id},
                             }}
                           >
+                        <div
+                          className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
+                        >
+                          
                             <Image
                               src={el.image ? el.image : '/placeHolder.png'} 
                               alt={el.name}
@@ -70,8 +71,8 @@ export default function ExploreStyles({ title, content, data }) {
                             <div className="title_bg_trans">
                               <span>{el.name}</span>
                             </div>
-                          </Link>
                         </div>
+                        </Link>
                       </div>
                     ))}
                 </Slider>
