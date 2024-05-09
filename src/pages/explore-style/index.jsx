@@ -169,10 +169,10 @@ export default function Styledeatil({ data ,style_id ,slug }) {
         </section>
         <ArtistSlider
           title={t("common:styleDetail.artistSliderTitle", {
-            tattooStyle: data.style_name,
+            tattooStyle: data.style_name.toLowerCase(),
           })}
           content={t("common:styleDetail.artistSliderContent", {
-            tattooStyle: data.style_name,
+            tattooStyle: data.style_name.toLowerCase(),
           })}
         data={artistData}
         slug={data.slug}

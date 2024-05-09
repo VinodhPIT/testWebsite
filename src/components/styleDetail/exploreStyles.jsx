@@ -5,6 +5,8 @@ import Link from "next/link";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
+import useTranslation from "next-translate/useTranslation";
+
 import { blurDataURL } from "@/constants/constants";
 import sliderSettings from "@/constants/homeSliderSettings";
 
@@ -18,6 +20,7 @@ export default function ExploreStyles({ data }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
   const { router } = useNavigation();
+  const { t } = useTranslation();
 
   return (
     <section className="img_text_banner_box">
@@ -27,7 +30,7 @@ export default function ExploreStyles({ data }) {
             <div className="text_box_content_inner m_pr_0 pt_65 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_40">
               <h2 className="color_gray_550 heading_h2 lh_41 mb_0 m_text_left custom_fs_m_24 m_lh_29 position_relative">
                 <span >
-                {"Explore more tattoo styles"}
+                {t("common:styleDetail.exploreMoreStyles")}
                 </span>
               </h2>
               {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
