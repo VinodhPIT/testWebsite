@@ -53,7 +53,7 @@ export default function Header({
 
   return (
     <>
-      {router.pathname === "/" && (
+      {(router.pathname === "/" || router.pathname === "/explore-style") && (
         <>
         <div className="header_cookies mob_hidden">
           <div className="header_cookie_img">
