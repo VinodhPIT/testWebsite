@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from 'next/image'
+
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";

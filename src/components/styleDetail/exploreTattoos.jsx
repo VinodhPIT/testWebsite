@@ -17,6 +17,7 @@ import styles from "./styles/style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useEffect } from "react";
 
 
 export default function ExploreTattoos({ data ,styleName,slug }) {
@@ -35,6 +36,10 @@ export default function ExploreTattoos({ data ,styleName,slug }) {
   };
 
 
+  useEffect(()=>{
+    setSelectedIds([])
+
+  },[])
 
 
 

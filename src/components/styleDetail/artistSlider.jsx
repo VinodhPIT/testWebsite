@@ -15,6 +15,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./styles/slider.module.css";
+import { useEffect } from "react";
 
 export default function ArtistSlider({ title, content, data, slug }) {
   const { isMobileView } = useWindowResize();
@@ -31,6 +32,10 @@ export default function ArtistSlider({ title, content, data, slug }) {
     setSelectedIds(updatedIds);
   };
 
+
+  useEffect(()=>{
+    setSelectedIds([])
+  },[])
 
     
   return (
