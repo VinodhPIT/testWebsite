@@ -110,7 +110,7 @@ export default function FourColumnCarousel({ title, content }) {
                           </div>
                           <div className={styles.listing_grid_profile_details}>
                             <h6 className={styles.listing_grid_profile_title}>
-                              {el.first_name} {el.last_name}
+                             {el.artist_name === "" ? `${el.first_name} ${el.last_name}` : el.artist_name}
                             </h6>
                             <span
                               className={styles.listing_grid_profile_address}

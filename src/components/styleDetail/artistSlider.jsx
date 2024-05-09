@@ -127,7 +127,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                               className={styles.listing_grid_profile_details}
                             >
                               <h6 className={styles.listing_grid_profile_title}>
-                                {el._source.first_name} {el._source.last_name}
+                                {el._source.artist_name ??`${el._source.first_name} ${el._source.last_name}`}
                               </h6>
                               <span
                                 className={styles.listing_grid_profile_address}
