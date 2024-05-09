@@ -53,7 +53,8 @@ export default function ArtistSlider({ title, content, data, slug }) {
                   height={28}
                   alt="arrow"
                   onClick={() => updateTab()}
-                  style={{ cursor: "pointer" }}
+                
+                  className="buttonLink"
                 />
               </h2>
               <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">

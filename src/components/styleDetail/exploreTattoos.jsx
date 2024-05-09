@@ -60,7 +60,7 @@ export default function ExploreTattoos({ data ,styleName,slug }) {
                   height={28}
                   alt="arrow"
                   onClick={() => updateTab()}
-                  style={{ cursor: "pointer" }}
+                  className="buttonLink"
                 />
 
               </h2>
