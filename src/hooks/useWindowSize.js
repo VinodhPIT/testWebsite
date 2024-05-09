@@ -3,15 +3,11 @@ import { useState, useEffect } from "react";
 function useWindowResize() {
   const [isMobileView, setIsMobileView] = useState(false);
   const [isSmallDevice, setSmallDevice] = useState(false);
-  const [cookieDropdown, setCookieDropdown] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 767.98);
-
       setSmallDevice(window.innerWidth <= 875)
-
-      setCookieDropdown(window.innerWidth <= 767.98);
     };
 
     handleResize();
@@ -25,7 +21,7 @@ function useWindowResize() {
     };
   }, []);
 
-  return { isMobileView, cookieDropdown ,isSmallDevice };
+  return { isMobileView ,isSmallDevice };
 }
 
 export default useWindowResize;
