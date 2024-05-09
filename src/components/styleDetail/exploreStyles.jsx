@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
-
 import Link from "next/link";
+
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
+import useTranslation from "next-translate/useTranslation";
 
 import { blurDataURL } from "@/constants/constants";
 import sliderSettings from "@/constants/homeSliderSettings";
-
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -20,6 +20,7 @@ export default function ExploreStyles({ data }) {
   const { isMobileView } = useWindowResize();
   const settings = sliderSettings(isMobileView);
   const { router } = useNavigation();
+  const { t } = useTranslation();
 
   return (
     <section className="img_text_banner_box">
@@ -28,8 +29,8 @@ export default function ExploreStyles({ data }) {
           <div className="justify_content_start container w_100pc">
             <div className="text_box_content_inner m_pr_0 pt_65 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_40">
               <h2 className="color_gray_550 heading_h2 lh_41 mb_0 m_text_left custom_fs_m_24 m_lh_29 position_relative">
-                <span className="heading_with_arrow position_relative">
-                {"Explore more tattoo styles"}
+                <span >
+                {t("common:styleDetail.exploreMoreStyles")}
                 </span>
               </h2>
               {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
@@ -55,13 +56,13 @@ export default function ExploreStyles({ data }) {
                             <Link
                              href={{
                               pathname: `/${router.locale}/explore-style`,
-                              query: {key: el.style_name ,style_id: el.style_id ,},
+                              query: {style_uid:el.style_uid,style_id:el.style_id},
                             }}
                              >
                             
                           <Image
                                  src={el.image ? el.image : '/placeHolder.png'} 
-                            alt={el.style_name}
+                            alt={el.name}
                             width={224}
                             height={256}
                             loading="lazy"
@@ -72,7 +73,7 @@ export default function ExploreStyles({ data }) {
                             style={{ borderRadius: "10px" }}
                           />
                           <div class="title_bg_trans">
-                          <span>{el.style_name}</span>
+                          <span>{el.name}</span>
                           </div>
                           </Link>
                         </div>
