@@ -50,7 +50,9 @@ export default function Styledeatil({ data ,style_id}) {
   }
 
 
- 
+ useEffect(()=>{
+ setSelectedIds([])
+ },[])
 
 
   useEffect(() => {
@@ -64,8 +66,9 @@ export default function Styledeatil({ data ,style_id}) {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-      setSelectedIds([])
+     
     };
+
 
     fetchTattooData();
 
@@ -82,7 +85,8 @@ export default function Styledeatil({ data ,style_id}) {
     };
 
     fetchArtistData();
-  }, []);
+  }, [style_id]);
+
 
   const ContentBlock = ({ item }) => (
     <div>
@@ -117,6 +121,7 @@ export default function Styledeatil({ data ,style_id}) {
     setPathname(newPathname);
 
     const updatedIds = [...new Set([...selectedIds,data.slug])]
+
     setSelectedIds(updatedIds);
 
 
