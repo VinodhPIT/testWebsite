@@ -6,9 +6,7 @@ import Head from "next/head";
 import { useNavigation } from "@/hooks/useRouter";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useRequestPath } from '@/hooks/useRequestPath';
-import { useRequestPath } from "@/hooks/useRequestPath";
 import useScrollToTop from "@/hooks/useScrollToTop";
-
 
 import useTranslation from "next-translate/useTranslation";
 import useStyleListing from "@/store/styleListing/styleListing";
