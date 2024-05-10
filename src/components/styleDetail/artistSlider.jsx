@@ -53,7 +53,6 @@ export default function ArtistSlider({ title, content, data, slug }) {
                   height={28}
                   alt="arrow"
                   onClick={() => updateTab()}
-                
                   className="buttonLink"
                 />
               </h2>
@@ -83,6 +82,8 @@ export default function ArtistSlider({ title, content, data, slug }) {
                           href={{
                             pathname: `/${router.locale}/artists/${el._source.slug}`,
                           }}
+                          
+                          
                         >
                           <div
                             className={`${"listing_grid_four_col max_h_230"} ${

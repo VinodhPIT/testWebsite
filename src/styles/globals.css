@@ -7599,6 +7599,11 @@ button.language_switcher img {
     width: 16px;
     height: 16px;
   }
+  .buttonLink  {
+    width: 16px;
+    height: 16px;
+  }
+
   .klarna_pay_opt_grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-column-gap: 0;

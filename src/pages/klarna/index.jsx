@@ -34,8 +34,8 @@ function KlarnaNew({}) {
   const { t } = useTranslation();
   const { router } = useNavigation();
   const {setPathname} = usePath()
-  const { isMobileView } = useWindowResize();
-  const requestPath = useRequestPath(isMobileView);
+  const { isSmallDevice } = useWindowResize();
+  const requestPath = useRequestPath(isSmallDevice);
 
   const list = [
     {
