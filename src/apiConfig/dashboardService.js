@@ -37,6 +37,30 @@ export const getOfferRequestAnalyticsData = async (token) => {
   }
 };
 
+export const getAcceptedOfferAnalyticsData = async (token) => {
+  try {
+    const response = await analyticsPostApiCall(
+      API_URL.ANALYTICS_DASHBOARD.GET_ACCEPTED_OFFER_DASHBOARD_DETAILS,
+      token
+    );
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+export const getCompletedOfferAnalyticsData = async (token) => {
+  try {
+    const response = await analyticsPostApiCall(
+      API_URL.ANALYTICS_DASHBOARD.GET_COMPLETED_OFFER_DASHBOARD_DETAILS,
+      token
+    );
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
 export const getCountriesData = async (token) => {
   try {
     const response = await analyticsGetApiCall(

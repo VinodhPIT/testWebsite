@@ -59,7 +59,9 @@ const API_URL = {
     GET_DOWNLOAD_COUNT: "/analytics/download/count",
     GET_COUNTRIES: "/analytics/country/list",
     GET_CUSTOMER_REQUEST_DETAILS_DATA:"/analytics/customer/customer-request",
-    GET_OFFER_DASHBOARD_DETAILS : "/analytics/offer/send-offers"
+    GET_OFFER_DASHBOARD_DETAILS : "/analytics/offer/send-offers",
+    GET_ACCEPTED_OFFER_DASHBOARD_DETAILS : "/analytics/offer/accepted-offers",
+    GET_COMPLETED_OFFER_DASHBOARD_DETAILS : "/analytics/offer/completed-offers"
   },
 
   EXCEL_DOWNLOAD: {
