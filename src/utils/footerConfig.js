@@ -5,7 +5,8 @@ const pagesWithoutFooter = [
     "/analytics/artist",
     "/analytics/offer",
     "/createRequest",
-    "/request-Form"
+    "/request-Form",
+    "/analytics/profile",
     
   ];
   
