@@ -57,6 +57,7 @@
   --pink-200: #ffbbbb;
   --orange-light-100: #ffefef;
   --orange-light-200: #ffd5c0;
+  --orange-dark-500: #F57C00;
   --light-green-100: #eaffc0;
   --green-100: #edf8ed;
   --green-900: #388e3c;
@@ -64,6 +65,7 @@
   --green-dark-400: #187e7e;
   --green-800: #4caf50;
   --blue: #1976d2;
+  --blue-light-100: #E6FFFF;
 }
 * {
   box-sizing: border-box;
@@ -811,6 +813,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .block_bg_blue {
   background-color: var(--blue);
 }
+.block_bg_blue_light_100 {
+  background-color: var(--blue-light-100);
+}
 .block_bg_gray_light_200 {
   background-color: var(--gray-light-200);
 }
@@ -855,6 +860,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   color: var(--orange-light-200);
 }
 
+.color_orange_500 {
+  color: var(--orange-dark-500);
+}
+
 .color_aero_blue {
   color: var(--color_aero_blue);
 }
@@ -890,6 +899,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .color_green_light_200 {
   color: var(--light-green-200) !important;
 }
+.color_blue_light_100 {
+  color: var(--blue-light-100);
+}
+
 .dis_inline {
   display: inline !important;
 }

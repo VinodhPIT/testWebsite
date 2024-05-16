@@ -630,7 +630,7 @@ header.db_header_wrap {
   justify-content: flex-end;
 }
 
-.profile_info_col {
+.db_main_info_col {
   display: flex;
   padding: 0;
   margin: 0;
@@ -643,7 +643,7 @@ header.db_header_wrap {
   margin-bottom: 15px;
 }
 
-.profile_info_head {
+.db_main_info_head {
   border-bottom: 1px solid #E1E4E8;
   padding: 28px 32px 22px 32px;
   display: flex;
@@ -651,7 +651,7 @@ header.db_header_wrap {
   align-items: center;
 }
 
-ul.profile_status_block {
+ul.head_status_block {
   display: inline-flex;
   align-items: center;
   gap: 24px;
@@ -659,43 +659,26 @@ ul.profile_status_block {
   padding: 0;
 }
 
-ul.profile_status_block li {
+ul.head_status_block li {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-ul.profile_status_block li .profile_status_label {
+ul.head_status_block li .head_status_label {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: #666;
 }
-
-ul.profile_status_block li .profile_status_indicator {
-  display: flex;
-  padding: 4px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 50px;
-  background: #EDF8ED;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 27px;
-  color: #388E3C;
-}
-ul.profile_status_block li .profile_status_date {
+ul.head_status_block li .head_status_date {
   margin: 0;
   font-size: 18px;
   font-weight: 400;
   line-height: 27px;
   color: #000;
 }
-
-
 .profile_info_col_wrap {
   display: flex;
   align-items: flex-start;
@@ -871,7 +854,24 @@ ul.profile_status_block li .profile_status_date {
   display: none;
 }
 
-
+.btn_public {
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  height: auto;
+}
+.status_indicator {
+  display: flex;
+  padding: 4px 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
 
 
 @media screen and (max-width: 1199px) {

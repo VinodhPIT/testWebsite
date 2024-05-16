@@ -1,0 +1,70 @@
+/* DataTable.css */
+.data_table {
+  border-collapse: collapse;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.data_table thead tr th {
+  background-color: #EAEAEA;
+  border: 0;
+  padding: 14px 28px 15px 28px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  color: #212121;
+}
+
+.data_table tbody tr td {
+  border: 1px solid #E1E4E8;
+  padding: 20px 28px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #666;
+}
+
+.data_table tbody tr td:first-child {
+  border-left: 1px solid #E1E4E8;
+}
+
+.data_table tbody tr td:last-child {
+  border-right: 1px solid #E1E4E8;
+}
+
+.data_table th:hover {
+  cursor: pointer;
+}
+
+.search input {
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.data_table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.pagination {
+  margin-top: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .data_table th,
+  .data_table td {
+    min-width: 120px;
+  }
+}
