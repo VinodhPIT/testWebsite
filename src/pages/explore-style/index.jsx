@@ -155,9 +155,7 @@ export default function Styledeatil({ data ,style_id}) {
                     <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                       <div className="tiny_payment_block pr_10_pc m_pr_0">
                         <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
-                          {data.style_name}
-
-                          
+                          {data.style_name}                          
                         </h1>
                         <p className="m_mt_10 m_mb_30 txt_mob_fs14 m_lh_21">
                           {data.short_desc}
@@ -165,7 +163,7 @@ export default function Styledeatil({ data ,style_id}) {
                         <Link
                           href={requestPath}
                           onClick={handleLinkClick}
-                          className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20 fw_m_400"
+                          className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20 fw_m_400 m_w_100pc"
                         >
                           {t("common:styleDetail.bannerTattooRequestBtn")}
                         </Link>
@@ -193,16 +191,15 @@ export default function Styledeatil({ data ,style_id}) {
         </section>
         <ArtistSlider
           title={t("common:styleDetail.artistSliderTitle", {
-            tattooStyle: data.style_name.toLowerCase(),
+            tattooStyle: data.style_name,
           })}
           content={t("common:styleDetail.artistSliderContent", {
             tattooStyle: data.style_name.charAt(0).toLowerCase() + data.style_name.slice(1),
         })}
         data={artistData}
-        slug={data.slug}
-        
-        
+        slug={data.slug}  
         />
+
         <Tattooidea name={data.style_name} handleLinkClick={handleLinkClick} />
 
         {withoutImagery && withoutImagery.length > 0 && (

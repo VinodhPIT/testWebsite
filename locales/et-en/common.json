@@ -20,7 +20,7 @@
   "homePage": {
     "bannerTitle": "Book your dream tattoo now!",
     "bannerContent": "Explore Tattoo Styles, Artist Business Tips, Journal Updates, Financing Options, and Seamless Booking",
-    "ArtistSliderTitle": "Find the right tattoo artist",
+    "ArtistSliderTitle": "Explore tattoo artists",
     "ArtistSliderContent": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
     "Pay all at once": "Pay all at once?",
     "Never again": "Never again!",
@@ -59,7 +59,7 @@
     "bannerTitle": "Tattoo Styles",
     "bannerContent": "Explore unique tattoo styles in our app! find your perfect ink. Dive into endless options today.",
     "bannerTattooRequestBtn": "Create tattoo request",
-    "ArtistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+    "artistSliderTitle": "{{ tattooStyle }} tattoo artist",
     "ArtistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
     "Letteringtattoos": "Lettering tattoos",
     "LetteringTattooContent": "Elevate your self-expression with captivating lettering tattoos. Find skilled artists on our Tattoo Booking App for personalized and impactful ink that tells your unique story. Explore now!",
@@ -89,7 +89,7 @@
   "styleDetail": {
 
       "bannerTattooRequestBtn": "Create tattoo request",
-      "artistSliderTitle": "Find the right {{ tattooStyle }} tattoo artist",
+      "artistSliderTitle": "{{ tattooStyle }} tattoo artist",
       "artistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
       "shareTattooIdea":"Share your tattoo idea",
       "withTattooArtists" :"with {{tattooStyle}} tattoo artists",
@@ -116,7 +116,7 @@
     "Text3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
     "Text4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
 
-    "carosuelTitle": "Find the right tattoo artist",
+    "carosuelTitle": "Explore tattoo artists",
     "content_sub": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
     "carosuelTitle-Sub": "tattoo artist to finance your tattoo",
 

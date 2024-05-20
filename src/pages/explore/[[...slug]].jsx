@@ -127,21 +127,7 @@ const Search = ({
 
 
 
-  return (
-    <>
-      {/* <Head>
-        <title>
-          Explore Tattoo images, designs, and find tattoo artists with ease
-        </title>
-        <meta
-          name="description"
-          content="Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience."
-        />
-        <meta
-          name="keywords"
-          content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
-        />
-      </Head> */}
+  return (  
       <main>
         <div className={style.page_search_wrapper}>
           <div className="container">
@@ -231,7 +217,6 @@ const Search = ({
           </div>
         </div>
       </main>
-    </>
   );
 };
 

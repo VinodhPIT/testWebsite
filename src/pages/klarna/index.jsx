@@ -91,10 +91,10 @@ function KlarnaNew({}) {
           <div className="img_text_box_wrapper exciting_offer_wrap">
             <div class="text_box_wrap right">
               <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                <div class="text_box_content justify_content_center m_min_h_reset">
+                <div class="text_box_content justify_content_center m_min_h_reset m_pt_15">
                   <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="tiny_payment_block pr_10_pc m_pr_0">
-                      <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0 m_mt_5">
+                      <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0 m_mt_0">
                         <span>
                           {" "}
                           {t("common:klarnaPage.bannerTitle1")}
@@ -284,15 +284,17 @@ function KlarnaNew({}) {
                     </p>
                   </div>
                 </div>
-                <div className="klarna_pay_terms">
-                  <p>
-                  {t("common:klarnaPage.klarnaTerms")}
-                    <Link href={KLARNA_LINK} target="_blank">
-                    {t("common:klarnaPage.ts&amp;cs")}
-                    </Link>
-                    {t("common:klarnaPage.lateFeesApply")}
-                  </p>
-                </div>
+                {router.locale === "gb-en" && (
+                  <div className="klarna_pay_terms">
+                    <p>
+                      {t("common:klarnaPage.klarnaTerms")}
+                      <Link href={KLARNA_LINK} target="_blank">
+                        {t("common:klarnaPage.ts&amp;cs")}
+                      </Link>
+                      {t("common:klarnaPage.lateFeesApply")}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -367,24 +369,15 @@ function KlarnaNew({}) {
                     ))}
                   </Accordion>
                 </div>
-
-
-
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-
-    
-
-
+      </section> 
 
       <FiveColumnCarousel
-        title={t("common:klarnaPage.carosuelTitle")}
-        content_sub={t("common:klarnaPage.content_sub")}
-        
+        title={t("common:homePage.ArtistSliderTitle")}
+        content_sub={t("common:homePage.ArtistSliderContent")}        
       />
 
       <DownloadApps
