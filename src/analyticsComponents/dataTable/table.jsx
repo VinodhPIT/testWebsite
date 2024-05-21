@@ -71,18 +71,36 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <div>
-      <div className={style.search}>
-        <input
-          value={globalFilter || ""}
-          onChange={(e) => setGlobalFilter(e.target.value)}
-          placeholder="Search..."
-        />
-        <div className="d-flex mt_20 mb_20 justify_space_between">
+      <div className={style.custom_search_filter_db}>
+        <div className={style.search}>
+          <input
+            value={globalFilter || ""}
+            className={style.input_txt}
+            onChange={(e) => setGlobalFilter(e.target.value)}
+            placeholder="Search..."
+          />
+          <button type="submit" className={style.btn_search}>
+            <Image src="/magni.svg" alt="search" width={20} height={20} />
+          </button>
+        </div>
+        <div className={style.db_filter_block}>
+          <button className={style.db_filter_setting}>
+            <Image
+              src="/setting-tuning-mob.svg"
+              width={20}
+              height={20}
+              alt="style"
+              className={style.filter_icon}
+              priority
+            />
+          </button>
+        </div>
+      </div>
+      <div className="d-flex mt_20 mb_20 justify_space_between">
           {['Scheduled', 'Completed', 'Cancelled', 'Pending', 'Rejected'].map((status) => (
             <Button key={status} status={status} />
           ))}
         </div>
-      </div>
       <table {...getTableProps()} className={style.data_table}>
         <thead>
           {headerGroups.map((headerGroup) => (

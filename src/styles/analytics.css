@@ -820,6 +820,9 @@ ul.head_status_block li .head_status_date {
   line-height: 21px;
   color: #666;
 }
+.db_tab_block {
+  position: relative;
+}
 
 .db_tab_block .react-tabs__tab-list {
   margin: 0;
