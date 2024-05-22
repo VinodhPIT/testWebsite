@@ -148,7 +148,7 @@ header.db_header_wrap {
   display: inline-flex;
   height: 38px;
   padding: 16px 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 14px;
   color: #212121;
   line-height: 21px;
@@ -160,11 +160,13 @@ header.db_header_wrap {
   position: relative;
   cursor: pointer;
 }
+.filter_month_selection:hover{border: 1px solid hsl(0, 0%, 70%);}
+
 
 .btn_style {
   font-weight: 400;
   color: #212121;
-  font-size: '14px'
+  font-size: 14px;
 }
 
 .db_text {
@@ -209,7 +211,7 @@ header.db_header_wrap {
   border-radius: 8px;
   flex: none;
   padding: 0;
-  margin: 0;
+  margin: 0;background-color: var(--white);
 }
 
 .db_card_icon_wrapper {
@@ -686,7 +688,7 @@ header.db_header_wrap {
   font-size: 14px;
   font-weight: 400;
   line-height: 26px;
-  height: 38px;
+  height: 38px;border-radius: 4px;
 }
 
 .db_filter_data_comp button.btn_selection:hover {
@@ -762,6 +764,21 @@ header.db_header_wrap {
 }
 .db_filter_monthly .DatePicker {
   margin-right: 11px;
+}
+.country_count{
+  margin-left: 10px;
+  width: 19px;
+  height: 20px;
+  background:var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  height: 19px;
+  font-size: 12px;
+  line-height: 19px;
+}
+.custom-placeholder::placeholder {
+  color: var(--black);
+  opacity: 1; 
 }
 
 @media screen and (max-width: 1199px) {

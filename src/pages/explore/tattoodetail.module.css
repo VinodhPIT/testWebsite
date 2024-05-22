@@ -160,7 +160,7 @@
     margin: 0 4px 4px 0;
 }
 
-.product_style_list li a {
+.product_style_list li button {
     color: var(--black);
     text-decoration: none;
 }

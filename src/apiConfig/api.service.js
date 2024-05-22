@@ -72,7 +72,7 @@ export async function styleListGetApiCall(endpoint, lng) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Accept-Language": lng, 
+        "Accept-Language": lng
       },
     });
     return handleResponse(response);

@@ -1,30 +1,32 @@
 import React, { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useRouter } from "next/router";
 import Image from 'next/image'
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import useTranslation from "next-translate/useTranslation";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   blurDataURL,
 } from "@/constants/constants";
 
-
-
 const _Form = () => {
   const { t } = useTranslation();
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email(t("common:contactUsPage.Invalid email")).required(t("common:contactUsPage.Email is required")),
-    message: Yup.string().required(t("common:contactUsPage.Message is required")
-    ),
-    tattooType: Yup.string().required(t("common:contactUsPage.Please select one option")
-    ),
-  
+    email: Yup.string()
+      .email(t("common:contactUsPage.Invalid email"))
+      .required(t("common:contactUsPage.Email is required"))
+      .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, t("common:contactUsPage.Invalid email")),
+    message: Yup.string()
+      .required(t("common:contactUsPage.Message is required")),
+    tattooType: Yup.string()
+      .required(t("common:contactUsPage.Please select one option")),
   });
-
+  
   
 
 
@@ -175,11 +177,11 @@ const _Form = () => {
                         />
                       </div>
                     </div>
-                    <div class="form_block">
+                    <div class="form_block mt_3 mb_10">
                       <div className="form_group">
                         <button
                           type="submit"
-                          class="btn_secondary h_48 w_100pc"
+                          class="btn_secondary h_48 w_100pc fw_300"
                           style={{ opacity: isSubmitting ? 0.5 : 1 }}
                         >
                           {isSubmitting ?  t("common:submitting")  : t("common:submit") }
@@ -201,50 +203,54 @@ const _Form = () => {
               />
               <h4>{t("common:Form submitted")}</h4>
 
-              <p>
+              <p className="mb_0">
               {t("common:Thank you")}
-
+              </p>
+              <p>
+              {t("common:getbackto")}
               </p>
               <button
                 type="submit"
-                class="btn_outline_secondary w_100pc h_48 hidden"
+                class="btn_outline_secondary w_100pc h_48 btn_cutom_new_mob bdr_rad_16"
                 onClick={() => onSubmit()}
               >
-                test
+                Ok. got it!
               </button>
-              <ul className="download_app">
-                <li className="download_app_title">
-                  <h6>{t("common:download-our-app")}</h6>
-                </li>
-                <li>
-                  <Link href={APP_LINK_APPLE} target="_blank">
-                    <Image
-                      priority
-                      src="/app-store-new.svg"
-                      alt="App store"
-                      width={134}
-                      height={41}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="custom_download_icons"
-                    />
-                  </Link>
-                </li>
-                <li>
-                  <Link href={APP_LINK_GOOGLE} target="_blank">
-                    <Image
-                      priority
-                      src="/g-play-new.svg"
-                      alt="Play store"
-                      width={134}
-                      height={41}
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="custom_download_icons"
-                    />
-                  </Link>
-                </li>
-              </ul>
+              <div className="form_submit_download_app">
+                <ul className="download_app">
+                  <li className="download_app_title">
+                    <h6>{t("common:download-our-app")}</h6>
+                  </li>
+                  <li>
+                    <Link href={APP_LINK_APPLE} target="_blank">
+                      <Image
+                        priority
+                        src="/app-store-new.svg"
+                        alt="App store"
+                        width={134}
+                        height={41}
+                        placeholder="blur"
+                        blurDataURL={blurDataURL}
+                        className="custom_download_icons"
+                      />
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={APP_LINK_GOOGLE} target="_blank">
+                      <Image
+                        priority
+                        src="/g-play-new.svg"
+                        alt="Play store"
+                        width={134}
+                        height={41}
+                        placeholder="blur"
+                        blurDataURL={blurDataURL}
+                        className="custom_download_icons"
+                      />
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           )}
         </div>

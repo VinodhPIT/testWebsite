@@ -64,6 +64,14 @@ export default function Footer() {
       title: t("common:menus.forTattooArtists"),
       url: `/${router.locale}/for-tattoo-artists`,
     },
+    {
+      id: 3,
+      title: t("common:menus.joinArtist"),
+      url: `/${router.locale}/join-as-artist`,
+    },
+
+
+
   ];
 
   const links = [
@@ -134,7 +142,7 @@ export default function Footer() {
                   {renderSwitcher(router.pathname, router.locale, openPopup)}
 
                   <ul className="footer_list">
-                    <li className="footer_title">
+                    <li className="footer_title hidden">
                       <h6>{t("common:download-app-on")}</h6>
                     </li>
                     <li>

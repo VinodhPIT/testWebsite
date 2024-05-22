@@ -7,6 +7,7 @@ import API_URL from "./api.config";
 import { getApiCall, postApiCall ,styleListGetApiCall ,styleLisAll } from "./api.service";
 
 export const fetchCategoryData = async (params) => {
+  
   try {
     const responseCategory = await postApiCall(
       API_URL.SEARCH.SEARCH_BY_CATRGORY(params),
@@ -179,6 +180,21 @@ export const exploreStyle = async (lng) => {
 };
 
 
+export const getSingleStyleDetail = async (styleId ,lng) => {
+  try {
+    const response = await styleListGetApiCall(API_URL.SEARCH.GET_SINGLE_STYLE_DETAIL(styleId),lng);
+
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
+
+
+
+
+
+
 export const exploreAll = async (lng) => {
 
 
@@ -187,6 +203,18 @@ export const exploreAll = async (lng) => {
 
     return response;
   } catch (error) {
+
+    return [];
+  }
+};
+
+
+export const getCountryCode = async () => {
+  try {
+    const response = await getApiCall(API_URL.SEARCH.GET_COUNTRY_CODE);
+    return response;
+  } catch (error) {
+   
     return [];
   }
 };

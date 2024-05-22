@@ -1,17 +1,33 @@
-// components/TattooComponent.js
-import React, { useEffect, useState } from "react";
-import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+
+import React, { useEffect } from "react";
+
 import useTranslation from "next-translate/useTranslation";
+import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+import { useGlobalState } from "@/context/Context";
+
+
+
 import { CustomerRequestSize } from "@/utils/customerRequestType";
 
 const TattooSize = () => {
-  const { setTattooSize, tattoondex, fetchArtistList } = useRequestForm(); // Zustand store and setter
-
+  const { fetchArtistList, setTattooSize, tattoondex ,fetchArtistByStyle } = useRequestForm();
   const { t } = useTranslation();
+  const { selectedIds } = useGlobalState();
+
 
   useEffect(() => {
-    fetchArtistList();
-  }, []);
+    // Fetch artists based on selected IDs if any, otherwise fetch the entire artist list
+    if (selectedIds !== "") {
+        fetchArtistByStyle(selectedIds);
+    } else {
+        fetchArtistList();
+    }
+}, []); 
+
+
+
+
+
 
   return (
     <>

@@ -1,25 +1,60 @@
 import React, { useState } from "react";
-import moment from "moment";
-import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import useTranslation from "next-translate/useTranslation";
 
+import useTranslation from "next-translate/useTranslation";
 import NewCountDisplayCard from "../common/newCountDisplayCard";
 
-const currencyOptions = ["GBP","EUR","CHF","HUF","CZK","PLN","RON","SEK"].map((data) => ({ value: data, label: data }));
+import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 
-export default function NewOfferDashboardDetails({ initialCounts, customerRequestCount }) {
-  const [seletedCurrency, setSelectedCurrency]=useState(currencyOptions[1])
+const currencyOptions = [
+  "GBP",
+  "EUR",
+  "CHF",
+  "HUF",
+  "CZK",
+  "PLN",
+  "RON",
+  "SEK",
+].map((data) => ({ value: data, label: data }));
+
+export default function NewOfferDashboardDetails({
+  initialCounts,
+  customerRequestCount,
+}) {
+  const [seletedCurrency, setSelectedCurrency] = useState(currencyOptions[1]);
   const { t } = useTranslation();
 
-  const sendOffers = initialCounts?.filter(item => item.created_date !== null);
-  const conversionRate = Math.floor((customerRequestCount / sendOffers?.length) * 100);
-  const offerCount = initialCounts?.filter(item=> item.amounts!==null).length;
-  const offersWithSelectedCurrency = initialCounts?.filter(item=> item.currency === seletedCurrency.value);
-  const sumWithInitial = offersWithSelectedCurrency.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.amounts,
-    0,
+
+
+  const sendOffers = initialCounts?.filter(
+    (item) => item.created_date !== null
+  );
+  let conversionRate;
+  if (sendOffers.length === 0) {
+    conversionRate = 0;
+  } else {
+    // Perform the division and calculate conversion rate when sendOffers is not empty
+    conversionRate = Math.floor(
+      (customerRequestCount / sendOffers.length) * 100
+    );
+  }
+  const offerCount = initialCounts?.filter(
+    (item) => item.amounts !== null
+  ).length;
+  const offersWithSelectedCurrency = initialCounts?.filter(
+    (item) => item.currency === seletedCurrency.value
   );
 
+
+
+  
+  const sumWithInitial = offersWithSelectedCurrency.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.amounts,
+    0
+  );
+
+
+
+  
   const getTotalAmount = () => {
     let totalAmount = 0;
     for (let i = 0; i < initialCounts.length; i++) {
@@ -27,8 +62,8 @@ export default function NewOfferDashboardDetails({ initialCounts, customerReques
     }
     return totalAmount;
   };
-  
-  const avgOderValue = Math.floor(sumWithInitial/offerCount);
+
+  const avgOderValue = Math.floor(sumWithInitial / offerCount);
 
   return (
     <section className="container-fluid">
@@ -38,12 +73,12 @@ export default function NewOfferDashboardDetails({ initialCounts, customerReques
             iconBgColor="block_bg_pink_200"
             count={initialCounts?.length}
             title="Sendet Offers"
-            icon="/login-broken.svg"
+            icon="/br_login.svg"
           />
           <NewCountDisplayCard
             iconBgColor="block_bg_green_200"
             rightIconBgColor="block_bg_pink_200"
-            rightIcon="/login-broken.svg"
+            rightIcon="/br_login.svg"
             count={`${conversionRate || 0}%`}
             title="Conversion Rate"
             icon="/chat-round-dots.svg"
@@ -52,14 +87,14 @@ export default function NewOfferDashboardDetails({ initialCounts, customerReques
           <NewCountDisplayCard
             count={getTotalAmount()}
             iconBgColor="block_bg_pink_200"
-            icon="/login-broken.svg"
+            icon="/br_login.svg"
             title="Sendet Offers"
           />
           <NewCountDisplayCard
             count={sumWithInitial}
-            icon="/login-broken.svg"
+            icon="/br_login.svg"
             iconBgColor="block_bg_pink_200"
-            onSelectData={(val)=> setSelectedCurrency(val)}
+            onSelectData={(val) => setSelectedCurrency(val)}
             options={currencyOptions}
             selectedData={seletedCurrency}
             title="Sendet Offers"
@@ -67,7 +102,7 @@ export default function NewOfferDashboardDetails({ initialCounts, customerReques
           <NewCountDisplayCard
             count={`${seletedCurrency.value} ${avgOderValue || 0}`}
             iconBgColor="block_bg_pink_200"
-            icon="/login-broken.svg"
+            icon="/br_login.svg"
             title="Avg. order value"
           />
           {/* <NewCountDisplayCard

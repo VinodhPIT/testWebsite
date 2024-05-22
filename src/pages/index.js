@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import useTranslation from "next-translate/useTranslation";
 
+import useTranslation from "next-translate/useTranslation";
 import { getOs } from "../lib/os-detector";
 import { useGlobalState } from "@/context/Context";
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
@@ -17,6 +18,8 @@ import TattooJournal from "@/components/tattooJournal/TattooJournal";
 import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
+import Modal from "@/components/modalPopup/comingSoon"
+
 
 import {
   APP_LINK_APPLE,
@@ -25,14 +28,17 @@ import {
 } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
-export default function Home({}) {
+
+
+export default function Home({isMobile}) {
   const [qrCodeSrc, setQrCodeSrc] = useState('/PlayStore_QR.png');
   const osName = getOs();
   const router = useRouter();
-  
-  const { fetchAll, allListing } = useDisplayAll();
-  const { fetchStyle, styleList } = useStyleListing();
-  
+
+  const { allListing  ,loading} = useDisplayAll();
+  const { styleList  ,loader} = useStyleListing();
+
+
   const {
     getAddress,
     clearStyleId,
@@ -46,7 +52,7 @@ export default function Home({}) {
    
   function SwitchJournal(locale) {
     switch (locale) {
-      case "uk-en":
+      case "gb-en":
         return <TattooJournal data={jsonData[router.locale]} />;
       case "de-de":
         return <TattooJournal data={jsonData[router.locale]} />;
@@ -63,6 +69,7 @@ export default function Home({}) {
 
 
   useEffect(() => {
+
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
@@ -74,10 +81,56 @@ export default function Home({}) {
     styleCollection();
   }, []);
 
-  useEffect(() => {
-    fetchStyle(router.locale.split("-")[0]);
-    fetchAll(router.locale.split("-")[0]);
-  }, [router.locale]);
+
+
+  const butterflyTattoos = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17357_20230203124234258-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/13fe7e6b-27e2-4862-8cd1-63ae887aa835`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2047_20220824091834377-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2b4313f4-42f7-4b5c-a0fe-9a1048cd509a`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/1631_20220810120118508-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f4acb3da-cb6d-4698-aeb7-c7a3d4f9cf31`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8798_20221112103645427-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/33cc6a48-fc2a-4fd8-bf44-a7589ab5c31e`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17242_20230202192308433-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/dd0d7b99-4446-4d55-8f94-8b03462704ab`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5729_20221016233810380-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1db18a75-80fb-4374-91cb-1ec789bb1631`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3844_20220927191141628-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/485ad340-8b0f-43eb-81ce-6f36d6232432`,
+    },
+  ];
+
+
+
+
+
+
+
 
   return (
     <>
@@ -137,19 +190,17 @@ export default function Home({}) {
                               />
                             </Link>
                           </li>
-                          <li>
-                            <Link href="#" target="_blank">
-                              <Image
-                                priority
-                                src={qrCodeSrc}
-                                alt="QR"
-                                width={121}
-                                height={121}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons app_qr_home mob_hidden"
-                              />
-                            </Link>
+                          <li>                            
+                            <Image
+                              priority
+                              src={qrCodeSrc}
+                              alt="QR"
+                              width={121}
+                              height={121}
+                              placeholder="blur"
+                              blurDataURL={blurDataURL}
+                              className="custom_download_icons app_qr_home mob_hidden"
+                            />                           
                           </li>
                         </ul>
                       </div>
@@ -172,7 +223,7 @@ export default function Home({}) {
                     />
                     <Image
                       priority
-                      src="/image_2024_01_10T08_41_09_088Z.png"
+                      src="/image_2024_01_10T08_41_09_088Z1.png"
                       alt={t("common:homePage.bannerTitle")}
                       fill
                       objectFit="cover"
@@ -195,20 +246,20 @@ export default function Home({}) {
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
       />
-
       <KlarnaBanner />
-
       <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
-        datas={allListing.tattoo_images}
+        data={allListing.tattoo_images}
+        loading={loading}
       />
 
       <ExploreStyle
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
-      />
+        loading={loader} 
+      /> 
 
       {SwitchJournal(router.locale)}
 
@@ -221,6 +272,12 @@ export default function Home({}) {
         content3={t("common:homePage.Rest easy knowing")}
         leftSectionImage="/verified_tattoo_artists_01.png"
       />
+
+      {/* <Modal /> */}
     </>
   );
 }
+
+
+
+

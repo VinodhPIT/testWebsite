@@ -46,6 +46,15 @@ export default function SideDrawer({ onCloseToggle }) {
       url: `/${router.locale}/for-tattoo-artists`,
     },
 
+
+    {
+      id: 6,
+      title: t("common:menus.joinArtist"),
+      url: `/${router.locale}/join-as-artist`,
+    },
+
+
+
     {
       id: 7,
       title: t("common:menus.contactUs"),
@@ -56,7 +65,7 @@ export default function SideDrawer({ onCloseToggle }) {
   let linkComponent;
 
   switch (router.locale) {
-    case "uk-en":
+    case "gb-en":
     case "de-de":
       linkComponent = (
         <Link href={"/journal"}>{t("common:menus.journal")}</Link>

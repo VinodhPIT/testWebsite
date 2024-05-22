@@ -1,5 +1,30 @@
 import moment from "moment";
 
+
+
+
+
+const getPaginatorCount = () => {
+  // Check if window is defined (only run on the client-side)
+  if (typeof window !== 'undefined') {
+    const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
+    return isMobile ? 10 : 9;
+  }
+  // Return a default value if window is not available (e.g., for server-side rendering)
+  return 10; // or any default value you prefer
+};
+
+export { getPaginatorCount };
+
+
+const pageCount = getPaginatorCount();
+
+
+
+export const MAX_RANDOM = 3409357923759259;
+export const MIN_RANDOM = 3;
+
+
 export const prepareRequest = (parameters) => {
   const request = {
     sort: parameters.sort,
@@ -41,11 +66,11 @@ const createRequestObject = (parameters, paginatorCount) => {
 };
 
 
-const artistRequest = (parameters, paginatorCount) => {
+const artistRequest = (parameters) => {
   const request = {
     sort:null,
     page_no: parameters.page_no,
-    paginator_count: paginatorCount,
+    paginator_count: pageCount,
     search_key: parameters.search_key,
     distance:"50km",
     
@@ -77,7 +102,7 @@ const artistRequest = (parameters, paginatorCount) => {
 
 
 export const stepperParam = (parameters) => {
-  return artistRequest(parameters, 9);
+  return artistRequest(parameters);
 };
 
 export const searchParam = (parameters) => {
@@ -223,3 +248,38 @@ const getCountry = (locations, location) => {
 };
 
 export { getCountry };
+
+
+export const getRandomSeed = () => {
+  const randomValues = new Uint32Array(1);
+  crypto.getRandomValues(randomValues);
+  return randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM;
+};
+
+
+
+export const  calculateMetrics = (initialCounts, customerRequestCount, selectedCurrency)=> {
+  const sendOffers = initialCounts?.filter(
+    (item) => item.created_date !== null
+  );
+  let conversionRate;
+  if (sendOffers.length === 0) {
+    conversionRate = 0;
+  } else {
+    // Perform the division and calculate conversion rate when sendOffers is not empty
+    conversionRate = Math.floor(
+      (customerRequestCount / sendOffers.length) * 100
+    );
+  }
+  const offerCount = initialCounts?.filter(
+    (item) => item.amounts !== null
+  ).length;
+  const offersWithSelectedCurrency = initialCounts?.filter(
+    (item) => item.currency === selectedCurrency.value
+  );
+  return {
+    conversionRate,
+    offerCount,
+    offersWithSelectedCurrency
+  };
+}

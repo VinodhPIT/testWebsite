@@ -16,6 +16,7 @@ export default function Artist({ data }) {
   const { t } = useTranslation();
 
 
+
   return (
     <>
       <Head>

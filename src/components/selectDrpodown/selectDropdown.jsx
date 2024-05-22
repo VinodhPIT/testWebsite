@@ -108,9 +108,9 @@ export default function SelectDropdown({
                 priority
               />
               <span>{t("common:Style")}</span>
-              {state.styleId.length !== 0 && (
+              {selectedIds.length>=1 && (
                 <span className={style.notification_count}>
-                  {state.styleId.length}
+                  {selectedIds.length}
                 </span>
               )}
             </button>

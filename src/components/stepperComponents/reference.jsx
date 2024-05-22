@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import React  from "react";
 import Image from "next/image";
 
+import { v4 as uuidv4 } from "uuid";
 import useTranslation from "next-translate/useTranslation";
-import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+
+
 export default function Reference() {
   const { t } = useTranslation();
   const { images, addImage, deleteImage, nextPage  } = useRequestForm();
@@ -71,7 +73,7 @@ const handleFileUpload = (event, index) => {
                   </div>
 
                   {images.length > 0 && (
-                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end">{t("common:next")}</button>
+                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4">{t("common:next")}</button>
                   )}
 
 

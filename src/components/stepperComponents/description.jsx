@@ -1,8 +1,9 @@
 
 import React  from "react";
-import { useRequestForm } from "@/store/requestManagement/requestForm"; 
 import useTranslation from "next-translate/useTranslation";
 
+
+import { useRequestForm } from "@/store/requestManagement/requestForm"; 
 
 
 const Description = () => {
@@ -47,7 +48,7 @@ const Description = () => {
                       }}
                       
                     />
-                    {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right">{t("common:next")}</button>}
+                    {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right bdr_rad_4">{t("common:next")}</button>}
                   </form>
                 </div>
               </div>

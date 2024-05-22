@@ -1,7 +1,9 @@
-// components/TattooComponent.js
+
 import React from "react";
-import { useRequestForm } from "@/store/requestManagement/requestForm";
+
 import useTranslation from "next-translate/useTranslation";
+import { useRequestForm } from "@/store/requestManagement/requestForm";
+
 
 const BodyPart = () => {
   const {setSelectedPart ,bodyPartIndex } = useRequestForm(); // Zustand store and setter
@@ -17,8 +19,6 @@ const BodyPart = () => {
     { id: 6, title: 'Other'  ,key:"Other"},
     { id: 7, title: t("common:stepper.dontKnowYet") ,key:"nil"}
   ]
-
-
 
   return (
     <>

@@ -98,7 +98,7 @@ export default function Header({ data }) {
                       className="hidden"
                     />
                     <button
-                      className="btn_secondary ml_10"
+                      className="btn_secondary ml_10 bdr_rad_4"
                       onClick={handleSignOut}
                     >
                       {t("common:Log out")}
