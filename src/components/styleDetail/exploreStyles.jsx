@@ -82,7 +82,7 @@ export default function ExploreStyles({ data }) {
                       </div>
                     ))}
                 </Slider>
-        
+                {isVisible && (
                     <ul className="custom-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
                         <li
@@ -95,7 +95,7 @@ export default function ExploreStyles({ data }) {
                         </li>
                       ))}
                     </ul>
-                  
+                  )}
               </div>
               ) : null}
             </div>

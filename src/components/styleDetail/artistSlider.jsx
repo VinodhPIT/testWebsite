@@ -153,7 +153,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                       </div>
                     ))}
                 </Slider>
-            
+                {isVisible && (
                     <ul className="custom-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
                         <li
@@ -166,7 +166,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                         </li>
                       ))}
                     </ul>
-                  
+                  )}
               </div>
               ) : null}
             </div>

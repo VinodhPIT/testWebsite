@@ -132,7 +132,7 @@ export default function FourColumnCarousel({ title, content }) {
                       </div>
                     ))}
                 </Slider>
-        
+                {isVisible && (
                     <ul className="custom-dots">
                        {Array.from({ length: totalDots }).map((_, index) => (
                           <li
@@ -145,7 +145,7 @@ export default function FourColumnCarousel({ title, content }) {
                           </li>
                         ))}
                     </ul>
-                  
+                  )}
               </div>
                )}
             </div>

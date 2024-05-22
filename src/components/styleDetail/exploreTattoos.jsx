@@ -115,7 +115,7 @@ export default function ExploreTattoos({ data ,styleName,slug }) {
 
                   ))}
                 </Slider>
-        
+                {isVisible && (
                     <ul className="custom-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
                         <li
@@ -128,7 +128,7 @@ export default function ExploreTattoos({ data ,styleName,slug }) {
                         </li>
                       ))}
                     </ul>
-                  
+                  )}
               </div>
               :null}
             </div>

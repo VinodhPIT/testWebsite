@@ -75,7 +75,7 @@ export default function ExploreTattoos({ title, content, data }) {
                             >
                               <Image
                                 src={el.image_url}
-                                alt={'el.style.style_name'}
+                                alt={el.style.style_name}
                                 width={224}
                                 height={224}
                                 loading="lazy"
@@ -90,7 +90,7 @@ export default function ExploreTattoos({ title, content, data }) {
                         </div>
                       ))}
                   </Slider>
-                  
+                  {isVisible && (
                     <ul className="custom-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
                         <li
@@ -103,7 +103,7 @@ export default function ExploreTattoos({ title, content, data }) {
                         </li>
                       ))}
                     </ul>
-                
+                  )}
                 </div>
               )}              
             </div>
