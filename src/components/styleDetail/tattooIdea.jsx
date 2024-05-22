@@ -29,7 +29,7 @@ export default function Tattooidea({ name ,handleLinkClick }) {
         <Link
           href={requestPath}
           onClick={handleLinkClick}
-          className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 fw_m_400"
+          className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 fw_m_400 m_w_100pc"
         >
           {t("common:styleDetail.bannerTattooRequestBtn")}
         </Link>

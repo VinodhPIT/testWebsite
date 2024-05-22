@@ -25,7 +25,7 @@ export default function TattooIdea() {
         <div className="img_text_box_inner flex_direction_column">
           <div className="row m_switcher_row">
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div className="text_box_content justify_content_start m_min_h_reset m_pt_40 m_pb_0 hidden m_d_block">
+              <div className="text_box_content justify_content_start m_min_h_reset m_pt_15 m_pb_0 hidden m_d_block">
                 <div className="text_box_content_inner m_pr_0 pr_0">
                   <h2 className="custom_fs_m_28 desk_hidden">
                     {t("common:homePage.Share your tattoo idea")}
@@ -103,12 +103,12 @@ export default function TattooIdea() {
                     {" "}
                     {t("common:homePage.Share your tattoo idea")}
                   </h2>
-                  <p className="mt_20 mb_30 m_mt_0 m_mb_15 custom_fs_m_14">
+                  <p className="mt_20 mb_30 m_mt_0 m_mb_20 custom_fs_m_14">
                     {t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
                     href={requestPath}  onClick={()=>setPathname(router.pathname)}
-                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20"
+                    className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20 m_w_100pc"
                   >
                     {t("common:homePage.CreateATattooRequest")}
                   </Link>

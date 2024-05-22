@@ -142,7 +142,7 @@ export default function Footer() {
                   {renderSwitcher(router.pathname, router.locale, openPopup)}
 
                   <ul className="footer_list">
-                    <li className="footer_title">
+                    <li className="footer_title hidden">
                       <h6>{t("common:download-app-on")}</h6>
                     </li>
                     <li>

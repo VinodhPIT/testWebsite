@@ -50,22 +50,29 @@ const sliderSettings = (isMobileView) => {
         },
       },
       {
+        breakpoint: 767,
+        settings: {          
+          dots: true
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
           swipe:true,
-          infinite: true
+          infinite: true,
+          dots: true
         },
-      },
-
+      },      
       {
         breakpoint: 400,
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
           swipe:true,
-          infinite: true
+          infinite: true,
+          dots: true
         },
       },
     ],

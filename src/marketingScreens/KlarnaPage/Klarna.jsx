@@ -62,9 +62,9 @@ function KlarnaPage() {
                       <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_25">
                         <span>
                           {" "}
-                          {t("common:klarnaPage.bannerTitle1")}
+                          {t("common:klarnaMarketingScreen.bannerTitle1")}
                           <span class="textBlock">
-                            {t("common:klarnaPage.bannerTitle1-Sub")}
+                            {t("common:klarnaMarketingScreen.bannerTitle1-Sub")}
                           </span>
                         </span>
                       </h1>

@@ -1,21 +1,23 @@
 
-
-import React, { useEffect, useState } from "react";
-import Head from "next/head";
+import React, { useEffect} from "react";
 import Image from 'next/image'
+import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
-import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
+import useSticky from '@/hooks/useSticky';
+
+import { useGlobalState } from "@/context/Context";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";
-import style from "@/pages/explore/search.module.css";
-import { useRouter } from "next/router";
 import SearchField from "@/components/tattooSearch/tattooSearch";
-import { addAdsToResults } from "@/helpers/helper";
-import { getUrl } from "@/utils/getUrl";
-import { useGlobalState } from "@/context/Context";
-import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+
+import { getUrl } from "@/utils/getUrl";
 import { getPlaceDetails } from "@/utils/placesApi";
+import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
+
+import style from "@/pages/explore/search.module.css";
+
 
 const MobileDetect = require("mobile-detect");
 const Search = ({
@@ -43,7 +45,7 @@ const Search = ({
   } = useGlobalState();
 
   const { t } = useTranslation();
-
+  const { isSticky, elementRef, topRef } = useSticky();
   const categoryTab = [
     {
       id: "all",
@@ -121,27 +123,8 @@ const Search = ({
     await getUrl(tab, searchKey, selectedStyle, state.location, router);
   };
 
-
-
-
-
-
-
   return (
     <>
-      {/* <Head>
-        <title>
-          Explore Tattoo images, designs, and find tattoo artists with ease
-        </title>
-        <meta
-          name="description"
-          content="Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience."
-        />
-        <meta
-          name="keywords"
-          content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
-        />
-      </Head> */}
       <main>
         <div className={style.page_search_wrapper}>
           <div className="container">
@@ -172,8 +155,9 @@ const Search = ({
                 isDetail={false}
               />
             </div>
-
-            <div className={style.tab_container}>
+            <div ref={topRef}></div>
+            <div className={isSticky ? style.placeholder : ''}></div>
+            <div className={`${style.tab_container} ${isSticky ? style.sticky : ''}`} ref={elementRef}>
               <div className={style.tabSection}>
                 <ul>
                   {categoryTab.map((tab) => (
@@ -287,12 +271,9 @@ export async function getServerSideProps(context) {
         longitude: placeDetails.longitude,
         seed,
       });
-
-      let addData = await addAdsToResults(results.data, isMobile);
-
-      return {
+     return {
         props: {
-          data: addData,
+          data: results.data,
           currentTab: category,
           pageNo: 0,
           totalItems: results.totalCount,
@@ -316,13 +297,11 @@ export async function getServerSideProps(context) {
         seed,
       });
 
-      // alert(placeDetails.latitude ?? "")
 
-      let addData = await addAdsToResults(data.rows.hits, isMobile);
 
       return {
         props: {
-          data: addData,
+          data: data.rows.hits,
           currentTab: category,
           pageNo: 0,
           totalItems: data.rows.total.value,

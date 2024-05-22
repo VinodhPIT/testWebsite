@@ -1360,6 +1360,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mr_0 {
   margin-right: 0px !important;
 }
+.mr_10 {
+  margin-right: 10px !important;
+}
 .mr_15 {
   margin-right: 15px !important;
 }
@@ -1421,6 +1424,10 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .pl_40 {
   padding-left: 40px !important;
+}
+
+.pl_42 {
+  padding-left: 42px !important;
 }
 
 .pl_50 {
@@ -1776,6 +1783,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 }
 .gap_10pc {
   gap: 10%;
+}
+.gap_20 {
+  gap: 20px;
 }
 .gap_45 {
   gap: 45px;
@@ -2182,6 +2192,8 @@ button.btn_view_more:hover {
 main {
   min-height: 70vh;
   position: relative;
+  display: inline-block;
+  width: 100%;
 }
 
 .bg_overlay_img {
@@ -4117,9 +4129,27 @@ header .navbar {
   transform: scale(1);
   opacity: 1;
 }
-
 .trending_artist_slider .slick-slider ul.slick-dots li button:before {
   display: none;
+}
+
+.mob_slider_dots .slick-slider ul.slick-dots {
+  bottom: -31px;
+}
+.mob_slider_dots .slick-slider ul.slick-dots li {
+  height: 14px;
+}
+.mob_slider_dots .slick-slider ul.slick-dots li button {  
+  width: 14px;
+  height: 14px;
+  background: #D9D9D9;
+  opacity: 1;
+  filter: none;
+}
+.mob_slider_dots .slick-slider ul.slick-dots li.slick-active button {
+  transform: scale(1);
+  opacity: 1;
+  background: #171616;
 }
 
 .trending_artist_slider
@@ -4221,7 +4251,10 @@ header .navbar {
 }
 
 .klarna_banner_section a {
-  width: 232px;
+  width: auto;
+  min-width: 153px;
+  height: auto;
+  /*width: 232px;*/
   padding: 8px 20px;
   font-size: 16px;
   font-weight: 500;
@@ -5613,6 +5646,59 @@ button.language_switcher img {
   right: 40px;
 }
 
+/******/
+.mob_dotted .custom-dots,
+.slick_mob_slider .slick-slider ul.slick-dots {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin: 24px 0px 0px;
+}
+.mob_dotted .custom-dots li,
+.slick_mob_slider .slick-slider ul.slick-dots li {
+  display: inline-block;
+  margin: 0 3px;
+}
+.mob_dotted .custom-dots li button,
+.slick_mob_slider .slick-slider ul.slick-dots li button {
+  border: none;
+  background: transparent;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+}
+.mob_dotted .custom-dots li.active button {
+  background-color: #171616;
+}
+.slick_mob_slider .slick-slider ul.slick-dots {
+  position: inherit;
+  bottom: inherit;
+}
+.slick_mob_slider .slick-slider ul.slick-dots li.slick-active button {
+  background-color: #171616;
+}
+.slick_mob_slider .slick-slider ul.slick-dots li button:before {
+  display: none;
+}
+.slick_mob_slider .slick-slider .slick-slide > div {
+  margin-right: 0;
+}
+.slick_mob_slider .slick-slider .slick-slide img.responsive-image {
+  max-width: 239px;
+  margin-bottom: 0!important;
+  margin: 0 auto;
+}
+/***************/
+
+
+
+
+
 /* responsive */
 @media screen and (max-width: 767.98px) {
   .toggleModel {
@@ -6446,7 +6532,12 @@ button.language_switcher img {
   .m_mb_50 {
     margin-bottom: 50px !important;
   }
-
+  .m_mb_55 {
+    margin-bottom: 55px !important;
+  }
+  .m_mb_65 {
+    margin-bottom: 65px !important;
+  }
   .m_mt_mb_45 {
     margin-top: 45px !important;
     margin-bottom: 45px !important;
@@ -6456,6 +6547,10 @@ button.language_switcher img {
     margin-right: 0 !important;
   }
 
+  .m_mr_10 {
+    margin-right: 10px !important;
+  }
+
   .m_m_auto {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -6463,6 +6558,10 @@ button.language_switcher img {
 
   .m_ml_0 {
     margin-left: 0 !important;
+  }
+
+  .m_ml_n_15 {
+    margin-left: -15px !important;
   }
 
   .m_mr_n_15 {
@@ -6478,6 +6577,9 @@ button.language_switcher img {
   }
   .m_w_inherit {
     width: inherit !important;
+  }
+  .m_w_24 {
+    width: 24px !important;
   }
   .m_max_100 {
     max-width: 100% !important;
@@ -6706,6 +6808,9 @@ button.language_switcher img {
     height: 100%!important;
   }
 
+  .m_h_24 {
+    height: 24px!important;
+  }
 
   .m_h_fit_content {
     height: fit-content !important;
@@ -7590,9 +7695,13 @@ button.language_switcher img {
     width: 16px;
     height: 16px;
     bottom: 5px;
+    background-image: url("/arrow_right_mob.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
   .link_with_arrow {
-    bottom: inherit;
+    bottom: -2px;
     margin-left: 3px;
   }
   .link_with_arrow img {
@@ -7673,6 +7782,14 @@ button.language_switcher img {
   }
   .head_paylater_link:hover{
     color: var(--black-200);
+  }
+
+  .mob_slider_dots .slick-slider .slick-track .slick-slide {    
+    padding-bottom: 0px;
+  }
+  .range_patterns {
+    max-height: 260px;
+    overflow-y: auto;
   }
 
 
@@ -7860,6 +7977,10 @@ button.language_switcher img {
 
   .m_pl_30 {
     padding-left: 30px !important;
+  }
+
+  .m_pl_34 {
+    padding-left: 34px !important;
   }
 
   .d_w_156 {
@@ -8631,16 +8752,13 @@ button.language_switcher img {
   .partner_tattoo_block .partner_tattoo_list {
     grid-template-columns: repeat(1, 1fr);
     grid-column-gap: 0px;
-  }
-  header_right button.btn_tattoo_art {
-    height: auto;
-    padding: 6px 8px;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600;
-  }
+  }  
   header.header_wrapper {
     padding: 10px 0;
+  }
+  header.header_wrapper {
+    position: sticky!important;
+    top: 0;
   }
 }
 
@@ -9168,6 +9286,11 @@ button.language_switcher img {
 @media screen and (min-width: 1200px) and (max-width: 1300px) {
   header ul.nav.main_nav > li > a {
     font-size: 17px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .mob_dotted .slick-slider .slick-track .slick-slide {
+    padding-bottom: 0px;
   }
 }
 @media screen and (max-width: 420px) {

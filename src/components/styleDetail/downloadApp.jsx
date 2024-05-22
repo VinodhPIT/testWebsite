@@ -48,7 +48,7 @@ export default function DownloadApps ({title ,subTitle}) {
             <div className="col-xl-7 col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="img_box_wrap">
                 <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
-                  <li className="pl_0">
+                  <li className="pl_0 hidden">
                     <Image
                       src="/explore-style-01.png"
                       width={193}
@@ -60,7 +60,7 @@ export default function DownloadApps ({title ,subTitle}) {
                       className="m_max_218"
                     />
                   </li>
-                  <li className="pl_0">
+                  <li className="pl_0 hidden">
                     <Image
                       src="/explore-style-01.png"
                       width={193}
@@ -72,7 +72,7 @@ export default function DownloadApps ({title ,subTitle}) {
                       className="m_max_218"
                     />
                   </li>
-                  <li className="pl_0">
+                  <li className="pl_0 hidden">
                     <Image
                       src="/explore-style-01.png"
                       width={193}
@@ -84,6 +84,48 @@ export default function DownloadApps ({title ,subTitle}) {
                       className="m_max_218"
                     />
                   </li>
+
+
+                  <li className="pl_0">
+                    <Image
+                      src="/explore_dtls_01.png"
+                      width={193}
+                      height={187}
+                      alt={t("common:downloadApp")}
+                      priority
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="m_max_218"
+                    />
+                  </li>
+                  <li className="pl_0">
+                    <Image
+                      src="/explore_dtls_02.png"
+                      width={193}
+                      height={187}
+                      alt={t("common:downloadApp")}
+                      priority
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="m_max_218"
+                    />
+                  </li>
+                  <li className="pl_0">
+                    <Image
+                      src="/explore_dtls_03.png"
+                      width={193}
+                      height={187}
+                      alt={t("common:downloadApp")}
+                      priority
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="m_max_218"
+                    />
+                  </li>
+
+
+
+
                 </ul>
               </div>
             </div>
@@ -92,15 +134,13 @@ export default function DownloadApps ({title ,subTitle}) {
       </div>
       {isMobileView && (
         <ImageSlider
-          imagePaths={["/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png", "/exploreKlarna-mob-01.png"]}
+          imagePaths={["/explore_dtls_01.png", "/explore_dtls_02.png", "/explore_dtls_03.png"]}
           imgAlt={t("common:downloadApp")}
           imgblurDataURL={blurDataURL}
           imgWidth={193}
-          imgHeight={338}
+          imgHeight={187}
         ></ImageSlider>
         )}
     </div>
   )
 }
-
-
