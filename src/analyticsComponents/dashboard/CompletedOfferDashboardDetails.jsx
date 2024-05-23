@@ -1,44 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 
 import useTranslation from "next-translate/useTranslation";
-import NewCountDisplayCard from "../common/newCountDisplayCard";
-
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 
-const currencyOptions = ["GBP","EUR","CHF","HUF","CZK","PLN","RON","SEK"].map((data) => ({ value: data, label: data }));
+import NewCountDisplayCard from "../common/newCountDisplayCard";
+import SkeletonCount from '@/components/placeholders/count'
 
-export default function CompletedOfferDashboardDetails({ initialCounts, totalAcceptedOfferCount }) {
-  const [seletedCurrency, setSelectedCurrency]=useState(currencyOptions[1])
+import { currencyOptions, useCurrency } from "@/helpers/currencyHelper";
+import { calculateMetrics } from "@/helpers/offerHelper"; 
 
+export default function CompletedOfferDashboardDetails({ initialCounts, totalAcceptedOfferCount ,loading }) {
+  
+  const [selectedCurrency, setSelectedCurrency] = useCurrency();
   const { t } = useTranslation();
 
-
-
-  const sendOffers = initialCounts?.filter(item => item.created_date !== null);
-  const conversionRate = Math.floor((sendOffers?.length/totalAcceptedOfferCount) * 100);
-  const offerCount = initialCounts?.filter(item=> item.amounts!==null).length;
-  const offersWithSelectedCurrency = initialCounts?.filter(item=> item.currency === seletedCurrency.value);
-
-
-  
-
-  const sumWithInitial = offersWithSelectedCurrency.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.amounts,
-    0,
-  );
-
-
-  const getTotalAmount = () => {
-    let totalAmount = 0;
-    for (let i = 0; i < initialCounts.length; i++) {
-      totalAmount += initialCounts[i].amounts;
-    }
-    return totalAmount;
-  };
-  
-  const avgOderValue = Math.floor(sumWithInitial/offerCount);
-
-
+  const {
+    conversionRate,
+    sumWithInitial,
+    getTotalAmount,
+    avgOrderValue,
+  } = calculateMetrics(initialCounts, totalAcceptedOfferCount, selectedCurrency);
 
   return (
     <section className="container-fluid">
@@ -46,39 +27,39 @@ export default function CompletedOfferDashboardDetails({ initialCounts, totalAcc
         <div className="db_customer_rqst_data">
           <NewCountDisplayCard
             iconBgColor="block_bg_success_green_100"
-            count={initialCounts?.length}
-            title="Completed Tattoos"
+            count={loading ?  <SkeletonCount/> : initialCounts?.length}
+            title={t("common:AnalyticsDashboard.completedTattoos")}
             icon="/tickSquare.svg"
           />
           <NewCountDisplayCard
             iconBgColor="block_bg_pink_400"
             rightIconBgColor="block_bg_success_green_100"
             rightIcon="/tickSquare.svg"
-            count={`${conversionRate || 0}%`}
-            title="Conversion Rate"
+            count={loading ?  <SkeletonCount/> :`${conversionRate || 0}%`}
+            title={t("common:AnalyticsDashboard.conversionRate")}
             icon="/Logout.svg"
             withRightIcon
           />
           <NewCountDisplayCard
-            count={getTotalAmount()}
+            count={loading ?  <SkeletonCount/> : getTotalAmount()}
             iconBgColor="block_bg_success_green_100"
             icon="/tickSquare.svg"
-            title="Completed Tattoos"
+            title={t("common:AnalyticsDashboard.completedTattoos")}
           />
           <NewCountDisplayCard
-            count={sumWithInitial}
+            count={loading ?  <SkeletonCount/> : sumWithInitial}
             icon="/tickSquare.svg"
             iconBgColor="block_bg_success_green_100"
             onSelectData={(val)=> setSelectedCurrency(val)}
             options={currencyOptions}
-            selectedData={seletedCurrency}
-            title="Completed Tattoos"
+            selectedData={selectedCurrency}
+            title={t("common:AnalyticsDashboard.completedTattoos")}
           />
           <NewCountDisplayCard
-            count={`${seletedCurrency.value} ${avgOderValue || 0}`}
+            count={loading ?  <SkeletonCount/> :`${selectedCurrency.value} ${avgOrderValue || 0}`}
             iconBgColor="block_bg_success_green_100"
             icon="/tickSquare.svg"
-            title="Avg. order value"
+            title={t("common:AnalyticsDashboard.avgOrderValue")}
           />
         </div>
       </div>

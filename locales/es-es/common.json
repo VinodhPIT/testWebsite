@@ -699,7 +699,11 @@
     "Avg time" : "Avg.time",
     "Our Region":"Our Region",
     "Regions":"Regions",
-    "Today":"Today"
+    "Today":"Today",
+    "acceptedOffers":"Accepted Offers",
+    "conversionRate":"Conversion Rate",
+    "avgOrderValue":"Avg. order value",
+    "completedTattoos":"Completed Tattoos"
   },
 
   "TableConversion": {

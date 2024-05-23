@@ -8,7 +8,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import DatePicker from "@hassanmojab/react-modern-calendar-datepicker";
 import { utils } from "@hassanmojab/react-modern-calendar-datepicker";
 import useTranslation from "next-translate/useTranslation";
-import RegionDropdown from "@/analyticsComponents/customer/regionDropdown";
+import RegionDropdown from "@/analyticsComponents/dashboard/regionDropdown";
 
 import { options } from "@/helpers/helper";
 import { useGlobalState } from "@/context/Context";
@@ -168,6 +168,8 @@ export default function FilterDataComponents({
       : "db_calendar_min_width"
   }`;
 
+
+
   const renderCustomInput = ({ ref }) => (
     <div className="db_list_drop_down">
       <div className="db_filter_data_comp">
@@ -175,13 +177,14 @@ export default function FilterDataComponents({
           readOnly
           ref={ref}
           placeholder={t("common:AnalyticsDashboard.Monthly")}
-          
           value={
-            selectedDayRange && selectedDayRange.from && selectedDayRange.to
-              ? `${moment(selectedDayRange.from).format("DD MMM YYYY")} ${
-                  moment(selectedDayRange.to).format("DD MMM YYYY") !==
-                  moment(selectedDayRange.from).format("DD MMM YYYY")
-                    ? `- ${moment(selectedDayRange.to).format("DD MMM YYYY")}`
+            selectedDayRange &&
+            selectedDayRange.from &&
+            selectedDayRange.to
+              ? `${moment(`${selectedDayRange.from.year}-${selectedDayRange.from.month}-${selectedDayRange.from.day}`).format("DD MMM YYYY")} ${
+                  moment(`${selectedDayRange.to.year}-${selectedDayRange.to.month}-${selectedDayRange.to.day}`).format("DD MMM YYYY") !==
+                  moment(`${selectedDayRange.from.year}-${selectedDayRange.from.month}-${selectedDayRange.from.day}`).format("DD MMM YYYY")
+                    ? `- ${moment(`${selectedDayRange.to.year}-${selectedDayRange.to.month}-${selectedDayRange.to.day}`).format("DD MMM YYYY")}`
                     : ""
                 }`
               : ""
@@ -191,6 +194,7 @@ export default function FilterDataComponents({
       </div>
     </div>
   );
+  
 
   return (
     <>
@@ -253,6 +257,8 @@ export default function FilterDataComponents({
                     const toMonth = range.to.month.toString().padStart(2, "0");
                     const fromDate = `${range.from.year}-${fromMonth}-${fromDay}`;
                     const toDate = `${range.to.year}-${toMonth}-${toDay}`;
+
+            
 
                     setSelectedFilter({
                       ...selectedFilter,

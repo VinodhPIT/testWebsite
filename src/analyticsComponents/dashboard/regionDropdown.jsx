@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import Image from 'next/image'
+
+import { useToggle } from "@/hooks/useToggle";
 
 import useTranslation from "next-translate/useTranslation";
 import { useGlobalState } from "@/context/Context";
 
 import styles from "./css/region.module.css";
 
-export default function RegionDropdown({ onFilterData, countryData ,onClearRegion }) {
+export default function RegionDropdown({ onFilterData, countryData ,onClearRegion  ,onToggle}) {
   const { selectedIds, setSelectedIds } = useGlobalState();
   const { t } = useTranslation();
   const [countries] = useState([
@@ -74,6 +77,16 @@ export default function RegionDropdown({ onFilterData, countryData ,onClearRegio
           {t("common:AnalyticsDashboard.Regions")}
         </h4>
       </div>
+      <button className={styles.custom_dropdown_close}  onClick={onToggle}>
+        <Image
+          src="/icon-close-drop.svg"
+          width={24}
+          height={24}
+          alt="close"
+          priority
+        />
+      </button>
+
       <div className={styles.custom_dropdown_content}>
         {countries.map((el, index) => {
           return (

@@ -191,7 +191,7 @@ input.location_search_input {
     position: relative;
 }
 
-.custom_toggle_close {
+.custom_dropdown_close {
     display: none;
 }
 
@@ -207,7 +207,8 @@ input.location_search_input {
     }
 
     .custom_dropdown_content {
-        flex: 1
+        flex: 1;
+        height: calc(100% - 132px);
     }
 
     .custom_dropdown_close {
@@ -215,7 +216,7 @@ input.location_search_input {
         position: absolute;
         right: 16px;
         top: 18px;
-        cursor: pointer;
+        cursor: pointer; 
     }
 
     .custom_toggle_close {

@@ -10,38 +10,27 @@ import useTotalRevenue from "@/store/dashboardAnalytics/totalRevenue";
 import useAnalyticsStore from "@/store/customerAnalytics/calenderFilter";
 import Header from "@/analyticsComponents/common/header";
 import TotalAmountEarned from "@/analyticsComponents/dashboard/totalRevenue";
-import FilterDataComponents from "@/analyticsComponents/customer/filterDataComponents";
+import FilterDataComponents from "@/analyticsComponents/dashboard/filterDataComponents";
 import NewCustomerDashboardDetails from "@/analyticsComponents/dashboard/newCustomerDashboardDetails";
 import NewOfferDashboardDetails from "@/analyticsComponents/dashboard/newOfferDashboardDetails";
 import AcceptedOfferDashboardDetails from "@/analyticsComponents/dashboard/AcceptedOfferDashboardDetails";
 import CompletedOfferDashboardDetails from "@/analyticsComponents/dashboard/CompletedOfferDashboardDetails";
 
 import {
-  getAcceptedOfferAnalyticsData,
-  getCompletedOfferAnalyticsData,
   getCountriesData,
-  getCustomerRequestAnalyticsData,
-  getOfferRequestAnalyticsData,
 } from "@/apiConfig/dashboardService";
 import API_URL from "@/apiConfig/api.config";
 
 export default function Dashboard({ data: initialData }) {
   const { status, data: sessionData } = useSession();
   const { totalAmount, fetchTotalRevenue } = useTotalRevenue();
-  const [analyticsOfferData, setAnalyticsOfferData] = useState(
-    initialData.offerCountData
-  );
-  const [acceptedOfferData, setAcceptedOfferData] = useState(
-    initialData.acceptedOfferData
-  );
-  const [completedOfferData, setCompletedOfferData] = useState(
-    initialData.completedOfferData
-  );
+  const [analyticsOfferData, setAnalyticsOfferData] = useState([]);
+  const [acceptedOfferData, setAcceptedOfferData] = useState([]);
+  const [completedOfferData, setCompletedOfferData] = useState([]);
   const [countryData, setCountryData] = useState([]);
   const [filterData, setFilerData] = useState();
-  const [filteredData, setFilteredData] = useState(
-    initialData.customerRequestData.customer_request_data
-  );
+  const [filteredData, setFilteredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { t } = useTranslation();
   const { handleDateFilter } = useAnalyticsStore();
@@ -55,30 +44,43 @@ export default function Dashboard({ data: initialData }) {
     });
   }, []);
 
+  const filterDashBoardData = (data) => {
+    setFilerData(data);
+  };
+
   useEffect(() => {
-    // Generic fetch function
+    const abortController = new AbortController();
+    setIsLoading(true);
     const fetchApiData = async (url, body, onSuccess, onError) => {
       try {
         const response = await axios.post(url, body, {
           headers: {
             Authorization: `Bearer ${initialData.sessionToken}`,
           },
+          signal: abortController.signal,
         });
         onSuccess(response.data);
       } catch (error) {
         onError(error);
+      } finally {
+        setIsLoading(false);
       }
     };
+
+    // Array to hold promises for API calls
+    const fetchDataPromises = [];
 
     const fetchCustomerRequestData = () => {
       const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA}`;
       const body = getRequestBody(filterData);
 
-      fetchApiData(
-        url,
-        body,
-        (data) => setFilteredData(data.customer_request_data),
-        (error) => setFilteredData([])
+      fetchDataPromises.push(
+        fetchApiData(
+          url,
+          body,
+          (data) => setFilteredData(data.customer_request_data),
+          (error) => setFilteredData([])
+        )
       );
     };
 
@@ -86,11 +88,13 @@ export default function Dashboard({ data: initialData }) {
       const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_OFFER_DASHBOARD_DETAILS}`;
       const body = getRequestBody(filterData);
 
-      fetchApiData(
-        url,
-        body,
-        (data) => setAnalyticsOfferData(data.send_offer_details),
-        (error) => setAnalyticsOfferData([])
+      fetchDataPromises.push(
+        fetchApiData(
+          url,
+          body,
+          (data) => setAnalyticsOfferData(data.send_offer_details),
+          (error) => setAnalyticsOfferData([])
+        )
       );
     };
 
@@ -98,11 +102,13 @@ export default function Dashboard({ data: initialData }) {
       const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_ACCEPTED_OFFER_DASHBOARD_DETAILS}`;
       const body = getRequestBody(filterData);
 
-      fetchApiData(
-        url,
-        body,
-        (data) => setAcceptedOfferData(data.accepted_offer_details),
-        (error) => setAcceptedOfferData([])
+      fetchDataPromises.push(
+        fetchApiData(
+          url,
+          body,
+          (data) => setAcceptedOfferData(data.accepted_offer_details),
+          (error) => setAcceptedOfferData([])
+        )
       );
     };
 
@@ -110,21 +116,30 @@ export default function Dashboard({ data: initialData }) {
       const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_COMPLETED_OFFER_DASHBOARD_DETAILS}`;
       const body = getRequestBody(filterData);
 
-      fetchApiData(
-        url,
-        body,
-        (data) => setCompletedOfferData(data.completed_offer_detail),
-        (error) => setCompletedOfferData([])
+      fetchDataPromises.push(
+        fetchApiData(
+          url,
+          body,
+          (data) => setCompletedOfferData(data.completed_offer_detail),
+          (error) => setCompletedOfferData([])
+        )
       );
     };
 
-    fetchCustomerRequestData();
-    fetchOfferData();
-    fetchAcceptedOfferData();
-    fetchCompletedOfferData();
-  }, [filterData]);
+    Promise.all([
+      fetchCustomerRequestData(),
+      fetchOfferData(),
+      fetchAcceptedOfferData(),
+      fetchCompletedOfferData(),
+    ])
+      .then(() => {})
+      .catch((error) => {});
+    return () => {
+      abortController.abort();
+    };
+  }, [filterData]); // Re-run effect if filterData changes
 
-  // function to construct the  body based on filterData
+  // function to construct the body based on filterData
   const getRequestBody = (filterData) => {
     let body = {};
     if (filterData?.region) body.region = filterData.region;
@@ -133,10 +148,6 @@ export default function Dashboard({ data: initialData }) {
     if (filterData?.year) body.year = filterData.year;
 
     return body;
-  };
-
-  const filterDashBoardData = (data) => {
-    setFilerData(data);
   };
 
   return (
@@ -152,21 +163,26 @@ export default function Dashboard({ data: initialData }) {
           onUpdateDateFilter={handleDateFilter}
           countryData={countryData}
         />
-        <NewCustomerDashboardDetails initialCounts={filteredData} />
+        <NewCustomerDashboardDetails initialCounts={filteredData}
+        loading={isLoading} 
+        />
         <NewOfferDashboardDetails
           initialCounts={analyticsOfferData}
           customerRequestCount={
             filteredData?.filter((item) => item.offer_created === true)
               .length || 0
           }
+          loading={isLoading} 
         />
         <AcceptedOfferDashboardDetails
           initialCounts={acceptedOfferData}
           totalOfferCount={analyticsOfferData.length || 0}
+          loading={isLoading} 
         />
         <CompletedOfferDashboardDetails
           initialCounts={completedOfferData}
           totalAcceptedOfferCount={acceptedOfferData.length || 0}
+          loading={isLoading} 
         />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
@@ -199,26 +215,10 @@ export async function getServerSideProps(context) {
   }
 
   try {
-    const [
-      offerCountData,
-      customerRequestData,
-      acceptedOfferData,
-      completedOfferData,
-    ] = await Promise.all([
-      getOfferRequestAnalyticsData(session.user.myToken),
-      getCustomerRequestAnalyticsData(session.user.myToken),
-      getAcceptedOfferAnalyticsData(session.user.myToken),
-      getCompletedOfferAnalyticsData(session.user.myToken),
-    ]);
-
     return {
       props: {
         data: {
-          customerRequestData: customerRequestData, //
-          offerCountData: offerCountData.send_offer_details, //
           sessionToken: session.user.myToken ?? "",
-          acceptedOfferData: acceptedOfferData.accepted_offer_details, //
-          completedOfferData: completedOfferData.completed_offer_detail, //
         },
       },
     };

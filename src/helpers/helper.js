@@ -1,12 +1,8 @@
 import moment from "moment";
 
-
-
-
-
 const getPaginatorCount = () => {
   // Check if window is defined (only run on the client-side)
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
     return isMobile ? 10 : 9;
   }
@@ -16,14 +12,10 @@ const getPaginatorCount = () => {
 
 export { getPaginatorCount };
 
-
 const pageCount = getPaginatorCount();
-
-
 
 export const MAX_RANDOM = 3409357923759259;
 export const MIN_RANDOM = 3;
-
 
 export const prepareRequest = (parameters) => {
   const request = {
@@ -65,15 +57,13 @@ const createRequestObject = (parameters, paginatorCount) => {
   return request;
 };
 
-
 const artistRequest = (parameters) => {
   const request = {
-    sort:null,
+    sort: null,
     page_no: parameters.page_no,
     paginator_count: pageCount,
     search_key: parameters.search_key,
-    distance:"50km",
-    
+    distance: "50km",
   };
 
   if (parameters.latitude) {
@@ -92,14 +82,9 @@ const artistRequest = (parameters) => {
   } else {
     request.style = [];
   }
- 
-
 
   return request;
 };
-
-
-
 
 export const stepperParam = (parameters) => {
   return artistRequest(parameters);
@@ -222,10 +207,6 @@ export const getContactTimeDifference = (chartData) => {
   return dateDifferenceArray;
 };
 
-
-
-
-
 const getCountry = (locations, location) => {
   const textBeforeComma = location.split(",")[0].trim();
 
@@ -249,37 +230,10 @@ const getCountry = (locations, location) => {
 
 export { getCountry };
 
-
 export const getRandomSeed = () => {
   const randomValues = new Uint32Array(1);
   crypto.getRandomValues(randomValues);
-  return randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM;
+  return (randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1)) + MIN_RANDOM;
 };
 
 
-
-export const  calculateMetrics = (initialCounts, customerRequestCount, selectedCurrency)=> {
-  const sendOffers = initialCounts?.filter(
-    (item) => item.created_date !== null
-  );
-  let conversionRate;
-  if (sendOffers.length === 0) {
-    conversionRate = 0;
-  } else {
-    // Perform the division and calculate conversion rate when sendOffers is not empty
-    conversionRate = Math.floor(
-      (customerRequestCount / sendOffers.length) * 100
-    );
-  }
-  const offerCount = initialCounts?.filter(
-    (item) => item.amounts !== null
-  ).length;
-  const offersWithSelectedCurrency = initialCounts?.filter(
-    (item) => item.currency === selectedCurrency.value
-  );
-  return {
-    conversionRate,
-    offerCount,
-    offersWithSelectedCurrency
-  };
-}
