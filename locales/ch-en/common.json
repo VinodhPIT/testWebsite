@@ -73,7 +73,7 @@
 
   "styleDetail": {
     "bannerTattooRequestBtn": "Create tattoo request",
-    "artistSliderTitle": "{{ tattooStyle }} tattoo artist",
+    "artistSliderTitle": "{{ tattooStyle }} tattoo artists",
     "artistSliderContent": "Discover the perfect {{tattooStyle}} tattoo artist for every project, tailored to your unique vision.",
     "shareTattooIdea": "Share your tattoo idea",
     "withTattooArtists": "with {{tattooStyle}} tattoo artists",

@@ -28,8 +28,8 @@ export default function ExploreStyles({ data }) {
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_65 pb_20 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_40">
-              <h2 className="color_gray_550 heading_h2 lh_41 mb_0 m_text_left custom_fs_m_24 m_lh_29 fw_700 position_relative">
+            <div className="text_box_content_inner m_pr_0 pt_65 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
+              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_0 m_text_left custom_fs_m_24 m_lh_29 fw_700 position_relative">
                 <span >
                 {t("common:styleDetail.exploreMoreStyles")}
                 </span>

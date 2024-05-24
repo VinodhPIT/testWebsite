@@ -49,27 +49,20 @@ export default function ExploreTattoos({ data ,styleName,slug }) {
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_0 pb_20 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
-              <h2 className="color_gray_550 heading_h2 lh_41 mb_0 m_text_left custom_fs_m_24 m_lh_29 fw_700 position_relative">
+            <div className="text_box_content_inner m_pr_0 pt_40 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
+              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_65 m_pr_55 m_xs_pr_0 m_text_left custom_fs_m_24 m_lh_29 fw_700 position_relative">
                 <span >
                 {t('common:styleDetail.exploreTattoos',{tattooStyle:styleName.toLowerCase()})}
                 </span>
-                <Image
-                  src="/arrow_right_n.svg"
-                  width={25}
-                  height={28}
-                  alt="arrow"
-                  onClick={() => updateTab()}
-                  className="buttonLink mob_hidden"
-                />
-                <Image
-                  src="/arrow_right_mob.svg"
-                  width={16}
-                  height={16}
-                  alt="arrow"
-                  onClick={() => updateTab()}
-                  className="desk_hidden"
-                />
+                <span  className="link_with_arrow">             
+                  <Image
+                    src="/arrow_right_mob.svg"
+                    width={24}
+                    height={24}
+                    alt="arrow"
+                    onClick={() => updateTab()}
+                  />
+                </span>
               </h2>
             </div>
             <div

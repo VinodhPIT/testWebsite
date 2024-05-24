@@ -24,18 +24,18 @@ export default function ExploreStyles({ title, content, data }) {
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 fw_700 position_relative">
+            <div className="text_box_content_inner m_pr_0 pt_80 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
+              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_0 m_text_left custom_fs_m_24 fw_700 position_relative">
                 <span className="position_relative">
                   {title}
                 </span>
               </h2>
-              <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300 mob_hidden">
+              {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
                 {content}
-              </p>
+              </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_40 m_mb_40 trending_artist_slider mob_dotted slider_nav_arrows"} ${
+              className={`${"mt_0 mb_80 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >

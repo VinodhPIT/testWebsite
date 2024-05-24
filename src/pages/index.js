@@ -227,7 +227,3 @@ export default function Home({isMobile}) {
     </>
   );
 }
-
-
-
-

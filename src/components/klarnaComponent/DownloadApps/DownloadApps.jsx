@@ -17,7 +17,7 @@ export default function DownloadApps ({title ,subTitle}) {
   const { t } = useTranslation();
 
   return (
-    <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_purple_250 landing_app_download_wrap mt_20 m_mt_0 ${bgColor}"}>
+    <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_purple_250 landing_app_download_wrap mt_0 m_mt_0 ${bgColor}"}>
       <div class="img_text_box_inner container pt_80 m_md_pt_40 m_pt_20 flex_direction_column app_download_custom_new">
         <div className="row">
           <div className="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
@@ -49,41 +49,41 @@ export default function DownloadApps ({title ,subTitle}) {
           {!isMobileView && (
             <div className="col-xl-7 col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="img_box_wrap">
-                <ul class="after_none app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_10pc gap_xl_45">
-                  <li className="pl_0">
+                <ul class="after_none app_download_img_list justify_content_end slider_resize d_slid_resize m_0 p_0 landing_app_download d_inline_flex gap_20">
+                  <li className="pl_0 no_filter">
                     <Image
-                      src="/explore_klarna_01.png"
-                      width={193}
-                      height={187}
+                      src="/explore_dtls_01.png"
+                      width={189}
+                      height={327}
                       alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
-                      className="m_max_218"
+                      className="responsive-image"
                     />
                   </li>
-                  <li className="pl_0">
+                  <li className="pl_0 no_filter">
                     <Image
-                      src="/explore_klarna_02.png"
-                      width={193}
-                      height={187}
+                      src="/explore_dtls_02.png"
+                      width={189}
+                      height={327}
                       alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
-                      className="m_max_218"
+                      className="responsive-image"
                     />
                   </li>
-                  <li className="pl_0">
+                  <li className="pl_0 no_filter">
                     <Image
-                      src="/explore_klarna_03.png"
-                      width={193}
-                      height={187}
+                      src="/explore_dtls_03.png"
+                      width={189}
+                      height={327}
                       alt={t("common:downloadApp")}
                       priority
                       placeholder="blur"
                       blurDataURL={blurDataURL}
-                      className="m_max_218"
+                      className="responsive-image"
                     />
                   </li>
                 </ul>
@@ -97,8 +97,8 @@ export default function DownloadApps ({title ,subTitle}) {
           imagePaths={["/explore_dtls_01.png", "/explore_dtls_02.png", "/explore_dtls_03.png"]}
           imgAlt={t("common:downloadApp")}
           imgblurDataURL={blurDataURL}
-          imgWidth={193}
-          imgHeight={187}
+          imgWidth={189}
+          imgHeight={327}
         ></ImageSlider>
         )}
     </div>
