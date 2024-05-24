@@ -8,7 +8,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 import { useGlobalState } from "@/context/Context";
 
 //import sliderSettings from "@/constants/homeSliderSettings";
-import { useSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 import { blurDataURL } from "@/constants/constants";
 import { getUrl } from "@/utils/getUrl";
 import Slider from "react-slick";
@@ -20,7 +20,7 @@ import { useEffect } from "react";
 export default function ArtistSlider({ title, content, data, slug }) {
   const { isVisible } = useWindowResize();
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    useSliderSettings(isVisible, data);
+    UseSliderSettings(isVisible, data);
   const router = useRouter();
   const { selectedIds, setSelectedIds } = useGlobalState();
   

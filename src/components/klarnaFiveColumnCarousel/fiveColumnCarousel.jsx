@@ -10,7 +10,7 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import { blurDataURL } from "@/constants/constants";
 //import sliderSettings from "@/constants/homeSliderSettings";
-import { useSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -23,7 +23,7 @@ export default function FiveColumnCarousel({
   const { isVisible } = useWindowResize();
   const { fetchAll, allListing } = useDisplayAll();
   const router =useRouter()
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  useSliderSettings(isVisible, allListing.artists && allListing.artists);
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  UseSliderSettings(isVisible, allListing.artists && allListing.artists);
 
 
   useEffect(() => {

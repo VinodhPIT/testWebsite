@@ -13,12 +13,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./processdragontattoo.module.css";
-import { useSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 export default function FourColumnCarousel({ title, content }) {
   const { isVisible } = useWindowResize();
   const { allListing } = useDisplayAll();
   const { router } = useNavigation();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  useSliderSettings(isVisible, allListing.artists && allListing.artists);
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  UseSliderSettings(isVisible, allListing.artists && allListing.artists);
 
   return (
     <section className="img_text_banner_box">

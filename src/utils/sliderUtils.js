@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-export const journalSliderSettings = (isSmallDevice, data) => {
+export const JournalSliderSettings = (isSmallDevice, data) => {
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -18,7 +18,7 @@ export const journalSliderSettings = (isSmallDevice, data) => {
           slidesToShow: 2,
           slidesToScroll: 2,
           swipe: true,
-          infinite: true,
+          infinite: false,
         },
       },
 
@@ -28,7 +28,7 @@ export const journalSliderSettings = (isSmallDevice, data) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           swipe: true,
-          infinite: true,
+          infinite: false,
         },
       },
     ],
@@ -52,7 +52,7 @@ export const journalSliderSettings = (isSmallDevice, data) => {
   };
 };
 
-export const useSliderSettings = (isSmallDevice, data) => {
+export const UseSliderSettings = (isSmallDevice, data) => {
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 

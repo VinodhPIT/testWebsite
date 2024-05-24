@@ -6,7 +6,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
 import useTranslation from "next-translate/useTranslation";
-import { useSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 import { blurDataURL } from "@/constants/constants";
 //import sliderSettings from "@/constants/homeSliderSettings";
 
@@ -19,7 +19,7 @@ import styles from "./styles/style.module.css";
 export default function ExploreStyles({ data }) {
   const { isVisible } = useWindowResize();
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    useSliderSettings(isVisible, data);
+    UseSliderSettings(isVisible, data);
   const { router } = useNavigation();
   const { t } = useTranslation();
 

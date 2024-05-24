@@ -101,14 +101,6 @@ body {
   overflow: inherit !important; 
 }
 
-body > div {
-  display: inline-block;
-  width: 100%;
-}
-body > div > div {
-  display: inline-block;
-  width: 100%;
-}
 
 body.theme-dark {
   color: var(--white);
