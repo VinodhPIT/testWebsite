@@ -9,7 +9,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 
 import { blurDataURL } from "@/constants/constants";
-import { journalSliderSettings } from "@/utils/sliderUtils";
+import { JournalSliderSettings } from "@/utils/sliderUtils";
 
 
 import Slider from "react-slick";
@@ -21,7 +21,7 @@ import styles from "./style.module.css";
 export default function ListingPage({ data}) {
   const { t } = useTranslation();
   const { isVisible } = useWindowResize();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } = journalSliderSettings(isVisible, data);
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } = JournalSliderSettings(isVisible, data);
   const router = useRouter();
   
   return (

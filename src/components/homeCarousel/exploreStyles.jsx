@@ -11,13 +11,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./style.module.css";
-import { useSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 
 export default function ExploreStyles({ title, content, data }) {
   const { isVisible } = useWindowResize();
   const { router } = useNavigation();
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    useSliderSettings(isVisible, data);
+    UseSliderSettings(isVisible, data);
 
   return (
     <section className="img_text_banner_box">

@@ -8,7 +8,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 
-import { useSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 
 //import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
@@ -26,7 +26,7 @@ export default function ExploreTattoos({ data ,styleName,slug }) {
   const { t } = useTranslation();
   const router = useRouter()
   const { selectedIds, setSelectedIds } = useGlobalState();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =useSliderSettings(isVisible, data);
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =UseSliderSettings(isVisible, data);
 
   const updateTab = async () => {
    
