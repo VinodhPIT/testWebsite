@@ -23,10 +23,12 @@
   --purple-200: #e6ccff;
   --purple-100: #f2e6ff;
   --blue: #6666ff;
+  --bg-green-200: #BCE6E1;
   --blue-50: #e5f2ff;
   --blue-150: #64b5f6;
   --blue-500: #8080ff;
   --blue-400: #9999ff;
+  --blue-600: #98D4FF;
   --blue-300: #b3b3ff;
   --blue-200: #ccccff;
   --blue-100: #e6e6ff;
@@ -824,6 +826,27 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 }
 .block_bg_purple_250 {
   background-color: var(--purple-250) !important;
+}
+
+.block_bg_blue_200 {
+  background-color:  var(--blue-600);
+}
+.block_bg_pink_200 {
+  background-color: #FEECDC;
+}
+
+.block_bg_pink_300 {
+  background-color: #EFBCCD;
+}
+
+.block_bg_pink_400 {
+  background-color: #D5BCF3;
+}
+.block_bg_success_green_100{
+  background-color: #C1F4D4;
+}
+.block_bg_green_200 {
+  background-color: var(--bg-green-200);
 }
 
 .color_pink {
