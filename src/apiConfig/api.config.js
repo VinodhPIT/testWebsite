@@ -30,7 +30,7 @@ const API_URL = {
     FILTER_BY_TYPE: (params) => `/analytics/customer/count/${params.type}?start_date=${params.startDate}&end_date=${params.endDate}`,
     GET_CUSTOMER_DETAILS: "/analytics/customer/details",
     GET_CUSTOMER_CONVERSION: "/analytics/customer/conversion",
-    CUSTOEMR_FILTER_BY_DATE: (params) =>`/analytics/customer/details?start_date=${params.startDate}&end_date=${params.endDate}`,
+    CUSTOEMR_FILTER_BY_DATE: (params) => `/analytics/customer/details?start_date=${params.startDate}&end_date=${params.endDate}`,
     GET_REVENUE_DETAILS: `/analytics/offer/revenue/details`,
     DOWNLOAD_EXCEL: "/analytics/customer",
   },
@@ -42,8 +42,8 @@ const API_URL = {
     GET_ARTIST_CONVERSION: "/analytics/artist/conversion",
     DOWNLOAD_EXCEL: "/analytics/artist",
 
-    CONVERSION_COUNTRY:(country)=>`/analytics/artist/conversion?country=${country}`
-    
+    CONVERSION_COUNTRY: (country) => `/analytics/artist/conversion?country=${country}`
+
 
   },
 
@@ -56,23 +56,30 @@ const API_URL = {
 
   ANALYTICS_DASHBOARD: {
     GET_DOWNLOAD_COUNT: "/analytics/download/count",
+
+    GET_COUNTRIES: "/analytics/country/list",
+    GET_CUSTOMER_REQUEST_DETAILS_DATA:"/analytics/customer/customer-request",
+    GET_OFFER_DASHBOARD_DETAILS : "/analytics/offer/send-offers",
+    GET_ACCEPTED_OFFER_DASHBOARD_DETAILS : "/analytics/offer/accepted-offers",
+    GET_COMPLETED_OFFER_DASHBOARD_DETAILS : "/analytics/offer/completed-offers"
+
+    
   },
 
   EXCEL_DOWNLOAD: {
     GET_EXCEL_FILE: (path, type, startDate, endDate) =>
-      `${path}/csv/${type}${
-        startDate && endDate
-          ? `?start_date=${moment(startDate).format(
-              "YYYY-MM-DD"
-            )}&end_date=${moment(endDate).format("YYYY-MM-DD")}`
-          : ""
+      `${path}/csv/${type}${startDate && endDate
+        ? `?start_date=${moment(startDate).format(
+          "YYYY-MM-DD"
+        )}&end_date=${moment(endDate).format("YYYY-MM-DD")}`
+        : ""
       }`,
   },
 
 
-    GET_CONTENT:"/v2/api/cms/list"
+  GET_CONTENT: "/v2/api/cms/list"
 
-  
+
 
 
 };
