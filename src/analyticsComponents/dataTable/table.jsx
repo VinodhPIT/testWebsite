@@ -26,13 +26,13 @@ const DataTable = ({ columns, data }) => {
     pageOptions,
     gotoPage,
     pageCount,
-    pageSize,
     setPageSize,
+    state: { pageIndex, pageSize },
   } = useTable(
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize: 18 }, 
+      initialState: { pageIndex: 0, pageSize: 8 },
     },
     useFilters,
     useGlobalFilter,
@@ -40,31 +40,63 @@ const DataTable = ({ columns, data }) => {
     usePagination
   );
 
-  const { pageIndex, globalFilter } = state;
+
+  const startRow = pageIndex * pageSize + 1;
+  const endRow = Math.min((pageIndex + 1) * pageSize, data.length);
+
 
   const Pagination = React.memo(() => (
-    <div className={style.pagination}>
-      <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-        {"Previous"}
-      </button>
-      <span>
-        Page
-        <strong>
-          {pageIndex + 1} of {pageOptions.length}
-        </strong>{" "}
-      </span>
-      <button onClick={() => nextPage()} disabled={!canNextPage}>
-        {"Next"}
-      </button>
-    </div>
+    <div className="pagination">
+    <span>
+      Showing results {startRow}-{endRow} 
+    </span>
+
+
+    {/* <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+      {'<<'}
+    </button>
+    <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+      {'<'}
+    </button>
+    <button onClick={() => nextPage()} disabled={!canNextPage}>
+      {'>'}
+    </button>
+    <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+      {'>>'}
+    </button> */}
+    <span>
+      Page{' '}
+      <strong>
+        {pageIndex + 1} of {pageOptions.length}
+      </strong>
+    </span>
+    {/* <select
+      value={pageSize}
+      onChange={e => {
+        setPageSize(Number(e.target.value));
+      }}
+    >
+      {[8, 10, 20, 30, 40, 50].map(pageSize => (
+        <option key={pageSize} value={pageSize}>
+          Show {pageSize}
+        </option>
+      ))}
+    </select> */}
+  </div>
+
   ));
+
+
 
   const filterByStatus = (status) => {
     setGlobalFilter(status);
   };
 
   const Button = ({ status }) => (
-    <button className="status_indicator block_bg_yellow_300 color_orange_500" onClick={() => filterByStatus(status)}>
+    <button
+      className="status_indicator block_bg_yellow_300 color_orange_500"
+      onClick={() => filterByStatus(status)}
+    >
       {status}
     </button>
   );
@@ -73,12 +105,12 @@ const DataTable = ({ columns, data }) => {
     <div>
       <div className={style.custom_search_filter_db}>
         <div className={style.search}>
-          <input
+          {/* <input
             value={globalFilter || ""}
             className={style.input_txt}
             onChange={(e) => setGlobalFilter(e.target.value)}
             placeholder="Search..."
-          />
+          /> */}
           <button type="submit" className={style.btn_search}>
             <Image src="/magni.svg" alt="search" width={20} height={20} />
           </button>
@@ -97,10 +129,12 @@ const DataTable = ({ columns, data }) => {
         </div>
       </div>
       <div className="d-flex mt_20 mb_20 justify_space_between">
-          {['Scheduled', 'Completed', 'Cancelled', 'Pending', 'Rejected'].map((status) => (
+        {["Scheduled", "Completed", "Cancelled", "Pending", "Rejected"].map(
+          (status) => (
             <Button key={status} status={status} />
-          ))}
-        </div>
+          )
+        )}
+      </div>
       <table {...getTableProps()} className={style.data_table}>
         <thead>
           {headerGroups.map((headerGroup) => (

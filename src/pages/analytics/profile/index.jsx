@@ -2,589 +2,105 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { getSession, useSession } from "next-auth/react";
+import {useSession } from "next-auth/react";
+
 import HeaderProfile from "@/analyticsComponents/common/headerProfile"
-import {
-  analyticsArtistCount,
-  analyticsArtistLeadSourceCount,
-} from "@/apiConfig/artistAnalyticsService";
 
-import YourComponent from "@/analyticsComponents/common/keys";
 import useTranslation from "next-translate/useTranslation";
-
 import DataTable from "@/analyticsComponents/dataTable/table";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-export default function ArtistAnalytics({ data: initialData }) {
+export default function ArtistAnalytics({ }) {
   const { status, data } = useSession();
   const router = useRouter();
   const { t } = useTranslation();
-  const { artistConversion } = YourComponent();
-
-  const getValues = Object.values(initialData.genderCount);
-
-  const getKeys = Object.keys(initialData.genderCount).map((key) => {
-    switch (key) {
-      case "male_count":
-        return "Male";
-      case "female_count":
-        return "Female";
-      case "non_binary_count":
-        return "Other";
-      default:
-        return key;
-    }
-  });
-
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
-
-  const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue" },
-    { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
-    { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
-  ];
-
+ 
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/analytics/login");
     }
   }, [status, router]);
 
-  const columns = [    
-    {
-      Header: "Offer code",
-      accessor: "offer_code",
-    },
-    {
-      Header: "Offer Date",
-      accessor: "offer_date",
-    },
-    {
-      Header: "Status",
-      accessor: "status",
-    },
-    {
-      Header: "Total Amount",
-      accessor: "total_amount",
-    },
 
-    {
-      Header: "Currency",
-      accessor: "currency",
-    },
+  const dataTable = React.useMemo(
+    () => [
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Pending', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Simon Roger', status: 'Scheduled', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Smiley Cutie', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Pending', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Spain Modern Tattoo', status: 'Scheduled', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Pending', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+      { offerCode: '220615456', projectName: 'Flash Garden', status: 'Completed', offerDate: '24/02/2024', createdOn: '20/02/2024', updatedOn: '20/02/2024', city: 'Artesa de Segre', priceType: 'Fixed', price: '€1560', voucher: 'None' },
+    ],
+    []
+  )
 
+  // Column definitions
+const columns = React.useMemo(
+  () => [
     {
-      Header: "Status1",
-      accessor: "status1",
+      Header: 'Offer code',
+      accessor: 'offerCode',
     },
     {
-      Header: "Total Amount1",
-      accessor: "total_amount1",
+      Header: 'Project name',
+      accessor: 'projectName',
     },
+    {
+      Header: 'Status',
+      accessor: 'status',
+      Cell: ({ value }) => (
+        <span className={`status_${value.toLowerCase()}`}>{value}</span>
+      ),
+    },
+    {
+      Header: 'Offer date',
+      accessor: 'offerDate',
+    },
+    {
+      Header: 'Created on',
+      accessor: 'createdOn',
+    },
+    {
+      Header: 'Updated on',
+      accessor: 'updatedOn',
+    },
+    {
+      Header: 'City',
+      accessor: 'city',
+    },
+    {
+      Header: 'Price type',
+      accessor: 'priceType',
+    },
+    {
+      Header: 'Price',
+      accessor: 'price',
+    },
+    {
+      Header: 'Voucher',
+      accessor: 'voucher',
+    },
+    {
+      Header: 'Actions',
+      accessor: 'Actions',
+    },
+  ],
+  []
+);
+ 
 
-    {
-      Header: "Currency1",
-      accessor: "currency1",
-    },
-
-    {
-      Header: "Status11",
-      accessor: "status11",
-    },
-    {
-      Header: "Total A1modcdcdunt1",
-      accessor: "t1otal_adcdcdcmount1",
-    },
-
-    {
-      Header: "Cur1rencysxs1",
-      accessor: "cur1rencsxxsy1",
-    },
-
-    {
-      Header: "Sta11tus1",
-      accessor: "s11tatus1",
-    },
-    {
-      Header: "Total Amoun111t1",
-      accessor: "total_dcdcamount1",
-    },
-
-    {
-      Header: "Currency1wdd",
-      accessor: "currenccdcdcy1",
-    },
-
-    {
-      Header: "Total Amocdcdcun111t1",
-      accessor: "total_dcdcdcdcamount1",
-    },
-
-    {
-      Header: "Currencydcd1wdd",
-      accessor: "currencdcdccdcdcy1",
-    },
-  ];
-
-  const data1 = [
-    {
-      offer_code: null,
-      offer_date: null,  
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-21",
-      status: "cancelled",
-      total_amount: null,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-07-26",
-      status: "completed",
-      total_amount: 50.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-29",
-      status: "completed",
-      total_amount: 460.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-30",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 50.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-30",
-      psp: null,
-      status: "completed",
-      total_amount: 210.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-01",
-      psp: "klarna",
-      status: "cancelled",
-      total_amount: 15.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-07-27",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-30",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-29",
-      psp: null,
-      status: "completed",
-      total_amount: 42.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-05",
-      psp: null,
-      status: "completed",
-      total_amount: 60.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-05",
-      psp: null,
-      status: "completed",
-      total_amount: 60.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-07-31",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-14",
-      psp: null,
-      status: "cancelled",
-      total_amount: null,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-08-02",
-      psp: null,
-      status: "completed",
-      total_amount: 50.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-30",
-      psp: null,
-      status: "cancelled",
-      total_amount: 15.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-30",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 50.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-08-09",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 75.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-29",
-      psp: null,
-      status: "completed",
-      total_amount: 300.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-29",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-30",
-      psp: null,
-      status: "completed",
-      total_amount: 210.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-08-10",
-      psp: null,
-      status: "completed",
-      total_amount: 350.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-08-10",
-      psp: null,
-      status: "completed",
-      total_amount: 200.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-31",
-      psp: null,
-      status: "completed",
-      total_amount: 100.0,
-      currency: "GBP",
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-29",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-29",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-31",
-      psp: null,
-      status: "completed",
-      total_amount: 80.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-05-31",
-      psp: null,
-      status: "cancelled",
-      total_amount: 15.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-01",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 50.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: null,
-      offer_date: null,
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-05",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 130.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-01",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 60.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-16",
-      psp: null,
-      status: "scheduled",
-      total_amount: null,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-01",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 250.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-13",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-22",
-      psp: null,
-      status: null,
-      total_amount: null,
-      currency: null,
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-05",
-      psp: "klarna",
-      status: "completed",
-      total_amount: 50.0,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2024-02-12",
-      psp: null,
-      status: "pending",
-      total_amount: null,
-      currency: "CHF",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-08-30",
-      psp: null,
-      status: "rejected",
-      total_amount: null,
-      currency: "EUR",
-    },
-    {
-      offer_code: "220615456",
-      offer_date: "2023-06-22",
-      psp: null,
-      status: "rejected",
-      total_amount: null,
-      currency: "EUR",
-    },
-  ];
-
-  const datas = data1.filter((e) => e.status !== null);
-  
 
 
 
@@ -813,8 +329,9 @@ export default function ArtistAnalytics({ data: initialData }) {
                   </div>
                 </TabPanel>
                 <TabPanel>
-                  <DataTable columns={columns} data={datas} />
-                </TabPanel>                  
+                  <DataTable columns={columns} data={dataTable} />
+                </TabPanel>   
+
                 
               </Tabs>
 
@@ -829,47 +346,3 @@ export default function ArtistAnalytics({ data: initialData }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
-
-  try {
-    const [data, customerJoinigData] = await Promise.all([
-      analyticsArtistCount(session.user.myToken),
-      analyticsArtistLeadSourceCount(session.user.myToken),
-    ]);
-
-    return {
-      props: {
-        data: {
-          chartData: customerJoinigData ?? [],
-          artistCompletedOffers: data.artist_with_offer || 0,
-          artistInCommunication: data.contacted_artist || 0,
-          joinedFromApp: data.joined_from_app || 0,
-          joinedFromWeb: data.joined_from_website || 0,
-          joinedUsingReferral: data.referral_used || 0,
-          nonPublicProfiles: data.not_public_artist || 0,
-          notCompletedAnyOffer: data.no_offer_completed || 0,
-          notContactedCustomer: data.no_contacted || 0,
-          notCreatedAnyOffers: data.no_offer_created || 0,
-          sessionToken: session.user.myToken ?? "",
-          totalArtists: data.total_artist || 0,
-          totalPublicArtists: data.public_artist || 0,
-          genderCount: data.gender || 0,
-        },
-      },
-    };
-  } catch (error) {
-    return {
-      data: null,
-    };
-  }
-}
