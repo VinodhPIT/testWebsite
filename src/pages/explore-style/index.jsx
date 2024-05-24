@@ -151,7 +151,7 @@ export default function Styledeatil({ data ,style_id}) {
             <div className="img_text_box_wrapper exciting_offer_wrap">
               <div class="text_box_wrap right">
                 <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                  <div class="text_box_content justify_content_center m_min_h_reset m_pt_25 m_pb_40">
+                  <div class="text_box_content justify_content_center m_min_h_reset m_pt_25 m_pb_15">
                     <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                       <div className="tiny_payment_block pr_10_pc m_pr_0">
                         <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">

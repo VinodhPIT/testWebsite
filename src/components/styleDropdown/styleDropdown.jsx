@@ -82,15 +82,15 @@ export default function StyleDropdown({
         <button
           disabled={state.selectedStyle === "" ? true : false}
           onClick={() => clearAll()}
-          className="btn_outline_secondary w_100pc"
+          className="btn_outline_secondary w_100pc custom_fs_16 text_fs_m_14 m_pl_10 m_pr_10"
         >
          {t("common:Clear All")}
         </button>
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_secondary w_100pc bdr_rad_4"
-        >
+          className="btn_secondary w_100pc bdr_rad_4 text_fs_m_14 m_pl_10 m_pr_10"
+        > 
           {t("common:Show Results")}
         </button>
       </div>

@@ -22,56 +22,56 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
     return (
         <section className="img_text_banner_box">
             <div className="img_text_box_wrapper">                    
-                <div className="text_box_wrap right block_bg_purple_250 custom_right_img_new app_download_box_wrap landing_app_download_wrap mb_0 m_pb_25">
+                <div className="text_box_wrap right block_bg_purple_250 custom_right_img_new app_download_box_wrap landing_app_download_wrap mb_0 m_pb_40">
                     <div className="img_text_box_inner container flex_direction_column pt_0">
                         <div className="row">
-					        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					        <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
                                 <div className="text_box_content justify_content_start align_item_start p_0 m_min_h_reset">
                                     <div className="text_box_content_inner max_w_100pc pt_80 pb_80 m_pt_40 m_pb_35 pr_50 m_pr_0">
-                                        <div className="d_flex flex_direction_column mb_30 mt_0 m_mb_15">                                            
-                                            <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 d_flex align_item_center">
-                                                <Image
-                                                    src="/icon_verified.svg"
-                                                    width={32}
-                                                    height={32}
-                                                    alt="Verified tattoo artists"
-                                                    priority
-                                                    placeholder="blur"
-                                                    blurDataURL={blurDataURL}
-                                                    className="mr_10 m_w_24 m_h_24"
-                                                />
+                                        <div className="d_flex flex_direction_column mb_30 mt_0 m_mb_15">
+                                            <Image
+                                                src="/icon_verified.svg"
+                                                width={33}
+                                                height={33}
+                                                alt="Verified tattoo artists"
+                                                priority
+                                                placeholder="blur"
+                                                blurDataURL={blurDataURL}
+                                                className="mb_10 m_w_24 m_h_24"
+                                            />
+                                            <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 d_flex align_item_center">                                                
                                                 {title1}</h4>
-                                            <p className="color_gray_550 custom_fs_m_14 mb_0 mt_0 pl_42 m_pl_34">{content1}</p>
+                                            <p className="color_gray_550 custom_fs_m_14 mb_0 mt_0">{content1}</p>
                                         </div>                                        
-                                        <div className="d_flex flex_direction_column mb_30 m_mb_15">                                            
-                                            <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 d_flex align_item_center">
-                                                <Image
-                                                    src="/icon_user_friendly.svg"
-                                                    width={32}
-                                                    height={32}
-                                                    alt="User-Friendly Interface"
-                                                    priority
-                                                    placeholder="blur"
-                                                    blurDataURL={blurDataURL}
-                                                    className="mr_10 m_w_24 m_h_24"
-                                                />
+                                        <div className="d_flex flex_direction_column mb_30 m_mb_15">
+                                            <Image
+                                                src="/icon_user_friendly.svg"
+                                                width={33}
+                                                height={33}
+                                                alt="User-Friendly Interface"
+                                                priority
+                                                placeholder="blur"
+                                                blurDataURL={blurDataURL}
+                                                className="mb_10 m_w_24 m_h_24"
+                                            />                                            
+                                            <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 d_flex align_item_center">                                                
                                                 {title2}</h4>
-                                            <p className="color_gray_550 custom_fs_m_14 mb_0 mt_0 pl_42 m_pl_34">{content2}</p>
+                                            <p className="color_gray_550 custom_fs_m_14 mb_0 mt_0">{content2}</p>
                                         </div>                                      
-                                        <div className="d_flex flex_direction_column mb_0">                                            
-                                            <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 d_flex align_item_center">
-                                                <Image
-                                                    src="/icon_secure.svg"
-                                                    width={32}
-                                                    height={32}
-                                                    alt="Secure Transactions"
-                                                    priority
-                                                    placeholder="blur"
-                                                    blurDataURL={blurDataURL}
-                                                    className="mr_10 m_w_24 m_h_24"
-                                                />
+                                        <div className="d_flex flex_direction_column mb_0">
+                                            <Image
+                                                src="/icon_secure.svg"
+                                                width={33}
+                                                height={33}
+                                                alt="Secure Transactions"
+                                                priority
+                                                placeholder="blur"
+                                                blurDataURL={blurDataURL}
+                                                className="mb_10 m_w_24 m_h_24"
+                                            />
+                                            <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24 d_flex align_item_center">                                             
                                                 {title3}</h4>
-                                            <p className="color_gray_550 custom_fs_m_14 mb_0 mt_0 pl_42 m_pl_34">{content3}</p>
+                                            <p className="color_gray_550 custom_fs_m_14 mb_0 mt_0">{content3}</p>
                                         </div>                                           
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                             {!isMobileView && (
                                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div className="img_box_wrap m_pb_25">
-                                        <ul className="app_download_img_list justify_content_start slider_resize d_slid_resize m_0 p_0 d_inline_flex gap_20">
+                                        <ul className="app_download_img_list justify_content_end slider_resize d_slid_resize m_0 p_0 d_inline_flex gap_20">
                                             <li className="pl_0 no_filter">
                                                 <Image
                                                     priority
