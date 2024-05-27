@@ -18,3 +18,12 @@ export const offerApitype = {
   rejected: "rejected",
   expired: "expired",
 };
+
+
+export const offerStatus = {
+  PENDING: "pending",
+  SCHEDULED: "scheduled",
+  COMPLETED: "completed",
+  EXPIRED: "expired",
+  REJECTED: "rejected",
+}

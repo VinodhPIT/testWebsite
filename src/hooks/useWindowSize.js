@@ -3,15 +3,13 @@ import { useState, useEffect } from "react";
 function useWindowResize() {
   const [isMobileView, setIsMobileView] = useState(false);
   const [isSmallDevice, setSmallDevice] = useState(false);
-  const [cookieDropdown, setCookieDropdown] = useState(false);
+  const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth <= 767.98);
-
       setSmallDevice(window.innerWidth <= 875)
-
-      setCookieDropdown(window.innerWidth <= 767.98);
+      setVisible(window.innerWidth <= 600)
     };
 
     handleResize();
@@ -23,9 +21,8 @@ function useWindowResize() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("orientationchange", handleResize); // Remove orientation change listener
     };
-  }, []);
-
-  return { isMobileView, cookieDropdown ,isSmallDevice };
+  }, []);  
+  return { isMobileView ,isSmallDevice  ,isVisible};
 }
 
 export default useWindowResize;

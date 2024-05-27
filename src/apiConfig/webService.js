@@ -180,9 +180,9 @@ export const exploreStyle = async (lng) => {
 };
 
 
-export const getSingleStyleDetail = async (styleId) => {
+export const getSingleStyleDetail = async (styleId ,lng) => {
   try {
-    const response = await getApiCall(API_URL.SEARCH.GET_SINGLE_STYLE_DETAIL(styleId));
+    const response = await styleListGetApiCall(API_URL.SEARCH.GET_SINGLE_STYLE_DETAIL(styleId),lng);
 
     return response;
   } catch (error) {

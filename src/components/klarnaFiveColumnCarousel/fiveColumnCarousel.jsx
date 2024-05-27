@@ -9,8 +9,8 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 
 import { blurDataURL } from "@/constants/constants";
-import sliderSettings from "@/constants/homeSliderSettings";
-
+//import sliderSettings from "@/constants/homeSliderSettings";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -20,11 +20,10 @@ export default function FiveColumnCarousel({
   title,
   content_sub,
 }) {
-  const { isMobileView } = useWindowResize();
-  const settings = sliderSettings(isMobileView);
+  const { isVisible } = useWindowResize();
   const { fetchAll, allListing } = useDisplayAll();
   const router =useRouter()
-
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  UseSliderSettings(isVisible, allListing.artists && allListing.artists);
 
 
   useEffect(() => {
@@ -36,40 +35,40 @@ export default function FiveColumnCarousel({
       <div className="text_box_wrap full-block-wrap">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_0 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_15">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 position_relative">
+            <div className="text_box_content_inner m_pr_0 pt_0 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
+              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_65 m_pr_55 m_xs_pr_0 m_text_left custom_fs_m_24 fw_700 position_relative">
                 <span className="position_relative">
                   {title}
                 </span>
-
-                <Link href={`/${router.locale}/explore/tattoo-artists`} className="link_with_arrow">             
+                <Link href={`/${router.locale}/explore/tattoo-artists`} className="link_with_arrow">                  
                   <Image
-                    src="/arrow_right_n.svg"
-                    width={25}
-                    height={28}
+                    src="/arrow_right_mob.svg"
+                    width={24}
+                    height={24}
                     alt="arrow"
                   />
-                  </Link>
-
+                </Link>
               </h2>
-              <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
+              {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300 mob_hidden">
                 {content_sub}
-              </p>
+              </p> */}
             </div>
 
             <div
-              className={`${"mt_0 mb_60 m_mb_0 trending_artist_slider artistSlider slider_nav_arrows"} ${
+              className={`${"mt_0 mb_60 m_mb_25 trending_artist_slider artistSlider mob_dotted slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >
+              {allListing.artists && (
               <div className={styles.listing_grid_wrapper}>
                 <Slider
-                  {...settings}
-                  className="custom_content_slick_slider"
+                  ref={sliderRef}
+                  {...sliderSettings}
+                  className="custom_content_slick_slider m_ml_n_15 m_mr_n_15"
                 >
                 {allListing.artists && allListing.artists.map((el, index) => (
                     <div
-                      className={`${"listing_gridItem"} ${
+                      className={`${"listing_gridItem pl_0 pr_10"} ${
                         styles.listing_gridItem
                       }`}
                       key={index}
@@ -133,7 +132,22 @@ export default function FiveColumnCarousel({
                     </div>
                   ))}
                 </Slider>
+                {isVisible && (
+                    <ul className="custom-dots">
+                       {Array.from({ length: totalDots }).map((_, index) => (
+                          <li
+                            key={index}
+                            className={
+                              index === activeDot(activeIndex) ? "active" : ""
+                            }
+                          >
+                            <button></button>
+                          </li>
+                        ))}
+                    </ul>
+                  )}
               </div>
+               )}
             </div>
           </div>
         </div>

@@ -51,6 +51,20 @@ export async function analyticsGetApiCall(endpoint, token) {
   }
 }
 
+export async function analyticsPostApiCall(endpoint,token) {
+  try {
+    const response = await fetch(`${process.env.apiDomain}${endpoint}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      }
+    });
+    return handleResponse(response);
+  } catch (error) {
+    throw error;
+  }
+}
 
 export async function styleListGetApiCall(endpoint, lng) {
   try {
@@ -66,4 +80,3 @@ export async function styleListGetApiCall(endpoint, lng) {
     throw error;
   }
 }
-

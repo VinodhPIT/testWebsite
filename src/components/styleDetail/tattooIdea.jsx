@@ -8,8 +8,8 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function Tattooidea({ name ,handleLinkClick }) {
   const { t } = useTranslation();
-  const { isMobileView } = useWindowResize();
-  const requestPath = useRequestPath(isMobileView);
+  const { isSmallDevice } = useWindowResize();
+  const requestPath = useRequestPath(isSmallDevice);
 
   return (
     <div className="block_bg_cool_aero_blue container w_100pc text_center">

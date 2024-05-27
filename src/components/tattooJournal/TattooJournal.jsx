@@ -9,7 +9,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 
 import { blurDataURL } from "@/constants/constants";
-
+import { JournalSliderSettings } from "@/utils/sliderUtils";
 
 
 import Slider from "react-slick";
@@ -18,95 +18,40 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./style.module.css";
 
 
-export default function ListingPage({ data, error }) {
-  const { isMobileView } = useWindowResize();
+export default function ListingPage({ data}) {
   const { t } = useTranslation();
-
+  const { isVisible } = useWindowResize();
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } = JournalSliderSettings(isVisible, data);
   const router = useRouter();
-
-  let sliderSettings = {};
-
-  sliderSettings = {
-    infinite: false,
-    arrows: isMobileView ? false : true,
-    speed: 300,
-    slidesToShow: isMobileView ? 1 : 3,
-    slidesToScroll: isMobileView ? 1 : 3,
-    dots: false,
-
-    responsive: [
-      {
-        breakpoint: 1365,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: false,
-        },
-      },
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: false,
-        },
-      },
-
-      {
-        breakpoint: 1025,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: false,
-        },
-      },
-
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-
-      {
-        breakpoint: 400,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  
   return (
     <>
-      <div className="text_box_wrap full-block-wrap block_bg_white m_pt_0 pb_20 m_pb_0">
+      <div className="text_box_wrap full-block-wrap block_bg_white m_pt_0 pb_0">
         <div className="img_text_box_inner">
           <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_35 pb_40 max_w_100pc m_pt_0 m_pb_0 m_mb_15 m_mt_0">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_10 m_mb_0 m_text_left custom_fs_m_24 position_relative">
-                <span className="heading_with_arrow position_relative"> {t("common:homePage.Tattoo Journal")}</span>
+            <div className="text_box_content_inner m_pr_0 pt_0 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
+              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_65 m_pr_55 m_xs_pr_0 m_text_left custom_fs_m_24 fw_700 position_relative">
+                <span className="position_relative">
+                  {t("common:homePage.Tattoo Journal")}</span>
+                  <Link href={`/${router.locale}/journal`}  className="link_with_arrow">             
+                    <Image
+                      src="/arrow_right_mob.svg"
+                      width={24}
+                      height={24}
+                      alt="arrow"
+                    />
+                  </Link>
               </h2>
-              <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
+              {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300 mob_hidden">
               {t("common:homePage.journalContent")}
-              </p>
+              </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_80 m_mb_25 slider_nav_arrows"} ${
+              className={`${"mt_0 mb_80 m_mb_25 slider_nav_arrows mob_dotted"} ${
                 styles.listing_pageContainer
               }`}
             >
-              <Slider
-                {...sliderSettings}
-            
-              >
+              <Slider ref={sliderRef} {...sliderSettings}>
                 {data.map((el, index) => (
                   <div
                     className={`${"listing_gridItem pl_0 pr_10"} ${
@@ -142,7 +87,7 @@ export default function ListingPage({ data, error }) {
                       }`}
                     >
                       <div className={styles.listing_grid_profile_details}>
-                        <h6 className={styles.listing_grid_profile_title}>
+                        <h6 className={`${"fw_700"} ${styles.listing_grid_profile_title}`}>
                           {el.title}
                         </h6>
                         <p className={styles.listing_grid_content_disc}>
@@ -168,6 +113,20 @@ export default function ListingPage({ data, error }) {
                   </div>
                 ))}
               </Slider>
+              {isVisible && (
+                <ul className="custom-dots">
+                  {Array.from({ length: totalDots }).map((_, index) => (
+                    <li
+                      key={index}
+                      className={
+                        index === activeDot(activeIndex) ? "active" : ""
+                      }
+                    >
+                      <button></button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>

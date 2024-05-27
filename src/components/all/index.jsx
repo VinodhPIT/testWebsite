@@ -1,29 +1,25 @@
 import React from "react";
 import Image from "next/image";
-import { useGlobalState } from "@/context/Context";
-import styles from "@/components/styles/listing.module.css";
-import NoData from "@/components/noDatafound/noData";
-import { blurDataURL } from "@/constants/constants";
-import Link from "next/link";
-import ArtistAdd from "../adds/artistAdd";
-import KlarnaAdd from "../adds/klarnaAdd";
-import Offer from "../adds/offer";
-import { useNavigation } from "@/hooks/useRouter";
 import Head from "next/head";
+import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
+import { useNavigation } from "@/hooks/useRouter";
+
+import NoData from "@/components/noDatafound/noData";
+
+import { blurDataURL } from "@/constants/constants";
+
+import styles from "@/components/styles/listing.module.css";
 
 export default function All({ data }) {
-  const { state } = useGlobalState();
   const { t } = useTranslation();
   const { router } = useNavigation();
 
   return (
     <>
       <Head>
-      <title>
-        {t("common:exploreAllScreenSEO.title")}
-        </title>
+        <title>{t("common:exploreAllScreenSEO.title")}</title>
       </Head>
 
       <div className={styles.pageContainer}>
@@ -34,20 +30,10 @@ export default function All({ data }) {
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
             {data.map((item, idx) => {
-              const key = item._index === "ad" ? `ad-${idx}` : item._id;
-
-              return item._index === "ad" ? (
-                item.add === 1 ? (
-                  <ArtistAdd />
-                ) : item.add === 2 ? (
-                  <KlarnaAdd />
-                ) : (
-                  <Offer />
-                )
-              ) : (
+              return (
                 <Link
                   className={styles.listing_gridItem}
-                  key={key}
+                  key={idx}
                   href={
                     item._source.tattoo_type === "normal"
                       ? `/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`
