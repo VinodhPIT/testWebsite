@@ -77,7 +77,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                 </div>
                             </div>
                             {!isMobileView && (
-                                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 align_content">
                                     <div className="img_box_wrap m_pb_25">
                                         <ul className="app_download_img_list justify_content_end slider_resize d_slid_resize m_0 p_0 d_inline_flex gap_20">
                                             <li className="pl_0 no_filter">

@@ -594,7 +594,9 @@
   },
 
   "klarnaMarketingScreen": {
-    "title": "Klarna-Download"
+    "title": "Klarna-Download",
+    "bannerTitle1":"Big Ink.",
+    "bannerTitle1-Sub":"Tiny Payments."
   },
 
   "VoucherScreen": {
