@@ -9356,9 +9356,3 @@ button.language_switcher img {
     background: var(--white);
   }
 }
-.custom-dots{display: flex;
-  gap: 11px;
-  justify-content: center;
-}
-.custom-dots .dot{width: 11px; height: 11px;border-radius: 50%; background-color: red;}
-.custom-dots .active{width: 11px; height: 11px;border-radius: 50%; background-color: #000;}

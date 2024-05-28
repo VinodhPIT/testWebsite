@@ -58,7 +58,7 @@ const DataTable = ({ columns, data }) => {
         <button
           key="ellipsis-start"
           disabled
-          style={{ fontSize: "41px", color: "#000", opacity: "1" }}
+          className="page_list"
         >
           {"..."}
         </button>
@@ -70,7 +70,7 @@ const DataTable = ({ columns, data }) => {
         <button
           key={i}
           onClick={() => gotoPage(i)}
-          className={pageIndex === i ? style.active : ""}
+          className={pageIndex === i ? style.active : "page_list"}
         >
           {i + 1}
         </button>
@@ -82,7 +82,7 @@ const DataTable = ({ columns, data }) => {
         <button
           key="ellipsis-end"
           disabled
-          style={{ fontSize: "41px", color: "#000", opacity: "1" }}
+          className="page_list"
         >
           {"..."}
         </button>
@@ -91,11 +91,11 @@ const DataTable = ({ columns, data }) => {
 
     return (
       <div className={style.pagination}>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage} className="page_list page_pre">
           {"Previous"}
         </button>
         {pageNumbers}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button onClick={() => nextPage()} disabled={!canNextPage} className="page_list page_nex">
           {"Next"}
         </button>
       </div>
@@ -135,77 +135,78 @@ const DataTable = ({ columns, data }) => {
           </button>
         </div>
       </div>
-      <table {...getTableProps()} className={style.data_table}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
-              {headerGroup.headers.map((column) => (
-                <th
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  key={column.id}
-                >
-                  <div className={style.wrapper}>
-                    {column.render("Header")}
-                    <span>
-                      {column.isSorted ? (
-                        column.isSortedDesc ? (
-                          <Image
-                            src="/sort_down.svg"
-                            width={17}
-                            height={16}
-                            alt="Desc"
-                          />
-                        ) : (
-                          <Image
-                            src="/sort_up.svg"
-                            width={17}
-                            height={16}
-                            alt="Asec"
-                          />
-                        )
-                      ) : (
-                        ""
-                      )}
-                    </span>
-                  </div>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        {rows.length > 0 ? (
-          <tbody {...getTableBodyProps()}>
-            {page.map((row, index) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()} key={index}>
-                  {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()} key={cell.column.id}>
-                      {cell.render("Cell")}
-                    </td>
+      <div className="db_datatable_page_block">
+        <div className="db_datatable_block">
+          <table {...getTableProps()} className={style.data_table}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
+                  {headerGroup.headers.map((column) => (
+                    <th
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                      key={column.id}
+                    >
+                      <div className={style.wrapper}>
+                        {column.render("Header")}
+                        <span>
+                          {column.isSorted ? (
+                            column.isSortedDesc ? (
+                              <Image
+                                src="/sort_down.svg"
+                                width={17}
+                                height={16}
+                                alt="Desc"
+                              />
+                            ) : (
+                              <Image
+                                src="/sort_up.svg"
+                                width={17}
+                                height={16}
+                                alt="Asec"
+                              />
+                            )
+                          ) : (
+                            ""
+                          )}
+                        </span>
+                      </div>
+                    </th>
                   ))}
                 </tr>
-              );
-            })}
-          </tbody>
-        ) : (
-          <tbody>
-            <tr key="no-data">
-              <td colSpan={columns.length} className="no-data-found">
-                No data found.
-              </td>
-            </tr>
-          </tbody>
-        )}
-      </table>
-<div className="pagination_section">
-
-
-      <span>
-        Showing {startRow} to {endRow}
-      </span>
-
-      {rows.length > 0 && <Pagination />}
+              ))}
+            </thead>
+            {rows.length > 0 ? (
+              <tbody {...getTableBodyProps()}>
+                {page.map((row, index) => {
+                  prepareRow(row);
+                  return (
+                    <tr {...row.getRowProps()} key={index}>
+                      {row.cells.map((cell) => (
+                        <td {...cell.getCellProps()} key={cell.column.id}>
+                          {cell.render("Cell")}
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            ) : (
+              <tbody>
+                <tr key="no-data">
+                  <td colSpan={columns.length} className="no-data-found">
+                    No data found.
+                  </td>
+                </tr>
+              </tbody>
+            )}
+          </table>
+        </div>
+          <div className="db_pagination_block">
+            <span className="show_result_page">
+            Showing {startRow} to {endRow}
+            </span>
+            {rows.length > 0 && <Pagination />}
+          </div>
       </div>
     </div>
   );

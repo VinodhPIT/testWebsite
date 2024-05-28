@@ -362,17 +362,20 @@ const columns = React.useMemo(
   () => [
     {
       Header: 'Offer code',
-      accessor: 'offerCode',
+      accessor: 'offerCode',      
     },
     {
       Header: 'Project name',
       accessor: 'projectName',
+      Cell: ({ value }) => (
+        <span className={`fw_600 color_gray_550`}>{value}</span>
+      ),
     },
     {
       Header: 'Status',
       accessor: 'status',
       Cell: ({ value }) => (
-        <span className={`status_${value.toLowerCase()}`}>{value}</span>
+        <span className={`status_indicator status_${value.toLowerCase()}`}>{value}</span>
       ),
     },
     {
@@ -410,9 +413,6 @@ const columns = React.useMemo(
   ],
   []
 );
- 
-
-
 
 
 
@@ -656,4 +656,6 @@ const columns = React.useMemo(
     </>
   );
 }
+
+
 

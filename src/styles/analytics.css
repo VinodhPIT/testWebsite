@@ -804,7 +804,7 @@ ul.head_status_block li .head_status_date {
 .profile_info_col_wrap {
   display: flex;
   align-items: flex-start;
-  padding: 32px 32px;
+  padding: 32px 32px 115px  32px;
   width: 100%;
 }
 .profile_personal_info {
@@ -820,6 +820,16 @@ ul.head_status_block li .head_status_date {
   flex-direction: column;
   width: 50%;
   padding-left: 53px;
+  padding-bottom: 32px;
+  position: relative;
+}
+.profile_other_info:before {
+  content: "";
+  border-left: 1px solid #E1E4E8;
+  padding-bottom: 32px;
+  position: absolute;
+  left: 0;
+  height: 100%;
 }
 .profile_personal_info_col {
   display: flex;
@@ -988,7 +998,7 @@ ul.head_status_block li .head_status_date {
   height: auto;
 }
 .status_indicator {
-  display: flex;
+  display: inline-flex;
   padding: 4px 16px;
   justify-content: center;
   align-items: center;
@@ -997,8 +1007,6 @@ ul.head_status_block li .head_status_date {
   font-weight: 400;
   line-height: 24px;
 }
-
-
 .db_customer_rqst_type {
   flex-direction: row;
   align-items: flex-start;
@@ -1085,16 +1093,16 @@ ul.head_status_block li .head_status_date {
   padding-right: 32px;
 }
 .db_filter_region button.btn_selection:after {
-   content: "";
-   position: absolute;
-   right: 8px;
-   top: 8px;
-   width: 20px;
-   height: 20px;
-   background-image: url(/arrow-down-dark.svg);
-   background-repeat: no-repeat;
-   background-size: contain;
-   opacity: 0.6;
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  background-image: url(/arrow-down-dark.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.6;
 }
 
 .db_filter_data_comp.db_filter_yearly {
@@ -1121,6 +1129,53 @@ ul.head_status_block li .head_status_date {
 .custom-placeholder::placeholder {
   color: var(--black);
   opacity: 1; 
+}
+
+.status_pending {
+  background-color: var(--yellow-300);
+  color: var(--orange-dark-500);
+}
+.status_scheduled {
+  background: var(--blue-light-100);
+  color: var(--green-dark-400);
+}
+.status_completed {
+  background: var(--green-100);
+  color: var(--green-900);
+}
+
+.db_datatable_page_block {
+  border: 1px solid #E1E4E8;
+  border-radius: 8px;
+  padding-bottom: 24px;
+  background-color: #fff;
+}
+.db_datatable_block {
+  display: inline-block;
+  overflow-x: auto;
+  width: 100%;
+}
+.db_pagination_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 0px 28px;
+}
+.show_result_page {
+  color: var(--gray-400);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px
+}
+
+button.page_list {
+  padding: 4px 12px;
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border-radius: 4px;
+  border: 1px solid #E1E4E8;
 }
 
 @media screen and (max-width: 1199px) {
