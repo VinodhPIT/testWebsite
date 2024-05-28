@@ -8,7 +8,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import useTranslation from "next-translate/useTranslation";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 import { blurDataURL } from "@/constants/constants";
-//import sliderSettings from "@/constants/homeSliderSettings";
+
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

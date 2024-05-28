@@ -6,7 +6,6 @@ import useWindowResize from "@/hooks/useWindowSize";
 import {useNavigation} from "@/hooks/useRouter"
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
-//import sliderSettings from "@/constants/homeSliderSettings";
 import { blurDataURL } from "@/constants/constants";
 
 import Slider from "react-slick";
