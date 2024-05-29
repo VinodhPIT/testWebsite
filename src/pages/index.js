@@ -69,7 +69,7 @@ export default function Home({isMobile}) {
 
 
   useEffect(() => {
-
+    router.replace(`/${router.locale}${router.asPath}`);
     clearStyleId("");
     setSelectedIds([]);
     getAddress("Location");
