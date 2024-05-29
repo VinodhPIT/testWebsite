@@ -40,20 +40,17 @@ export default function Main() {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div class="request_back_arrow">
-                  
+                <div class="request_back_arrow">                  
                     <Image
                       priority
                       alt="backArrow"
-                      src="/back_arrow_left_white.svg"
+                      src="/icon_close.svg"
                       width="24"
                       height="24"
                       blurDataURL={blurDataURL}
                       className="m_object_position_center"
                       onClick={() =>router.push(`${router.locale}${pathname}`)}
-
-                    />
-                 
+                    />                 
                 </div>
                 <div class="request_stepper">
                   <div class="request_stepper_item">

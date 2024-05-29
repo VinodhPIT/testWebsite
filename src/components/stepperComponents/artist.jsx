@@ -122,7 +122,7 @@ const Artist = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content req_offset_top">
+              <section className="request_landing_content">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title5")}</h2>
                   <div style={{ position: "relative" }}>
@@ -213,68 +213,60 @@ const Artist = () => {
                                 <div
                                   className="request_filter_grid"
                                   key={e._id}
-                                >
-                                  <div
-                                    className="request_filter_img"
-                                    onClick={() =>
-                                      handleCheckboxChange({
-                                        id: e._id,
-                                        image: e._source.tattoos[0].image,
-                                        names: e._source.name,
-                                        studios: e._source.studios,
-                                        location,
-                                        slug: e._source.slug,
-                                        artistImage: e._source.profile_image,
-                                        artistId:
-                                          e._source.tattoos[0].profile_uid,
-                                      })
-                                    }
-                                  >
-                                    <div className="request_ref_checkbox">
+                                  onClick={() =>
+                                    handleCheckboxChange({
+                                      id: e._id,
+                                      image: e._source.tattoos[0].image,
+                                      names: e._source.name,
+                                      studios: e._source.studios,
+                                      location,
+                                      slug: e._source.slug,
+                                      artistImage: e._source.profile_image,
+                                      artistId:
+                                        e._source.tattoos[0].profile_uid,
+                                    })
+                                  }
+                                >                                 
+
+                                  <div className="request_filter_dtls">
+                                    <div className="request_filter_profile">
+                                      <Image
+                                        src={e._source.profile_image}
+                                        width={46}
+                                        height={46}
+                                        alt={e._source.slug}
+                                      />
+                                    </div>
+                                    <div className="request_filter_profile_dtls">                                      
+                                      <h6 className="request_filter_profile_title">
+                                        {e._source.name}
+                                          <Link
+                                          href={`/${router.locale}/artists/${e._source.slug}`}
+                                          target="_blank" className="ml_5"
+                                        >
+                                          <Image
+                                            src="/icon_link.svg"
+                                            width={12}
+                                            height={13}
+                                            alt="Link"                                            
+                                          />                                          
+                                        </Link>
+                                      </h6>
+                                      <span className="request_filter_profile_address">
+                                        {getCountry(
+                                          e._source.studios,
+                                          location
+                                        )}
+                                      </span>
+                                    </div>  
+                                  </div>
+                                  <div className="request_ref_checkbox">
                                       <input
                                         type="checkbox"
                                         checked={isSelected}
                                         onChange={() => { }}
                                       />
                                     </div>
-                                    <Image
-                                      src={e._source.tattoos[0].image}
-                                      fill
-                                      objectFit="cover"
-                                      objectPosition="center"
-                                      alt={e._source.slug}
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                    />
-                                  </div>
-
-                                  <div className="request_filter_dtls">
-                                    <div className="request_filter_profile">
-                                      <Image
-                                        src={e._source.profile_image}
-                                        width={36}
-                                        height={36}
-                                        alt={e._source.slug}
-                                      />
-                                    </div>
-
-                                    <div className="request_filter_profile_dtls">
-                                      <Link
-                                        href={`/${router.locale}/artists/${e._source.slug}`}
-                                        target="_blank"
-                                      >
-                                        <h6 className="request_filter_profile_title">
-                                          {e._source.name}
-                                        </h6>
-                                        <span className="request_filter_profile_address">
-                                          {getCountry(
-                                            e._source.studios,
-                                            location
-                                          )}
-                                        </span>
-                                      </Link>
-                                    </div>
-                                  </div>
                                 </div>
                               );
                             })}
@@ -309,7 +301,7 @@ const Artist = () => {
                       <div className="request_ref_btn">
                         <button
                           onClick={prevPage}
-                          className="btn_outline_secondary btn_cutom_40 mt_15"
+                          className="btn_outline_base mt_15"
                         >
                           {t("common:goBack")}
                         </button>
@@ -319,7 +311,7 @@ const Artist = () => {
                         {selectedArtists.length > 0 && (
                           <button
                             onClick={nextPage}
-                            className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4"
+                            className="btn_defult_base mt_15 pull_right align_self_end"
                           >
                             {t("common:next")}
                           </button>

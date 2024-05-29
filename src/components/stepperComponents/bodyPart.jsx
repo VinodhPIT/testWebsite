@@ -28,13 +28,17 @@ const BodyPart = () => {
             <div className="col-md-12 align_content">
               <section className="request_landing_content">
                 <div className="request_landing_content_col">
-                  <h2>{t("common:stepper.title2")}</h2>
+                  <h2>{t("common:stepper.title2")}</h2>                  
                   <div className="request_list_item">
                     {tattooValues.map((el, index) => (
                       <button key={el.id} onClick={() => setSelectedPart(el.title ,index)}  className={bodyPartIndex === index ? 'requestActive' : 'inActiveRequest'}>
                         {el.title}
                       </button>
                     ))}
+                  </div>
+                  <div className="btn_group rqst_btn_bottom">
+                    <button className="btn_outline_base">Back</button>
+                    <button className="btn_defult_base">Next</button>
                   </div>
                 </div>
               </section>

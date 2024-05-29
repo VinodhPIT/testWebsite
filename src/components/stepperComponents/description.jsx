@@ -48,8 +48,12 @@ const Description = () => {
                       }}
                       
                     />
-                    {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right bdr_rad_4">{t("common:next")}</button>}
+                    {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right bdr_rad_4">{t("common:next")}</button>}                    
                   </form>
+                </div>
+                <div className="btn_group rqst_btn_bottom">
+                  <button className="btn_outline_base">Back</button>
+                  <button className="btn_defult_base">Next</button>
                 </div>
               </div>
             </section>

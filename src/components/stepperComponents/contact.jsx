@@ -164,7 +164,7 @@ const ContactForm = () => {
                           {values.email && (
                             <button
                               type="submit"
-                              className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4"
+                              className="btn_defult_base mt_15 pull_right align_self_end"
                             >
                               {t("common:next")}
                               {loader && (

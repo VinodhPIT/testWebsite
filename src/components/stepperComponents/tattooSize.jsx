@@ -62,6 +62,10 @@ const TattooSize = () => {
                       </button>
                     ))}
                   </div>
+                  <div className="btn_group rqst_btn_bottom">
+                    <button className="btn_outline_base">Back</button>
+                    <button className="btn_defult_base" disabled>Next</button>
+                  </div>
                 </div>
               </section>
             </div>

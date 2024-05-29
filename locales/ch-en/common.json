@@ -498,7 +498,7 @@
   "Search Location": "Search Location",
 
   "next": "Next",
-  "goBack": "Go back",
+  "goBack": "Back",
   "currentLocation": " Use current location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",
@@ -619,12 +619,12 @@
   },
 
   "stepper": {
-    "tattooSize": "Tattoo size",
-    "bodyPart": "Body part",
-    "description": "Description",
-    "reference": "Reference",
-    "artists": "Artists",
-    "contact": "Contact",
+    "tattooSize": "Choose Tattoo size",
+    "bodyPart": "Choose Placement",
+    "description": "Describe your tattoo",
+    "reference": "Reference images",
+    "artists": "Choose Artists",
+    "contact": "Contact Information",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
