@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    router.replace(`/${router.locale}${router.asPath}`);
+
     router.events.on("routeChangeStart", (url) => {
       NProgress.start();
     });

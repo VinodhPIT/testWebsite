@@ -1,22 +1,24 @@
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
-
-
-
-
-
+import { useRouter } from "next/router";
 
 const Custom404 = () => {
   const { t } = useTranslation();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.asPath.startsWith("/session")) {
+      // Navigate to the download page
+      router.push(`${router.locale}/download`);
+    }
+  }, [router]);
 
 
-  
   return (
     <>
-    
-
       <main>
         <div className="page-wrapper">
           <section className="page_404_wrap">
@@ -37,8 +39,9 @@ const Custom404 = () => {
                   alt="back to home"
                   className="btn_secondary btn_custom_m"
                 >
-                 {t("common:backHome")}
+                  {t("common:backHome")}
                 </Link>
+              
               </div>
             </div>
           </section>
