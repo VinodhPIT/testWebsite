@@ -5,7 +5,7 @@ import Link from "next/link";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 import { blurDataURL } from "@/constants/constants";
-//import sliderSettings from "@/constants/homeSliderSettings";
+
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

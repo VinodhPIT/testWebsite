@@ -41,11 +41,6 @@ export const useRequestForm = create((set, get) => ({
 
   setPageNo: (value) => set({ stepNumber: value }),
 
-  getSizes: (value) => {
-    set({
-      getTattooSize: value,
-    });
-  },
 
   setTattooSize: (value, index) => {
     set({
@@ -429,7 +424,6 @@ export const useRequestForm = create((set, get) => ({
   resetState: () =>
     set((prevState) => ({
       ...initialState,
-      getTattooSize: [...prevState.getTattooSize],
     })),
 
   setIsChecked: () => set((state) => ({ isChecked: !state.isChecked })),
@@ -439,10 +433,6 @@ export const useRequestForm = create((set, get) => ({
       userExists: value,
     });
   },
-
-
-
-
 
 
 

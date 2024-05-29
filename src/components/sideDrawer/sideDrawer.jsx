@@ -23,11 +23,7 @@ export default function SideDrawer({ onCloseToggle }) {
       url: `/${router.locale}/explore/tattoos`,
     },
 
-    {
-      id: 3,
-      title: t("common:menus.styleGuide"),
-      url: `/${router.locale}/tattoo-styleguide`,
-    },
+ 
     {
       id: 4,
       title: t("common:menus.dictionary"),

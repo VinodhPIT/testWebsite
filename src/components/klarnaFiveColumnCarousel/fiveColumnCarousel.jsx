@@ -7,10 +7,9 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
-
 import { blurDataURL } from "@/constants/constants";
-//import sliderSettings from "@/constants/homeSliderSettings";
 import { UseSliderSettings } from "@/utils/sliderUtils";
+
 import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

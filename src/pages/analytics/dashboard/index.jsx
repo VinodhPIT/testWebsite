@@ -137,7 +137,7 @@ export default function Dashboard({ data: initialData }) {
     return () => {
       abortController.abort();
     };
-  }, [filterData]); // Re-run effect if filterData changes
+  }, [filterData]); // Re-run effect if filterData get changed
 
   // function to construct the body based on filterData
   const getRequestBody = (filterData) => {

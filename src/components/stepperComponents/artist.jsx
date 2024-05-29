@@ -99,18 +99,6 @@ const Artist = () => {
     );
   };
 
-  // useEffect(() => {
-  //   if (selectedArtists.length === 10) {
-  //     setShowLimitReached(true);
-  //     setTimeout(() => {
-  //       setShowLimitReached(false);
-  //     }, 1000); // Display for 1 second
-  //   }
-  // }, []);
-
-
-
-
 
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);

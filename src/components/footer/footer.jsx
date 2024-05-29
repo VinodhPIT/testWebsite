@@ -40,12 +40,7 @@ export default function Footer() {
   ];
 
   const productLinks = [
-    {
-      id: 1,
-      title: t("common:menus.styleGuide"),
-      url: `/${router.locale}/tattoo-styleguide`,
-    },
-
+ 
     {
       id: 2,
       title: t("common:menus.dictionary"),
