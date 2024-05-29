@@ -153,22 +153,13 @@ const Review = () => {
                         <div className="request_filter_col">
                           {selectedArtists.map((el, index) => {
                             return (
-                              <div className="request_filter_grid" key={index}>
-                                <div className="request_filter_img">
-                                  <Image
-                                    src={el.image}
-                                    fill
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    alt={el.slug}
-                                  />
-                                </div>
+                              <div className="request_filter_grid" key={index}>                                
                                 <div className="request_filter_dtls">
                                   <div className="request_filter_profile">
                                     <Image
                                       src={el.artistImage}
-                                      width={36}
-                                      height={36}
+                                      width={46}
+                                      height={46}
                                       alt={el.slug}
                                     />
                                   </div>

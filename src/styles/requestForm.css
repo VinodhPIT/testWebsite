@@ -683,6 +683,15 @@
   margin: 0;
 }
 
+.request_review_selected_artist .request_filter_dtls {
+  width: 100%;
+}
+.request_review_selected_artist .request_filter_profile_dtls a {
+  position: inherit;
+}
+.request_review_selected_artist h6.request_filter_profile_title {
+  padding-right: 0;
+}
 .errorMessage {
   color: #ff0000;
   margin: 0;
@@ -1035,6 +1044,9 @@
   width: 100%;
 }
 
+.reqst_form_popup .popup_container .selected_artistblock .close_button {
+  right: 31px;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1068px) {
   .request_landing_header .request_back_arrow {
