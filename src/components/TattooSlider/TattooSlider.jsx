@@ -43,7 +43,7 @@ export default function FourColumnCarousel({ title, content }) {
               </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_80 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows"} ${
+              className={`${"mt_0 mb_80 m_mb_25 trending_artist_slider mob_dotted mob_slider_left_none slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -52,7 +52,7 @@ export default function FourColumnCarousel({ title, content }) {
                 <Slider
                   ref={sliderRef}
                   {...sliderSettings}
-                  className="custom_content_slick_slider m_ml_n_15 m_mr_n_15"
+                  className="custom_content_slick_slider m_xs_ml_n_15 m_xs_mr_n_15"
                 >
                   {allListing.artists &&
                     allListing.artists.map((el, index) => (

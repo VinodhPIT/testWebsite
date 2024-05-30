@@ -39,7 +39,7 @@ export default function ExploreStyles({ data }) {
               </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_80 m_mb_40 trending_artist_slider mob_dotted slider_nav_arrows"} ${
+              className={`${"mt_0 mb_80 m_mb_40 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -48,7 +48,7 @@ export default function ExploreStyles({ data }) {
                 <Slider
                   {...sliderSettings}
                   ref={sliderRef}
-                  className="custom_slick_slider custom_slick_container m_ml_n_15 m_mr_n_15"
+                  className="custom_slick_slider custom_slick_container m_xs_ml_n_15 m_xs_mr_n_15"
                 >
                   {data &&
                     data.map((el, index) => (

@@ -63,7 +63,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
               </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_60 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows"} ${
+              className={`${"mt_0 mb_60 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -72,7 +72,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                 <Slider
                   {...sliderSettings}
                   ref={sliderRef}
-                  className="custom_content_slick_slider m_ml_n_15 m_mr_n_15"
+                  className="custom_content_slick_slider m_xs_ml_n_15 m_xs_mr_n_15"
                 >
                   {data &&
                     data.map((el, index) => (
