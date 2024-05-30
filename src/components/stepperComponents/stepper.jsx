@@ -77,7 +77,7 @@ const currentStep = stepNumber === 0 ? 1 : (stepNumber === 6 ? 6 : stepNumber + 
   }, [locationDenied]);
 
   return (
-    <>
+  
 
     <div className="request_landing_header">
       <button onClick={onNavigate} className="pr_0 pl_0 request_back_arrow">
