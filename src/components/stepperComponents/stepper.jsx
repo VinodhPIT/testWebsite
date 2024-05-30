@@ -2,23 +2,20 @@ import React from "react";
 import Image from "next/image";
 import { useEffect } from "react";
 
-import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
 import useTranslation from "next-translate/useTranslation";
-import Stepper from "react-stepper-horizontal";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
-import usePath from "@/store/setPath/setPath";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
-const StepperComponent = ({ steps, activeStep }) => {
-const { isMobileView ,isSmallDevice} = useWindowResize();
+const StepperComponent = () => {
+
 const { navigateTo, router } = useNavigation();
 const { prevPage, stepNumber, locationDenied } = useRequestForm();
 const { t } = useTranslation();
-const {pathname} =usePath ()
+const currentStep = stepNumber === 0 ? 1 : (stepNumber === 6 ? 6 : stepNumber + 1);
 
 
 
@@ -80,6 +77,8 @@ const {pathname} =usePath ()
   }, [locationDenied]);
 
   return (
+    <>
+
     <div className="request_landing_header">
       <button onClick={onNavigate} className="pr_0 pl_0 request_back_arrow">
         <Image

@@ -10,7 +10,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm"; // Impor
 
 export default function Reference() {
   const { t } = useTranslation();
-  const { images, addImage, deleteImage, nextPage  } = useRequestForm();
+  const { images, addImage, deleteImage, nextPage ,prevPage } = useRequestForm();
 
 
 const handleFileUpload = (event, index) => {
@@ -69,28 +69,10 @@ const handleFileUpload = (event, index) => {
                       </div>
                     ))}
                   </div>
-
-                  {images.length > 0 && (
-                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4">{t("common:next")}</button>
-                  )}
-
                   <div className="btn_group rqst_btn_bottom">
-                    <button className="btn_outline_base">Back</button>
-                    <button className="btn_defult_base">Next</button>
+                    <button className="btn_outline_base" onClick={prevPage} >Back</button>
+                    <button className="btn_defult_base" disabled={images.length===0} onClick={nextPage} >Next</button>
                   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
               </section>
             </div>

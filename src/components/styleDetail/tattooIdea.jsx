@@ -1,15 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
-import useWindowResize from "@/hooks/useWindowSize";
-import { useRequestPath } from '@/hooks/useRequestPath';
+import { useNavigation } from "@/hooks/useRouter";
 
 import useTranslation from "next-translate/useTranslation";
 
 export default function Tattooidea({ name ,handleLinkClick }) {
+
   const { t } = useTranslation();
-  const { isSmallDevice } = useWindowResize();
-  const requestPath = useRequestPath(isSmallDevice);
+  const { router } = useNavigation();
 
   return (
     <div className="block_bg_cool_aero_blue container w_100pc text_center">
@@ -27,7 +26,7 @@ export default function Tattooidea({ name ,handleLinkClick }) {
         </p>
 
         <Link
-          href={requestPath}
+          href={`/${router.locale}/createRequest`}
           onClick={handleLinkClick}
           className="btn_secondary btn_cutom_new btn_cutom_mob custom_fs_m_16 m_lh_20 b_radius_16 fw_m_400"
         >

@@ -7,7 +7,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm";
 
 
 const Description = () => {
-  const { message, setDescription, nextPage } = useRequestForm(); // Zustand store and setter
+  const { message, setDescription, nextPage ,prevPage } = useRequestForm(); // Zustand store and setter
   const { t } = useTranslation();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,13 +48,14 @@ const Description = () => {
                       }}
                       
                     />
-                    {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right bdr_rad_4">{t("common:next")}</button>}                    
+                  <div className="btn_group mt_80">
+                  <button className="btn_outline_base" onClick={prevPage}>Back</button>
+                  <button className="btn_defult_base"  onClick={nextPage}  disabled={message===""}>{t("common:next")}</button>
+                </div>
+
                   </form>
                 </div>
-                <div className="btn_group rqst_btn_bottom">
-                  <button className="btn_outline_base">Back</button>
-                  <button className="btn_defult_base">Next</button>
-                </div>
+             
               </div>
             </section>
           </div>
