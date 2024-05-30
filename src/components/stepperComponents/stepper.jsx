@@ -90,6 +90,11 @@ const {pathname} =usePath ()
           height="24"
         />
       </button>
+      <ToastContainer />
+      <div class="request_stepper_count">
+        <span>1</span>
+        <span>/6</span>
+      </div>
 
       {/* {isSmallDevice && stepNumber === 0 && (
         <div className="request_landing_caption_mob">
@@ -124,8 +129,7 @@ const {pathname} =usePath ()
           defaultTitleColor="#212121"
           
         />
-      </div> */}
-      <ToastContainer />
+      </div> */}      
     </div>
   );
 };

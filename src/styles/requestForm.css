@@ -169,11 +169,24 @@
 }
 
 .request_landing_header {
-  background-color: var(--gray-light-150);
-  padding: 32px 0;
+  /*background-color: var(--gray-light-150);
+  padding: 32px 0;*/
+  padding: 45px 0 48px 0;
+  border-bottom: 1px solid var(--gray-light-300);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-
+.request_stepper_count {
+  margin-right: 5.5vw;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background: #F8F8F8;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 33px;
+  color: #666;
+}
 .request_landing_content,
 .selected_artistblock {
   width: 100%;
@@ -326,6 +339,8 @@
 }
 
 .request_landing_header .request_back_arrow {
+  position: inherit;
+  margin-left: 5.5vw;
   top: 40px;
   border: 1px solid #707070;
 }
