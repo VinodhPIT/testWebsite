@@ -76,11 +76,11 @@ const ContactForm = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 align_content">
-              <section className="request_landing_content mb_90">
+            <div className="col-md-12 align_content m_align_content">
+              <section className="request_landing_content mb_90 pb_40">
                 <div className="request_landing_content_col">
                   <h2>{t("common:stepper.title6")}</h2>
                   <div className="request_contact_form">
@@ -144,15 +144,15 @@ const ContactForm = () => {
                             />
                           </div>
 
-                          <div className="btn_group mt_40">
+                          <div className="btn_group m_pos_fixed m_bottom_0 m_gap_16 m_pb_15 m_pt_30 mt_70 m_mt_0 m_w_calc_30">
                             <button
-                              className="btn_outline_base"
+                              className="btn_outline_base m_w_50pc"
                               onClick={prevPage}
                             >
                               Back
                             </button>
                             <button
-                              className="btn_defult_base   pull_right align_self_end"
+                              className="btn_defult_base pull_right align_self_end m_w_50pc"
                               disabled={values.email === ""}
                               type="submit"
                             >

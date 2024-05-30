@@ -78,11 +78,11 @@ const Review = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content pt_30">
+              <section className="request_landing_content pt_30 pb_40 m_pt_10 m_pb_0">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title7")}</h2>
 
@@ -184,16 +184,16 @@ const Review = () => {
                     </div>
                   </div>
 
-                  <div className="btn_group">
+                  <div className="btn_group m_mt_auto m_gap_16 m_pb_15 m_pt_30">
                     <button
                       onClick={() => prevPage()}
-                      className="btn_outline_base mt_15 align_self"
+                      className="btn_outline_base mt_10 align_self m_w_50pc m_mt_0"
                       >
                       {t("common:goBack")}
                     </button>
 
                     <button
-                      className="btn_defult_base mt_15 pull_right align_self_end"
+                      className="btn_defult_base mt_10 pull_right align_self_end m_w_50pc m_mt_0"
                       onClick={() => uploadDataToAPI()}
                     >
                       {t("common:submit")}

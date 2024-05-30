@@ -91,7 +91,7 @@ const currentStep = stepNumber === 0 ? 1 : (stepNumber === 6 ? 6 : stepNumber + 
       </button>
       <ToastContainer />
       <div class="request_stepper_count">
-        <span>1</span>
+        <span>{currentStep}</span>
         <span>/6</span>
       </div>
 

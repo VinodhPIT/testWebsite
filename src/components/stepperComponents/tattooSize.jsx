@@ -32,10 +32,10 @@ const TattooSize = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 align_content">
+            <div className="col-md-12 align_content m_align_content">
               <section className="request_landing_content">
                 <div className="request_landing_content_col">
                   <h2>{t("common:stepper.title1")}</h2>
@@ -63,12 +63,9 @@ const TattooSize = () => {
                       </button>
                     ))}
                   </div>
-                  <div className="btn_group rqst_btn_bottom">
-                    <button className="btn_outline_base" onClick={goBack}>Back</button>
-
-                    <button className="btn_defult_base"  onClick={nextPage} disabled={tattooSize === ""}>Next</button>
-
-
+                  <div className="btn_group rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_30">
+                    <button className="btn_outline_base m_w_50pc" onClick={goBack}>Back</button>
+                    <button className="btn_defult_base m_w_50pc"  onClick={nextPage} disabled={tattooSize === ""}>Next</button>
                   </div>
                 </div>
               </section>

@@ -29,11 +29,11 @@ const handleFileUpload = (event, index) => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content">
-              <section className="request_landing_content">
+              <section className="request_landing_content m_align_content">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title4")}</h2>
                   <div className="request_file_uploader">
@@ -69,9 +69,9 @@ const handleFileUpload = (event, index) => {
                       </div>
                     ))}
                   </div>
-                  <div className="btn_group rqst_btn_bottom">
-                    <button className="btn_outline_base" onClick={prevPage} >Back</button>
-                    <button className="btn_defult_base" disabled={images.length===0} onClick={nextPage} >Next</button>
+                  <div className="btn_group rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_30">
+                    <button className="btn_outline_base m_w_50pc" onClick={prevPage} >Back</button>
+                    <button className="btn_defult_base m_w_50pc" disabled={images.length===0} onClick={nextPage} >Next</button>
                   </div>
                 </div>
               </section>

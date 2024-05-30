@@ -88,7 +88,7 @@ const Artist = () => {
       <>
         {selectedArtists.length > 0 && (
           <button
-            className="request_ref_selected mt_15 mb_10  d_block m_auto"
+            className="request_ref_selected mt_15 d_block m_auto"
             onClick={() => setModel(true)}
           >
             {selectedArtists.length} {t("common:artistsSelected")}{" "}
@@ -118,11 +118,11 @@ const Artist = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh ">
+      <div className="full_col_block h_126_vh m_h_60_vh ">
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content">
+              <section className="request_landing_content m_align_content">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title5")}</h2>
                   <div style={{ position: "relative" }}>
@@ -200,7 +200,7 @@ const Artist = () => {
                   {loader ? (
                     <SkeletonArtistList />
                   ) : (
-                    <div>
+                    <div className="mb_20">
                       {artistList && artistList.length > 0 ? (
                         <div className="request_filter_wrap">
                           <div className="request_filter_col">
@@ -297,11 +297,13 @@ const Artist = () => {
                       </div>
 
                       {isMobileView && <SelectedArtistsInfo />}
-
-                      <div className="request_ref_btn">
+                      
+                    </div>                    
+                  )}
+                  <div className="request_ref_btn rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_10">
                         <button
                           onClick={prevPage}
-                          className="btn_outline_base mt_15"
+                          className="btn_outline_base mt_15 m_mt_0 m_w_50pc"
                         >
                           {t("common:goBack")}
                         </button>
@@ -309,14 +311,12 @@ const Artist = () => {
                         {!isMobileView && <SelectedArtistsInfo />}
                           <button
                             onClick={nextPage}
-                            className="btn_defult_base mt_15 pull_right align_self_end"
+                            className="btn_defult_base mt_15 m_mt_0 pull_right align_self_end m_w_50pc"
                             disabled={selectedArtists.length== 0}
                           >
                             {t("common:next")}
                           </button>
                       </div>
-                    </div>
-                  )}
                 </div>
               </section>
             </div>
