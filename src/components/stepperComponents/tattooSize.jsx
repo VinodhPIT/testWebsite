@@ -1,16 +1,17 @@
 
 import React, { useEffect } from "react";
 
+import  {useNavigation} from '@/hooks/useRouter';
+
 import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import { useGlobalState } from "@/context/Context";
 
-
-
 import { CustomerRequestSize } from "@/utils/customerRequestType";
 
 const TattooSize = () => {
-  const { fetchArtistList, setTattooSize, tattoondex ,fetchArtistByStyle } = useRequestForm();
+  const {goBack} =useNavigation()
+  const { fetchArtistList, setTattooSize, tattooSize ,tattoondex ,fetchArtistByStyle ,nextPage } = useRequestForm();
   const { t } = useTranslation();
   const { selectedIds } = useGlobalState();
 
@@ -63,8 +64,11 @@ const TattooSize = () => {
                     ))}
                   </div>
                   <div className="btn_group rqst_btn_bottom">
-                    <button className="btn_outline_base">Back</button>
-                    <button className="btn_defult_base" disabled>Next</button>
+                    <button className="btn_outline_base" onClick={goBack}>Back</button>
+
+                    <button className="btn_defult_base"  onClick={nextPage} disabled={tattooSize === ""}>Next</button>
+
+
                   </div>
                 </div>
               </section>

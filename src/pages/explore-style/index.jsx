@@ -4,8 +4,6 @@ import Link from "next/link";
 import Head from "next/head";
 
 import { useNavigation } from "@/hooks/useRouter";
-import useWindowResize from "@/hooks/useWindowSize";
-import { useRequestPath } from '@/hooks/useRequestPath';
 import useScrollToTop from "@/hooks/useScrollToTop";
 
 import useTranslation from "next-translate/useTranslation";
@@ -30,8 +28,7 @@ export default function Styledeatil({ data ,style_id}) {
   const [tattooData, setTattooData] = useState([]);
   const { router } = useNavigation();
   const { t } = useTranslation();
-  const { isSmallDevice } = useWindowResize();
-  const requestPath = useRequestPath(isSmallDevice);
+
   const { styleList } = useStyleListing();
   const {setPathname} = usePath()
   const { selectedIds, setSelectedIds } = useGlobalState();
@@ -161,7 +158,7 @@ export default function Styledeatil({ data ,style_id}) {
                           {data.short_desc}
                         </p>
                         <Link
-                          href={requestPath}
+                          href={`/${router.locale}/createRequest`}
                           onClick={handleLinkClick}
                           className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20 fw_m_400 m_w_100pc"
                         >

@@ -307,15 +307,13 @@ const Artist = () => {
                         </button>
 
                         {!isMobileView && <SelectedArtistsInfo />}
-
-                        {selectedArtists.length > 0 && (
                           <button
                             onClick={nextPage}
                             className="btn_defult_base mt_15 pull_right align_self_end"
+                            disabled={selectedArtists.length== 0}
                           >
                             {t("common:next")}
                           </button>
-                        )}
                       </div>
                     </div>
                   )}

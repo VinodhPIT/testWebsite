@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import useTranslation from "next-translate/useTranslation";
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
@@ -8,22 +8,19 @@ import * as Yup from "yup";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
-
 import { artistContact } from "@/apiConfig/webService";
 
-
 const ContactForm = () => {
-
   const [loader, setLoader] = useState(false);
   const { t } = useTranslation();
 
   const {
     setEmail,
     setPhone,
-    nextPage,
+    nextPage,prevPage,
     email: storedEmail,
     phone: storedPhone,
-    checkUserExists,
+    checkUserExists
   } = useRequestForm(); // Zustand setters
 
   const {
@@ -34,7 +31,7 @@ const ContactForm = () => {
   } = useCountryCode(); // Zustand setters
 
   const emailInputRef = useRef(null);
-  const phoneInputRef = useRef(null); 
+  const phoneInputRef = useRef(null);
 
   const handleCountryChange = (selectedOptions) => {
     getSingleCountryCode(selectedOptions.label);
@@ -47,20 +44,15 @@ const ContactForm = () => {
     }
   };
 
-
   const handleSubmit = async (values) => {
     setLoader(true);
     setEmail(values.email);
-    setPhone(
-      values.phone && countrycode.split("+")[1].trim() + values.phone
-    );
+    setPhone(values.phone && countrycode.split("+")[1].trim() + values.phone);
     let res = await artistContact(values);
     setLoader(false);
     checkUserExists(res.exists);
     nextPage();
   };
-
-
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -76,15 +68,11 @@ const ContactForm = () => {
     fetchCountryCodelists();
   }, []);
 
-
   const options = getCountryCodeList.map((country, index) => ({
     value: index,
     label: `${country.countryGoogleId} ${country.countryCode}`,
     key: country.countryId,
   }));
-
-
-
 
   return (
     <>
@@ -114,8 +102,6 @@ const ContactForm = () => {
                               className="form_control"
                               placeholder="Your e-mail"
                               innerRef={emailInputRef} // Assign the ref
-
-                      
                             />
                             <ErrorMessage
                               name="email"
@@ -129,20 +115,18 @@ const ContactForm = () => {
                             </label>
 
                             <div style={{ display: "flex", gap: "8px" }}>
-                          
-
-<Dropdown
-    options={options}
-    value={countrycode}
-    onChange={handleCountryChange}
-    onFocus={handleCountryFocus} // Blur email input field on focus
-  >
-    {options.map(option => (
-      <option key={option.key} value={option.value}>
-        {option.label}
-      </option>
-    ))}
-  </Dropdown>
+                              <Dropdown
+                                options={options}
+                                value={countrycode}
+                                onChange={handleCountryChange}
+                                onFocus={handleCountryFocus} // Blur email input field on focus
+                              >
+                                {options.map((option) => (
+                                  <option key={option.key} value={option.value}>
+                                    {option.label}
+                                  </option>
+                                ))}
+                              </Dropdown>
 
                               <Field
                                 type="text"
@@ -160,8 +144,30 @@ const ContactForm = () => {
                             />
                           </div>
 
-                          {/* Conditionally render the submit button */}
-                          {values.email && (
+                          <div className="btn_group mt_40">
+                            <button
+                              className="btn_outline_base"
+                              onClick={prevPage}
+                            >
+                              Back
+                            </button>
+                            <button
+                              className="btn_defult_base   pull_right align_self_end"
+                              disabled={values.email === ""}
+                              type="submit"
+                            >
+                              {t("common:next")}
+
+                              {loader && (
+                                <span
+                                  className="spinner-border spinner-border-sm"
+                                  aria-hidden="true"
+                                ></span>
+                              )}
+                            </button>
+                          </div>
+
+                          {/* {values.email && (
                             <button
                               type="submit"
                               className="btn_defult_base mt_15 pull_right align_self_end"
@@ -174,7 +180,7 @@ const ContactForm = () => {
                                 ></span>
                               )}
                             </button>
-                          )}
+                          )} */}
                         </Form>
                       )}
                     </Formik>

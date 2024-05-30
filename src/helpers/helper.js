@@ -1,18 +1,18 @@
 import moment from "moment";
 
-const getPaginatorCount = () => {
-  // Check if window is defined (only run on the client-side)
-  if (typeof window !== "undefined") {
-    const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
-    return isMobile ? 10 : 9;
-  }
-  // Return a default value if window is not available (e.g., for server-side rendering)
-  return 10; // or any default value you prefer
-};
+// const getPaginatorCount = () => {
+//   // Check if window is defined (only run on the client-side)
+//   if (typeof window !== "undefined") {
+//     const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
+//     return isMobile ? 10 : 9;
+//   }
+//   // Return a default value if window is not available (e.g., for server-side rendering)
+//   return 10; // or any default value you prefer
+// };
 
-export { getPaginatorCount };
+// export { getPaginatorCount };
 
-const pageCount = getPaginatorCount();
+// const pageCount = getPaginatorCount();
 
 export const MAX_RANDOM = 3409357923759259;
 export const MIN_RANDOM = 3;
@@ -61,7 +61,7 @@ const artistRequest = (parameters) => {
   const request = {
     sort: null,
     page_no: parameters.page_no,
-    paginator_count: pageCount,
+    paginator_count: 10,
     search_key: parameters.search_key,
     distance: "50km",
   };

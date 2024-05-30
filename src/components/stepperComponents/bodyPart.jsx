@@ -6,7 +6,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm";
 
 
 const BodyPart = () => {
-  const {setSelectedPart ,bodyPartIndex } = useRequestForm(); // Zustand store and setter
+  const {setSelectedPart ,bodyPart ,bodyPartIndex ,nextPage ,prevPage } = useRequestForm(); // Zustand store and setter
   const { t } = useTranslation();
   
   const tattooValues = [
@@ -37,8 +37,8 @@ const BodyPart = () => {
                     ))}
                   </div>
                   <div className="btn_group rqst_btn_bottom">
-                    <button className="btn_outline_base">Back</button>
-                    <button className="btn_defult_base">Next</button>
+                    <button className="btn_outline_base" onClick={prevPage}>Back</button>
+                    <button className="btn_defult_base"  onClick={nextPage}  disabled={bodyPart===""}>Next</button>
                   </div>
                 </div>
               </section>
