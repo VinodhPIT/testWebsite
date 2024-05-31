@@ -97,11 +97,11 @@ const Review = () => {
                         <p>{bodyPart}</p>
                       </div>
                     </div>
-
+                    {message&&
                     <div className="request_review_desc">
                       <h6>{t("common:stepper.description")}</h6>
                       <p>{message}</p>
-                    </div>
+                    </div>}
 
                     <div className="request_review_contact_info">
                       <h6>{t("common:stepper.contactInformation")}</h6>
@@ -128,7 +128,7 @@ const Review = () => {
                         </div>
                       </div>
                     </div>
-
+                    {images && images.length > 0 && (
                     <div className="request_review_desc">
                       <h6>{t("common:stepper.referenceImages")}</h6>
                       <div className="request_review_ref">
@@ -145,7 +145,7 @@ const Review = () => {
                           );
                         })}
                       </div>
-                    </div>
+                    </div>)}
 
                     <div className="request_review_selected_artist">
                       <h6>{t("common:stepper.selectedArtists")}</h6>

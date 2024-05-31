@@ -71,7 +71,7 @@ const handleFileUpload = (event, index) => {
                   </div>
                   <div className="btn_group rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_30">
                     <button className="btn_outline_base m_w_50pc" onClick={prevPage} >Back</button>
-                    <button className="btn_defult_base m_w_50pc" disabled={images.length===0} onClick={nextPage} >Next</button>
+                    <button className="btn_defult_base m_w_50pc"  onClick={nextPage} >Next</button>
                   </div>
                 </div>
               </section>
