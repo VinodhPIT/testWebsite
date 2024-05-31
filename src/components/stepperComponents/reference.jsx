@@ -10,7 +10,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm"; // Impor
 
 export default function Reference() {
   const { t } = useTranslation();
-  const { images, addImage, deleteImage, nextPage  } = useRequestForm();
+  const { images, addImage, deleteImage, nextPage ,prevPage } = useRequestForm();
 
 
 const handleFileUpload = (event, index) => {
@@ -29,11 +29,11 @@ const handleFileUpload = (event, index) => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content">
-              <section className="request_landing_content">
+              <section className="request_landing_content m_align_content">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title4")}</h2>
                   <div className="request_file_uploader">
@@ -42,7 +42,6 @@ const handleFileUpload = (event, index) => {
                         {images[index] ? (
                           <div className="request_upload_img">
                                   <button onClick={() => deleteImage(images[index].uuid)} className="request_upload_close">
-
                               <Image
                                 src="/Trash_Bin.svg"
                                 width={18}
@@ -55,7 +54,6 @@ const handleFileUpload = (event, index) => {
                               alt={`Uploaded ${index}`}
                               width={180}
                               height= {180}
-                             
                             />
                           </div>
                         ) : (
@@ -71,23 +69,10 @@ const handleFileUpload = (event, index) => {
                       </div>
                     ))}
                   </div>
-
-                  {images.length > 0 && (
-                    <button onClick={() => nextPage()} className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4">{t("common:next")}</button>
-                  )}
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  <div className="btn_group rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_30">
+                    <button className="btn_outline_base m_w_50pc" onClick={prevPage} >Back</button>
+                    <button className="btn_defult_base m_w_50pc" disabled={images.length===0} onClick={nextPage} >Next</button>
+                  </div>
                 </div>
               </section>
             </div>

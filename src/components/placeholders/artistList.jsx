@@ -7,7 +7,7 @@ export default function SkeletonArtistList() {
     <div>
       <div className="request_filter_col mt_20">
         {Array.from({ length: 10 }, (_, index) => (
-          <Skeleton className="request_filter_grid" key={index} height={189} />
+          <Skeleton className="request_filter_grid" key={index} height={72} width={290} />
         ))}
       </div>
     </div>

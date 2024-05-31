@@ -107,7 +107,7 @@ export default function TattooIdea() {
                     {t("common:homePage.TattooIdeaDesc")}
                   </p>
                   <Link
-                    href={requestPath}  onClick={()=>setPathname(router.pathname)}
+                    href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
                     className="btn_secondary btn_cutom_new btn_cutom_mob b_radius_16 custom_fs_m_16 m_lh_20 m_w_100pc"
                   >
                     {t("common:homePage.CreateATattooRequest")}

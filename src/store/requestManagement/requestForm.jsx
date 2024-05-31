@@ -46,7 +46,7 @@ export const useRequestForm = create((set, get) => ({
     set({
       tattooSize: value,
       tattoondex: index,
-      stepNumber: get().stepNumber + 1,
+      // stepNumber: get().stepNumber + 1,
     });
   },
 
@@ -54,7 +54,7 @@ export const useRequestForm = create((set, get) => ({
     set({
       bodyPart: value,
       bodyPartIndex: index,
-      stepNumber: get().stepNumber + 1,
+      // stepNumber: get().stepNumber + 1,
     });
   },
 
