@@ -238,6 +238,89 @@ export default function Home({isMobile}) {
               </div>
             </div>
           </div>
+
+
+          <div className="main_banner_wrap">
+            <div className="main_banner_block">
+              <div className="main_banner_col">
+                <div className="main_banner_img_wrap">
+                  <div className="main_banner_img">
+                    <Image
+                      src="/book-your-tattoo-now.png"
+                      alt="Banner"
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      fill
+                      objectFit="cover"
+                    />
+                  </div>
+                </div>
+                <div className="main_banner_caption">
+                  <div className="d_inline_block w_100pc max_">
+                    <div className="main_banner_content">
+                      <h1 className="color_white heading_h1 custom_fs_75 txt_mob_fs50 mt_0 max_w_420">
+                        <span>{t("common:homePage.bannerTitle")}</span>
+                      </h1>
+                      <p className="color_white mt_15 mb_40 txt_mob_fs14 m_lh_21 max_w_420">
+                        {t("common:homePage.bannerContent")}
+                      </p>
+                      <div className="d_inline_block max_w_520 w_100pc"> 
+                        <ul className="download_app ml_0 w_100pc max_w_100pc mt_0 text_left d_inline_block download_mob_center">
+                          <li className="color_white download_app_title mb_10 m_mb_5 m_lh_19">
+                            {t("common:homePage.Download the inckd")}
+                          </li>
+                          <li>
+                            <Link href={APP_LINK_APPLE} target="_blank">
+                              <Image
+                                priority
+                                src="/app-store-new.svg"
+                                alt="App store"
+                                width={134}
+                                height={41}
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="custom_download_icons desk_hidden"
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href={APP_LINK_GOOGLE} target="_blank">
+                              <Image
+                                priority
+                                src="/g-play-new.svg"
+                                alt="Play store"
+                                width={134}
+                                height={41}
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="custom_download_icons desk_hidden"
+                              />
+                            </Link>
+                          </li>
+                          <li>                            
+                            <Image
+                              priority
+                              src={qrCodeSrc}
+                              alt="QR"
+                              width={121}
+                              height={121}
+                              placeholder="blur"
+                              blurDataURL={blurDataURL}
+                              className="custom_download_icons app_qr_home mob_hidden"
+                            />                           
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
         </div>
       </section>
       <TattooIdea></TattooIdea>
