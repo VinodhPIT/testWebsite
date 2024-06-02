@@ -82,7 +82,7 @@ const Review = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content pt_30 pb_40 m_pt_10 m_pb_0">
+              <section className="request_landing_content pt_30 m_pt_10">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title7")}</h2>
 
@@ -184,7 +184,7 @@ const Review = () => {
                     </div>
                   </div>
 
-                  <div className="btn_group m_mt_auto m_gap_16 m_pb_15 m_pt_30">
+                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                     <button
                       onClick={() => prevPage()}
                       className="btn_outline_base mt_10 align_self m_w_50pc m_mt_0"

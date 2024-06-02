@@ -2770,6 +2770,10 @@ ul.custom-listing li img {
   font-size: 14px !important;
   line-height: 21px !important;
 }
+.custom_fs_15 {
+  font-size: 15px !important;
+  line-height: 24px !important;
+}
 .custom_fs_16 {
   font-size: 16px !important;
   line-height: 24px !important;
@@ -6528,6 +6532,10 @@ button.language_switcher img {
     padding-bottom: 50px !important;
   }
 
+  .m_pb_100 {
+    padding-bottom: 100px !important;
+  }
+
   .m_pt_pb_30 {
     padding-top: 30px !important;
     padding-bottom: 30px !important;
@@ -6681,6 +6689,10 @@ button.language_switcher img {
   .m_mt_mb_45 {
     margin-top: 45px !important;
     margin-bottom: 45px !important;
+  }
+
+  .m_mb_120 {
+    margin-bottom: 120px !important;
   }
 
   .m_mr_0 {
@@ -6845,7 +6857,10 @@ button.language_switcher img {
     font-size: 14px !important;
     line-height: 24px !important;
   }
-
+  .custom_fs_m_15 {
+    font-size: 15px !important;
+    line-height: 24px !important;
+  }
   .custom_fs_m_16 {
     font-size: 16px !important;
     line-height: 24px !important;
@@ -6988,6 +7003,10 @@ button.language_switcher img {
 
   .m_h_fit_content {
     height: fit-content !important;
+  }
+
+  .m_min_h_70_vh {
+    min-height: 70vh !important;
   }
 
   .m_min_220 {
@@ -7987,7 +8006,7 @@ button.language_switcher img {
   .klarna_banner_section a {
     min-width: 153px;
     height: 34px;
-  }
+  } 
 }
 @media screen and (max-width: 640px) {
   .img_box_wrap.custom_slick_slider_one {
