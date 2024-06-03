@@ -1177,6 +1177,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .ml-8 {
   margin-left: 8px !important;
 }
+.ml_6pc {
+  margin-left: 6% !important;
+}
 
 .ml_10pc {
   margin-left: 10% !important;
@@ -2741,6 +2744,9 @@ ul.custom-listing li img {
   position: relative;
   top: 1px;
 }
+ul.custom-listing.txt_gray_500 li {  
+  color: var(--black-500);
+}
 
 /* font resize */
 .heading_h1 {
@@ -2844,7 +2850,7 @@ ul.custom-listing li img {
 }
 .custom_fs_75 {
   font-size: 75px !important;
-  line-height: 7px !important;
+  line-height: 75px !important;
 }
 
 .lh_30 {
@@ -5906,43 +5912,31 @@ button.language_switcher img {
 	word-wrap: break-word;
 }
 .main_banner_caption p {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 300;
+  line-height: 33px;
+}
+ul.download_qr_mob_app {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+}
+ul.download_qr_mob_app li {
+  width: auto;
+  margin: 0 10px 0 0;
+  float: left;
+  padding: 0;
+}
+ul.download_qr_mob_app .download_qr_mob_app_title {
+  width: 100%;
+  margin: 0px 0 8px 0;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 27px;
 }
-/* responsive */
-@media screen and (max-width: 767.98px) {
-	
-	
-}
-@media screen and (min-width: 768px) {
-	
-}
-@media screen and (min-width: 768px) and (max-width: 1199px) {	
-	
-}
-@media screen and (min-width: 1200px) {	
-	
-}
-@media screen and (max-width: 640px) {
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* responsive */

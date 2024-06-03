@@ -145,7 +145,7 @@ export default function Home({isMobile}) {
 
       <section className="img_text_banner_box">
         <div className="col_full">
-          <div className="img_text_box_wrapper exciting_offer_wrap mb_8 m_mb_0">
+          {/* <div className="img_text_box_wrapper exciting_offer_wrap mb_8 m_mb_0">
             <div className="text_box_wrap right">
               <div className="img_text_box_inner custom_two_col_banner m_switcher">
                 <div className="text_box_content justify_content_center m_min_h_reset m_pt_15 m_pb_25">
@@ -237,10 +237,10 @@ export default function Home({isMobile}) {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
 
-          <div className="main_banner_wrap">
+          <div className="main_banner_wrap mt_40">
             <div className="main_banner_block">
               <div className="main_banner_col">
                 <div className="main_banner_img_wrap">
@@ -248,12 +248,25 @@ export default function Home({isMobile}) {
                     <Image
                       src="/book-your-tattoo-now.png"
                       alt="Banner"
+                      fill
+                      objectFit="cover"
+                      objectPosition="center top"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="mob_hidden"
+                    />
+
+                    <Image
+                      src="/book-your-tattoo-now-mob.png"
+                      alt="Banner"
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
                       fill
                       objectFit="cover"
-                    />
+                      className="desk_hidden"
+                    />  
+                    
                   </div>
                 </div>
                 <div className="main_banner_caption">
@@ -262,12 +275,12 @@ export default function Home({isMobile}) {
                       <h1 className="color_white heading_h1 custom_fs_75 txt_mob_fs50 mt_0 max_w_420">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="color_white mt_15 mb_40 txt_mob_fs14 m_lh_21 max_w_420">
+                      <p className="color_white mt_15 mb_40 max_w_520">
                         {t("common:homePage.bannerContent")}
                       </p>
                       <div className="d_inline_block max_w_520 w_100pc"> 
-                        <ul className="download_app ml_0 w_100pc max_w_100pc mt_0 text_left d_inline_block download_mob_center">
-                          <li className="color_white download_app_title mb_10 m_mb_5 m_lh_19">
+                        <ul className="download_qr_mob_app">
+                          <li className="color_white color_white download_qr_mob_app_title">
                             {t("common:homePage.Download the inckd")}
                           </li>
                           <li>
@@ -318,9 +331,6 @@ export default function Home({isMobile}) {
               </div>
             </div>
           </div>
-
-
-
         </div>
       </section>
       <TattooIdea></TattooIdea>
