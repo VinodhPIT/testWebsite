@@ -168,9 +168,25 @@ const Review = () => {
                                   <div class="request_filter_profile_dtls">
                                     <Link  href={`/${router.locale}/artists/${el.slug}`}  target="_blank">
                                   
-                                    <h6 class="request_filter_profile_title">
-                                      {el.names}
-                                    </h6>
+                                  
+
+                                        <h6 className="request_filter_profile_title">
+                                        {el.names}
+                                          <Link
+                                          href={`/${router.locale}/artists/${el.slug}`}
+                                          target="_blank" className="ml_5"
+                                          
+                                        >
+                                          <Image
+                                            src="/icon_link.svg"
+                                            width={12}
+                                            height={13}
+                                            alt="Link"                                            
+                                          />                                          
+                                        </Link>
+                                      </h6>
+
+
                                     <span className="request_filter_profile_address">
                                       {getCountry(el.studios, el.location)}
                                     </span>
