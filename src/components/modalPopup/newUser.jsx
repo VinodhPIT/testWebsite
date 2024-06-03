@@ -66,7 +66,7 @@ const SucessModal = ({}) => {
                     alt="close"
                   />
                 </button>
-                <div className="popup_right_content justify_content_center pl_16 pr_16">
+                <div className="popup_right_content justify_content_center pl_16 pr_16 m_pb_15">
                   <div className="popup_content_wrap mt_0">
                     <div class="max_w_100pc text_center custom_text_with_icon">
                       <div class="icon mb_15">

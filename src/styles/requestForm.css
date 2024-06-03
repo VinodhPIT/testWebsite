@@ -1149,14 +1149,19 @@
   }
 
   .request_file_uploader {
-    flex-flow: nowrap;
-    gap: 8px;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch;
+    flex-flow: wrap;
+    max-width: 100%;
   }
 
   .request_file_up_list {
-    width: 100px;
-    height: 100px;
-    min-height: 100px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    width: auto;
+    min-height: inherit;
+    max-width: calc(33.33% - 6.66px);
   }
 
   .request_upload_img .request_upload_close {
@@ -1422,11 +1427,11 @@
 }
 
 @media screen and (max-width: 375px) {
-  .request_file_up_list {
+  /* .request_file_up_list {
     width: 100px;
     height: 100px;
     min-height: 100px;
-  }
+  } */
 
   .request_review_ref {
     gap: 10px;
@@ -1444,10 +1449,10 @@
   }
 }
 
-@media screen and (max-width: 349px) {
+/* @media screen and (max-width: 349px) {
   .request_file_up_list {
     width: 80px;
     height: 80px;
     min-height: 80px;
   }
-}
+} */

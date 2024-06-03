@@ -75,7 +75,7 @@ const TattooSearchModal1Popup = ({}) => {
                     alt="close"
                   />
                 </button>
-                <div className="popup_right_content justify_content_center pl_16 pr_16">
+                <div className="popup_right_content justify_content_center pl_16 pr_16 m_pb_15">
                   <div className="popup_content_wrap mt_0">
                     <div class="max_w_100pc text_center custom_text_with_icon">
                       <div class="icon mb_15">
@@ -96,8 +96,7 @@ const TattooSearchModal1Popup = ({}) => {
                       </p>
                       <button
                         onClick={() => openApp()}
-                        class="btn_outline_secondary btn_cutom_new fw_600 mt_30 w_100pc d_max_248 m_mt_15 h_48 custom_fs_16 max_m_w_100pc"
-                      >
+                        class="  btn_outline_base btn_base_lg  mt_30 w_100pc d_max_248 m_mt_15 custom_fs_16 m_max_100">
                         {t("common:stepper.openApp")}
                       </button>
                     </div>
