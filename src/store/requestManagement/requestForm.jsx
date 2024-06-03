@@ -228,6 +228,9 @@ export const useRequestForm = create((set, get) => ({
         totalCount: response.rows.total.value,
         loader: false,
         seed: fetchParams.seed,
+        searchKey:key
+
+
       });
     } catch (error) {
       console.error("Error fetching artists by style:", error);
@@ -408,6 +411,15 @@ export const useRequestForm = create((set, get) => ({
       ),
     }));
   },
+
+revertCheckBox:()=>{// Set all artists to true
+  set((state) => ({
+    selectedArtists: state.selectedArtists.map((artist) => {
+      return { ...artist, isSelected: true };
+    }),
+  }));
+},
+
 
   nextPage: () =>
     set((prevState) => ({

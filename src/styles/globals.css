@@ -2234,7 +2234,6 @@ button.btn_view_more:hover {
 }
 .btn_outline_base {
   display: inline-flex;
-  /*height: 40px;*/
   padding: 6px 16px;
   justify-content: center;
   align-items: center;
@@ -2258,13 +2257,6 @@ button.btn_view_more:hover {
   background: var(--gray-light-150);
   text-decoration: none;
 }
-/*
-:not(.btn-check) + .btn_outline_base:active {
-  border: 1px solid #1C1C1C;
-  color: var(--black-500);
-  background: var(--gray-light-150);
-  text-decoration: none;
-}*/
 
 .btn_default:focus-visible {
   border: 1px solid #1C1C1C;
@@ -2283,7 +2275,6 @@ button.btn_view_more:hover {
 
 .btn_defult_base {
   display: inline-flex;
-  /*height: 40px;*/
   padding: 6px 16px;
   justify-content: center;
   align-items: center;
@@ -2306,12 +2297,6 @@ button.btn_view_more:hover {
   background: var(--gray-600);
   text-decoration: none;
 }
-/*
-:not(.btn-check) + .btn_defult_base:active {
-  color: var(--white);
-  background: var(--gray-600);
-  text-decoration: none;
-}*/
 
 .btn_defult_base:focus-visible {
   color: var(--white);
@@ -2324,6 +2309,11 @@ button.btn_view_more:hover {
   background: #F8F8F8;
   opacity: 1;
   cursor: default;
+}
+
+.btn_base_lg {
+  padding: 8px 20px;
+  height: 48px;
 }
 
 /* content styles */
@@ -3820,7 +3810,7 @@ form.form_floating .form_group.radio_block > label {
   position: relative;
   width: 50%;
   display: inline-flex;
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 16px 0px 0px 16px;
 }
 
 .popup_wrap .popup_box_inner .popup_right {
@@ -3831,7 +3821,7 @@ form.form_floating .form_group.radio_block > label {
   align-items: flex-start;
   position: relative;
   background-color: #fff;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0px 16px 16px 0px;
 }
 
 .popup_wrap .popup_box_inner .popup_right_content {

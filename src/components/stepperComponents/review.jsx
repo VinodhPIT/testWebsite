@@ -153,7 +153,9 @@ const Review = () => {
                         <div className="request_filter_col">
                           {selectedArtists.map((el, index) => {
                             return (
-                              <div className="request_filter_grid" key={index}>                                
+                              <Link  href={`/${router.locale}/artists/${el.slug}`} className="request_filter_grid"  key={index}  target="_blank" >
+                              <div>  
+                                               
                                 <div className="request_filter_dtls">
                                   <div className="request_filter_profile">
                                     <Image
@@ -176,7 +178,9 @@ const Review = () => {
                                     </Link>
                                   </div>
                                 </div>
+                                
                               </div>
+                              </Link> 
                             );
                           })}
                         </div>

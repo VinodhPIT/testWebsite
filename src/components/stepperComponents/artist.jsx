@@ -223,6 +223,9 @@ const Artist = () => {
                                         width={46}
                                         height={46}
                                         alt={e._source.slug}
+                                        placeholder="blur"
+                                        blurDataURL={blurDataURL}
+
                                       />
                                     </div>
                                     <div className="request_filter_profile_dtls">                                      
@@ -231,6 +234,9 @@ const Artist = () => {
                                           <Link
                                           href={`/${router.locale}/artists/${e._source.slug}`}
                                           target="_blank" className="ml_5"
+                                          onClick={(event) => {
+                                            event.stopPropagation();
+                                          }}
                                         >
                                           <Image
                                             src="/icon_link.svg"

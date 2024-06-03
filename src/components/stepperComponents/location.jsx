@@ -9,8 +9,6 @@ import PlacesAutocomplete from "react-places-autocomplete";
 
 import styles from "./styles/dropdown.module.css";
 
-
-
 export default function LocationSearch({ onToggleLoc }) {
   const [address, setAddress] = useState("");
 
@@ -23,19 +21,19 @@ export default function LocationSearch({ onToggleLoc }) {
     location,
     clearLocation,
     setIsChecked,
-    isChecked, locationDenied
+    isChecked,
+    locationDenied,
   } = useRequestForm(); // Zustand store and setter
 
   const handleSelect = async (value) => {
     setAddress(value);
   };
 
-
   const sharedFunction = () => {
     clearLocation();
     onToggleLoc();
   };
-  
+
   const clearCurrentLocation = () => {
     sharedFunction();
     setIsChecked();
@@ -43,7 +41,6 @@ export default function LocationSearch({ onToggleLoc }) {
   const clear = async () => {
     sharedFunction();
   };
-
 
   const onError = (status, clearSuggestions) => {
     clearSuggestions();
@@ -59,15 +56,6 @@ export default function LocationSearch({ onToggleLoc }) {
     filterCurrentLocation(isChecked);
     onToggleLoc();
   };
-
-
-
-
-
-
-
-
-
 
   return (
     <div
@@ -100,7 +88,6 @@ export default function LocationSearch({ onToggleLoc }) {
                 onChange={handleCheckboxChange}
               />
               {t("common:currentLocation")}
-            
             </label>
           </div>
 
@@ -162,31 +149,23 @@ export default function LocationSearch({ onToggleLoc }) {
         </div>
 
         <div className={styles.custom_dropdown_btn}>
-
-      {isChecked === true ? 
-          <button
-            onClick={() => clearCurrentLocation()}
-            disabled={!isChecked}
-            className="btn_outline_base w_100pc"
-          >
-            {t("common:Clear All")}
-          </button>
-  : <button
-  onClick={() => clear()}
-  disabled={location === ""}
-  className="btn_outline_base w_100pc"
->
- {t("common:Clear All")}
-</button>
- }
-
-{/* <button
-  onClick={() => clear()}
-  disabled={isChecked ? !isChecked : location === ""}
-  className="btn_outline_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
->
-  {t("common:Clear All")}
-</button> */}
+          {isChecked === true ? (
+            <button
+              onClick={() => clearCurrentLocation()}
+              disabled={!isChecked}
+              className="btn_outline_base w_100pc"
+            >
+              {t("common:Clear All")}
+            </button>
+          ) : (
+            <button
+              onClick={() => clear()}
+              disabled={location === ""}
+              className="btn_outline_base w_100pc"
+            >
+              {t("common:Clear All")}
+            </button>
+          )}
 
           <button
             onClick={() => searchLocation()}
