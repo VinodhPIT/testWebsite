@@ -21,7 +21,7 @@ const initialState = {
   images: [],
   artistList: [],
   styleId: "",
-  searchKey: " ",
+  searchKey: "",
   loadNo: 0,
   latitude: "",
   longitude: "",

@@ -26,15 +26,18 @@ function SearchBar() {
   };
 
   const clearText = async () => {
+    if (!!searchKey) {
+      clearField();
+    }
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: "",
     }));
-
-    if (searchKey !== "") {
-      clearField();
-    }
   };
+
+
+
+
 
   return (
     <div className={style.search_bar}>
