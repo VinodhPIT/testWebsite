@@ -145,21 +145,46 @@ export default function Home({isMobile}) {
 
       <section className="img_text_banner_box">
         <div className="col_full">
-          <div className="img_text_box_wrapper exciting_offer_wrap mb_8 m_mb_0">
-            <div className="text_box_wrap right">
-              <div className="img_text_box_inner custom_two_col_banner m_switcher">
-                <div className="text_box_content justify_content_center m_min_h_reset m_pt_15 m_pb_25">
-                  <div className="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
-                    <div className="tiny_payment_block pr_10_pc m_pr_0">
-                      <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
+          <div className="main_banner_wrap mt_40 m_mt_15">
+            <div className="main_banner_block">
+              <div className="main_banner_col">
+                <div className="main_banner_img_wrap">
+                  <div className="main_banner_img">
+                    <Image
+                      src="/book-your-tattoo-now.png"
+                      alt="Banner"
+                      fill
+                      objectFit="cover"
+                      objectPosition="center top"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      className="mob_hidden"
+                    />
+                    <Image
+                      src="/book-your-tattoo-now-mob.png"
+                      alt="Banner"
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      fill
+                      objectPosition="center top"
+                      className="desk_hidden"
+                    />  
+                    
+                  </div>
+                </div>
+                <div className="main_banner_caption">
+                  <div className="d_inline_block">
+                    <div className="main_banner_content">
+                      <h1 className="color_white heading_h1 custom_fs_75 txt_mob_fs50 mt_0 max_w_420 m_max_100">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="m_mt_10 m_mb_10 txt_mob_fs14 m_lh_21">
+                      <p className="color_white custom_fs_m_14 mt_15 mb_40 m_mt_0 max_w_520 m_max_100">
                         {t("common:homePage.bannerContent")}
                       </p>
-                      <div className="text_box_content_inner w_100pc pr_0 dictionary_explore">
-                        <ul className="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_10 text_left d_inline_block download_mob_center">
-                          <li className="download_app_title mb_10 m_mb_5 m_lh_19">
+                      <div className="d_inline_block max_w_520 w_100pc"> 
+                        <ul className="download_qr_mob_app">
+                          <li className="color_white color_white download_qr_mob_app_title">
                             {t("common:homePage.Download the inckd")}
                           </li>
                           <li>
@@ -205,35 +230,7 @@ export default function Home({isMobile}) {
                         </ul>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="img_box_wrap custom_download_shadow no_shadow_before">
-                  <span>
-                    <Image
-                      priority
-                      src="/pexels-jasmin-chew-14664626-2-1.png"
-                      alt={t("common:homePage.bannerTitle")}
-                      fill
-                      objectFit="cover"
-                      objectPosition="center"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="mob_hidden"
-                      //layout="responsive"
-                    />
-                    <Image
-                      priority
-                      src="/image_2024_01_10T08_41_09_088Z1.png"
-                      alt={t("common:homePage.bannerTitle")}
-                      fill
-                      objectFit="cover"
-                      objectPosition="center"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="desk_hidden"
-                      //layout="responsive"
-                    />
-                  </span>
+                  </div>                 
                 </div>
               </div>
             </div>
