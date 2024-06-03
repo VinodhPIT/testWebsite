@@ -194,7 +194,7 @@
 }
 
 .request_landing_content {
-  padding: 80px 80px 80px 80px;
+  padding: 80px 80px 90px 80px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -272,12 +272,12 @@
 
 .request_list_item .inActiveRequest:hover {
   border: 1px solid #101010;
-  background: #F8F8F8;
+  background: var(--white);
 }
 
 .request_list_item .requestActive {
   border: 1px solid #101010;
-  background: #F8F8F8;
+  background: var(--white);
 }
 
 .request_text_area {
@@ -336,6 +336,7 @@
   flex-flow: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  row-gap: 10px;
 }
 
 .request_file_up_list {
@@ -1008,7 +1009,7 @@
 
 .rqst_btn_bottom {
   position: absolute;
-  bottom: -40px;
+  bottom: -60px;
   width: 100%;
 }
 
@@ -1019,6 +1020,10 @@
 @media screen and (min-width: 768px) {
   .request_contact_info_wrap {
     gap: 60px;
+  }
+  .request_filter_col {
+    max-height: 405px;
+    overflow-y: auto;
   }
 }
 
@@ -1108,7 +1113,7 @@
   .request_landing_content {
     border-radius: 0;
     border: 0;
-    padding: 10px 0 0 0;
+    padding: 10px 0 90px 0;
     margin: 0;
     height: 100%;
   }
@@ -1146,7 +1151,6 @@
   .request_file_uploader {
     flex-flow: nowrap;
     gap: 8px;
-    justify-content: center;
   }
 
   .request_file_up_list {
@@ -1219,7 +1223,7 @@
 
   .request_review_ref {
     gap: 10px;
-  }
+  }  
 
   .request_review_block .request_filter_wrap .request_filter_col {
     display: block;
@@ -1239,7 +1243,8 @@
 
   .request_filter_wrap {
     max-height: 390px;
-    overflow-y: overlay;
+    overflow-y: auto;
+    max-height: calc(100vh - 60vh);
   }
 
   .request_filter_img {
@@ -1378,6 +1383,28 @@
     border: 1px solid #E1E4E8;
     z-index: 2;
     top: 0;
+  }
+
+  .request_mob_fixed {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0;
+    z-index: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    background-color: #fff;
+  }
+  .btn_rqst_desc_mob {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    bottom: 10px;
+    padding: 0 15px;
+    left: 0;
+  }
+  .popup_wrap.custom_popup_design .selected_artistblock .picked_artists_panel {
+    height: 100vh;
   }
 }
 

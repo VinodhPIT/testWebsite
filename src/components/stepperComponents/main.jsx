@@ -20,7 +20,7 @@ export default function Main() {
 
   return (
     <>
-      <div className="full_col_block min_h_100_vh">
+      <div className="full_col_block min_h_100_vh m_min_h_70_vh">
         <div className="full_col_banner">
           <div className="banner_fixed_block">
             <Image
@@ -150,13 +150,15 @@ export default function Main() {
                       {t("common:stepper.contact")}
                     </div>
                   </div>
-                </div>    
-                  <Link
-                    className="btn_outline_base mt_40 m_mt_50 m_mb_15 m_w_100pc"
-                    href={`/${router.locale}/request-Form`}
-                  >
-                    {t("common:stepper.startDescribe")}
-                  </Link>
+                </div>
+                  <div className="btn_rqst_desc_mob">
+                    <Link
+                      className="btn_outline_base mt_40 m_mt_0 m_mb_0 m_w_100pc"
+                      href={`/${router.locale}/request-Form`}
+                    >
+                      {t("common:stepper.startDescribe")}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

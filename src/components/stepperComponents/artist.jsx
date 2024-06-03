@@ -188,7 +188,7 @@ const Artist = () => {
                   {loader ? (
                     <SkeletonArtistList />
                   ) : (
-                    <div className="mb_20">
+                    <div className="mb_0">
                       {artistList && artistList.length > 0 ? (
                         <div className="request_filter_wrap">
                           <div className="request_filter_col">
@@ -288,7 +288,7 @@ const Artist = () => {
                       
                     </div>                    
                   )}
-                  <div className="request_ref_btn rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_10">
+                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                         <button
                           onClick={prevPage}
                           className="btn_outline_base mt_15 m_mt_0 m_w_50pc"

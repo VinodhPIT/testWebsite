@@ -91,7 +91,7 @@ const TattooSearchModal1Popup = ({}) => {
                       <h5 class="color_gray_550 mb_0">
                         {t("common:stepper.ideaForTattoo")}
                       </h5>
-                      <p class="custom_fs_16 fw_300 color_gray_550 mb_0 mt_10">
+                      <p class="custom_fs_16 custom_fs_m_15 fw_300 color_gray_550 mb_0 mt_10">
                         {t("common:stepper.Login with your existing account")}
                       </p>
                       <button
