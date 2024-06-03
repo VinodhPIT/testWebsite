@@ -272,12 +272,12 @@
 
 .request_list_item .inActiveRequest:hover {
   border: 1px solid #101010;
-  background: #F8F8F8;
+  background: var(--white);
 }
 
 .request_list_item .requestActive {
   border: 1px solid #101010;
-  background: #F8F8F8;
+  background: var(--white);
 }
 
 .request_text_area {
