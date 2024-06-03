@@ -25,7 +25,7 @@ export default function TattooIdea() {
         <div className="img_text_box_inner flex_direction_column">
           <div className="row m_switcher_row">
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">              
-              <div className="img_box_wrap mt_80 mb_0">
+              <div className="img_box_wrap min_h_reset mt_80 mb_0 m_mt_40">
                 <Image
                   priority={true}
                   src="/share-tattoo-idea-new.png"
@@ -51,16 +51,16 @@ export default function TattooIdea() {
               </div>
             </div>
             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 ml_6pc m_ml_0">
-              <div className="text_box_content justify_content_start m_min_h_reset pt_80 pb_0">
-                <div className="text_box_content_inner m_pr_0 pr_0">
-                  <h2>
+              <div className="text_box_content justify_content_start m_min_h_reset pt_80 pb_0 m_pt_40 m_pb_25">
+                <div className="text_box_content_inner m_pr_0 pr_0 w_100pc">
+                  <h2 className="custom_fs_m_28 m_mb_5">
                     {" "}
                     {t("common:homePage.Share your tattoo idea")}
                   </h2>
-                  <p className="mt_25 mb_25 m_mt_0 m_mb_20 custom_fs_m_14">
+                  <p className="mt_25 mb_25 m_mt_0 m_mb_0 custom_fs_m_14">
                     {t("common:homePage.TattooIdeaDesc")}
                   </p>
-                  <ul class="custom-listing txt_gray_500 mb_25">
+                  <ul class="custom-listing txt_gray_500 mb_25 m_mt_25">
                     <li>
                       <Image
                         priority
