@@ -80,7 +80,7 @@ const ContactForm = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 align_content m_align_content">
-              <section className="request_landing_content mb_90 pb_40">
+              <section className="request_landing_content mb_90 m_mb_0">
                 <div className="request_landing_content_col">
                   <h2>{t("common:stepper.title6")}</h2>
                   <div className="request_contact_form">
@@ -144,7 +144,7 @@ const ContactForm = () => {
                             />
                           </div>
 
-                          <div className="btn_group m_pos_fixed m_bottom_0 m_gap_16 m_pb_15 m_pt_30 mt_70 m_mt_0 m_w_calc_30">
+                          <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                             <button
                               className="btn_outline_base m_w_50pc"
                               onClick={prevPage}

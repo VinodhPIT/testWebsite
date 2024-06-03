@@ -63,7 +63,7 @@ const TattooSize = () => {
                       </button>
                     ))}
                   </div>
-                  <div className="btn_group rqst_btn_bottom m_pos_reset m_mt_auto m_bottom_none m_gap_16 m_pb_15 m_pt_30">
+                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                     <button className="btn_outline_base m_w_50pc" onClick={goBack}>Back</button>
                     <button className="btn_defult_base m_w_50pc"  onClick={nextPage} disabled={tattooSize === ""}>Next</button>
                   </div>

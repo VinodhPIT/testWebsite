@@ -2786,6 +2786,10 @@ ul.custom-listing.txt_gray_500 li {
   font-size: 14px !important;
   line-height: 21px !important;
 }
+.custom_fs_15 {
+  font-size: 15px !important;
+  line-height: 24px !important;
+}
 .custom_fs_16 {
   font-size: 16px !important;
   line-height: 24px !important;
@@ -6672,6 +6676,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     padding-bottom: 50px !important;
   }
 
+  .m_pb_100 {
+    padding-bottom: 100px !important;
+  }
+
   .m_pt_pb_30 {
     padding-top: 30px !important;
     padding-bottom: 30px !important;
@@ -6825,6 +6833,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .m_mt_mb_45 {
     margin-top: 45px !important;
     margin-bottom: 45px !important;
+  }
+
+  .m_mb_120 {
+    margin-bottom: 120px !important;
   }
 
   .m_mr_0 {
@@ -6989,7 +7001,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     font-size: 14px !important;
     line-height: 24px !important;
   }
-
+  .custom_fs_m_15 {
+    font-size: 15px !important;
+    line-height: 24px !important;
+  }
   .custom_fs_m_16 {
     font-size: 16px !important;
     line-height: 24px !important;
@@ -7132,6 +7147,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 
   .m_h_fit_content {
     height: fit-content !important;
+  }
+
+  .m_min_h_70_vh {
+    min-height: 70vh !important;
   }
 
   .m_min_220 {

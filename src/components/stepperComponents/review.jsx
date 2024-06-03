@@ -82,7 +82,7 @@ const Review = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content pt_30 pb_40 m_pt_10 m_pb_0">
+              <section className="request_landing_content pt_30 m_pt_10">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title7")}</h2>
 
@@ -97,11 +97,11 @@ const Review = () => {
                         <p>{bodyPart}</p>
                       </div>
                     </div>
-
+                    {message&&
                     <div className="request_review_desc">
                       <h6>{t("common:stepper.description")}</h6>
                       <p>{message}</p>
-                    </div>
+                    </div>}
 
                     <div className="request_review_contact_info">
                       <h6>{t("common:stepper.contactInformation")}</h6>
@@ -128,7 +128,7 @@ const Review = () => {
                         </div>
                       </div>
                     </div>
-
+                    {images && images.length > 0 && (
                     <div className="request_review_desc">
                       <h6>{t("common:stepper.referenceImages")}</h6>
                       <div className="request_review_ref">
@@ -145,7 +145,7 @@ const Review = () => {
                           );
                         })}
                       </div>
-                    </div>
+                    </div>)}
 
                     <div className="request_review_selected_artist">
                       <h6>{t("common:stepper.selectedArtists")}</h6>
@@ -184,7 +184,7 @@ const Review = () => {
                     </div>
                   </div>
 
-                  <div className="btn_group m_mt_auto m_gap_16 m_pb_15 m_pt_30">
+                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                     <button
                       onClick={() => prevPage()}
                       className="btn_outline_base mt_10 align_self m_w_50pc m_mt_0"
