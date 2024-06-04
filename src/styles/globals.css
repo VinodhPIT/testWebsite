@@ -8719,8 +8719,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .join_artist_img_block {
     height: 100%;
   }
-  ul.app_download_img_list.slider_resize li img.obj_pos_c {
+  ul.app_download_img_list.slider_resize li img.obj_cntr_max_h_inh {
     object-position: center !important;
+    max-height: inherit !important;
   }
 }
 
