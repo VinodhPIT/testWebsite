@@ -1,15 +1,16 @@
 import React from "react";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import styles from './styles/artistPlaceHolder.module.css'
 
 export default function SkeletonArtistList() {
   return (
-    <div>
-      <div className="request_filter_col mt_20">
+   
+      <div className={styles.request_filter_col}>
         {Array.from({ length: 10 }, (_, index) => (
-          <Skeleton className="request_filter_grid" key={index} height={72} width={290} />
+          <Skeleton className={styles.request_filter_grid} key={index}/>
         ))}
       </div>
-    </div>
+  
   );
 }
