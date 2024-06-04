@@ -36,11 +36,8 @@ function SearchBar() {
   };
 
 
-
-
-
   return (
-    <div className={style.search_bar}>
+    <div className={`${"langulock"} ${style.search_bar}`}>
       <form onSubmit={handleSubmit}>
         <div className="input_group position_relative" ref={inputRef}>
           <input

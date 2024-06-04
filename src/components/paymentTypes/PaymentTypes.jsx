@@ -22,7 +22,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
     return (
         <section className="img_text_banner_box">
             <div className="img_text_box_wrapper">                    
-                <div className="text_box_wrap right block_bg_gray_50 custom_right_img_new app_download_box_wrap landing_app_download_wrap mb_0 m_pb_40">
+                <div className="text_box_wrap right block_bg_gray_50 custom_right_img_new app_download_box_wrap mb_0 m_pb_40">
                     <div className="img_text_box_inner container flex_direction_column pt_0">
                         <div className="row">
 					        <div className="col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
@@ -90,7 +90,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                             </div>
                             {!isMobileView && (
                                 <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 align_content">
-                                    <div className="img_box_wrap m_pb_25">
+                                    <div className="img_box_wrap m_pb_25 md_h_c_155">
                                         <ul className="app_download_img_list justify_content_end slider_resize d_slid_resize m_0 p_0 d_inline_flex gap_20">
                                             <li className="pl_0 no_filter">
                                                 <Image
@@ -101,7 +101,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     height={375}
                                                     blurDataURL={blurDataURL}
                                                     placeholder="blur"
-                                                    className={styles.imageResponsive}
+                                                    className="obj_pos_c"
                                                 />
                                             </li>
                                             <li className="pl_0 no_filter">
@@ -113,7 +113,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     height={375}
                                                     blurDataURL={blurDataURL}
                                                     placeholder="blur"
-                                                    className={styles.imageResponsive}
+                                                    className="obj_pos_c"
                                                 />
                                             </li>
                                             <li className="pl_0 no_filter">
@@ -125,7 +125,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     height={375}
                                                     blurDataURL={blurDataURL}
                                                     placeholder="blur"
-                                                    className={styles.imageResponsive}
+                                                    className="obj_pos_c"
                                                 />
                                             </li>
                                         </ul>

@@ -1411,6 +1411,46 @@
   .popup_wrap.custom_popup_design .selected_artistblock .picked_artists_panel {
     height: 100vh;
   }
+  /*.request_filter_col_wrap .request_filter_block {
+    width: calc(100% - 38px);
+  }*/
+  .request_style_drop {
+    width: 50%;
+    max-width: 100%;
+  }
+  .request_filter_col_wrap .request_filter_block .request_location_drop {
+    width: 50%;
+    max-width: 100%;
+  }
+  .mob_search_close {
+    border-radius: 8px;
+    width: 38px;
+    min-width: 38px;
+    height: 37px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-500);
+    border: 1px solid var(--gray-light-300);
+    outline: none;
+    top: 0;
+  }
+  .request_mobile_search .langulock {
+    width: 100%!important;
+  }
+  .request_mobile_search {
+    padding-right: 46px;
+  }
+  .request_review_block .request_review_selected_artist .request_filter_wrap .request_filter_col {
+    overflow-x: hidden;
+    white-space: inherit;
+    scroll-snap-type: none;
+  }
+  .request_review_block .request_review_selected_artist .request_filter_wrap .request_filter_grid {
+    width: 100%;
+  }
+  
 }
 
 @media screen and (max-width: 640px) {
