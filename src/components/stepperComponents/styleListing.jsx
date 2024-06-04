@@ -10,10 +10,11 @@ import styles from "./styles/dropdown.module.css";
 
 export default function StyleDropdown({ onToggle }) {
   
-  const { fetchArtistByStyle, clearStyle } = useRequestForm();
+  const {styleId, fetchArtistByStyle, clearStyle } = useRequestForm();
   const { state, selectedIds, setSelectedIds, styleCollection } = useGlobalState();
   const { t } = useTranslation();
   
+
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
       setSelectedIds(selectedIds.filter((id) => id !== elId));
@@ -23,10 +24,12 @@ export default function StyleDropdown({ onToggle }) {
   };
   
   const clearAll = async () => {
-    clearStyle();
+    if (Array.isArray(styleId) && styleId.length > 0) {
+      clearStyle();
+    }
     setSelectedIds([]);
   };
-  
+
   const onSearchStyle = async () => {
     fetchArtistByStyle(selectedIds);
     onToggle();

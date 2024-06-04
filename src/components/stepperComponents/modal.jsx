@@ -108,6 +108,9 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                                 href={`/${router.locale}/artists/${e.slug}`}
                                 target="_blank"
                                 className="ml_5"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                }}
                               >
                                 <Image
                                   src="/icon_link.svg"
