@@ -398,7 +398,9 @@
     "ideaForTattoo": "Great idea for a tattoo!",
     "bringYouridea": "Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
     "Login with your existing account": "Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
-    "openApp": "Open your app"
+    "openApp": "Open your app",
+    "reviewSize":"Tattoo size",
+    "reviewDescription":"Description"
   },
 
   "tabs": {

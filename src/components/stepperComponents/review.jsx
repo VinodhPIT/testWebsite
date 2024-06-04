@@ -89,7 +89,7 @@ const Review = () => {
                   <div className="request_review_block">
                     <div className="request_review_filter">
                       <div className="request_filter_opt">
-                        <h6>{t("common:stepper.tattooSize")}</h6>
+                        <h6>{t("common:stepper.reviewSize")}</h6>
                         <p>{tattooSize}</p>
                       </div>
                       <div className="request_filter_opt">
@@ -99,7 +99,7 @@ const Review = () => {
                     </div>
                     {message&&
                     <div className="request_review_desc">
-                      <h6>{t("common:stepper.description")}</h6>
+                      <h6>{t("common:stepper.reviewDescription")}</h6>
                       <p>{message}</p>
                     </div>}
 
