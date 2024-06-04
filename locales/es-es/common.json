@@ -370,12 +370,12 @@
   },
 
   "stepper": {
-    "tattooSize": "Choose Tattoo size",
-    "bodyPart": "Choose Placement",
+    "tattooSize": "Choose tattoo size",
+    "bodyPart": "Choose placement",
     "description": "Describe your tattoo",
     "reference": "Reference images",
-    "artists": "Choose Artists",
-    "contact": "Contact Information",
+    "artists": "Choose artists",
+    "contact": "Contact information",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
