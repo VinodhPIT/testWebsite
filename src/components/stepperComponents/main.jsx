@@ -111,7 +111,7 @@ export default function Main() {
                   <h1 className="desk_hidden">
                     <span>Get personalized quotes for your tattoo</span>
                   </h1>
-                  <p className="desk_hidden">Follow these steps to connect with top artists</p>
+                  <p className="desk_hidden">Follow these steps to connect with top artists.</p>
 
                   <div class="request_stepper desk_hidden">
                   <div class="request_stepper_item">
