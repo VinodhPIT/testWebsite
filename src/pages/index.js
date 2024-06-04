@@ -155,7 +155,7 @@ export default function Home({isMobile}) {
                       alt="Banner"
                       fill
                       objectFit="cover"
-                      objectPosition="center top"
+                      objectPosition="right top"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
                       className="mob_hidden"

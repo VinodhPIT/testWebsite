@@ -8283,6 +8283,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .m_md_min_h_reset {
     min-height: inherit !important;
   }
+  .md_h_c_155 {
+    height: calc(100% - 155px);
+  }
 
   .desk_hidden {
     display: none !important;
@@ -8715,6 +8718,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
   .join_artist_img_block {
     height: 100%;
+  }
+  ul.app_download_img_list.slider_resize li img.obj_pos_c {
+    object-position: center !important;
   }
 }
 
