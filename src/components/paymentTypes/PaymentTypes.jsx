@@ -101,7 +101,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     height={375}
                                                     blurDataURL={blurDataURL}
                                                     placeholder="blur"
-                                                    className="obj_pos_c"
+                                                    className="obj_cntr_max_h_inh"
                                                 />
                                             </li>
                                             <li className="pl_0 no_filter">
@@ -113,7 +113,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     height={375}
                                                     blurDataURL={blurDataURL}
                                                     placeholder="blur"
-                                                    className="obj_pos_c"
+                                                    className="obj_cntr_max_h_inh"
                                                 />
                                             </li>
                                             <li className="pl_0 no_filter">
@@ -125,7 +125,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                                     height={375}
                                                     blurDataURL={blurDataURL}
                                                     placeholder="blur"
-                                                    className="obj_pos_c"
+                                                    className="obj_cntr_max_h_inh"
                                                 />
                                             </li>
                                         </ul>

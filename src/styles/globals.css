@@ -8723,8 +8723,8 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     height: 100%;
   }
   ul.app_download_img_list.slider_resize li img.obj_cntr_max_h_inh {
-    object-position: center!important;
-    max-height: inherit!important
+    object-position: center !important;
+    max-height: inherit !important;
   }
 }
 
