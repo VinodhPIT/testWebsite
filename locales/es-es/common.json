@@ -17,6 +17,19 @@
     "joinArtist": "Join as artist"
   },
 
+
+  "sideDrawerMenus":{
+    "home": "Home",
+    "tattooRequest":"Tattoo Request",
+    "tattooFinancing":"Tattoo Financing",
+    "exploreTattoos":"Explore Tattoos",
+    "exploreTattooArtists":"Explore Tattoo Artists",
+    "tattooJournal":"Tattoo Journal",
+    "forTattooers":"For Tattooers",
+    "contactUs":"Contact us"
+   },
+
+
   "homePage": {
     "bannerTitle": "Book your tattoo now!",
     "bannerContent": "Connect with verified artists, secure your appointment and enjoy flexible payment options.",

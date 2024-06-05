@@ -4,106 +4,98 @@ import styles from "./sideDrawer.module.css";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import { useNavigation } from "@/hooks/useRouter";
-import OutsideClickHandler from 'react-outside-click-handler';
+import OutsideClickHandler from "react-outside-click-handler";
 export default function SideDrawer({ onCloseToggle }) {
+
   const { t } = useTranslation();
-
   const { router } = useNavigation();
-
   const links = [
     {
       id: 1,
-      title: t("common:menus.home"),
+      title: t("common:sideDrawerMenus.home"),
       url: `/`,
     },
 
     {
       id: 2,
-      title: t("common:menus.search"),
-      url: `/${router.locale}/explore/tattoos`,
-    },
-
- 
-    {
-      id: 4,
-      title: t("common:menus.dictionary"),
-      url: `/${router.locale}//tattoo-dictionary`,
+      title: t("common:sideDrawerMenus.tattooRequest"),
+      url: `/${router.locale}/createRequest`,
     },
 
     {
-      id: 5,
-      title: t("common:menus.klarna"),
+      id: 3,
+      title: t("common:sideDrawerMenus.tattooFinancing"),
       url: `/${router.locale}/klarna`,
     },
 
     {
-      id: 6,
-      title: t("common:menus.forTattooArtists"),
-      url: `/${router.locale}/for-tattoo-artists`,
+      id: 4,
+      title: t("common:sideDrawerMenus.exploreTattoos"),
+      url: `/${router.locale}/explore/tattoos`,
     },
-
+    {
+      id: 5,
+      title: t("common:sideDrawerMenus.exploreTattooArtists"),
+      url: `/${router.locale}/explore/tattoo-artists`,
+    },
 
     {
       id: 6,
-      title: t("common:menus.joinArtist"),
-      url: `/${router.locale}/join-as-artist`,
+      title: t("common:sideDrawerMenus.tattooJournal"),
+      url: `/${router.locale}/journal`,
     },
-
-
 
     {
       id: 7,
+      title: t("common:sideDrawerMenus.forTattooers"),
+      url: `/${router.locale}/for-tattoo-artists`,
+    },
+
+    {
+      id: 8,
       title: t("common:menus.contactUs"),
       url: `/${router.locale}/contact`,
     },
   ];
 
-  let linkComponent;
+  // Defined the array of locales that should show the tattooJournal link
+  const allowedLocalesForTattooJournal = ["gb-en", "de-de"];
 
-  switch (router.locale) {
-    case "gb-en":
-    case "de-de":
-      linkComponent = (
-        <Link href={"/journal"}>{t("common:menus.journal")}</Link>
-      );
-      break;
-    default:
-      linkComponent = null;
-      break;
-  }
-
+  // Filter the links based on the router locale
+  const filteredLinks = links.filter((link) => {
+    if (
+      link.id === 6 &&
+      !allowedLocalesForTattooJournal.includes(router.locale)
+    ) {
+      return false;
+    }
+    return true;
+  });
+ 
   return (
- <OutsideClickHandler onOutsideClick={()=>onCloseToggle()}>
+    <OutsideClickHandler onOutsideClick={() => onCloseToggle()}>
+      <div className={styles.sideDrawer}>
+        <div className={styles.closeWrapper}>
+          <Image
+            onClick={() => onCloseToggle()}
+            src="/close.png"
+            width={50}
+            height={50}
+            alt="close"
+            priority
+          />
+        </div>
 
-
-    <div className={styles.sideDrawer}>
-      <div className={styles.closeWrapper}>
-        <Image
-          onClick={() => onCloseToggle()}
-          src="/close.png"
-          width={50}
-          height={50}
-          alt="close"
-          priority
-        />
+        <ul className={styles.menuList}>
+          {filteredLinks.map((link) => (
+            <li key={link.id}>
+              <Link href={link.url} onClick={() => onCloseToggle()}>
+                {link.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <ul className={styles.menuList}>
-        {links.map((link) => (
-          <li key={link.id}>
-            <Link href={link.url} onClick={() => onCloseToggle()}>
-              {link.title}
-            </Link>
-          </li>
-        ))}
-
-        <li>
-          <Link href={"/journal"} onClick={() => onCloseToggle()}>
-            {linkComponent}
-          </Link>
-        </li>
-      </ul>
-    </div>
     </OutsideClickHandler>
   );
 }
