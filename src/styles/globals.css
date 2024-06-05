@@ -1413,6 +1413,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .mr_6 {
   margin-right: 6px !important;
 }
+.mr_8 {
+  margin-right: 8px !important;
+}
 .mr_10pc {
   margin-right: 10% !important;
 }
@@ -5394,8 +5397,8 @@ button.language_switcher img {
 .link_with_arrow {
   display: inline-flex;
   position: relative;
-  bottom: -3px;
-  margin-left: 6px;
+  bottom: -7px;
+  margin-left: 5px;
   cursor: pointer;
 }
  .buttonLink{
@@ -8042,12 +8045,12 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     background-size: contain;
   }
   .link_with_arrow {
-    bottom: -2px;
+    bottom: -9px;
     margin-left: 3px;
   }
   .link_with_arrow img {
-    width: 16px;
-    height: 16px;
+    width: 30px;
+    height: 30px;
   }
   .buttonLink  {
     width: 16px;

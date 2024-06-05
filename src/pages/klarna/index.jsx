@@ -87,7 +87,7 @@ function KlarnaNew({}) {
           <div className="img_text_box_wrapper exciting_offer_wrap">
             <div class="text_box_wrap right">
               <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                <div class="text_box_content justify_content_center m_min_h_reset m_pt_25">
+                <div class="text_box_content justify_content_center m_min_h_reset m_pt_15">
                   <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                     <div className="tiny_payment_block pr_10_pc m_pr_0">
                       <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0 m_mt_0">
@@ -193,7 +193,7 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_35 m_pb_15">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_600 fw_m_700 custom_fs_m_24 pb_35 m_pb_15">
                     {t("common:klarnaPage.availablePayment")}
                   </h3>
                 </div>
@@ -331,7 +331,7 @@ function KlarnaNew({}) {
             >
               <div className="container">
                 <div className="text_box_content_inner max_w_100pc">
-                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_400 custom_fs_m_24 pb_40 m_pb_0 m_mb_5">
+                  <h3 className="color_gray_550 text_center m_text_left mb_0 custom_fs_40 fw_600 fw_m_700 custom_fs_m_24 pb_40 m_pb_0 m_mb_5">
                     {t("common:klarnaPage.MainTitle1")}
                   </h3>
                 </div>

@@ -36,8 +36,8 @@ export default function ListingPage({ data}) {
                   <Link href={`/${router.locale}/journal`}  className="link_with_arrow">             
                     <Image
                       src="/arrow_right_mob.svg"
-                      width={24}
-                      height={24}
+                      width={32}
+                      height={32}
                       alt="arrow"
                     />
                   </Link>
