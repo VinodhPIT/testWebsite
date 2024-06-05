@@ -29,7 +29,7 @@
    },
 
 
-   
+
   "homePage": {
     "bannerTitle": "Book your tattoo now!",
     "bannerContent": "Connect with verified artists, secure your appointment and enjoy flexible payment options.",
@@ -56,33 +56,7 @@
     "yourProject": "I would love to do your project"
   },
 
-  "styleGuidePage": {
-    "bannerTitle": "Tattoo Stile",
-    "bannerContent": "Entdecke einzigartige Tattoo Stile in unserer App! Finde dein perfektes Tattoo. Tauche noch heute in endlose Möglichkeiten ein.",
-    "Letteringtattoos": "Lettering Tattoos",
-    "LetteringTattooContent": "Steigere deine Selbstdarstellung mit faszinierenden Lettering Tattoos. Finde talentierte Artists in unserer Tattoo-Buchungs-App für personalisierte und beeindruckende Tattoos, die deine einzigartige Geschichte erzählen. Jetzt entdecken!",
-    "Finelinetattoos": "Fineline Tattoos",
-    "FinelineTattooContent": "Erlebe die Eleganz von Fineline Tattoos, wo komplexe Details und kunstvolle Designs zusammenfliessen. Unsere Tattoo-Buchungs-App verbindet dich mit talentierten Artists für zeitlose, subtil ausgearbeitete Selbstverwirklichung. Jetzt entdecken!",
-    "Realistictattoos": "Realistic Tattoos",
-    "RealisticTattooContent": "Erlebe die Eleganz von Realistic Tattoos, wo komplexe Details und kunstvolle Designs zusammenfliessen. Unsere Tattoo-Buchungs-App verbindet dich mit talentierten Artists für zeitlose, subtil ausgearbeitete Selbstverwirklichung. Jetzt entdecken!",
-    "Traditionaltattoos": "Traditionelle Tattoos",
-    "TraditionalTattooContent": "Erlebe die Eleganz von Traditional Tattoos, wo komplexe Details und kunstvolle Designs zusammenfliessen. Unsere Tattoo-Buchungs-App verbindet dich mit talentierten Artists für zeitlose, subtil ausgearbeitete Selbstverwirklichung. Jetzt entdecken!",
-    "Explore fineline": "Erkunde Fineline Tattoos",
-    "Explore traditional tattoos": "Erkunde Traditional Tattoos",
-    "Explore lettering tattoos": "Erkunde Lettering Tattoos",
-    "Explore realistic tattoos": "Erkunde Realistic Tattoos",
-    "Type lettering": "Lettering",
-    "Type fineline": "Fineline",
-    "Type realistic": "Realistic",
-    "Type traditional": "Traditional",
-    "Explore lettering artists": "Erkunde Lettering Artists",
-    "Explore fineline artists": "Erkunde Fineline Artists",
-    "Explore realistic artists": "Erkunde Realistic Artists",
-    "Explore traditional artists": "Erkunde Traditional Artists",
-    "download": "App herunterladen",
-    "exploreApp": "& entdecke 30+ Stile"
-  },
-
+  
   "styleDetail": {
     "bannerTattooRequestBtn": "Create tattoo request",
     "artistSliderTitle": "{{ tattooStyle }} tattoo artists",
@@ -96,6 +70,7 @@
     "createTattoosInked-AI": "With inckd AI, we empower you to create tattoos that have yet to be unleashed from the depths of your emotions. With Inked AI, your creativity knows no limits.",
     "Create now": "Create now!"
   },
+
 
   "klarnaPage": {
     "bannerTitle1": "Tattoo now.",
