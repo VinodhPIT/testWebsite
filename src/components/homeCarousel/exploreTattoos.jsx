@@ -14,12 +14,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { UseSliderSetting } from "@/utils/sliderUtils";
 
+import CustomDots from '@/components/homeCarousel/cot'
+
 export default function ExploreTattoos({ title, content, data }) {
   const { isVisible,isSmallDevice } = useWindowResize();
   const { router } = useNavigation();
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
   UseSliderSetting(isSmallDevice, data);
 
+
+  
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">
@@ -82,7 +86,7 @@ export default function ExploreTattoos({ title, content, data }) {
                       ))}
                   </Slider>
                   {isVisible && (                    
-                    <ul className="magic-dots">
+                     <ul className="magic-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
                         <li
                           key={index}
