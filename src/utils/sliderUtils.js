@@ -55,7 +55,7 @@ export const JournalSliderSettings = (isSmallDevice, data) => {
 export const UseSliderSettings = (isSmallDevice, data) => {
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-
+ 
   const sliderSettings = {
     infinite: false,
     arrows: isSmallDevice ? false : true,
@@ -72,7 +72,7 @@ export const UseSliderSettings = (isSmallDevice, data) => {
           swipe: true,
         },
       },
-
+ 
       {
         breakpoint: 870,
         settings: {
@@ -83,7 +83,7 @@ export const UseSliderSettings = (isSmallDevice, data) => {
           arrows: true,
         },
       },
-
+ 
       {
         breakpoint: 600,
         settings: {
@@ -100,17 +100,97 @@ export const UseSliderSettings = (isSmallDevice, data) => {
       setActiveIndex(newIndex);
     },
   };
-
+ 
   const totalSlides = data && data.length;
   const visibleSlides = Math.ceil(totalSlides - 3);
   const dotsToShow = 3;
   const totalDots = Math.min(dotsToShow, visibleSlides);
-
+ 
   return {
     sliderRef,
     sliderSettings,
     totalDots,
-    activeDot: (index) => index % totalDots,
+    activeDot: (index) => {
+      if (index === 0) {
+        return 0; // First slide, first dot active
+      } else if (index === totalSlides - 1) {
+        return totalDots - 1; // Last slide, last dot active
+      } else {
+        return 1; // All other slides, second dot active
+      }
+    },
+    activeIndex,
+  };
+};
+
+
+export const UseSliderSetting = (isSmallDevice, data) => {
+  const sliderRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+ 
+  const sliderSettings = {
+    infinite: false,
+    arrows: isSmallDevice ? false : true,
+    speed: 300,
+    slidesToShow: isSmallDevice ? 1.5 : 5,
+    slidesToScroll: 1,
+    dots: false, // We will handle dots manually
+    responsive: [
+      {
+        breakpoint: 1199,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          swipe: true,
+        },
+      },
+ 
+      {
+        breakpoint: 870,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          swipe: true,
+          infinite: false,
+          arrows: true,
+        },
+      },
+ 
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+          swipe: true,
+          infinite: false,
+          dots: false,
+        },
+      },
+    ],
+    afterChange: (current) => {
+      const newIndex = Math.round(current);
+      setActiveIndex(newIndex);
+    },
+  };
+ 
+  const totalSlides = data && data.length;
+  const visibleSlides = Math.ceil(totalSlides - 3);
+  const dotsToShow = 3;
+  const totalDots = Math.min(dotsToShow, visibleSlides);
+ 
+  return {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeDot: (index) => {
+      if (index === 0) {
+        return 0; // First slide, first dot active
+      } else if (index === totalSlides - 1) {
+        return totalDots - 1; // Last slide, last dot active
+      } else {
+        return 1; // All other slides, second dot active
+      }
+    },
     activeIndex,
   };
 };

@@ -832,12 +832,6 @@
   margin: 0;
 }
 
-.request_ref_loadmore {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
 .request_ref_checkbox {
   height: 16px;
 }
@@ -1017,6 +1011,40 @@
   right: 31px;
 }
 
+.request_ref_loadmore {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px 0;
+  margin: 0;
+  border-top: 1px solid #F2F5F6;
+}
+button.btn_view_more {
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  font-weight: 500;
+  text-align: center;
+  border: 0;
+  background: var(--white);
+  color: #212121;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  height: auto;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+} 
+
+button.btn_view_more:hover {
+  color: var(--gray-600);
+  background: var(--white);
+  border: 0;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 768px) {
   .request_contact_info_wrap {
     gap: 60px;
@@ -1194,10 +1222,6 @@
 
   .request_ref_btn button.btn_cutom_40 {
     margin-top: 0 !important;
-  }
-
-  .request_ref_loadmore {
-    margin-bottom: 15px;
   }
 
   .request_ref_btn .request_ref_selected.max_reached {
@@ -1415,9 +1439,6 @@
   .popup_wrap.custom_popup_design .selected_artistblock .picked_artists_panel {
     height: 100vh;
   }
-  /*.request_filter_col_wrap .request_filter_block {
-    width: calc(100% - 38px);
-  }*/
   .request_style_drop {
     width: 50%;
     max-width: 100%;
@@ -1454,6 +1475,23 @@
   .request_review_block .request_review_selected_artist .request_filter_wrap .request_filter_grid {
     width: 100%;
   }
+  .request_ref_loadmore {
+    margin-bottom: 30px;
+  } 
+  button.request_ref_selected {
+    position: fixed;
+    left: 0;
+    bottom: 78px;
+    z-index: 1;
+    width: 100%;
+    padding: 5px 0;
+    background-color: #fff;
+  }
+
+  .request_filter_wrap {
+    max-height: calc(100vh - 300px);
+    margin-bottom: 0;
+  }  
   
 }
 
@@ -1471,11 +1509,6 @@
 }
 
 @media screen and (max-width: 375px) {
-  /* .request_file_up_list {
-    width: 100px;
-    height: 100px;
-    min-height: 100px;
-  } */
 
   .request_review_ref {
     gap: 10px;
@@ -1492,11 +1525,3 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
-
-/* @media screen and (max-width: 349px) {
-  .request_file_up_list {
-    width: 80px;
-    height: 80px;
-    min-height: 80px;
-  }
-} */

@@ -12,13 +12,13 @@ import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { UseSliderSettings } from "@/utils/sliderUtils";
+import { UseSliderSetting } from "@/utils/sliderUtils";
 
 export default function ExploreTattoos({ title, content, data }) {
-  const { isVisible } = useWindowResize();
+  const { isVisible,isSmallDevice } = useWindowResize();
   const { router } = useNavigation();
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    UseSliderSettings(isVisible, data);
+  UseSliderSetting(isSmallDevice, data);
 
   return (
     <section className="img_text_banner_box">
@@ -44,7 +44,7 @@ export default function ExploreTattoos({ title, content, data }) {
               </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_0 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none"} ${
+              className={`${"mt_0 mb_0 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none mob_slider_eql_h"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -81,14 +81,12 @@ export default function ExploreTattoos({ title, content, data }) {
                         </div>
                       ))}
                   </Slider>
-                  {isVisible && (
-                    <ul className="custom-dots">
+                  {isVisible && (                    
+                    <ul className="magic-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
                         <li
                           key={index}
-                          className={
-                            index === activeDot(activeIndex) ? "active" : ""
-                          }
+                          className={index === activeDot(activeIndex) ? "active" : "inActive"}
                         >
                           <button></button>
                         </li>

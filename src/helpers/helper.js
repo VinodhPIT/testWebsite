@@ -61,7 +61,7 @@ const artistRequest = (parameters) => {
   const request = {
     sort: null,
     page_no: parameters.page_no,
-    paginator_count: 10,
+    paginator_count: 20,
     search_key: parameters.search_key,
     distance: "50km",
   };

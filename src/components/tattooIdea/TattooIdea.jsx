@@ -53,33 +53,33 @@ export default function TattooIdea() {
             <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12 ml_6pc m_ml_0">
               <div className="text_box_content justify_content_start m_min_h_reset pt_80 pb_0 pr_0 m_pt_40 m_pb_25">
                 <div className="text_box_content_inner m_pr_0 pr_0 w_100pc">
-                  <h2 className="custom_fs_m_28 m_mb_5">
+                  <h2 className="custom_fs_m_28 mb_0">
                     {" "} 
                     {t("common:homePage.Share your tattoo idea")}
                   </h2>
-                  <p className="mt_25 mb_25 m_mt_0 m_mb_0 custom_fs_m_16">
+                  <p className="mt_5 mb_15 custom_fs_m_16">
                     {t("common:homePage.TattooIdeaDesc")}
                   </p>
-                  <ul class="custom-listing txt_gray_500 mb_25 m_mt_25">
-                    <li className="custom_fs_m_16">
+                  <ul class="custom-listing txt_gray_500 mt_0 mb_30">
+                    <li className="custom_fs_m_16 mb_12 m_mb_10">
                       <Image
                         priority
                         src="/icon_circle_tick.svg"
                         alt="Compare different offers"
                         width={24}
                         height={24}
-                        className="mr_8"
+                        className="mr_8 m_h_16"
                       />
                       Compare different offers
                     </li>
-                    <li className="custom_fs_m_16">
+                    <li className="custom_fs_m_16 mb_12 m_mb_10">
                       <Image
                         priority
                         src="/icon_circle_tick.svg"
                         alt="Compare different offers"
                         width={24}
                         height={24}
-                        className="mr_8"
+                        className="mr_8 m_h_16"
                       />
                       Send one request to multiple artists
                     </li>
@@ -90,15 +90,11 @@ export default function TattooIdea() {
                         alt="Compare different offers"
                         width={24}
                         height={24}
-                        className="mr_8"
+                        className="mr_8 m_h_16"
                       />
                       Book your tattoo easily and quickly
-                    </li>
-                    
-                     
-                  </ul>
-
-                  
+                    </li>  
+                  </ul>         
 
 
 

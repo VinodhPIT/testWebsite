@@ -88,7 +88,7 @@ const Artist = () => {
       <>
         {selectedArtists.length > 0 && (
           <button
-            className="request_ref_selected mt_15 d_block m_auto"
+            className="request_ref_selected mt_15 m_mt_0 d_block m_auto"
             onClick={() => setModel(true)}
           >
             {selectedArtists.length} {t("common:artistsSelected")}{" "}
@@ -106,12 +106,12 @@ const Artist = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_60_vh ">
+      <div className="full_col_block h_126_vh m_h_inherit">
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content m_align_content">
-                <div className="request_landing_content_col align_self_stretch">
+              <section className="request_landing_content m_align_content m_pb_0">
+                <div className="request_landing_content_col align_self_stretch m_pb_112">
                   <h2>{t("common:stepper.title5")}</h2>
                   <div style={{ position: "relative" }}>
                     <div className="request_filter_col_wrap">
@@ -264,37 +264,39 @@ const Artist = () => {
                                 </div>
                               );
                             })}
-                          </div>
+                            <div className="request_ref_loadmore">
+                              {artistList.length !== 0 &&
+                                artistList.length !== totalCount && (
+                                  <button
+                                    className="btn_secondary btn_view_more"
+                                    onClick={loadMore}
+                                  >
+                                    {t("common:loadMore")}
+
+                                    {loadData && (
+                                      <span
+                                        className="spinner-border spinner-border-sm"
+                                        aria-hidden="true"
+                                      ></span>
+                                    )}
+                                  </button>
+                                )}
+                            </div>
+
+                          </div>                          
                         </div>
                       ) : (
                         <div className="mt_40">
                           <p className="text_center">{t("common:nodata")}</p>
                         </div>
                       )}
-                      <div className="request_ref_loadmore">
-                        {artistList.length !== 0 &&
-                          artistList.length !== totalCount && (
-                            <button
-                              className="btn_secondary btn_view_more"
-                              onClick={loadMore}
-                            >
-                              {t("common:loadMore")}
-
-                              {loadData && (
-                                <span
-                                  className="spinner-border spinner-border-sm"
-                                  aria-hidden="true"
-                                ></span>
-                              )}
-                            </button>
-                          )}
-                      </div>
+                      
 
                       {isMobileView && <SelectedArtistsInfo />}
                       
                     </div>                    
                   )}
-                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
+                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_15">
                         <button
                           onClick={prevPage}
                           className="btn_outline_base mt_15 m_mt_0 m_w_50pc"
