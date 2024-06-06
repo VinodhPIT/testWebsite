@@ -93,12 +93,8 @@ export default function TattooIdea() {
                         className="mr_8 m_h_16"
                       />
                       Book your tattoo easily and quickly
-                    </li>
-                    
-                     
-                  </ul>
-
-                  
+                    </li>  
+                  </ul>         
 
 
 
