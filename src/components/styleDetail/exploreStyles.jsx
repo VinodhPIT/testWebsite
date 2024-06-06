@@ -17,9 +17,14 @@ import styles from "./styles/style.module.css";
 
 
 export default function ExploreStyles({ data }) {
-  const { isVisible } = useWindowResize();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    UseSliderSettings(isVisible, data);
+  const { isVisible ,isSmallDevice } = useWindowResize();
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSettings(isSmallDevice, data);
   const { router } = useNavigation();
   const { t } = useTranslation();
 
@@ -83,16 +88,20 @@ export default function ExploreStyles({ data }) {
                     ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="magic-dots">
-                      {Array.from({ length: totalDots }).map((_, index) => (
-                      <li
-                        key={index}
-                        className={index === activeDot(activeIndex) ? "active" : "inActive"}
-                      >
-                        <button></button>
-                      </li>
-                    ))}
-                    </ul>
+                 <div className="magic-dots">
+                 <ul style={{ transform: transformValue }}>
+                   {Array.from({ length: totalDots }).map((_, index) => (
+                     <li
+                       key={index}
+                       className={
+                         index === activeIndex ? "active" : "inActive"
+                       }
+                     >
+                       <button></button>
+                     </li>
+                   ))}
+                 </ul>
+               </div>
                   )}
               </div>
               ) : null}

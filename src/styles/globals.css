@@ -5972,35 +5972,41 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 }
 
 .magic-dots {
+  width: 46px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 16px;
+  position: relative;
+}
+
+.magic-dots ul {
   padding: 0;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
-  transition: all .2s;
+  transition: all 0.2s;
   position: relative;
   margin: 0;
   align-items: center;
-  justify-content: center;
-  margin-top: 16px;
 }
 
-.magic-dots li {
+.magic-dots ul li {
   position: relative;
-  display:flex;align-items: center;
+  display: flex;
+  align-items: center;
   margin: 0 2px;
 }
-.magic-dots .active button{
-  width:14px;
-  height: 14px; 
-  background-color:#171616;
-  border-radius: 50%; 
+
+.magic-dots ul .active button {
+  width: 14px;
+  height: 14px;
+  background-color: #101010;
+  border-radius: 50%;
   padding: 0;
 }
-.magic-dots .inActive button{
-  width:10px;
-  height: 10px; 
-  background-color:#EAEAEA;
+
+.magic-dots ul .inActive button {
+  width: 10px;
+  height: 10px;
+  background-color: #d9d9d9;
   border-radius: 50%;
   padding: 0;
 }

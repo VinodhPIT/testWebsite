@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -7,41 +8,40 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import { useGlobalState } from "@/context/Context";
 
-//import sliderSettings from "@/constants/homeSliderSettings";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 import { blurDataURL } from "@/constants/constants";
 import { getUrl } from "@/utils/getUrl";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./styles/slider.module.css";
-import { useEffect } from "react";
 
 export default function ArtistSlider({ title, content, data, slug }) {
-  const { isVisible ,isSmallDevice } = useWindowResize();
+  const { isVisible, isSmallDevice } = useWindowResize();
 
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-  UseSliderSettings(isSmallDevice, data);
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSettings(isSmallDevice, data);
 
   const router = useRouter();
   const { selectedIds, setSelectedIds } = useGlobalState();
-  
-
 
   const updateTab = async () => {
-   
     await getUrl("artist", "", slug, "", router);
     // Check for duplicates and remove them
-    const updatedIds = [...new Set([...selectedIds, slug])]
+    const updatedIds = [...new Set([...selectedIds, slug])];
     setSelectedIds(updatedIds);
   };
 
+  useEffect(() => {
+    setSelectedIds([]);
+  }, []);
 
-  useEffect(()=>{
-    setSelectedIds([])
-  },[])
-
-    
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">
@@ -50,7 +50,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
             <div className="text_box_content_inner m_pr_0 pt_80 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
               <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_65 m_pr_55 m_xs_pr_0 m_text_left custom_fs_m_24 m_lh_29 fw_700 position_relative">
                 <span>{title}</span>
-                <span  className="link_with_arrow">             
+                <span className="link_with_arrow">
                   <Image
                     src="/arrow_right_mob.svg"
                     width={32}
@@ -70,97 +70,104 @@ export default function ArtistSlider({ title, content, data, slug }) {
               }`}
             >
               {data.length !== 0 ? (
-              <div>
-                <Slider
-                  {...sliderSettings}
-                  ref={sliderRef}
-                  className="custom_content_slick_slider m_xs_ml_n_15 m_xs_mr_n_15"
-                >
-                  {data &&
-                    data.map((el, index) => (
-                      <div
-                        className={`${"listing_gridItem pl_0 pr_10"} ${
-                          styles.listing_gridItem
-                        }`}
-                        key={index}
-                      >
-                        <Link
-                          href={{
-                            pathname: `/${router.locale}/artists/${el._source.slug}`,
-                          }}
-                          
-                          
+                <div>
+                  <Slider
+                    {...sliderSettings}
+                    ref={sliderRef}
+                    className="custom_content_slick_slider m_xs_ml_n_15 m_xs_mr_n_15"
+                  >
+                    {data &&
+                      data.map((el, index) => (
+                        <div
+                          className={`${"listing_gridItem pl_0 pr_10"} ${
+                            styles.listing_gridItem
+                          }`}
+                          key={index}
                         >
-                          <div
-                            className={`${"listing_grid_four_col max_h_230"} ${
-                              styles.listing_grid_img_col
-                            }`}
+                          <Link
+                            href={{
+                              pathname: `/${router.locale}/artists/${el._source.slug}`,
+                            }}
                           >
-                            <Image
-                              src={el._source.image_url}
-                              alt={el._source.name}
-                              width={752}
-                              height={776}
-                              loading="lazy"
-                              placeholder="blur"
-                              blurDataURL={blurDataURL}
-                              layout="responsive"
-                              style={{
-                                borderTopRightRadius: "9px",
-                                borderTopLeftRadius: "9px",
-                              }}
-                              className="imggg"
-                            />
-                          </div>
-
-                          <div
-                            className={`${"listing_grid_content_wrap"} ${
-                              styles.listing_grid_content_wrap
-                            }`}
-                          >
-                            <div className={styles.listing_grid_img_profile}>
+                            <div
+                              className={`${"listing_grid_four_col max_h_230"} ${
+                                styles.listing_grid_img_col
+                              }`}
+                            >
                               <Image
-                                src={el._source.profile_image}
+                                src={el._source.image_url}
                                 alt={el._source.name}
-                                width={97}
-                                height={97}
+                                width={752}
+                                height={776}
                                 loading="lazy"
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
                                 layout="responsive"
+                                style={{
+                                  borderTopRightRadius: "9px",
+                                  borderTopLeftRadius: "9px",
+                                }}
+                                className="imggg"
                               />
                             </div>
+
                             <div
-                              className={styles.listing_grid_profile_details}
+                              className={`${"listing_grid_content_wrap"} ${
+                                styles.listing_grid_content_wrap
+                              }`}
                             >
-                              <h6 className={styles.listing_grid_profile_title}>
-                                {el._source.artist_name ??`${el._source.first_name} ${el._source.last_name}`}
-                              </h6>
-                              <span
-                                className={styles.listing_grid_profile_address}
+                              <div className={styles.listing_grid_img_profile}>
+                                <Image
+                                  src={el._source.profile_image}
+                                  alt={el._source.name}
+                                  width={97}
+                                  height={97}
+                                  loading="lazy"
+                                  placeholder="blur"
+                                  blurDataURL={blurDataURL}
+                                  layout="responsive"
+                                />
+                              </div>
+                              <div
+                                className={styles.listing_grid_profile_details}
                               >
-                                {el._source.studios[0].city},{" "}
-                                {el._source.studios[0].country}
-                              </span>
+                                <h6
+                                  className={styles.listing_grid_profile_title}
+                                >
+                                  {el._source.artist_name ??
+                                    `${el._source.first_name} ${el._source.last_name}`}
+                                </h6>
+                                <span
+                                  className={
+                                    styles.listing_grid_profile_address
+                                  }
+                                >
+                                  {el._source.studios[0].city},{" "}
+                                  {el._source.studios[0].country}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        </Link>
-                      </div>
-                    ))}
-                </Slider>
-                {isVisible && (
-                        <ul className="magic-dots">
-                        {Array.from({ length: totalDots }).map((_, index) => (
-                          <li
-                            key={index}
-                            className={index === activeDot(activeIndex) ? "active" : "inActive"}
-                          >
-                            <button></button>
-                          </li>
-                        ))}
-                      </ul>
+                          </Link>
+                        </div>
+                      ))}
+                  </Slider>
+                  {isVisible && (
+                       <div className="magic-dots">
+                       <ul style={{ transform: transformValue }}>
+                         {Array.from({ length: totalDots }).map((_, index) => (
+                           <li
+                             key={index}
+                             className={
+                               index === activeIndex ? "active" : "inActive"
+                             }
+                           >
+                             <button></button>
+                           </li>
+                         ))}
+                       </ul>
+                     </div>
                   )}
-              </div>
+                </div>
               ) : null}
             </div>
           </div>
