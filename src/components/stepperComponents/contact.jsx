@@ -101,6 +101,13 @@ const ContactForm = () => {
                               className="form_control"
                               placeholder="Your e-mail"
                               innerRef={emailInputRef} // Assign the ref
+                              onKeyPress={(e) => {
+                                if (e.key === 'Enter') {
+                                  e.preventDefault(); // Prevent form submission on Enter
+                                  e.target.blur();    // Dismiss the keyboard
+                                
+                                }
+                              }}
                             />
                             <ErrorMessage
                               name="email"
@@ -134,6 +141,13 @@ const ContactForm = () => {
                                 className="form_control"
                                 placeholder="Your phone number"
                                 innerRef={phoneInputRef} // Assign the ref
+                                onKeyPress={(e) => {
+                                  if (e.key === 'Enter') {
+                                    e.preventDefault(); // Prevent form submission on Enter
+                                    e.target.blur();    // Dismiss the keyboard
+                                  
+                                  }
+                                }}
                               />
                             </div>
                             <ErrorMessage
