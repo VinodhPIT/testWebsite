@@ -1439,9 +1439,6 @@ button.btn_view_more:hover {
   .popup_wrap.custom_popup_design .selected_artistblock .picked_artists_panel {
     height: 100vh;
   }
-  /*.request_filter_col_wrap .request_filter_block {
-    width: calc(100% - 38px);
-  }*/
   .request_style_drop {
     width: 50%;
     max-width: 100%;
@@ -1478,10 +1475,6 @@ button.btn_view_more:hover {
   .request_review_block .request_review_selected_artist .request_filter_wrap .request_filter_grid {
     width: 100%;
   }
-
-
-
-  /*****new change readmore ****/
   .request_ref_loadmore {
     margin-bottom: 30px;
   } 
@@ -1516,11 +1509,6 @@ button.btn_view_more:hover {
 }
 
 @media screen and (max-width: 375px) {
-  /* .request_file_up_list {
-    width: 100px;
-    height: 100px;
-    min-height: 100px;
-  } */
 
   .request_review_ref {
     gap: 10px;
@@ -1537,11 +1525,3 @@ button.btn_view_more:hover {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
-
-/* @media screen and (max-width: 349px) {
-  .request_file_up_list {
-    width: 80px;
-    height: 80px;
-    min-height: 80px;
-  }
-} */
