@@ -18,9 +18,11 @@ import styles from "./styles/slider.module.css";
 import { useEffect } from "react";
 
 export default function ArtistSlider({ title, content, data, slug }) {
-  const { isVisible } = useWindowResize();
+  const { isVisible ,isSmallDevice } = useWindowResize();
+
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    UseSliderSettings(isVisible, data);
+  UseSliderSettings(isSmallDevice, data);
+
   const router = useRouter();
   const { selectedIds, setSelectedIds } = useGlobalState();
   
@@ -147,18 +149,16 @@ export default function ArtistSlider({ title, content, data, slug }) {
                     ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
-                      {Array.from({ length: totalDots }).map((_, index) => (
-                        <li
-                          key={index}
-                          className={
-                            index === activeDot(activeIndex) ? "active" : ""
-                          }
-                        >
-                          <button></button>
-                        </li>
-                      ))}
-                    </ul>
+                        <ul className="magic-dots">
+                        {Array.from({ length: totalDots }).map((_, index) => (
+                          <li
+                            key={index}
+                            className={index === activeDot(activeIndex) ? "active" : "inActive"}
+                          >
+                            <button></button>
+                          </li>
+                        ))}
+                      </ul>
                   )}
               </div>
               ) : null}

@@ -83,17 +83,15 @@ export default function ExploreStyles({ data }) {
                     ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
+                    <ul className="magic-dots">
                       {Array.from({ length: totalDots }).map((_, index) => (
-                        <li
-                          key={index}
-                          className={
-                            index === activeDot(activeIndex) ? "active" : ""
-                          }
-                        >
-                          <button></button>
-                        </li>
-                      ))}
+                      <li
+                        key={index}
+                        className={index === activeDot(activeIndex) ? "active" : "inActive"}
+                      >
+                        <button></button>
+                      </li>
+                    ))}
                     </ul>
                   )}
               </div>

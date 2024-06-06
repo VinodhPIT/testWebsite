@@ -17,12 +17,13 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function FiveColumnCarousel({
   title,
-  content_sub,
 }) {
-  const { isVisible } = useWindowResize();
+  const { isVisible ,isSmallDevice } = useWindowResize();
   const { fetchAll, allListing } = useDisplayAll();
   const router =useRouter()
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  UseSliderSettings(isVisible, allListing.artists && allListing.artists);
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
+  UseSliderSettings(isSmallDevice, allListing.artists && allListing.artists);
+
 
 
   useEffect(() => {
@@ -132,18 +133,16 @@ export default function FiveColumnCarousel({
                   ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
-                       {Array.from({ length: totalDots }).map((_, index) => (
-                          <li
-                            key={index}
-                            className={
-                              index === activeDot(activeIndex) ? "active" : ""
-                            }
-                          >
-                            <button></button>
-                          </li>
-                        ))}
-                    </ul>
+                    <ul className="magic-dots">
+                    {Array.from({ length: totalDots }).map((_, index) => (
+                      <li
+                        key={index}
+                        className={index === activeDot(activeIndex) ? "active" : "inActive"}
+                      >
+                        <button></button>
+                      </li>
+                    ))}
+                  </ul>
                   )}
               </div>
                )}

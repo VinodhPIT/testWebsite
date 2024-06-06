@@ -14,10 +14,10 @@ import styles from "./style.module.css";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 
 export default function ExploreStyles({ title, content, data }) {
-  const { isVisible } = useWindowResize();
+  const { isVisible,isSmallDevice } = useWindowResize();
   const { router } = useNavigation();
   const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    UseSliderSettings(isVisible, data);
+  UseSliderSettings(isSmallDevice, data);
 
   return (
     <section className="img_text_banner_box">
@@ -80,18 +80,16 @@ export default function ExploreStyles({ title, content, data }) {
                     ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
-                      {Array.from({ length: totalDots }).map((_, index) => (
-                        <li
-                          key={index}
-                          className={
-                            index === activeDot(activeIndex) ? "active" : ""
-                          }
-                        >
-                          <button></button>
-                        </li>
-                      ))}
-                    </ul>
+                        <ul className="magic-dots">
+                        {Array.from({ length: totalDots }).map((_, index) => (
+                          <li
+                            key={index}
+                            className={index === activeDot(activeIndex) ? "active" : "inActive"}
+                          >
+                            <button></button>
+                          </li>
+                        ))}
+                      </ul>
                   )}
               </div>
               ) : null}

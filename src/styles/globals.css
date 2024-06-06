@@ -8196,6 +8196,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
       margin: 0;
       padding: 15px 15px;
   }
+  .mob_single_slider .slick_mob_slider .slick-slider .slick-slide > div {
+    margin-right: 0;
+}
 }
 @media screen and (max-width: 640px) {
   .img_box_wrap.custom_slick_slider_one {

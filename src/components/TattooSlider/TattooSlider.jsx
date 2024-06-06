@@ -14,10 +14,13 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./processdragontattoo.module.css";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 export default function FourColumnCarousel({ title, content }) {
-  const { isVisible } = useWindowResize();
+  const { isVisible ,isSmallDevice } = useWindowResize();
   const { allListing } = useDisplayAll();
   const { router } = useNavigation();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  UseSliderSettings(isVisible, allListing.artists && allListing.artists);
+  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
+  UseSliderSettings(isSmallDevice, allListing.artists && allListing.artists);
+
+
 
   return (
     <section className="img_text_banner_box">
@@ -124,18 +127,16 @@ export default function FourColumnCarousel({ title, content }) {
                     ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
-                       {Array.from({ length: totalDots }).map((_, index) => (
-                          <li
-                            key={index}
-                            className={
-                              index === activeDot(activeIndex) ? "active" : ""
-                            }
-                          >
-                            <button></button>
-                          </li>
-                        ))}
-                    </ul>
+                     <ul className="magic-dots">
+                     {Array.from({ length: totalDots }).map((_, index) => (
+                       <li
+                         key={index}
+                         className={index === activeDot(activeIndex) ? "active" : "inActive"}
+                       >
+                         <button></button>
+                       </li>
+                     ))}
+                   </ul>
                   )}
               </div>
                )}
