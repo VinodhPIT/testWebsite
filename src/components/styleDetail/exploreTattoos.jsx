@@ -26,8 +26,13 @@ export default function ExploreTattoos({ data, styleName, slug }) {
   const router = useRouter();
   const { selectedIds, setSelectedIds } = useGlobalState();
 
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-  UseSliderSettings(isSmallDevice, data);
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSettings(isSmallDevice, data);
 
 
   const updateTab = async () => {
@@ -103,16 +108,20 @@ export default function ExploreTattoos({ data, styleName, slug }) {
                       ))}
                   </Slider>
                   {isVisible && (
-                    <ul className="magic-dots">
-                    {Array.from({ length: totalDots }).map((_, index) => (
-                      <li
-                        key={index}
-                        className={index === activeDot(activeIndex) ? "active" : "inActive"}
-                      >
-                        <button></button>
-                      </li>
-                    ))}
-                  </ul>
+                      <div className="magic-dots">
+                      <ul style={{ transform: transformValue }}>
+                        {Array.from({ length: totalDots }).map((_, index) => (
+                          <li
+                            key={index}
+                            className={
+                              index === activeIndex ? "active" : "inActive"
+                            }
+                          >
+                            <button></button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
               ) : null}

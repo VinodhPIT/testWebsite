@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,24 +6,24 @@ import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 import { blurDataURL } from "@/constants/constants";
 
-//import sliderSettings from "@/constants/homeSliderSettings";
-
 import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { UseSliderSetting } from "@/utils/sliderUtils";
 
-
-
 export default function ExploreTattoos({ title, content, data }) {
-  const { isVisible,isSmallDevice } = useWindowResize();
+  const { isVisible, isSmallDevice } = useWindowResize();
   const { router } = useNavigation();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-  UseSliderSetting(isSmallDevice, data);
-
-
   
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSetting(isSmallDevice, data);
+
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">
@@ -31,10 +31,11 @@ export default function ExploreTattoos({ title, content, data }) {
           <div className="justify_content_start container w_100pc">
             <div className="text_box_content_inner m_pr_0 pt_80 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_30">
               <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_65 m_pr_55 m_xs_pr_0 m_text_left custom_fs_m_24 fw_700 position_relative">
-                <span className="position_relative">
-                  {title}
-                </span>
-                <Link href={`/${router.locale}/explore/tattoos`}  className="link_with_arrow">             
+                <span className="position_relative">{title}</span>
+                <Link
+                  href={`/${router.locale}/explore/tattoos`}
+                  className="link_with_arrow"
+                >
                   <Image
                     src="/arrow_right_mob.svg"
                     width={32}
@@ -85,20 +86,24 @@ export default function ExploreTattoos({ title, content, data }) {
                         </div>
                       ))}
                   </Slider>
-                  {isVisible && (                    
-                     <ul className="magic-dots">
-                      {Array.from({ length: totalDots }).map((_, index) => (
-                        <li
-                          key={index}
-                          className={index === activeDot(activeIndex) ? "active" : "inActive"}
-                        >
-                          <button></button>
-                        </li>
-                      ))}
-                    </ul>
+                  {isVisible && (
+                    <div className="magic-dots">
+                      <ul style={{ transform: transformValue }}>
+                        {Array.from({ length: totalDots }).map((_, index) => (
+                          <li
+                            key={index}
+                            className={
+                              index === activeIndex ? "active" : "inActive"
+                            }
+                          >
+                            <button></button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
-              )}              
+              )}
             </div>
           </div>
         </div>

@@ -21,8 +21,16 @@ export default function FiveColumnCarousel({
   const { isVisible ,isSmallDevice } = useWindowResize();
   const { fetchAll, allListing } = useDisplayAll();
   const router =useRouter()
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-  UseSliderSettings(isSmallDevice, allListing.artists && allListing.artists);
+
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSettings(isSmallDevice, allListing.artists && allListing.artists);
+  
+
 
 
 
@@ -133,16 +141,20 @@ export default function FiveColumnCarousel({
                   ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="magic-dots">
-                    {Array.from({ length: totalDots }).map((_, index) => (
-                      <li
-                        key={index}
-                        className={index === activeDot(activeIndex) ? "active" : "inActive"}
-                      >
-                        <button></button>
-                      </li>
-                    ))}
-                  </ul>
+                     <div className="magic-dots">
+                     <ul style={{ transform: transformValue }}>
+                       {Array.from({ length: totalDots }).map((_, index) => (
+                         <li
+                           key={index}
+                           className={
+                             index === activeIndex ? "active" : "inActive"
+                           }
+                         >
+                           <button></button>
+                         </li>
+                       ))}
+                     </ul>
+                   </div>
                   )}
               </div>
                )}

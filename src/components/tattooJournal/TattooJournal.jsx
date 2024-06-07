@@ -20,8 +20,15 @@ import styles from "./style.module.css";
 
 export default function ListingPage({ data}) {
   const { t } = useTranslation();
-  const { isVisible } = useWindowResize();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } = JournalSliderSettings(isVisible, data);
+  const { isVisible  ,isSmallDevice} = useWindowResize();
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = JournalSliderSettings(isSmallDevice, data);
+
   const router = useRouter();
   
   return (
@@ -114,18 +121,20 @@ export default function ListingPage({ data}) {
                 ))}
               </Slider>
               {isVisible && (
-                <ul className="custom-dots">
-                  {Array.from({ length: totalDots }).map((_, index) => (
-                    <li
-                      key={index}
-                      className={
-                        index === activeDot(activeIndex) ? "active" : ""
-                      }
-                    >
-                      <button></button>
-                    </li>
-                  ))}
-                </ul>
+                    <div className="magic-dots">
+                    <ul style={{ transform: transformValue }}>
+                      {Array.from({ length: totalDots }).map((_, index) => (
+                        <li
+                          key={index}
+                          className={
+                            index === activeIndex ? "active" : "inActive"
+                          }
+                        >
+                          <button></button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
               )}
             </div>
           </div>
