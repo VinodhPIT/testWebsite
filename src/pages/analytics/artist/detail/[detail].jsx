@@ -11,7 +11,7 @@ import DataTable from "@/analyticsComponents/dataTable/table";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
-export default function ArtistAnalytics({ }) {
+export default function ArtistDetail({ }) {
   const { status, data } = useSession();
   const router = useRouter();
   const { t } = useTranslation();
