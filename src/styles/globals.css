@@ -8241,11 +8241,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
       width: 100%;
       height: 100%;
   }
-
   .mob_slider_eql_h .slick-slider.custom_slick_slider .slick-slide .listing_gridItem  .listing_grid_img_col {
       height: 100% !important;
   }  
-
 }
 @media screen and (max-width: 560px) {
   .form_right_wrap {

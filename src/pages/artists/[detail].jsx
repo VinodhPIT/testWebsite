@@ -99,6 +99,7 @@ export default function Detail({ data, locale }) {
   }, [data]);
 
   useScrollToTop();
+  
 
   return (
     <>

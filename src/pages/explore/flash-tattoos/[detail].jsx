@@ -92,6 +92,7 @@ export default function Detail({ data, status }) {
     );
   };
   useScrollToTop();
+  
   return (
     <>
       <Head>

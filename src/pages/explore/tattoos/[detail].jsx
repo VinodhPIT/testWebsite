@@ -105,8 +105,6 @@ export default function Detail({ data, status, locale }) {
      await onSearch('tattoo', state.searchKey, updatedIds, state.location, router);
    };
 
-
-
    useScrollToTop();
 
   return (
