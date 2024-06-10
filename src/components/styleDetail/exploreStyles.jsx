@@ -8,7 +8,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import useTranslation from "next-translate/useTranslation";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 import { blurDataURL } from "@/constants/constants";
-//import sliderSettings from "@/constants/homeSliderSettings";
+
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -17,9 +17,14 @@ import styles from "./styles/style.module.css";
 
 
 export default function ExploreStyles({ data }) {
-  const { isVisible } = useWindowResize();
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =
-    UseSliderSettings(isVisible, data);
+  const { isVisible ,isSmallDevice } = useWindowResize();
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSettings(isSmallDevice, data);
   const { router } = useNavigation();
   const { t } = useTranslation();
 
@@ -39,7 +44,7 @@ export default function ExploreStyles({ data }) {
               </p> */}
             </div>
             <div
-              className={`${"mt_0 mb_80 m_mb_40 trending_artist_slider mob_dotted slider_nav_arrows"} ${
+              className={`${"mt_0 mb_80 m_mb_40 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -48,7 +53,7 @@ export default function ExploreStyles({ data }) {
                 <Slider
                   {...sliderSettings}
                   ref={sliderRef}
-                  className="custom_slick_slider custom_slick_container m_ml_n_15 m_mr_n_15"
+                  className="custom_slick_slider custom_slick_container m_xs_ml_n_15 m_xs_mr_n_15"
                 >
                   {data &&
                     data.map((el, index) => (
@@ -83,18 +88,20 @@ export default function ExploreStyles({ data }) {
                     ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
-                      {Array.from({ length: totalDots }).map((_, index) => (
-                        <li
-                          key={index}
-                          className={
-                            index === activeDot(activeIndex) ? "active" : ""
-                          }
-                        >
-                          <button></button>
-                        </li>
-                      ))}
-                    </ul>
+                 <div className="magic-dots">
+                 <ul style={{ transform: transformValue }}>
+                   {Array.from({ length: totalDots }).map((_, index) => (
+                     <li
+                       key={index}
+                       className={
+                         index === activeIndex ? "active" : "inActive"
+                       }
+                     >
+                       <button></button>
+                     </li>
+                   ))}
+                 </ul>
+               </div>
                   )}
               </div>
               ) : null}

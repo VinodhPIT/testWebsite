@@ -7,7 +7,7 @@ import { useRequestForm } from "@/store/requestManagement/requestForm";
 
 
 const Description = () => {
-  const { message, setDescription, nextPage } = useRequestForm(); // Zustand store and setter
+  const { message, setDescription, nextPage ,prevPage } = useRequestForm(); // Zustand store and setter
   const { t } = useTranslation();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,11 +16,11 @@ const Description = () => {
 
   return ( 
     <>
-    <div className="full_col_block h_126_vh m_h_118_vh">
+    <div className="full_col_block h_126_vh m_h_60_vh">
       <div className="container">
         <div className="row">
           <div className="col-md-12 align_content">
-            <section className="request_landing_content">
+            <section className="request_landing_content m_align_content">
               <div className="request_landing_content_col">
                 <h2>{t("common:stepper.title3")}</h2>
                 <div className="request_text_area">
@@ -47,9 +47,13 @@ const Description = () => {
                         }
                       }}
                       
-                    />
-                    {message && <button type="submit" className="btn_secondary btn_cutom_40 mt_15 pull_right bdr_rad_4">{t("common:next")}</button>}
+                    />                 
+
                   </form>
+                </div>
+                <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
+                  <button className="btn_outline_base m_w_50pc" onClick={prevPage}>Back</button>
+                  <button className="btn_defult_base m_w_50pc"  onClick={nextPage}>{t("common:next")}</button>
                 </div>
               </div>
             </section>

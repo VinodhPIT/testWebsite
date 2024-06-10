@@ -34,8 +34,12 @@ const customStyles = {
 const SelectedArtist = ({ toggleModel, onCloseModel }) => {
   const { router } = useNavigation();
   const { t } = useTranslation();
-  const { selectedArtists, checkBoxTrigger, removeUncheckArtist } =
-    useRequestForm();
+  const {
+    selectedArtists,
+    checkBoxTrigger,
+    removeUncheckArtist,
+    revertCheckBox,
+  } = useRequestForm();
 
   const handleCheckboxChange = (id) => {
     checkBoxTrigger(id);
@@ -47,18 +51,30 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
   };
 
   const anyDeselected = selectedArtists.some((artist) => !artist.isSelected);
+  
+  const handleClose = () => {
+    // Close the modal
+    onCloseModel();
+    // If any items are deselected, revert the checkboxes
+    if (anyDeselected) {
+      revertCheckBox();
+    }
+  };
+  
 
   return (
     <Modal isOpen={toggleModel} style={customStyles} ariaHideApp={false}>
-      <div className={`popup_wrap custom_popup_design reqst_form_popup  ${figtree.className}`}>
+      <div
+        className={`popup_wrap custom_popup_design reqst_form_popup  ${figtree.className}`}
+      >
         <div className="popup_container">
           <div className="popup_box_inner">
             <div className="selected_artistblock">
               <h2 className="color_gray_550 custom_fs_26 custom_fs_m_20 mb_10 text_center mb_20 fw_600">
-              {t("common:stepper.selectedArtists")}
+                {t("common:stepper.selectedArtists")}
               </h2>
 
-              <button className="close_button" onClick={onCloseModel}>
+              <button className="close_button" onClick={handleClose}>
                 <Image
                   width={25}
                   height={25}
@@ -71,64 +87,63 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                 <div className="request_filter_col">
                   {selectedArtists.map((e) => {
                     return (
-                      <div className="request_filter_grid" key={e.id}>
-                        <div
-                          className="request_filter_img"
-                          onClick={() => handleCheckboxChange(e.id)}
-                        >
-                          <div className="request_ref_checkbox">
-                            <input
-                              type="checkbox"
-                              checked={e.isSelected}
-                              onChange={() => {}}
-                            />
-                          </div>
-                          <Image
-                            src={e.image}
-                            fill
-                            objectFit="cover"
-                            objectPosition="center"
-                            alt={e.slug}
-                            placeholder="blur"
-                            blurDataURL={blurDataURL}
-                          />
-                        </div>
-
+                      <div
+                        className="request_filter_grid"
+                        key={e.id}
+                        onClick={() => handleCheckboxChange(e.id)}
+                      >
                         <div className="request_filter_dtls">
                           <div className="request_filter_profile">
                             <Image
                               src={e.artistImage}
-                              width={36}
-                              height={36}
+                              width={46}
+                              height={46}
                               alt={e.slug}
                             />
                           </div>
-
                           <div className="request_filter_profile_dtls">
-                            <Link
-                              href={`/${router.locale}/artists/${e.slug}`}
-                              target="_blank"
-                            >
-                              <h6 className="request_filter_profile_title">
-                                {e.names}
-                              </h6>
-                              <span className="request_filter_profile_address">
-                                {getCountry(e.studios, e.location)}
-                              </span>
-                            </Link>
+                            <h6 className="request_filter_profile_title">
+                              {e.names}
+                              <Link
+                                href={`/${router.locale}/artists/${e.slug}`}
+                                target="_blank"
+                                className="ml_5"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                }}
+                              >
+                                <Image
+                                  src="/icon_link.svg"
+                                  width={12}
+                                  height={13}
+                                  alt="Link"
+                                />
+                              </Link>
+                            </h6>
+                            <span className="request_filter_profile_address">
+                              {getCountry(e.studios, e.location)}
+                            </span>
                           </div>
+                        </div>
+
+                        <div className="request_ref_checkbox">
+                          <input
+                            type="checkbox"
+                            checked={e.isSelected}
+                            onChange={() => {}}
+                          />
                         </div>
                       </div>
                     );
                   })}
                 </div>
               </div>
-              <div className="d_flex justify_space_between">
+              <div className="d_flex justify_space_between m_gap_16">
                 <button
-                  onClick={onCloseModel}
-                  className="btn_outline_secondary btn_cutom_40 "
+                  onClick={handleClose}
+                  className="btn_outline_base m_w_50pc"
                 >
-                   {t("common:cancel")}
+                  {t("common:cancel")}
                 </button>
 
                 <button
@@ -136,11 +151,11 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                   disabled={!anyDeselected}
                   className={
                     anyDeselected
-                      ? "btn_secondary btn_cutom_40 bdr_rad_4"
-                      : "btn_disabled_40 bdr_rad_4" 
+                      ? "btn_defult_base m_w_50pc"
+                      : "btn_defult_base m_w_50pc"
                   }
                 >
-                 {t("common:stepper.save")}
+                  {t("common:stepper.save")}
                 </button>
               </div>
             </div>

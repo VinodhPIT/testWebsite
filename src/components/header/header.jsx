@@ -51,6 +51,26 @@ export default function Header({
     router.push(`/${router.locale}/for-tattoo-artists`);
   };
 
+  const [isFixed, setIsFixed] = useState(false);
+ 
+ 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 10) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+ 
+    window.addEventListener('scroll', handleScroll);
+ 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       {(router.pathname === "/" || router.pathname === "/explore-style") && (
@@ -103,7 +123,7 @@ export default function Header({
        </>
       )}
 
-      <header className={"header_wrapper"}>
+      <header className={`${"header_wrapper"} ${isFixed ? 'fixed' : ''}`}>
         <div>
           <div className={"container_full"}>
             <nav className="header_navigation">

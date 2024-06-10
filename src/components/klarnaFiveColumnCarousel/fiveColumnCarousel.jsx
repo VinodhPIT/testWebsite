@@ -7,10 +7,9 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
-
 import { blurDataURL } from "@/constants/constants";
-//import sliderSettings from "@/constants/homeSliderSettings";
 import { UseSliderSettings } from "@/utils/sliderUtils";
+
 import styles from "./style.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -18,12 +17,21 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function FiveColumnCarousel({
   title,
-  content_sub,
 }) {
-  const { isVisible } = useWindowResize();
+  const { isVisible ,isSmallDevice } = useWindowResize();
   const { fetchAll, allListing } = useDisplayAll();
   const router =useRouter()
-  const { sliderRef, sliderSettings, totalDots, activeDot, activeIndex } =  UseSliderSettings(isVisible, allListing.artists && allListing.artists);
+
+  const {
+    sliderRef,
+    sliderSettings,
+    totalDots,
+    activeIndex,
+    transformValue,
+  } = UseSliderSettings(isSmallDevice, allListing.artists && allListing.artists);
+  
+
+
 
 
   useEffect(() => {
@@ -43,8 +51,8 @@ export default function FiveColumnCarousel({
                 <Link href={`/${router.locale}/explore/tattoo-artists`} className="link_with_arrow">                  
                   <Image
                     src="/arrow_right_mob.svg"
-                    width={24}
-                    height={24}
+                    width={32}
+                    height={32}
                     alt="arrow"
                   />
                 </Link>
@@ -55,7 +63,7 @@ export default function FiveColumnCarousel({
             </div>
 
             <div
-              className={`${"mt_0 mb_60 m_mb_25 trending_artist_slider artistSlider mob_dotted slider_nav_arrows"} ${
+              className={`${"mt_0 mb_60 m_mb_25 trending_artist_slider artistSlider mob_dotted slider_nav_arrows mob_slider_left_none"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -64,7 +72,7 @@ export default function FiveColumnCarousel({
                 <Slider
                   ref={sliderRef}
                   {...sliderSettings}
-                  className="custom_content_slick_slider m_ml_n_15 m_mr_n_15"
+                  className="custom_content_slick_slider m_xs_ml_n_15 m_xs_mr_n_15"
                 >
                 {allListing.artists && allListing.artists.map((el, index) => (
                     <div
@@ -133,18 +141,20 @@ export default function FiveColumnCarousel({
                   ))}
                 </Slider>
                 {isVisible && (
-                    <ul className="custom-dots">
+                     <div className="magic-dots">
+                     <ul style={{ transform: transformValue }}>
                        {Array.from({ length: totalDots }).map((_, index) => (
-                          <li
-                            key={index}
-                            className={
-                              index === activeDot(activeIndex) ? "active" : ""
-                            }
-                          >
-                            <button></button>
-                          </li>
-                        ))}
-                    </ul>
+                         <li
+                           key={index}
+                           className={
+                             index === activeIndex ? "active" : "inActive"
+                           }
+                         >
+                           <button></button>
+                         </li>
+                       ))}
+                     </ul>
+                   </div>
                   )}
               </div>
                )}

@@ -78,18 +78,18 @@ const Review = () => {
 
   return (
     <>
-      <div className="full_col_block h_126_vh m_h_118_vh">
+      <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
             <div className="col-md-12 ">
-              <section className="request_landing_content req_offset_top">
+              <section className="request_landing_content pt_30 m_pt_10">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title7")}</h2>
 
                   <div className="request_review_block">
                     <div className="request_review_filter">
                       <div className="request_filter_opt">
-                        <h6>{t("common:stepper.tattooSize")}</h6>
+                        <h6>{t("common:stepper.reviewSize")}</h6>
                         <p>{tattooSize}</p>
                       </div>
                       <div className="request_filter_opt">
@@ -97,11 +97,11 @@ const Review = () => {
                         <p>{bodyPart}</p>
                       </div>
                     </div>
-
+                    {message&&
                     <div className="request_review_desc">
-                      <h6>{t("common:stepper.description")}</h6>
+                      <h6>{t("common:stepper.reviewDescription")}</h6>
                       <p>{message}</p>
-                    </div>
+                    </div>}
 
                     <div className="request_review_contact_info">
                       <h6>{t("common:stepper.contactInformation")}</h6>
@@ -128,7 +128,7 @@ const Review = () => {
                         </div>
                       </div>
                     </div>
-
+                    {images && images.length > 0 && (
                     <div className="request_review_desc">
                       <h6>{t("common:stepper.referenceImages")}</h6>
                       <div className="request_review_ref">
@@ -145,7 +145,7 @@ const Review = () => {
                           );
                         })}
                       </div>
-                    </div>
+                    </div>)}
 
                     <div className="request_review_selected_artist">
                       <h6>{t("common:stepper.selectedArtists")}</h6>
@@ -153,31 +153,40 @@ const Review = () => {
                         <div className="request_filter_col">
                           {selectedArtists.map((el, index) => {
                             return (
-                              <div className="request_filter_grid" key={index}>
-                                <div className="request_filter_img">
-                                  <Image
-                                    src={el.image}
-                                    fill
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    alt={el.slug}
-                                  />
-                                </div>
+                              <Link  href={`/${router.locale}/artists/${el.slug}`} className="request_filter_grid"  key={index}  target="_blank" >
+                              <div>  
+                                               
                                 <div className="request_filter_dtls">
                                   <div className="request_filter_profile">
                                     <Image
                                       src={el.artistImage}
-                                      width={36}
-                                      height={36}
+                                      width={46}
+                                      height={46}
                                       alt={el.slug}
                                     />
                                   </div>
                                   <div class="request_filter_profile_dtls">
                                     <Link  href={`/${router.locale}/artists/${el.slug}`}  target="_blank">
                                   
-                                    <h6 class="request_filter_profile_title">
-                                      {el.names}
-                                    </h6>
+                                  
+
+                                        <h6 className="request_filter_profile_title">
+                                        {el.names}
+                                          <Link
+                                          href={`/${router.locale}/artists/${el.slug}`}
+                                          target="_blank" className="ml_5"
+                                          
+                                        >
+                                          <Image
+                                            src="/icon_link.svg"
+                                            width={12}
+                                            height={13}
+                                            alt="Link"                                            
+                                          />                                          
+                                        </Link>
+                                      </h6>
+
+
                                     <span className="request_filter_profile_address">
                                       {getCountry(el.studios, el.location)}
                                     </span>
@@ -185,7 +194,9 @@ const Review = () => {
                                     </Link>
                                   </div>
                                 </div>
+                                
                               </div>
+                              </Link> 
                             );
                           })}
                         </div>
@@ -193,26 +204,26 @@ const Review = () => {
                     </div>
                   </div>
 
-                  <div className="">
+                  <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                     <button
                       onClick={() => prevPage()}
-                      className="btn_outline_secondary btn_cutom_40 mt_15 align_self"
-                    >
+                      className="btn_outline_base mt_10 align_self m_w_50pc m_mt_0"
+                      >
                       {t("common:goBack")}
                     </button>
+
                     <button
-                      className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4"
+                      className="btn_defult_base mt_10 pull_right align_self_end m_w_50pc m_mt_0"
                       onClick={() => uploadDataToAPI()}
                     >
                       {t("common:submit")}
-
                       {loading ? (
                         <span
                           className="spinner-border spinner-border-sm"
                           aria-hidden="true"
                         ></span>
                       ) : null}
-                    </button>
+                    </button>                   
                   </div>
                 </div>
               </section>

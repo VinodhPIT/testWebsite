@@ -10,10 +10,11 @@ import styles from "./styles/dropdown.module.css";
 
 export default function StyleDropdown({ onToggle }) {
   
-  const { fetchArtistByStyle, clearStyle } = useRequestForm();
+  const {styleId, fetchArtistByStyle, clearStyle } = useRequestForm();
   const { state, selectedIds, setSelectedIds, styleCollection } = useGlobalState();
   const { t } = useTranslation();
   
+
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
       setSelectedIds(selectedIds.filter((id) => id !== elId));
@@ -23,10 +24,12 @@ export default function StyleDropdown({ onToggle }) {
   };
   
   const clearAll = async () => {
-    clearStyle();
+    if (Array.isArray(styleId) && styleId.length > 0) {
+      clearStyle();
+    }
     setSelectedIds([]);
   };
-  
+
   const onSearchStyle = async () => {
     fetchArtistByStyle(selectedIds);
     onToggle();
@@ -73,14 +76,14 @@ export default function StyleDropdown({ onToggle }) {
         <button
           disabled={selectedIds.length === 0}
           onClick={() => clearAll()}
-          className="btn_outline_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600"
+          className="btn_outline_base w_100pc"
         >
           {t("common:Clear All")}
         </button>
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_secondary w_100pc btn_cutom_new h_48 custom_fs_16 fw_600 bdr_rad_4"
+          className="btn_defult_base w_100pc"
         >
           {t("common:Show Results")}
         </button>

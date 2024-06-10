@@ -17,12 +17,25 @@
     "joinArtist": "Join as artist"
   },
 
+  "sideDrawerMenus":{
+    "home": "Home",
+    "tattooRequest":"Tattoo Request",
+    "tattooFinancing":"Tattoo Financing",
+    "exploreTattoos":"Explore Tattoos",
+    "exploreTattooArtists":"Explore Tattoo Artists",
+    "tattooJournal":"Tattoo Journal",
+    "forTattooers":"For Tattooers",
+    "contactUs":"Contact us"
+   },
+
+
+
   "homePage": {
-    "bannerTitle": "Buche jetzt dein Traumtattoo!",
-    "bannerContent": "Erkunde Tattoo Stile, Artist Business Tipps, Journal Updates, Finanzierungsoptionen und nahtlose Buchungen",
+    "bannerTitle": "Book your tattoo now!",
+    "bannerContent": "Connect with verified artists, secure your appointment and enjoy flexible payment options.",
     "Download the inckd": "Laden Sie unsere App herunter, sie ist kostenlos!",
     "Share your tattoo idea": "Share your tattoo idea!",
-    "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+    "TattooIdeaDesc": "Get free customized offers from multiple artists",
     "ArtistSliderTitle": "Explore tattoo artists",
     "ArtistSliderContent": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
     "tattooNow": "Tattoo now, Pay later",
@@ -43,33 +56,7 @@
     "yourProject": "I would love to do your project"
   },
 
-  "styleGuidePage": {
-    "bannerTitle": "Tattoo Stile",
-    "bannerContent": "Entdecke einzigartige Tattoo Stile in unserer App! Finde dein perfektes Tattoo. Tauche noch heute in endlose Möglichkeiten ein.",
-    "Letteringtattoos": "Lettering Tattoos",
-    "LetteringTattooContent": "Steigere deine Selbstdarstellung mit faszinierenden Lettering Tattoos. Finde talentierte Artists in unserer Tattoo-Buchungs-App für personalisierte und beeindruckende Tattoos, die deine einzigartige Geschichte erzählen. Jetzt entdecken!",
-    "Finelinetattoos": "Fineline Tattoos",
-    "FinelineTattooContent": "Erlebe die Eleganz von Fineline Tattoos, wo komplexe Details und kunstvolle Designs zusammenfliessen. Unsere Tattoo-Buchungs-App verbindet dich mit talentierten Artists für zeitlose, subtil ausgearbeitete Selbstverwirklichung. Jetzt entdecken!",
-    "Realistictattoos": "Realistic Tattoos",
-    "RealisticTattooContent": "Erlebe die Eleganz von Realistic Tattoos, wo komplexe Details und kunstvolle Designs zusammenfliessen. Unsere Tattoo-Buchungs-App verbindet dich mit talentierten Artists für zeitlose, subtil ausgearbeitete Selbstverwirklichung. Jetzt entdecken!",
-    "Traditionaltattoos": "Traditionelle Tattoos",
-    "TraditionalTattooContent": "Erlebe die Eleganz von Traditional Tattoos, wo komplexe Details und kunstvolle Designs zusammenfliessen. Unsere Tattoo-Buchungs-App verbindet dich mit talentierten Artists für zeitlose, subtil ausgearbeitete Selbstverwirklichung. Jetzt entdecken!",
-    "Explore fineline": "Erkunde Fineline Tattoos",
-    "Explore traditional tattoos": "Erkunde Traditional Tattoos",
-    "Explore lettering tattoos": "Erkunde Lettering Tattoos",
-    "Explore realistic tattoos": "Erkunde Realistic Tattoos",
-    "Type lettering": "Lettering",
-    "Type fineline": "Fineline",
-    "Type realistic": "Realistic",
-    "Type traditional": "Traditional",
-    "Explore lettering artists": "Erkunde Lettering Artists",
-    "Explore fineline artists": "Erkunde Fineline Artists",
-    "Explore realistic artists": "Erkunde Realistic Artists",
-    "Explore traditional artists": "Erkunde Traditional Artists",
-    "download": "App herunterladen",
-    "exploreApp": "& entdecke 30+ Stile"
-  },
-
+  
   "styleDetail": {
     "bannerTattooRequestBtn": "Create tattoo request",
     "artistSliderTitle": "{{ tattooStyle }} tattoo artists",
@@ -83,6 +70,7 @@
     "createTattoosInked-AI": "With inckd AI, we empower you to create tattoos that have yet to be unleashed from the depths of your emotions. With Inked AI, your creativity knows no limits.",
     "Create now": "Create now!"
   },
+
 
   "klarnaPage": {
     "bannerTitle1": "Tattoo now.",
@@ -370,23 +358,23 @@
   },
 
   "stepper": {
-    "tattooSize": "Tattoo size",
-    "bodyPart": "Body part",
-    "description": "Description",
-    "reference": "Reference",
-    "artists": "Artists",
-    "contact": "Contact",
+    "tattooSize": "Choose tattoo size",
+    "bodyPart": "Choose placement",
+    "description": "Describe your tattoo",
+    "reference": "Reference images",
+    "artists": "Choose artists",
+    "contact": "Contact information",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
     "dontKnowYet": "I don't know yet",
-    "title1": "How big would you like your tattoo to be?",
-    "title2": "Where do you want your tattoo?",
-    "title3": "How would your dream tattoo look like?",
-    "title4": "Add reference images",
-    "title5": "Now, choose among multiple artists",
-    "title6": "Share your contact information",
-    "title7": "Review your selections and confirm",
+    "title1": "Choose your tattoo size",
+    "title2": "Select tattoo placement",
+    "title3": " Describe your tattoo design",
+    "title4": "Upload reference images",
+    "title5": "Select your preferred artists",
+     "title6": "Provide your contact information",
+    "title7": "Review and send your request",
     "typeDescription": "Type your description here",
     "contactInformation": "Contact information",
     "referenceImages": "Reference images",
@@ -394,11 +382,13 @@
     "enterEmail": "Enter your Email",
     "enterPhone": "Enter your phone number(optional)",
     "save": "Save",
-    "tatooPosition": "Tatoo position",
+    "tatooPosition": "Tattoo position",
     "ideaForTattoo": "Great idea for a tattoo!",
     "bringYouridea": "Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
     "Login with your existing account": "Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
-    "openApp": "Open your app"
+    "openApp": "Open your app",
+    "reviewSize":"Tattoo size",
+    "reviewDescription":"Description"
   },
 
   "commingSoonPage": {
@@ -480,7 +470,7 @@
   "checkProfile": "Profil prüfen",
   "chooseStyle": "Stile",
   "enterLocation": "Standort eingeben",
-  "loadMore": "MEHR LADEN",
+  "loadMore": "Mehr laden",
 
   "Downloadinckd": "Lade die inckd. App herunter, um einen Gutschein zu erhalten",
   "Usecode": "Benutze den Code",
@@ -516,7 +506,7 @@
   "Loading": "Laden...",
   "Search Location": "Standort suchen",
   "next": "Next",
-  "goBack": "Go back",
+  "goBack": "Back",
   "currentLocation": " Use current location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",

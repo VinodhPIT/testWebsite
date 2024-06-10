@@ -21,7 +21,7 @@ const initialState = {
   images: [],
   artistList: [],
   styleId: "",
-  searchKey: " ",
+  searchKey: "",
   loadNo: 0,
   latitude: "",
   longitude: "",
@@ -41,17 +41,12 @@ export const useRequestForm = create((set, get) => ({
 
   setPageNo: (value) => set({ stepNumber: value }),
 
-  getSizes: (value) => {
-    set({
-      getTattooSize: value,
-    });
-  },
 
   setTattooSize: (value, index) => {
     set({
       tattooSize: value,
       tattoondex: index,
-      stepNumber: get().stepNumber + 1,
+      // stepNumber: get().stepNumber + 1,
     });
   },
 
@@ -59,7 +54,7 @@ export const useRequestForm = create((set, get) => ({
     set({
       bodyPart: value,
       bodyPartIndex: index,
-      stepNumber: get().stepNumber + 1,
+      // stepNumber: get().stepNumber + 1,
     });
   },
 
@@ -233,6 +228,9 @@ export const useRequestForm = create((set, get) => ({
         totalCount: response.rows.total.value,
         loader: false,
         seed: fetchParams.seed,
+        searchKey:key
+
+
       });
     } catch (error) {
       console.error("Error fetching artists by style:", error);
@@ -414,6 +412,15 @@ export const useRequestForm = create((set, get) => ({
     }));
   },
 
+revertCheckBox:()=>{// Set all artists to true
+  set((state) => ({
+    selectedArtists: state.selectedArtists.map((artist) => {
+      return { ...artist, isSelected: true };
+    }),
+  }));
+},
+
+
   nextPage: () =>
     set((prevState) => ({
       ...prevState,
@@ -429,7 +436,6 @@ export const useRequestForm = create((set, get) => ({
   resetState: () =>
     set((prevState) => ({
       ...initialState,
-      getTattooSize: [...prevState.getTattooSize],
     })),
 
   setIsChecked: () => set((state) => ({ isChecked: !state.isChecked })),
@@ -439,10 +445,6 @@ export const useRequestForm = create((set, get) => ({
       userExists: value,
     });
   },
-
-
-
-
 
 
 

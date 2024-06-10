@@ -7,37 +7,37 @@ import { useRequestForm } from "@/store/requestManagement/requestForm";
 import style from "./styles/tattoosearch.module.css";
 
 function SearchBar() {
-  const { searchArtist, clearField } = useRequestForm();
+  const { searchKey, searchArtist, clearField } = useRequestForm();
   const { setSearchState, searchState } = useGlobalState();
-  
+
   const inputRef = useRef(null);
-  
+
   const handleChange = (e) => {
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: e,
     }));
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     searchArtist(searchState.query);
   };
-  
+
   const clearText = async () => {
+    if (!!searchKey) {
+      clearField();
+    }
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: "",
     }));
-  
-    clearField();
   };
 
 
-
   return (
-    <div className={style.search_bar}>
+    <div className={`${"langulock"} ${style.search_bar}`}>
       <form onSubmit={handleSubmit}>
         <div className="input_group position_relative" ref={inputRef}>
           <input

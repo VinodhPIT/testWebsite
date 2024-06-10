@@ -17,12 +17,25 @@
     "joinArtist": "Join as artist"
   },
 
+
+  "sideDrawerMenus":{
+    "home": "Home",
+    "tattooRequest":"Tattoo Request",
+    "tattooFinancing":"Tattoo Financing",
+    "exploreTattoos":"Explore Tattoos",
+    "exploreTattooArtists":"Explore Tattoo Artists",
+    "tattooJournal":"Tattoo Journal",
+    "forTattooers":"For Tattooers",
+    "contactUs":"Contact us"
+   },
+
+
   "homePage": {
-    "bannerTitle": "¡Reserva tu tatuaje soñado ahora!",
-    "bannerContent": "Explora Estilos de Tatuajes, Consejos de Negocios para Artistas, Actualizaciones del Journal, Opciones de Financiamiento y Reservas sin Problemas",
+    "bannerTitle": "Book your tattoo now!",
+    "bannerContent": "Connect with verified artists, secure your appointment and enjoy flexible payment options.",
     "Download the inckd": "Descarga nuestra aplicación, es gratis!",
     "Share your tattoo idea": "Share your tattoo idea!",
-    "TattooIdeaDesc": "Easily submit your tattoo idea once and connect with multiple suited artists. Lean back and receive varied proposals for free, finding your ideal artist match effortlessly.",
+    "TattooIdeaDesc": "Get free customized offers from multiple artists",
     "ArtistSliderTitle": "Explore tattoo artists",
     "ArtistSliderContent": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
     "tattooNow": "Tattoo now, Pay later",
@@ -43,33 +56,7 @@
     "yourProject": "I would love to do your project"
   },
 
-  "styleGuidePage": {
-    "bannerTitle": "Estilos de Tatuajes",
-    "bannerContent": "¡Explora estilos únicos de tatuajes en nuestra aplicación! Encuentra tu tattoo perfecto. Sumérgete en infinitas opciones hoy mismo.",
-    "Letteringtattoos": "Tatuajes de lettering",
-    "LetteringTattooContent": "Eleva tu autoexpresión con cautivadores tatuajes de lettering. Encuentra artistas talentosos en nuestra Aplicación de Reservaciones de Tatuajes para obtener tinta personalizada e impactante que cuente tu historia única. ¡Explora ahora!",
-    "Finelinetattoos": "Tatuajes de fineline",
-    "FinelineTattooContent": "Experimenta la elegancia de los tatuajes de fineline, donde los detalles intrincados y los diseños delicados convergen. Nuestra Aplicación de Reservaciones de Tatuajes te conecta con artistas talentosos para una autoexpresión atemporal y sutilmente detallada. ¡Explora hoy!",
-    "Realistictattoos": "Tatuajes realistic",
-    "RealisticTattooContent": "Experimenta la elegancia de los tatuajes realistic, donde los detalles intrincados y los diseños delicados convergen. Nuestra Aplicación de Reservaciones de Tatuajes te conecta con artistas talentosos para una autoexpresión atemporal y sutilmente detallada. ¡Explora hoy!",
-    "Traditionaltattoos": "Tatuajes Tradicionales",
-    "TraditionalTattooContent": "Experimenta la elegancia de los tatuajes de fineline, donde los detalles intrincados y los diseños delicados convergen. Nuestra Aplicación de Reservaciones de Tatuajes te conecta con artistas talentosos para una autoexpresión atemporal y sutilmente detallada. ¡Explora hoy!",
-    "Explore fineline": "Explora tatuajes de fineline",
-    "Explore traditional tattoos": "Explora tatuajes de traditional",
-    "Explore lettering tattoos": "Explora tatuajes de letras",
-    "Explore realistic tattoos": "Explora tatuajes de realistic",
-
-    "Type lettering": "Lettering",
-    "Type fineline": "Fineline",
-    "Type realistic": "Realistic",
-    "Type traditional": "Traditional",
-    "Explore lettering artists": "Explora artistas de lettering",
-    "Explore fineline artists": "Explora artistas de fineline",
-    "Explore realistic artists": "Explora artistas de realistic",
-    "Explore traditional artists": "Explora artistas de traditional",
-    "download": "¡Descarga la aplicación",
-    "exploreApp": "y explora 30+ estilos!"
-  },
+  
 
   "styleDetail": {
     "bannerTattooRequestBtn": "Create tattoo request",
@@ -370,23 +357,23 @@
   },
 
   "stepper": {
-    "tattooSize": "Tattoo size",
-    "bodyPart": "Body part",
-    "description": "Description",
-    "reference": "Reference",
-    "artists": "Artists",
-    "contact": "Contact",
+    "tattooSize": "Choose tattoo size",
+    "bodyPart": "Choose placement",
+    "description": "Describe your tattoo",
+    "reference": "Reference images",
+    "artists": "Choose artists",
+    "contact": "Contact information",
     "mainTitle": "Describe your tattoo idea and share it with multiple artists.",
     "subText": "Get personalized quotes and choose the artist who perfectly captures your vision.",
     "startDescribe": "Start describing",
     "dontKnowYet": "I don't know yet",
-    "title1": "How big would you like your tattoo to be?",
-    "title2": "Where do you want your tattoo?",
-    "title3": "How would your dream tattoo look like?",
-    "title4": "Add reference images",
-    "title5": "Now, choose among multiple artists",
-    "title6": "Share your contact information",
-    "title7": "Review your selections and confirm",
+    "title1": "Choose your tattoo size",
+    "title2": "Select tattoo placement",
+    "title3": " Describe your tattoo design",
+    "title4": "Upload reference images",
+    "title5": "Select your preferred artists",
+     "title6": "Provide your contact information",
+    "title7": "Review and send your request",
     "typeDescription": "Type your description here",
     "contactInformation": "Contact information",
     "referenceImages": "Reference images",
@@ -394,11 +381,13 @@
     "enterEmail": "Enter your Email",
     "enterPhone": "Enter your phone number(optional)",
     "save": "Save",
-    "tatooPosition": "Tatoo position",
+    "tatooPosition": "Tattoo position",
     "ideaForTattoo": "Great idea for a tattoo!",
     "bringYouridea": "Now, let's bring your idea to life with the inckd app. Download and register with your existing email/phone number to easily track your progress.",
     "Login with your existing account": "Now, let's bring your idea to life with the inckd app. Login with your existing email/phone number to easily track your progress.",
-    "openApp": "Open your app"
+    "openApp": "Open your app",
+    "reviewSize":"Tattoo size",
+    "reviewDescription":"Description"
   },
 
   "tabs": {
@@ -474,7 +463,7 @@
   "checkProfile": "Revisar Perfil",
   "chooseStyle": "Estilos",
   "enterLocation": "Ingresa Ubicación",
-  "loadMore": "CARGAR MÁS",
+  "loadMore": "Cargar más",
 
   "Downloadinckd": "Descarga la app inckd para obtener un cupón de",
   "Usecode": "Usa el código",
@@ -510,7 +499,7 @@
   "Loading": "Carga...",
   "Search Location": "Ubicación de búsqueda",
   "next": "Next",
-  "goBack": "Go back",
+  "goBack": "Back",
   "currentLocation": " Use current location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",
@@ -610,8 +599,8 @@
 
   "klarnaMarketingScreen": {
     "title": "Klarna-Download",
-    "bannerTitle1": "Grosse Kunst.",
-    "bannerTitle1-Sub": "Kleine Zahlungen."
+    "bannerTitle1":"Big Ink.",
+    "bannerTitle1-Sub":"Tiny Payments."
   },
 
   "VoucherScreen": {
