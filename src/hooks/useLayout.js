@@ -16,7 +16,7 @@ const UseLayout = ({ children, pathname }) => {
     else if (pathname === "/requestForm") {
       document.body.className = "request_land_body";
     }
-    else if (pathname === "/analytics/profile") {
+    else if (pathname === "/analytics/artist/detail/[slug]") {
       document.body.style.backgroundColor = "#F8F8F8";
     }
      else {

@@ -57,3 +57,12 @@ export const artistConvesionWithCountryFilter = async (country, token) => {
     return [];
   }
 };
+
+export const singleArtistProfileDetail = async (token ,slug) => {
+  try {
+    const response = await analyticsGetApiCall(API_URL.ANALYTICS_ARTISTS.ARTIST_PROFILE_DETAIL(slug) ,token);
+    return response;
+  } catch (error) {
+    return [];
+  }
+};
