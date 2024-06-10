@@ -14,7 +14,7 @@ import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 
 export default function Detail({ data, locale }) {
@@ -98,7 +98,7 @@ export default function Detail({ data, locale }) {
     }
   }, [data]);
 
-
+  useScrollToTop();
 
   return (
     <>

@@ -22,7 +22,7 @@ import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
 import { getURL } from "next/dist/shared/lib/utils";
 import { getUrl } from "@/utils/getUrl";
-
+import useScrollToTop from "@/hooks/useScrollToTop";
 export default function Detail({ data, status, locale }) {
 
  
@@ -107,7 +107,7 @@ export default function Detail({ data, status, locale }) {
 
 
 
-
+   useScrollToTop();
 
   return (
     <>
