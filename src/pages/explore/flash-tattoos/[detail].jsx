@@ -20,7 +20,7 @@ import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
-
+import useScrollToTop from "@/hooks/useScrollToTop";
 export default function Detail({ data, status }) {
   const router = useRouter();
   const { state, styleCollection, setSelectedIds, clearStyleId, onSearch } =
@@ -91,7 +91,8 @@ export default function Detail({ data, status }) {
       router
     );
   };
-
+  useScrollToTop();
+  
   return (
     <>
       <Head>
