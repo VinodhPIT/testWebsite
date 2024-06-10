@@ -21,7 +21,7 @@ export default function ArtistDetail({profileData}) {
   const router = useRouter();
   const { t } = useTranslation();
   
- // const hiddenIban = new Array(profileData.detail.iban.length + 1).join("*");
+  const hiddenIban = new Array(profileData.detail.iban.length + 1).join("*");
 
   const handleToggle = () => {
     setShowIban((prevShowIban) => !prevShowIban);
@@ -3996,7 +3996,7 @@ export default function ArtistDetail({profileData}) {
                                 <span className="password_blocker">
                                   {showIban
                                     ? profileData.detail.iban
-                                    : 'hiddenIban'}
+                                    : hiddenIban}
                                 </span>
                                 <button onClick={handleToggle}>
                                  {!showIban &&  <AiOutlineEyeInvisible size={25} />}
