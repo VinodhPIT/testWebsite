@@ -1,32 +1,31 @@
-import React, { useEffect ,useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
 
-import HeaderProfile from "@/analyticsComponents/common/headerProfile";
 import { singleArtistProfileDetail } from "@/apiConfig/artistAnalyticsService";
+import { blurDataURL } from "@/constants/constants";
 
+import HeaderProfile from "@/analyticsComponents/common/headerProfile";
 import useTranslation from "next-translate/useTranslation";
 import DataTable from "@/analyticsComponents/dataTable/table";
+
+import moment from "moment";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-export default function ArtistDetail({profileData}) {
-
+export default function ArtistDetail({ profileData }) {
   const { status, data } = useSession();
   const [showIban, setShowIban] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
-  
-  const hiddenIban = new Array(profileData.detail.iban.length + 1).join("*");
 
   const handleToggle = () => {
     setShowIban((prevShowIban) => !prevShowIban);
   };
-
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -3788,6 +3787,35 @@ export default function ArtistDetail({profileData}) {
     []
   );
 
+  const {
+    detail: {
+      public_profile,
+      profile_approved_date,
+      artist_name,
+      first_name,
+      last_name,
+      country,
+      app_language,
+      gender,
+      email,
+      phone_no,
+      dob,
+      kyc_status,
+      iban,
+      created_date,
+      any_offers_created,
+      any_artists_referred,
+      any_customers_referred,
+      payout_pending,
+      main_studio_details,
+    },
+  } = profileData;
+
+  const ibanNum = iban;
+  const hiddenIban = ibanNum
+    ? new Array(iban.length + 1).join("*")
+    : "----------";
+
   return (
     <>
       <Head>
@@ -3795,7 +3823,7 @@ export default function ArtistDetail({profileData}) {
       </Head>
 
       <HeaderProfile data={status === "authenticated" && data.user.name} />
-      
+
       <section className="block_bg_white mt_3">
         <div className="container-fluid">
           <div className="row">
@@ -3803,33 +3831,39 @@ export default function ArtistDetail({profileData}) {
               <div class="user_profile_block">
                 <div class="user_profile_pic">
                   <Image
-                    src="/db_user_1.png"
+                    src="/placeHolder.png"
                     alt="user"
                     width="40"
                     height="40"
                     priority
-                    className=""
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
                   />
                 </div>
                 <div class="user_profile_detail">
                   <div className="d_flex flex_direction_column">
                     <div class="user_profile_name">
-                    {profileData.detail.artist_name || `${profileData.detail.first_name} ${profileData.detail.last_name}`}
+                      {artist_name || `${first_name} ${last_name}`}
                     </div>
                     <div class="user_profile_sub">
-                      (
-                        {`Artist${profileData.detail.artist_name || profileData.detail.first_name}`}
-                      
-                      )
+                      ({`Artist ${artist_name || first_name}`})
                     </div>
                   </div>
 
                   <div class="user_profile_address">
                     <div class="user_profile_adrs_title">
-                      {profileData.detail.main_studio_details.name}
+                      {main_studio_details.name}
                     </div>
                     <div class="user_profile_adrs_sub">
-                      {`${profileData.detail.main_studio_details.city_name}, ${profileData.detail.country} PO-Box: ${profileData.detail.main_studio_details.zipcode}`}
+                      {`${
+                        main_studio_details.city_name
+                          ? main_studio_details.city_name + ", "
+                          : ""
+                      }${country}${
+                        main_studio_details.zipcode
+                          ? " PO-Box: " + main_studio_details.zipcode
+                          : ""
+                      }`}
                     </div>
                   </div>
                 </div>
@@ -3838,9 +3872,7 @@ export default function ArtistDetail({profileData}) {
                     type="button"
                     className="btn_secondary block_bg_green_800 btn_public"
                   >
-                    {profileData.detail.public_profile === true
-                      ? "Public"
-                      : "Non Public"}
+                    {public_profile === true ? "Public" : "Non Public"}
                   </button>
                 </div>
               </div>
@@ -3866,79 +3898,81 @@ export default function ArtistDetail({profileData}) {
                   </TabList>
                 </div>
                 <TabPanel>
-                  <div class="db_main_info_col">
-                    <div class="db_main_info_head">
-                      <h3 class="color_gray_550 custom_fs_26 fw_400 mb_0">
+                  <div className="db_main_info_col">
+                    <div className="db_main_info_head">
+                      <h3 className="color_gray_550 custom_fs_26 fw_400 mb_0">
                         My Profile
                       </h3>
-                      <ul class="head_status_block">
+                      <ul className="head_status_block">
                         <li>
-                          <h6 class="head_status_label">Profile status</h6>
-                          <span class="status_indicator block_bg_green_100 color_green_900">
-                            {profileData.detail.public_profile === true
-                              ? "Public"
-                              : "Non Public"}
+                          <h6 className="head_status_label">Profile status</h6>
+                          <span className="status_indicator block_bg_green_100 color_green_900">
+                            {public_profile ? "Public" : "Non Public"}
                           </span>
                         </li>
-                        <li>
-                          <h6 class="head_status_label">
-                            Profile public date:
-                          </h6>
-                          <span class="head_status_date">
-                            {profileData.detail.profile_approved_date}
-                          </span>
-                        </li>
+                        {profile_approved_date && (
+                          <li>
+                            <h6 className="head_status_label">
+                              Profile public date:
+                            </h6>
+                            <span className="head_status_date">
+                              {moment(profile_approved_date).format(
+                                "DD/MM/YYYY"
+                              )}
+                            </span>
+                          </li>
+                        )}
                       </ul>
                     </div>
-                    <div class="profile_info_col_wrap">
-                      <div class="profile_personal_info">
-                        <h4 class="profile_personal_label">Locations</h4>
-                        <div class="profile_personal_info_col">
-                          <ul class="profile_info_list">
+                    <div className="profile_info_col_wrap">
+                      <div className="profile_personal_info">
+                        <h4 className="profile_personal_label">Locations</h4>
+                        <div className="profile_personal_info_col">
+                          <ul className="profile_info_list">
                             <li>
                               <label>Artist Name</label>
-                              <span class="profile_list_desc">
-                              {profileData.detail.artist_name || `${profileData.detail.first_name} ${profileData.detail.last_name}`}
+                              <span className="profile_list_desc">
+                                {artist_name || `${first_name} ${last_name}`}
                               </span>
                             </li>
                             <li>
                               <label>First Name</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.first_name}
+                              <span className="profile_list_desc">
+                                {first_name}
                               </span>
                             </li>
                             <li>
                               <label>Last Name</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.last_name}
+                              <span className="profile_list_desc">
+                                {last_name}
                               </span>
                             </li>
                           </ul>
-                          <ul class="profile_info_list">
+                          <ul className="profile_info_list">
                             <li>
                               <label>Country</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.country}
+                              <span className="profile_list_desc">
+                                {country}
                               </span>
                             </li>
                             <li>
                               <label>Language</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.app_language}
+                              <span className="profile_list_desc">
+                                {app_language}
                               </span>
                             </li>
                             <li>
                               <label>Gender</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.gender}
+                              <span className="profile_list_desc">
+                                {gender}
                               </span>
                             </li>
                           </ul>
-                          <ul class="profile_info_list">
+                          <ul className="profile_info_list">
                             <li>
                               <label>Email</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.email}
+                              <span className="profile_list_desc">
+                                {email}
                                 <Image
                                   src="/circle_tick.svg"
                                   width={16}
@@ -3949,14 +3983,11 @@ export default function ArtistDetail({profileData}) {
                                 />
                               </span>
                             </li>
-
                             <li>
                               <label>Phone</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.phone_no === null
-                                  ? "------"
-                                  : profileData.detail.phone_no}
-                                {profileData.detail.phone_no && (
+                              <span className="profile_list_desc">
+                                {phone_no || "----------"}
+                                {phone_no && (
                                   <Image
                                     src="/circle_tick.svg"
                                     width={16}
@@ -3970,15 +4001,13 @@ export default function ArtistDetail({profileData}) {
                             </li>
                             <li>
                               <label>Date of Birth</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.dob}
-                              </span>
+                              <span className="profile_list_desc">{dob}</span>
                             </li>
                           </ul>
-                          <ul class="profile_info_list">
+                          <ul className="profile_info_list">
                             <li>
                               <label>KYC status</label>
-                              <span class="profile_list_desc">
+                              <span className="profile_list_desc">
                                 <Image
                                   src="/circle_tick.svg"
                                   width={16}
@@ -3987,97 +4016,96 @@ export default function ArtistDetail({profileData}) {
                                   priority
                                   className="mr_7"
                                 />
-                                {profileData.detail.kyc_status}
+                                {kyc_status}
                               </span>
                             </li>
                             <li>
                               <label>IBAN number</label>
-                              <span class="profile_list_desc">
+                              <span className="profile_list_desc">
                                 <span className="password_blocker">
-                                  {showIban
-                                    ? profileData.detail.iban
-                                    : hiddenIban}
+                                  {showIban ? iban : hiddenIban}
                                 </span>
-                                <button onClick={handleToggle}>
-                                 {!showIban &&  <AiOutlineEyeInvisible size={25} />}
-                                 {showIban && <AiOutlineEye size={25} />}
-                                </button>
+                                {iban && (
+                                  <button onClick={handleToggle}>
+                                    {!showIban ? (
+                                      <AiOutlineEyeInvisible size={25} />
+                                    ) : (
+                                      <AiOutlineEye size={25} />
+                                    )}
+                                  </button>
+                                )}
                               </span>
                             </li>
                             <li>
                               <label>Joined date</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.created_date}
+                              <span className="profile_list_desc">
+                                {moment(created_date).format("DD/MM/YYYY")}
                               </span>
                             </li>
                           </ul>
                         </div>
                       </div>
-                      <div class="profile_other_info">
-                        <h4 class="profile_personal_label">
+                      <div className="profile_other_info">
+                        <h4 className="profile_personal_label">
                           Other information
                         </h4>
-                        <div class="profile_other_info_col mb_25">
-                          <ul class="profile_info_list">
+                        <div className="profile_other_info_col mb_25">
+                          <ul className="profile_info_list">
                             <li>
                               <label>Any offers created</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.any_offers_created ===
-                                "True"
-                                  ? "Yes"
-                                  : "No"}
+                              <span className="profile_list_desc">
+                                {any_offers_created === "True" ? "Yes" : "No"}
                               </span>
                             </li>
                             <li>
                               <label>Any artist referred</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.any_artists_referred ===
-                                "True"
-                                  ? "Yes"
-                                  : "No"}
+                              <span className="profile_list_desc">
+                                {any_artists_referred === "True" ? "Yes" : "No"}
                               </span>
                             </li>
                           </ul>
-                          <ul class="profile_info_list">
+                          <ul className="profile_info_list">
                             <li>
                               <label>Any customer referred</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.any_customers_referred ===
-                                "True"
+                              <span className="profile_list_desc">
+                                {any_customers_referred === "True"
                                   ? "Yes"
                                   : "No"}
                               </span>
                             </li>
                             <li>
                               <label>Payout pending</label>
-                              <span class="profile_list_desc">
-                                {profileData.detail.payout_pending === "True"
-                                  ? "Yes"
-                                  : "No"}
+                              <span className="profile_list_desc">
+                                {payout_pending === "True" ? "Yes" : "No"}
                               </span>
                             </li>
                           </ul>
                         </div>
-                        <h4 class="profile_personal_label">
+                        <h4 className="profile_personal_label">
                           Main studio information
                         </h4>
                         <div className="studio_profile_details">
-                          <div class="studio_profile_pic">
+                          <div className="studio_profile_pic">
                             <Image
                               src="/icon_studio.svg"
                               alt="studio"
                               width="17"
                               height="16"
                               priority
-                              className=""
                             />
                           </div>
                           <div className="flex">
-                            <div class="studio_profile_name">
-                              {profileData.detail.main_studio_details.name}
-                            </div>
-                            <div class="studio_profile_sub">
-                              {`${profileData.detail.main_studio_details.city_name}, ${profileData.detail.country} PO-Box: ${profileData.detail.main_studio_details.zipcode}`}
+                            {main_studio_details.name && (
+                              <div className="studio_profile_name">
+                                {main_studio_details.name}
+                              </div>
+                            )}
+                            <div className="studio_profile_sub">
+                              {main_studio_details.city_name &&
+                                `${main_studio_details.city_name}, `}
+                              {country}
+                              {main_studio_details.zipcode &&
+                                ` PO-Box: ${main_studio_details.zipcode}`}
                             </div>
                           </div>
                         </div>
@@ -4097,10 +4125,9 @@ export default function ArtistDetail({profileData}) {
   );
 }
 
-
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  
+
   // Check if session exists
   if (!session) {
     return {
@@ -4114,7 +4141,7 @@ export async function getServerSideProps(context) {
   try {
     //API call to fetch artist profile details
     const res = await singleArtistProfileDetail(session.user.myToken, slug);
-    
+
     // Check if response data is valid
     if (!res || !res.data || res.data.length === 0) {
       return {
@@ -4132,11 +4159,8 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
-    console.error('Error fetching artist profile details:', error);
-    // Return notFound if an error occurs
     return {
       notFound: true,
     };
   }
 }
-
