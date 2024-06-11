@@ -15,11 +15,15 @@ const UseLayout = ({ children, pathname }) => {
     } 
     else if (pathname === "/requestForm") {
       document.body.className = "request_land_body";
-    } else {
+    }
+    else if (pathname === "/analytics/artist/detail/[slug]") {
+      document.body.style.backgroundColor = "#F8F8F8";
+    }
+     else {
       // Reset styles for other pages
       document.body.style.backgroundColor = "#fff";
       document.body.className = "";
-    }
+    }    
     // Clean up the styles when the component unmounts
     return () => {
       document.body.style.backgroundColor = "#fff";

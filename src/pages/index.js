@@ -83,48 +83,7 @@ export default function Home({isMobile}) {
 
 
 
-  const butterflyTattoos = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17357_20230203124234258-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/13fe7e6b-27e2-4862-8cd1-63ae887aa835`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2047_20220824091834377-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2b4313f4-42f7-4b5c-a0fe-9a1048cd509a`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/1631_20220810120118508-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f4acb3da-cb6d-4698-aeb7-c7a3d4f9cf31`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8798_20221112103645427-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/33cc6a48-fc2a-4fd8-bf44-a7589ab5c31e`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17242_20230202192308433-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/dd0d7b99-4446-4d55-8f94-8b03462704ab`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5729_20221016233810380-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1db18a75-80fb-4374-91cb-1ec789bb1631`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3844_20220927191141628-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/485ad340-8b0f-43eb-81ce-6f36d6232432`,
-    },
-  ];
-
+  
 
 
 

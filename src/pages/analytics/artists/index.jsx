@@ -137,6 +137,7 @@ export async function getServerSideProps(context) {
     };
   }
 
+
   try {
     const [data, customerJoinigData] = await Promise.all([
       analyticsArtistCount(session.user.myToken),

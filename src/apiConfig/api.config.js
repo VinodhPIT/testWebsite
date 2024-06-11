@@ -42,9 +42,9 @@ const API_URL = {
     GET_ARTIST_CONVERSION: "/analytics/artist/conversion",
     DOWNLOAD_EXCEL: "/analytics/artist",
 
-    CONVERSION_COUNTRY: (country) => `/analytics/artist/conversion?country=${country}`
+    CONVERSION_COUNTRY: (country) => `/analytics/artist/conversion?country=${country}`,
 
-
+    ARTIST_PROFILE_DETAIL:(slug)=>`/web/api/artist/profile/details?artist_uid=${slug}`,
   },
 
   ANALYTICS_OFFER: {

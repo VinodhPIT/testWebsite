@@ -15,7 +15,7 @@ export default function Header({ data }) {
   const navigationItems = [
     { href: "/analytics/dashboard", label: "Dashboard" },
     { href: "/analytics/customer", label: "Customer" },
-    { href: "/analytics/artist", label: "Artists" },
+    { href: "/analytics/artists", label: "Artists" },
     { href: "/analytics/offer", label: "Offer" },
   ];
 
