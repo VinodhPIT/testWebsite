@@ -6,8 +6,9 @@ import {
   useGlobalFilter,
   usePagination,
 } from "react-table";
-import style from "./table.module.css";
 import Image from "next/image";
+
+import style from "./table.module.css";
 
 const DataTable = ({ columns, data }) => {
   const {
@@ -29,7 +30,7 @@ const DataTable = ({ columns, data }) => {
     {
       columns,
       data,
-      initialState: { pageIndex: 0, pageSize:8 },
+      initialState: { pageIndex: 0, pageSize: 8 },
     },
     useFilters,
     useGlobalFilter,
@@ -52,7 +53,6 @@ const DataTable = ({ columns, data }) => {
       startPage = Math.max(0, endPage - maxPagesToShow);
     }
 
-  
     if (startPage > 0) {
       pageNumbers.push(
         <button
@@ -87,6 +87,15 @@ const DataTable = ({ columns, data }) => {
           {"..."}
         </button>
       );
+      pageNumbers.push(
+        <button
+          key={pageCount - 1}
+          onClick={() => gotoPage(pageCount - 1)}
+          className={pageIndex === pageCount - 1 ? style.active : "page_list"}
+        >
+          {pageCount}
+        </button>
+      );
     }
 
     return (
@@ -101,8 +110,6 @@ const DataTable = ({ columns, data }) => {
       </div>
     );
   };
-
-
 
   // Calculate the range of items being displayed
   const startRow = pageIndex * pageSize + 1;
@@ -122,7 +129,7 @@ const DataTable = ({ columns, data }) => {
             <Image src="/magni.svg" alt="search" width={20} height={20} />
           </button>
         </div>
-        <div className={style.db_filter_block}>
+        {/* <div className={style.db_filter_block}>
           <button className={style.db_filter_setting}>
             <Image
               src="/setting-tuning-mob.svg"
@@ -133,7 +140,7 @@ const DataTable = ({ columns, data }) => {
               priority
             />
           </button>
-        </div>
+        </div> */}
       </div>
       <div className="db_datatable_page_block">
         <div className="db_datatable_block">
@@ -201,12 +208,12 @@ const DataTable = ({ columns, data }) => {
             )}
           </table>
         </div>
-          <div className="db_pagination_block">
-            <span className="show_result_page">
+        {rows.length > 0 &&  <div className="db_pagination_block">
+          <span className="show_result_page">
             Showing {startRow} to {endRow}
-            </span>
-            {rows.length > 0 && <Pagination />}
-          </div>
+          </span>
+           <Pagination />
+        </div>}
       </div>
     </div>
   );
