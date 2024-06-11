@@ -117,13 +117,8 @@ export default function Styledeatil({ data ,style_id}) {
     const newPathname = `${router.pathname}${newQuery}`;
     // Update the state
     setPathname(newPathname);
-
     const updatedIds = [...new Set([...selectedIds,data.slug])]
-
-    setSelectedIds(updatedIds);
-
-
-
+    setSelectedIds(updatedIds)
   };
 
   useScrollToTop();

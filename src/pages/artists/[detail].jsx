@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./style.module.css";
 import { useRouter } from "next/router";
+
+import styles from "./style.module.css";
 import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
 import { blurDataURL } from "@/constants/constants";
 import SearchField from "@/components/tattooSearch/tattooSearch";
- 
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { renderArtistGallery } from "@/components/customTabs/tab";
@@ -17,17 +17,12 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import useScrollToTop from "@/hooks/useScrollToTop";
 
 
-export default function Detail({ data, locale }) {
-
-
-
-
-
+export default function Detail({ data }) {
 
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
+  const {styleCollection} = useGlobalState();
 
-  const { state, getLocale ,    styleCollection  ,setSelectedIds , clearStyleId} = useGlobalState();
   const router = useRouter();
   const goBack = () => {
     router.back();
@@ -67,6 +62,10 @@ export default function Detail({ data, locale }) {
     },
   ];
 
+
+  useScrollToTop();
+
+
   useEffect(() => {
     styleCollection()
   }, [styleCollection]);
@@ -98,7 +97,7 @@ export default function Detail({ data, locale }) {
     }
   }, [data]);
 
-  useScrollToTop();
+
   
 
   return (

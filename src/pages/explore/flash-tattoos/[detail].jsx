@@ -20,11 +20,13 @@ import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
+
 import useScrollToTop from "@/hooks/useScrollToTop";
-export default function Detail({ data, status }) {
+
+export default function Detail({ data}) {
+
   const router = useRouter();
-  const { state, styleCollection, setSelectedIds, clearStyleId, onSearch } =
-    useGlobalState();
+  const { state, styleCollection, setSelectedIds, onSearch } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
@@ -34,9 +36,12 @@ export default function Detail({ data, status }) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+
+  useScrollToTop();
+
   useEffect(() => {
     styleCollection();
-  },[]);
+  },[ ]);
 
   const goBack = () => {
     router.back();
@@ -91,7 +96,7 @@ export default function Detail({ data, status }) {
       router
     );
   };
-  useScrollToTop();
+
   
   return (
     <>
