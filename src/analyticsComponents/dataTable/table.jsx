@@ -43,12 +43,10 @@ const DataTable = ({ columns, data }) => {
   const Pagination = () => {
     const pageNumbers = [];
 
-    // Logic to display a maximum of 5 page numbers at a time
     const maxPagesToShow = 5;
     let startPage = Math.max(0, pageIndex - Math.floor(maxPagesToShow / 2));
     let endPage = Math.min(pageCount, startPage + maxPagesToShow);
 
-    // Adjust startPage if endPage is less than maxPagesToShow away from the end
     if (endPage - startPage < maxPagesToShow && endPage < pageCount) {
       startPage = Math.max(0, endPage - maxPagesToShow);
     }
@@ -178,6 +176,8 @@ const DataTable = ({ columns, data }) => {
                         </span>
                       </div>
                     </th>
+
+                    
                   ))}
                 </tr>
               ))}
