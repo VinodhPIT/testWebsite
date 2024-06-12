@@ -239,8 +239,8 @@ export default function ArtistDetail({ profileData }) {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12 col-md-12">
-              <div class="user_profile_block">
-                <div class="user_profile_pic">
+              <div className="user_profile_block">
+                <div className="user_profile_pic">
                   <Image
                     src="/placeHolder.png"
                     alt="user"
@@ -251,21 +251,21 @@ export default function ArtistDetail({ profileData }) {
                     blurDataURL={blurDataURL}
                   />
                 </div>
-                <div class="user_profile_detail">
+                <div className="user_profile_detail">
                   <div className="d_flex flex_direction_column">
-                    <div class="user_profile_name">
+                    <div className="user_profile_name">
                       {artist_name || `${first_name} ${last_name}`}
                     </div>
-                    <div class="user_profile_sub">
+                    <div className="user_profile_sub">
                       ({`Artist ${artist_name || first_name}`})
                     </div>
                   </div>
 
-                  <div class="user_profile_address">
-                    <div class="user_profile_adrs_title">
+                  <div className="user_profile_address">
+                    <div className="user_profile_adrs_title">
                       {main_studio_details.name}
                     </div>
-                    <div class="user_profile_adrs_sub">
+                    <div className="user_profile_adrs_sub">
                       {`${
                         main_studio_details.city_name
                           ? main_studio_details.city_name + ", "
@@ -278,7 +278,7 @@ export default function ArtistDetail({ profileData }) {
                     </div>
                   </div>
                 </div>
-                <div class="user_profile_link">
+                <div className="user_profile_link">
                   <button
                     type="button"
                     className="btn_secondary block_bg_green_800 btn_public"
@@ -390,7 +390,7 @@ export default function ArtistDetail({ profileData }) {
                                   height={17}
                                   alt="tick"
                                   priority
-                                  className="ml_7"
+                                  className="ml_5 mt_5"
                                 />
                               </span>
                             </li>
@@ -405,7 +405,7 @@ export default function ArtistDetail({ profileData }) {
                                     height={17}
                                     alt="tick"
                                     priority
-                                    className="ml_7"
+                                    className="ml_5 mt_5"
                                   />
                                 )}
                               </span>
@@ -425,23 +425,23 @@ export default function ArtistDetail({ profileData }) {
                                   height={17}
                                   alt="tick"
                                   priority
-                                  className="mr_7"
+                                  className="mr_5 mt_5"
                                 />
                                 {kyc_status}
                               </span>
                             </li>
                             <li>
                               <label>IBAN number</label>
-                              <span className="profile_list_desc">
+                              <span className="profile_list_desc align_item_center">
                                 <span className="password_blocker">
                                   {showIban ? iban : hiddenIban}
                                 </span>
                                 {iban && (
-                                  <button onClick={handleToggle}>
+                                  <button onClick={handleToggle} className="pl_0 pr_0 ml_5 lh_22 h_24">
                                     {!showIban ? (
-                                      <AiOutlineEyeInvisible size={25} />
+                                      <AiOutlineEyeInvisible size={24} />
                                     ) : (
-                                      <AiOutlineEye size={25} />
+                                      <AiOutlineEye size={24} />
                                     )}
                                   </button>
                                 )}
@@ -462,13 +462,13 @@ export default function ArtistDetail({ profileData }) {
                         </h4>
                         <div className="profile_other_info_col mb_25">
                           <ul className="profile_info_list">
-                            <li>
+                            <li className="w_50pc">
                               <label>Any offers created</label>
                               <span className="profile_list_desc">
                                 {any_offers_created === "True" ? "Yes" : "No"}
                               </span>
                             </li>
-                            <li>
+                            <li className="w_50pc">
                               <label>Any artist referred</label>
                               <span className="profile_list_desc">
                                 {any_artists_referred === "True" ? "Yes" : "No"}
@@ -476,7 +476,7 @@ export default function ArtistDetail({ profileData }) {
                             </li>
                           </ul>
                           <ul className="profile_info_list">
-                            <li>
+                            <li className="w_50pc">
                               <label>Any customer referred</label>
                               <span className="profile_list_desc">
                                 {any_customers_referred === "True"
@@ -484,7 +484,7 @@ export default function ArtistDetail({ profileData }) {
                                   : "No"}
                               </span>
                             </li>
-                            <li>
+                            <li className="w_50pc">
                               <label>Payout pending</label>
                               <span className="profile_list_desc">
                                 {payout_pending === "True" ? "Yes" : "No"}

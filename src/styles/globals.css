@@ -1446,7 +1446,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
   margin-left: auto !important;
   margin-right: auto !important;
 }
-
+.h_24 {
+  height: 24px !important;
+}
 .h_48 {
   height: 48px !important;
 }
@@ -2878,7 +2880,12 @@ ul.custom-listing.txt_gray_500 li {
   font-size: 75px !important;
   line-height: 75px !important;
 }
-
+.lh_22 {
+  line-height: 22px !important;
+}
+.lh_25 {
+  line-height: 25px !important;
+}
 .lh_30 {
   line-height: 30px !important;
 }
