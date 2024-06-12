@@ -50,6 +50,7 @@ const Description = () => {
                     />                 
 
                   </form>
+                  {message.length}
                 </div>
                 <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                   <button className="btn_outline_base m_w_50pc" onClick={prevPage}>Back</button>

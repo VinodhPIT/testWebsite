@@ -216,6 +216,10 @@ const DataTable = ({ columns, data }) => {
         </div>}
       </div>
     </div>
+
+
+
+
   );
 };
 

@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { getSession } from "next-auth/react";
+import { useToggle } from "@/hooks/useToggle";
 
 import { singleArtistProfileDetail } from "@/apiConfig/artistAnalyticsService";
 import { blurDataURL } from "@/constants/constants";
@@ -11,6 +12,7 @@ import { blurDataURL } from "@/constants/constants";
 import HeaderProfile from "@/analyticsComponents/common/headerProfile";
 import useTranslation from "next-translate/useTranslation";
 import DataTable from "@/analyticsComponents/dataTable/table";
+import DataModel from "@/analyticsComponents/dataTable/model";
 
 import moment from "moment";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -18,11 +20,12 @@ import "react-tabs/style/react-tabs.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function ArtistDetail({ profileData }) {
-
   const { status, data } = useSession();
   const [showIban, setShowIban] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
+
+  const [toggle, onToggle] = useToggle(false);
 
   const handleToggle = () => {
     setShowIban((prevShowIban) => !prevShowIban);
@@ -37,103 +40,208 @@ export default function ArtistDetail({ profileData }) {
   const dataTable = React.useMemo(
     () => [
       {
-        offerCode: "220615456",
-        projectName: "Flash Garden",
+        offer_code: "220615",
+        project: "Flash Garden",
         status: "Pending",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
+        payment_type: "Fixed",
         price: "€1560",
-        voucher: "None",
+        voucher_amount: "None",
+        logger: [
+          {
+            offer: "Offer Objet",
+            log_type: "StatusChange",
+            offer_amount: "50.00",
+            offer_Date: "Jun 1 2014",
+            isAmount: "False",
+            message: "Offer status changed from draft to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 1 2014",
+          },
+
+          {
+            offer: "Offer Pits sector",
+            log_type: "Status ok",
+            offer_amount: "250.00",
+            offer_Date: "Jun 14 2014",
+            isAmount: "True",
+            message: "Offer status to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 20 2014",
+          },
+        ],
       },
       {
-        offerCode: "220615456",
-        projectName: "Simon Roger",
+        offer_code: "11115",
+        project: "Sherlok",
         status: "Scheduled",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
+        payment_type: "Fixed",
         price: "€1560",
-        voucher: "None",
+        voucher_amount: "None",
+
+        logger: [
+          {
+            offer: "Offer Objet",
+            log_type: "StatusChange",
+            offer_amount: "50.00",
+            offer_Date: "Jun 1 2014",
+            isAmount: "False",
+            message: "Offer status changed from draft to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 1 2014",
+          },
+
+          {
+            offer: "Offer Pits",
+            log_type: "Status ok",
+            offer_amount: "250.00",
+            offer_Date: "Jun 14 2014",
+            isAmount: "True",
+            message: "Offer status to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 20 2014",
+          },
+        ],
       },
       {
-        offerCode: "220615456",
-        projectName: "Smiley Cutie",
+        offer_code: "0615",
+        project: "Sherlok_Capital",
         status: "Completed",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
+        payment_type: "Fixed",
         price: "€1560",
-        voucher: "None",
+        voucher_amount: "None",
+
+        logger: [
+          {
+            offer: "Offer Objet",
+            log_type: "StatusChange",
+            offer_amount: "50.00",
+            offer_Date: "Jun 1 2014",
+            isAmount: "False",
+            message: "Offer status changed from draft to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 1 2014",
+          },
+
+          {
+            offer: "Offer Pits",
+            log_type: "Status ok",
+            offer_amount: "250.00",
+            offer_Date: "Jun 14 2014",
+            isAmount: "True",
+            message: "Offer status to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 20 2014",
+          },
+        ],
       },
       {
-        offerCode: "220615456",
-        projectName: "Flash Garden",
+        offer_code: "820615",
+        project: "Neo capital",
         status: "Pending",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
+        payment_type: "Fixed",
         price: "€1560",
-        voucher: "None",
+        voucher_amount: "None",
+
+        logger: [
+          {
+            offer: "Offer Objet",
+            log_type: "StatusChange",
+            offer_amount: "50.00",
+            offer_Date: "Jun 1 2014",
+            isAmount: "False",
+            message: "Offer status changed from draft to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 1 2014",
+          },
+
+          {
+            offer: "Offer Pits",
+            log_type: "Status ok",
+            offer_amount: "250.00",
+            offer_Date: "Jun 14 2014",
+            isAmount: "True",
+            message: "Offer status to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 20 2014",
+          },
+        ],
       },
       {
-        offerCode: "220615456",
-        projectName: "Spain Modern Tattoo",
+        offer_code: "22065",
+        project: "Spin tattoo capital",
         status: "Scheduled",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
+        payment_type: "Fixed",
         price: "€1560",
-        voucher: "None",
+        voucher_amount: "None",
       },
       {
-        offerCode: "220615456",
-        projectName: "Flash Garden",
+        offer_code: "20615",
+        project: "Capital",
         status: "Pending",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
+        payment_type: "Fixed",
         price: "€1560",
-        voucher: "None",
+        voucher_amount: "None",
+
+        logger: [
+          {
+            offer: "Offer Objet",
+            log_type: "StatusChange",
+            offer_amount: "50.00",
+            offer_Date: "Jun 1 2014",
+            isAmount: "False",
+            message: "Offer status changed from draft to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 1 2014",
+          },
+
+          {
+            offer: "Offer Pits",
+            log_type: "Status ok",
+            offer_amount: "250.00",
+            offer_Date: "Jun 14 2014",
+            isAmount: "True",
+            message: "Offer status to pending",
+            created_by: "Flash Garden",
+            created_at: "Jun 20 2014",
+          },
+        ],
       },
       {
-        offerCode: "220615456",
-        projectName: "Flash Garden",
-        status: "Completed",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
+        offer_code: "2000",
+        project: "CapitalLondon",
+        status: "Pending",
+        offer_date: "24/02/2024",
+        created_at: "20/02/2024",
+        updated_at: "20/02/2024",
         city: "Artesa de Segre",
-        priceType: "Fixed",
-        price: "€1560",
-        voucher: "None",
+        payment_type: "Non",
+        price: "€10",
+        voucher_amount: "None",
       },
-      {
-        offerCode: "220615456",
-        projectName: "Flash Garden",
-        status: "Completed",
-        offerDate: "24/02/2024",
-        createdOn: "20/02/2024",
-        updatedOn: "20/02/2024",
-        city: "Artesa de Segre",
-        priceType: "Fixed",
-        price: "€1560",
-        voucher: "None",
-      },
-      
-    
     ],
     []
   );
@@ -143,11 +251,11 @@ export default function ArtistDetail({ profileData }) {
     () => [
       {
         Header: "Offer code",
-        accessor: "offerCode",
+        accessor: "offer_code",
       },
       {
         Header: "Project name",
-        accessor: "projectName",
+        accessor: "project",
         Cell: ({ value }) => (
           <span className={`fw_600 color_gray_550`}>{value}</span>
         ),
@@ -163,23 +271,20 @@ export default function ArtistDetail({ profileData }) {
       },
       {
         Header: "Offer date",
-        accessor: "offerDate",
+        accessor: "offer_date",
       },
       {
         Header: "Created on",
-        accessor: "createdOn",
+        accessor: "created_at",
       },
       {
         Header: "Updated on",
-        accessor: "updatedOn",
+        accessor: "updated_at",
       },
-      {
-        Header: "City",
-        accessor: "city",
-      },
+
       {
         Header: "Price type",
-        accessor: "priceType",
+        accessor: "payment_type",
       },
       {
         Header: "Price",
@@ -187,17 +292,29 @@ export default function ArtistDetail({ profileData }) {
       },
       {
         Header: "Voucher",
-        accessor: "voucher",
+        accessor: "voucher_amount",
       },
+
       {
         Header: "Actions",
-        accessor: "Actions",
+        accessor: "logger",
+        Cell: ({ value }) => (
+          <button className="logButton" onClick={() => handleViewLog(value)}>
+            View log
+          </button>
+        ),
       },
-      
     ],
     []
   );
 
+  const [currentLogData, setCurrentLogData] = useState([]);
+
+  const handleViewLog = (logData) => {
+    console.log(logData,"logData")
+    setCurrentLogData(logData);
+    onToggle();
+  };
 
   const {
     detail: {
@@ -224,9 +341,10 @@ export default function ArtistDetail({ profileData }) {
   } = profileData;
 
   const ibanNum = iban;
-  const hiddenIban = ibanNum ? new Array(iban.length + 1).join("*") : "----------";
-    
-  
+  const hiddenIban = ibanNum
+    ? new Array(iban.length + 1).join("*")
+    : "----------";
+
   return (
     <>
       <Head>
@@ -532,13 +650,15 @@ export default function ArtistDetail({ profileData }) {
           </div>
         </div>
       </section>
+
+     {toggle && <DataModel currentLogData={currentLogData} />}
+
     </>
   );
 }
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-
 
   if (!session) {
     return {
@@ -553,7 +673,6 @@ export async function getServerSideProps(context) {
   const { slug } = query;
 
   try {
-
     const res = await singleArtistProfileDetail(session.user.myToken, slug);
 
     // Check if response data is valid
