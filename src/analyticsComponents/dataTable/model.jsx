@@ -1,8 +1,10 @@
 import React from "react";
 import Modal from "react-modal";
 import Image from 'next/image'
+
 import DataTable from "@/analyticsComponents/dataTable/table";
-import { useToggle } from "@/hooks/useToggle";
+import moment from "moment";
+
 
 const customStyles = {
   overlay: {
@@ -24,8 +26,7 @@ const customStyles = {
     borderRadius: "8px",
   },
 };
-const DataModel = ({ currentLogData }) => {
-  const [toggle, onToggle] = useToggle(false);
+const DataModel = ({ currentLogData ,onToggle }) => {
 
   // Column definitions
   const columns = React.useMemo(
@@ -43,20 +44,21 @@ const DataModel = ({ currentLogData }) => {
       },
       {
         Header: "Offer amount",
-        accessor: "offer_amount",
+        accessor: "amount",
+    
+      },
+      {
+        Header: "Offer Date",
+        accessor: "offer_date",
         Cell: ({ value }) => (
-          <span className={`status_indicator status_${value.toLowerCase()}`}>
-            {value}
+          <span>
+            {moment(value).format("DD/MM/YYYY")}
           </span>
         ),
       },
       {
-        Header: "Offer Date",
-        accessor: "offer_Date",
-      },
-      {
         Header: "Is Extra Amount",
-        accessor: "isAmount",
+        accessor: "is_extra_amount",
       },
       
 
@@ -67,10 +69,16 @@ const DataModel = ({ currentLogData }) => {
       {
         Header: "Created By",
         accessor: "created_by",
+       
       },
       {
         Header: "Crerated At",
         accessor: "created_at",
+        Cell: ({ value }) => (
+          <span>
+            {moment(value).format("DD/MM/YYYY")}
+          </span>
+        ),
       },
       ,
     ],
@@ -86,9 +94,9 @@ const DataModel = ({ currentLogData }) => {
     >
       <div className="modal_view_log">
         <div className="modal_view_log_col">
-          <div className="close" data-dismiss="modal">
+          <button className="close" onClick={onToggle}>
             <Image  width={25} height={25} src="/popup-close.svg" alt="close"/> 
-          </div>
+          </button>
           <DataTable columns={columns} data={currentLogData} />
         </div>
       </div>

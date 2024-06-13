@@ -66,3 +66,27 @@ export const singleArtistProfileDetail = async (token ,slug) => {
     return [];
   }
 };
+
+export const fetchOfferDataTable = async (token ,slug) => {
+  try {
+    const response = await analyticsGetApiCall(API_URL.ANALYTICS_ARTISTS.OFFER_DATA_TABLE(slug) ,token);
+    return response;
+  } catch (error) {
+    throw error; 
+  }
+};
+
+
+
+export const fetchOfferLog = async (token ,slug) => {
+  try {
+    const response = await analyticsGetApiCall(API_URL.ANALYTICS_ARTISTS.OFFER_DATA_LOG(slug) ,token);
+    return response;
+  } catch (error) {
+    throw error; 
+  }
+};
+
+
+
+

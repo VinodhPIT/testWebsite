@@ -62,7 +62,7 @@ export default function Styledeatil({ data ,style_id}) {
         });
         setTattooData(res.rows.hits);
       } catch (error) {
-        console.error("Error fetching data:", error);
+       /// console.error("Error fetching data:", error);
       }
      
     };
@@ -78,7 +78,7 @@ export default function Styledeatil({ data ,style_id}) {
         });
         setArtistData(res.rows.hits);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        //console.error("Error fetching data:", error);
       }
     };
 

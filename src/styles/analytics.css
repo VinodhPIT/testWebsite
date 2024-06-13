@@ -1143,6 +1143,19 @@ ul.head_status_block li .head_status_date {
   background: var(--green-100);
   color: var(--green-900);
 }
+.status_cancelled{
+  background: var(--red-200);
+  color: var(--red-600);
+}
+.status_rejected{
+  background: var(--red-300);
+  color: var(--red-600);
+}
+.status_draft{
+  background: var(--grey-50);
+  color: var(--black);
+}
+
 
 .db_datatable_page_block {
   border: 1px solid #E1E4E8;
