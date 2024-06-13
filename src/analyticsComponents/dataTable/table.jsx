@@ -115,7 +115,7 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <div>
-      <div className={style.custom_search_filter_db}>
+      <div className={`${style.custom_search_filter_db} ${"modal_view_log_search"}`}>
         <div className={style.search}>
           <input
             value={globalFilter || ""}

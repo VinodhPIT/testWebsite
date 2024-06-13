@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import Image from 'next/image'
 import DataTable from "@/analyticsComponents/dataTable/table";
 import { useToggle } from "@/hooks/useToggle";
 
@@ -15,7 +16,7 @@ const customStyles = {
     margin: "0 auto",
     padding: "0px",
     top: "0",
-    bottom: "0px",
+    bottom: "0",
     right: "0px",
     left: "0px",
     overflow: "inherit",
@@ -83,11 +84,13 @@ const DataModel = ({ currentLogData }) => {
       style={customStyles}
       ariaHideApp={false}
     >
-      <div>
-        
-        <DataTable columns={columns} data={currentLogData} />
-
-        
+      <div className="modal_view_log">
+        <div className="modal_view_log_col">
+          <div className="close" data-dismiss="modal">
+            <Image  width={25} height={25} src="/popup-close.svg" alt="close"/> 
+          </div>
+          <DataTable columns={columns} data={currentLogData} />
+        </div>
       </div>
     </Modal>
   );

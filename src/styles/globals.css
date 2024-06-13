@@ -60,6 +60,7 @@
   --pink-200: #ffbbbb;
   --orange-light-100: #ffefef;
   --orange-light-200: #ffd5c0;
+  --orange-dark-500: #F57C00;
   --light-green-100: #eaffc0;
   --green-100: #edf8ed;
   --green-900: #388e3c;
@@ -67,7 +68,7 @@
   --green-dark-400: #187e7e;
   --green-800: #4caf50;
   --blue: #1976d2;
-
+  --blue-light-100: #E6FFFF;
 }
 * {
   box-sizing: border-box;

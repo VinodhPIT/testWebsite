@@ -1165,7 +1165,8 @@ ul.head_status_block li .head_status_date {
   color: var(--gray-400);
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px
+  line-height: 24px;
+  min-width: 140px;
 }
 
 button.page_list {
@@ -1192,6 +1193,53 @@ button.page_list {
   word-break: break-word;
   align-items: flex-start;
 }
+
+.btn_view_log {
+  padding: 8px 12px;
+  border: 1px solid #1C1C1C;
+}
+
+.modal_view_log {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 3.5rem);
+  justify-content: center;
+  margin: 1.75rem 1.75rem;
+}
+
+.modal_view_log_col {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #E1E4E8;
+  border-radius: 8px;
+  padding: 40px 15px 10px 15px;
+}
+
+.modal_view_log .db_datatable_page_block {
+  border: 0;
+}
+
+.modal_view_log .db_datatable_block {
+  border: 1px solid #E1E4E8;
+  border-radius: 8px;
+  background-color: #fff;
+  max-height: 450px;
+  overflow-y: auto;
+}
+.modal_view_log .modal_view_log_search {
+  position: inherit!important;
+  margin-bottom: 15px;
+  float: right;
+  max-width: 250px;
+}
+
+.modal_view_log_col .close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1199px) {
   .header_dashboard .nav_block.db_navigation {
     display: none;
@@ -1248,6 +1296,13 @@ button.page_list {
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
+  }
+  .modal_view_log .db_datatable_block {
+    max-height: 300px;
+  }
+  .modal_view_log {
+    margin-left: .5rem;
+    margin-right: .5rem;
   }
 }
 
@@ -1327,6 +1382,15 @@ button.page_list {
     top: 0;
     left: 0;
     transform: inherit;
+  }
+  .db_pagination_block {
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 20px;
+  }
+  .modal_view_log .modal_view_log_search {
+    max-width: 100%;
+    width: 100%;
   }
 }
 
