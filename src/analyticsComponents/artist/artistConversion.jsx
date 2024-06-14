@@ -42,7 +42,6 @@ const ArtistConversion = ({ data, title, token, types }) => {
       setLoading(true);
       const res = await artistConvesionWithCountryFilter(
         selectedOption.map((op) => op.value).join(),
-        token
       );
       const resWithFilter = res.filter((entry) => entry.year === selectedYear);
       setRegistered(resWithFilter);

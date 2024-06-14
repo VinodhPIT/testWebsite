@@ -45,7 +45,6 @@ const useAnalyticsStore = create((set) => ({
           startDate: fromDate,
           type: offerApitype[key],
         },
-        useAnalyticsStore.getState().myToken
       );
 
       set((state) => ({

@@ -91,7 +91,7 @@ export default function CustomerDetails({ initialCounts, token }) {
               const res = await analyticsCustomerLeadSourceCountWithFIlter({
                   startDate: fromDate,
                   endDate: toDate
-              }, token);
+              });
               setCountData({
                   ...countData,
                   ...(key==="joinedFromApp" && { joinedFromApp: res.filter((custData)=> custData.lead_source==="APP").length }),
@@ -109,7 +109,7 @@ export default function CustomerDetails({ initialCounts, token }) {
                   type: Apitype[key],
                   startDate: fromDate,
                   endDate: toDate
-              }, token);
+              });
               setCountData({
                   ...countData,
                   [key]: res[Apitype[key]]

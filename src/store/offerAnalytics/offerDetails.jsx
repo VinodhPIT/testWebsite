@@ -5,10 +5,10 @@ const useOfferDetail = create((set) => ({
   loading: false,
   scheduledOffers: [],
   completedOffers: [],
-  fetchOffer: async (token) => {
+  fetchOffer: async () => {
     try {
       set({ loading: true });
-      const response = await offerDetails(token);
+      const response = await offerDetails();
       const scheduledOffers = response.filter((e) => e.status === "scheduled");
       const completedOffers = response.filter((e) => e.status === "completed");
 

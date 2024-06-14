@@ -3,10 +3,11 @@ import { offerDetails } from "@/pages/api/offerAnalytics.service";
 const useTotalRevenue = create((set) => ({
   totalAmount: {},
   loading: false,
-  fetchTotalRevenue: async (token) => {
+  fetchTotalRevenue: async () => {
     try {
       set({ loading: true });
-      const response = await offerDetails(token);
+      const response = await offerDetails();
+
       const filter = response.filter(
         (e) =>
           e.status === "completed" ||

@@ -112,8 +112,8 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
   try {
     const [data, customerJoinigData] = await Promise.all([
-      analyticsArtistCount(session.user.myToken),
-      analyticsArtistLeadSourceCount(session.user.myToken),
+      analyticsArtistCount(session),
+      analyticsArtistLeadSourceCount(session),
     ]);
 
     return {

@@ -2,11 +2,10 @@ import axiosInstance from "../../apiConfig/axios.instance";
 import API_URL from "@/apiConfig/api.config";
 
 
-export const offerDetails = async (token) => {
+export const offerDetails = async () => {
   try {
     const response = await axiosInstance.get(
-      API_URL.ANALYTICS_OFFER.GET_OFFER_DETAILS,
-      {token}
+      API_URL.ANALYTICS_OFFER.GET_OFFER_DETAILS
     );
     return response.data;
   } catch (error) {
@@ -14,11 +13,10 @@ export const offerDetails = async (token) => {
   }
 };
 
-export const offerCount = async (token) => {
+export const offerCount = async (session) => {
   try {
     const response = await axiosInstance.get(
-      API_URL.ANALYTICS_OFFER.GET_OFFER_COUNT,
-      {token}
+      API_URL.ANALYTICS_OFFER.GET_OFFER_COUNT, {session}
     );
     return response.data;
   } catch (error) {
@@ -26,11 +24,10 @@ export const offerCount = async (token) => {
   }
 };
 
-export const offerCountFilter = async (params, token) => {
+export const offerCountFilter = async (params) => {
   try {
     const response = await axiosInstance.get(
       API_URL.ANALYTICS_OFFER.OFFER_FILTER_BY_DATE(params),
-      {token}
     );
     return response.data;
   } catch (error) {

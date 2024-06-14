@@ -17,9 +17,10 @@ export default function Dashboard({ data: initialData }) {
   const { totalAmount, fetchTotalRevenue } = useTotalRevenue();
   const { t } = useTranslation();
 
+
   useEffect(() => {
-    fetchTotalRevenue(initialData.sessionToken);
-  }, [fetchTotalRevenue, initialData.sessionToken]);
+    fetchTotalRevenue();
+  }, []);
 
   return (
     <>
@@ -56,12 +57,13 @@ export default function Dashboard({ data: initialData }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
+
   try {
     const [data, offerData, artistCount, customerCount] = await Promise.all([
-      analyticsDashboardCount(session.user.myToken),
-      offerCount(session.user.myToken),
-      analyticsArtistCount(session.user.myToken),
-      analyticsCustomerCount(session.user.myToken),
+      analyticsDashboardCount(session),
+      offerCount(session),
+      analyticsArtistCount(session),
+      analyticsCustomerCount(session),
     ]);
 
     return {
@@ -69,7 +71,7 @@ export async function getServerSideProps(context) {
         data: {
           androidDownloads: data.android_download_count || 0,
           iosDownloads: data.ios_download_count || 0,
-          sessionToken: session.user.myToken ?? "",
+          sessionToken: session,
           offerData,
           artistCount,
           customerCount,

@@ -41,7 +41,6 @@ const useAnalyticsStore = create((set) => ({
           startDate: fromDate,
           type: artistApitype[key],
         },
-        useAnalyticsStore.getState().myToken
       );
 
       set((state) => ({

@@ -34,8 +34,8 @@ export default function Customer({ data }) {
   const getValues = Object.values(data.genderCount);
 
   useEffect(() => {
-    fetchRevenue(data.sessionToken);
-  }, [fetchRevenue, data.sessionToken]);
+    fetchRevenue();
+  }, [fetchRevenue]);
 
   return (
     <>
@@ -133,8 +133,8 @@ export async function getServerSideProps(context) {
 
   try {
     const [data, customerJoinigData] = await Promise.all([
-      analyticsCustomerCount(session.user.myToken),
-      analyticsCustomerLeadSourceCount(session.user.myToken),
+      analyticsCustomerCount(session),
+      analyticsCustomerLeadSourceCount(session),
     ]);
 
     return {

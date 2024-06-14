@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { analyticsArtistCountWithFIlter } from "@/pages/api/customerAnalytics.service";
+import {  } from "@/pages/api/customerAnalytics.service";
 import Apitype from '@/analyticsComponents/common/constant'
 
 const useAnalyticsStore = create((set) => ({
@@ -41,7 +41,6 @@ const useAnalyticsStore = create((set) => ({
           startDate: fromDate,
           type: Apitype[key],
         },
-        useAnalyticsStore.getState().myToken
       );
 
       set((state) => ({

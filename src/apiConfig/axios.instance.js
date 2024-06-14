@@ -1,24 +1,33 @@
-import axios from "axios";
+import axios from 'axios';
+import { getSession } from 'next-auth/react';
 
 const axiosInstance = axios.create({
   baseURL: process.env.apiDomain,
   headers: {
-    "Content-Type": "application/json" 
+    "Content-Type": "application/json"
   }
 });
 
 axiosInstance.interceptors.request.use(
- 
-  (config) => {
-
-   
-    // Check if token is passed in the request config
-    if (config.token) {
-      config.headers.Authorization = `Bearer ${config.token}`;
+  async (config) => {
+    // Check if Authorization header is already set
+    if (!config.headers.Authorization) {
+      // If running on the client-side, fetch the session
+      if (typeof window !== 'undefined') {
+        const session = await getSession();
+        if (session && session.user && session.user.myToken) {
+          config.headers.Authorization = `Bearer ${session.user.myToken}`;
+        }
+      } else if (config.session && config.session.user && config.session.user.myToken) {
+        // If running on the server-side, use the session from the config
+        config.headers.Authorization = `Bearer ${config.session.user.myToken}`;
+      }
     }
+    
     return config;
   },
   (error) => {
+    console.log(error, "Request error");
     return Promise.reject(error);
   }
 );
@@ -30,15 +39,12 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     if (error.response) {
-      // The request was made and the server responded with a status code
-      // console.error("Request failed with status code:", error.response.status);
-      // console.error("Response data:", error.response.data);
+      console.error("Request failed with status code:", error.response.status);
+      console.error("Response data:", error.response.data);
     } else if (error.request) {
-      // The request was made but no response was received
-      // console.error("No response received:", error.request);
+      console.error("No response received:", error.request);
     } else {
-      // Something happened in setting up the request that triggered an error
-      // console.error("Request setup error:", error.message);
+      console.error("Request setup error:", error.message);
     }
     return Promise.reject(error);
   }

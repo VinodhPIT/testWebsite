@@ -31,8 +31,8 @@ export default function Offer({ data }) {
   ];
 
   useEffect(() => {
-    fetchRevenue(data.sessionToken);
-    fetchOffer(data.sessionToken);
+    fetchRevenue();
+    fetchOffer();
   }, [fetchRevenue, fetchOffer, data.sessionToken]);
 
   return (
@@ -119,7 +119,7 @@ export async function getServerSideProps(context) {
   const session = await getSession(context);
 
   try {
-    const [data] = await Promise.all([offerCount(session.user.myToken)]);
+    const [data] = await Promise.all([offerCount(session)]);
 
     return {
       props: {
