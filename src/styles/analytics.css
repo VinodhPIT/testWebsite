@@ -1157,7 +1157,12 @@ ul.head_status_block li .head_status_date {
   background: var(--gray-light-150);
   color: var(--black-500);
 }
-
+.sort_arrow{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  margin-left:6px
+}
 
 .db_datatable_page_block {
   border: 1px solid #E1E4E8;
