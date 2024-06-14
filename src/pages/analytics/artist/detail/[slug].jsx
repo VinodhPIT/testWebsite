@@ -67,7 +67,7 @@ export default function ArtistDetail({ profileData }) {
         accessor: "offer_date",
         Cell: ({ value }) => (
           <span>
-            {moment(value).format("DD/MM/YYYY")}
+           { moment(value).isValid()? moment(value).format("DD/MM/YYYY") : "-----" }
           </span>
         ),
       },
@@ -94,10 +94,17 @@ export default function ArtistDetail({ profileData }) {
       {
         Header: "Price type",
         accessor: "payment_type",
+        
+
       },
       {
         Header: "Price",
         accessor: "price",
+        Cell: ({ value }) => (
+          <span>
+            {value || "----"}
+          </span>
+        ),
       },
       {
         Header: "Voucher",

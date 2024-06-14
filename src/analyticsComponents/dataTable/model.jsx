@@ -31,10 +31,7 @@ const DataModel = ({ currentLogData ,onToggle }) => {
   // Column definitions
   const columns = React.useMemo(
     () => [
-      {
-        Header: "Offer",
-        accessor: "offer",
-      },
+    
       {
         Header: "Log type",
         accessor: "log_type",
