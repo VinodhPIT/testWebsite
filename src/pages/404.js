@@ -10,12 +10,12 @@ const Custom404 = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.asPath.startsWith("/session")) {
+    const { asPath, locale } = router;
+    if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard")) {
       // Navigate to the download page
-      router.push(`${router.locale}/download`);
+      router.push(`/${locale}/download`);
     }
   }, [router]);
-
 
   return (
     <>
