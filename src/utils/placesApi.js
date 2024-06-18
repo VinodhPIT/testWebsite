@@ -41,7 +41,6 @@ const getPlaceDetails = async (location) => {
             return null;
           }
         } catch (detailsError) {
-          console.log("detailsError:", detailsError);
           return null;
         }
       } else {
@@ -49,7 +48,6 @@ const getPlaceDetails = async (location) => {
       }
     }
   } catch (error) {
-    console.log("Catch Error:", error);
     return null;
   }
 };

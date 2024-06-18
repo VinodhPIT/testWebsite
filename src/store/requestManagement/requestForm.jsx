@@ -113,7 +113,7 @@ export const useRequestForm = create((set, get) => ({
         seed: fetchParams.seed,
       });
     } catch (error) {
-      console.error("Error fetching artist list:", error);
+      //console.error("Error fetching artist list:", error);
     }
   },
 
@@ -177,7 +177,7 @@ export const useRequestForm = create((set, get) => ({
         seed: getRandomSeed(),
       });
     } catch (error) {
-      console.error("Error on clearStyles:", error);
+      //console.error("Error on clearStyles:", error);
     }
   },
 
@@ -202,7 +202,7 @@ export const useRequestForm = create((set, get) => ({
         seed: getRandomSeed(),
       });
     } catch (error) {
-      console.error("Error on clearField:", error);
+      //console.error("Error on clearField:", error);
     }
   },
 
@@ -233,7 +233,7 @@ export const useRequestForm = create((set, get) => ({
 
       });
     } catch (error) {
-      console.error("Error fetching artists by style:", error);
+      //console.error("Error fetching artists by style:", error);
     }
   },
 
@@ -268,7 +268,7 @@ export const useRequestForm = create((set, get) => ({
         seed: fetchParams.seed,
       });
     } catch (error) {
-      console.error("Error fetching artists by location:", error);
+     // console.error("Error fetching artists by location:", error);
     }
   },
 

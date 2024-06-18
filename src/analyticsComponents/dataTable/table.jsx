@@ -8,6 +8,8 @@ import {
 } from "react-table";
 import Image from "next/image";
 
+import { LiaAngleUpSolid, LiaAngleDownSolid } from "react-icons/lia";
+
 import style from "./table.module.css";
 
 const DataTable = ({ columns, data }) => {
@@ -115,7 +117,7 @@ const DataTable = ({ columns, data }) => {
 
   return (
     <div>
-      <div className={style.custom_search_filter_db}>
+      <div className={`${style.custom_search_filter_db} ${"modal_view_log_search"}`}>
         <div className={style.search}>
           <input
             value={globalFilter || ""}
@@ -153,26 +155,31 @@ const DataTable = ({ columns, data }) => {
                     >
                       <div className={style.wrapper}>
                         {column.render("Header")}
-                        <span>
-                          {column.isSorted ? (
-                            column.isSortedDesc ? (
-                              <Image
-                                src="/sort_down.svg"
-                                width={17}
-                                height={16}
-                                alt="Desc"
-                              />
-                            ) : (
-                              <Image
-                                src="/sort_up.svg"
-                                width={17}
-                                height={16}
-                                alt="Asec"
-                              />
-                            )
-                          ) : (
-                            ""
-                          )}
+                        <span
+                         className="sort_arrow"
+                        >
+                          <LiaAngleUpSolid
+                            size={10}
+                            style={{
+                              opacity: column.isSorted
+                                ? column.isSortedDesc
+                                  ? 0.4
+                                  : 1
+                                : 0.4,
+                              position: "relative",
+                              top: "3px",
+                            }}
+                          />
+                          <LiaAngleDownSolid
+                            size={10}
+                            style={{
+                              opacity: column.isSorted
+                                ? column.isSortedDesc
+                                  ? 1
+                                  : 0.4
+                                : 0.4,
+                            }}
+                          />
                         </span>
                       </div>
                     </th>
@@ -216,6 +223,10 @@ const DataTable = ({ columns, data }) => {
         </div>}
       </div>
     </div>
+
+
+
+
   );
 };
 

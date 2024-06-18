@@ -59,7 +59,7 @@ const Review = () => {
     });
     axios
       .post(
-        `${process.env.apiDomain}/web/api/customer-request/save`,
+        `http://14.140.178.211:8000/web/api/customer-request/save`,
         formData,
         {
           headers: {

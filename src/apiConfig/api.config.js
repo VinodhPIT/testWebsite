@@ -45,6 +45,11 @@ const API_URL = {
     CONVERSION_COUNTRY: (country) => `/analytics/artist/conversion?country=${country}`,
 
     ARTIST_PROFILE_DETAIL:(slug)=>`/web/api/artist/profile/details?artist_uid=${slug}`,
+
+    OFFER_DATA_TABLE:(slug)=>`/web/api/artist/offer?artist_uid=${slug}`,
+
+    OFFER_DATA_LOG :(slug)=>`/web/api/artist/offer/details?offer_uid=${slug}`,
+
   },
 
   ANALYTICS_OFFER: {
