@@ -8,7 +8,7 @@ import { useNavigation } from "@/hooks/useRouter";
 
 import NoData from "@/components/noDatafound/noData";
 
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 
 import styles from "@/components/styles/listing.module.css";
 

@@ -1,19 +1,25 @@
-import React, { useEffect } from "react";
-import Image from "next/image";
-import { fetchCategoryData, fetchMultiData } from "../api/web.service";
+
+import React, { useEffect} from "react";
+import Image from 'next/image'
+import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
+
+import useSticky from '@/hooks/useSticky';
+
+import { useGlobalState } from "@/context/Context";
 import { Parameters } from "@/utils/params";
 import { renderCategoryComponent } from "@/components/exploreScreens/tab";
-import style from "@/pages/explore/search.module.css";
-import { useRouter } from "next/router";
 import SearchField from "@/components/exploreScreens/searchField";
-import { addAdsToResults } from "@/helpers/helper";
+import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+
 import { getUrl } from "@/utils/getUrl";
-import { useGlobalState } from "@/context/Context";
-import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import { getPlaceDetails } from "@/utils/placesApi";
-import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
+import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { categoryMapping } from "@/constants/categoryMappings";
+import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
+
+
+import style from "@/pages/explore/search.module.css";
 
 
 const MobileDetect = require("mobile-detect");
@@ -70,6 +76,7 @@ const Search = ({
     },
   ];
 
+
   useEffect(() => {
     try {
       styleCollection();
@@ -88,25 +95,16 @@ const Search = ({
         slugIds,
       });
     } catch (error) {}
-  }, [
-    data,
-    currentTab,
-    pageNo,
-    totalItems,
-    searchKey,
-    selectedStyle,
-    lat,
-    lon,
-    locale,
-    seed,
-    slugIds,
-  ]);
+  }, [data, currentTab, pageNo, totalItems, searchKey, selectedStyle, lat, lon, locale, seed, slugIds,]);
+
+
 
   useEffect(() => {
     if (lat === "") {
       getAddress("Location");
     }
   }, [lat]);
+
 
   useEffect(() => {
     if (searchKey === "") {
@@ -116,6 +114,7 @@ const Search = ({
       }));
     }
   }, [searchKey]);
+
 
   const collectionLength = state.categoryCollection.filter(
     (e) => e._index !== "ad"
@@ -128,7 +127,7 @@ const Search = ({
   };
 
   return (
- 
+    <>
       <main>
         <div className={style.page_search_wrapper}>
           <div className="container">
@@ -148,17 +147,16 @@ const Search = ({
                   </div>
                 </div>
               </div>
-          
+
               <SelectDropdown
                 searchKey={searchKey}
                 currentTab={currentTab}
                 selectedStyle={selectedStyle}
                 lat={lat}
-                lon={lon}
+                lon={lon} 
                 router={router}
                 isDetail={false}
               />
-          
             </div>
             <div ref={topRef}></div>
             <div className={isSticky ? style.placeholder : ''}></div>
@@ -178,9 +176,7 @@ const Search = ({
                         className={style.tabBox}
                         onClick={() => updateTab(tab.id)}
                       >
-                        <Image
-                          width={25}
-                          height={25}
+                        <Image width={25} height={25}
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
@@ -195,18 +191,12 @@ const Search = ({
               </div>
             </div>
 
-   
+            {renderCategoryComponent(
+              state.currentTab,
+              state.categoryCollection
+            )}
 
-
-              {renderCategoryComponent(
-                state.currentTab,
-                state.categoryCollection
-              )}
-
-
-
-
-             {!state.loading &&
+            {!state.loading &&
               collectionLength.length !== 0 &&
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
@@ -224,17 +214,17 @@ const Search = ({
                     </button>
                   </div>
                 </div>
-              )}       
-
-
+              )}
           </div>
         </div>
       </main>
-   
+    </>
   );
 };
 
 export default Search;
+
+
 
 export async function getServerSideProps(context) {
   const { query, req, locale } = context;
@@ -272,11 +262,9 @@ export async function getServerSideProps(context) {
     const totalItems  =category === "all" ? results.totalCount : results.rows.total.value;
     const data = category === "all" ? results.data : results.rows.hits;
 
-    const addData = await addAdsToResults(data, isMobile);
-
     return {
       props: {
-        data: addData,
+        data: data,
         currentTab: category,
         pageNo: 0,
         totalItems,

@@ -5,10 +5,11 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
 import { useNavigation } from "@/hooks/useRouter";
+import { BLUR_URL } from "@/constants/constants";
+
 
 import NoData from "@/components/noDatafound/noData";
 
-import { blurDataURL } from "@/constants/constants";
 
 import styles from "@/components/styles/listing.module.css";
 

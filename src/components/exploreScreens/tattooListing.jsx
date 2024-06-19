@@ -5,14 +5,14 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 
 import { useNavigation } from "@/hooks/useRouter";
+import { BLUR_URL } from "@/constants/constants";
 
 import NoData from "@/components/noDatafound/noData";
-
-import { blurDataURL } from "@/constants/constants";
-
 import styles from "@/components/styles/listing.module.css";
 
+
 export default function Tattoo({ data }) {
+  console.log(data[0],"jcdojvpfvopjopjvodpfv")
   const { router } = useNavigation();
   const { t } = useTranslation();
 
@@ -30,7 +30,7 @@ export default function Tattoo({ data }) {
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
-            {data.map((item, idx) => {
+            {data &&  data.map((item, idx) => {
               return (
                 <Link
                   href={`/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`}
