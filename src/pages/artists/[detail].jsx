@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./style.module.css";
 import { useRouter } from "next/router";
-import { fetchArtistDetail, artistGallery } from "../api/web.service";
-import { BLUR_URL } from "@/constants/constants";
-import SearchField from "@/components/exploreScreens/searchField";
- 
+
+import styles from "./style.module.css";
+import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
+import { blurDataURL } from "@/constants/constants";
+import SearchField from "@/components/tattooSearch/tattooSearch";
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { renderArtistGallery } from "@/components/exploreScreens/tab";
 import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
-
+import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
 
 export default function Detail({ data }) {
 
-
-
-
-
-
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
+  const {styleCollection} = useGlobalState();
 
-  const {  styleCollection} = useGlobalState();
   const router = useRouter();
   const goBack = () => {
     router.back();
@@ -67,6 +62,10 @@ export default function Detail({ data }) {
     },
   ];
 
+
+  useScrollToTop();
+
+
   useEffect(() => {
     styleCollection()
   }, [styleCollection]);
@@ -99,6 +98,7 @@ export default function Detail({ data }) {
   }, [data]);
 
 
+  
 
   return (
     <>

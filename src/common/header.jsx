@@ -1,31 +1,29 @@
-Header
-
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import Image from "next/image";
-import useTranslation from "next-translate/useTranslation";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import useTranslation from "next-translate/useTranslation";
+import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
-import { useModal } from "@/utils/modalUtils";
+
 import links from "@/constants/linkData";
 import generateLinkComponent from "@/utils/linkGenerator";
-import getButtonClass from "@/utils/getButtonClass"; 
+import { useModal } from "@/utils/modalUtils";
 
 export default function Header({
   logo,
   theme,
-  isPosition,
   imgWidth,
-  imgHeight,hamburger,languageSwitch ,isFullwidth
-
+  imgHeight,
 }) {
   const router = useRouter();
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
+
   const { t } = useTranslation();
   const [toggle, setToggle] = useState(false);
   const linkComponent = generateLinkComponent(router, theme, t);
@@ -49,20 +47,47 @@ export default function Header({
     setToggle(false);
   };
 
+  const handleClick = () => {
+    router.push(`/${router.locale}/for-tattoo-artists`);
+  };
 
-    const baseImageUrl =
-    hamburger === "white" ? "/hamburger-menu.svg" : "/blackHamburger.svg"  ;
+  const [isFixed, setIsFixed] = useState(false);
+ 
+ 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 10) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+ 
+    window.addEventListener('scroll', handleScroll);
+ 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      {router.pathname === "/" && (
-        <div className="header_cookies">
+      {(router.pathname === "/" || router.pathname === "/explore-style") && (
+        <>
+        <div className="header_cookies mob_hidden">
           <div className="header_cookie_img">
-            <Image src="/logo-cookies.svg"  alt="klarna"  width={68} height={16}  loading="eager"></Image>
+            <Image
+              src="/logo-cookies.svg"
+              alt="klarna"
+              width={68}
+              height={16}
+              loading="eager"
+            ></Image>
           </div>
           <div className="header_cookie_txt">
             <p>
-              <span>{t("common:tattooNow")}</span>
+              <span>{t("common:getTattooNow")}</span>
               <span className="header_cookie_desktop">
                 {t("common:payLater")}
                 <Link href={`/${router.locale}/klarna`}>
@@ -80,15 +105,31 @@ export default function Header({
             </p>
           </div>
         </div>
+         <div className="header_cookies desk_hidden">
+         <div className="header_cookie_img">
+           <Image
+             src="/logo-cookies.svg"
+             alt="klarna"
+             width={68}
+             height={16}
+             loading="eager"
+           ></Image>
+         </div>
+        <span className="custom_fs_14">{t("common:getTattooNow")}</span>                     
+        <Link href={`/${router.locale}/klarna`} className="custom_fs_16 fw_600 color_black_h head_paylater_link">
+          {t("common:learnmore")}
+        </Link>  
+       </div>
+       </>
       )}
 
-      <header className={isPosition === true ? "header_wrapper" : null}>
+      <header className={`${"header_wrapper"} ${isFixed ? 'fixed' : ''}`}>
         <div>
-          <div className= {isFullwidth  === true ?  "container_full" :  "container"}>
+          <div className={"container_full"}>
             <nav className="header_navigation">
               <div className="header_logo_nav">
                 <div className="header_logo">
-                  <Link href={`/${router.locale}`} className=" navbar_brand">
+                  <Link href={`/${router.locale}`} className="navbar_brand">
                     <Image
                       src={logo}
                       alt="Logo"
@@ -104,33 +145,34 @@ export default function Header({
                       <li key={link.id} className="nav_item">
                         <Link
                           href={`/${router.locale}${link.url}`}
-                          className=  {router.pathname=="/journal" ?   "textWhite" :    "textBlack"}
+                          className={"textWhite"}
                         >
                           {t(link.title)}
                         </Link>
                       </li>
                     ))}
-                    <li >{linkComponent}</li>
+                    <li>{linkComponent}</li>
                   </ul>
                 </div>
               </div>
 
               <div className="header_right">
+              
+
                 <button
                   type="button"
-                  onClick={() =>
-                    router.push(`/${router.locale}/for-tattoo-artists`)
-                  }
-                  className={`btn btn_tattoo_art bgBlack`}
+                  onClick={() => handleClick()}
+                  className={`btn btn_tattoo_art `}
                 >
-                  {t("common:menus.forTattooArtists")}
+                  {t("common:menus.forArtists")}
                 </button>
 
-                {router.pathname === '/journal' || router.pathname === '/explore/[[...slug]]' || router.pathname==="/404" ? null :
-                  <button
-                    className={`language_switcher  ${languageSwitch}`}
-                    onClick={openPopup}
-                  >
+
+
+                {router.pathname === "/journal" ||
+                router.pathname === "/explore/[[...slug]]" ||
+                router.pathname === "/404" ? null : (
+                  <button className={"language_switcher mob_hidden"} onClick={openPopup}>
                     <Image
                       src={getCountryIcon(router.locale)}
                       alt="countries"
@@ -138,19 +180,34 @@ export default function Header({
                       height={32}
                       priority
                     />
-                    <span
-                      className={`${languageSwitch === 'switcherThemeWhite' ? 'textWhite' : "textBlack"
-                        }`}
-                    >
-                      {getLanguage(router.locale)}
+                    <span className={"textWhite"}>
+                      { getLanguage(router.locale)}
                     </span>
                   </button>
-                }
+                )}
+
+
+{router.pathname === "/journal" ||
+                router.pathname === "/explore/[[...slug]]" ||
+                router.pathname === "/404" ? null : (
+                  <button className={"language_switcher desk_hidden"} onClick={openPopup} >
+                    <Image
+                      src={getCountryIcon(router.locale)}
+                      alt="countries"
+                      width={32}
+                      height={32}
+                      priority
+                    />
+                   
+                  </button>
+                )}
+
+
 
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
-                  src={baseImageUrl}
+                  src={"/hamburger-menu.svg"}
                   alt="hamburger"
                   width={32}
                   height={32}

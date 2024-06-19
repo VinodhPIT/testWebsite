@@ -1,16 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { useGlobalState } from "@/context/Context";
-import styles from "@/components/styles/listing.module.css";
-import NoData from "@/components/noDatafound/noData";
-import { BLUR_URL } from "@/constants/constants";
-import ArtistAdd from "./artistAdd";
-import KlarnaAdd from "./klarnaAdd";
-import Offer from "./offerAdd";
 import Link from "next/link";
-import { useNavigation } from "@/hooks/useRouter";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
+
+import { useNavigation } from "@/hooks/useRouter";
+
+import NoData from "@/components/noDatafound/noData";
+
+import { blurDataURL } from "@/constants/constants";
+
+import styles from "@/components/styles/listing.module.css";
+
 
 export default function Flash({ data }) {
   const { t } = useTranslation();
@@ -32,20 +33,10 @@ export default function Flash({ data }) {
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
             {data.map((item, idx) => {
-              const key = item._index === "ad" ? `ad-${idx}` : item._id;
-              return item._index === "ad" ? (
-                item.add === 1 ? (
-                  <ArtistAdd />
-                ) : item.add === 2 ? (
-                  <KlarnaAdd />
-                ) : (
-                  <Offer />
-                )
-              ) : (
-                <Link
+              return   <Link
                   href={`/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`}
                   className={styles.listing_gridItem}
-                  key={key}
+                  key={idx}
                 >
                   <Image
                     src={item._source.image}
@@ -74,7 +65,6 @@ export default function Flash({ data }) {
                     </div>
                   ) : null}
                 </Link>
-              );
             })}
           </div>
         )}

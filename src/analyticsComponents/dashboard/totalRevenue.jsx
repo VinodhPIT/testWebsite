@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -10,7 +10,8 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import Loader from "@/components/loading/loader";
+import Loader from "@/components/loader";
+
 ChartJS.register(
   ArcElement,
   Tooltip,

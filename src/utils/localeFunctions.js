@@ -5,7 +5,7 @@ function getCountryIcon(locale) {
       return "/switzerland.svg";
     case "de":
       return "/germany.svg";
-    case "uk":
+    case "gb":
       return "/united-kingdom.svg";
 
     case "pl":
@@ -95,6 +95,8 @@ function getLanguage(locale) {
       return "German";
     case "it":
       return "Italy";
+      case "es":
+        return "Spanish";
     default:
       return "English";
   }
@@ -104,3 +106,5 @@ module.exports = {
   getCountryIcon,
   getLanguage,
 };
+
+

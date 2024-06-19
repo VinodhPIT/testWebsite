@@ -21,10 +21,12 @@ import SelectDropdown from "@/components/exploreScreens/searchPanel";
 import myPromise from "@/utils/myPromise";
 import Loader from "@/components/loading/loader";
 
-export default function Detail({ data }) {
+import useScrollToTop from "@/hooks/useScrollToTop";
+
+export default function Detail({ data}) {
+
   const router = useRouter();
-  const { state, styleCollection, setSelectedIds, clearStyleId, onSearch } =
-    useGlobalState();
+  const { state, styleCollection, setSelectedIds, onSearch } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
@@ -34,9 +36,12 @@ export default function Detail({ data }) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+
+  useScrollToTop();
+
   useEffect(() => {
     styleCollection();
-  }, []);
+  },[ ]);
 
   const goBack = () => {
     router.back();
@@ -92,6 +97,7 @@ export default function Detail({ data }) {
     );
   };
 
+  
   return (
     <>
       <Head>

@@ -42,7 +42,7 @@ const Search = ({
   } = useGlobalState();
 
   const { t } = useTranslation();
-
+  const { isSticky, elementRef, topRef } = useSticky();
   const categoryTab = [
     {
       id: "all",
@@ -160,8 +160,9 @@ const Search = ({
               />
           
             </div>
-
-            <div className={style.tab_container}>
+            <div ref={topRef}></div>
+            <div className={isSticky ? style.placeholder : ''}></div>
+            <div className={`${style.tab_container} ${isSticky ? style.sticky : ''}`} ref={elementRef}>
               <div className={style.tabSection}>
                 <ul>
                   {categoryTab.map((tab) => (

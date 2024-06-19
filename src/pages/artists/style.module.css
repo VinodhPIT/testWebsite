@@ -172,7 +172,10 @@
     color: var(--black);
     margin: 0 16px 16px 0;
 }
-
+.product_style_list li button {
+    color: var(--black);
+    text-decoration: none;
+}
 .product_style_list li a {
     color: var(--black);
     text-decoration: none;

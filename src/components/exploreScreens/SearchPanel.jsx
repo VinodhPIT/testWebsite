@@ -4,12 +4,10 @@ import StyleDropdown from "@/components/exploreScreens/styleListing";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useToggle } from "@/hooks/useToggle";
 import style from "@/pages/explore/search.module.css";
-
 import useTranslation from "next-translate/useTranslation";
 import LocationSearch from "@/components/exploreScreens/placesAutocomplete";
 import { useGlobalState } from "@/context/Context";
 import { formatText } from "@/utils/textUtils";
-import { useRouter } from "next/router";
 import OutsideClickHandler from "react-outside-click-handler";
 
 export default function SelectDropdown({
@@ -109,7 +107,12 @@ export default function SelectDropdown({
                 className={style.filter_icon}
                 priority
               />
-              <span>{t("common:Style")}</span>{state.styleId.length!==0 && <span className={style.notification_count}>{state.styleId.length}</span>}
+              <span>{t("common:Style")}</span>
+              {selectedIds.length>=1 && (
+                <span className={style.notification_count}>
+                  {selectedIds.length}
+                </span>
+              )}
             </button>
 
             {toggle && !isMobileView && (

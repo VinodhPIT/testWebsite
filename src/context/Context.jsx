@@ -1,3 +1,5 @@
+///
+
 import React, {
   createContext,
   useReducer,
@@ -11,7 +13,10 @@ import {
   getStyles,
 } from "@/pages/api/web.service";
 import { getUrl } from "@/utils/getUrl";
+
 import { Parameters } from "@/utils/params";
+
+
 
 const initialState = {
   address: "Location",
@@ -142,6 +147,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   const [searchState, setSearchState] = useState({
     query: "",
+
   });
 
   useEffect(() => {
@@ -225,6 +231,10 @@ export const GlobalStateProvider = ({ children }) => {
       dispatch({ type: "STYLE_COLLECTION", payload: responseData.data });
     } catch (error) {}
   };
+
+
+
+  
 
   return (
     <GlobalStateContext.Provider

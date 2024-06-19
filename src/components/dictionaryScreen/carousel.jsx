@@ -39,7 +39,7 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
+          <Image src="/arrowRight.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
@@ -57,7 +57,7 @@ const ZodiacCarousel = ({ items, itemStyle }) => {
               
               />
               <h4 className="custom_carousel_title">{item.heading}</h4>
-              <p className="custom_carousel_data">{item.text}</p>
+              <p className="custom_carousel_data custom_fs_24 custom_fs_m_18">{item.text}</p>
               <div className={itemStyle}>
                 <div className="keywords_wrap">
                   <ul className="keywords_list">
@@ -135,7 +135,7 @@ const MythologyCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
+          <Image src="/arrowRight.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
@@ -156,7 +156,7 @@ const MythologyCarousel = ({ items, itemStyle }) => {
               />
 
               <h4 className="custom_carousel_title">{item.heading}</h4>
-              <p className="custom_carousel_data">{item.text}</p>
+              <p className="custom_carousel_data custom_fs_24 custom_fs_m_18">{item.text}</p>
               <div className={itemStyle}>
                 <div className="keywords_wrap">
                   <ul className="keywords_list">
@@ -234,7 +234,7 @@ const AztecCarousel = ({ items, itemStyle }) => {
           }
           onClick={onClickHandler}
         >
-          <Image src="/Alt Arrow Right.svg" alt="Right Arrow" width={32} height={32} />
+          <Image src="/arrowRight.svg" alt="Right Arrow" width={32} height={32} />
         </button>
       )}
     >
@@ -258,7 +258,7 @@ const AztecCarousel = ({ items, itemStyle }) => {
            
 
               <h4 className="custom_carousel_title">{item.heading}</h4>
-              <p className="custom_carousel_data">{item.text}</p>
+              <p className="custom_carousel_data custom_fs_24 custom_fs_m_18">{item.text}</p>
               <div className={itemStyle}>
               <div className="keywords_wrap">
                 <ul className="keywords_list">

@@ -6,11 +6,6 @@ const links = [
       url: "/explore/tattoos",
     },
     {
-      id: 2,
-      title: "common:menus.styleGuide",
-      url: "/tattoo-styleguide",
-    },
-    {
       id: 3,
       title: "common:menus.dictionary",
       url: "/tattoo-dictionary",
@@ -20,6 +15,7 @@ const links = [
       title: "common:menus.klarna",
       url: "/klarna",
     },
+    
   
   ];
   

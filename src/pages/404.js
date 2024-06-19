@@ -1,9 +1,21 @@
+
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 const Custom404 = () => {
   const { t } = useTranslation();
+  const router = useRouter();
+
+  useEffect(() => {
+    const { asPath, locale } = router;
+    if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard")) {
+      // Navigate to the download page
+      router.push(`/${locale}/download`);
+    }
+  }, [router]);
 
   return (
     <>
@@ -29,6 +41,7 @@ const Custom404 = () => {
                 >
                   {t("common:backHome")}
                 </Link>
+              
               </div>
             </div>
           </section>

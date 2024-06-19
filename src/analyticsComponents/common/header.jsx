@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import useTranslation from "next-translate/useTranslation";
-import { useSession } from "next-auth/react";
+import { useSession ,signOut } from "next-auth/react";
 
 export default function Header({ data }) {
   const [offCanvas, setoffCanvas] = useState(false);
@@ -15,7 +14,7 @@ export default function Header({ data }) {
   const navigationItems = [
     { href: "/analytics/dashboard", label: "Dashboard" },
     { href: "/analytics/customer", label: "Customer" },
-    { href: "/analytics/artist", label: "Artists" },
+    { href: "/analytics/artists", label: "Artists" },
     { href: "/analytics/offer", label: "Offer" },
   ];
 
@@ -46,7 +45,7 @@ export default function Header({ data }) {
 
   return (
     <>
-      <header className="header_wrapper db_header_wrap">
+      <header className="db_header_wrap">
         <div className="container-fluid pr_40 m_pr_12">
           <div className="row">
             <div className="col-md-12">
@@ -98,7 +97,7 @@ export default function Header({ data }) {
                       className="hidden"
                     />
                     <button
-                      className="btn_secondary ml_10"
+                      className="btn_secondary ml_10 bdr_rad_4"
                       onClick={handleSignOut}
                     >
                       {t("common:Log out")}

@@ -1,8 +1,22 @@
 import moment from "moment";
-import { MIN_RANDOM, MAX_RANDOM } from "@/constants/sharedConstants";
-import {
-  getStyles,
-} from "@/pages/api/web.service";
+
+// const getPaginatorCount = () => {
+//   // Check if window is defined (only run on the client-side)
+//   if (typeof window !== "undefined") {
+//     const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
+//     return isMobile ? 10 : 9;
+//   }
+//   // Return a default value if window is not available (e.g., for server-side rendering)
+//   return 10; // or any default value you prefer
+// };
+
+// export { getPaginatorCount };
+
+// const pageCount = getPaginatorCount();
+
+export const MAX_RANDOM = 3409357923759259;
+export const MIN_RANDOM = 3;
+
 export const prepareRequest = (parameters) => {
   const request = {
     sort: parameters.sort,
@@ -41,6 +55,39 @@ const createRequestObject = (parameters, paginatorCount) => {
   }
 
   return request;
+};
+
+const artistRequest = (parameters) => {
+  const request = {
+    sort: null,
+    page_no: parameters.page_no,
+    paginator_count: 20,
+    search_key: parameters.search_key,
+    distance: "50km",
+  };
+
+  if (parameters.latitude) {
+    request.longitude = parameters.longitude;
+    request.latitude = parameters.latitude;
+  }
+
+  if (parameters.style) {
+    if (typeof parameters.style === "string") {
+      request.style = parameters.style.split(",").map((item) => item.trim());
+    } else if (Array.isArray(parameters.style)) {
+      request.style = parameters.style;
+    } else {
+      request.style = [];
+    }
+  } else {
+    request.style = [];
+  }
+
+  return request;
+};
+
+export const stepperParam = (parameters) => {
+  return artistRequest(parameters);
 };
 
 export const searchParam = (parameters) => {
@@ -87,11 +134,6 @@ export const addAdsToResults = async (results, isMobile) => {
   return results;
 };
 
-export const getRandomSeed = () => {
-  const randomValues = new Uint32Array(1);
-  crypto.getRandomValues(randomValues);
-  return randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1) + MIN_RANDOM;
-};
 
 export const getMatchingStyles = async (slugsToCheck) => {
   const stylesArray = await getStyles();
@@ -176,4 +218,34 @@ export const getContactTimeDifference = (chartData) => {
 
   return dateDifferenceArray;
 };
+
+const getCountry = (locations, location) => {
+  const textBeforeComma = location.split(",")[0].trim();
+
+  let locationCity = [];
+  let otherStudiocity = [];
+  if (textBeforeComma) {
+    locationCity = locations.filter(
+      (e) => e.city === textBeforeComma || e.country === textBeforeComma
+    );
+
+    otherStudiocity = locations.filter(
+      (e) => e.city !== textBeforeComma || e.country !== textBeforeComma
+    );
+
+    const filterLocations = [...locationCity, ...otherStudiocity];
+
+    return ` ${filterLocations[0].city} , ${filterLocations[0].country} `;
+  }
+  return `${locations[0].city} , ${locations[0].country}`;
+};
+
+export { getCountry };
+
+export const getRandomSeed = () => {
+  const randomValues = new Uint32Array(1);
+  crypto.getRandomValues(randomValues);
+  return (randomValues[0] % (MAX_RANDOM - MIN_RANDOM + 1)) + MIN_RANDOM;
+};
+
 

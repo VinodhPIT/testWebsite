@@ -288,8 +288,8 @@ Unsere Tätowierer sind Experten auf ihrem Gebiet und können dir nicht nur mit 
         />
 
         <FiveColumnCarousel
-          title=" Dein Cover-Up-Prozess"
-          title_sub=" beginnt hier"
+          title=" Dein Cover-Up-Prozess beginnt hier"
+          title_sub=""
           content="Informiere dich jetzt bei einem unserer Tätowierer und starte die Reise zu einem erneuerten und beeindruckenden Tattoo
           "
           button="Entdecke mehr Tätowierer"

@@ -13,16 +13,7 @@ export default function StyleDropdown({
 }) {
   const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } = useGlobalState();
    
-
-  const clearAll = async () => {
-    setSelectedIds([]);
-    clearStyleId();
-    await getUrl(currentTab, searchKey, "", state.location, router);
-    onToggle();
-  };
-
     const { t } = useTranslation();
-
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
@@ -30,6 +21,13 @@ export default function StyleDropdown({
     } else {
       setSelectedIds([...selectedIds, elId]);
     }
+  };
+
+  const clearAll = async () => {
+    setSelectedIds([]);
+    clearStyleId();
+    await getUrl(currentTab, searchKey, "", state.location, router);
+    onToggle();
   };
 
   const onSearchStyle = async () => {
@@ -66,7 +64,7 @@ export default function StyleDropdown({
                   <input
                     type="checkbox"
                     id={`checkbox_${el.slug}`}
-                    onChange={() => handleCheckboxChange(el.slug)}
+                    onChange={() =>handleCheckboxChange(el.slug)}
                     checked={selectedIds.includes(el.slug)}
                   />
                 </div>
@@ -80,15 +78,15 @@ export default function StyleDropdown({
         <button
           disabled={state.selectedStyle === "" ? true : false}
           onClick={() => clearAll()}
-          className="btn_outline_secondary w_100pc"
+          className="btn_outline_secondary w_100pc custom_fs_16 text_fs_m_14 m_pl_10 m_pr_10"
         >
          {t("common:Clear All")}
         </button>
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_secondary w_100pc"
-        >
+          className="btn_secondary w_100pc bdr_rad_4 text_fs_m_14 m_pl_10 m_pr_10"
+        > 
           {t("common:Show Results")}
         </button>
       </div>

@@ -1,18 +1,27 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+import { useModal } from "@/utils/modalUtils";
+
+import useTranslation from "next-translate/useTranslation";
+import ArtistPickerModel from "@/components/modalPopup/joinArtistPopup";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
-import useTranslation from "next-translate/useTranslation";
-import { useNavigation } from "@/hooks/useRouter";
+
+
+
 
 export default function Tattooartists({}) {
   //Constants
   const { router } = useNavigation();
+  const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
   return (
@@ -36,22 +45,18 @@ export default function Tattooartists({}) {
               <div className="img_text_box_wrapper exciting_offer_wrap">
                 <div class="text_box_wrap right">
                   <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                    <div class="text_box_content justify_content_center m_min_h_reset">
+                    <div class="text_box_content justify_content_center m_min_h_reset m_pt_25 m_pb_25">
                       <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
-                        <div className="tiny_payment_block pr_10_pc m_pr_0">
-                          <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 txt_mob_fs45 mt_0">
+                        <div className="tiny_payment_block pr_0">
+                          <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 custom_fs_m_38 mt_0">
                             <span>
                               {" "}
-                              {t("common:forArtistPage.bannerTitle")}
-                              <span class="textBlock">
-                                {t("common:forArtistPage.bannerSubtitle")}
-                              </span>{" "}
-                              <span class="textBlock">
-                                {t("common:forArtistPage.bannerSubtitle3")}
-                              </span>
+                              {t("common:forArtistPage.bannerTitle")}                              
+                              {/* {t("common:forArtistPage.bannerSubtitle")} 
+                              {t("common:forArtistPage.bannerSubtitle3")} */}
                             </span>
                           </h1>
-                          <p className="m_mt_20 m_mb_20">
+                          <p className="m_mt_15 m_mb_0 custom_fs_m_14">
                             {t("common:forArtistPage.bannerContent")}
                           </p>
                           <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
@@ -108,7 +113,7 @@ export default function Tattooartists({}) {
                       />
                       <Image
                         priority
-                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob.png"
+                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob_1.png"
                         alt="Book your dream tattoo now!"
                         fill
                         objectFit="cover"
@@ -126,13 +131,13 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container pt_110 m_pt_40 flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
                     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
                         <Image
                           priority
-                          src="/artist_01.png"
+                          src="/artist_0_01.png"
                           alt={t("common:forArtistPage.title1")}
                           fill
                           objectFit="contain"
@@ -144,57 +149,59 @@ export default function Tattooartists({}) {
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_start p_0 pb_40 w_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc">
-                          <h2 className="d_max_320 m_max_270 color_gray_550">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
+                          <h2 className="d_max_550 m_max_410 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title1")}
                           </h2>
                           <ul class="custom-listing">
-                            <li className="custom_fs_m_18">
+                            <li>
                               <Image
                                 priority
                                 src="/heart_icon_b.svg"
-                                alt="Free to use & no subscpriptions"
+                                alt="Free to use & no subscriptions"
                                 width={24}
-                                height={24}
-                              
+                                height={24}                              
                               />
-                              {t("common:forArtistPage.nosubscpriptions")}
+                              {t("common:forArtistPage.nosubscriptions")}
                             </li>
-                            <li className="custom_fs_m_18">
+                            <li>
                               <Image
                                 priority
                                 src="/hourglass_b.svg"
                                 alt="Easy to set up and manage"
                                 width={24}
-                                height={24}
-                                
+                                height={24}                                
                               />
                               {t("common:forArtistPage.set-up-and-manage")}
                             </li>
-                            <li className="custom_fs_m_18">
+                            <li>
                               <Image
                                 priority
                                 src="/shield_check_b.svg"
                                 alt="Verified users"
                                 width={24}
-                                height={24}
-                               
+                                height={24}                               
                               />
                               {t("common:forArtistPage.verified-users")}
                             </li>
-                            <li className="custom_fs_m_18">
+                            <li>
                               <Image
                                 priority
                                 src="/card_b.svg"
                                 alt="Easy payments"
                                 width={24}
-                                height={24}
-                               
+                                height={24}                               
                               />
                               {t("common:forArtistPage.easy-payments")}
                             </li>
                           </ul>
+                          <button
+                            onClick={openPopup}
+                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
+                          >
+                            {t("common:forArtistPage.button")}                            
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -206,30 +213,23 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container pt_110 m_pt_40 flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_start p_0 pb_40 w_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob">
-                          <h2 className="d_max_320 m_max_270 color_gray_550">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
+                          <h2 className="d_max_420 m_max_270 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title2")}
                           </h2>
-                          <p className="custom_fs_20 custom_fs_m_18">
+                          <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content2")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
-                            className="btn_secondary btn_cutom_new btn_img bdr_rad_4"
+                          <button
+                            onClick={openPopup}
+                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}
-                            <Image
-                              src="/arow-white-right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                              className="ml-8 mt-2"
-                            />
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -256,7 +256,7 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container pt_110 m_pt_40 flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
                     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
@@ -274,27 +274,20 @@ export default function Tattooartists({}) {
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_start p_0 pb_40 w_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc">
-                          <h2 className="d_max_320 m_max_270 color_gray_550">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
+                          <h2 className="d_max_420 m_max_270 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title3")}
                           </h2>
-                          <p className="custom_fs_20 custom_fs_m_18">
+                          <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content3")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
-                            className="btn_secondary btn_cutom_new btn_img bdr_rad_4"
+                          <button
+                           onClick={openPopup}
+                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
-                            {t("common:forArtistPage.button")}
-                            <Image
-                              src="/arow-white-right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                              className="ml-8 mt-2"
-                            />
-                          </Link>
+                            {t("common:forArtistPage.button")}                            
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -308,24 +301,20 @@ export default function Tattooartists({}) {
               <div className="img_text_box_wrapper fortattoo_artists">
                 <div className="text_box_wrap full-block-wrap block_bg_aero_blue">
                   <div className="img_text_box_inner">
-                    <div className="justify_content_start container w_100pc">
-                      <div className="text_box_content_inner m_pr_0 pt_130 pb_100 m_pt_40 m_pb_40">
-                        <h3 className="m_m_auto">
+                    <div className="justify_content_start container w_100pc text_center">
+                      <div className="text_box_content_inner m_pr_0 pt_40 pb_40 m_pt_30 m_pb_30 max_w_100pc">
+                        <h3 className="m_m_auto custom_fs_40 custom_fs_m_28 mb_35 m_mb_25">
                           {t("common:forArtistPage.title4")}
+                          <span class="textBlock">
+                            {t("common:forArtistPage.title8")}
+                          </span>
                         </h3>
-                        <Link
-                          href={`/${router.locale}/join-tattoo-artists`}
-                          className="btn_secondary btn_cutom_new btn_img bdr_rad_4"
+                        <button
+                           onClick={openPopup}
+                          className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                         >
-                          {t("common:forArtistPage.button")}
-                          <Image
-                            src="/arow-white-right.svg"
-                            width={16}
-                            height={16}
-                            alt="arrow"
-                            className="ml-8 mt-2"
-                          />
-                        </Link>
+                          {t("common:forArtistPage.button")}                          
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -336,30 +325,23 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container pt_110 m_pt_40 flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_start p_0 pb_40 w_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob">
-                          <h2 className="d_max_320 m_max_270 color_gray_550">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
+                          <h2 className="custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title5")}
                           </h2>
-                          <p className="custom_fs_20 custom_fs_m_18">
+                          <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content5")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
-                            className="btn_secondary btn_cutom_new btn_img bdr_rad_4"
+                          <button
+                            onClick={openPopup}
+                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
                             {t("common:forArtistPage.button")}
-                            <Image
-                              src="/arow-white-right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                              className="ml-8 mt-2"
-                            />
-                          </Link>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -386,7 +368,7 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container pt_110 m_pt_40 flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row">
                     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
                       <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
@@ -404,27 +386,20 @@ export default function Tattooartists({}) {
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_start p_0 pb_40 w_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc">
-                          <h2 className="d_max_320 m_max_270 color_gray_550">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
+                          <h2 className="custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title6")}
                           </h2>
-                          <p className="custom_fs_20 custom_fs_m_18">
+                          <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content6")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
-                            className="btn_secondary btn_cutom_new btn_img bdr_rad_4"
+                          <button
+                            onClick={openPopup}
+                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
-                            {t("common:forArtistPage.button")}
-                            <Image
-                              src="/arow-white-right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                              className="ml-8 mt-2"
-                            />
-                          </Link>
+                            {t("common:forArtistPage.button")}                           
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -436,30 +411,23 @@ export default function Tattooartists({}) {
           <section className="img_text_banner_box">
             <div className="img_text_box_wrapper fortattoo_artists">
               <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container pt_110 m_pt_40 flex_direction_column">
+                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
                   <div class="row justify-content-between">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_start p_0 pb_40 w_100pc">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob">
-                          <h2 className="m_max_270 color_gray_550">
+                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
+                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
+                          <h2 className="d_max_420 m_max_100 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
                             {t("common:forArtistPage.title7")}
                           </h2>
-                          <p className="custom_fs_20 custom_fs_m_18">
+                          <p className="m_mt_15 custom_fs_m_14">
                             {t("common:forArtistPage.content7")}
                           </p>
-                          <Link
-                            href={`/${router.locale}/join-tattoo-artists`}
-                            className="btn_secondary btn_cutom_new btn_img bdr_rad_4"
+                          <button
+                           onClick={openPopup}
+                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
                           >
-                            {t("common:forArtistPage.button")}
-                            <Image
-                              src="/arow-white-right.svg"
-                              width={16}
-                              height={16}
-                              alt="arrow"
-                              className="ml-8 mt-2"
-                            />
-                          </Link>
+                            {t("common:forArtistPage.button")}                            
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -468,7 +436,7 @@ export default function Tattooartists({}) {
                         <Image
                           priority
                           alt={t("common:forArtistPage.title7")}
-                          src="/artist_06.png"
+                          src="/artist_0_06.png"
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
@@ -485,6 +453,13 @@ export default function Tattooartists({}) {
           </section>
         </div>
       </main>
+
+      <ArtistPickerModel
+        className="custom-modal"
+        isOpen={isPopupOpen}
+        closeModal={closePopup}
+      />
+
     </>
   );
 }

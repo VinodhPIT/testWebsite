@@ -1,3 +1,5 @@
+
+
 const Parameters = {
    sort: "newest",
    page_no: 0,
@@ -11,8 +13,21 @@ const Parameters = {
    seed:"",
 };
 
-export { Parameters }; // Named export
+const requestFormParameters = {
+   sort: null,
+   page_no: 0,
+   paginator_count: 10,
+   search_key: " ",
+   style:  "",
+   latitude:"",
+   longitude:"",
+   distance:"50km",
+   seed:''
+};
 
+
+
+export { Parameters ,requestFormParameters }; // Named export
 
 
 

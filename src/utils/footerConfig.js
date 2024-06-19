@@ -2,9 +2,13 @@ const pagesWithoutFooter = [
     "/analytics/dashboard",
     "/analytics/login",
     "/analytics/customer",
-    "/analytics/artist",
+    "/analytics/artists",
     "/analytics/offer",
-    "/500"
+    "/500",
+    "/createRequest",
+    "/request-Form",
+    "/analytics/profile", "/analytics/artist/detail/[slug]",
+    
   ];
   
   export default pagesWithoutFooter;

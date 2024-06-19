@@ -1,20 +1,27 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Header from "@/common/header";
-import MarketngScreens from "@/marketingScreens/Header/header";
-import useWindowResize from "@/hooks/useWindowSize";
-import Footer from "@/common/footer";
-import { GlobalStateProvider } from "@/context/Context";
 import { Figtree } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
+
 import UseLayout from "@/hooks/useLayout";
+
+import NProgress from "nprogress";
+import useStyleListing from "@/store/styleListing/styleListing";
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+import { GlobalStateProvider } from "@/context/Context";
+import loadGoogleMapsAPI from "@/utils/google-maps";
+
+import Header from "@/common/header";
+import Footer from "@/common/footer";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
+import "@/styles/requestForm.css";
 import "@/styles/cms.css";
-import loadGoogleMapsAPI from "@/utils/google-maps";
-import NProgress from "nprogress";
-import { SessionProvider } from "next-auth/react";
+
+
 NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
@@ -30,7 +37,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    
+
     router.events.on("routeChangeStart", (url) => {
       NProgress.start();
     });
@@ -43,9 +50,7 @@ function MyApp({ Component, pageProps }) {
 
       router.events.off("routeChangeComplete", (url) => {});
     };
-  }, [router.events]);
-
-  const { isMobileView } = useWindowResize();
+  }, []);
 
   function getHeaderComponent(locale, pathname) {
     switch ((locale, pathname)) {
@@ -53,130 +58,66 @@ function MyApp({ Component, pageProps }) {
       case "/for-tattoo-artists":
       case "/klarna":
       case "/tattoo-dictionary":
-        case "/tattoo-styleguide":
-        return (
-          <Header
-            logo={
-              isMobileView ? "/inckd-logo.svg" : "/Inckd-logo-footer-black.svg"
-            }
-            theme={"white"}
-            isPosition={true}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"white"}
-            languageSwitch="switcherThemeWhite"
-            isFullwidth={true}
-          />
-        );
-
+      case "/tattoo-styleguide":
       case "/explore/[[...slug]]":
       case "/artists/[detail]":
       case `/explore/tattoos/[detail]`:
       case "/explore/flash-tattoos/[detail]":
       case "/404":
-        return (
-          <Header
-            logo={"/Inckd-logo-footer-black.svg"}
-            theme={"white"}
-            isPosition={false}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"black"}
-            languageSwitch="switcherThemeBlack"
-            isFullwidth={true}
-          />
-        );
-
       case "/journal":
-        return (
-          <Header
-            logo={"/inckd-logo.svg"}
-            theme={"normal"}
-            isPosition={true}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"white"}
-            languageSwitch="switcherThemeWhite"
-            isFullwidth={false}
-          />
-        );
-
       case "/contact":
-      case "/join-tattoo-artists":
-        return (
-          <Header
-            logo={"/Inckd-logo-footer-black.svg"}
-            theme={"black"}
-            isPosition={true}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"black"}
-            languageSwitch={
-              isMobileView ? "switcherThemeBlack" : "switcherThemeWhite"
-            }
-            isFullwidth={true}
-          />
-        );
-
+      case "/join-as-artist":
       case "/faq":
       case "/privacy_policy":
       case "/terms&conditions":
       case "/impressum":
-        case"/user_data_policy":
-        case"/privacy-policy":
+      case "/user_data_policy":
+      case "/privacy-policy":
+      case "/download/[[...download]]":
+      case "/comingSoon":
+      case "/explore-style":
         return (
           <Header
-            logo={"/Inckd-logo-footer-black.svg"}
+            logo={"/inckd-logo.svg"}
             theme={"white"}
-            isPosition={false}
-            imgWidth="105"
-            imgHeight="31"
-            hamburger={"black"}
-            languageSwitch={"switcherThemeBlack"}
-            isFullwidth={false}
-          />
-        );     
-
-   
-
-      case "/download/[[...download]]":
-        return (
-          <MarketngScreens
-            logo={
-              isMobileView &&
-              (router.query.type === "campaign" ||
-                router.query.type === "klarna")
-                ? "/inckd-logo.svg"
-                : "/Inckd-logo-b.svg"
-            }
-            theme={"white"}
-            isPosition={true}
             imgWidth="105"
             imgHeight="31"
           />
         );
-
       default:
         return null;
     }
   }
+
+  const { fetchAll } = useDisplayAll();
+  const { fetchStyle } = useStyleListing();
+  
+  useEffect(() => {
+    fetchStyle(router.locale.split("-")[1]);
+    fetchAll(router.locale.split("-")[0]);
+
+  }, []);
+
   return (
     <>
       <SessionProvider session={pageProps.session}>
-      <GlobalStateProvider>
-        <div className={figtree.className}>
-          {getHeaderComponent(router.locale, router.pathname)}
+        <GlobalStateProvider>
+          <div className={figtree.className}>
+            
+            {getHeaderComponent(router.locale, router.pathname)}
 
-          <UseLayout pathname={router.pathname}>
-            <Component {...pageProps} />
-          </UseLayout>
+            <UseLayout pathname={router.pathname}>
+              <Component {...pageProps} />
+            </UseLayout>
 
-          <Footer />
-        </div>
-      </GlobalStateProvider>
+            <Footer />
+          </div>
+        </GlobalStateProvider>
       </SessionProvider>
     </>
   );
 }
 
 export default MyApp;
+
+

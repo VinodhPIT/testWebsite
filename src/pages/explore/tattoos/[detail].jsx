@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+
 import styles from "../tattoodetail.module.css";
 import { fetchTattooDetail, fetchArtistDetail } from "../../api/web.service";
 import {
@@ -8,34 +10,31 @@ import {
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
+import { fetchArtistDetail } from "@/apiConfig/webService";
 
-import Link from "next/link";
-import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/exploreScreens/searchField";
 import { useRouter } from "next/router";
+import style from "@/pages/explore/search.module.css";
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
-import myPromise from "@/utils/myPromise";
-import Loader from "@/components/loading/loader";
+import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+import myPromise from "@/components/myPromise";
+import Loader from "@/components/loader";
+import useScrollToTop from "@/hooks/useScrollToTop";
 
-export default function Detail({ data}) {
+export default function Detail({ data, status, locale }) {
+  const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
   const {
-    closePopup,
-    isPopupOpen,
-    openPopup,
-  } = useModal();
-  
-  const {
-    onSearch,
-    setSelectedIds,
     state,
+    getLocale,
     styleCollection,
+    setSelectedIds,
+    onSearch,
   } = useGlobalState();
-  
+
   const { t } = useTranslation();
   
   const [loading, setLoading] = useState(false);
@@ -44,12 +43,16 @@ export default function Detail({ data}) {
   const [tattoo, setTattoo] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
-  
-
+  useScrollToTop();
 
   useEffect(() => {
     styleCollection();
-  }, []);
+    try {
+      getLocale({
+        locale,
+      });
+    } catch (error) {}
+  }, [locale]);
 
   const goBack = () => {
     router.back();
@@ -78,9 +81,6 @@ export default function Detail({ data}) {
     return null;
   }
 
-
-
-  
   const handleThumbnailClick = async (newItemImage) => {
     setCurrentBigImage("");
     setLoading(true);
@@ -106,9 +106,6 @@ export default function Detail({ data}) {
       router
     );
   };
-
-
-
 
   return (
     <>
@@ -319,30 +316,30 @@ export default function Detail({ data}) {
                   <h1>{t("common:you-might-like")}</h1>
                 </div>
 
-                <div className={styles.grid_wrapper_tattoo}>
-                  {tattoo.map((item) => (
-                    <Link
-                      href={`/${router.locale}/explore/tattoos/${item.tattoo_uid}`}
-                      className={styles.listing_gridItem}
-                      key={item.tattoo_uid}
-                      prefetch
-                      onClick={() => handleThumbnailClick(item.tattoo_image)}
-                    >
-                      <Image
-                        alt={item.style_name}
-                        loading="lazy"
-                        src={item.image_medium}
-                        fill
-                        objectFit="cover"
-                        placeholder="blur"
-                        blurDataURL={BLUR_URL}
-                        quality={62}
-                      />
-                    </Link>
-                  ))}
-                </div>
-              </>
-)}
+            {loading === true ? null : tattoo && tattoo.length > 0 ? (
+              <div className={styles.grid_wrapper_tattoo}>
+                {tattoo.map((item) => (
+                  <Link
+                    href={`/${router.locale}/explore/tattoos/${item.tattoo_uid}`}
+                    className={styles.listing_gridItem}
+                    key={item.tattoo_uid}
+                    prefetch
+                    onClick={() => handleThumbnailClick(item.tattoo_image)}
+                  >
+                    <Image
+                      alt={item.style_name}
+                      loading="lazy"
+                      src={item.image_medium}
+                      fill
+                      objectFit="cover"
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
+                      quality={62}
+                    />
+                  </Link>
+                ))}
+              </div>
+            ) : null}
           </div>
           <TattooSearchModal
             className="custom-modal"

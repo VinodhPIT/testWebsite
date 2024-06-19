@@ -35,11 +35,7 @@ export default function ListingPage({ data, locale }) {
     <>
       <Head>
         <title>{t("common:journalTitle")}</title>
-        <meta
-          name="description"
-          content={t("common:subText")}
-        />
-
+        <meta name="description" content={t("common:subText")} />
       </Head>
 
       <div>
@@ -66,7 +62,7 @@ export default function ListingPage({ data, locale }) {
                     <span>{t("common:journalTitle")}</span>
                   </h1>
                   <p className="max_w_100pc mb_0 mt_20">
-                  {t("common:subText")}
+                    {t("common:subText")}
                   </p>
                 </div>
               </div>
@@ -118,10 +114,8 @@ export default function ListingPage({ data, locale }) {
 
                                   <p>{el.desc} </p>
                                   <div className="w_100pc d_flex justify_content_end">
-                                    <div
-                                      className="btn_primary btn_img btn_custom_48"
-                                    >
-                                       {t("common:Read more")}
+                                    <div className="btn_primary btn_img btn_custom_48">
+                                      {t("common:Read more")}
                                       <Image
                                         src="/arow-white-right.svg"
                                         width={24}
