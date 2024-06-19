@@ -2,21 +2,29 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
+import useTranslation from "next-translate/useTranslation";
+
+import {APP_LINK_APPLE ,APP_LINK_GOOGLE} from '@/constants/constants'
+import { getOs } from "../lib/os-detector";
+
+
 const Custom404 = () => {
+
   const { t } = useTranslation();
   const router = useRouter();
-
+  const os = getOs();
+  
   useEffect(() => {
-    const { asPath, locale } = router;
+    const { asPath } = router;
+    const link = (os === 'iOS' || os === 'Mac OS') ? APP_LINK_APPLE : APP_LINK_GOOGLE;
     if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard")) {
-      // Navigate to the download page
-      router.push(`/${locale}/download`);
+      window.location.href = link; // Redirect to external link
     }
   }, [router]);
 
+  
   return (
     <>
       <main>
