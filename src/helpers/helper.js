@@ -1,18 +1,5 @@
 import moment from "moment";
 
-// const getPaginatorCount = () => {
-//   // Check if window is defined (only run on the client-side)
-//   if (typeof window !== "undefined") {
-//     const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
-//     return isMobile ? 10 : 9;
-//   }
-//   // Return a default value if window is not available (e.g., for server-side rendering)
-//   return 10; // or any default value you prefer
-// };
-
-// export { getPaginatorCount };
-
-// const pageCount = getPaginatorCount();
 
 export const MAX_RANDOM = 3409357923759259;
 export const MIN_RANDOM = 3;
@@ -96,42 +83,6 @@ export const searchParam = (parameters) => {
 
 export const fetchMulticategory = (parameters) => {
   return createRequestObject(parameters, 12);
-};
-
-export const addAdsToResults = async (results, isMobile) => {
-  const totalCount = results.length;
-  if (totalCount < 15) {
-    return results;
-  }
-  if (
-    isMobile === "iPad" ||
-    isMobile === "UnknownTablet" ||
-    isMobile === null
-  ) {
-    results.splice(6, 0, { _index: "ad", colspan: 2, add: 1 });
-  } else {
-    results.splice(6, 0, { _index: "ad", colspan: 2, add: 1 });
-  }
-
-  if (isMobile === "iPad") {
-    results.splice(17, 0, { _index: "ad", colspan: 2, add: 2 });
-  } else if (isMobile === "UnknownTablet") {
-    results.splice(18, 0, { _index: "ad", colspan: 2, add: 2 });
-  } else if (isMobile === null) {
-    results.splice(12, 0, { _index: "ad", colspan: 2, add: 2 });
-  } else {
-    results.splice(19, 0, { _index: "ad", colspan: 2, add: 2 });
-  }
-
-  results.splice(28, 0, { _index: "ad", colspan: 2, add: 3 });
-
-  results.forEach((item) => {
-    if (item._index !== "ad") {
-      item.colspan = 1;
-    }
-  });
-
-  return results;
 };
 
 
@@ -241,6 +192,7 @@ const getCountry = (locations, location) => {
 };
 
 export { getCountry };
+
 
 export const getRandomSeed = () => {
   const randomValues = new Uint32Array(1);

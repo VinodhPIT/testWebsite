@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Figtree } from "next/font/google";
+import { Figtree } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
-
 import UseLayout from "@/hooks/useLayout";
-
 import NProgress from "nprogress";
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";

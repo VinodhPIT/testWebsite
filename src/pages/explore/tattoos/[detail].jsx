@@ -4,13 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "../tattoodetail.module.css";
-import { fetchTattooDetail, fetchArtistDetail } from "../../api/web.service";
+import { fetchTattooDetail ,fetchArtistDetail } from "@/apiConfig/webService";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
-import { fetchArtistDetail } from "@/apiConfig/webService";
 
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/exploreScreens/searchField";
@@ -19,9 +18,9 @@ import style from "@/pages/explore/search.module.css";
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-import myPromise from "@/components/myPromise";
-import Loader from "@/components/loader";
+import SelectDropdown from "@/components/exploreScreens/SearchPanel";
+import myPromise from "@/utils/myPromise";
+import Loader from "@/components/loading/loader";
 import useScrollToTop from "@/hooks/useScrollToTop";
 
 export default function Detail({ data, status, locale }) {
@@ -36,11 +35,11 @@ export default function Detail({ data, status, locale }) {
   } = useGlobalState();
 
   const { t } = useTranslation();
-  
+
   const [loading, setLoading] = useState(false);
-  const [location, setLocation] = useState([]);
-  const [getStyle, setStyle] = useState([]);
   const [tattoo, setTattoo] = useState([]);
+  const [getStyle, setStyle] = useState([]);
+  const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
   useScrollToTop();
@@ -185,9 +184,9 @@ export default function Detail({ data, status, locale }) {
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={data.artist.artist_name??''}
+                      alt={data.artist.artist_name}
                       priority
-                      src={data.artist.profile_image ?? "/circle-user.png"}
+                      src={data.artist.profile_image}
                       width={100}
                       height={100}
                       placeholder="blur"
@@ -198,6 +197,9 @@ export default function Detail({ data, status, locale }) {
                     <div className={styles.search_profile_content}>
                       <div className={styles.search_profile_name}>
                         {data.artist.artist_name}
+                      </div>
+                      <div className={styles.search_profile_details}>
+                        Switzerland, Germany
                       </div>
                     </div>
                     <div className={styles.search_profile_link}>
@@ -236,11 +238,12 @@ export default function Detail({ data, status, locale }) {
                   </div>
                 </div>
 
-                {getStyle.length > 0 && (
-                  <div className={styles.product_style}>
-                    <span className={styles.product_style_label}>
-                      {t("common:image-tattoo-style")}
-                    </span>
+                <div className={styles.product_style}>
+                  <span className={styles.product_style_label}>
+                    {t("common:image-tattoo-style")}
+                  </span>
+
+                  {getStyle.length > 0 && (
                     <ul className={styles.product_style_list}>
                       {getStyle.map((e) => {
                         return (
@@ -252,17 +255,17 @@ export default function Detail({ data, status, locale }) {
                         );
                       })}
                     </ul>
-                  </div>
-                )}
+                  )}
+                </div>
 
                 <div className={styles.product_detail_location}>
+                  <span className={styles.product_location_label}>
+                    {t("common:locations")}
+                  </span>
                   <div className={styles.product_location_list}>
-                    {location.length > 0 && (
-                      <>
-                        <span className={styles.product_location_label}>
-                          {t("common:locations")}
-                        </span>
-                        {location.map((el) => (
+                    {location.length > 0 &&
+                      location.map((el) => {
+                        return (
                           <span
                             className={styles.product_loc_title}
                             key={el.studio_uid}
@@ -275,9 +278,8 @@ export default function Detail({ data, status, locale }) {
                             />
                             {el.city}, {el.country}
                           </span>
-                        ))}
-                      </>
-                    )}
+                        );
+                      })}
                   </div>
                 </div>
 
@@ -310,11 +312,9 @@ export default function Detail({ data, status, locale }) {
               </div>
             </div>
 
-            {!loading && tattoo && tattoo.length > 0 && (
-              <>
-                <div className={styles.titleWrapper}>
-                  <h1>{t("common:you-might-like")}</h1>
-                </div>
+            <div className={styles.titleWrapper}>
+              <h1>{t("common:you-might-like")}</h1>
+            </div>
 
             {loading === true ? null : tattoo && tattoo.length > 0 ? (
               <div className={styles.grid_wrapper_tattoo}>
@@ -333,7 +333,7 @@ export default function Detail({ data, status, locale }) {
                       fill
                       objectFit="cover"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       quality={62}
                     />
                   </Link>

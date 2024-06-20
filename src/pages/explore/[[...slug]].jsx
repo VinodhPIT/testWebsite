@@ -18,11 +18,13 @@ import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webSer
 import { categoryMapping } from "@/constants/categoryMappings";
 import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
 
+import API_URL from "@/apiConfig/api.config";
+import axiosInstance from "@/apiConfig/axios.instance";
+import { searchParam, fetchMulticategory } from "@/helpers/helper";
+
 
 import style from "@/pages/explore/search.module.css";
 
-
-const MobileDetect = require("mobile-detect");
 const Search = ({
   data,
   currentTab,
@@ -225,13 +227,9 @@ const Search = ({
 export default Search;
 
 
-
 export async function getServerSideProps(context) {
-  const { query, req, locale } = context;
+  const { query, locale } = context;
   const { slug } = query;
-  const userAgent = req.headers["user-agent"];
-  const md = new MobileDetect(userAgent);
-  const isMobile = md.mobile();
   const category = categoryMapping[slug[0]] || null;
 
 
@@ -245,29 +243,41 @@ export async function getServerSideProps(context) {
         )
       : [];
 
-  try {
-    const fetchFunction =
-      category === "all" ? fetchMultiData : fetchCategoryData;
-    const fetchParams = {
-      ...Parameters,
-      category,
-      style: styleId,
-      search_key: query.keyword ?? "",
-      latitude: placeDetails?.latitude ?? "0.00",
-      longitude: placeDetails?.longitude ?? "0.00",
-      seed: getRandomSeed(),
-    };
+  const fetchParams = {
+    ...Parameters,
+    category,
+    style: styleId,
+    search_key: query.keyword ?? "",
+    latitude: placeDetails?.latitude ?? "0.00",
+    longitude: placeDetails?.longitude ?? "0.00",
+    seed: getRandomSeed(),
+  };
 
-    const results = await fetchFunction(fetchParams);
-    const totalItems  =category === "all" ? results.totalCount : results.rows.total.value;
-    const data = category === "all" ? results.data : results.rows.hits;
+  try {
+    let response;
+
+    if (category === "all") {
+      //Array of promises
+      const promises = [
+        axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('tattoo'), searchParam(fetchParams)),
+        axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('flash'), searchParam(fetchParams))
+      ];
+    
+      // Use Promise.all to wait for both API calls to complete
+      response = await Promise.all(promises);
+      console.log(response.data ,"cpkdspkc")
+    } else {
+      // For other categories, proceed with a single API call
+      response = await axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY(category), searchParam(fetchParams));
+    }
+   //
 
     return {
       props: {
-        data: data,
+        data:[],
         currentTab: category,
         pageNo: 0,
-        totalItems,
+        totalItems:'111',
         searchKey: query.keyword ?? "",
         selectedStyle: query.style ?? "",
         lat: placeDetails?.latitude ?? "0.00",
@@ -278,10 +288,9 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
- 
+    console.error(error);
     return {
       notFound: true,
     };
-     
   }
 }

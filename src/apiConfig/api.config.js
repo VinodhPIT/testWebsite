@@ -2,7 +2,7 @@ import moment from "moment";
 
 const API_URL = {
   SEARCH: {
-    SEARCH_BY_CATRGORY: (params) => `/web/api/${params.category}/search`,
+    SEARCH_BY_CATRGORY: (params) => `/web/api/${params}/search`,
     GET_TATTOO_SEARCH: "/web/api/tattoo/search",
     GET_TATTOO_DETAIL: (params) => `/web/api/tattoo/detail?tattoo_uid=${params}`,
     GET_FLASH_SEARCH: "/web/api/flash/search",

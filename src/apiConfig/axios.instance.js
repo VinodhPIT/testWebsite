@@ -10,7 +10,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    // Check if Authorization header is already set
     if (!config.headers.Authorization) {
       // If running on the client-side, fetch the session
       if (typeof window !== 'undefined') {
@@ -32,7 +31,6 @@ axiosInstance.interceptors.request.use(
   }
 );
 
-// Add a response interceptor to handle errors globally
 axiosInstance.interceptors.response.use(
   (response) => {
     return response;
