@@ -3,7 +3,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+
 import useTranslation from "next-translate/useTranslation";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,

@@ -1,7 +1,13 @@
 import { create } from "zustand";
+
 import { artistListing, getStyles } from "@/apiConfig/webService";
-import { requestFormParameters } from "@/utils/params";
+
 import axios from "axios";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+import { requestFormParameters } from "@/utils/params";
 import { getLocation } from "@/utils/getLocation";
 import { getRandomSeed } from "@/helpers/helper";
 

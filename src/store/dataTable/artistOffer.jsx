@@ -1,32 +1,38 @@
 
 import { create } from "zustand";
-import { fetchOfferDataTable ,fetchOfferLog } from "@/apiConfig/artistAnalyticsService";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 const useOfferDataTable= create((set) => ({
   offerTable: [],
   total_count:"",
   loading: false,
-  offerLog:[],
+  offerLog: [],
 
-  fetchData: async (token, slug) => {
+  fetchData: async (slug) => {
     try {
-      set({ loading: true });
 
-      const response = await fetchOfferDataTable(token, slug);
-      set({ offerTable: response.data, total_count: response.total_count });
+      const response = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.OFFER_DATA_TABLE(slug));
+      const {data}=response.data
+
+      set({ offerTable: data, total_count: data.total_count });
     } catch (error) {
-        set({ loading: false});  
+      set({ offerTable: []});
     }
   },
 
 
-  fetchLog: async (token,slug) => {
+  fetchLog: async (logUid) => {
     try {
-      set({ loading: true });
-      const response = await fetchOfferLog(token ,slug)
-      set({ offerLog:response.data.offer_log});
+      const response = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.OFFER_DATA_LOG(logUid));
+
+      const {data}=response.data
+
+      set({ offerLog:data.offer_log});
+
     } catch (error) {
-      set({ loading: false});
+      set({ offerLog: []});
     }
   },
 
