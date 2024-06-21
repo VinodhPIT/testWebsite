@@ -1,9 +1,8 @@
 
 import { create } from "zustand";
-import { analyticsRevenueDetails } from "@/pages/api/customerAnalytics.service";
+
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
-
 
 const useRevenueStore = create((set) => ({
   revenue: {},

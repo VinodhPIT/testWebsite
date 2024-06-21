@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import {  } from "@/pages/api/customerAnalytics.service";
 import Apitype from '@/analyticsComponents/common/constant'
 
 const useAnalyticsStore = create((set) => ({

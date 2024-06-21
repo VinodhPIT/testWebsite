@@ -8,19 +8,12 @@ import Header from "@/analyticsComponents/common/header";
 import ArtistDetails from "@/analyticsComponents/artist/artistDetails";
 import ArtistsByCountryTable from "@/analyticsComponents/artist/artistsByCountry";
 import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
-import YourComponent from "@/analyticsComponents/common/keys";
 import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import PieChart from "@/analyticsComponents/common/chart";
 import ArtistConversion from "@/analyticsComponents/artist/artistConversion";
 
-import {
-  analyticsArtistCount,
-  analyticsArtistLeadSourceCount,
-} from "../../api/artistAnalytics.service";
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
-
-
 
 import {
   GET_COLOR,
@@ -28,9 +21,8 @@ import {
   LABEL,
 } from "@/constants/sharedConstants";
 
-
 export default function ArtistAnalytics({ data: initialData }) {
-  const { artistConversion } = YourComponent();
+
   const { status, data } = useSession();
   const { t } = useTranslation();
 
@@ -102,8 +94,6 @@ export default function ArtistAnalytics({ data: initialData }) {
                 <ArtistConversion
                   data={initialData.chartData}
                   title={t("common:AnalyticsArtist.Artist Conversion")}
-                  token={initialData.sessionToken}
-                  types={artistConversion}
                 />
               </div>
             </div>
@@ -116,12 +106,28 @@ export default function ArtistAnalytics({ data: initialData }) {
 
 export async function getServerSideProps(context) {
   // Get the user session
-
   const session = await getSession(context);
+
+  // Initialized Default data all keys initialized to 0 or []
+  const defaultData = {
+    chartData: [],
+    artistCompletedOffers: 0,
+    artistInCommunication: 0,
+    joinedFromApp: 0,
+    joinedFromWeb: 0,
+    joinedUsingReferral: 0,
+    nonPublicProfiles: 0,
+    notCompletedAnyOffer: 0,
+    notContactedCustomer: 0,
+    notCreatedAnyOffers: 0,
+    sessionToken: session.user.myToken ?? "",
+    totalArtists: 0,
+    totalPublicArtists: 0,
+    genderCount: 0,
+  };
 
   try {
     // Configure axios instance with authorization header
-    
     const axiosConfig = {
       headers: {
         Authorization: `Bearer ${session.user.myToken}`,
@@ -129,35 +135,28 @@ export async function getServerSideProps(context) {
     };
 
     const [artistCountResponse, artistDetailsResponse] = await Promise.all([
-      axiosInstance.get(
-        API_URL.ANALYTICS_ARTISTS.GET_ARTIST_COUNT,
-        axiosConfig
-      ),
-      axiosInstance.get(
-        API_URL.ANALYTICS_ARTISTS.GET_ARTIST_DETAILS,
-        axiosConfig
-      ),
+      axiosInstance.get(API_URL.ANALYTICS_ARTISTS.GET_ARTIST_COUNT, axiosConfig),
+      axiosInstance.get(API_URL.ANALYTICS_ARTISTS.GET_ARTIST_DETAILS, axiosConfig),
     ]);
 
-     // Destructure the data from responses
-     const artistCountData = artistCountResponse.data;
-     const artistDetailsData = artistDetailsResponse.data;
-
+    // Destructure the data from responses
+    const artistCountData = artistCountResponse.data;
+    const artistDetailsData = artistDetailsResponse.data;
 
     return {
       props: {
         data: {
-          chartData: artistDetailsData ?? [],
+          ...defaultData, // Spreading defaultData to merge with fetched data
+          chartData: artistDetailsData ??'',
           artistCompletedOffers: artistCountData.artist_with_offer || 0,
           artistInCommunication: artistCountData.contacted_artist || 0,
-          joinedFromApp: artistCountData.joined_from_app || 0,
+          joinedFromApp: artistCountData.joined_from_app || 0 ,
           joinedFromWeb: artistCountData.joined_from_website || 0,
           joinedUsingReferral: artistCountData.referral_used || 0,
           nonPublicProfiles: artistCountData.not_public_artist || 0,
           notCompletedAnyOffer: artistCountData.no_offer_completed || 0,
           notContactedCustomer: artistCountData.no_contacted || 0,
           notCreatedAnyOffers: artistCountData.no_offer_created || 0,
-          sessionToken: session.user.myToken ?? "",
           totalArtists: artistCountData.total_artist || 0,
           totalPublicArtists: artistCountData.public_artist || 0,
           genderCount: artistCountData.gender || 0,
@@ -167,23 +166,9 @@ export async function getServerSideProps(context) {
   } catch (error) {
     return {
       props: {
-        data: {
-          chartData:[],
-          artistCompletedOffers:  0,
-          artistInCommunication: 0,
-          joinedFromApp:  0,
-          joinedFromWeb:  0,
-          joinedUsingReferral: 0,
-          nonPublicProfiles:  0,
-          notCompletedAnyOffer:  0,
-          notContactedCustomer: 0,
-          notCreatedAnyOffers: 0,
-          sessionToken: session.user.myToken ?? "",
-          totalArtists: 0,
-          totalPublicArtists: 0,
-          genderCount:  0,
-        },
+        data: defaultData,
       },
     };
   }
 }
+

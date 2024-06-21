@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
+
 import Select from "react-select";
 import Multiselect from "multiselect-react-dropdown";
 import useTranslation from "next-translate/useTranslation";
+
 import { currentYear, options, months } from "@/helpers/helper";
+
+import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
+
 import ConversionDataComponent from "../common/keys";
 import { percentageCalculate } from "../customer/customerConversion";
 import Loader from "@/components/loading/loader";
-import { artistConvesionWithCountryFilter } from "@/pages/api/artistAnalytics.service";
-import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
 
-const ArtistConversion = ({ data, title, token, types }) => {
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+const ArtistConversion = ({ data, title}) => {
   const {
     fetchData,
     loading: loadingFetchData,
@@ -40,13 +46,11 @@ const ArtistConversion = ({ data, title, token, types }) => {
     setSelectedCountries(countries);
     if (selectedOption.length > 0) {
       setLoading(true);
-      const res = await artistConvesionWithCountryFilter(
-        selectedOption.map((op) => op.value).join(),
-      );
-      const resWithFilter = res.filter((entry) => entry.year === selectedYear);
+      const res = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.CONVERSION_COUNTRY(selectedOption.map((el) => el.value).join(),));
+      const resWithFilter = res.data.filter((entry) => entry.year === selectedYear);
       setRegistered(resWithFilter);
       setLoading(false);
-    } else fetchData(selectedYear, token);
+    } else fetchData(selectedYear);
   };
 
   useEffect(() => {
@@ -54,7 +58,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
   }, [registeredData]);
 
   useEffect(() => {
-    fetchData(selectedYear, token);
+    fetchData(selectedYear);
   }, [selectedYear]);
 
   const renderTableRow = (title, key) => (

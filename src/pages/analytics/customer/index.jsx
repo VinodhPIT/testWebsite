@@ -136,6 +136,26 @@ export async function getServerSideProps(context) {
   // Get the user session
   const session = await getSession(context);
 
+    // Initialized Default data all keys initialized to 0 or []
+    const defaultData = {
+      chartData: [],
+      contactedWithNoOffer: 0,
+      deletedCustomers: 0,
+      genderCount: 0,
+      joinedFromApp: 0,
+      joinedFromWeb: 0,
+      noCompletedOffer: 0,
+      notCompletedAnyOffer: 0,
+      notContacted: 0,
+      notCreatedAnyOffers: 0,
+      sessionToken: session.user.myToken ?? "",
+      referralUsedCustomers: 0,
+      totalCustomers: 0,
+      voucherUserCustomers: 0,
+      role: session.user.role ?? "",
+    };
+
+
   try {
     // Configure axios instance with authorization header
     const axiosConfig = {
@@ -155,47 +175,34 @@ export async function getServerSideProps(context) {
       ),
     ]);
 
-    // Destructured necessary data
-    const {
-      contacted_with_no_offer: contactedWithNoOffer = 0,
-      deleted = 0,
-      gender = 0,
-      joined_from_app: joinedFromApp = 0,
-      joined_from_website: joinedFromWeb = 0,
-      customer_no_offer_completed: noCompletedOffer = 0,
-      no_contacted: notContacted = 0,
-      referral_used_customer: referralUsedCustomers = 0,
-      total_count: totalCustomers = 0,
-      voucher_used_customer: voucherUserCustomers = 0,
-    } = customerCountResponse.data || {};
-
-    const chartData = customerDetailsResponse.data || [];
-
+        // Destructure the data from responses
+        const customerCountData = customerCountResponse.data;
+        const customerDetailsData = customerDetailsResponse.data;
+   
     return {
       props: {
         data: {
+          ...defaultData, // Spreading defaultData to merge with fetched data
           role: session.user.role ?? "",
-          chartData,
-          contactedWithNoOffer,
-          deletedCustomers: deleted,
-          genderCount: gender,
-          joinedFromApp,
-          joinedFromWeb,
-          noCompletedOffer,
-          notContacted,
-          referralUsedCustomers,
+          chartData: customerDetailsData ?? [],
+          contactedWithNoOffer: customerCountData.contacted_with_no_offer || 0,
+          deletedCustomers: customerCountData.deleted || 0,
+          genderCount: customerCountData.gender || 0,
+          joinedFromApp: customerCountData.joined_from_app || 0,
+          joinedFromWeb: customerCountData.joined_from_website || 0,
+          noCompletedOffer: customerCountData.customer_no_offer_completed || 0,
+          notContacted: customerCountData.no_contacted || 0,
+          referralUsedCustomers: customerCountData.referral_used_customer || 0,
           sessionToken: session.user.myToken ?? "",
-          totalCustomers,
-          voucherUserCustomers,
+          totalCustomers: customerCountData.total_count || 0,
+          voucherUserCustomers: customerCountData.voucher_used_customer || 0,
         },
       },
     };
   } catch (error) {
-    // Log the error if API request fails
-    console.error("Error fetching analytics data:", error);
     return {
       props: {
-        data: null,
+        data: defaultData,
       },
     };
   }

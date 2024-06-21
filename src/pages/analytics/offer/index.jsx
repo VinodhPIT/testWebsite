@@ -1,25 +1,33 @@
 import React, { useEffect } from "react";
-import { useSession } from "next-auth/react";
-import useRevenueStore from "@/store/customerAnalytics/revenueList";
-import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
-import Header from "@/analyticsComponents/common/header";
-import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { offerCount } from "../../api/offerAnalytics.service";
-import BarChart from "@/analyticsComponents/common/monthlyBarChart";
-import useOfferDetail from "@/store/offerAnalytics/offerDetails";
-import PieChart from "@/analyticsComponents/common/chart";
-import OfferDeatils from "@/analyticsComponents/offer/offerDetails";
+
+import { useSession, getSession } from "next-auth/react";
 import useTranslation from "next-translate/useTranslation";
-import { OFFER_COUNT_KEYS_MAPPING, Label2 ,DISCOUNT_VARIATION} from "@/constants/sharedConstants";
+
+import Header from "@/analyticsComponents/common/header";
+import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
+import BarChart from "@/analyticsComponents/common/monthlyBarChart";
+import PieChart from "@/analyticsComponents/common/chart";
+import OfferDetails from "@/analyticsComponents/offer/offerDetails";
+
+import useRevenueStore from "@/store/customerAnalytics/revenueList";
+import useOfferDetail from "@/store/offerAnalytics/offerDetails";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+import {
+  OFFER_COUNT_KEYS_MAPPING,
+  Label2,
+  DISCOUNT_VARIATION,
+} from "@/constants/sharedConstants";
 
 export default function Offer({ data }) {
   const { offerData, fetchOffer, completedOffers, scheduledOffers } =
     useOfferDetail();
-  const { revenue, loading, fetchRevenue } = useRevenueStore();
+  const { revenue, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
-
 
   const getKeys = Object.keys(data.offerCount)
     .map((key) => OFFER_COUNT_KEYS_MAPPING[key])
@@ -44,7 +52,7 @@ export default function Offer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <OfferDeatils offerCount={data.offerCount} token={data.sessionToken} />
+        <OfferDetails offerCount={data.offerCount} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
@@ -118,21 +126,32 @@ export default function Offer({ data }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  try {
-    const [data] = await Promise.all([offerCount(session)]);
+  // Initialized Default data
+  const defaultData = {
+    sessionToken:"",
+    offerCount: {},
+  };
 
+  try {
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${session.user.myToken}`,
+      },
+    };
+    const offerData = await  axiosInstance.get( API_URL.ANALYTICS_OFFER.GET_OFFER_COUNT, axiosConfig);
     return {
       props: {
         data: {
+          ...defaultData,
           sessionToken: session.user.myToken ?? "",
-          offerCount: data || 0,
+          offerCount: offerData.data,
         },
       },
     };
   } catch (error) {
     return {
       props: {
-        data: null,
+        data:defaultData,
       },
     };
   }

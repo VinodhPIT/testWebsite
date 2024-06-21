@@ -1,6 +1,9 @@
 
 import { create } from "zustand";
-import { offerCountFilter } from "@/pages/api/offerAnalytics.service";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 import {offerApitype} from '@/analyticsComponents/common/constant';
 
 const useAnalyticsStore = create((set) => ({
@@ -39,16 +42,14 @@ const useAnalyticsStore = create((set) => ({
 
 
     if (fromDate && toDate) {
-      const res = await offerCountFilter(
-        {
-          endDate: toDate,
-          startDate: fromDate,
-          type: offerApitype[key],
-        },
-      );
+      const res = await axiosInstance.get(API_URL.ANALYTICS_OFFER.OFFER_FILTER_BY_DATE({
+        endDate: toDate,
+        startDate: fromDate,
+        type: offerApitype[key],
+      }));
 
       set((state) => ({
-        countData: { ...state.countData, [key]: res[offerApitype[key]] },
+        countData: { ...state.countData, [key]: res.data[offerApitype[key]] },
         dateRange: {
           ...state.dateRange,
           [key]: { from: fromDate, to: toDate },

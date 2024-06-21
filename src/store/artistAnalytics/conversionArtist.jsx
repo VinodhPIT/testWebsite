@@ -1,7 +1,9 @@
-//
 
 import { create } from "zustand";
-import { artistConvertion } from "@/pages/api/artistAnalytics.service";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 const useSArtistConversionStore = create((set) => ({
   registered: [],
   contacted:[],
@@ -10,8 +12,8 @@ const useSArtistConversionStore = create((set) => ({
   fetchData: async (selectedYear) => {
     try {
       set({ loading: true });
-      const response = await artistConvertion();
-      const filteredData = response.filter((entry) => entry.year === selectedYear);
+      const response = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.GET_ARTIST_CONVERSION);
+      const filteredData = response.data.filter((entry) => entry.year === selectedYear);
       set({ registered: filteredData, contacted:filteredData ,offerpending:filteredData,loading: false });
     } catch (error) {
       set({ loading: false });
