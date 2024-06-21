@@ -1,4 +1,4 @@
-import axiosInstance from "../../apiConfig/axios.instance";
+import {axiosInstance} from "../../apiConfig/axios.instance";
 import API_URL from "@/apiConfig/api.config";
 
 export const analyticsArtistCount = async (session) => {

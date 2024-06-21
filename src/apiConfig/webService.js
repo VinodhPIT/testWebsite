@@ -13,7 +13,7 @@ import {
         API_URL.SEARCH.SEARCH_BY_CATRGORY(params),
         searchParam(params)
       );
-  
+  console.log(responseCategory ,"responseCategory")
       return responseCategory;
     } catch (error) {
       return [];
@@ -97,6 +97,10 @@ import {
         data: shuffledResults,
         totalCount: resultsCount,
       };
+
+
+
+      
     } catch (error) {}
   }
   

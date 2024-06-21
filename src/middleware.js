@@ -12,6 +12,7 @@ export async function middleware(request) {
       req: request,
       secret: process.env.NEXTAUTH_SECRET,
     });
+   // console.log(token,"djkncdksc")
     //check not logged in
     if (!token) {
      const url=  new URL(`/analytics/login`, request.url);

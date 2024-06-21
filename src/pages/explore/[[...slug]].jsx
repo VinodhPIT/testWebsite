@@ -1,29 +1,28 @@
-
-import React, { useEffect} from "react";
-import Image from 'next/image'
+import React, { useEffect  } from "react";
+import Image from 'next/image';
 import { useRouter } from "next/router";
+
 import useTranslation from "next-translate/useTranslation";
 
 import useSticky from '@/hooks/useSticky';
 
 import { useGlobalState } from "@/context/Context";
 import { Parameters } from "@/utils/params";
-import { renderCategoryComponent } from "@/components/exploreScreens/tab";
-import SearchField from "@/components/exploreScreens/searchField";
-import SelectDropdown from "@/components/exploreScreens/SearchPanel";
-
 import { getUrl } from "@/utils/getUrl";
 import { getPlaceDetails } from "@/utils/placesApi";
-import { fetchCategoryData, fetchMultiData, getStyles } from "@/apiConfig/webService";
 import { categoryMapping } from "@/constants/categoryMappings";
 import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
-
-import API_URL from "@/apiConfig/api.config";
-import axiosInstance from "@/apiConfig/axios.instance";
 import { searchParam, fetchMulticategory } from "@/helpers/helper";
 
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+import { renderCategoryComponent } from "@/components/exploreScreens/tab";
+import SearchField from "@/components/exploreScreens/searchField";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
 
 import style from "@/pages/explore/search.module.css";
+
 
 const Search = ({
   data,
@@ -34,7 +33,6 @@ const Search = ({
   selectedStyle,
   lat,
   lon,
-  loading,
   locale,
   seed,
   slugIds,
@@ -42,7 +40,6 @@ const Search = ({
   const {
     state,
     fetchServerlData,
-    changeTab,
     loadMore,
     styleCollection,
     getAddress,
@@ -109,6 +106,7 @@ const Search = ({
 
 
   useEffect(() => {
+   
     if (searchKey === "") {
       setSearchState((prevSearchState) => ({
         ...prevSearchState,
@@ -116,6 +114,8 @@ const Search = ({
       }));
     }
   }, [searchKey]);
+
+
 
 
   const collectionLength = state.categoryCollection.filter(
@@ -227,70 +227,94 @@ const Search = ({
 export default Search;
 
 
+
 export async function getServerSideProps(context) {
   const { query, locale } = context;
   const { slug } = query;
   const category = categoryMapping[slug[0]] || null;
+  try {
+    const placeDetails = await getPlaceDetails(query.location ?? "");
 
-
-
-  const placeDetails = await getPlaceDetails(query.location ?? "");
-
-  const styleId =
-    query.style !== undefined
-      ? (await getMatchingStyles(query.style.split(","))).filter(
-          (id) => id !== null
-        )
+    const styleId = query.style !== undefined
+      ? (await getMatchingStyles(query.style.split(","))).filter(id => id !== null)
       : [];
 
-  const fetchParams = {
-    ...Parameters,
-    category,
-    style: styleId,
-    search_key: query.keyword ?? "",
-    latitude: placeDetails?.latitude ?? "0.00",
-    longitude: placeDetails?.longitude ?? "0.00",
-    seed: getRandomSeed(),
-  };
+    const fetchParams = {
+      ...Parameters,
+      category,
+      style: styleId,
+      search_key: query.keyword ?? "",
+      latitude: placeDetails?.latitude ?? '0.00',
+      longitude: placeDetails?.longitude ?? '0.00',
+      seed: getRandomSeed(),
+    };
 
-  try {
-    let response;
+    let response = [];
+    let totalItems = 0;
 
     if (category === "all") {
-      //Array of promises
-      const promises = [
-        axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('tattoo'), searchParam(fetchParams)),
-        axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('flash'), searchParam(fetchParams))
-      ];
-    
-      // Use Promise.all to wait for both API calls to complete
-      response = await Promise.all(promises);
-      console.log(response.data ,"cpkdspkc")
+      try {
+        const [tattooFetch, flashFetch] = await Promise.all([
+          axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('tattoo'), fetchMulticategory({
+            ...fetchParams,
+            category: "tattoo",
+          })),
+          axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('flash'), fetchMulticategory({
+            ...fetchParams,
+            category: "flash",
+          }))
+        ]);
+
+        const tattooRes = tattooFetch.data;
+        const flashRes = flashFetch.data;
+
+        const shuffledResults = [
+          ...tattooRes.rows.hits,
+          ...flashRes.rows.hits,
+        ];
+        response = shuffledResults;
+        totalItems = tattooRes.rows.total.value + flashRes.rows.total.value;
+      } catch (error) {
+      }
     } else {
-      // For other categories, proceed with a single API call
-      response = await axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY(category), searchParam(fetchParams));
+      try {
+        const res = await axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY(category), searchParam(fetchParams));
+        response = res.data.rows.hits;
+        totalItems = res.data.rows.total.value;
+      } catch (error) {
+      }
     }
-   //
 
     return {
       props: {
-        data:[],
+        data: response,
         currentTab: category,
         pageNo: 0,
-        totalItems:'111',
+        totalItems,
         searchKey: query.keyword ?? "",
         selectedStyle: query.style ?? "",
-        lat: placeDetails?.latitude ?? "0.00",
-        lon: placeDetails?.longitude ?? "0.00",
+        lat: placeDetails?.latitude ?? '0.00',
+        lon: placeDetails?.longitude ?? '0.00',
         locale,
         seed: fetchParams.seed,
         slugIds: styleId,
       },
     };
   } catch (error) {
-    console.error(error);
     return {
-      notFound: true,
+      props: {
+        data: [],
+        currentTab: null,
+        pageNo: 0,
+        totalItems: 0,
+        searchKey: query.keyword ?? "",
+        selectedStyle: query.style ?? "",
+        lat: '0.00',
+        lon: '0.00',
+        locale,
+        seed: getRandomSeed(),
+        slugIds: [],
+      },
     };
   }
 }

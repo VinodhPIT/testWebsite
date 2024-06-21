@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import {
-
-  analyticsCustomerCountWithFIlter,
-  analyticsCustomerLeadSourceCountWithFIlter,
-} from "@/pages/api/customerAnalytics.service"; // Importing analytics services
 
 import useTranslation from "next-translate/useTranslation";
-import { downloadExcel } from "@/pages/api/download.service"; // Importing download service
+
+import { downloadExcel } from "@/pages/api/download.service";
 import CountDisplayCard from "../common/countDisplayCard";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 const Apitype = {
   // Object defining different types of analytics
@@ -88,14 +87,15 @@ export default function CustomerDetails({ initialCounts, token }) {
     const toDate = to ? `${to?.year}-${to?.month > 9 ? to?.month : `0${to?.month}`}-${to?.day > 9 ? to?.day : `0${to?.day}`}` : null;
     if (fromDate && toDate) {
       if (key === "joinedFromWeb" || key === "joinedFromApp") {
-        const res = await analyticsCustomerLeadSourceCountWithFIlter({
-          startDate: fromDate,
-          endDate: toDate
-        }, token);
+        const res = await axiosInstance.get(API_URL.ANALYTICS_CUSTOMER.CUSTOEMR_FILTER_BY_DATE({
+             startDate: fromDate,
+            endDate: toDate
+           }));
+
         setCountData({
           ...countData,
-          ...(key === "joinedFromApp" && { joinedFromApp: res.filter((custData) => custData.lead_source === "APP").length }),
-          ...(key === "joinedFromWeb" && { joinedFromWeb: res.filter((custData) => custData.lead_source === "WEB").length })
+          ...(key === "joinedFromApp" && { joinedFromApp: res.data.filter((custData) => custData.lead_source === "APP").length }),
+          ...(key === "joinedFromWeb" && { joinedFromWeb: res.data.filter((custData) => custData.lead_source === "WEB").length })
         })
         setDateRange({
           ...dateRange,
@@ -105,14 +105,15 @@ export default function CustomerDetails({ initialCounts, token }) {
           }
         });
       } else {
-        const res = await analyticsCustomerCountWithFIlter({
-          type: Apitype[key],
-          startDate: fromDate,
-          endDate: toDate
-        }, token);
+       
+          const res = await axiosInstance.get(API_URL.ANALYTICS_CUSTOMER.FILTER_BY_TYPE({
+            type: Apitype[key],
+            startDate: fromDate,
+            endDate: toDate
+          }))
         setCountData({
           ...countData,
-          [key]: res[Apitype[key]]
+          [key]: res.data[Apitype[key]]
         });
         setDateRange({
           ...dateRange,

@@ -12,7 +12,6 @@ import styles from "@/components/styles/listing.module.css";
 
 
 export default function Tattoo({ data }) {
-  console.log(data[0],"jcdojvpfvopjopjvodpfv")
   const { router } = useNavigation();
   const { t } = useTranslation();
 

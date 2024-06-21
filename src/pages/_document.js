@@ -5,9 +5,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta http-equiv="x-ua-compatible" content="ie=edge" />
+          {/* <meta http-equiv="x-ua-compatible" content="ie=edge" />
     
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> */}
 
           <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"

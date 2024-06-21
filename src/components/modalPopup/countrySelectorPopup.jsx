@@ -43,14 +43,13 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     setCountry(countriesData);
   }, []);
 
-  const chooseLanguage = async (id, domain, li) => {
-    await setLanguage(`${domain}-${li}`);
+  const chooseLanguage = async ( countryCode, lng) => {
+    await setLanguage(`${countryCode}-${lng}`);
     closeModal();
-    const newUrl = `/${domain}-${li}${router.asPath}`;
+    const newUrl = `/${countryCode}-${lng}${router.asPath}`;
     router.replace(newUrl);
-
-    fetchStyle(li);
-    fetchAll(domain);
+    fetchStyle();
+    fetchAll(countryCode);
   };
 
   return (
@@ -93,7 +92,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                               ? styles.activeCountry
                               : styles.inActivecountry
                           }
-                          onClick={() => chooseLanguage(e.id, e.domain, e.lng)}
+                          onClick={() => chooseLanguage(e.countryCode, e.lng)}
                         >
                           <Image
                             alt={`${e.country}${"-"}${e.language}`}

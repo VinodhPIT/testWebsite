@@ -7,16 +7,14 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import {
-  fetchCategoryData,
-  fetchMultiData,
-  getStyles,
-} from "@/pages/api/web.service";
+import { getStyles } from "@/pages/api/web.service";
 import { getUrl } from "@/utils/getUrl";
 
 import { Parameters } from "@/utils/params";
 
-
+import API_URL from "@/apiConfig/api.config";
+import {axiosInstance} from "@/apiConfig/axios.instance";
+import { searchParam, fetchMulticategory } from "@/helpers/helper";
 
 const initialState = {
   address: "Location",
@@ -110,8 +108,8 @@ const reducer = (state, action) => {
         ...state,
         categoryCollection:
           state.currentTab === "all"
-            ? [...state.categoryCollection, ...action.payload.data]
-            : [...state.categoryCollection, ...action.payload.rows.hits],
+            ? [...state.categoryCollection, ...action.payload]
+            : [...state.categoryCollection, ...action.payload],
       };
 
     case "STYLE_COLLECTION":
@@ -147,7 +145,6 @@ export const GlobalStateProvider = ({ children }) => {
   const [selectedIds, setSelectedIds] = useState([]);
   const [searchState, setSearchState] = useState({
     query: "",
-
   });
 
   useEffect(() => {
@@ -203,13 +200,38 @@ export const GlobalStateProvider = ({ children }) => {
 
       let responseData;
       if (state.currentTab === "all") {
-        responseData = await fetchMultiData(requestData);
+        const [tattooFetch, flashFetch] = await Promise.all([
+          axiosInstance.post(
+            API_URL.SEARCH.SEARCH_BY_CATRGORY("tattoo"),
+            fetchMulticategory({
+              ...requestData,
+            })
+          ),
+          axiosInstance.post(
+            API_URL.SEARCH.SEARCH_BY_CATRGORY("flash"),
+            fetchMulticategory({
+              ...requestData,
+            })
+          ),
+        ]);
+
+        const tattooRes = tattooFetch.data;
+        const flashRes = flashFetch.data;
+        const shuffledResults = [...tattooRes.rows.hits, ...flashRes.rows.hits];
+        responseData = shuffledResults;
+
       } else {
-        responseData = await fetchCategoryData(requestData);
+        const res = await axiosInstance.post(
+          API_URL.SEARCH.SEARCH_BY_CATRGORY(state.currentTab),
+          searchParam({ ...requestData })
+        );
+        responseData = res.data.rows.hits;
       }
 
       dispatch({ type: "LOAD_MORE", payload: responseData });
-    } catch (error) {}
+    } catch (error) {
+      // console.log(error,"csdjj")
+    }
   };
 
   const onSearch = async (
@@ -226,15 +248,14 @@ export const GlobalStateProvider = ({ children }) => {
 
   const styleCollection = async () => {
     try {
-      let responseData = await getStyles();
+      const response = await axiosInstance.get(
+        API_URL.SEARCH.GET_STYLE_ALL
+      );
 
-      dispatch({ type: "STYLE_COLLECTION", payload: responseData.data });
+
+      dispatch({ type: "STYLE_COLLECTION", payload: response.data.data });
     } catch (error) {}
   };
-
-
-
-  
 
   return (
     <GlobalStateContext.Provider

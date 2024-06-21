@@ -34,10 +34,12 @@ export default function ExploreTattoos({ data, styleName, slug }) {
     transformValue,
   } = UseSliderSettings(isSmallDevice, data);
 
+ 
+
+
 
   const updateTab = async () => {
     await getUrl("tattoo", "", slug, "", router);
-    // Check for duplicates and remove them
     const updatedIds = [...new Set([...selectedIds, slug])];
     setSelectedIds(updatedIds);
   };

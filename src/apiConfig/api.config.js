@@ -16,7 +16,7 @@ const API_URL = {
      REQUEST_SAVE :`/web/api/customer-request/save`,
      CUSTOMER_REQUEST:`/web/api/customer-request/detail?artist_uid=${1}`,
      STYLE_LIST:"/web/api/style/detail",
-     TATTOO_LIST:(lng)=>`/web/api/explore/tattoo/details?country_code=${lng}`,
+     TATTOO_LIST:(countryCode)=>`/web/api/explore/tattoo/details?country_code=${countryCode}`,
      GET_COUNTRY_CODE:'/web/api/customer-request/country/list',
      GET_SINGLE_STYLE_DETAIL:(styleId)=>`/web/api/style/single/detail?style_uid=${styleId}`
   },

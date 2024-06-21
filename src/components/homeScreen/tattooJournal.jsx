@@ -8,14 +8,14 @@ import useTranslation from "next-translate/useTranslation";
 import useWindowResize from "@/hooks/useWindowSize";
 
 
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL } from "@/constants/constants";
 import { JournalSliderSettings } from "@/utils/sliderUtils";
 
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./styles/style.module.css";
+import styles from "./styles/journal.module.css";
 
 
 export default function ListingPage({ data}) {

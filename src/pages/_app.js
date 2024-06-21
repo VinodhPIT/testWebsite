@@ -19,6 +19,8 @@ import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
 
+import { AxiosProvider } from '@/apiConfig/axios.instance'; // Adjust the import path as needed
+
 
 NProgress.configure({ showSpinner: false });
 
@@ -98,6 +100,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+     <AxiosProvider>
       <SessionProvider session={pageProps.session}>
         <GlobalStateProvider>
           <div className={figtree.className}>
@@ -112,6 +115,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </GlobalStateProvider>
       </SessionProvider>
+      </AxiosProvider>
     </>
   );
 }

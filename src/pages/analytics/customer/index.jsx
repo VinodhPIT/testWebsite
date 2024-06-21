@@ -1,28 +1,31 @@
 import React, { useEffect, useRef } from "react";
-import { useSession } from "next-auth/react";
-import {
-  analyticsCustomerCount,
-  analyticsCustomerLeadSourceCount,
-} from "@/pages/api/customerAnalytics.service";
+import Head from "next/head";
+
+import { useSession, getSession } from "next-auth/react";
+import useTranslation from "next-translate/useTranslation";
+
 import Header from "@/analyticsComponents/common/header";
 import CustomerDetails from "@/analyticsComponents/customer/customerDetails";
 import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import PieChart from "@/analyticsComponents/common/chart";
 import CustomerConversion from "@/analyticsComponents/customer/customerConversion";
-import useRevenueStore from "@/store/customerAnalytics/revenueList";
-import { getSession } from "next-auth/react";
 import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
 import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
-import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
 import CustomerContactTime from "@/analyticsComponents/customer/customerContactTime";
+
+import useRevenueStore from "@/store/customerAnalytics/revenueList";
+
 import {
   GET_COLOR,
   GENDER_COUNT_KEYS_MAPPING,
   LABEL,
 } from "@/constants/sharedConstants";
 
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 export default function Customer({ data }) {
+
   const { revenue, loading, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
@@ -36,6 +39,7 @@ export default function Customer({ data }) {
   useEffect(() => {
     fetchRevenue();
   }, [fetchRevenue]);
+  
 
   return (
     <>
@@ -117,7 +121,7 @@ export default function Customer({ data }) {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
                 {data.role === "Analytic Admin" && (
-                  <CustomerConversion token={data.sessionToken} />
+                  <CustomerConversion  />
                 )}
               </div>
             </div>
@@ -129,37 +133,66 @@ export default function Customer({ data }) {
 }
 
 export async function getServerSideProps(context) {
+  // Get the user session
   const session = await getSession(context);
 
   try {
-    const [data, customerJoinigData] = await Promise.all([
-      analyticsCustomerCount(session),
-      analyticsCustomerLeadSourceCount(session),
+    // Configure axios instance with authorization header
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${session.user.myToken}`,
+      },
+    };
+
+    const [customerCountResponse, customerDetailsResponse] = await Promise.all([
+      axiosInstance.get(
+        API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_COUNT,
+        axiosConfig
+      ),
+      axiosInstance.get(
+        API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_DETAILS,
+        axiosConfig
+      ),
     ]);
+
+    // Destructured necessary data
+    const {
+      contacted_with_no_offer: contactedWithNoOffer = 0,
+      deleted = 0,
+      gender = 0,
+      joined_from_app: joinedFromApp = 0,
+      joined_from_website: joinedFromWeb = 0,
+      customer_no_offer_completed: noCompletedOffer = 0,
+      no_contacted: notContacted = 0,
+      referral_used_customer: referralUsedCustomers = 0,
+      total_count: totalCustomers = 0,
+      voucher_used_customer: voucherUserCustomers = 0,
+    } = customerCountResponse.data || {};
+
+    const chartData = customerDetailsResponse.data || [];
 
     return {
       props: {
         data: {
           role: session.user.role ?? "",
-          chartData: customerJoinigData ?? [],
-          contactedWithNoOffer: data.contacted_with_no_offer || 0,
-          deletedCustomers: data.deleted || 0,
-          genderCount: data.gender || 0,
-          joinedFromApp: data.joined_from_app || 0,
-          joinedFromWeb: data.joined_from_website || 0,
-          noCompletedOffer: data.customer_no_offer_completed || 0,
-          notContacted: data.no_contacted || 0,
-          referralUsedCustomers: data.referral_used_customer || 0,
+          chartData,
+          contactedWithNoOffer,
+          deletedCustomers: deleted,
+          genderCount: gender,
+          joinedFromApp,
+          joinedFromWeb,
+          noCompletedOffer,
+          notContacted,
+          referralUsedCustomers,
           sessionToken: session.user.myToken ?? "",
-          totalCustomers: data.total_count || 0,
-          voucherUserCustomers: data.voucher_used_customer || 0,
+          totalCustomers,
+          voucherUserCustomers,
         },
       },
     };
   } catch (error) {
-
-    
-  
+    // Log the error if API request fails
+    console.error("Error fetching analytics data:", error);
     return {
       props: {
         data: null,

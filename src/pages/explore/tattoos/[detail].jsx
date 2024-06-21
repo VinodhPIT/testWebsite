@@ -2,28 +2,29 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
-import styles from "../tattoodetail.module.css";
-import { fetchTattooDetail ,fetchArtistDetail } from "@/apiConfig/webService";
-import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  BLUR_URL,
-} from "@/constants/constants";
-
-import { useGlobalState } from "@/context/Context";
-import SearchField from "@/components/exploreScreens/searchField";
 import { useRouter } from "next/router";
-import style from "@/pages/explore/search.module.css";
-import { TattooSearchModal } from "@/utils/modalUtils";
-import { useModal } from "@/utils/modalUtils";
+
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/exploreScreens/SearchPanel";
-import myPromise from "@/utils/myPromise";
-import Loader from "@/components/loading/loader";
+
 import useScrollToTop from "@/hooks/useScrollToTop";
 
-export default function Detail({ data, status, locale }) {
+import { useGlobalState } from "@/context/Context";
+import { TattooSearchModal, useModal } from "@/utils/modalUtils";
+import myPromise from "@/utils/myPromise";
+import { APP_LINK_APPLE, APP_LINK_GOOGLE, BLUR_URL } from "@/constants/constants";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+import SearchField from "@/components/exploreScreens/searchField";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import Loader from "@/components/loading/loader";
+
+import styles from "../tattoodetail.module.css";
+import style from "@/pages/explore/search.module.css";
+
+
+export default function Detail({ data, locale }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
   const {
@@ -64,11 +65,13 @@ export default function Detail({ data, status, locale }) {
       const fetchData = async () => {
         setLoading(true);
         try {
-          const res = await fetchArtistDetail(data.artist.slug);
 
-          setTattoo(res.data.tattoo);
-          setStyle(res.data.style);
-          setLocation(res.data.studio);
+          const res = await axiosInstance.get(API_URL.SEARCH.GET_ARTIST_DETAIL(data.artist.slug))
+           setTattoo(res.data.data.tattoo);
+           setStyle(res.data.data.style);
+           setLocation(res.data.data.studio);
+
+
         } catch (error) {}
         setLoading(false);
       };
@@ -354,9 +357,9 @@ export default function Detail({ data, status, locale }) {
 
 export async function getServerSideProps(context) {
   try {
-    const data = await fetchTattooDetail(context.query.detail);
+    const res = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(context.query.detail))
 
-    if (!data.data) {
+    if (!res.data) {
       return {
         notFound: true,
       };
@@ -364,7 +367,7 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        data: data.data,
+        data: res.data.data,
         status: true,
         locale: context.locale,
       },

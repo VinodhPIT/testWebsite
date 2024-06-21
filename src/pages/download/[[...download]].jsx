@@ -6,8 +6,9 @@ import { useNavigation } from "@/hooks/useRouter";
 import Klarna from "@/marketingScreens/KlarnaPage/Klarna";
 import Voucher from "@/marketingScreens/VoucherPage/Voucher";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
-import { referralCode } from "../api/web.service";
 
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 
 function Download({ data, noData }) {
@@ -57,28 +58,35 @@ function Download({ data, noData }) {
 
 export default Download;
 
+
+
+
 export async function getServerSideProps(context) {
   const { query } = context;
   try {
     if (query.type === "campaign" && query.influencer !== undefined) {
-      const results = await referralCode(query.influencer);
+    
+      const response = await axiosInstance.get(API_URL.SEARCH.GET_REFERRAL_CODE(query.influencer));
+      
       return {
         props: {
-          data: results.data ?? "",
-          noData: results.data ?? true,
+          data: response.data?.data ?? "",
+          noData: !response.data,
         },
       };
     } else {
       return {
         props: {
-          data: "",
+          data:""
         },
       };
     }
   } catch (error) {
+    console.error('Error fetching referral code:', error);
     return {
       props: {
-        data: null,
+        noData: true,
+        error: error.message,
       },
     };
   }

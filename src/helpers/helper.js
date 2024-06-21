@@ -1,5 +1,5 @@
 import moment from "moment";
-
+import {getStyles} from '@/apiConfig/webService'
 
 export const MAX_RANDOM = 3409357923759259;
 export const MIN_RANDOM = 3;

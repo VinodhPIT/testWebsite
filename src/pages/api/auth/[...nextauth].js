@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import axiosInstance from "@/apiConfig/axios.instance";
+
+import {axiosInstance} from "@/apiConfig/axios.instance";
 import API_URL from '@/apiConfig/api.config';
 
 const authOptions = {
@@ -15,16 +16,8 @@ const authOptions = {
         try {
           const { username, password } = credentials;
           const value = { username, password };
-
-          // Use Axios for making the API request
-          const response = await axiosInstance.post(
-            `${process.env.apiDomain}${API_URL.ANALYTICS_LOGIN.LOGIN}`,
-            value
-
-          );
-
+          const response = await axiosInstance.post(`${API_URL.ANALYTICS_LOGIN.LOGIN}`, value)
           const user = response.data;
-
           if (user.message === "Login successful") {
             const { access_token, scope, ...userData } = user.data;
             // Return the user data along with the additional information
