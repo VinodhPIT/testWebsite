@@ -7,10 +7,9 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import { getStyles } from "@/pages/api/web.service";
 import { getUrl } from "@/utils/getUrl";
 
-import { Parameters } from "@/utils/params";
+import { Parameters} from "@/constants/index";
 
 import API_URL from "@/apiConfig/api.config";
 import {axiosInstance} from "@/apiConfig/axios.instance";

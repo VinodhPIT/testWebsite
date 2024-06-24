@@ -1,5 +1,6 @@
-// utils/buttonConfig.js
-const pagesWithoutSwitcher = [
+// src/config/pagesWithoutSwitcher.js
+
+export const pagesWithoutSwitcher = [
     "/journal",
     "/explore/[[...slug]]",
     "/404",
@@ -13,6 +14,4 @@ const pagesWithoutSwitcher = [
     "/book-tattoo-artists",
     "/tattoo-after-care",
   ];
-  
-  export default pagesWithoutSwitcher;
   

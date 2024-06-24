@@ -4,10 +4,12 @@ import React, { useEffect } from "react";
 import  {useNavigation} from '@/hooks/useRouter';
 
 import useTranslation from "next-translate/useTranslation";
+
 import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
 import { useGlobalState } from "@/context/Context";
 
-import { CustomerRequestSize } from "@/utils/customerRequestType";
+import { CustomerRequestSize} from "@/constants/index";
+
 
 const TattooSize = () => {
   const {goBack} =useNavigation()
@@ -24,8 +26,6 @@ const TattooSize = () => {
         fetchArtistList();
     }
 }, []); 
-
-
 
 
 

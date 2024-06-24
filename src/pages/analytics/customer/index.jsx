@@ -15,12 +15,9 @@ import CustomerContactTime from "@/analyticsComponents/customer/customerContactT
 
 import useRevenueStore from "@/store/customerAnalytics/revenueList";
 
-import {
-  GET_COLOR,
-  GENDER_COUNT_KEYS_MAPPING,
-  LABEL,
-} from "@/constants/sharedConstants";
+import { GET_COLOR, GENDER_COUNT_KEYS_MAPPING ,LABEL} from "@/constants/index";
 
+ 
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
 
@@ -40,7 +37,6 @@ export default function Customer({ data }) {
     fetchRevenue();
   }, [fetchRevenue]);
   
-
   return (
     <>
       <Head>
@@ -50,7 +46,7 @@ export default function Customer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <CustomerDetails initialCounts={data} token={data.sessionToken} />
+        <CustomerDetails initialCounts={data} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
@@ -193,7 +189,6 @@ export async function getServerSideProps(context) {
           noCompletedOffer: customerCountData.customer_no_offer_completed || 0,
           notContacted: customerCountData.no_contacted || 0,
           referralUsedCustomers: customerCountData.referral_used_customer || 0,
-          sessionToken: session.user.myToken ?? "",
           totalCustomers: customerCountData.total_count || 0,
           voucherUserCustomers: customerCountData.voucher_used_customer || 0,
         },

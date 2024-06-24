@@ -15,7 +15,8 @@ import Modal1 from "@/components/modalPopup/existingUser";
 import API_URL from '@/apiConfig/api.config'
 
 import { getCountry } from "@/helpers/helper";
-import { CustomerRequestSize, BodyPart } from "@/utils/customerRequestType";
+
+import { CustomerRequestSize, BodyPart } from "@/constants/index";
 
 
 const Review = () => {

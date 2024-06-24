@@ -7,10 +7,10 @@ import useTranslation from "next-translate/useTranslation";
 import useSticky from '@/hooks/useSticky';
 
 import { useGlobalState } from "@/context/Context";
-import { Parameters } from "@/utils/params";
+import { Parameters } from "@/constants/index";
 import { getUrl } from "@/utils/getUrl";
-import { getPlaceDetails } from "@/utils/placesApi";
-import { categoryMapping } from "@/constants/categoryMappings";
+import { getPlaceDetails } from "@/lib/googlePlaces";
+import { categoryMapping} from "@/constants/index";
 import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
 import { searchParam, fetchMulticategory } from "@/helpers/helper";
 

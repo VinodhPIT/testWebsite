@@ -9,8 +9,8 @@ import useTranslation from "next-translate/useTranslation";
 import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 
-import links from "@/constants/linkData";
-import generateLinkComponent from "@/utils/linkGenerator";
+import {Links} from "@/constants/index";
+import generateLinkComponent from "@/routes/generateLinkComponent";
 import { useModal } from "@/utils/modalUtils";
 
 export default function Header({
@@ -141,7 +141,7 @@ export default function Header({
                 </div>
                 <div className="nav_block">
                   <ul className="nav main_nav navbar_collapse collapse">
-                    {links.map((link) => (
+                    {Links.map((link) => (
                       <li key={link.id} className="nav_item">
                         <Link
                           href={`/${router.locale}${link.url}`}

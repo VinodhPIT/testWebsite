@@ -1,4 +1,4 @@
-const pagesWithoutFooter = [
+export const pagesWithoutFooter = [
     "/analytics/dashboard",
     "/analytics/login",
     "/analytics/customer",
@@ -11,4 +11,5 @@ const pagesWithoutFooter = [
     
   ];
   
-  export default pagesWithoutFooter;
+
+  

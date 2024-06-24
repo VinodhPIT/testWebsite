@@ -19,7 +19,7 @@ import {
   GET_COLOR,
   GENDER_COUNT_KEYS_MAPPING,
   LABEL,
-} from "@/constants/sharedConstants";
+} from "@/constants/index";
 
 export default function ArtistAnalytics({ data: initialData }) {
 

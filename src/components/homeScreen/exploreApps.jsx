@@ -10,7 +10,6 @@ import {
 import ImageSlider from "@/components/slider/ImageSlider";
 import useWindowResize from "@/hooks/useWindowSize";
 import useTranslation from "next-translate/useTranslation";
-import { getLocaleProps } from "@/utils/getlocale";
 import { useGlobalState } from "@/context/Context";
 import { useRouter } from 'next/router'
 

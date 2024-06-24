@@ -17,7 +17,6 @@ import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
-import { getLocaleProps } from "@/utils/getlocale";
 
 
 export default function Dictionary({ }) {
@@ -561,11 +560,3 @@ export default function Dictionary({ }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { props } = await getLocaleProps(context);
-  return {
-    props: {
-      locale: props.locale,
-    },
-  };
-}

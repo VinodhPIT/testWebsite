@@ -1,4 +1,4 @@
-// linkGenerator.js
+
 import Link from 'next/link';
 
 const generateLinkComponent = (router, theme, t) => {

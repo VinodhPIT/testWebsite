@@ -12,8 +12,8 @@ import { useRouter } from "next/router";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
-import pagesWithoutFooter from "@/utils/footerConfig";
-import pagesWithoutSwitcher from "@/utils/buttonConfig";
+import {pagesWithoutFooter ,pagesWithoutSwitcher} from "@/config/index";
+
 
 export default function Footer() {
   const { t } = useTranslation();

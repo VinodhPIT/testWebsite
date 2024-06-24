@@ -1,8 +1,7 @@
 import moment from "moment";
 import {getStyles} from '@/apiConfig/webService'
+import { MAX_RANDOM,MIN_RANDOM} from "@/constants/index";
 
-export const MAX_RANDOM = 3409357923759259;
-export const MIN_RANDOM = 3;
 
 export const prepareRequest = (parameters) => {
   const request = {
@@ -105,6 +104,7 @@ export const formatDate = (date) => {
 
 export const startYear = 2020;
 export const currentYear = new Date().getFullYear();
+
 export const years = Array.from(
   { length: currentYear - startYear + 1 },
   (_, index) => startYear + index

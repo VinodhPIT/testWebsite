@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 
 import useWindowResize from "@/hooks/useWindowSize";
-import generateLinkComponent from "@/utils/linkGenerator";
+import generateLinkComponent from "@/routes/generateLinkComponent";
 import getButtonClass from "@/utils/getButtonClass"; 
 import { useModal } from "@/utils/modalUtils";
 
