@@ -1,6 +1,9 @@
 import moment from "moment";
-import {getStyles} from '@/apiConfig/webService'
+
 import { MAX_RANDOM,MIN_RANDOM} from "@/constants/index";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 
 export const prepareRequest = (parameters) => {
@@ -86,9 +89,10 @@ export const fetchMulticategory = (parameters) => {
 
 
 export const getMatchingStyles = async (slugsToCheck) => {
-  const stylesArray = await getStyles();
+  const response = await axiosInstance.get(API_URL.SEARCH.GET_STYLE_ALL);
+  const {data} =response  
   return slugsToCheck.map((style) => {
-    const matchingStyle = stylesArray.data.find(
+    const matchingStyle = data.data.find(
       (styleObj) => styleObj.slug === style
     );
     return matchingStyle ? matchingStyle.id : null;
