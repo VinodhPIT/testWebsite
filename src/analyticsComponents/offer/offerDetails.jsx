@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
-import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import { downloadExcel } from "@/pages/api/download.service";
-import CountDisplayCard from "../common/countDisplayCard";
+
 import useTranslation from "next-translate/useTranslation";
+import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
+
+import CountDisplayCard from "../common/countDisplayCard";
+
 import useAnalyticsStore from "@/store/offerAnalytics/calenderFilter";
+import  useDownloadExcel  from "@/store/downloadExcel/downloadExcel";
 
 const initialValue = {
   scheduled: {
@@ -36,6 +39,8 @@ export default function OfferDeatils({ offerCount, token }) {
     resetCalender,
     fetchInitialData,
   } = useAnalyticsStore();
+
+  const {downloadExcel} = useDownloadExcel()
 
   // Fetch initial data on component mount
   useEffect(() => {

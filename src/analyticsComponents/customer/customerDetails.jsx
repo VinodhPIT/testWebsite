@@ -3,7 +3,7 @@ import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 
 import useTranslation from "next-translate/useTranslation";
 
-import { downloadExcel } from "@/pages/api/download.service";
+import  useDownloadExcel  from "@/store/downloadExcel/downloadExcel";
 import CountDisplayCard from "../common/countDisplayCard";
 
 import API_URL from "@/apiConfig/api.config";
@@ -62,18 +62,18 @@ const initialValue = {
   },
 };
 
-export default function CustomerDetails({ initialCounts, token }) {
+export default function CustomerDetails({ initialCounts }) {
   const [countData, setCountData] = useState(initialCounts);
   const [dateRange, setDateRange] = useState(initialValue);
   const [selectedDayRange, setSelectedDayRange] = useState(initialValue);
+  const {downloadExcel} = useDownloadExcel()
   const { t } = useTranslation();
 
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {
-    downloadExcel("/analytics/customer", type, startDate, endDate, token);
+    downloadExcel("/analytics/customer", type, startDate, endDate);
   };
-
 
 
   // Function to handle date filter
