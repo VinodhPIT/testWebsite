@@ -1,19 +1,19 @@
 import React from 'react'
 import Image from "next/image";
 
-import useWindowResize from "@/hooks/useWindowSize";
-import {
-    BLUR_URL,
-  } from "@/constants/constants";
-
 import useTranslation from "next-translate/useTranslation";
-import ImageSlider from "@/components/slider/singleImageSlider";
+
+import useWindowResize from "@/hooks/useWindowSize";
+import useOpenApp from '@/hooks/useOpenApp';
 
 
-export default function PaymentTypes({  title1, title2, title3, content1, content2, content3, leftSectionImage }) {
+import {BLUR_URL,} from "@/constants/constants";
+  
+
+export default function PaymentTypes({  title1, title2, title3}) {
     const { t } = useTranslation();
     const { isMobileView } = useWindowResize();
-
+    const { openApp } = useOpenApp();
     return (
         <section className="container_full">
             <div className="row g-0">
@@ -27,7 +27,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                     alt={t("common:homePage.TattooFinancing")} 
                                     width={277}
                                     height={549}
-                                    blurDataURL={blurDataURL}
+                                   blurDataURL={BLUR_URL}
                                     placeholder="blur"
                                     className="object_position_center mob_hidden"
                                 />
@@ -37,7 +37,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                     alt={t("common:homePage.TattooFinancing")} 
                                     width={122}
                                     height={242}
-                                    blurDataURL={blurDataURL}
+                                   blurDataURL={BLUR_URL}
                                     placeholder="blur"
                                     className="object_position_center desk_hidden"
                                 />
@@ -49,7 +49,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                     alt={t("common:homePage.TattooFinancing")} 
                                     width={278}
                                     height={448}
-                                    blurDataURL={blurDataURL}
+                                   blurDataURL={BLUR_URL}
                                     placeholder="blur"
                                     className="object_position_bottom mob_hidden"
                                 />
@@ -59,7 +59,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                     alt={t("common:homePage.TattooFinancing")} 
                                     width={122}
                                     height={197}
-                                    blurDataURL={blurDataURL}
+                                   blurDataURL={BLUR_URL}
                                     placeholder="blur"
                                     className="object_position_bottom desk_hidden"
                                 />
@@ -84,7 +84,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                         alt="Verified tattoo artists"
                                         priority
                                         placeholder="blur"
-                                        blurDataURL={blurDataURL}
+                                       blurDataURL={BLUR_URL}
                                         className="m_w_24 m_h_24 mr_15"
                                     />
                                     <div className="d_flex flex_direction_column">
@@ -102,7 +102,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                         alt="User-Friendly Interface"
                                         priority
                                         placeholder="blur"
-                                        blurDataURL={blurDataURL}
+                                       blurDataURL={BLUR_URL}
                                         className="m_w_24 m_h_24 mr_15"
                                     />
                                     <div className="d_flex flex_direction_column">
@@ -120,7 +120,7 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                         alt="Secure Transactions"
                                         priority
                                         placeholder="blur"
-                                        blurDataURL={blurDataURL}
+                                       blurDataURL={BLUR_URL}
                                         className="m_w_24 m_h_24 mr_15"
                                     />
                                     <div className="d_flex flex_direction_column">
@@ -129,12 +129,12 @@ export default function PaymentTypes({  title1, title2, title3, content1, conten
                                     </div>
                                 </div>
                             </div>
-                            <Link
-                                href=""
+                            <button
+                              onClick={openApp}
                                 className="button_primary align_self mt_30"
                                 >
                                 Get the app
-                            </Link>
+                            </button>
                         
                         </div>
                     </div>

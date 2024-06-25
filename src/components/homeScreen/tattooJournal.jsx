@@ -76,7 +76,7 @@ export default function ListingPage({ data}) {
                           height={320}
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           layout="responsive"
                         />
                       </div>

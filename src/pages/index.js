@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+import useOpenApp from '@/hooks/useOpenApp';
+
 import useTranslation from "next-translate/useTranslation";
-import { getOs } from "../lib/os-detector";
+
 import { useGlobalState } from "@/context/Context";
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
-
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
@@ -20,7 +21,6 @@ import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
 import Modal from "@/components/modalPopup/comingSoon"
 
-
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
@@ -29,15 +29,11 @@ import {
 import jsonData from "@/data/journal.json";
 
 
-
-export default function Home({isMobile}) {
-  const [qrCodeSrc, setQrCodeSrc] = useState('/PlayStore_QR.png');
-  const osName = getOs();
+export default function Home({}) {
   const router = useRouter();
-
   const { allListing  ,loading} = useDisplayAll();
   const { styleList  ,loader} = useStyleListing();
-
+  const { openApp } = useOpenApp();
 
   const {
     getAddress,
@@ -49,7 +45,7 @@ export default function Home({isMobile}) {
   
   const { t } = useTranslation();
 
-   
+
   function SwitchJournal(locale) {
     switch (locale) {
       case "gb-en":
@@ -60,12 +56,6 @@ export default function Home({isMobile}) {
         return null;
     }
   }
-
-
-  useEffect(() => {
-    const correctQRCode = osName === 'Mac OS' ? '/AppStore_QR.png' : '/PlayStore_QR.png';
-    setQrCodeSrc(correctQRCode);
-  }, [osName]);
 
 
   useEffect(() => {
@@ -107,7 +97,7 @@ export default function Home({isMobile}) {
                     objectFit="cover"
                     objectPosition="center top"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                   blurDataURL={BLUR_URL}
                     className="mob_hidden"
                   />
                   <Image
@@ -115,7 +105,7 @@ export default function Home({isMobile}) {
                     alt="Banner"
                     loading="lazy"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                   blurDataURL={BLUR_URL}
                     fill
                     objectFit="cover"
                     objectPosition="center top"
@@ -131,12 +121,16 @@ export default function Home({isMobile}) {
                       <p className="color_black_h mt_10 mb_40 m_mb_30  max_w_440 m_max_100">
                         {t("common:homePage.bannerContent")}
                       </p>
-                      <Link
-                        href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
+
+                      <button
+                        onClick={openApp}
+                        target="_blank"
                         className="button_primary mob_hidden"
                       >
                         Get our mobile app
-                      </Link>
+                      </button>
+
+
                       <Link href={APP_LINK_APPLE} target="_blank">
                         <Image
                           priority
@@ -145,10 +139,27 @@ export default function Home({isMobile}) {
                           width={134}
                           height={41}
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                         blurDataURL={BLUR_URL}
                           className="custom_download_icons desk_hidden"
                         />
                       </Link>  
+
+
+                      <Link href={APP_LINK_GOOGLE} target="_blank">
+                        <Image
+                          priority
+                          src={"/g-play-new.svg"}
+                          alt="GooglePlay"
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                           blurDataURL={BLUR_URL}
+                           
+                          className="custom_download_icons desk_hidden"
+                        />
+                      </Link>  
+
+
                     </div>
                   </div>
                 </div>
@@ -186,7 +197,6 @@ export default function Home({isMobile}) {
         content2={t("common:homePage.Navigate inckd effortlessly")}
         title3={t("common:homePage.Secure Transactions")}
         content3={t("common:homePage.Rest easy knowing")}
-        leftSectionImage="/verified_tattoo_artists_01.png"
       />
 
       {SwitchJournal(router.locale)}
