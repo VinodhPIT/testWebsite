@@ -222,7 +222,7 @@ header.fixed {
   right: 0;
   z-index: 1;    
   transform: translateY(0);
-  animation: fadeIn 0.6s ease-in-out forwards;
+  animation: fadeIn 0.1s ease-in-out forwards;
   border-bottom: 0;
 }
 
