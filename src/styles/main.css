@@ -346,6 +346,13 @@ ul.custom_list_view li img {
         width: 24px;
         height: 24px;
     }
+    .more_link {
+        margin-bottom: 10px;
+    }
+    .klarna_banner_button img {
+        width: 70px;
+        height: auto;
+    }
 }
 
 @media screen and (min-width: 601px) and (max-width: 767.98px) {
@@ -366,22 +373,20 @@ ul.custom_list_view li img {
     .mob_slider_left_none .custom_slider .slick-track .slick-slide:first-child.slick-active.slick-current .listing_gridItem {
       padding-left: 15px!important;
     }
+    .main_slider .custom_slider.custom_m_single_slider .slick-slide:first-child.slick-active.slick-current .listing_gridItem {
+        padding-left: 0!important;
+    }
     .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem {
         padding-right: 0;
-    }    
-    /*.mob_slider_left_none .custom_slider .slick-track .slick-slide:first-child.slick-active.slick-current .listing_gridItem .listing_grid_img_col {
-      padding-left: 15px!important;
-    }*/
-
-
-    /*.mob_slider_eql_h .custom_slider .slick-slide .listing_gridItem .listing_grid_img_col img{
-      aspect-ratio: 1 / 1;
     }
-    .mob_slider_eql_h .custom_slider .slick-slide .listing_gridItem a {
-        width: 100%;
-        height: 100%;
+
+    .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem .listing_grid_img_col img {
+        max-height: 240px;
     }
-    .mob_slider_eql_h .custom_slider .slick-slide .listing_gridItem  .listing_grid_img_col {
-        height: 100% !important;
-    }  */
+    .more_link {
+        font-size: 14px;
+        line-height: 17px;
+        min-width: 65px;
+        text-align: right;
+    }
   }

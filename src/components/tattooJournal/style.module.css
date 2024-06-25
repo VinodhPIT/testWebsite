@@ -65,3 +65,20 @@
     color: var(--black-500);
     text-decoration-line: none;
 }
+
+
+@media screen and (max-width: 767.98px) {
+    .listing_grid_content_wrap {
+        padding: 10px 0 0 0;
+    }    
+    .listing_grid_content_disc {
+        font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 5px;
+    }
+    .listing_grid_content_more a {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
+    }
+}
