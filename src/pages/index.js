@@ -1,11 +1,11 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import useOpenApp from '@/hooks/useOpenApp';
-
+import useOpenApp from "@/hooks/useOpenApp";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
 import useTranslation from "next-translate/useTranslation";
 
 import { useGlobalState } from "@/context/Context";
@@ -19,22 +19,20 @@ import TattooJournal from "@/components/homeScreen/tattooJournal";
 import PaymentTypes from "@/components/homeScreen/paymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
-import Modal from "@/components/modalPopup/comingSoon"
+import Modal from "@/components/modalPopup/comingSoon";
 
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
-
 export default function Home({}) {
   const router = useRouter();
-  const { allListing  ,loading} = useDisplayAll();
-  const { styleList  ,loader} = useStyleListing();
+  const { allListing, loading } = useDisplayAll();
+  const { styleList, loader } = useStyleListing();
   const { openApp } = useOpenApp();
-
+  const { appStoreLink, imageSrc } = useAppStoreLink();
   const {
     getAddress,
     clearStyleId,
@@ -42,9 +40,8 @@ export default function Home({}) {
     setSelectedIds,
     styleCollection,
   } = useGlobalState();
-  
-  const { t } = useTranslation();
 
+  const { t } = useTranslation();
 
   function SwitchJournal(locale) {
     switch (locale) {
@@ -56,7 +53,6 @@ export default function Home({}) {
         return null;
     }
   }
-
 
   useEffect(() => {
     router.replace(`/${router.locale}${router.asPath}`);
@@ -71,7 +67,6 @@ export default function Home({}) {
     styleCollection();
   }, []);
 
-
   return (
     <>
       <Head>
@@ -82,7 +77,6 @@ export default function Home({}) {
         />
         <meta name="keywords" content={t("common:homeScreenSEO.keyword")} />
       </Head>
-
 
       <section className="full_block_banner">
         <div class="row g-0">
@@ -97,7 +91,7 @@ export default function Home({}) {
                     objectFit="cover"
                     objectPosition="center top"
                     placeholder="blur"
-                   blurDataURL={BLUR_URL}
+                    blurDataURL={BLUR_URL}
                     className="mob_hidden"
                   />
                   <Image
@@ -105,12 +99,12 @@ export default function Home({}) {
                     alt="Banner"
                     loading="lazy"
                     placeholder="blur"
-                   blurDataURL={BLUR_URL}
+                    blurDataURL={BLUR_URL}
                     fill
                     objectFit="cover"
                     objectPosition="center top"
                     className="desk_hidden"
-                  />  
+                  />
                 </div>
                 <div className="banner_caption">
                   <div className="d_inline_block">
@@ -130,36 +124,22 @@ export default function Home({}) {
                         Get our mobile app
                       </button>
 
-
-                      <Link href={APP_LINK_APPLE} target="_blank">
+                      <Link href={appStoreLink} target="_blank">
                         <Image
                           priority
-                          src="/app-store-new.svg"
-                          alt="App store"
+                          src={imageSrc}
+                          alt={
+                            appStoreLink === APP_LINK_APPLE
+                              ? "App store"
+                              : "GooglePlay"
+                          }
                           width={134}
                           height={41}
                           placeholder="blur"
-                         blurDataURL={BLUR_URL}
+                          blurDataURL={BLUR_URL}
                           className="custom_download_icons desk_hidden"
                         />
-                      </Link>  
-
-
-                      <Link href={APP_LINK_GOOGLE} target="_blank">
-                        <Image
-                          priority
-                          src={"/g-play-new.svg"}
-                          alt="GooglePlay"
-                          width={134}
-                          height={41}
-                          placeholder="blur"
-                           blurDataURL={BLUR_URL}
-                           
-                          className="custom_download_icons desk_hidden"
-                        />
-                      </Link>  
-
-
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -187,8 +167,8 @@ export default function Home({}) {
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
-        loading={loader} 
-      />      
+        loading={loader}
+      />
 
       <PaymentTypes
         title1={t("common:homePage.Verified tattoo artists")}

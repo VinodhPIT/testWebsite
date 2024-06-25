@@ -1,19 +1,20 @@
 import React from 'react'
 import Image from "next/image";
-
+import Link from 'next/link'
 import useTranslation from "next-translate/useTranslation";
 
 import useWindowResize from "@/hooks/useWindowSize";
 import useOpenApp from '@/hooks/useOpenApp';
+import useAppStoreLink from "@/hooks/useAppStoreLink";
 
-
-import {BLUR_URL,} from "@/constants/constants";
+import {BLUR_URL,APP_LINK_APPLE} from "@/constants/constants";
   
 
 export default function PaymentTypes({  title1, title2, title3}) {
     const { t } = useTranslation();
     const { isMobileView } = useWindowResize();
     const { openApp } = useOpenApp();
+    const { appStoreLink, imageSrc } = useAppStoreLink();
     return (
         <section className="container_full">
             <div className="row g-0">
@@ -129,27 +130,29 @@ export default function PaymentTypes({  title1, title2, title3}) {
                                     </div>
                                 </div>
                             </div>
-                            <Link
-                                href=""
-                                className="button_primary align_self mt_30 mob_hidden"
-                                >
+                        
+                            <button onClick={openApp} className="button_primary align_self mt_30 mob_hidden">
                                 Get the app
-                            </Link>
-                            <Link 
-                                href={APP_LINK_APPLE} 
-                                target="_blank"
-                                className="m_mt_25 desk_hidden">
-                                <Image
-                                priority
-                                src="/app-store-new.svg"
-                                alt="App store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons"
-                                />
-                            </Link>  
+                            </button>
+                            
+                        
+                            <Link href={appStoreLink} target="_blank" className="m_mt_25 desk_hidden">
+                        <Image
+                          priority
+                          src={imageSrc}
+                          alt={
+                            appStoreLink === APP_LINK_APPLE
+                              ? "App store"
+                              : "GooglePlay"
+                          }
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={BLUR_URL}
+                          className="custom_download_icons"
+                        />
+                      </Link>
+
                         
                         </div>
                     </div>
