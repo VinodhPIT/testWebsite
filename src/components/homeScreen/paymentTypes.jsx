@@ -17,8 +17,8 @@ export default function PaymentTypes({  title1, title2, title3}) {
     return (
         <section className="container_full">
             <div className="row g-0">
-                <div className="col-md-6 col-sm-12 col-xs-12 block_bg_gray_250 offset-md-right-1">              
-                    <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content m_pt_10">
+                <div className="col-md-6 col-sm-12 col-xs-12 offset-md-right-1 m_order_2">              
+                    <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content m_pt_10 block_bg_gray_250">
                         <ul className="mobile_app_list">
                             <li className="align_item_center justify_content_end">
                                 <Image
@@ -67,12 +67,12 @@ export default function PaymentTypes({  title1, title2, title3}) {
                         </ul>  
                     </div>
                 </div>
-                <div className="col-md-5 col-sm-12 col-xs-12">
+                <div className="col-md-5 col-sm-12 col-xs-12 m_order_1">
                     <div className="position_relative w_100pc h_100pc m_min_h_inherit">
-                        <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center">
-                            <h2 className="color_gray_550 custom_fs_38 fw_900 mb_20">              
+                        <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pt_60 m_pb_30">
+                            <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_20 m_mb_15">              
                                 <span className="position_relative">
-                                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
+                                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
                                     inckd Mobile App</span>                           
                             </h2>
                             <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_15">
@@ -88,7 +88,7 @@ export default function PaymentTypes({  title1, title2, title3}) {
                                         className="m_w_24 m_h_24 mr_15"
                                     />
                                     <div className="d_flex flex_direction_column">
-                                        <h4 className="color_gray_550 custom_fs_22 lh_27 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                                        <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
                                             {title1}</h4>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ export default function PaymentTypes({  title1, title2, title3}) {
                                         className="m_w_24 m_h_24 mr_15"
                                     />
                                     <div className="d_flex flex_direction_column">
-                                        <h4 className="color_gray_550 custom_fs_22 lh_27 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">  
+                                        <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">  
                                             {title2}</h4>
                                     </div>
                                 </div>
@@ -124,17 +124,32 @@ export default function PaymentTypes({  title1, title2, title3}) {
                                         className="m_w_24 m_h_24 mr_15"
                                     />
                                     <div className="d_flex flex_direction_column">
-                                        <h4 className="color_gray_550 custom_fs_22 lh_27 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">                                             
+                                        <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">                                             
                                             {title3}</h4>
                                     </div>
                                 </div>
                             </div>
-                            <button
-                              onClick={openApp}
-                                className="button_primary align_self mt_30"
+                            <Link
+                                href=""
+                                className="button_primary align_self mt_30 mob_hidden"
                                 >
                                 Get the app
-                            </button>
+                            </Link>
+                            <Link 
+                                href={APP_LINK_APPLE} 
+                                target="_blank"
+                                className="m_mt_25 desk_hidden">
+                                <Image
+                                priority
+                                src="/app-store-new.svg"
+                                alt="App store"
+                                width={134}
+                                height={41}
+                                placeholder="blur"
+                                blurDataURL={blurDataURL}
+                                className="custom_download_icons"
+                                />
+                            </Link>  
                         
                         </div>
                     </div>

@@ -60,6 +60,28 @@
     white-space: nowrap;
 }
 
+@media screen and (max-width: 767.98px) {
+    .listing_grid_content_wrap {
+        padding: 10px 0;
+    }
+    .listing_grid_img_profile {
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+        min-height: 36px;
+        margin: 0 10px 0 0;
+    }
+    .listing_grid_profile_title { 
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .listing_grid_profile_address {
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .listing_gridItem {
         padding-left: 0;
