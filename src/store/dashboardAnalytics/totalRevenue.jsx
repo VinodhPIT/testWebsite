@@ -1,13 +1,18 @@
 import { create } from "zustand";
-import { offerDetails } from "@/apiConfig/offerAnalyticsService";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 const useTotalRevenue = create((set) => ({
   totalAmount: {},
   loading: false,
-  fetchTotalRevenue: async (token) => {
+  fetchTotalRevenue: async () => {
     try {
       set({ loading: true });
-      const response = await offerDetails(token);
-      const filter = response.filter(
+      
+      const response = await axiosInstance.get(API_URL.ANALYTICS_OFFER.GET_OFFER_DETAILS);
+
+      const filter = response.data.filter(
         (e) =>
           e.status === "completed" ||
           e.status === "cancelled" ||

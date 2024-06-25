@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React  from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-import styles from "./style.module.css";
+import Link from "next/link";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+
+import { BLUR_URL } from "@/constants/constants";
+
+import styles from "./style.module.css";
+
+
 export default function ThreeColumCarousel({
   title,
   title_sub,
@@ -153,7 +159,7 @@ export default function ThreeColumCarousel({
                             height={776}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             layout="responsive"
                             style={{
                               borderTopRightRadius: "9px",
@@ -176,7 +182,7 @@ export default function ThreeColumCarousel({
                               height={97}
                               loading="lazy"
                               placeholder="blur"
-                              blurDataURL={blurDataURL}
+                              blurDataURL={BLUR_URL}
                               layout="responsive"
                             />
                           </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import useStore from "@/store/cmsData/contentData";
 import { useRouter } from "next/router";
-import Loader from "@/components/loader";
+import Loader from "@/components/loading/loader";
 import useTranslation from "next-translate/useTranslation";
 
 export default function TermsConditions() {

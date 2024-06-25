@@ -1,5 +1,5 @@
 
-const links = [
+export const Links = [
     {
       id: 1,
       title: "common:menus.tattooSearch",
@@ -19,4 +19,3 @@ const links = [
   
   ];
   
-  export default links;

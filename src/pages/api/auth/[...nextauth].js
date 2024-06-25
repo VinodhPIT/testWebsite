@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import API_URL from '@/apiConfig/api.config'
+
+import {axiosInstance} from "@/apiConfig/axios.instance";
+import API_URL from '@/apiConfig/api.config';
 
 const authOptions = {
   session: {
@@ -13,21 +15,9 @@ const authOptions = {
       async authorize(credentials) {
         try {
           const { username, password } = credentials;
-          let value = { username, password };
-
-          const response = await fetch(
-            `${process.env.apiDomain}${API_URL.ANALYTICS_LOGIN.LOGIN}`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(value),
-            }
-          );
-
-          const user = await response.json();
-
+          const value = { username, password };
+          const response = await axiosInstance.post(`${API_URL.ANALYTICS_LOGIN.LOGIN}`, value)
+          const user = response.data;
           if (user.message === "Login successful") {
             const { access_token, scope, ...userData } = user.data;
             // Return the user data along with the additional information
@@ -35,11 +25,10 @@ const authOptions = {
               myToken: access_token,
               scope: scope,
               name: user.username,
-              role:user.role
+              role: user.role
             };
           }
         } catch (error) {
-          
           throw new Error("Authentication failed");
         }
       },
@@ -49,7 +38,7 @@ const authOptions = {
     signIn: "/analytics/login",
     signOut: "/analytics/login",
   },
-    secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   
   callbacks: {
     async jwt(params) {
@@ -58,7 +47,6 @@ const authOptions = {
         params.token.scope = params.user.scope;
         params.token.name = params.user.name;
         params.token.role = params.user.role;
-        
       }
       return params.token;
     },

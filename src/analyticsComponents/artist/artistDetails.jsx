@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+
 import useTranslation from "next-translate/useTranslation";
+
 import CountDisplayCard from "../common/countDisplayCard";
-import useAnalyticsStore from "@/store/artistAnalytics/calenderFilter"; // This is a custom hook for managing analytics data
-import { useEffect } from "react";
-import { downloadExcel } from "@/apiConfig/downloadService";
+
+import useAnalyticsStore from "@/store/artistAnalytics/calenderFilter"; 
+import  useDownloadExcel  from "@/store/downloadExcel/downloadExcel";
+
 // Initial values for date ranges
 const initialValue = {
   artistCompletedOffers: {
@@ -64,11 +67,14 @@ export default function ArtistDetails({ initialCounts, token }) {
   } = useAnalyticsStore();
 
   const { t } = useTranslation();
+  const {downloadExcel} = useDownloadExcel()
 
   // Fetch initial data on component mount
   useEffect(() => {
-    fetchInitialData(initialCounts, initialValue, token);
+    fetchInitialData(initialCounts, initialValue);
   }, []);
+
+  
 
   // Function to handle downloading Excel data
   const handleDownload = (type, startDate, endDate) => {

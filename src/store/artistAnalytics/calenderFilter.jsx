@@ -1,20 +1,22 @@
 import { create } from "zustand";
-import { analyticsArtistCountWithFIlter } from "@/apiConfig/artistAnalyticsService";
+
 import {artistApitype} from '@/analyticsComponents/common/constant'
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 
 const useAnalyticsStore = create((set) => ({
   countData: "",
   dateRange: "",
   selectedDayRange: "",
-  myToken: "",
   initialCounts: "",
 
-  fetchInitialData: (initialCounts, initialValue, token) => {
+  fetchInitialData: (initialCounts, initialValue) => {
     set({
       countData: initialCounts,
       dateRange: initialValue,
       selectedDayRange: initialValue,
-      myToken: token,
       initialCounts,
     });
   },
@@ -35,17 +37,15 @@ const useAnalyticsStore = create((set) => ({
       : null;
 
     if (fromDate && toDate) {
-      const res = await analyticsArtistCountWithFIlter(
-        {
-          endDate: toDate,
-          startDate: fromDate,
-          type: artistApitype[key],
-        },
-        useAnalyticsStore.getState().myToken
-      );
+
+      const res = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.ARTIST_FILTER_BY_DATE({
+        endDate: toDate,
+        startDate: fromDate,
+        type: artistApitype[key],
+      }))
 
       set((state) => ({
-        countData: { ...state.countData, [key]: res[artistApitype[key]] },
+        countData: { ...state.countData, [key]: res.data[artistApitype[key]] },
       }));
       set((state) => ({
         dateRange: {

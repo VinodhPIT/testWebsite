@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 
-import Banner from "@/landing-1/Banner/Banner";
-
 import { useNavigation } from "@/hooks/useRouter";
+
+import Banner from "@/landing-1/Banner/Banner";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import LeftContentRightImage from "@/landing-1/LeftContentRightImage/LeftContentRightImage";

@@ -1,26 +1,26 @@
 
-
-import React, { useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import useTranslation from "next-translate/useTranslation";
 import DownloadApps from "../DownloadApps-klarna/DownloadApps";
-import style from "./style.module.css";
+import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
-import useTranslation from "next-translate/useTranslation";
-import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
+
+import style from "./style.module.css";
+
 
 function OfferPage({data}) {
-  const currency =
-  data.currency && data.currency !== null ? data.currency : "EUR";
-
-
-
+  
+  const currency =  data.currency && data.currency !== null ? data.currency : "EUR";
   const { t } = useTranslation();
-  const moment = require('moment');
+
   return (
     <div>
 {data == "" ? (
@@ -46,25 +46,7 @@ function OfferPage({data}) {
                           <div className="exciting_offer_coupon_code">
                             {data.referral_code}
                           </div>
-                          {/* <span className="exciting_offer_coupon_msg">{t("common:Voucherends")}: {moment(data.expiry).format('DD-MM-YYYY')}</span> */}
                         </div>
-                        {/* <div class="exciting_offer_social">
-                          <ul>
-                            <li class="exciting_offer_social_title">{t("common:Joinus")}</li>
-                            <li>
-                              <a target="_blank" href="https://www.instagram.com/inckd_com/">
-                                <img src="/insta-coupon.svg" alt="Instagram" />
-                                <span>Instagram</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a target="_blank" href="https://www.facebook.com/inckdcom/">
-                                <img src="/facebook-coupon.svg" alt="Facebook" />
-                                <span>Facebook</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </div> */}
                         <div class="text_box_content_inner w_100pc exciting_offer_download">
                           <h5>
                             <span>{t("common:OfferDownload.Enterthiscode")}
@@ -81,7 +63,7 @@ function OfferPage({data}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -95,7 +77,7 @@ function OfferPage({data}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -114,7 +96,7 @@ function OfferPage({data}) {
                     width={612}
                     height={752}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     layout="responsive"
                     className="mob_hidden"
                   />
@@ -125,7 +107,7 @@ function OfferPage({data}) {
                     width={375}
                     height={220}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     layout="responsive"
                     className="desk_hidden"
                   />

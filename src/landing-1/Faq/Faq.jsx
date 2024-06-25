@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useTranslation from "next-translate/useTranslation";
+import React from "react";
+
 import {
   Accordion,
   AccordionItem,

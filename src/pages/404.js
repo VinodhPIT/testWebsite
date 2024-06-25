@@ -29,9 +29,9 @@ const Custom404 = () => {
     <>
       <main>
         <div className="page-wrapper">
-          <section className="page_404_wrap">
+          <section className="page_error_wrap">
             <div className="container">
-              <div className="page_404_block">
+              <div className="error_block">
                 <Image
                   src="/404_img.svg"
                   alt="404"

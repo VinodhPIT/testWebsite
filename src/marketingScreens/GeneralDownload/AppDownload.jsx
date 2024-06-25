@@ -1,15 +1,17 @@
 import Link from "next/link";
 import Image from 'next/image'
 
-import useTranslation from "next-translate/useTranslation";
-
-import ImageSlider from "@/components/slider/ImageSlider";
 import useWindowResize from "@/hooks/useWindowSize";
+
+import useTranslation from "next-translate/useTranslation";
+import ImageSlider from "@/components/slider/ImageSlider";
+
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
+
 function Appdownload() {
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
@@ -40,7 +42,7 @@ function Appdownload() {
                           width={134}
                           height={41}
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="custom_download_icons"
                         />
                       </Link>
@@ -54,7 +56,7 @@ function Appdownload() {
                           width={134}
                           height={41}
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="custom_download_icons"
                         />
                       </Link>
@@ -72,7 +74,7 @@ function Appdownload() {
                         height={390}
                         priority
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         alt="Explore the Features in the Mobile App"
                       />
                     </li>
@@ -83,7 +85,7 @@ function Appdownload() {
                         height={390}
                         priority
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         alt="Explore the Features in the Mobile App"
                       />
                     </li>
@@ -103,7 +105,7 @@ function Appdownload() {
                   
                 ]}
                   imgAlt="Explore the Features in the Mobile App"
-                  imgblurDataURL={blurDataURL}
+                  imgblurDataURL={BLUR_URL}
                   imgWidth={277}
                   imgHeight={560}
                 ></ImageSlider>

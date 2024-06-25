@@ -8,6 +8,7 @@ import { useNavigation } from "@/hooks/useRouter";
 import useWindowResize from "@/hooks/useWindowSize";
 
 import OutsideClickHandler from "react-outside-click-handler";
+
 import { useRequestForm } from "@/store/requestManagement/requestForm";
 import { useGlobalState } from "@/context/Context";
 
@@ -17,8 +18,8 @@ import Location from "@/components/stepperComponents/location";
 import SkeletonArtistList from "@/components/placeholders/artistList";
 import Modal from "@/components/stepperComponents/modal";
 
-import { blurDataURL } from "@/constants/constants";
 import { getCountry } from "@/helpers/helper";
+import { blurDataURL } from "@/constants/constants";
 
 const Artist = () => {
   const [showLimitReached, setShowLimitReached] = useState(false);

@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../tattoodetail.module.css";
-import { fetchTattooDetail } from "@/apiConfig/webService";
-import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  blurDataURL,
-} from "@/constants/constants";
-import { fetchArtistDetail } from "@/apiConfig/webService";
 import Link from "next/link";
-import style from "@/pages/explore/search.module.css";
-import { useGlobalState } from "@/context/Context";
-import SearchField from "@/components/tattooSearch/tattooSearch";
 import { useRouter } from "next/router";
-import { TattooSearchModal } from "@/utils/modalUtils";
-import { useModal } from "@/utils/modalUtils";
+
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-import myPromise from "@/components/myPromise";
-import Loader from "@/components/loader";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
+
+import { useGlobalState } from "@/context/Context";
+import { TattooSearchModal } from "@/utils/modalUtils";
+import { useModal } from "@/utils/modalUtils";
+import myPromise from "@/utils/myPromise";
+import {APP_LINK_APPLE, APP_LINK_GOOGLE, BLUR_URL,} from "@/constants/constants";
+  
+import SearchField from "@/components/exploreScreens/searchField";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import Loader from "@/components/loading/loader";
+
+import { axiosInstance } from "@/apiConfig/axios.instance";
+import API_URL from "@/apiConfig/api.config";
+
+import styles from "../tattoodetail.module.css";
+import style from "@/pages/explore/search.module.css";
+
 
 export default function Detail({ data}) {
 
@@ -54,12 +56,12 @@ export default function Detail({ data}) {
       const fetchData = async () => {
         setLoading(true);
         try {
-          const res = await fetchArtistDetail(data.artist.slug);
+          const res = await axiosInstance.get(API_URL.SEARCH.GET_ARTIST_DETAIL(data.artist.slug))
 
-          setTattoo(res.data.tattoo);
-          setStyle(res.data.style);
+          setTattoo(res.data.data.tattoo);
+          setStyle(res.data.data.style);
+          setLocation(res.data.data.studio);
 
-          setLocation(res.data.studio);
         } catch (error) {}
         setLoading(false);
       };
@@ -163,7 +165,7 @@ export default function Detail({ data}) {
                       width: "100%",
                     }}
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     quality={75}
                   />
                 )}
@@ -173,19 +175,19 @@ export default function Detail({ data}) {
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={data.artist.artist_name}
+                      alt={data.artist.artist_name??''}
                       priority
-                      src={data.artist.profile_image}
+                      src={data.artist.profile_image ??'/circle-user.png'}
                       width={100}
                       height={100}
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                     />
                   </div>
                   <div className={styles.search_profile}>
                     <div className={styles.search_profile_content}>
                       <div className={styles.search_profile_name}>
-                        {data.artist.artist_name}
+                        {data.artist.artist_name??''}
                       </div>
                     </div>
                     <div className={styles.search_profile_link}>
@@ -225,12 +227,11 @@ export default function Detail({ data}) {
                   </div>
                 </div>
 
-                <div className={styles.product_style}>
-                  <span className={styles.product_style_label}>
-                    {t("common:image-tattoo-style")}
-                  </span>
-
-                  {getStyle.length > 0 && (
+                {getStyle.length > 0 && (
+                  <div className={styles.product_style}>
+                    <span className={styles.product_style_label}>
+                      {t("common:image-tattoo-style")}
+                    </span>
                     <ul className={styles.product_style_list}>
                       {getStyle.map((e) => {
                         return (
@@ -242,32 +243,32 @@ export default function Detail({ data}) {
                         );
                       })}
                     </ul>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 <div className={styles.product_detail_location}>
-                  <span className={styles.product_location_label}>
-                    {t("common:locations")}
-                  </span>
                   <div className={styles.product_location_list}>
-                    {location.length > 0 &&
-                      location.map((el) => {
-                        return (
+                    {location.length > 0 && (
+                      <>
+                        <span className={styles.product_location_label}>
+                          {t("common:locations")}
+                        </span>
+                        {location.map((el) => (
                           <span
                             className={styles.product_loc_title}
                             key={el.studio_uid}
                           >
                             <Image
+                              src="/location-small.svg"
                               width={16}
                               height={17}
-                              src="/location-small.svg"
                               alt="Berlin, Germany"
-                              priority
                             />
                             {el.city}, {el.country}
                           </span>
-                        );
-                      })}
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -338,12 +339,18 @@ export default function Detail({ data}) {
               </div>
             </div>
 
-            <div className={styles.titleWrapper}>
-              <h1>{t("common:you-might-like")}</h1>
-            </div>
+          
 
-            {loading === true ? null : tattoo && tattoo.length > 0 ? (
+            {!loading && tattoo && tattoo.length > 0 && (
+<>
+
+<div className={styles.titleWrapper}>
+<h1>{t("common:you-might-like")}</h1>
+</div>
+
               <div className={styles.grid_wrapper_tattoo}>
+          
+
                 {tattoo.map((item) => (
                   <Link
                     href={`/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`}
@@ -358,14 +365,16 @@ export default function Detail({ data}) {
                       layout="fill"
                       objectFit="cover"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       loading="lazy"
                       quality={62}
                     />
                   </Link>
                 ))}
               </div>
-            ) : null}
+              </>
+            )}
+            
           </div>
 
           <TattooSearchModal
@@ -381,9 +390,10 @@ export default function Detail({ data}) {
 
 export async function getServerSideProps(context) {
   try {
-    const data = await fetchTattooDetail(context.query.detail);
+    
+    const res = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(context.query.detail))
 
-    if (!data.data) {
+    if (!res.data) {
       return {
         notFound: true,
       };
@@ -391,7 +401,7 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        data: data.data,
+        data: res.data.data,
         status: true,
         locale: context.locale,
       },

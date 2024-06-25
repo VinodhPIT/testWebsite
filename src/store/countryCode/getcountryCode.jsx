@@ -1,6 +1,10 @@
 
 import { create } from "zustand";
-import { getCountryCode } from "@/apiConfig/webService";
+
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 const useCountryCode = create((set) => ({
   getCountryCodeList: [],
   loading: false,
@@ -8,8 +12,8 @@ const useCountryCode = create((set) => ({
   fetchCountryCodelists: async () => {
     try {
       set({ loading: true });
-      const response = await getCountryCode();
-      set({ getCountryCodeList: response, loading: false });
+      const response = await axiosInstance.get(API_URL.SEARCH.GET_COUNTRY_CODE);
+      set({ getCountryCodeList: response.data, loading: false });
     } catch (error) {
       set({ loading: false });
     }

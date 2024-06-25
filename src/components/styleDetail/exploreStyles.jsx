@@ -28,6 +28,12 @@ export default function ExploreStyles({ data }) {
   const { router } = useNavigation();
   const { t } = useTranslation();
 
+
+
+
+
+
+
   return (
     <section className="img_text_banner_box">
       <div className="text_box_wrap full-block-wrap">

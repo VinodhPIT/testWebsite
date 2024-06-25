@@ -1,54 +1,42 @@
 import React, { useEffect, useRef } from "react";
-import { useSession } from "next-auth/react";
-import {
-  analyticsCustomerCount,
-  analyticsCustomerLeadSourceCount,
-} from "@/apiConfig/customerAnalyticsService";
+import Head from "next/head";
+
+import { useSession, getSession } from "next-auth/react";
+import useTranslation from "next-translate/useTranslation";
+
 import Header from "@/analyticsComponents/common/header";
 import CustomerDetails from "@/analyticsComponents/customer/customerDetails";
 import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import PieChart from "@/analyticsComponents/common/chart";
 import CustomerConversion from "@/analyticsComponents/customer/customerConversion";
-import useRevenueStore from "@/store/customerAnalytics/revenueList";
-import { getSession } from "next-auth/react";
 import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
 import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
-import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
 import CustomerContactTime from "@/analyticsComponents/customer/customerContactTime";
 
+import useRevenueStore from "@/store/customerAnalytics/revenueList";
+
+import { GET_COLOR, GENDER_COUNT_KEYS_MAPPING ,LABEL} from "@/constants/index";
+
+ 
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 export default function Customer({ data }) {
-  const { status, data: sessionData } = useSession();
+
   const { revenue, loading, fetchRevenue } = useRevenueStore();
+  const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
 
-  useEffect(() => {
-    fetchRevenue(data.sessionToken);
-  }, [fetchRevenue, data.sessionToken]);
+  const getKeys = Object.keys(data.genderCount).map((key) => {
+    return GENDER_COUNT_KEYS_MAPPING[key] || key;
+  });
 
   const getValues = Object.values(data.genderCount);
 
-  const getKeys = Object.keys(data.genderCount).map((key) => {
-    switch (key) {
-      case "male_count":
-        return "Male";
-      case "female_count":
-        return "Female";
-      case "non_binary_count":
-        return "Other";
-      default:
-        return key;
-    }
-  });
-
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
-
-  const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue" },
-    { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
-    { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
-  ];
-
+  useEffect(() => {
+    fetchRevenue();
+  }, [fetchRevenue]);
+  
   return (
     <>
       <Head>
@@ -58,7 +46,7 @@ export default function Customer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <CustomerDetails initialCounts={data} token={data.sessionToken} />
+        <CustomerDetails initialCounts={data} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
@@ -75,8 +63,8 @@ export default function Customer({ data }) {
                   title={t("common:AnalyticsCustomer.TotalCustomersByGender")}
                   getKeys={getKeys}
                   getValues={getValues}
-                  getColor={getColor}
-                  label={label}
+                  getColor={GET_COLOR}
+                  label={LABEL}
                 />
               </div>
             </div>
@@ -129,7 +117,7 @@ export default function Customer({ data }) {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12">
                 {data.role === "Analytic Admin" && (
-                  <CustomerConversion token={data.sessionToken} />
+                  <CustomerConversion  />
                 )}
               </div>
             </div>
@@ -141,46 +129,75 @@ export default function Customer({ data }) {
 }
 
 export async function getServerSideProps(context) {
+  // Get the user session
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
+    // Initialized Default data all keys initialized to 0 or []
+    const defaultData = {
+      chartData: [],
+      contactedWithNoOffer: 0,
+      deletedCustomers: 0,
+      genderCount: 0,
+      joinedFromApp: 0,
+      joinedFromWeb: 0,
+      noCompletedOffer: 0,
+      notCompletedAnyOffer: 0,
+      notContacted: 0,
+      notCreatedAnyOffers: 0,
+      sessionToken: session.user.myToken ?? "",
+      referralUsedCustomers: 0,
+      totalCustomers: 0,
+      voucherUserCustomers: 0,
+      role: session.user.role ?? "",
     };
-  }
+
 
   try {
-    const [data, customerJoinigData] = await Promise.all([
-      analyticsCustomerCount(session.user.myToken),
-      analyticsCustomerLeadSourceCount(session.user.myToken),
+    // Configure axios instance with authorization header
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${session.user.myToken}`,
+      },
+    };
+
+    const [customerCountResponse, customerDetailsResponse] = await Promise.all([
+      axiosInstance.get(
+        API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_COUNT,
+        axiosConfig
+      ),
+      axiosInstance.get(
+        API_URL.ANALYTICS_CUSTOMER.GET_CUSTOMER_DETAILS,
+        axiosConfig
+      ),
     ]);
 
+        // Destructure the data from responses
+        const customerCountData = customerCountResponse.data;
+        const customerDetailsData = customerDetailsResponse.data;
+   
     return {
       props: {
         data: {
+          ...defaultData, // Spreading defaultData to merge with fetched data
           role: session.user.role ?? "",
-          chartData: customerJoinigData ?? [],
-          contactedWithNoOffer: data.contacted_with_no_offer || 0,
-          deletedCustomers: data.deleted || 0,
-          genderCount: data.gender || 0,
-          joinedFromApp: data.joined_from_app || 0,
-          joinedFromWeb: data.joined_from_website || 0,
-          noCompletedOffer: data.customer_no_offer_completed || 0,
-          notContacted: data.no_contacted || 0,
-          referralUsedCustomers: data.referral_used_customer || 0,
-          sessionToken: session.user.myToken ?? "",
-          totalCustomers: data.total_count || 0,
-          voucherUserCustomers: data.voucher_used_customer || 0,
+          chartData: customerDetailsData ?? [],
+          contactedWithNoOffer: customerCountData.contacted_with_no_offer || 0,
+          deletedCustomers: customerCountData.deleted || 0,
+          genderCount: customerCountData.gender || 0,
+          joinedFromApp: customerCountData.joined_from_app || 0,
+          joinedFromWeb: customerCountData.joined_from_website || 0,
+          noCompletedOffer: customerCountData.customer_no_offer_completed || 0,
+          notContacted: customerCountData.no_contacted || 0,
+          referralUsedCustomers: customerCountData.referral_used_customer || 0,
+          totalCustomers: customerCountData.total_count || 0,
+          voucherUserCustomers: customerCountData.voucher_used_customer || 0,
         },
       },
     };
   } catch (error) {
     return {
       props: {
-        data: null,
+        data: defaultData,
       },
     };
   }

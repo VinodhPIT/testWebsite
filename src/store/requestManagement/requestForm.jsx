@@ -1,9 +1,14 @@
 import { create } from "zustand";
-import { artistListing, getStyles } from "@/apiConfig/webService";
-import { requestFormParameters } from "@/components/parameters/params";
+
 import axios from "axios";
+
+import { requestFormParameters } from "@/constants/index";
 import { getLocation } from "@/utils/getLocation";
 import { getRandomSeed } from "@/helpers/helper";
+import {stepperParam} from "@/helpers/helper";
+  
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 // Define initial states
 const initialState = {
@@ -64,7 +69,7 @@ export const useRequestForm = create((set, get) => ({
 
   setPhone: (value) => set({ phone: value }),
 
-  addImage: (file, imageUrl, uuid, index) => {
+  addImage: (file, imageUrl, uuid) => {
     set((state) => {
       const newFileName = `${state.images.length}.jpg`;
       const newFile = new File([file], newFileName, {
@@ -106,10 +111,11 @@ export const useRequestForm = create((set, get) => ({
     };
 
     try {
-      const response = await artistListing(fetchParams);
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam(fetchParams));
+       const {data} =response  
       set({
-        artistList: response.rows.hits,
-        totalCount: response.rows.total.value,
+        artistList: data.rows.hits,
+        totalCount: data.total.value,
         seed: fetchParams.seed,
       });
     } catch (error) {
@@ -122,9 +128,9 @@ export const useRequestForm = create((set, get) => ({
       set({ loader: true, loadNo: 0 });
       let styleId = [];
       const slugsToCheck = Array.isArray(slug) ? slug : [slug];
-      const stylesArray = await getStyles();
+      const stylesArray = await axiosInstance.get(API_URL.SEARCH.GET_STYLE_ALL);
       const matchingStyles = slugsToCheck.map((style) => {
-        const matchingStyle = stylesArray.data.find(
+        const matchingStyle = stylesArray.data.data.find(
           (styleObj) => styleObj.slug === style
         );
         return matchingStyle ? matchingStyle.id : null;
@@ -140,13 +146,13 @@ export const useRequestForm = create((set, get) => ({
         style: styleId,
         seed: getRandomSeed(),
       };
-
-      const response = await artistListing(fetchParams);
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam(fetchParams));
+       const {data} =response  
 
       set({
-        artistList: response.rows.hits,
+        artistList: data.rows.hits,
         styleId,
-        totalCount: response.rows.total.value,
+        totalCount: data.rows.total.value,
         loader: false,
         seed: fetchParams.seed,
       });
@@ -159,20 +165,22 @@ export const useRequestForm = create((set, get) => ({
   clearStyle: async () => {
     try {
       set({ loader: true });
-      const { searchKey, latitude, longitude, styleId } = get();
-
-      const response = await artistListing({
+      const { searchKey, latitude, longitude} = get();
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam({
         ...requestFormParameters,
         search_key: searchKey || "",
         latitude: latitude || "",
         longitude: longitude || "",
         page_no: 0,
         style: [],
-      });
+      }));
+      
+      const {data} =response  
+      
       set({
-        artistList: response.rows.hits,
+        artistList: data.rows.hits,
         styleId: "",
-        totalCount: response.rows.total.value,
+        totalCount: data.rows.total.value,
         loader: false,
         seed: getRandomSeed(),
       });
@@ -186,17 +194,19 @@ export const useRequestForm = create((set, get) => ({
     try {
       set({ loader: true });
       const { latitude, longitude, styleId } = get();
-      const response = await artistListing({
+
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam({
         ...requestFormParameters,
         search_key: "",
         latitude: latitude || "",
         longitude: longitude || "",
         page_no: 0,
         style: styleId || [],
-      });
+      }));
+       const {data} =response  
       set({
-        artistList: response.rows.hits,
-        totalCount: response.rows.total.value,
+        artistList: data.rows.hits,
+        totalCount: data.rows.total.value,
         searchKey: "",
         loader: false,
         seed: getRandomSeed(),
@@ -221,11 +231,12 @@ export const useRequestForm = create((set, get) => ({
         seed: getRandomSeed(),
       };
 
-      const response = await artistListing(fetchParams);
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam(fetchParams));
+      const {data} =response  
 
       set({
-        artistList: response.rows.hits,
-        totalCount: response.rows.total.value,
+        artistList: data.rows.hits,
+        totalCount: data.rows.total.value,
         loader: false,
         seed: fetchParams.seed,
         searchKey:key
@@ -256,14 +267,14 @@ export const useRequestForm = create((set, get) => ({
         seed: getRandomSeed(),
       };
 
-      const artistResponse = await artistListing(fetchParams);
-
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam(fetchParams));
+      const {data} =response  
       set({
-        artistList: artistResponse.rows.hits,
+        artistList: data.rows.hits,
         location: address,
         latitude,
         longitude,
-        totalCount: artistResponse.rows.total.value,
+        totalCount: data.rows.total.value,
         loader: false,
         seed: fetchParams.seed,
       });
@@ -297,14 +308,14 @@ export const useRequestForm = create((set, get) => ({
         longitude,
         style: get().styleId || "",
       };
-
-      const artistResponse = await artistListing(fetchParams);
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam(fetchParams));
+      const {data} =response  
       set({
-        artistList: artistResponse.rows.hits,
+        artistList: data.rows.hits,
         location: "",
         latitude,
         longitude,
-        totalCount: artistResponse.rows.total.value,
+        totalCount: data.rows.total.value,
         loader: false,
         seed: fetchParams.seed,
       });
@@ -319,17 +330,18 @@ export const useRequestForm = create((set, get) => ({
     try {
       set({ loader: true });
       const { searchKey, styleId } = get();
-      const response = await artistListing({
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam({
         ...requestFormParameters,
         search_key: searchKey || "",
         latitude: "",
         longitude: "",
         page_no: 0,
         style: styleId || [],
-      });
+      }));
+      const {data} =response  
       set({
-        artistList: response.rows.hits,
-        totalCount: response.rows.total.value,
+        artistList: data.rows.hits,
+        totalCount: data.rows.total.value,
         location: "",
         latitude: "",
         longitude: "",
@@ -345,7 +357,7 @@ export const useRequestForm = create((set, get) => ({
   loadMore: async () => {
     try {
       set({ loadNo: get().loadNo + 1, loadData: true }); // Increment loadNo
-      const response = await artistListing({
+      const response = await axiosInstance.post(API_URL.SEARCH.ARTIST_LISTING,stepperParam({
         ...requestFormParameters,
         page_no: get().loadNo,
         latitude: get().latitude || "",
@@ -353,11 +365,14 @@ export const useRequestForm = create((set, get) => ({
         style: get().styleId,
         search_key: get().searchKey,
         seed: get().seed,
-      });
+      }));
+      const {data} =response  
+
+
       set((prevState) => ({
         ...prevState,
-        artistList: [...prevState.artistList, ...response.rows.hits],
-        totalCount: response.rows.total.value,
+        artistList: [...prevState.artistList, ...data.rows.hits],
+        totalCount: data.rows.total.value,
         loadData: false,
       }));
     } catch (error) {

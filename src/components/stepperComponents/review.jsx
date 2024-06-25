@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import Link from "next/link";
-
-import { useNavigation } from "@/hooks/useRouter";
-
 import Image from "next/image";
 
 import axios from "axios";
 import useTranslation from "next-translate/useTranslation";
-import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
+
+import { useNavigation } from "@/hooks/useRouter";
+
+import { useRequestForm } from "@/store/requestManagement/requestForm"; 
+
 import Modal from "@/components/modalPopup/newUser";
 import Modal1 from "@/components/modalPopup/existingUser";
 
+import API_URL from '@/apiConfig/api.config'
+
 import { getCountry } from "@/helpers/helper";
-import { CustomerRequestSize, BodyPart } from "@/utils/customerRequestType";
 
-
+import { CustomerRequestSize, BodyPart } from "@/constants/index";
 
 
 const Review = () => {
@@ -57,9 +59,11 @@ const Review = () => {
     images.map((el) => {
       formData.append("secondary_images", el.File);
     });
+
+
     axios
       .post(
-        `http://14.140.178.211:8000/web/api/customer-request/save`,
+        `${process.env.apiDomain}${API_URL.SEARCH.REQUEST_SAVE}`,
         formData,
         {
           headers: {

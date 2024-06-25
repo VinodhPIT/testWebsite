@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React  from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-import styles from "./style.module.css";
+import Link from "next/link";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import { BLUR_URL } from "@/constants/constants";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from "next/link";
+
+import styles from "./style.module.css";
+
 export default function FiveColumnCarousel({
   title,
   title_sub,
@@ -153,7 +158,7 @@ export default function FiveColumnCarousel({
                             height={776}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             layout="responsive"
                             style={{
                               borderTopRightRadius: "9px",
@@ -176,7 +181,7 @@ export default function FiveColumnCarousel({
                               height={97}
                               loading="lazy"
                               placeholder="blur"
-                              blurDataURL={blurDataURL}
+                              blurDataURL={BLUR_URL}
                               layout="responsive"
                             />
                           </div>

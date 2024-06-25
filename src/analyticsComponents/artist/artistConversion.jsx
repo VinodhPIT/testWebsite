@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
+
 import Select from "react-select";
 import Multiselect from "multiselect-react-dropdown";
 import useTranslation from "next-translate/useTranslation";
-import {
-  currentYear,
-  options,
-  months
-} from "@/helpers/helper";
-import ConversionDataComponent from "../common/keys";
-import { percentageCalculate } from "../customer/customerConversion";
-import Loader from "@/components/loader";
-import { artistConvesionWithCountryFilter } from "@/apiConfig/artistAnalyticsService";
+
+import { currentYear, options, months } from "@/helpers/helper";
+
 import useSArtistConversionStore from "@/store/artistAnalytics/conversionArtist";
 
-const ArtistConversion = ({ data, title, token, types }) => {
-  const { 
-    fetchData, 
+import ConversionDataComponent from "../common/keys";
+import { percentageCalculate } from "../customer/customerConversion";
+import Loader from "@/components/loading/loader";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+const ArtistConversion = ({ data, title}) => {
+  const {
+    fetchData,
     loading: loadingFetchData,
-    registered: registeredData 
-   } = useSArtistConversionStore();
+    registered: registeredData,
+  } = useSArtistConversionStore();
   const { t } = useTranslation();
   const { artistConversionTitle, keyMappings } = ConversionDataComponent();
 
@@ -26,8 +28,8 @@ const ArtistConversion = ({ data, title, token, types }) => {
   const [selectedCountries, setSelectedCountries] = useState([]);
   const [registered, setRegistered] = useState(registeredData);
   const [selectedYear, setSelectedYear] = useState(currentYear);
-  const allCountries = data.map((dataItem)=> dataItem.country);
-  const countryList = [...new Set(allCountries.filter(item => !!item))];
+  const allCountries = data.map((dataItem) => dataItem.country);
+  const countryList = [...new Set(allCountries.filter((item) => !!item))];
   const isLoading = loadingFetchData || loading;
   const selectedOption = { value: selectedYear, label: selectedYear };
 
@@ -36,16 +38,19 @@ const ArtistConversion = ({ data, title, token, types }) => {
   };
 
   const handleCountryChange = async (selectedOption) => {
-    const countries=selectedOption.length>0?selectedOption.map((op)=> op.value).join():[];
+    const countries =
+      selectedOption.length > 0
+        ? selectedOption.map((op) => op.value).join()
+        : [];
 
     setSelectedCountries(countries);
-    if(selectedOption.length>0){
+    if (selectedOption.length > 0) {
       setLoading(true);
-      const res = await artistConvesionWithCountryFilter(selectedOption.map((op)=> op.value).join(), token);
-      const resWithFilter= res.filter((entry) => entry.year === selectedYear);
+      const res = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.CONVERSION_COUNTRY(selectedOption.map((el) => el.value).join(),));
+      const resWithFilter = res.data.filter((entry) => entry.year === selectedYear);
       setRegistered(resWithFilter);
       setLoading(false);
-    } else fetchData(selectedYear, token);
+    } else fetchData(selectedYear);
   };
 
   useEffect(() => {
@@ -53,7 +58,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
   }, [registeredData]);
 
   useEffect(() => {
-    fetchData(selectedYear, token);
+    fetchData(selectedYear);
   }, [selectedYear]);
 
   const renderTableRow = (title, key) => (
@@ -70,17 +75,14 @@ const ArtistConversion = ({ data, title, token, types }) => {
   ));
 
   const ArtistConversionDisplayBlock = ({ partTitle, wholeTitle }) => (
-                <>
-                    {[partTitle, wholeTitle].map((title) =>
-                      renderTableRow(title, title.toLowerCase())
-                    )}
-                    <tr className="conversion-highlighter">
-                      <th className="main_col_title">Percentage</th>
-                      {registered.map((el, index) => {
-                        const percentage = percentageCalculate(
-                          el[wholeTitle],
-                          el[partTitle]
-                        );
+    <>
+      {[partTitle, wholeTitle].map((title) =>
+        renderTableRow(title, title.toLowerCase())
+      )}
+      <tr className="conversion-highlighter">
+        <th className="main_col_title">Percentage</th>
+        {registered.map((el, index) => {
+          const percentage = percentageCalculate(el[wholeTitle], el[partTitle]);
 
           return (
             <td
@@ -101,7 +103,7 @@ const ArtistConversion = ({ data, title, token, types }) => {
     </>
   );
 
-    return (
+  return (
     <div className="db_card block_bg_white">
       <div className="db_card_body pl_0 pr_0">
         <div className="d_flex justify_space_between align_item_center mb_18 pl_15 pr_15 position_relative flex_wrap">
@@ -109,19 +111,17 @@ const ArtistConversion = ({ data, title, token, types }) => {
             <h3>{title}</h3>
           </div>
           <div className="d_flex m_flex_direction_row m_mt_15 ">
-            <div
-              className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_320 m_ml_0 m_mr_0" 
-            >
+            <div className="db_btn_chart position_relative w_min_170 ml_5 mr_15 d_max_320 m_ml_0 m_mr_0">
               <Multiselect
                 displayValue="label"
                 onRemove={handleCountryChange}
                 onSelect={handleCountryChange}
-                options={countryList.map((country)=>{
-                  return {value: country, label: country}
+                options={countryList.map((country) => {
+                  return { value: country, label: country };
                 })}
                 hidePlaceholder={selectedCountries.length > 0}
                 placeholder={t("common:AnalyticsArtist.All")}
-                />
+              />
             </div>
             <div className="db_btn_chart position_relative w_min_100 ml_5">
               <Select
@@ -135,51 +135,48 @@ const ArtistConversion = ({ data, title, token, types }) => {
             </div>
           </div>
         </div>
-        {isLoading
-        ? (
+        {isLoading ? (
           <div className="pt_pb_80 h_400">
             <Loader />
           </div>
+        ) : registered.length === 0 ? (
+          <div className="not_Found">
+            <h4>No Data Found</h4>
+          </div>
         ) : (
-          registered.length === 0 ? (
-            <div className="not_Found">
-              <h4>No Data Found</h4>
-            </div>
-          ) : (
-            <div className="d_flex justify_content_start align_item_center pb_12">
+          <div className="d_flex justify_content_start align_item_center pb_12">
             <div className="db_table_block db_table_country">
-                <div className="table-responsive">
-                  <table className="table table-striped table-nowrap table-centered mb-0">
-                    <thead>
-                      <tr>
-                        <th className="main_head_title">{t("common:Month")}</th>
-                        {monthHeaders}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <ArtistConversionDisplayBlock
-                        partTitle="lead"
-                        wholeTitle="public_artist"
-                      />
-                      <ArtistConversionDisplayBlock
-                        partTitle="public_artist"
-                        wholeTitle="offer_send_count"
-                      />
-                      <ArtistConversionDisplayBlock
-                        partTitle="offer_send_count"
-                        wholeTitle="offer_scheduled_count"
-                      />
-                      <ArtistConversionDisplayBlock
-                        partTitle="offer_scheduled_count"
-                        wholeTitle="offer_completed_count"
-                      />
-                    </tbody>
-                  </table>
-                </div>
+              <div className="table-responsive">
+                <table className="table table-striped table-nowrap table-centered mb-0">
+                  <thead>
+                    <tr>
+                      <th className="main_head_title">{t("common:Month")}</th>
+                      {monthHeaders}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ArtistConversionDisplayBlock
+                      partTitle="lead"
+                      wholeTitle="public_artist"
+                    />
+                    <ArtistConversionDisplayBlock
+                      partTitle="public_artist"
+                      wholeTitle="offer_send_count"
+                    />
+                    <ArtistConversionDisplayBlock
+                      partTitle="offer_send_count"
+                      wholeTitle="offer_scheduled_count"
+                    />
+                    <ArtistConversionDisplayBlock
+                      partTitle="offer_scheduled_count"
+                      wholeTitle="offer_completed_count"
+                    />
+                  </tbody>
+                </table>
               </div>
             </div>
-          )
-          )}
+          </div>
+        )}
       </div>
     </div>
   );

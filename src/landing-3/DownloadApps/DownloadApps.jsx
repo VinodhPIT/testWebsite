@@ -1,13 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ImageSlider from "@/components/slider/ImageSlider";
+
 import useWindowResize from "@/hooks/useWindowSize";
+
+import ImageSlider from "@/components/slider/ImageSlider";
+
 import {
-  blurDataURL,
+  BLUR_URL,
   APP_LINK_GOOGLE,
   APP_LINK_APPLE,
 } from "@/constants/constants";
+
 
 export default function DownloadApps({ title, subTitle }) {
   const { isMobileView } = useWindowResize();
@@ -31,7 +35,7 @@ export default function DownloadApps({ title, subTitle }) {
                   alt="Download the App & Explore more!"
                   priority
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   className="m_max_218"
                 />
               </li>
@@ -43,7 +47,7 @@ export default function DownloadApps({ title, subTitle }) {
                   alt="Download the App & Explore more!"
                   priority
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   className="m_max_218"
                 />
               </li>
@@ -55,7 +59,7 @@ export default function DownloadApps({ title, subTitle }) {
                   alt="Download the App & Explore more!"
                   priority
                   placeholder="blur"
-                  blurDataURL={blurDataURL}
+                  blurDataURL={BLUR_URL}
                   className="m_max_218"
                 />
               </li>
@@ -107,7 +111,7 @@ export default function DownloadApps({ title, subTitle }) {
               "/landing-download-app.png",
             ]}
             imgAlt="Download the App & Explore more!"
-            imgblurDataURL={blurDataURL}
+            imgblurDataURL={BLUR_URL}
             imgWidth={419}
             imgHeight={630}
           ></ImageSlider>

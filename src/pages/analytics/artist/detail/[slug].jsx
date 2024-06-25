@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
-import { useRouter } from "next/router";
+
 import { useSession ,getSession } from "next-auth/react";
+import moment from "moment";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 import { useToggle } from "@/hooks/useToggle";
 import { blurDataURL } from "@/constants/constants";
-import { singleArtistProfileDetail } from "@/apiConfig/artistAnalyticsService";
 
 import useOfferDataTable from '@/store/dataTable/artistOffer'
 
@@ -15,16 +18,14 @@ import useTranslation from "next-translate/useTranslation";
 import DataTable from "@/analyticsComponents/dataTable/table";
 import DataModel from "@/analyticsComponents/dataTable/model";
 
-import moment from "moment";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 
 export default function ArtistDetail({ profileData }) {
+
   const { status, data } = useSession();
   const [showIban, setShowIban] = useState(false);
-  const router = useRouter();
   const { t } = useTranslation();
   const {offerTable  ,fetchData ,fetchLog ,offerLog} =useOfferDataTable()
   const [toggle, onToggle] = useToggle(false);
@@ -32,13 +33,6 @@ export default function ArtistDetail({ profileData }) {
   const handleToggle = () => {
     setShowIban((prevShowIban) => !prevShowIban);
   };
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
-
 
   const columns = React.useMemo(
     () => [
@@ -156,7 +150,7 @@ export default function ArtistDetail({ profileData }) {
       any_customers_referred,
       payout_pending,
       main_studio_details,
-    },sessionToken ,slug
+    } ,slug
   } = profileData;
 
   const ibanNum = iban;
@@ -165,11 +159,11 @@ export default function ArtistDetail({ profileData }) {
     : "----------";
 
     useEffect(()=>{
-      fetchData(sessionToken ,slug)
+      fetchData(slug)
      },[])
 
-     const handleViewLog = (logData) => {
-      fetchLog(sessionToken ,logData)
+     const handleViewLog = (logUid) => {
+      fetchLog(logUid)
       onToggle();
     };
 
@@ -487,24 +481,22 @@ export default function ArtistDetail({ profileData }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
-
   const { query } = context;
   const { slug } = query;
 
   try {
-    const res = await singleArtistProfileDetail(session.user.myToken, slug);
+
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${session.user.myToken}`,
+      },
+    };
+
+    const res = await axiosInstance.get(API_URL.ANALYTICS_ARTISTS.ARTIST_PROFILE_DETAIL(slug),axiosConfig);
+    const {data}= res.data
 
     // Check if response data is valid
-    if (!res || !res.data || res.data.length === 0) {
+    if (!data || data.length === 0) {
       return {
         notFound: true,
       };
@@ -513,8 +505,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         profileData: {
-          sessionToken: session.user.myToken ?? "",
-          detail: res.data[0],
+          detail: data[0],
           slug
         },
       },

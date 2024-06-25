@@ -13,9 +13,9 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
-import TattooSlider from "@/components/TattooSlider/TattooSlider";
-import TattooJournal from "@/components/tattooJournal/TattooJournal";
-import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
+import TattooSlider from "@/components/homeScreen/artistSlider";
+import TattooJournal from "@/components/homeScreen/tattooJournal";
+import PaymentTypes from "@/components/homeScreen/paymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
 import Modal from "@/components/modalPopup/comingSoon"
@@ -24,7 +24,7 @@ import Modal from "@/components/modalPopup/comingSoon"
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 

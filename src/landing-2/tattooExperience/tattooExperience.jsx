@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import {
-  blurDataURL,
+  BLUR_URL,
   APP_LINK_GOOGLE,
   APP_LINK_APPLE,
 } from "@/constants/constants";
@@ -35,7 +36,7 @@ export default function TattooExperience({
                     src="/app-store-new.svg"
                     width={134}
                     height={41}
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     placeholder="blur"
                   />
                 </Link>
@@ -48,7 +49,7 @@ export default function TattooExperience({
                     src="/g-play-new.svg"
                     width={134}
                     height={41}
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     placeholder="blur"
                   />
                 </Link>
@@ -62,7 +63,7 @@ export default function TattooExperience({
               src="/bg-image.png"
               width={555}
               height={416}
-              blurDataURL={blurDataURL}
+              blurDataURL={BLUR_URL}
               placeholder="blur"
               className="object_fit_contain"
             />

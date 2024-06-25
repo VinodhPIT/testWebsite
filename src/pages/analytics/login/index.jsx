@@ -7,41 +7,28 @@ import { useSession } from "next-auth/react";
 import styles from "./login.module.css";
 import { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
-
-
-
+import { loginFields } from "@/utils/formData";
+import { schemaValidator, loginInitialValues } from "@/schema/login.schema";
 
 const Login = () => {
-  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
+  const { data, status } = useSession(); // Get the session data
+  const { t } = useTranslation();
+  const router = useRouter();
   const [error, setError] = useState(false);
   const [loader, setloader] = useState(false);
-  const { data, status } = useSession(); // Get the session data
-  const router = useRouter();
-  const { t } = useTranslation();
-
-
-
-const LoginSchema = Yup.object().shape({
-  username: Yup.string().required(t("common:AnalyticLogin.User name is required")),
-  password: Yup.string().required(t("common:AnalyticLogin.Password is required")),
-});
-
-
-
-
+  const formData = loginFields(t);
+  
   useEffect(() => {
     if (data?.user && status === "authenticated") {
       router.replace("/analytics/dashboard");
     }
   }, [data, status]);
-
+  
   const handleSubmit = async (values, { setSubmitting }) => {
     setError(false);
     setloader(true);
-    const searchQuery = localStorage.getItem("loginFrom");
     await signIn("credentials", {
       username: values.username,
       password: values.password,
@@ -55,6 +42,7 @@ const LoginSchema = Yup.object().shape({
       })
       .catch((error) => {});
   };
+  
 
   return (
     <>
@@ -85,55 +73,41 @@ const LoginSchema = Yup.object().shape({
                   </h1>
                 )}
                 <Formik
-                  initialValues={userInfo}
-                  validationSchema={LoginSchema}
+                  initialValues={loginInitialValues}
+                  validationSchema={schemaValidator(t)}
                   onSubmit={handleSubmit}
                 >
                   <Form className="row">
                     <div class="col-md-12">
                       <h1>{t("common:AnalyticLogin.Login")}</h1>
                     </div>
-                    <div class="col-md-12">
-                      <div className={styles.input_box}>
-                        {/* <label htmlFor="username">username</label> */}
-                        <Field
-                          type="username"
-                          id="username"
-                          name="username"
-                          placeholder={t("common:AnalyticLogin.EnterUser")}
-                          className={styles.input_txt}
-                        />
-                        <ErrorMessage
-                          name="username"
-                          component="div"
-                          className={styles.error}
-                        />
+                    {formData.map((field, index) => (
+                      <div className="col-md-12" key={index}>
+                        <div className={styles.input_box}>
+                          <Field
+                            type={field.type}
+                            id={field.id}
+                            name={field.name}
+                            placeholder={field.placeholder}
+                            className={styles.input_txt}
+                          />
+                          <ErrorMessage
+                            name={field.name}
+                            component="div"
+                            className={styles.error}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div className={styles.input_box}>
-                        {/* <label htmlFor="password">Password</label> */}
-                        <Field
-                          type="password"
-                          id="password"
-                          name="password"
-                          placeholder={t("common:AnalyticLogin.EnterPassword")}
-                          className={styles.input_txt}
-                        />
-                        <ErrorMessage
-                          name="password"
-                          component="div"
-                          className={styles.error}
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="d-flex justify-content-center">
+                    ))}
+                    <div className="col-md-12">
+                      <div className="d-flex justify-content-center">
                         <button
-                          className="btn btn-primary btn_login  "
+                          className="btn btn-primary btn_login"
                           type="submit"
                         >
-                          <span role="status">{t("common:AnalyticLogin.Login")}</span>
+                          <span role="status">
+                            {t("common:AnalyticLogin.Login")}
+                          </span>
                           {loader ? (
                             <span
                               className="spinner-border spinner-border-sm"

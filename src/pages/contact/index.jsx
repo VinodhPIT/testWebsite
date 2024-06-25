@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import _Form from "@/components/form/form";
+import _Form from "@/components/forms/contactForm";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 
 export default function Contact({}) {
+
+  //Constants
+  
   const { t } = useTranslation();
 
   return (

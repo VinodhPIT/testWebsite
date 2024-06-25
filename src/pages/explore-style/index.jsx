@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 
+import useTranslation from "next-translate/useTranslation";
+
 import { useNavigation } from "@/hooks/useRouter";
 import useScrollToTop from "@/hooks/useScrollToTop";
-
-import useTranslation from "next-translate/useTranslation";
 import useStyleListing from "@/store/styleListing/styleListing";
+import usePath from "@/store/setPath/setPath";
 import { useGlobalState } from "@/context/Context";
-import usePath from'@/store/setPath/setPath'
+
 import ArtistSlider from "@/components/styleDetail/artistSlider";
 import Tattooidea from "@/components/styleDetail/tattooIdea";
 import ExploreTattoos from "@/components/styleDetail/exploreTattoos";
@@ -18,65 +19,65 @@ import CreateAI from "@/components/styleDetail/createAi";
 import DownloadApps from "@/components/styleDetail/downloadApp";
 
 import { blurDataURL } from "@/constants/constants";
-import {
-  getSingleStyleDetail,
-  fetchCategoryData,
-} from "@/apiConfig/webService";
 
-export default function Styledeatil({ data ,style_id}) {
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+import { searchParam } from "@/helpers/helper";
+
+export default function Styledeatil({ data, style_id }) {
   const [artistData, setArtistData] = useState([]);
   const [tattooData, setTattooData] = useState([]);
   const { router } = useNavigation();
   const { t } = useTranslation();
 
   const { styleList } = useStyleListing();
-  const {setPathname} = usePath()
-  const { selectedIds, setSelectedIds } = useGlobalState();
 
+  const { setPathname } = usePath();
+  const { selectedIds, setSelectedIds } = useGlobalState();
 
   const withImagery = [];
   const withoutImagery = [];
 
   if (data && data.web_content && data.web_content.length > 0) {
-      data.web_content.forEach(item => {
-          if (item.content.data && item.content.data.imagery) {
-              withImagery.push(item);
-          } else {
-              withoutImagery.push(item);
-          }
-      });
+    data.web_content.forEach((item) => {
+      if (item.content.data && item.content.data.imagery) {
+        withImagery.push(item);
+      } else {
+        withoutImagery.push(item);
+      }
+    });
   }
 
-
- useEffect(()=>{
- setSelectedIds([])
- },[])
-
+  useEffect(() => {
+    setSelectedIds([]);
+  }, []);
 
   useEffect(() => {
     const fetchTattooData = async () => {
       try {
-        const res = await fetchCategoryData({
-          category: "tattoo",
-          style: style_id,
-        });
-        setTattooData(res.rows.hits);
-      } catch (error) {
-       /// console.error("Error fetching data:", error);
-      }
-     
+        const res = await axiosInstance.post(
+          API_URL.SEARCH.SEARCH_BY_CATRGORY("tattoo"),
+          searchParam({
+            category: "tattoo",
+            style: style_id,
+          })
+        );
+        setTattooData(res.data.rows.hits);
+      } catch (error) {}
     };
-
 
     fetchTattooData();
 
     const fetchArtistData = async () => {
       try {
-        const res = await fetchCategoryData({
-          category: "artist",
-          style:style_id,
-        });
-        setArtistData(res.rows.hits);
+        const res = await axiosInstance.post(
+          API_URL.SEARCH.SEARCH_BY_CATRGORY("artist"),
+          searchParam({
+            category: "artist",
+            style: style_id,
+          })
+        );
+        setArtistData(res.data.rows.hits);
       } catch (error) {
         //console.error("Error fetching data:", error);
       }
@@ -84,7 +85,6 @@ export default function Styledeatil({ data ,style_id}) {
 
     fetchArtistData();
   }, [style_id]);
-
 
   const ContentBlock = ({ item }) => (
     <div>
@@ -110,15 +110,14 @@ export default function Styledeatil({ data ,style_id}) {
     </div>
   );
 
-
   const handleLinkClick = () => {
     // Construct the new pathname with the query parameters
-    const newQuery =`?style_uid=${router.query.style_uid}&style_id=${router.query.style_id}`;
+    const newQuery = `?style_uid=${router.query.style_uid}&style_id=${router.query.style_id}`;
     const newPathname = `${router.pathname}${newQuery}`;
     // Update the state
     setPathname(newPathname);
-    const updatedIds = [...new Set([...selectedIds,data.slug])]
-    setSelectedIds(updatedIds)
+    const updatedIds = [...new Set([...selectedIds, data.slug])];
+    setSelectedIds(updatedIds);
   };
 
   useScrollToTop();
@@ -147,7 +146,7 @@ export default function Styledeatil({ data ,style_id}) {
                     <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
                       <div className="tiny_payment_block pr_10_pc m_pr_0">
                         <h1 className="color_gray_550 heading_h1 custom_fs_60 custom_fs_50 txt_mob_fs38 mt_0">
-                          {data.style_name}                          
+                          {data.style_name}
                         </h1>
                         <p className="m_mt_10 m_mb_30 txt_mob_fs14 m_lh_21">
                           {data.short_desc}
@@ -181,15 +180,18 @@ export default function Styledeatil({ data ,style_id}) {
             </div>
           </div>
         </section>
+
         <ArtistSlider
           title={t("common:styleDetail.artistSliderTitle", {
             tattooStyle: data.style_name,
           })}
           content={t("common:styleDetail.artistSliderContent", {
-            tattooStyle: data.style_name.charAt(0).toLowerCase() + data.style_name.slice(1),
-        })}
-        data={artistData}
-        slug={data.slug}  
+            tattooStyle:
+              data.style_name.charAt(0).toLowerCase() +
+              data.style_name.slice(1),
+          })}
+          data={artistData}
+          slug={data.slug}
         />
 
         <Tattooidea name={data.style_name} handleLinkClick={handleLinkClick} />
@@ -206,8 +208,11 @@ export default function Styledeatil({ data ,style_id}) {
           </section>
         )}
 
-        <ExploreTattoos data={tattooData} styleName={data.style_name}
-        slug={data.slug} />
+        <ExploreTattoos
+          data={tattooData}
+          styleName={data.style_name}
+          slug={data.slug}
+        />
 
         {withImagery && withImagery.length > 0 && (
           <section className="text_box_wrap d_flex">
@@ -241,9 +246,11 @@ export default function Styledeatil({ data ,style_id}) {
 export async function getServerSideProps(context) {
   try {
     const { query ,locale } = context;
-    const lng= locale.split('-')[1]
-    const {style_uid, style_id} = query; // Access the style_id & style_uid from the query object
-    const data = await getSingleStyleDetail(style_uid ,lng) ;
+    const { style_uid, style_id } = query; // Access the style_id & style_uid from the query object'
+
+    axiosInstance.defaults.headers['Accept-Language'] = locale.split('-')[1];
+    const data = await axiosInstance.get(API_URL.SEARCH.GET_SINGLE_STYLE_DETAIL(style_uid))
+
     if (!data.data) {
       return {
         notFound: true,
@@ -251,8 +258,8 @@ export async function getServerSideProps(context) {
     }
     return {
       props: {
-        data: data.data,
-        style_id
+        data: data.data.data,
+        style_id,
       },
     };
   } catch (error) {

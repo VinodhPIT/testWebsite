@@ -1,18 +1,22 @@
 import { create } from "zustand";
-import { offerDetails } from "@/apiConfig/offerAnalyticsService";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 const useOfferDetail = create((set) => ({
   offerData: {},
   loading: false,
   scheduledOffers: [],
   completedOffers: [],
-  fetchOffer: async (token) => {
+  fetchOffer: async () => {
     try {
       set({ loading: true });
-      const response = await offerDetails(token);
-      const scheduledOffers = response.filter((e) => e.status === "scheduled");
-      const completedOffers = response.filter((e) => e.status === "completed");
 
-      const filter = response.filter(
+      const response = await axiosInstance.get(API_URL.ANALYTICS_OFFER.GET_OFFER_DETAILS);
+      const scheduledOffers = response.data.filter((e) => e.status === "scheduled");
+      const completedOffers = response.data.filter((e) => e.status === "completed");
+
+      const filter = response.data.filter(
         (e) => e.status === "completed" || e.status === "cancelled"
       );
 

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-import styles from "./style.module.css";
-import useWindowResize from "@/hooks/useWindowSize";
 import Link from "next/link";
+
+import useWindowResize from "@/hooks/useWindowSize";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { BLUR_URL } from "@/constants/constants";
+
+import styles from "./style.module.css";
+
 
 export default function CarouselSection({
   title,
@@ -147,7 +152,7 @@ export default function CarouselSection({
                             height={378}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             className="tets"
                             layout="responsive"
                             style={{ borderRadius: "10px" }}
@@ -195,7 +200,7 @@ export default function CarouselSection({
       alt="logo"
       loading="lazy"
       placeholder="blur"
-      blurDataURL={blurDataURL}
+      blurDataURL={BLUR_URL}
       className="ml-8 mt-2"
     />
   </Link>
