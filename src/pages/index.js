@@ -82,15 +82,6 @@ export default function Home({isMobile}) {
   }, []);
 
 
-
-  
-
-
-
-
-
-
-
   return (
     <>
       <Head>
@@ -102,100 +93,71 @@ export default function Home({isMobile}) {
         <meta name="keywords" content={t("common:homeScreenSEO.keyword")} />
       </Head>
 
-      <section className="img_text_banner_box">
-        <div className="col_full">
-          <div className="main_banner_wrap mt_40 m_mt_15">
-            <div className="main_banner_block">
-              <div className="main_banner_col">
-                <div className="main_banner_img_wrap">
-                  <div className="main_banner_img">
-                    <Image
-                      src="/book-your-tattoo-now.png"
-                      alt="Banner"
-                      fill
-                      objectFit="cover"
-                      objectPosition="right top"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="mob_hidden"
-                    />
-                    <Image
-                      src="/book-your-tattoo-now-mob.png"
-                      alt="Banner"
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      fill
-                      objectPosition="center top"
-                      className="desk_hidden"
-                    />  
-                    
-                  </div>
+
+      <section className="full_block_banner">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div className="banner_block">
+              <div className="banner_col">
+                <div className="banner_img_wrap">
+                  <Image
+                    src="/home_banner.png"
+                    alt="Banner"
+                    fill
+                    objectFit="cover"
+                    objectPosition="center top"
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                    className="mob_hidden"
+                  />
+                  <Image
+                    src="/m_home_banner.png"
+                    alt="Banner"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                    fill
+                    objectFit="cover"
+                    objectPosition="center top"
+                    className="desk_hidden"
+                  />  
                 </div>
-                <div className="main_banner_caption">
+                <div className="banner_caption">
                   <div className="d_inline_block">
-                    <div className="main_banner_content">
-                      <h1 className="color_white heading_h1 custom_fs_75 txt_mob_fs50 mt_0 max_w_420 m_max_100">
+                    <div className="banner_content">
+                      <h1 className="color_black_h heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 max_w_480 m_max_100">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="color_white custom_fs_m_14 mt_15 mb_40 m_mt_0 max_w_520 m_max_100">
+                      <p className="color_black_h mt_10 mb_40 m_mb_30  max_w_440 m_max_100">
                         {t("common:homePage.bannerContent")}
                       </p>
-                      <div className="d_inline_block max_w_520 w_100pc"> 
-                        <ul className="download_qr_mob_app">
-                          <li className="color_white color_white download_qr_mob_app_title">
-                            {t("common:homePage.Download the inckd")}
-                          </li>
-                          <li>
-                            <Link href={APP_LINK_APPLE} target="_blank">
-                              <Image
-                                priority
-                                src="/app-store-new.svg"
-                                alt="App store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons desk_hidden"
-                              />
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href={APP_LINK_GOOGLE} target="_blank">
-                              <Image
-                                priority
-                                src="/g-play-new.svg"
-                                alt="Play store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons desk_hidden"
-                              />
-                            </Link>
-                          </li>
-                          <li>                            
-                            <Image
-                              priority
-                              src={qrCodeSrc}
-                              alt="QR"
-                              width={121}
-                              height={121}
-                              placeholder="blur"
-                              blurDataURL={blurDataURL}
-                              className="custom_download_icons app_qr_home mob_hidden"
-                            />                           
-                          </li>
-                        </ul>
-                      </div>
+                      <Link
+                        href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
+                        className="button_primary mob_hidden"
+                      >
+                        Get our mobile app
+                      </Link>
+                      <Link href={APP_LINK_APPLE} target="_blank">
+                        <Image
+                          priority
+                          src="/app-store-new.svg"
+                          alt="App store"
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={blurDataURL}
+                          className="custom_download_icons desk_hidden"
+                        />
+                      </Link>  
                     </div>
-                  </div>                 
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <TattooIdea></TattooIdea>
 
       <TattooSlider
@@ -215,9 +177,7 @@ export default function Home({isMobile}) {
         content={t("common:homePage.worldOfInk")}
         data={styleList}
         loading={loader} 
-      /> 
-
-      {SwitchJournal(router.locale)}
+      />      
 
       <PaymentTypes
         title1={t("common:homePage.Verified tattoo artists")}
@@ -228,6 +188,8 @@ export default function Home({isMobile}) {
         content3={t("common:homePage.Rest easy knowing")}
         leftSectionImage="/verified_tattoo_artists_01.png"
       />
+
+      {SwitchJournal(router.locale)}
 
       {/* <Modal /> */}
     </>

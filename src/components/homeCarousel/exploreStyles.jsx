@@ -10,7 +10,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./style.module.css";
-import { UseSliderSettings } from "@/utils/sliderUtils";
+import { UseStyleSettings } from "@/utils/sliderUtils";
 
 export default function ExploreStyles({ title, content, data }) {
   const { isVisible, isSmallDevice } = useWindowResize();
@@ -22,23 +22,29 @@ export default function ExploreStyles({ title, content, data }) {
     totalDots,
     activeIndex,
     transformValue,
-  } = UseSliderSettings(isSmallDevice, data);
+  } = UseStyleSettings(isSmallDevice, data);
 
   return (
-    <section className="img_text_banner_box">
-      <div className="text_box_wrap full-block-wrap">
-        <div className="img_text_box_inner">
-          <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_15">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_0 m_text_left custom_fs_m_24 fw_700 position_relative">
-                <span className="position_relative">{title}</span>
-              </h2>
-              {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
-                {content}
-              </p> */}
+    <section className="container_full">
+      <div className="row">        
+        <div className="col-md-12">
+          <div className="d_inline_block w_100pc pt_40">
+            <div className="d_inline_block w_100pc">
+              <h2 className="color_gray_550 custom_fs_38 fw_900 pr_90 m_pr_55 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0">              
+                <span className="position_relative">
+                  <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
+                  Tattoo Styles</span>
+                <Link
+                  href=""
+                  className="more_link"
+                >
+                 SEE ALL
+                </Link>
+              </h2>              
             </div>
+
             <div
-              className={`${"mt_0 mb_80 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none"} ${
+              className={`${"mt_20 mb_40 m_mb_25 main_slider mob_slider_left_none slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -47,7 +53,7 @@ export default function ExploreStyles({ title, content, data }) {
                   <Slider
                     ref={sliderRef}
                     {...sliderSettings}
-                    className="custom_slick_slider custom_slick_container m_xs_ml_n_15 m_xs_mr_n_15"
+                    className="m_xs_ml_n_15 m_xs_mr_n_15 custom_slider"
                   >
                     {data &&
                       data.map((el, index) => (
@@ -62,23 +68,21 @@ export default function ExploreStyles({ title, content, data }) {
                             }}
                           >
                             <div
-                              className={`${"listing_grid_img_col position_relative m_w_cal_100_10 sqr_resp_280"}`}
+                              className={`${"listing_grid_img_col"}`}
                             >
                               <Image
                                 src={el.image ? el.image : "/placeHolder.png"}
                                 alt={el.name}
-                                width={224}
-                                height={256}
+                                width={454}
+                                height={519}
                                 loading="lazy"
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
-                                className="h_inherit"
                                 layout="responsive"
-                                style={{ borderRadius: "10px" }}
-                              />
-                              <div className="title_bg_trans">
-                                <span>{el.name}</span>
-                              </div>
+                              />                              
+                            </div>
+                            <div className="list_title">
+                              <span>{el.name}</span>
                             </div>
                           </Link>
                         </div>
@@ -102,8 +106,8 @@ export default function ExploreStyles({ title, content, data }) {
                   )}
                 </div>
               ) : null}
-            </div>
-          </div>
+            </div> 
+          </div>          
         </div>
       </div>
     </section>

@@ -125,7 +125,7 @@ export default function Header({
 
       <header className={`${"header_wrapper"} ${isFixed ? 'fixed' : ''}`}>
         <div>
-          <div className={"container_full"}>
+          <div className={"container_full pl_60 pr_60 m_pl_15 m_pr_15"}>
             <nav className="header_navigation">
               <div className="header_logo_nav">
                 <div className="header_logo">
@@ -145,7 +145,7 @@ export default function Header({
                       <li key={link.id} className="nav_item">
                         <Link
                           href={`/${router.locale}${link.url}`}
-                          className={"textWhite"}
+                          className={""}
                         >
                           {t(link.title)}
                         </Link>
@@ -162,7 +162,7 @@ export default function Header({
                 <button
                   type="button"
                   onClick={() => handleClick()}
-                  className={`btn btn_tattoo_art `}
+                  className={`btn_tattoo_art `}
                 >
                   {t("common:menus.forArtists")}
                 </button>
@@ -180,9 +180,9 @@ export default function Header({
                       height={32}
                       priority
                     />
-                    <span className={"textWhite"}>
+                    {/* <span className={"textWhite"}>
                       { getLanguage(router.locale)}
-                    </span>
+                    </span> */}
                   </button>
                 )}
 
@@ -207,7 +207,7 @@ export default function Header({
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
-                  src={"/hamburger-menu.svg"}
+                  src={"/Hamburger_menu_black.svg"}
                   alt="hamburger"
                   width={32}
                   height={32}

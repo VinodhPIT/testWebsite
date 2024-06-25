@@ -1,40 +1,21 @@
-.listing_pageContainer {
-	float: left;
-    width: 100%;
-    margin: 10px 0 50px;
-}
-.listing_gridItem {
-	position: relative;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    padding-left: 15px;
-}
 .listing_grid_content_wrap {
     margin-top: 0;
     display: flex;
-    padding: 12px 12px;
+    padding: 15px 0;
     align-items: center;
-    border: 1px solid #E1E4E8;
-    border-top: 0;
     background: #fff;
-    border-radius: 0px 0px 15.9px 15.9px;   
     width: 100%;
 }
 .listing_grid_img_profile {
-    width: 36px;
-    min-width: 36px;
-    height: 36px;
-    min-height: 36px;
-    margin: 0 10px 0 0;
+    width: 46px;
+    min-width: 46px;
+    height: 46px;
+    min-height: 46px;
+    margin: 0 12px 0 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    border: 0;
 }
 .listing_grid_img_profile img {
     max-width: 100%;
@@ -52,15 +33,14 @@
 
 .listing_grid_profile_title {   
     margin: 0;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 18px;
+    line-height: 27px;
     font-weight: 600;
     color: var(--black-500);
     display: block;
     max-width: 100%;
     word-break: break-word;
     max-width: 100%;
-    /* height: 23px; */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -68,9 +48,9 @@
 
 .listing_grid_profile_address {
     margin: 0;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 400;
-    /* line-height: 19px; */
+    line-height: 27px;
     color: var(--gray-400);
     text-align: left;
     word-break: break-word;

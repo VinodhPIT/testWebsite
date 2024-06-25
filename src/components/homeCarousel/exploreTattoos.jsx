@@ -25,31 +25,26 @@ export default function ExploreTattoos({ title, content, data }) {
   } = UseSliderSetting(isSmallDevice, data);
 
   return (
-    <section className="img_text_banner_box">
-      <div className="text_box_wrap full-block-wrap">
-        <div className="img_text_box_inner">
-          <div className="justify_content_start container w_100pc">
-            <div className="text_box_content_inner m_pr_0 pt_80 pb_0 mb_15 max_w_100pc m_pt_0 m_pb_0 m_mb_10 m_mt_30">
-              <h2 className="color_gray_550 heading_h2 lh_40 mb_0 pr_65 m_pr_55 m_xs_pr_0 m_text_left custom_fs_m_24 fw_700 position_relative">
-                <span className="position_relative">{title}</span>
+    <section className="container_full">
+      <div className="row">        
+        <div className="col-md-12">
+          <div className="d_inline_block w_100pc pt_40">
+            <div className="d_inline_block w_100pc">    
+              <h2 className="color_gray_550 custom_fs_38 fw_900 pr_90 m_pr_55 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0">              
+                <span className="position_relative">
+                  <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
+                  Tattoos</span>
                 <Link
                   href={`/${router.locale}/explore/tattoos`}
-                  className="link_with_arrow"
+                  className="more_link"
                 >
-                  <Image
-                    src="/arrow_right_mob.svg"
-                    width={32}
-                    height={32}
-                    alt="arrow"
-                  />
+                 SEE ALL
                 </Link>
               </h2>
-              {/* <p className="custom_fs_18 custom_fs_m_14 color_gray_550 m_mt_0 mb_0 m_text_left fw_300">
-                {content}
-              </p> */}
             </div>
+
             <div
-              className={`${"mt_0 mb_0 m_mb_25 trending_artist_slider mob_dotted slider_nav_arrows mob_slider_left_none mob_slider_eql_h"} ${
+              className={`${"mt_20 mb_40 m_mb_25 main_slider mob_slider_left_none slider_nav_arrows"} ${
                 styles.listing_pageContainer
               }`}
             >
@@ -58,28 +53,26 @@ export default function ExploreTattoos({ title, content, data }) {
                   <Slider
                     ref={sliderRef}
                     {...sliderSettings}
-                    className="custom_slick_slider custom_slick_container m_xs_ml_n_15 m_xs_mr_n_15"
+                    className="m_xs_ml_n_15 m_xs_mr_n_15 custom_slider custom_square_slider"
                   >
                     {data &&
                       data.map((el, index) => (
-                        <div className={`${"listing_gridItem"} `} key={index}>
+                        <div className={`${"listing_gridItem m_sm_pr_25"} `} key={index}>
                           <Link
                             href={`/${router.locale}/explore/tattoos/${el.tattoo_uid}`}
                           >
                             <div
-                              className={`${"listing_grid_img_col sqr_resp_224 m_w_cal_100_10"}`}
+                              className={`${"listing_grid_img_col"}`}
                             >
                               <Image
                                 src={el.image_url}
                                 alt={el.style.style_name}
-                                width={224}
-                                height={224}
+                                width={332}
+                                height={332}
                                 loading="lazy"
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
-                                className="h_inherit"
                                 layout="responsive"
-                                style={{ borderRadius: "10px" }}
                               />
                             </div>
                           </Link>
@@ -105,9 +98,19 @@ export default function ExploreTattoos({ title, content, data }) {
                 </div>
               )}
             </div>
+
+
+
+
           </div>
         </div>
       </div>
     </section>
+
+
+
+
+
+
   );
 }

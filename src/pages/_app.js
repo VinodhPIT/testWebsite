@@ -20,7 +20,7 @@ import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
-
+import "@/styles/main.css";
 
 NProgress.configure({ showSpinner: false });
 
@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }) {
       case "/explore-style":
         return (
           <Header
-            logo={"/inckd-logo.svg"}
+            logo={"/Inckd_logo_black.svg"}
             theme={"white"}
             imgWidth="105"
             imgHeight="31"
