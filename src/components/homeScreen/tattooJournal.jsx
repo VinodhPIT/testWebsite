@@ -13,6 +13,7 @@ import { JournalSliderSettings } from "@/utils/sliderUtils";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import styles from "./styles/journal.module.css";
 
 export default function ListingPage({ data}) {
@@ -29,7 +30,6 @@ export default function ListingPage({ data}) {
   const router = useRouter();
   
   return (
-
       <section className="container_full">
         <div className="row">        
           <div className="col-md-12">
@@ -130,3 +130,4 @@ export default function ListingPage({ data}) {
       </section>
   );
 }
+
