@@ -78,10 +78,10 @@ export default function Header({
         <div className="header_cookies mob_hidden">
           <div className="header_cookie_img">
             <Image
-              src="/logo-cookies.svg"
+              src="/klarna_logo_small_white.svg"
               alt="klarna"
-              width={68}
-              height={16}
+              width={51}
+              height={12}
               loading="eager"
             ></Image>
           </div>
@@ -108,15 +108,15 @@ export default function Header({
          <div className="header_cookies desk_hidden">
          <div className="header_cookie_img">
            <Image
-             src="/logo-cookies.svg"
+             src="/klarna_logo_small_white.svg"
              alt="klarna"
-             width={68}
-             height={16}
+             width={51}
+             height={12}
              loading="eager"
            ></Image>
          </div>
         <span className="custom_fs_14">{t("common:getTattooNow")}</span>                     
-        <Link href={`/${router.locale}/klarna`} className="custom_fs_16 fw_600 color_black_h head_paylater_link">
+        <Link href={`/${router.locale}/klarna`} className="head_paylater_link">
           {t("common:learnmore")}
         </Link>  
        </div>

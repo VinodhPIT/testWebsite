@@ -126,7 +126,7 @@
     position: relative;
 }
 
-.banner_col:before {    
+.banner_grad_lft_mob_btm:before {    
     content: "";
     background: linear-gradient(90deg, #F8F8FF 10.46%, rgba(255, 255, 255, 0.85) 60.09%, rgba(255, 255, 255, 0.60) 73.11%, rgba(255, 255, 255, 0.00) 100%);
     position: absolute;
@@ -297,10 +297,7 @@ ul.custom_list_view li img {
         margin-right: -20px;
     }
 }
-@media screen and (max-width: 767.98px) {
-    .banner_col {
-        min-height: 81vh;
-    }
+@media screen and (max-width: 767.98px) {    
     .banner_caption {
         align-items: flex-end;
         padding: 0 15px 58px 15px;
@@ -312,7 +309,8 @@ ul.custom_list_view li img {
     .banner_caption:before {       
         display: none;        
     }
-    .banner_col:before {       
+   
+    .banner_grad_lft_mob_btm:before {       
         content: "";
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FBFBFF 56.64%, #F8F8FF 100%);
         position: absolute;

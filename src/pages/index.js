@@ -82,7 +82,7 @@ export default function Home({}) {
         <div class="row g-0">
           <div class="col-md-12">
             <div className="banner_block m_min_h_698">
-              <div className="banner_col">
+              <div className="banner_col banner_grad_lft_mob_btm">
                 <div className="banner_img_wrap">
                   <Image
                     src="/home_banner.png"

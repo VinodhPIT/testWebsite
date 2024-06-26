@@ -7460,8 +7460,8 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     padding-left: 15px;
     padding-right: 15px;
     gap: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 12px;
+    padding-bottom: 8px;
   }
   .header_cookies .header_cookie_txt p {
     font-size: 13px;
@@ -8319,6 +8319,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .head_paylater_link{
     position: relative;
     top: 2px;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    color: var(--white);
   }
   .head_paylater_link:hover{
     color: var(--black-200);
