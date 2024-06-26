@@ -13,24 +13,21 @@ import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
+import TextsCarousel from "@/components/carousel/TextsCarosuel";
+import ImageCarosuel from "@/components/carousel/ImageCarosuel";
+import CaptionImageCarosuel from "@/components/carousel//CaptionImageCarosuel";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
-import TattooSlider from "@/components/homeScreen/artistSlider";
 import TattooJournal from "@/components/homeScreen/tattooJournal";
 import PaymentTypes from "@/components/homeScreen/paymentTypes";
-import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
-import ExploreStyle from "@/components/homeCarousel/exploreStyles";
 import Modal from "@/components/modalPopup/comingSoon";
 
-import {
-  APP_LINK_APPLE,
-  BLUR_URL,
-} from "@/constants/constants";
+import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
 export default function Home({}) {
   const router = useRouter();
-  const { allListing, loading } = useDisplayAll();
-  const { styleList, loader } = useStyleListing();
+  const { allListing } = useDisplayAll();
+  const { styleList } = useStyleListing();
   const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const {
@@ -151,23 +148,47 @@ export default function Home({}) {
 
       <TattooIdea></TattooIdea>
 
-      <TattooSlider
+      {/* <TattooSlider
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
+      /> */}
+
+      <TextsCarousel
+        title="EXPLORE"
+        subTitle="Tattoo Artists"
+        description=""
+        data={allListing.artists}
       />
+
       <KlarnaBanner />
-      <ExploreTattoos
+
+      <ImageCarosuel
+       title="EXPLORE"
+       subTitle="Tattoos"
+        description=""
+        data={allListing.tattoo_images}
+      />
+
+      {/* <ExploreTattoos
         title={t("common:menus.tattooSearch")}
         content={t("common:homePage.worldOfInk")}
         data={allListing.tattoo_images}
         loading={loading}
-      />
+      /> */}
 
-      <ExploreStyle
+      {/* <ExploreStyle
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
         loading={loader}
+      />
+       */}
+
+       <CaptionImageCarosuel
+         title="EXPLORE"
+         subTitle="Tattoo Styles"
+          description=""
+          data={styleList}
       />
 
       <PaymentTypes

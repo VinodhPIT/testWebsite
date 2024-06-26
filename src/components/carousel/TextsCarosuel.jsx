@@ -1,29 +1,31 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
-import useDisplayAll from "@/store/exploreAll/exploreAll";
 
-import { blurDataURL } from "@/constants/constants";
+import { UseSliderSettings } from "@/utils/sliderUtils";
+import { BLUR_URL ,SLIDE_MOBILE_TO_SCROLL ,SLIDES_TO_SHOW_DEFAULT } from "@/constants/index";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import styles from "./styles/slider.module.css";
-import { UseSliderSettings } from "@/utils/sliderUtils";
-export default function FourColumnCarousel({ title, content }) {
+
+export default function TextsCarosuel({title ,subTitle ,description,data}){
+
   const { isVisible, isSmallDevice } = useWindowResize();
-  const { allListing } = useDisplayAll();
   const { router } = useNavigation();
+  
   const {
     sliderRef,
     sliderSettings,
     totalDots,
     activeIndex,
     transformValue,
-  } = UseSliderSettings(isSmallDevice, allListing.artists && allListing.artists);
+  } = UseSliderSettings(isSmallDevice, data && data ,SLIDES_TO_SHOW_DEFAULT ,SLIDE_MOBILE_TO_SCROLL);
 
   return (
     <section className="container_full">
@@ -33,8 +35,8 @@ export default function FourColumnCarousel({ title, content }) {
             <div className="d_inline_block w_100pc">
               <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 pr_90 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0">              
                 <span className="position_relative">
-                  <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">EXPLORE</span>
-                  Tattoo Artists</span>
+                  <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{title}</span>
+                  {subTitle}</span>
                 <Link
                   href={`/${router.locale}/explore/tattoo-artists`}
                   className="more_link"
@@ -48,15 +50,15 @@ export default function FourColumnCarousel({ title, content }) {
                   styles.listing_pageContainer
                 }`}
                 >
-                {allListing.artists && (
+                {data && (
                   <div>
                     <Slider
                       ref={sliderRef}
                       {...sliderSettings}
                       className="m_xs_ml_n_15 m_xs_mr_n_15 custom_slider"
                     >
-                      {allListing.artists &&
-                        allListing.artists.map((el, index) => (
+                      
+                        {data.map((el, index) => (
                           <div
                             className={`${"listing_gridItem"} ${
                               styles.listing_gridItem
@@ -70,19 +72,13 @@ export default function FourColumnCarousel({ title, content }) {
                                 }`}
                               >
                                 <Image
-                                  src={
-                                    el.latest_tattoo === "" ||
-                                    el.latest_tattoo === null ||
-                                    el.latest_tattoo === undefined
-                                      ? "/placeHolder.png"
-                                      : el.latest_tattoo
-                                  }
+                                  src={el.latest_tattoo || "/placeHolder.png"}
                                   alt={el.first_name}
                                   width={334}
                                   height={344}
                                   loading="lazy"
                                   placeholder="blur"
-                                  blurDataURL={blurDataURL}
+                                  blurDataURL={BLUR_URL}
                                   layout="responsive" 
                                 />
                               </div>
@@ -99,7 +95,7 @@ export default function FourColumnCarousel({ title, content }) {
                                     height={97}
                                     loading="lazy"
                                     placeholder="blur"
-                                    blurDataURL={blurDataURL}
+                                    blurDataURL={BLUR_URL}
                                     layout="responsive"
                                   />
                                 </div>
@@ -109,9 +105,7 @@ export default function FourColumnCarousel({ title, content }) {
                                   <h6
                                     className={styles.listing_grid_profile_title}
                                   >
-                                    {el.artist_name === ""
-                                      ? `${el.first_name} ${el.last_name}`
-                                      : el.artist_name}
+                                    {el.artist_name || `${el.first_name} ${el.last_name}`}
                                   </h6>
                                   <span
                                     className={

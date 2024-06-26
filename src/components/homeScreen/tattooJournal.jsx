@@ -7,8 +7,8 @@ import useTranslation from "next-translate/useTranslation";
 
 import useWindowResize from "@/hooks/useWindowSize";
 
-import { BLUR_URL } from "@/constants/constants";
-import { JournalSliderSettings } from "@/utils/sliderUtils";
+import { BLUR_URL  ,SLIDES_TO_SHOW_ALTERNATE ,SINGLE_ITEM_SCROLL} from "@/constants/index";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -25,7 +25,7 @@ export default function ListingPage({ data}) {
     totalDots,
     activeIndex,
     transformValue,
-  } = JournalSliderSettings(isSmallDevice, data);
+  } = UseSliderSettings(isSmallDevice, data  ,SLIDES_TO_SHOW_ALTERNATE ,SINGLE_ITEM_SCROLL);
 
   const router = useRouter();
   
