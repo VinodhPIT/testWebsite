@@ -28,9 +28,6 @@ export default function ListingPage({ data, locale }) {
     }
   }, [data, locale, router, error]);
 
-
-
-
   return (
     <>
       <Head>

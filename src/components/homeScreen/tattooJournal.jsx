@@ -4,19 +4,15 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
-
 import useWindowResize from "@/hooks/useWindowSize";
-
 
 import { BLUR_URL } from "@/constants/constants";
 import { JournalSliderSettings } from "@/utils/sliderUtils";
-
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./styles/journal.module.css";
-
 
 export default function ListingPage({ data}) {
   const { t } = useTranslation();

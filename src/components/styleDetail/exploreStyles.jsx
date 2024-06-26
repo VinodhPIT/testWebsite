@@ -9,7 +9,6 @@ import useTranslation from "next-translate/useTranslation";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 import { blurDataURL } from "@/constants/constants";
 
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,12 +26,6 @@ export default function ExploreStyles({ data }) {
   } = UseSliderSettings(isSmallDevice, data);
   const { router } = useNavigation();
   const { t } = useTranslation();
-
-
-
-
-
-
 
   return (
     <section className="img_text_banner_box">

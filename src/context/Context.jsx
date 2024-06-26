@@ -229,7 +229,6 @@ export const GlobalStateProvider = ({ children }) => {
 
       dispatch({ type: "LOAD_MORE", payload: responseData });
     } catch (error) {
-      // console.log(error,"csdjj")
     }
   };
 

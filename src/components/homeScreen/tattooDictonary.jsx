@@ -4,8 +4,6 @@ import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from 'next/router'
 import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
 
