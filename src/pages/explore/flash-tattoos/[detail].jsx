@@ -15,7 +15,7 @@ import myPromise from "@/utils/myPromise";
 import {APP_LINK_APPLE, APP_LINK_GOOGLE, BLUR_URL,} from "@/constants/constants";
   
 import SearchField from "@/components/exploreScreens/searchField";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import FilterPanel from "@/components/exploreScreens/filterPanel";
 import Loader from "@/components/loading/loader";
 
 import { axiosInstance } from "@/apiConfig/axios.instance";
@@ -126,7 +126,7 @@ export default function Detail({ data}) {
                 </div>
               </div>
 
-              <SelectDropdown
+              <FilterPanel
                 searchKey={""}
                 currentTab={"flash"}
                 selectedStyle={""}

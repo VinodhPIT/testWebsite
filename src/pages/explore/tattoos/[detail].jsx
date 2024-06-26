@@ -17,7 +17,7 @@ import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
 
 import SearchField from "@/components/exploreScreens/searchField";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import FilterPanel from "@/components/exploreScreens/filterPanel";
 import Loader from "@/components/loading/loader";
 
 import styles from "../tattoodetail.module.css";
@@ -139,7 +139,7 @@ export default function Detail({ data, locale }) {
                 </div>
               </div>
 
-              <SelectDropdown
+              <FilterPanel
                 searchKey={""}
                 currentTab={"tattoo"}
                 selectedStyle={""}

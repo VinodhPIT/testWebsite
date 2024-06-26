@@ -19,7 +19,7 @@ import { axiosInstance } from "@/apiConfig/axios.instance";
 
 import { renderCategoryComponent } from "@/components/exploreScreens/tab";
 import SearchField from "@/components/exploreScreens/searchField";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import FilterPanel from "@/components/exploreScreens/filterPanel";
 
 import style from "@/pages/explore/search.module.css";
 
@@ -150,7 +150,7 @@ const Search = ({
                 </div>
               </div>
 
-              <SelectDropdown
+              <FilterPanel
                 searchKey={searchKey}
                 currentTab={currentTab}
                 selectedStyle={selectedStyle}

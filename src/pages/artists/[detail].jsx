@@ -13,7 +13,7 @@ import { blurDataURL } from "@/constants/constants";
 
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/exploreScreens/searchField";
-import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import FilterPanel from "@/components/exploreScreens/filterPanel";
 import { renderArtistGallery } from "@/components/exploreScreens/tab";
 
 import { axiosInstance } from "@/apiConfig/axios.instance";
@@ -130,7 +130,7 @@ export default function Detail({ data }) {
                 </div>
               </div>
 
-              <SelectDropdown
+              <FilterPanel
                 searchKey={""}
                 currentTab={"artist"}
                 selectedStyle={""}
