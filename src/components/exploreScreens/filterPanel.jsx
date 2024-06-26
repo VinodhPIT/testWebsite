@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import StyleDropdown from "@/components/exploreScreens/styleListing";
 import useWindowResize from "@/hooks/useWindowSize";
@@ -10,7 +10,7 @@ import { useGlobalState } from "@/context/Context";
 import { formatText } from "@/utils/textUtils";
 import OutsideClickHandler from "react-outside-click-handler";
 
-export default function SelectDropdown({
+export default function FilterPanel({
   searchKey,
   currentTab,
   selectedStyle,
