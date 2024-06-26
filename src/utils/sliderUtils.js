@@ -73,7 +73,7 @@ export const UseSliderSettings = (isSmallDevice, data) => {
     arrows: isSmallDevice ? false : true,
     speed: 300,
     slidesToShow: isSmallDevice ? 1.5 : 4,
-    slidesToScroll: 1,
+    slidesToScroll:4,
     dots: false, // We will handle dots manually
     swipe: false,
     responsive: [
@@ -146,7 +146,7 @@ export const UseSliderSetting = (isSmallDevice, data) => {
     arrows: isSmallDevice ? false : true,
     speed: 300,
     slidesToShow: isSmallDevice ? 1.5 : 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     dots: false, // We will handle dots manually
     swipe: false,
     responsive: [
@@ -219,7 +219,7 @@ export const UseStyleSettings = (isSmallDevice, data) => {
     arrows: isSmallDevice ? false : true,
     speed: 300,
     slidesToShow: isSmallDevice ? 1.5 : 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     dots: false, // We will handle dots manually
     swipe: false,
     responsive: [
