@@ -8,12 +8,12 @@ import { useNavigation } from "@/hooks/useRouter";
 
 import usePath from'@/store/setPath/setPath'
 import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
-import FiveColumnCarousel from "@/components/klarnaFiveColumnCarousel/fiveColumnCarousel";
+import FiveColumnCarousel from "@/components/klarnaScreen/fiveColumnCarousel";
 
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL, KLARNA_LINK
+  BLUR_URL, KLARNA_LINK
 } from "@/constants/constants";
 
 import {
@@ -24,8 +24,6 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-
-
 
 
 function KlarnaNew({}) {
@@ -116,7 +114,7 @@ function KlarnaNew({}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -130,7 +128,7 @@ function KlarnaNew({}) {
                                 width={134}
                                 height={41}
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="custom_download_icons"
                               />
                             </Link>
@@ -149,7 +147,7 @@ function KlarnaNew({}) {
                       height={27}
                       loading="eager"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                     />
                   </div>
                   <Image
@@ -162,7 +160,7 @@ function KlarnaNew({}) {
                     objectFit="cover"
                     objectPosition="center"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     className="mob_hidden"
                   />
                   <Image
@@ -173,7 +171,7 @@ function KlarnaNew({}) {
                     objectFit="cover"
                     objectPosition="center"
                     placeholder="blur"
-                    blurDataURL={blurDataURL}
+                    blurDataURL={BLUR_URL}
                     className="desk_hidden"
                   />
                 </div>
@@ -206,7 +204,7 @@ function KlarnaNew({}) {
                         width={70}
                         height={29}
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                       />
                       <span className="klarna_pay_opt_label">
                       {t("common:klarnaPage.tag1")}
@@ -228,7 +226,7 @@ function KlarnaNew({}) {
                         width={70}
                         height={29}
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                       />
                       <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag2")}</span>
                     </span>
@@ -248,7 +246,7 @@ function KlarnaNew({}) {
                         width={70}
                         height={29}
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                       />
                       <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag3")}</span>
                     </span>
@@ -268,7 +266,7 @@ function KlarnaNew({}) {
                         width={70}
                         height={29}
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                       />
                       <span className="klarna_pay_opt_label">{t("common:klarnaPage.tag4")}</span>
                     </span>

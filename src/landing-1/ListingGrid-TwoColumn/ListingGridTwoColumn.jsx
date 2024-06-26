@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./style.module.css";
+
 export default function ListingGridTwoColumn({ data, bgColor }) {
   return (
     <section className="img_text_banner_box">

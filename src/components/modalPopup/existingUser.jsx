@@ -1,13 +1,16 @@
 import React from "react";
 import Image from "next/image";
 
+import useOpenApp from '@/hooks/useOpenApp';
+
 import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
+
 import { useResetRequestFormState } from "@/store/requestManagement/requestForm";
 
-import { APP_LINK_APPLE, APP_LINK_GOOGLE } from "@/constants/constants";
-import { detectOS } from "@/utils/detectOS";
 import figtree from "@/helpers/fontHelper";
+import { APP_LINK_APPLE, APP_LINK_GOOGLE } from "@/constants/constants";
+
 
 const customStyles = {
   overlay: {
@@ -31,18 +34,8 @@ const customStyles = {
 };
 const TattooSearchModal1Popup = ({}) => {
   const { t } = useTranslation();
-
-  const openApp = () => {
-    const os = detectOS();
-    let appLink = APP_LINK_GOOGLE; // Default to Google Play Store link
-
-    if (os === "iOS" || os === "MacOS" || os === "iPad" || os === "iPod") {
-      appLink = APP_LINK_APPLE; // Update to App Store link for iOS and macOS
-    }
-
-    window.open(appLink, "_blank");
-  };
-
+  const { openApp } = useOpenApp();
+  
   return (
     <Modal
       isOpen={true}
@@ -95,7 +88,7 @@ const TattooSearchModal1Popup = ({}) => {
                         {t("common:stepper.Login with your existing account")}
                       </p>
                       <button
-                        onClick={() => openApp()}
+                        onClick={openApp}
                         class="  btn_outline_base btn_base_lg  mt_30 w_100pc d_max_248 m_mt_15 custom_fs_16 m_max_100">
                         {t("common:stepper.openApp")}
                       </button>

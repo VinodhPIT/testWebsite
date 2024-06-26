@@ -12,13 +12,14 @@ import ArtistPickerModel from "@/components/modalPopup/joinArtistPopup";
 import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 
 
 
 
 export default function Tattooartists({}) {
+  //Constants
   const { router } = useNavigation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
@@ -74,7 +75,7 @@ export default function Tattooartists({}) {
                                     width={134}
                                     height={41}
                                     placeholder="blur"
-                                    blurDataURL={blurDataURL}
+                                    blurDataURL={BLUR_URL}
                                     className="custom_download_icons"
                                   />
                                 </Link>
@@ -88,7 +89,7 @@ export default function Tattooartists({}) {
                                     width={134}
                                     height={41}
                                     placeholder="blur"
-                                    blurDataURL={blurDataURL}
+                                    blurDataURL={BLUR_URL}
                                     className="custom_download_icons"
                                   />
                                 </Link>
@@ -107,7 +108,7 @@ export default function Tattooartists({}) {
                         objectFit="cover"
                         objectPosition="center"
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         className="mob_hidden"
                       />
                       <Image
@@ -118,7 +119,7 @@ export default function Tattooartists({}) {
                         objectFit="cover"
                         objectPosition="center"
                         placeholder="blur"
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         className="desk_hidden"
                       />
                     </div>
@@ -141,7 +142,7 @@ export default function Tattooartists({}) {
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
                           placeholder="blur"
                         />
@@ -241,7 +242,7 @@ export default function Tattooartists({}) {
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
                           placeholder="blur"
                         />
@@ -266,7 +267,7 @@ export default function Tattooartists({}) {
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
                           placeholder="blur"
                         />
@@ -353,7 +354,7 @@ export default function Tattooartists({}) {
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
                           placeholder="blur"
                         />
@@ -378,7 +379,7 @@ export default function Tattooartists({}) {
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
                           placeholder="blur"
                         />
@@ -439,7 +440,7 @@ export default function Tattooartists({}) {
                           fill
                           objectFit="contain"
                           objectPosition="bottom"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
                           placeholder="blur"
                         />

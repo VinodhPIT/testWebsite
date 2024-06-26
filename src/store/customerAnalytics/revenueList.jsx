@@ -1,14 +1,17 @@
 
 import { create } from "zustand";
-import { analyticsRevenueDetails } from "@/apiConfig/customerAnalyticsService";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 const useRevenueStore = create((set) => ({
   revenue: {},
   loading: false,
-  fetchRevenue: async (token) => {
+  fetchRevenue: async () => {
     try {
       set({ loading: true });
-      const response = await analyticsRevenueDetails(token);
-      set({ revenue: response, loading: false });
+      const response = await axiosInstance.get(API_URL.ANALYTICS_CUSTOMER.GET_REVENUE_DETAILS);
+      set({ revenue: response.data, loading: false });
     } catch (error) {
       set({ loading: false });
     }

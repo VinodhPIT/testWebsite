@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
+import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import Banner from "@/landing-3/Banner/Banner";
 import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-import Head from "next/head";
 import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
-import { useNavigation } from "@/hooks/useRouter";
-import Link from "next/link";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
 import SideBySideContentWithImage from "@/landing-1/SideBySideContentWithImage/SideBySideContentWithImage";
 import VerticalImageLayout from "@/landing-3/VerticalImageLayout/VerticalImageLayout";

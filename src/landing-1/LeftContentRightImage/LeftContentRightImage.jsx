@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { BLUR_URL } from "@/constants/constants";
 
 export default function LeftContentRightImage({
   title,
@@ -71,7 +73,7 @@ export default function LeftContentRightImage({
                             height={570}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             className="tets"
                             layout="responsive"
                             style={{ borderRadius: "10px" }}
@@ -89,7 +91,7 @@ export default function LeftContentRightImage({
                       height={imgHeight}
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL={blurDataURL}
+                      blurDataURL={BLUR_URL}
                       style={{ borderRadius: "10px", objectFit: "cover" }}
                       className="imgResponsive"
                     />

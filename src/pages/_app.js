@@ -1,18 +1,16 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { Figtree } from "next/font/google";
+import { Figtree } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
-
 import UseLayout from "@/hooks/useLayout";
-
 import NProgress from "nprogress";
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 import { GlobalStateProvider } from "@/context/Context";
-import loadGoogleMapsAPI from "@/components/google-maps";
+import loadGoogleMapsAPI from "@/utils/google-maps";
 
-import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
+import Header from "@/common/header";
+import Footer from "@/common/footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
@@ -20,6 +18,8 @@ import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
+import "@/styles/main.css";
+import { AxiosProvider } from '@/apiConfig/axios.instance'; // Adjust the import path as needed
 
 
 NProgress.configure({ showSpinner: false });
@@ -78,7 +78,7 @@ function MyApp({ Component, pageProps }) {
       case "/explore-style":
         return (
           <Header
-            logo={"/inckd-logo.svg"}
+            logo={"/Inckd_logo_black.svg"}
             theme={"white"}
             imgWidth="105"
             imgHeight="31"
@@ -100,6 +100,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+     <AxiosProvider>
       <SessionProvider session={pageProps.session}>
         <GlobalStateProvider>
           <div className={figtree.className}>
@@ -114,6 +115,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </GlobalStateProvider>
       </SessionProvider>
+      </AxiosProvider>
     </>
   );
 }

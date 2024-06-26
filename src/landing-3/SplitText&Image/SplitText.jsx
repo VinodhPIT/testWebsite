@@ -1,8 +1,7 @@
 import React from "react";
-
 import Image from "next/image";
-import Link from "next/link";
-import { blurDataURL } from "@/constants/constants";
+
+import { BLUR_URL } from "@/constants/constants";
 
 export default function SplitText({ title, content }) {
   return (
@@ -23,7 +22,7 @@ export default function SplitText({ title, content }) {
                             alt="logo"
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             className="ml-8 mt-2"
                             />
                         </Link> */}
@@ -36,7 +35,7 @@ export default function SplitText({ title, content }) {
             src="/dragontattoo.png"
             width={705}
             height={781}
-            blurDataURL={blurDataURL}
+            blurDataURL={BLUR_URL}
             placeholder="blur"
           />
         </div>

@@ -1,55 +1,48 @@
 import React, { useEffect } from "react";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import useRevenueStore from "@/store/customerAnalytics/revenueList";
-import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
-import Header from "@/analyticsComponents/common/header";
-import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { offerCount } from "@/apiConfig/offerAnalyticsService";
-import BarChart from "@/analyticsComponents/common/monthlyBarChart";
-import useOfferDetail from "@/store/offerAnalytics/offerDetails";
-import PieChart from "@/analyticsComponents/common/chart";
-import OfferDeatils from "@/analyticsComponents/offer/offerDetails";
+
+import { useSession, getSession } from "next-auth/react";
 import useTranslation from "next-translate/useTranslation";
 
+import Header from "@/analyticsComponents/common/header";
+import PaymentComparison from "@/analyticsComponents/common/paymentComparison";
+import BarChart from "@/analyticsComponents/common/monthlyBarChart";
+import PieChart from "@/analyticsComponents/common/chart";
+import OfferDetails from "@/analyticsComponents/offer/offerDetails";
+
+import useRevenueStore from "@/store/customerAnalytics/revenueList";
+import useOfferDetail from "@/store/offerAnalytics/offerDetails";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+import {
+  OFFER_COUNT_KEYS_MAPPING,
+  Label2,
+  DISCOUNT_VARIATION,
+} from "@/constants/sharedConstants";
+
 export default function Offer({ data }) {
-  const { revenue, loading, fetchRevenue } = useRevenueStore();
+  const { offerData, fetchOffer, completedOffers, scheduledOffers } =
+    useOfferDetail();
+  const { revenue, fetchRevenue } = useRevenueStore();
   const { status, data: sessionData } = useSession();
   const { t } = useTranslation();
 
-  const { offerData, fetchOffer, completedOffers, scheduledOffers } =
-    useOfferDetail();
+  const getKeys = Object.keys(data.offerCount)
+    .map((key) => OFFER_COUNT_KEYS_MAPPING[key])
+    .filter((value) => value !== undefined);
 
   const getValues = [
     data.offerCount.discount_used,
     data.offerCount.no_discount_used,
   ];
 
-  const getKeys = Object.keys(data.offerCount)
-    .map((key) => {
-      switch (key) {
-        case "discount_used":
-          return "Discount Used";
-        case "no_discount_used":
-          return "No Discount used";
-        default:
-          return null;
-      }
-    })
-    .filter((key) => key !== null); // Filter out null values
-
-  const getColor = ["#187e7e", "#81c784"];
-
-  const label = [
-    { id: 1, label: "Discount Used", bgColor: "block_bg_green_dark_400" },
-    { id: 2, label: "No Discount used", bgColor: "block_bg_green_light_200" },
-  ];
-
   useEffect(() => {
-    fetchRevenue(data.sessionToken);
-    fetchOffer(data.sessionToken);
+    fetchRevenue();
+    fetchOffer();
   }, [fetchRevenue, fetchOffer, data.sessionToken]);
+
   return (
     <>
       <Head>
@@ -59,7 +52,7 @@ export default function Offer({ data }) {
       <Header data={status === "authenticated" && sessionData.user.name} />
 
       <section className="pt_20 pb_20 block_bg_gray_150">
-        <OfferDeatils offerCount={data.offerCount} token={data.sessionToken} />
+        <OfferDetails offerCount={data.offerCount} token={data.sessionToken} />
         <section className="container-fluid">
           <div className="db_customer_detail_wrap">
             <div className="row">
@@ -76,8 +69,8 @@ export default function Offer({ data }) {
                   title={t("common:AnalyticsOffer.Total Discount")}
                   getKeys={getKeys}
                   getValues={getValues}
-                  getColor={getColor}
-                  label={label}
+                  getColor={DISCOUNT_VARIATION}
+                  label={Label2}
                 />
               </div>
             </div>
@@ -133,30 +126,32 @@ export default function Offer({ data }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
+  // Initialized Default data
+  const defaultData = {
+    sessionToken:"",
+    offerCount: {},
+  };
 
   try {
-    const [data] = await Promise.all([offerCount(session.user.myToken)]);
-
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${session.user.myToken}`,
+      },
+    };
+    const offerData = await  axiosInstance.get( API_URL.ANALYTICS_OFFER.GET_OFFER_COUNT, axiosConfig);
     return {
       props: {
         data: {
+          ...defaultData,
           sessionToken: session.user.myToken ?? "",
-          offerCount: data || 0,
+          offerCount: offerData.data,
         },
       },
     };
   } catch (error) {
     return {
       props: {
-        data: null,
+        data:defaultData,
       },
     };
   }

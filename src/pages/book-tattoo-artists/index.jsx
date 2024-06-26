@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import Banner from "@/landing-1/Banner/Banner";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import SideBySideContentWithImage from "@/landing-1/SideBySideContentWithImage/SideBySideContentWithImage";
-import { useNavigation } from "@/hooks/useRouter";
 import FourColumnCarousel from "@/landing-1/FourColumCarousel/fourColumnCarousel";
 
 export default function TattooIdeasForMen() {

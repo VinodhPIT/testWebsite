@@ -3,25 +3,30 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import styles from "./style.module.css";
-import { fetchArtistDetail, artistGallery } from "@/apiConfig/webService";
-import { blurDataURL } from "@/constants/constants";
-import SearchField from "@/components/tattooSearch/tattooSearch";
-import style from "@/pages/explore/search.module.css";
-import { useGlobalState } from "@/context/Context";
-import { renderArtistGallery } from "@/components/customTabs/tab";
-import {TattooSearchModal} from "@/utils/modalUtils";
-import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
-import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+
 import useScrollToTop from "@/hooks/useScrollToTop";
+
+import { TattooSearchModal } from "@/utils/modalUtils";
+import { useModal } from "@/utils/modalUtils";
+import { blurDataURL } from "@/constants/constants";
+
+import { useGlobalState } from "@/context/Context";
+import SearchField from "@/components/exploreScreens/searchField";
+import SelectDropdown from "@/components/exploreScreens/searchPanel";
+import { renderArtistGallery } from "@/components/exploreScreens/tab";
+
+import { axiosInstance } from "@/apiConfig/axios.instance";
+import API_URL from "@/apiConfig/api.config";
+
+import styles from "./style.module.css";
+import style from "@/pages/explore/search.module.css";
 
 
 export default function Detail({ data }) {
-
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
-  const {styleCollection} = useGlobalState();
+  const { styleCollection } = useGlobalState();
 
   const router = useRouter();
   const goBack = () => {
@@ -62,12 +67,10 @@ export default function Detail({ data }) {
     },
   ];
 
-
   useScrollToTop();
 
-
   useEffect(() => {
-    styleCollection()
+    styleCollection();
   }, [styleCollection]);
 
   const changeTab = (tab) => {
@@ -75,46 +78,40 @@ export default function Detail({ data }) {
   };
 
   useEffect(() => {
-    
     if (!data) {
       return null;
     } else {
-       setLoading(true)
+      setLoading(true);
       const fetchData = async () => {
         setProfile(data);
         try {
-          const res = await artistGallery(data.profile_uid);
-          setLoading(false)
-          setAll(res.data);
-          setTattooList(res.data.filter((e) => e.tattoo_type === "normal"));
-          setFlashList(res.data.filter((e) => e.tattoo_type === "flash"));
-
-
-
+          const res = await axiosInstance.get(
+            API_URL.SEARCH.GET_ARTIST_GALLERY(data.profile_uid)
+          );
+          setLoading(false);
+          setAll(res.data.data);
+          setTattooList(res.data.data.filter((e) => e.tattoo_type === "normal"));
+          setFlashList(res.data.data.filter((e) => e.tattoo_type === "flash"));
         } catch (error) {}
       };
       fetchData();
     }
   }, [data]);
 
-
-  
-
   return (
     <>
       <Head>
-      <title>
-        {t("common:artistDetailScreen.title")}
-        </title>
+        <title>{t("common:artistDetailScreen.title")}</title>
         <meta
           name="description"
-          content={`${t("common:artistDetailScreen.description")}-${data?.first_name} ${data?.last_name}`}
+          content={`${t("common:artistDetailScreen.description")}-${
+            data?.first_name
+          } ${data?.last_name}`}
         />
         <meta
           name="keywords"
-          content={t("common:artistDetailScreen.keyword")}/>
-
-
+          content={t("common:artistDetailScreen.keyword")}
+        />
       </Head>
 
       <main>
@@ -124,12 +121,15 @@ export default function Detail({ data }) {
               <div className={style.tattoo_search_wrap}>
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
-                  <SearchField currentTab={"artist"}  router={router} isDetail={true} />
+                    <SearchField
+                      currentTab={"artist"}
+                      router={router}
+                      isDetail={true}
+                    />
                   </div>
                 </div>
               </div>
 
-              
               <SelectDropdown
                 searchKey={""}
                 currentTab={"artist"}
@@ -139,8 +139,6 @@ export default function Detail({ data }) {
                 router={router}
                 isDetail={true}
               />
-            
-
             </div>
 
             <div className={styles.search_profile_block}>
@@ -156,8 +154,7 @@ export default function Detail({ data }) {
               </div>
               <div className={styles.search_profile_pic}>
                 <Image
-                alt= {data.first_name + ' ' + data.last_name}
-
+                  alt={data.first_name + " " + data.last_name}
                   priority
                   src={data.image}
                   width={100}
@@ -170,9 +167,7 @@ export default function Detail({ data }) {
               <div className={styles.search_profile}>
                 <div className={styles.search_profile_content}>
                   <div className={styles.search_profile_name}>
-              
-                  {data.artist_name ?? `${data.first_name} ${data.last_name}`}
-
+                    {data.artist_name ?? `${data.first_name} ${data.last_name}`}
                   </div>
                   <div className={styles.search_profile_details}>
                     {data.studio[0].city}, {data.studio[0].country}
@@ -191,14 +186,26 @@ export default function Detail({ data }) {
                     target="_blank"
                     className={styles.profile_bookmark}
                   >
-                    <Image width={24} height={24} priority src="/bookmark-icon.svg" alt="bookmark icon" />
+                    <Image
+                      width={24}
+                      height={24}
+                      priority
+                      src="/bookmark-icon.svg"
+                      alt="bookmark icon"
+                    />
                   </a>
                   <a
                     onClick={openPopup}
                     target="_blank"
                     className={styles.profile_share}
                   >
-                    <Image width={24} height={24} src="/share-icon.svg" alt="share icon" priority />
+                    <Image
+                      width={24}
+                      height={24}
+                      src="/share-icon.svg"
+                      alt="share icon"
+                      priority
+                    />
                   </a>
                 </div>
               </div>
@@ -219,12 +226,13 @@ export default function Detail({ data }) {
                     >
                       <div className={style.tabBox}>
                         <Image
-                        width={25}
-                        height={25}
-                        priority
+                          width={25}
+                          height={25}
+                          priority
                           src={
                             currenState === tab.id ? tab.activeImage : tab.image
-                          }alt={tab.id}
+                          }
+                          alt={tab.id}
                         />
 
                         <p style={{ margin: "0" }}>{tab.label}</p>
@@ -240,7 +248,8 @@ export default function Detail({ data }) {
               getAll,
               tattooList,
               flashList,
-              artistProfile,loading
+              artistProfile,
+              loading
             )}
           </div>
 
@@ -257,9 +266,8 @@ export default function Detail({ data }) {
 
 export async function getServerSideProps(context) {
   try {
-    const data = await fetchArtistDetail(context.query.detail);
-
-    if (!data.data) {
+    const res = await axiosInstance.get(API_URL.SEARCH.GET_ARTIST_DETAIL(context.query.detail));
+    if (!res.data) {
       return {
         notFound: true,
       };
@@ -267,17 +275,12 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        data: data.data,
-        status: true,
-        locale: context.locale,
+        data: res.data.data,
       },
     };
   } catch (error) {
     return {
-      props: {
-        data: null,
-        notFound: true,
-      },
+      notFound: true,
     };
   }
 }

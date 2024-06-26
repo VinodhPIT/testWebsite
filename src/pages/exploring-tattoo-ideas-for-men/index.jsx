@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+
 import Banner from "@/landing-1/Banner/Banner";
 import LeftContentRightImage from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
 import SideBySideContentWithImage from "@/landing-1/SideBySideContentWithImage/SideBySideContentWithImage";
@@ -7,14 +9,74 @@ import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarous
 import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
 import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
-import { useRouter } from "next/router";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 
+
+
 export default function TattooIdeasForMen() {
   const router = useRouter();
+
+  const artist = [
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/2795_4657C062-5776-43D0-AC8F-43BBEE5B850E.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/None_5F7922D5-EFD8-4BD9-988A-1B71AEF2BA33.jpg",
+      name: "Delphin Musquet",
+
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/delphin-musquet_ja14on47`,
+    },
+
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/1742_3857121F-A33D-420C-A197-5D9EC3D02905.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8655_20221110125829007-medium.jpg",
+      name: "Luciatattoos",
+
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/luciatattoos_n98rnvgl`,
+    },
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/1012_a6338e0d-9888-4ca1-b6dc-06f911cd3361.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6363_20221023095949684-medium.jpg",
+      name: "Alessandro Lanzafame",
+
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/alessandro-lanzafame_nts3jh4k`,
+    },
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/566_175C2680-D5A1-46C6-A5BF-13055B046823.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2162_20220831155619012-medium.jpg",
+      name: "Barbara Nobody",
+
+      city: "London",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/barbaranobody_e8w4uiq5`,
+    },
+    {
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/2686_A8B7EB97-F3E3-45ED-9FC0-6B5D544C1415.jpg",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13142_20221229181240843-medium.jpg",
+      name: "Orla Jessamine",
+
+      city: "EK, East Kilbride",
+      country: "United Kingdom",
+      url: `${process.env.LIVE_URL}/${router.locale}/artists/orla-jessamine_ngnc48i5`,
+    },
+  ];
 
   const carosuelForMen = [
     { image: "/TatooIdeasMen-2.jpg", altTag: "Small Tattoo Ideas for Men" },
@@ -134,99 +196,6 @@ export default function TattooIdeasForMen() {
     },
   ];
 
-  const geometricTattoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11075_20221207172728931-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4c2a1ecc-8a14-4495-94e6-c9eae15bd8fd`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24863_20230601105154554-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1eaac320-e7b0-4d6e-b58c-3a30ffaaa7d0`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20674_20230227221803155-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/325df4c4-26ec-4f8e-9fde-3b2811450e72`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/cache/c3/41/c341d812fca63c064929c29c92dc9bff.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/90e79efb-7fe7-41f8-9fc3-c7d3291ab0c4`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20679_20230227223151970-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/6d218657-309a-4aa3-ac5f-1117c8a762f3`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24685_20230509155508671-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8bbe38ef-3097-4729-bd3f-41dfe0ba215a`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4056_20220929070014888-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/a039fa3a-7b09-4eac-8d96-517eb8d1e4be`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4037_20220929062849598-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c201f9c8-a321-452d-b4c0-f3c5408a7c0a`,
-    },
-  ];
-
-  const sleeveTattoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27396_20231014131016014-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d507d7d1-624d-43c6-bd4a-5d128d92b240`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27230_20230930004801740-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/3131ea4c-bc33-4bd2-afd2-41e6bf02e15d`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8599_20221109221705652-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/090ba5c1-8135-4c57-bdde-259ecfbb9e24`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4433_20221004102653403-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c1e86c54-711a-41ff-91db-4acd76943d22`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27402_20231014132353855-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7fe5ab8e-14ac-4d32-af3e-52460e60849e`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10135_20221126151641435-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/e2c707ba-6b51-477e-8340-83238baa3151`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14207_20230108111737325-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/aea38c79-96c0-4b8e-9dc3-aef7fb40b6aa`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/23097_20230402091601218-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7eac90ab-69ff-44bc-a834-48551118f0ae`,
-    },
-  ];
-
   const eagleTattoo = [
     {
       image:
@@ -274,62 +243,181 @@ export default function TattooIdeasForMen() {
     },
   ];
 
-  const artist = [
+  const geometricTattoo = [
     {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/2795_4657C062-5776-43D0-AC8F-43BBEE5B850E.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/None_5F7922D5-EFD8-4BD9-988A-1B71AEF2BA33.jpg",
-      name: "Delphin Musquet",
-
-      city: "London",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/delphin-musquet_ja14on47`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11075_20221207172728931-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4c2a1ecc-8a14-4495-94e6-c9eae15bd8fd`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24863_20230601105154554-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1eaac320-e7b0-4d6e-b58c-3a30ffaaa7d0`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20674_20230227221803155-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/325df4c4-26ec-4f8e-9fde-3b2811450e72`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/cache/c3/41/c341d812fca63c064929c29c92dc9bff.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/90e79efb-7fe7-41f8-9fc3-c7d3291ab0c4`,
     },
 
     {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/1742_3857121F-A33D-420C-A197-5D9EC3D02905.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8655_20221110125829007-medium.jpg",
-      name: "Luciatattoos",
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20679_20230227223151970-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/6d218657-309a-4aa3-ac5f-1117c8a762f3`,
+    },
 
-      city: "London",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/luciatattoos_n98rnvgl`,
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24685_20230509155508671-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8bbe38ef-3097-4729-bd3f-41dfe0ba215a`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4056_20220929070014888-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/a039fa3a-7b09-4eac-8d96-517eb8d1e4be`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4037_20220929062849598-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c201f9c8-a321-452d-b4c0-f3c5408a7c0a`,
+    },
+  ];
+
+  const lionTattoo = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8928_20221114000030451-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2bba9638-3540-487d-a2b7-848ea09fb3b4`,
     },
     {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/1012_a6338e0d-9888-4ca1-b6dc-06f911cd3361.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6363_20221023095949684-medium.jpg",
-      name: "Alessandro Lanzafame",
-
-      city: "London",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/alessandro-lanzafame_nts3jh4k`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4290_20221001153856304-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8123967f-57b7-4355-8d8e-89376c59c207`,
     },
     {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/566_175C2680-D5A1-46C6-A5BF-13055B046823.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2162_20220831155619012-medium.jpg",
-      name: "Barbara Nobody",
-
-      city: "London",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/barbaranobody_e8w4uiq5`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14053_20230106204904588-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/71e37869-1862-4505-b758-35e829b2805f`,
     },
     {
-      artistImage:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image/2686_A8B7EB97-F3E3-45ED-9FC0-6B5D544C1415.jpg",
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13142_20221229181240843-medium.jpg",
-      name: "Orla Jessamine",
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15824_20230123172402494-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c1032a91-6ccf-400f-bf63-e72078f9dbc5`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12054_20221215204256265-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0628cbe0-bf53-4adc-8baa-13a1ec668e1d`,
+    },
 
-      city: "EK, East Kilbride",
-      country: "United Kingdom",
-      url: `${process.env.LIVE_URL}/${router.locale}/artists/orla-jessamine_ngnc48i5`,
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13843_20230105164539780-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9428e653-2461-4ccd-8251-00e6566b9da9`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/750_20220412032941277-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/becacea7-596c-40c1-a1cd-db055ce392e2`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13079_20221229114438212-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1555f8de-628c-459d-80eb-2e97dcd41c9a`,
+    },
+  ];
+  const listingItems1 = [
+    {
+      title: "Star Tattoo",
+      content:
+        "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles",
+    },
+    {
+      title: "Tattoo Design",
+      content:
+        "A good tattoo starts with a careful design. Be creative or work with a talented artist to make your idea come alive. Pick a design that represents you, your beliefs, or an important event in your life.",
+    },
+    {
+      title: "Men’s Tattoos",
+      content:
+        "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity.",
+    },
+
+    {
+      title: "Feather Tattoos",
+      content:
+        "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance.",
+    },
+  ];
+
+  const listingItems2 = [
+    {
+      title: "Forearm tattoos",
+      content:
+        "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.",
+    },
+    {
+      title: "Tattoo Designs for Men",
+      content:
+        "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality.",
+    },
+  ];
+
+  const religiousTatoo = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4291_20221001153943791-medium.jpg",
+
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c51d3e40-cfb1-4e86-8432-d83b8d6a2e20`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8350_20221108105938536-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4c7af161-15e3-42b6-a328-f0ec9aa2b1f8`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5616_20221015095453238-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/38c7c3ca-cde0-4abe-ba47-24d68991cc25`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15821_20230123171559560-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9ddbcdbf-727a-4bb3-9797-e27f96d54f51`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4284_20221001153221281-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d4715777-560f-402a-bdfe-dbfbb03934a2`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26991_20230926142809293-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9c76fbd4-07c4-49bb-b28a-6dd058b18553`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4593_20221005165006941-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1f0a2b0a-7bf2-4e4b-aa3d-9906210afc59`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27176_20230928214857544-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/62ade9d9-6398-4350-bf95-0a3c0a39f37f`,
     },
   ];
 
@@ -380,145 +468,49 @@ export default function TattooIdeasForMen() {
     },
   ];
 
-  const lionTattoo = [
+  const sleeveTattoo = [
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8928_20221114000030451-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/2bba9638-3540-487d-a2b7-848ea09fb3b4`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27396_20231014131016014-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d507d7d1-624d-43c6-bd4a-5d128d92b240`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4290_20221001153856304-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8123967f-57b7-4355-8d8e-89376c59c207`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27230_20230930004801740-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/3131ea4c-bc33-4bd2-afd2-41e6bf02e15d`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14053_20230106204904588-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/71e37869-1862-4505-b758-35e829b2805f`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8599_20221109221705652-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/090ba5c1-8135-4c57-bdde-259ecfbb9e24`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15824_20230123172402494-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c1032a91-6ccf-400f-bf63-e72078f9dbc5`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4433_20221004102653403-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c1e86c54-711a-41ff-91db-4acd76943d22`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12054_20221215204256265-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0628cbe0-bf53-4adc-8baa-13a1ec668e1d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13843_20230105164539780-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9428e653-2461-4ccd-8251-00e6566b9da9`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27402_20231014132353855-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7fe5ab8e-14ac-4d32-af3e-52460e60849e`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/750_20220412032941277-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/becacea7-596c-40c1-a1cd-db055ce392e2`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10135_20221126151641435-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/e2c707ba-6b51-477e-8340-83238baa3151`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13079_20221229114438212-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1555f8de-628c-459d-80eb-2e97dcd41c9a`,
-    },
-  ];
-
-  const wolfTattoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15791_20230123114449181-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d5341b19-53fa-452a-a48d-5939e8447567`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8921_20221113205418987-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b688a83f-7af7-42ab-8c6d-edd2fcdf6412`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11485_20221211114627901-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/36ee28fd-6985-468a-afcb-b78b8f807959`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13918_20230106083756566-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/edbf815f-b1ce-456a-afc1-3f9a0b0b6cff`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14207_20230108111737325-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/aea38c79-96c0-4b8e-9dc3-aef7fb40b6aa`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/691_20220412032624728-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f63585f8-c917-4a17-b2f0-c8e7e50cd573`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9049_20221115155833283-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f5eeea9a-60f8-4aad-918a-49edba55e566`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14421_20230110024759369-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/17f6cf8d-d8c9-4048-b5e7-1bc13289bac6`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3595_20220925051912507-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b602e50a-03a6-40d0-a231-b324e35f2517`,
-    },
-  ];
-
-  const religiousTatoo = [
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4291_20221001153943791-medium.jpg",
-
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c51d3e40-cfb1-4e86-8432-d83b8d6a2e20`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8350_20221108105938536-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4c7af161-15e3-42b6-a328-f0ec9aa2b1f8`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5616_20221015095453238-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/38c7c3ca-cde0-4abe-ba47-24d68991cc25`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15821_20230123171559560-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9ddbcdbf-727a-4bb3-9797-e27f96d54f51`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4284_20221001153221281-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d4715777-560f-402a-bdfe-dbfbb03934a2`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26991_20230926142809293-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/9c76fbd4-07c4-49bb-b28a-6dd058b18553`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4593_20221005165006941-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1f0a2b0a-7bf2-4e4b-aa3d-9906210afc59`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/27176_20230928214857544-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/62ade9d9-6398-4350-bf95-0a3c0a39f37f`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/23097_20230402091601218-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7eac90ab-69ff-44bc-a834-48551118f0ae`,
     },
   ];
 
@@ -578,40 +570,50 @@ export default function TattooIdeasForMen() {
     },
   ];
 
-  const listingItems1 = [
+  const wolfTattoo = [
     {
-      title: "Star Tattoo",
-      content:
-        "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/15791_20230123114449181-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d5341b19-53fa-452a-a48d-5939e8447567`,
     },
     {
-      title: "Tattoo Design",
-      content:
-        "A good tattoo starts with a careful design. Be creative or work with a talented artist to make your idea come alive. Pick a design that represents you, your beliefs, or an important event in your life.",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8921_20221113205418987-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b688a83f-7af7-42ab-8c6d-edd2fcdf6412`,
     },
     {
-      title: "Men’s Tattoos",
-      content:
-        "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity.",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11485_20221211114627901-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/36ee28fd-6985-468a-afcb-b78b8f807959`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13918_20230106083756566-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/edbf815f-b1ce-456a-afc1-3f9a0b0b6cff`,
     },
 
     {
-      title: "Feather Tattoos",
-      content:
-        "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance.",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/691_20220412032624728-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f63585f8-c917-4a17-b2f0-c8e7e50cd573`,
     },
-  ];
 
-  const listingItems2 = [
     {
-      title: "Forearm tattoos",
-      content:
-        "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9049_20221115155833283-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f5eeea9a-60f8-4aad-918a-49edba55e566`,
     },
+
     {
-      title: "Tattoo Designs for Men",
-      content:
-        "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality.",
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14421_20230110024759369-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/17f6cf8d-d8c9-4048-b5e7-1bc13289bac6`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3595_20220925051912507-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b602e50a-03a6-40d0-a231-b324e35f2517`,
     },
   ];
 
@@ -697,7 +699,6 @@ export default function TattooIdeasForMen() {
           buttonName="Explore more tattoos"
           keyword={`/${router.locale}/explore/tattoos?keyword=cross`}
           altTag="Cross Tattoos"
-
         />
 
         <div className="mb_30">

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 
-import axios from "axios";
-import { useSession } from "next-auth/react";
-import { getSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 import useTranslation from "next-translate/useTranslation";
 
 import useTotalRevenue from "@/store/dashboardAnalytics/totalRevenue";
 import useAnalyticsStore from "@/store/customerAnalytics/calenderFilter";
+
 import Header from "@/analyticsComponents/common/header";
 import TotalAmountEarned from "@/analyticsComponents/dashboard/totalRevenue";
 import FilterDataComponents from "@/analyticsComponents/dashboard/filterDataComponents";
@@ -16,12 +15,12 @@ import NewOfferDashboardDetails from "@/analyticsComponents/dashboard/newOfferDa
 import AcceptedOfferDashboardDetails from "@/analyticsComponents/dashboard/AcceptedOfferDashboardDetails";
 import CompletedOfferDashboardDetails from "@/analyticsComponents/dashboard/CompletedOfferDashboardDetails";
 
-import {
-  getCountriesData,
-} from "@/apiConfig/dashboardService";
 import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
 
 export default function Dashboard({ data: initialData }) {
+
   const { status, data: sessionData } = useSession();
   const { totalAmount, fetchTotalRevenue } = useTotalRevenue();
   const [analyticsOfferData, setAnalyticsOfferData] = useState([]);
@@ -39,9 +38,15 @@ export default function Dashboard({ data: initialData }) {
   }, [fetchTotalRevenue, initialData.sessionToken]);
 
   useEffect(() => {
-    getCountriesData(initialData.sessionToken).then((response) => {
-      setCountryData(response);
-    });
+    const fetchCountries = async () => {
+      try {
+        const response = await axiosInstance.get(API_URL.ANALYTICS_DASHBOARD.GET_COUNTRIES);
+        setCountryData(response.data);
+      } catch (error) {
+        console.error("Failed to fetch countries data", error);
+      }
+    };
+    fetchCountries();
   }, []);
 
   const filterDashBoardData = (data) => {
@@ -49,16 +54,10 @@ export default function Dashboard({ data: initialData }) {
   };
 
   useEffect(() => {
-    const abortController = new AbortController();
     setIsLoading(true);
     const fetchApiData = async (url, body, onSuccess, onError) => {
       try {
-        const response = await axios.post(url, body, {
-          headers: {
-            Authorization: `Bearer ${initialData.sessionToken}`,
-          },
-          signal: abortController.signal,
-        });
+        const response = await axiosInstance.post(url, body);
         onSuccess(response.data);
       } catch (error) {
         onError(error);
@@ -71,7 +70,7 @@ export default function Dashboard({ data: initialData }) {
     const fetchDataPromises = [];
 
     const fetchCustomerRequestData = () => {
-      const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA}`;
+      const url = `${API_URL.ANALYTICS_DASHBOARD.GET_CUSTOMER_REQUEST_DETAILS_DATA}`;
       const body = getRequestBody(filterData);
 
       fetchDataPromises.push(
@@ -85,7 +84,7 @@ export default function Dashboard({ data: initialData }) {
     };
 
     const fetchOfferData = () => {
-      const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_OFFER_DASHBOARD_DETAILS}`;
+      const url = `${API_URL.ANALYTICS_DASHBOARD.GET_OFFER_DASHBOARD_DETAILS}`;
       const body = getRequestBody(filterData);
 
       fetchDataPromises.push(
@@ -99,7 +98,7 @@ export default function Dashboard({ data: initialData }) {
     };
 
     const fetchAcceptedOfferData = () => {
-      const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_ACCEPTED_OFFER_DASHBOARD_DETAILS}`;
+      const url = `${API_URL.ANALYTICS_DASHBOARD.GET_ACCEPTED_OFFER_DASHBOARD_DETAILS}`;
       const body = getRequestBody(filterData);
 
       fetchDataPromises.push(
@@ -113,7 +112,7 @@ export default function Dashboard({ data: initialData }) {
     };
 
     const fetchCompletedOfferData = () => {
-      const url = `${process.env.apiDomain}${API_URL.ANALYTICS_DASHBOARD.GET_COMPLETED_OFFER_DASHBOARD_DETAILS}`;
+      const url = `${API_URL.ANALYTICS_DASHBOARD.GET_COMPLETED_OFFER_DASHBOARD_DETAILS}`;
       const body = getRequestBody(filterData);
 
       fetchDataPromises.push(
@@ -135,7 +134,6 @@ export default function Dashboard({ data: initialData }) {
       .then(() => {})
       .catch((error) => {});
     return () => {
-      abortController.abort();
     };
   }, [filterData]); // Re-run effect if filterData get changed
 
@@ -205,14 +203,6 @@ export default function Dashboard({ data: initialData }) {
 export async function getServerSideProps(context) {
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
 
   try {
     return {

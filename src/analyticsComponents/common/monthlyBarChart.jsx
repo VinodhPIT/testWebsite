@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useMemo } from "react";
+
 import { Chart as ChartJS, Tooltip, Legend } from "chart.js";
-import { filterChartDataByYear } from "@/helpers/helper";
-import { Bar } from "react-chartjs-2";
-import { processData } from "@/utils/monthlyDataGenerator";
 import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
 import Select from "react-select";
+import { Bar } from "react-chartjs-2";
+import Loader from "@/components/loading/loader";
+
+import { filterChartDataByYear } from "@/helpers/helper";
 import { currentYear, options, months } from "@/helpers/helper";
-import Loader from "@/components/loader";
+import { processData } from "@/utils/monthlyDataGenerator";
+
 
 ChartJS.register(Tooltip, Legend);
 

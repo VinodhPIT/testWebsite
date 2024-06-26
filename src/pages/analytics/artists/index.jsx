@@ -1,55 +1,36 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
+
 import { getSession, useSession } from "next-auth/react";
-import ArtistDetails from "@/analyticsComponents/artist/artistDetails";
+import useTranslation from "next-translate/useTranslation";
+
 import Header from "@/analyticsComponents/common/header";
-import {
-  analyticsArtistCount,
-  analyticsArtistLeadSourceCount,
-} from "@/apiConfig/artistAnalyticsService";
+import ArtistDetails from "@/analyticsComponents/artist/artistDetails";
 import ArtistsByCountryTable from "@/analyticsComponents/artist/artistsByCountry";
 import ComparisonChart from "@/analyticsComponents/customer/comparisonChart";
-import YourComponent from "@/analyticsComponents/common/keys";
 import BarChart from "@/analyticsComponents/common/monthlyBarChart";
 import PieChart from "@/analyticsComponents/common/chart";
 import ArtistConversion from "@/analyticsComponents/artist/artistConversion";
-import useTranslation from "next-translate/useTranslation";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
+
+import {
+  GET_COLOR,
+  GENDER_COUNT_KEYS_MAPPING,
+  LABEL,
+} from "@/constants/index";
 
 export default function ArtistAnalytics({ data: initialData }) {
-  const { status, data } = useSession();
-  const router = useRouter();
-  const { t } = useTranslation();
-  const { artistConversion } = YourComponent();
 
-  const getValues = Object.values(initialData.genderCount);
+  const { status, data } = useSession();
+  const { t } = useTranslation();
 
   const getKeys = Object.keys(initialData.genderCount).map((key) => {
-    switch (key) {
-      case "male_count":
-        return "Male";
-      case "female_count":
-        return "Female";
-      case "non_binary_count":
-        return "Other";
-      default:
-        return key;
-    }
+    return GENDER_COUNT_KEYS_MAPPING[key] || key;
   });
 
-  const getColor = ["#1976D2", "#FF80FF", "#EAEAEA"];
-
-  const label = [
-    { id: 1, label: "Male", bgColor: "block_bg_blue" },
-    { id: 2, label: "Female", bgColor: "block_bg_pink_100" },
-    { id: 3, label: "Other", bgColor: "block_bg_gray_light_200" },
-  ];
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/analytics/login");
-    }
-  }, [status, router]);
+  const getValues = Object.values(initialData.genderCount);
 
   return (
     <>
@@ -80,8 +61,8 @@ export default function ArtistAnalytics({ data: initialData }) {
                   title={t("common:AnalyticsArtist.Total Artists by gender")}
                   getKeys={getKeys}
                   getValues={getValues}
-                  getColor={getColor}
-                  label={label}
+                  getColor={GET_COLOR}
+                  label={LABEL}
                 />
               </div>
             </div>
@@ -113,8 +94,6 @@ export default function ArtistAnalytics({ data: initialData }) {
                 <ArtistConversion
                   data={initialData.chartData}
                   title={t("common:AnalyticsArtist.Artist Conversion")}
-                  token={initialData.sessionToken}
-                  types={artistConversion}
                 />
               </div>
             </div>
@@ -126,47 +105,70 @@ export default function ArtistAnalytics({ data: initialData }) {
 }
 
 export async function getServerSideProps(context) {
+  // Get the user session
   const session = await getSession(context);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/analytics/login",
-        permanent: false,
-      },
-    };
-  }
-
+  // Initialized Default data all keys initialized to 0 or []
+  const defaultData = {
+    chartData: [],
+    artistCompletedOffers: 0,
+    artistInCommunication: 0,
+    joinedFromApp: 0,
+    joinedFromWeb: 0,
+    joinedUsingReferral: 0,
+    nonPublicProfiles: 0,
+    notCompletedAnyOffer: 0,
+    notContactedCustomer: 0,
+    notCreatedAnyOffers: 0,
+    sessionToken: session.user.myToken ?? "",
+    totalArtists: 0,
+    totalPublicArtists: 0,
+    genderCount: 0,
+  };
 
   try {
-    const [data, customerJoinigData] = await Promise.all([
-      analyticsArtistCount(session.user.myToken),
-      analyticsArtistLeadSourceCount(session.user.myToken),
+    // Configure axios instance with authorization header
+    const axiosConfig = {
+      headers: {
+        Authorization: `Bearer ${session.user.myToken}`,
+      },
+    };
+
+    const [artistCountResponse, artistDetailsResponse] = await Promise.all([
+      axiosInstance.get(API_URL.ANALYTICS_ARTISTS.GET_ARTIST_COUNT, axiosConfig),
+      axiosInstance.get(API_URL.ANALYTICS_ARTISTS.GET_ARTIST_DETAILS, axiosConfig),
     ]);
+
+    // Destructure the data from responses
+    const artistCountData = artistCountResponse.data;
+    const artistDetailsData = artistDetailsResponse.data;
 
     return {
       props: {
         data: {
-          chartData: customerJoinigData ?? [],
-          artistCompletedOffers: data.artist_with_offer || 0,
-          artistInCommunication: data.contacted_artist || 0,
-          joinedFromApp: data.joined_from_app || 0,
-          joinedFromWeb: data.joined_from_website || 0,
-          joinedUsingReferral: data.referral_used || 0,
-          nonPublicProfiles: data.not_public_artist || 0,
-          notCompletedAnyOffer: data.no_offer_completed || 0,
-          notContactedCustomer: data.no_contacted || 0,
-          notCreatedAnyOffers: data.no_offer_created || 0,
-          sessionToken: session.user.myToken ?? "",
-          totalArtists: data.total_artist || 0,
-          totalPublicArtists: data.public_artist || 0,
-          genderCount: data.gender || 0,
+          ...defaultData, // Spreading defaultData to merge with fetched data
+          chartData: artistDetailsData ??'',
+          artistCompletedOffers: artistCountData.artist_with_offer || 0,
+          artistInCommunication: artistCountData.contacted_artist || 0,
+          joinedFromApp: artistCountData.joined_from_app || 0 ,
+          joinedFromWeb: artistCountData.joined_from_website || 0,
+          joinedUsingReferral: artistCountData.referral_used || 0,
+          nonPublicProfiles: artistCountData.not_public_artist || 0,
+          notCompletedAnyOffer: artistCountData.no_offer_completed || 0,
+          notContactedCustomer: artistCountData.no_contacted || 0,
+          notCreatedAnyOffers: artistCountData.no_offer_created || 0,
+          totalArtists: artistCountData.total_artist || 0,
+          totalPublicArtists: artistCountData.public_artist || 0,
+          genderCount: artistCountData.gender || 0,
         },
       },
     };
   } catch (error) {
     return {
-      data: null,
+      props: {
+        data: defaultData,
+      },
     };
   }
 }
+

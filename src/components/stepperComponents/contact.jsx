@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import useTranslation from "next-translate/useTranslation";
-import { useRequestForm } from "@/store/requestManagement/requestForm"; // Import Zustand store hook
-import useCountryCode from "@/store/countryCode/getcountryCode"; // Import Zustand store hook
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
-import { artistContact } from "@/apiConfig/webService";
+import { useRequestForm } from "@/store/requestManagement/requestForm";
+import useCountryCode from "@/store/countryCode/getcountryCode";
+
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
 const ContactForm = () => {
   const [loader, setLoader] = useState(false);
@@ -48,9 +50,11 @@ const ContactForm = () => {
     setLoader(true);
     setEmail(values.email);
     setPhone(values.phone && countrycode.split("+")[1].trim() + values.phone);
-    let res = await artistContact(values);
+    const res = await axiosInstance.get(API_URL.SEARCH.REQUEST_CONTACT(values));
+    // Destructure 'exists' from res.data
+    const { exists } = res.data;
     setLoader(false);
-    checkUserExists(res.exists);
+    checkUserExists(exists);
     nextPage();
   };
 
@@ -179,21 +183,6 @@ const ContactForm = () => {
                               )}
                             </button>
                           </div>
-
-                          {/* {values.email && (
-                            <button
-                              type="submit"
-                              className="btn_defult_base mt_15 pull_right align_self_end"
-                            >
-                              {t("common:next")}
-                              {loader && (
-                                <span
-                                  className="spinner-border spinner-border-sm"
-                                  aria-hidden="true"
-                                ></span>
-                              )}
-                            </button>
-                          )} */}
                         </Form>
                       )}
                     </Formik>

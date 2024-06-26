@@ -1,21 +1,10 @@
 import moment from "moment";
 
-// const getPaginatorCount = () => {
-//   // Check if window is defined (only run on the client-side)
-//   if (typeof window !== "undefined") {
-//     const isMobile = window.innerWidth <= 768; // Adjust the threshold as needed
-//     return isMobile ? 10 : 9;
-//   }
-//   // Return a default value if window is not available (e.g., for server-side rendering)
-//   return 10; // or any default value you prefer
-// };
+import { MAX_RANDOM,MIN_RANDOM} from "@/constants/index";
 
-// export { getPaginatorCount };
+import API_URL from "@/apiConfig/api.config";
+import { axiosInstance } from "@/apiConfig/axios.instance";
 
-// const pageCount = getPaginatorCount();
-
-export const MAX_RANDOM = 3409357923759259;
-export const MIN_RANDOM = 3;
 
 export const prepareRequest = (parameters) => {
   const request = {
@@ -98,41 +87,18 @@ export const fetchMulticategory = (parameters) => {
   return createRequestObject(parameters, 12);
 };
 
-export const addAdsToResults = async (results, isMobile) => {
-  const totalCount = results.length;
-  if (totalCount < 15) {
-    return results;
-  }
-  if (
-    isMobile === "iPad" ||
-    isMobile === "UnknownTablet" ||
-    isMobile === null
-  ) {
-    results.splice(6, 0, { _index: "ad", colspan: 2, add: 1 });
-  } else {
-    results.splice(6, 0, { _index: "ad", colspan: 2, add: 1 });
-  }
 
-  if (isMobile === "iPad") {
-    results.splice(17, 0, { _index: "ad", colspan: 2, add: 2 });
-  } else if (isMobile === "UnknownTablet") {
-    results.splice(18, 0, { _index: "ad", colspan: 2, add: 2 });
-  } else if (isMobile === null) {
-    results.splice(12, 0, { _index: "ad", colspan: 2, add: 2 });
-  } else {
-    results.splice(19, 0, { _index: "ad", colspan: 2, add: 2 });
-  }
-
-  results.splice(28, 0, { _index: "ad", colspan: 2, add: 3 });
-
-  results.forEach((item) => {
-    if (item._index !== "ad") {
-      item.colspan = 1;
-    }
+export const getMatchingStyles = async (slugsToCheck) => {
+  const response = await axiosInstance.get(API_URL.SEARCH.GET_STYLE_ALL);
+  const {data} =response  
+  return slugsToCheck.map((style) => {
+    const matchingStyle = data.data.find(
+      (styleObj) => styleObj.slug === style
+    );
+    return matchingStyle ? matchingStyle.id : null;
   });
-
-  return results;
 };
+
 
 export const formatDate = (date) => {
   const values = Object.values(date).reverse();
@@ -142,6 +108,7 @@ export const formatDate = (date) => {
 
 export const startYear = 2020;
 export const currentYear = new Date().getFullYear();
+
 export const years = Array.from(
   { length: currentYear - startYear + 1 },
   (_, index) => startYear + index
@@ -229,6 +196,7 @@ const getCountry = (locations, location) => {
 };
 
 export { getCountry };
+
 
 export const getRandomSeed = () => {
   const randomValues = new Uint32Array(1);

@@ -1,50 +1,98 @@
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import Head from "next/head";
+
+import { useNavigation } from "@/hooks/useRouter";
+
 import Banner from "@/landing-3/Banner/Banner";
 import FullWidthcarosuel from "@/landing-1/FullwidthCarousel/FullwidthCarousel";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
-import Head from "next/head";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";
 import UniquePartner from "@/landing-1/LeftContentRightImage/LeftContentRightImage";
 import CarouselSection from "@/landing-1/CarouselSection/CarosuelSection";
 import ThreeColumCarousel from "@/landing-1/ThreeColumCarousel/ThreeColumnCarousel";
 import FullWidthBlock from "@/landing-1/FullwidthBlock/FullwidthBlock";
-import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-import { useNavigation } from "@/hooks/useRouter";
-import Link from "next/link";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import ListingGridTwoColumn from "@/landing-1/ListingGrid-TwoColumn/ListingGridTwoColumn";
 
 export default function TattooIdeen() {
   const { router } = useNavigation();
 
-  const carousel= [
-    { image: "/tattoo-ideen-slider1.png" ,altTag:"Das Stechen lassen eines Tattoos" },
-
+  const carousel = [
     {
-      image: "/tattoo-iden-slider2.png",altTag:"Das Stechen lassen eines Tattoos" 
+      image: "/tattoo-ideen-slider1.png",
+      altTag: "Das Stechen lassen eines Tattoos",
     },
 
     {
-      image: "/tattoo-iden-slider3.png",altTag:"Das Stechen lassen eines Tattoos" 
+      image: "/tattoo-iden-slider2.png",
+      altTag: "Das Stechen lassen eines Tattoos",
+    },
+
+    {
+      image: "/tattoo-iden-slider3.png",
+      altTag: "Das Stechen lassen eines Tattoos",
     },
   ];
 
-  const Schmetterlings =[
+  const dragonTattoo = [
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10568_20221201163816017-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cb8ffe67-49c6-423a-b5dd-0619883532f6`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2697_20220915102023751-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d0ead812-65af-4cfd-9d3c-f3488f253cf8`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11301_20221209092538720-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/bcbb2029-b85b-4bc5-9dc9-02c75b3fec09`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6969_20221025174135791-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b38d0b4b-c942-4a83-9c6a-30a503a7f6a6`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17446_20230203192121997-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/294e004c-3be5-4a19-838d-bb1aa1bbd8da`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3771_20220927130845510-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/58226d7e-d364-4769-abc7-59f0a5a2934d`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2755_20220916120728076-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cc04e93a-28ac-4832-8ce7-7d5da4dafbd4`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2381_20220911184739543-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ca14475a-7571-453d-9482-84067f9f6c64`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24776_20230516040125015-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/6fdd3b00-767b-44bc-9e72-f750114d316f`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9615_20221121131123062-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74084fe2-c1be-422f-bf12-32bc33c5a245`,
+    },
+  ];
+
+  const fingerTattos = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9406_20221117211556552-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/012b0ec7-56ed-4d0c-b442-cdbf7049bf87`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26177_20230819154213258-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/92f01137-ae86-492d-aab7-cfc61a22d20b`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/16636_20230130112845332-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/49f32bf5-7cdb-431a-888f-21bb2c5111fc`,
     },
     {
       image:
@@ -54,24 +102,156 @@ export default function TattooIdeen() {
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2136_20220827094033444-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/5d1afc9e-fa55-47e0-8d69-3fcbd3c32530`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10986_20221207121731029-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cabd0c1a-8f27-42d8-99db-e73b954ec2ee`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24481_20230428081127883-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7b412796-b79d-40e0-be60-7259b36fa3b0`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9951_20221123204308600-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c382163e-8a72-4cd3-96c7-613457eae938`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5420_20221013111725878-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ae03c700-746c-4f38-b8d2-5593d7900b03`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4387_20221003125711877-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/a122477d-0a7c-49c7-a872-a3fcc0fa9e71`,
     },
   ];
 
-  const miniTattoo =[
+  const herzTattos = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17385_20230203140845606-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/112271c8-6598-4298-b99c-8730550925a6`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7129_20221026184216461-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c944187c-de8d-4fd6-b6a7-fec01f63c8c5`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6174_20221021123236817-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/70748663-94f2-4e9b-abf7-0b3f0d5a9c13`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/23879_20230412103608255-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/e005fe2b-d04d-4018-af59-28e57725e5ff`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8832_20221112125030016-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/450b4b33-e8c3-48c8-bbfa-4aadad8203d0`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5625_20221015123203120-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4edaede2-3233-411e-bc7d-c52bb6db4dca`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5074_20221011092521390-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/742cb818-1fd5-4f99-98e6-75a1a9ed6ad0`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9013_20221114205459607-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f7d99388-5987-476c-ad0d-e19b9b6329ad`,
+    },
+  ];
+
+  const löwenTattoo = [
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13131_20221229171132742-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/732aaf7f-466d-4612-a05b-c5ff2aa1dff4`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14318_20230109134143790-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/640cf4fa-119c-47a6-a6eb-3622750468c6`,
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14810_20230112223717411-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ca0b9583-f532-4c89-b7e7-6aeda1ee092e`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12033_20221215200412686-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1d3f7944-ea2d-4229-8e2b-3c5e5e2b8604`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6229_20221021181735788-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0544c3a5-2f08-4d8e-bfea-b4f1f912c47a`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14428_20230110025908112-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/59733e6c-4264-4bf9-a8b6-8a321ed9581d`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2900_20220918163734264-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8df81485-40d2-4996-a640-03a3e136790d`,
+    },
+
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24519_20230501115106273-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74cd289e-f1d6-4696-9c7a-4e4c13651589`,
+    },
+  ];
+
+  const listingItems = [
+    {
+      title: "Rose",
+      content:
+        "Die Rose ist ein zeitloses Tattoo-Motiv, das Liebe und Leidenschaft symbolisiert. Unterschiedliche Farben können verschiedene Bedeutungen haben, wie rote Rosen für Liebe und Leidenschaft, weiße Rosen für Reinheit und Unschulds",
+    },
+    {
+      title: "Anker",
+      content:
+        "Der Anker steht oft für Stabilität und Sicherheit. Es ist ein beliebtes Motiv, das oft von Menschen gewählt wird, die eine tiefe Verbindung zum Meer oder maritimen Lebensstil haben.",
+    },
+
+    {
+      title: "Schwalbe",
+      content:
+        "Die Schwalbe ist ein traditionelles Motiv, das für Freiheit und Wohlstand steht. In der Seefahrt symbolisiert die Schwalbe oft die Rückkehr nach Hause, was sie zu einem Symbol der Hoffnung macht.",
+    },
+    {
+      title: "Schlüssel und Schloss",
+      content:
+        "Dieses Motiv symbolisiert oft Geheimnisse, Liebe und das Finden von Lösungen. Ein offenes Schloss kann Freiheit und Entdeckung darstellen.",
+    },
+
+    {
+      title: "Pfeil und Bogen",
+      content:
+        "Pfeil und Bogen stehen für Fokus, Zielstrebigkeit und Fortschritt. Ein Pfeil muss zurückgezogen werden, bevor er vorwärts schießen kann, was oft mit persönlichem Wachstum verbunden wird.",
+    },
+
+    {
+      title: "Lotusblume",
+      content:
+        "Die Lotusblume symbolisiert oft Reinheit und Erneuerung. Sie wächst aus schlammigem Wasser heraus, was ihre Fähigkeit repräsentiert, Schönheit aus Schwierigkeiten zu gewinnen.",
+    },
+  ];
+
+  const miniTattoo = [
     {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4759_20221007142629676-medium.jpg",
@@ -121,21 +301,21 @@ export default function TattooIdeen() {
     },
   ];
 
-  const fingerTattos =[
+  const Schmetterlings = [
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9406_20221117211556552-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/012b0ec7-56ed-4d0c-b442-cdbf7049bf87`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10568_20221201163816017-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cb8ffe67-49c6-423a-b5dd-0619883532f6`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26177_20230819154213258-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/92f01137-ae86-492d-aab7-cfc61a22d20b`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/11301_20221209092538720-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/bcbb2029-b85b-4bc5-9dc9-02c75b3fec09`,
     },
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/16636_20230130112845332-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/49f32bf5-7cdb-431a-888f-21bb2c5111fc`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17446_20230203192121997-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/294e004c-3be5-4a19-838d-bb1aa1bbd8da`,
     },
     {
       image:
@@ -145,162 +325,24 @@ export default function TattooIdeen() {
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10986_20221207121731029-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cabd0c1a-8f27-42d8-99db-e73b954ec2ee`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2136_20220827094033444-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/5d1afc9e-fa55-47e0-8d69-3fcbd3c32530`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9951_20221123204308600-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c382163e-8a72-4cd3-96c7-613457eae938`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24481_20230428081127883-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/7b412796-b79d-40e0-be60-7259b36fa3b0`,
     },
 
     {
       image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4387_20221003125711877-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/a122477d-0a7c-49c7-a872-a3fcc0fa9e71`,
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5420_20221013111725878-medium.jpg",
+      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ae03c700-746c-4f38-b8d2-5593d7900b03`,
     },
   ];
 
-  const  herzTattos =[
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17385_20230203140845606-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/112271c8-6598-4298-b99c-8730550925a6`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/7129_20221026184216461-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/c944187c-de8d-4fd6-b6a7-fec01f63c8c5`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6174_20221021123236817-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/70748663-94f2-4e9b-abf7-0b3f0d5a9c13`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/23879_20230412103608255-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/e005fe2b-d04d-4018-af59-28e57725e5ff`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8832_20221112125030016-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/450b4b33-e8c3-48c8-bbfa-4aadad8203d0`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5625_20221015123203120-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/4edaede2-3233-411e-bc7d-c52bb6db4dca`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5074_20221011092521390-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/742cb818-1fd5-4f99-98e6-75a1a9ed6ad0`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9013_20221114205459607-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/f7d99388-5987-476c-ad0d-e19b9b6329ad`,
-    },
-  ];
-
-  const löwenTattoo =[
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/13131_20221229171132742-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/732aaf7f-466d-4612-a05b-c5ff2aa1dff4`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14318_20230109134143790-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/640cf4fa-119c-47a6-a6eb-3622750468c6`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14810_20230112223717411-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ca0b9583-f532-4c89-b7e7-6aeda1ee092e`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/12033_20221215200412686-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/1d3f7944-ea2d-4229-8e2b-3c5e5e2b8604`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6229_20221021181735788-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/0544c3a5-2f08-4d8e-bfea-b4f1f912c47a`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/14428_20230110025908112-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/59733e6c-4264-4bf9-a8b6-8a321ed9581d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2900_20220918163734264-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/8df81485-40d2-4996-a640-03a3e136790d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24519_20230501115106273-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74cd289e-f1d6-4696-9c7a-4e4c13651589`,
-    },
-  ];
-
-  const dragonTattoo =[
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2697_20220915102023751-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/d0ead812-65af-4cfd-9d3c-f3488f253cf8`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6969_20221025174135791-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/b38d0b4b-c942-4a83-9c6a-30a503a7f6a6`,
-    },
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/3771_20220927130845510-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/58226d7e-d364-4769-abc7-59f0a5a2934d`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2755_20220916120728076-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/cc04e93a-28ac-4832-8ce7-7d5da4dafbd4`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2381_20220911184739543-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/ca14475a-7571-453d-9482-84067f9f6c64`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/24776_20230516040125015-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/6fdd3b00-767b-44bc-9e72-f750114d316f`,
-    },
-
-    {
-      image:
-        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/9615_20221121131123062-medium.jpg",
-      url: `${process.env.LIVE_URL}/${router.locale}/explore/tattoos/74084fe2-c1be-422f-bf12-32bc33c5a245`,
-    },
-  ];
-
-  const trendingArtist =[
+  const trendingArtist = [
     {
       artistImage:
         "https://storage.googleapis.com/hllincd-bucket/profile/image/1606_71406e34-f904-4c32-849e-dc750d5a2a16.jpg",
@@ -359,42 +401,6 @@ export default function TattooIdeen() {
     },
   ];
 
-  const listingItems =[
-    {
-      title: "Rose",
-      content:
-        "Die Rose ist ein zeitloses Tattoo-Motiv, das Liebe und Leidenschaft symbolisiert. Unterschiedliche Farben können verschiedene Bedeutungen haben, wie rote Rosen für Liebe und Leidenschaft, weiße Rosen für Reinheit und Unschulds",
-    },
-    {
-      title: "Anker",
-      content:
-        "Der Anker steht oft für Stabilität und Sicherheit. Es ist ein beliebtes Motiv, das oft von Menschen gewählt wird, die eine tiefe Verbindung zum Meer oder maritimen Lebensstil haben.",
-    },
-
-    {
-      title: "Schwalbe",
-      content:
-        "Die Schwalbe ist ein traditionelles Motiv, das für Freiheit und Wohlstand steht. In der Seefahrt symbolisiert die Schwalbe oft die Rückkehr nach Hause, was sie zu einem Symbol der Hoffnung macht.",
-    },
-    {
-      title: "Schlüssel und Schloss",
-      content:
-        "Dieses Motiv symbolisiert oft Geheimnisse, Liebe und das Finden von Lösungen. Ein offenes Schloss kann Freiheit und Entdeckung darstellen.",
-    },
-
-    {
-      title: "Pfeil und Bogen",
-      content:
-        "Pfeil und Bogen stehen für Fokus, Zielstrebigkeit und Fortschritt. Ein Pfeil muss zurückgezogen werden, bevor er vorwärts schießen kann, was oft mit persönlichem Wachstum verbunden wird.",
-    },
-
-    {
-      title: "Lotusblume",
-      content:
-        "Die Lotusblume symbolisiert oft Reinheit und Erneuerung. Sie wächst aus schlammigem Wasser heraus, was ihre Fähigkeit repräsentiert, Schönheit aus Schwierigkeiten zu gewinnen.",
-    },
-  ];
-
   return (
     <div>
       <Head>
@@ -422,7 +428,7 @@ export default function TattooIdeen() {
         />
         <meta
           property="og:image"
-            content={`${process.env.LIVE_URL}/Banner-tattoo-Iden.jpg`}
+          content={`${process.env.LIVE_URL}/Banner-tattoo-Iden.jpg`}
         />
         <meta property="og:type" content="article" />
 
@@ -439,9 +445,6 @@ export default function TattooIdeen() {
           name="twitter:image"
           content={`${process.env.LIVE_URL}/Banner-tattoo-Iden.jpg`}
         />
-
-
-
       </Head>
 
       <Banner
@@ -449,7 +452,7 @@ export default function TattooIdeen() {
         bannerImg={"/Banner-tattoo-Iden.jpg"}
         bannerButton={"Know more about inckd"}
         textColor="#fff"
-        position={'center bottom'}
+        position={"center bottom"}
         altTag="Tattoo Ideen"
       />
 
@@ -480,7 +483,6 @@ export default function TattooIdeen() {
         // keyword={"butterfly"}
         keyword={`/${router.locale}/explore/tattoos?keyword=butterfly`}
         altTag="Schmetterlings Tattoos"
-
       />
 
       <CarouselSection
@@ -516,7 +518,6 @@ export default function TattooIdeen() {
       />
 
       <div className="mb_30">
-
         <FullWidthBlock
           img="/studio.svg"
           alt="studio"
@@ -526,24 +527,20 @@ export default function TattooIdeen() {
         />
       </div>
 
-
-
-
       <ListingGridTwoColumn data={listingItems} bgColor="#eaffc0" />
 
-      <div className='mt_25'>
-
-      <CarouselSection
-        title="Löwen Tattoo Ideen"
-        content=" Ein beeindruckendes Löwen-Tattoo symbolisiert Stärke und Selbstbewusstsein. Löwen stehen für Mut und königliche Macht. Unsere Kollektion bietet eine Vielfalt von realistischen bis abstrakten Löwenbildern.
+      <div className="mt_25">
+        <CarouselSection
+          title="Löwen Tattoo Ideen"
+          content=" Ein beeindruckendes Löwen-Tattoo symbolisiert Stärke und Selbstbewusstsein. Löwen stehen für Mut und königliche Macht. Unsere Kollektion bietet eine Vielfalt von realistischen bis abstrakten Löwenbildern.
           Die Mähne des Löwen kann detailliert gestaltet werden, um eine starke Wirkung zu erzielen. Ein Löwen-Tattoo ist nicht nur schön anzusehen, sondern hat auch eine tiefe symbolische Bedeutung. Entdeckd die faszinierende Welt der Löwen Tattoos und lass dich von ihrer starken Ausstrahlung inspirieren. Wir bieten eine große Auswahl an subtilen und beeindruckenden Darstellungen, um deine persönliche Stärke zu betonen.
           "
-        buttonName="Mehr Löwen Tattoos"
-        datas={löwenTattoo}
-        keyword={"Löwen"}
-        altTag="Löwen Tattoos"
-      />
-</div>
+          buttonName="Mehr Löwen Tattoos"
+          datas={löwenTattoo}
+          keyword={"Löwen"}
+          altTag="Löwen Tattoos"
+        />
+      </div>
       <CarouselSection
         title="Drachen Tattoo Ideen"
         content="Drachen Tattoos sind faszinierende Kunstwerke, die Macht und Mystik verkörpern. Von Glücks-Drachen bis zu Abenteuer-Drachen - Drachen Tattoos sind vielfältig und beeindruckend in ihrer Symbolik. Ein Drachen Tattoo kann mit lebendigen Farben und detailreichen Designs gestaltet werden, um eine atemberaubende Wirkung zu erzielen. Lass dich von der mythologischen Welt der Drachen zu einer einzigartigen Tätowierung inspirieren.
@@ -615,14 +612,9 @@ export default function TattooIdeen() {
           "
         content2="Erforsche unsere umfangreiche Sammlung von Tattoo Ideen, lasse dich inspirieren und schaffe gemeinsam mit uns dein persönliches Meisterwerk. Jedes Tattoo erzählt eine besondere Geschichte. Wir sorgen dafür, dass deine Geschichte künstlerisch und individuell in deinem Tattoo dargestellt wird."
         bgColor="#FFD5C0"
-
-
-        
       />
 
       <DownloadApps title="Download the" subTitle="App & Explore more!" />
     </div>
   );
 }
-
-

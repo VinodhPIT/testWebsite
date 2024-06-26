@@ -9,80 +9,20 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import Search from "@/components/tattooSearch/tattooSearch";
+import Search from "@/components/exploreScreens/searchField";
 import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 export default function FAQ({ locale }) {
+  // Constants and arrays
   const router = useRouter();
   const [state, setState] = useState("general");
+  const { t } = useTranslation();
+
   const changeTab = (id) => {
     setState(id);
   };
-
-  const { t } = useTranslation();
-
-  const faqTab = [
-    {
-      id: "general",
-      label: t("common:tabs.general"),
-      image: "/all.svg",
-      activeImage: "/all-active.svg",
-    },
-    {
-      id: "artist",
-      label: t("common:tabs.artist"),
-      image: "/colour-palette-new.svg",
-      activeImage: "/colour-palette-active.svg",
-    },
-
-    {
-      id: "tattoo",
-      label: t("common:tabs.tattooLovers"),
-      image: "/flame-new.svg",
-      activeImage: "/Flame-active.svg",
-    },
-  ];
-
-  const FAQ_GENERAL = [
-    {
-      id: 1,
-      summary: t("common:faqScreen.title1"),
-      details: t("common:faqScreen.content1"),
-    },
-    {
-      id: 2,
-
-      summary: t("common:faqScreen.title2"),
-      details: t("common:faqScreen.content2"),
-    },
-    {
-      id: 3,
-      summary: t("common:faqScreen.title3"),
-      details: t("common:faqScreen.content3"),
-    },
-    {
-      id: 4,
-
-      summary: t("common:faqScreen.title4"),
-      details: t("common:faqScreen.content4"),
-    },
-
-    {
-      id: 5,
-
-      summary: t("common:faqScreen.title5"),
-      details: t("common:faqScreen.content5"),
-    },
-
-    {
-      id: 6,
-
-      summary: t("common:faqScreen.title6"),
-      details: t("common:faqScreen.content6"),
-    },
-  ];
 
   const FAQ_ARTISTS = [
     {
@@ -145,6 +85,67 @@ export default function FAQ({ locale }) {
       id: 16,
       summary: t("common:faqScreen.title16"),
       details: t("common:faqScreen.content16"),
+    },
+  ];
+
+  const FAQ_GENERAL = [
+    {
+      id: 1,
+      summary: t("common:faqScreen.title1"),
+      details: t("common:faqScreen.content1"),
+    },
+    {
+      id: 2,
+
+      summary: t("common:faqScreen.title2"),
+      details: t("common:faqScreen.content2"),
+    },
+    {
+      id: 3,
+      summary: t("common:faqScreen.title3"),
+      details: t("common:faqScreen.content3"),
+    },
+    {
+      id: 4,
+
+      summary: t("common:faqScreen.title4"),
+      details: t("common:faqScreen.content4"),
+    },
+
+    {
+      id: 5,
+
+      summary: t("common:faqScreen.title5"),
+      details: t("common:faqScreen.content5"),
+    },
+
+    {
+      id: 6,
+
+      summary: t("common:faqScreen.title6"),
+      details: t("common:faqScreen.content6"),
+    },
+  ];
+
+  const faqTab = [
+    {
+      id: "general",
+      label: t("common:tabs.general"),
+      image: "/all.svg",
+      activeImage: "/all-active.svg",
+    },
+    {
+      id: "artist",
+      label: t("common:tabs.artist"),
+      image: "/colour-palette-new.svg",
+      activeImage: "/colour-palette-active.svg",
+    },
+
+    {
+      id: "tattoo",
+      label: t("common:tabs.tattooLovers"),
+      image: "/flame-new.svg",
+      activeImage: "/Flame-active.svg",
     },
   ];
 

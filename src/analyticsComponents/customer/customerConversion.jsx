@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
+
 import Select from "react-select";
 import useTranslation from "next-translate/useTranslation";
+
 import useCustomerConversionStore from "@/store/customerAnalytics/conversionCustomer";
-import { currentYear, options, months } from "@/helpers/helper";
+
 import ConversionDataComponent from "@/analyticsComponents/common/keys";
+
+import { currentYear, options, months } from "@/helpers/helper";
+
 
 export const percentageCalculate = (part, whole) => {
   const calculatedPercentage = (part / whole) * 100;
   return isNaN(calculatedPercentage) ? "0.00" : calculatedPercentage.toFixed(2);
 };
 
-const CustomerConversion = ({ token }) => {
+const CustomerConversion = () => {
   const { registered, fetchData } = useCustomerConversionStore();
   const { t } = useTranslation();
   const { customerConversionTitle, keyMappings } = ConversionDataComponent();
@@ -23,8 +28,8 @@ const CustomerConversion = ({ token }) => {
   };
 
   useEffect(() => {
-    fetchData(selectedYear, token);
-  }, [selectedYear, fetchData, token]);
+    fetchData(selectedYear);
+  }, [selectedYear]);
 
   const renderTableRow = (title, key) => (
     <tr key={title}>

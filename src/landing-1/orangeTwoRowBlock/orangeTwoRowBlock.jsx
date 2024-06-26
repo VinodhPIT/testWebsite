@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { blurDataURL } from "@/constants/constants";
+
+
+import { BLUR_URL } from "@/constants/constants";
 
 export default function OrangeTwoRowBlock({
   mainTitle,
@@ -53,7 +54,7 @@ export default function OrangeTwoRowBlock({
                         height={54}
                         alt={"Album"}
                         src={img2}
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         placeholder="blur"
                         layout="responsive"
                         className="w_auto mb_35"
@@ -74,7 +75,7 @@ export default function OrangeTwoRowBlock({
                         height={54}
                         alt={"LinkRound"}
                         src={img1}
-                        blurDataURL={blurDataURL}
+                        blurDataURL={BLUR_URL}
                         placeholder="blur"
                         layout="responsive"
                         className="w_auto mb_35"

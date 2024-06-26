@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
+
+import { BLUR_URL } from "@/constants/constants";
+
 import styles from "./style.module.css";
 
 export default function PartnerTattoos({
@@ -44,7 +46,7 @@ export default function PartnerTattoos({
                           height={749}
                           loading="lazy"
                           placeholder="blur"
-                          blurDataURL={blurDataURL}
+                          blurDataURL={BLUR_URL}
                           layout="responsive"
                         />
                       </div>
@@ -56,7 +58,7 @@ export default function PartnerTattoos({
                                             height={19}
                                             loading="lazy"
                                             placeholder="blur"
-                                            blurDataURL={blurDataURL}
+                                            blurDataURL={BLUR_URL}
                                             layout="responsive"
                                         /> */}
                       </div>
@@ -69,7 +71,7 @@ export default function PartnerTattoos({
                             height={97}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             layout="responsive"
                           />
                         </div>

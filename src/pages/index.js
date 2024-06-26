@@ -1,44 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+import useOpenApp from "@/hooks/useOpenApp";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
 import useTranslation from "next-translate/useTranslation";
-import { getOs } from "../lib/os-detector";
+
 import { useGlobalState } from "@/context/Context";
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
-
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
-import TattooSlider from "@/components/TattooSlider/TattooSlider";
-import TattooJournal from "@/components/tattooJournal/TattooJournal";
-import PaymentTypes from "@/components/paymentTypes/PaymentTypes";
+import TattooSlider from "@/components/homeScreen/artistSlider";
+import TattooJournal from "@/components/homeScreen/tattooJournal";
+import PaymentTypes from "@/components/homeScreen/paymentTypes";
 import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
 import ExploreStyle from "@/components/homeCarousel/exploreStyles";
-import Modal from "@/components/modalPopup/comingSoon"
-
+import Modal from "@/components/modalPopup/comingSoon";
 
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  blurDataURL,
+  BLUR_URL,
 } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
-
-
-export default function Home({isMobile}) {
-  const [qrCodeSrc, setQrCodeSrc] = useState('/PlayStore_QR.png');
-  const osName = getOs();
+export default function Home({}) {
   const router = useRouter();
-
-  const { allListing  ,loading} = useDisplayAll();
-  const { styleList  ,loader} = useStyleListing();
-
-
+  const { allListing, loading } = useDisplayAll();
+  const { styleList, loader } = useStyleListing();
+  const { openApp } = useOpenApp();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
   const {
     getAddress,
     clearStyleId,
@@ -46,10 +40,9 @@ export default function Home({isMobile}) {
     setSelectedIds,
     styleCollection,
   } = useGlobalState();
-  
+
   const { t } = useTranslation();
 
-   
   function SwitchJournal(locale) {
     switch (locale) {
       case "gb-en":
@@ -60,13 +53,6 @@ export default function Home({isMobile}) {
         return null;
     }
   }
-
-
-  useEffect(() => {
-    const correctQRCode = osName === 'Mac OS' ? '/AppStore_QR.png' : '/PlayStore_QR.png';
-    setQrCodeSrc(correctQRCode);
-  }, [osName]);
-
 
   useEffect(() => {
     router.replace(`/${router.locale}${router.asPath}`);
@@ -81,16 +67,6 @@ export default function Home({isMobile}) {
     styleCollection();
   }, []);
 
-
-
-  
-
-
-
-
-
-
-
   return (
     <>
       <Head>
@@ -102,100 +78,77 @@ export default function Home({isMobile}) {
         <meta name="keywords" content={t("common:homeScreenSEO.keyword")} />
       </Head>
 
-      <section className="img_text_banner_box">
-        <div className="col_full">
-          <div className="main_banner_wrap mt_40 m_mt_15">
-            <div className="main_banner_block">
-              <div className="main_banner_col">
-                <div className="main_banner_img_wrap">
-                  <div className="main_banner_img">
-                    <Image
-                      src="/book-your-tattoo-now.png"
-                      alt="Banner"
-                      fill
-                      objectFit="cover"
-                      objectPosition="right top"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      className="mob_hidden"
-                    />
-                    <Image
-                      src="/book-your-tattoo-now-mob.png"
-                      alt="Banner"
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={blurDataURL}
-                      fill
-                      objectPosition="center top"
-                      className="desk_hidden"
-                    />  
-                    
-                  </div>
+      <section className="full_block_banner">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div className="banner_block m_min_h_698">
+              <div className="banner_col banner_grad_lft_mob_btm">
+                <div className="banner_img_wrap">
+                  <Image
+                    src="/home_banner.png"
+                    alt="Banner"
+                    fill
+                    objectFit="cover"
+                    objectPosition="center top"
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    className="mob_hidden"
+                  />
+                  <Image
+                    src="/m_home_banner.png"
+                    alt="Banner"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    fill
+                    objectFit="cover"
+                    objectPosition="center top"
+                    className="desk_hidden"
+                  />
                 </div>
-                <div className="main_banner_caption">
+                <div className="banner_caption">
                   <div className="d_inline_block">
-                    <div className="main_banner_content">
-                      <h1 className="color_white heading_h1 custom_fs_75 txt_mob_fs50 mt_0 max_w_420 m_max_100">
+                    <div className="banner_content">
+                      <h1 className="color_black_h heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 max_w_480 m_max_100">
                         <span>{t("common:homePage.bannerTitle")}</span>
                       </h1>
-                      <p className="color_white custom_fs_m_14 mt_15 mb_40 m_mt_0 max_w_520 m_max_100">
+                      <p className="color_black_h mt_10 mb_40 m_mb_30  max_w_440 m_max_100">
                         {t("common:homePage.bannerContent")}
                       </p>
-                      <div className="d_inline_block max_w_520 w_100pc"> 
-                        <ul className="download_qr_mob_app">
-                          <li className="color_white color_white download_qr_mob_app_title">
-                            {t("common:homePage.Download the inckd")}
-                          </li>
-                          <li>
-                            <Link href={APP_LINK_APPLE} target="_blank">
-                              <Image
-                                priority
-                                src="/app-store-new.svg"
-                                alt="App store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons desk_hidden"
-                              />
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href={APP_LINK_GOOGLE} target="_blank">
-                              <Image
-                                priority
-                                src="/g-play-new.svg"
-                                alt="Play store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={blurDataURL}
-                                className="custom_download_icons desk_hidden"
-                              />
-                            </Link>
-                          </li>
-                          <li>                            
-                            <Image
-                              priority
-                              src={qrCodeSrc}
-                              alt="QR"
-                              width={121}
-                              height={121}
-                              placeholder="blur"
-                              blurDataURL={blurDataURL}
-                              className="custom_download_icons app_qr_home mob_hidden"
-                            />                           
-                          </li>
-                        </ul>
-                      </div>
+
+                      <button
+                        onClick={openApp}
+                        target="_blank"
+                        className="button_primary mob_hidden"
+                      >
+                        Get our mobile app
+                      </button>
+
+                      <Link href={appStoreLink} target="_blank">
+                        <Image
+                          priority
+                          src={imageSrc}
+                          alt={
+                            appStoreLink === APP_LINK_APPLE
+                              ? "App store"
+                              : "GooglePlay"
+                          }
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={BLUR_URL}
+                          className="custom_download_icons desk_hidden"
+                        />
+                      </Link>
                     </div>
-                  </div>                 
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <TattooIdea></TattooIdea>
 
       <TattooSlider
@@ -214,10 +167,8 @@ export default function Home({isMobile}) {
         title={t("common:homePage.exploreStyle")}
         content={t("common:homePage.worldOfInk")}
         data={styleList}
-        loading={loader} 
-      /> 
-
-      {SwitchJournal(router.locale)}
+        loading={loader}
+      />
 
       <PaymentTypes
         title1={t("common:homePage.Verified tattoo artists")}
@@ -226,8 +177,9 @@ export default function Home({isMobile}) {
         content2={t("common:homePage.Navigate inckd effortlessly")}
         title3={t("common:homePage.Secure Transactions")}
         content3={t("common:homePage.Rest easy knowing")}
-        leftSectionImage="/verified_tattoo_artists_01.png"
       />
+
+      {SwitchJournal(router.locale)}
 
       {/* <Modal /> */}
     </>

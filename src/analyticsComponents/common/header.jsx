@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import useTranslation from "next-translate/useTranslation";
-import { useSession } from "next-auth/react";
+import { useSession ,signOut } from "next-auth/react";
 
 export default function Header({ data }) {
   const [offCanvas, setoffCanvas] = useState(false);

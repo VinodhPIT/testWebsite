@@ -50,8 +50,6 @@ export default function ComparisonChart({ totalData, title, labe_1, labe_2 }) {
     ],
   };
 
-
-
   const payoptions = {
     responsive: true,
     plugins: {

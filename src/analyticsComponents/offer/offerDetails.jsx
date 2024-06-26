@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
-import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
-import { downloadExcel } from "@/apiConfig/downloadService";
-import CountDisplayCard from "../common/countDisplayCard";
+
 import useTranslation from "next-translate/useTranslation";
+import "@hassanmojab/react-modern-calendar-datepicker/lib/DatePicker.css";
+
+import CountDisplayCard from "../common/countDisplayCard";
+
 import useAnalyticsStore from "@/store/offerAnalytics/calenderFilter";
+import  useDownloadExcel  from "@/store/downloadExcel/downloadExcel";
 
 const initialValue = {
   scheduled: {
@@ -37,6 +40,8 @@ export default function OfferDeatils({ offerCount, token }) {
     fetchInitialData,
   } = useAnalyticsStore();
 
+  const {downloadExcel} = useDownloadExcel()
+
   // Fetch initial data on component mount
   useEffect(() => {
     fetchInitialData(offerCount, initialValue, token);
@@ -54,7 +59,7 @@ export default function OfferDeatils({ offerCount, token }) {
           <div className="col-lg-3 col-md-6 col-sm-6">
             <CountDisplayCard
               bgColorClass="block_bg_yellow_300"
-              count={countData.scheduled}
+              count={countData.scheduled||0}
               filteredDateRange={dateRange.scheduled}
               onClickDownload={() =>
                 handleDownload(
@@ -72,7 +77,7 @@ export default function OfferDeatils({ offerCount, token }) {
           <div className="col-lg-3 col-md-6 col-sm-6">
             <CountDisplayCard
               bgColorClass="block_bg_green_100"
-              count={countData.completed}
+              count={countData.completed||0}
               filteredDateRange={dateRange.completed}
               onClickDownload={() =>
                 handleDownload(
@@ -90,7 +95,7 @@ export default function OfferDeatils({ offerCount, token }) {
           <div className="col-lg-3 col-md-6 col-sm-6">
             <CountDisplayCard
               bgColorClass="block_bg_blue_50"
-              count={countData.rejected}
+              count={countData.rejected||0}
               filteredDateRange={dateRange.rejected}
               onClickDownload={() =>
                 handleDownload(
@@ -108,7 +113,7 @@ export default function OfferDeatils({ offerCount, token }) {
           <div className="col-lg-3 col-md-6 col-sm-6">
             <CountDisplayCard
               bgColorClass="block_bg_orange_100"
-              count={countData.expired}
+              count={countData.expired||0}
               filteredDateRange={dateRange.expired}
               onClickDownload={() =>
                 handleDownload(

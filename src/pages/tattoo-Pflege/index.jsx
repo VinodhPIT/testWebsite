@@ -1,7 +1,8 @@
 import React from "react";
+import Head from "next/head";
+
 import Banner from "@/landing-3/Banner/Banner";
 import ContentImageLayout from "@/landing-3/ContentImageLayout/ContentImageLayout";
-import Head from "next/head";
 import MediaItem from "@/landing-3/MediaItem/MediaItem";
 import LeftContentWithBackgroundImage from "@/landing-3/LeftContentWithBackgroundImage/LeftContentWithBackgroundImage";
 import FullWidthSecwithIcon from "@/landing-2/FullWidthSecwithIcon/FullWidthSecwithIcon";

@@ -2,7 +2,7 @@ import moment from "moment";
 
 const API_URL = {
   SEARCH: {
-    SEARCH_BY_CATRGORY: (params) => `/web/api/${params.category}/search`,
+    SEARCH_BY_CATRGORY: (params) => `/web/api/${params}/search`,
     GET_TATTOO_SEARCH: "/web/api/tattoo/search",
     GET_TATTOO_DETAIL: (params) => `/web/api/tattoo/detail?tattoo_uid=${params}`,
     GET_FLASH_SEARCH: "/web/api/flash/search",
@@ -11,12 +11,12 @@ const API_URL = {
     GET_REFERRAL_CODE: (slug) => `/web/api/customer/referral/${slug}`,
     GET_ARTIST_GALLERY: (params) => `/web/api/tattoo/artist?artist_uid=${params}`,
     ARTIST_FORM: "/api/profile/artist/verification/request",
-    ARTIST_LISTING :'/v2/api/customer-request/artist/list',
+    ARTIST_LISTING :'/web/api/customer-request/artist/list',
     REQUEST_CONTACT : (params) =>`/web/api/customer-request/user-exists?customer_email=${params.email}&customer_phone_no=${params.phone}`,
      REQUEST_SAVE :`/web/api/customer-request/save`,
      CUSTOMER_REQUEST:`/web/api/customer-request/detail?artist_uid=${1}`,
      STYLE_LIST:"/web/api/style/detail",
-     TATTOO_LIST:(lng)=>`/web/api/explore/tattoo/details?country_code=${lng}`,
+     TATTOO_LIST:(countryCode)=>`/web/api/explore/tattoo/details?country_code=${countryCode}`,
      GET_COUNTRY_CODE:'/web/api/customer-request/country/list',
      GET_SINGLE_STYLE_DETAIL:(styleId)=>`/web/api/style/single/detail?style_uid=${styleId}`
   },

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import useTranslation from "next-translate/useTranslation";
-import _Form from "@/components/artistForm/form";
+
 
 import {
   APP_LINK_APPLE,
