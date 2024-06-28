@@ -454,10 +454,7 @@ function KlarnaNew({}) {
         description=""
         data={allListing.artists}
       />
-
-<div className="mb_40 m_mb_0">
 <ListAppFeature />
-</div>
     </>
   );
 }
