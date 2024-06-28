@@ -134,6 +134,14 @@ button {
 .onActive {
   border: 1px solid var(--black-200) !important;
 }
+.border-black {
+  border: 1px solid var(--black-200);
+}
+
+.border-white {
+  border: 1px solid var(--white);
+}
+
 button:disabled {
   opacity: 0.5; /* Adjust the opacity value as needed */
 }
@@ -181,7 +189,7 @@ button:disabled {
 }
 
 .textBlack {
-  color: var(--black);
+  color: var(--black-500);
 }
 
 .bgBlack {
@@ -206,13 +214,14 @@ header.header_wrapper {
 }
 header.header_wrapper:after {
   content: "";
-  background: linear-gradient(180deg, #FFF 12.03%, rgba(255, 255, 255, 0.00) 87.59%);
+  /* background: linear-gradient(180deg, #FFF 12.03%, rgba(255, 255, 255, 0.00) 87.59%); */
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
   z-index: -1;
 }
+
 header.header_wrapper.fixed:after {
   background: #fff;
 }
@@ -226,6 +235,17 @@ header.fixed {
   animation: fadeIn 0.1s ease-in-out forwards;
   border-bottom: 0;
 }
+
+header.fixed .sticky-menu{
+  color:var(--black-500)
+}
+.wh_burgerIcon{color : var(--white)}
+ .bl_burgerIcon {color: var(--black-500);}
+
+ header.fixed .wh_burgerIcon{
+color: var(--black-500);
+ }
+
 
 @keyframes fadeIn {
   from {
@@ -264,7 +284,6 @@ header ul.nav.main_nav > li > a {
   line-height: 27px;
   padding: 0;
   margin: 0;
-  color: var(--black-500);
 }
 
 .navColor {
@@ -5101,10 +5120,11 @@ button.language_switcher {
   font-size: 18px;
   font-weight: 500;
   line-height: 25px;
-  border: 1px solid var(--black-200);
   background: rgba(16, 16, 16, 0.00);
   padding: 8px 15px;
 }
+
+
 button.language_switcher img {
   width: 16px;
   height: 16px;
