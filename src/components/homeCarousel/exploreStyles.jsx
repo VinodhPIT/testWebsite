@@ -28,18 +28,12 @@ export default function ExploreStyles({ title, content, data }) {
     <section className="container_full">
       <div className="row">        
         <div className="col-md-12">
-          <div className="d_inline_block w_100pc pt_40">
+          <div className="d_inline_block w_100pc pt_0">
             <div className="d_inline_block w_100pc">
               <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 pr_90 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0">              
                 <span className="position_relative">
                   <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
-                  Tattoo Styles</span>
-                <Link
-                  href=""
-                  className="more_link"
-                >
-                 SEE ALL
-                </Link>
+                  Tattoo Styles</span>               
               </h2>              
             </div>
 

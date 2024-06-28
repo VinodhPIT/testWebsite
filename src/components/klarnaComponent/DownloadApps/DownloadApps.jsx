@@ -4,102 +4,158 @@ import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import useWindowResize from "@/hooks/useWindowSize";
 import ImageSlider from "@/components/slider/singleImageSlider";
+import useOpenApp from "@/hooks/useOpenApp";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
 
-import { blurDataURL ,APP_LINK_GOOGLE ,APP_LINK_APPLE} from "@/constants/constants";
+import { blurDataURL, APP_LINK_GOOGLE, APP_LINK_APPLE, BLUR_URL, } from "@/constants/constants";
 
 
 
-export default function DownloadApps ({title ,subTitle}) {
-
-  const { isMobileView } = useWindowResize();
+export default function DownloadApps({ title, subTitle }) {
   const { t } = useTranslation();
+  const { openApp } = useOpenApp();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
 
   return (
-    <div class={"text_box_wrap right app_download_box_wrap mb_0 block_bg_gray_50 mob_single_slider ${bgColor}"}>
-      <div class="img_text_box_inner container pt_80 m_pt_30 pb_80 m_pb_40 flex_direction_column app_download_custom_new">
-        <div className="row">
-          <div className="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12 offset-lg-right-1">
-            <div class="text_box_content p_0">
-              <div class="text_box_content_inner w_100pc m_pr_0">
-                <ul class="download_app ml_0 w_100pc max_w_100pc m_text_left m_mt_0">
-                  <li class="download_app_title m_mb_15">
-                    <h6 className="fw_600 custom_fs_34 custom_fs_m_24">   
-                      <span className="m_dis_inline">{title}
-                      </span>
-                      <span className="textBlock">{subTitle}
-                      </span>
-                    </h6>
-                  </li>
-                  <li>
-                    <Link href={APP_LINK_APPLE} target="_blank">
-                      <Image src="/app-store-new.svg" alt="Appstore" width={134} height={41} priority />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href={APP_LINK_GOOGLE} target="_blank">
-                      <Image src="/g-play-new.svg" alt="Playstore"  width={134} height={41}  priority />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          {!isMobileView && (
-            <div className="col-xl-7 col-lg-6 col-md-6 col-sm-12 col-xs-12 align_content">
-              <div class="img_box_wrap m_pb_25">
-                <ul class="app_download_img_list justify_content_end slider_resize d_slid_resize m_0 p_0 d_inline_flex gap_20">
-                <li className="pl_0 no_filter">
-                  <Image
-                    priority
-                    alt={t("common:homePage.Verified tattoo artists")}
-                    src="/explore_web_n_01.png"
-                    width={189}
-                    height={375}
-                    blurDataURL={blurDataURL}
-                    placeholder="blur"
-                    className="obj_cntr_max_h_inh"
-                />
-              </li>
-              <li className="pl_0 no_filter">
-                  <Image
-                    priority
-                    alt={t("common:homePage.Verified tattoo artists")}
-                    src="/explore_web_n_02.png"
-                    width={189}
-                    height={375}
-                    blurDataURL={blurDataURL}
-                    placeholder="blur"
-                    className="obj_cntr_max_h_inh"
-                  />
-              </li>
-              <li className="pl_0 no_filter">
+    <section className="container_full m_pb_40">
+      <div className="row g-0">
+        <div className="col-md-6 col-sm-12 col-xs-12 offset-md-right-1 m_order_2">
+          <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content m_pt_10 block_bg_gray_250">
+            <ul className="mobile_app_list">
+              <li className="align_item_center justify_content_end">
                 <Image
                   priority
-                  alt={t("common:homePage.Verified tattoo artists")}
-                  src="/explore_web_n_03.png"
-                  width={189}
-                  height={375}
-                  blurDataURL={blurDataURL}
+                  src="/mob_app_01.png"
+                  alt={t("common:homePage.TattooFinancing")}
+                  width={277}
+                  height={549}
+                  blurDataURL={BLUR_URL}
                   placeholder="blur"
-                  className="obj_cntr_max_h_inh"
+                  className="object_position_center mob_hidden"
+                />
+                <Image
+                  priority
+                  src="/mob_app_01.png"
+                  alt={t("common:homePage.TattooFinancing")}
+                  width={122}
+                  height={242}
+                  blurDataURL={BLUR_URL}
+                  placeholder="blur"
+                  className="object_position_center desk_hidden"
                 />
               </li>
-                </ul>
+              <li className="align_item_end justify_content_start">
+                <Image
+                  priority
+                  src="/mob_app_02.png"
+                  alt={t("common:homePage.TattooFinancing")}
+                  width={278}
+                  height={448}
+                  blurDataURL={BLUR_URL}
+                  placeholder="blur"
+                  className="object_position_bottom mob_hidden"
+                />
+                <Image
+                  priority
+                  src="/mob_app_02.png"
+                  alt={t("common:homePage.TattooFinancing")}
+                  width={122}
+                  height={197}
+                  blurDataURL={BLUR_URL}
+                  placeholder="blur"
+                  className="object_position_bottom desk_hidden"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="col-md-5 col-sm-12 col-xs-12 m_order_1">
+          <div className="position_relative w_100pc h_100pc m_min_h_inherit">
+            <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pt_40 m_pb_30">
+              <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_20 m_mb_15">
+                <span className="position_relative">
+                  <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
+                  inckd Mobile App</span>
+              </h2>
+              <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_15">
+                <div className="d_flex align_item_center">
+                  <Image
+                    src="/icon_verified.svg"
+                    width={33}
+                    height={33}
+                    alt="Verified tattoo artists"
+                    priority
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    className="m_w_24 m_h_24 mr_15"
+                  />
+                  <div className="d_flex flex_direction_column">
+                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                    Verified tattoo artists</h4>
+                  </div>
+                </div>
               </div>
+              <div className="d_flex flex_direction_column mb_25 m_mb_15">
+                <div className="d_flex align_item_center">
+                  <Image
+                    src="/icon_user_friendly.svg"
+                    width={33}
+                    height={33}
+                    alt="User-Friendly Interface"
+                    priority
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    className="m_w_24 m_h_24 mr_15"
+                  />
+                  <div className="d_flex flex_direction_column">
+                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                    User-Friendly Interface</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="d_flex flex_direction_column mb_0">
+                <div className="d_flex align_item_center">
+                  <Image
+                    src="/icon_secure.svg"
+                    width={33}
+                    height={33}
+                    alt="Secure Transactions"
+                    priority
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    className="m_w_24 m_h_24 mr_15"
+                  />
+                  <div className="d_flex flex_direction_column">
+                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                    Secure Transactions</h4>
+                  </div>
+                </div>
+              </div>
+
+              <button onClick={openApp} className="button_primary align_self mt_30 mob_hidden">
+                Get the app
+              </button>
+              <Link href={appStoreLink} target="_blank" className="m_mt_25 desk_hidden">
+                <Image
+                  priority
+                  src={imageSrc}
+                  alt={
+                    appStoreLink === APP_LINK_APPLE
+                      ? "App store"
+                      : "GooglePlay"
+                  }
+                  width={134}
+                  height={41}
+                  placeholder="blur"
+                  blurDataURL={BLUR_URL}
+                  className="custom_download_icons"
+                />
+              </Link>
             </div>
-          )}
+          </div>
         </div>
       </div>
-      {isMobileView && (
-        <ImageSlider
-          imagePaths={["/explore_web_n_01.png", "/explore_web_n_02.png", "/explore_web_n_03.png"]}
-          imgAlt={t("common:downloadApp")}
-          imgblurDataURL={blurDataURL}
-          imgWidth={242}
-          imgHeight={479}
-        ></ImageSlider>
-        )}
-    </div>
+    </section>
   )
 }
 
