@@ -42,12 +42,7 @@ export default function Footer() {
   const productLinks = [
  
     {
-      id: 2,
-      title: t("common:menus.dictionary"),
-      url: `/${router.locale}/tattoo-dictionary`,
-    },
-    {
-      id: 3,
+      id: 1,
       title: t("common:menus.klarna"),
       url: `/${router.locale}/klarna`,
     },
@@ -55,12 +50,12 @@ export default function Footer() {
 
   const businesstLinks = [
     {
-      id: 2,
+      id: 1,
       title: t("common:menus.forTattooArtists"),
       url: `/${router.locale}/for-tattoo-artists`,
     },
     {
-      id: 3,
+      id: 2,
       title: t("common:menus.joinArtist"),
       url: `/${router.locale}/join-as-artist`,
     },
