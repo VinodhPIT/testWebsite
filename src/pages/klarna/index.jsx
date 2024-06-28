@@ -160,7 +160,7 @@ function KlarnaNew({}) {
                         <span className="textBlock">{"Pay Later."}</span>
                       </h1>
                        <p className="color_white mt_10 mb_40 m_mb_30 max_w_520 m_max_100">
-                        {"Yes, you heard right! We&apos;ve teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!"}
+                        {"Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!"}
                         </p>
                       <button
                         onClick={openApp}
@@ -455,7 +455,10 @@ function KlarnaNew({}) {
         data={allListing.artists}
       />
 
-      <ListAppFeature />
+<div className="mb_40 m_mb_0">
+<ListAppFeature />
+</div>
+
 
     </>
   );
