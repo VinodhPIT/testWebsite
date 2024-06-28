@@ -401,7 +401,7 @@ function KlarnaNew({}) {
         </div>
       </section>
 
-      <section className="container_full pt_40 pb_40 m_pb_0"> 
+      <section className="container_full pt_40 pb_0"> 
         <div className="row">
           <div className="col-md-12">
             <div className="position_relative d_inline_block w_100pc">
