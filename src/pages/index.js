@@ -13,24 +13,21 @@ import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
+import TextsCarousel from "@/components/carousel/TextsCarosuel";
+import ImageCarosuel from "@/components/carousel/ImageCarosuel";
+import CaptionImageCarosuel from "@/components/carousel//CaptionImageCarosuel";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
-import TattooSlider from "@/components/homeScreen/artistSlider";
 import TattooJournal from "@/components/homeScreen/tattooJournal";
-import PaymentTypes from "@/components/homeScreen/paymentTypes";
-import ExploreTattoos from "@/components/homeCarousel/exploreTattoos";
-import ExploreStyle from "@/components/homeCarousel/exploreStyles";
+import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
 import Modal from "@/components/modalPopup/comingSoon";
 
-import {
-  APP_LINK_APPLE,
-  BLUR_URL,
-} from "@/constants/constants";
+import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
 export default function Home({}) {
   const router = useRouter();
-  const { allListing, loading } = useDisplayAll();
-  const { styleList, loader } = useStyleListing();
+  const { allListing } = useDisplayAll();
+  const { styleList } = useStyleListing();
   const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const {
@@ -103,7 +100,8 @@ export default function Home({}) {
                     fill
                     objectFit="cover"
                     objectPosition="center top"
-                    className="desk_hidden"
+
+                    className="desk_hidden "
                   />
                 </div>
                 <div className="banner_caption">
@@ -151,33 +149,44 @@ export default function Home({}) {
 
       <TattooIdea></TattooIdea>
 
-      <TattooSlider
+      {/* <TattooSlider
         title={t("common:homePage.ArtistSliderTitle")}
         content={t("common:homePage.ArtistSliderContent")}
+      /> */}
+
+      <TextsCarousel
+        title="EXPLORE"
+        subTitle="Tattoo Artists"
+        description=""
+        data={allListing.artists}
       />
+
       <KlarnaBanner />
-      <ExploreTattoos
-        title={t("common:menus.tattooSearch")}
-        content={t("common:homePage.worldOfInk")}
+
+      <ImageCarosuel
+       title="EXPLORE"
+       subTitle="Tattoos"
+        description=""
         data={allListing.tattoo_images}
-        loading={loading}
       />
 
-      <ExploreStyle
-        title={t("common:homePage.exploreStyle")}
-        content={t("common:homePage.worldOfInk")}
-        data={styleList}
-        loading={loader}
+       <CaptionImageCarosuel
+         title="EXPLORE"
+         subTitle="Tattoo Styles"
+          description=""
+          data={styleList}
       />
 
-      <PaymentTypes
+      {/* <PaymentTypes
         title1={t("common:homePage.Verified tattoo artists")}
         content1={t("common:homePage.We curate a selection")}
         title2={t("common:homePage.User-Friendly Interface")}
         content2={t("common:homePage.Navigate inckd effortlessly")}
         title3={t("common:homePage.Secure Transactions")}
         content3={t("common:homePage.Rest easy knowing")}
-      />
+      /> */}
+
+       <ListAppFeature />
 
       {SwitchJournal(router.locale)}
 

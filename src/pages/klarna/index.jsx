@@ -9,17 +9,17 @@ import useWindowResize from "@/hooks/useWindowSize";
 import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 import usePath from "@/store/setPath/setPath";
-import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
-import FiveColumnCarousel from "@/components/klarnaScreen/fiveColumnCarousel";
-import TattooSlider from "@/components/homeScreen/artistSlider";
- 
+import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
+import TextsCarousel from "@/components/carousel/TextsCarosuel";
+
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
   KLARNA_LINK,
-} from "@/constants/constants";
+} from "@/constants/index";
  
 import {
   Accordion,
@@ -37,13 +37,8 @@ function KlarnaNew({}) {
   const { openApp } = useOpenApp();
   const { isMobileView } = useWindowResize();
   const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { allListing } = useDisplayAll();
 
-  const [openIndex, setOpenIndex] = useState(0); // Initially open the first item
- 
-  const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index); 
-  };
- 
   const klarnaOptions = [
     {
       id: "1",
@@ -445,26 +440,19 @@ function KlarnaNew({}) {
                   ))}
                 </Accordion>
               </div>
-
-
-
             </div>
           </div>
         </div>
       </section>
 
-      <TattooSlider
-        title={t("common:homePage.ArtistSliderTitle")}
-        content={t("common:homePage.ArtistSliderContent")}
+        <TextsCarousel
+        title="EXPLORE"
+        subTitle="Tattoo Artists"
+        description=""
+        data={allListing.artists}
       />
 
- 
-      <FiveColumnCarousel
-        title={t("common:homePage.ArtistSliderTitle")}
-        content_sub={t("common:homePage.ArtistSliderContent")}
-      />     
- 
-      <DownloadApps />
+      <ListAppFeature />
 
     </>
   );
