@@ -10,8 +10,9 @@ import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import useDisplayAll from "@/store/exploreAll/exploreAll";
-
 import usePath from "@/store/setPath/setPath";
+
+import Banner from "@/components/banners/Banner";
 import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
 import TextsCarousel from "@/components/carousel/TextsCarosuel";
 
@@ -117,82 +118,22 @@ function KlarnaNew({}) {
         <meta name="keywords" content={t("common:klarnascreenSEO.keyword")} />
       </Head>
 
-
-
-      <section className="full_block_banner">
-        <div class="row g-0">
-          <div class="col-md-12">
-            <div className="banner_block m_min_h_698">
-              <div className="banner_col">
-                <div className="banner_img_wrap">
-                  <Image
-                    src="/banner_klarna_web.png"
-                    alt="Banner"
-                    fill
-                    objectFit="cover"
-                    objectPosition="center top"
-                    className="mob_hidden"
-                  />
-                  <Image
-                    src="/banner_klarna_mob.png"
-                    alt="Banner"
-                    loading="lazy"
-                    fill
-                    objectFit="cover"
-                    objectPosition="center top"
-                    className="desk_hidden"
-                  />
-                </div>
-                <div className="banner_caption">
-                  <div className="d_inline_block">
-                    <div className="banner_content">
-                      <div className="klarna_badge">
-                        <Image
-                          src="/klarna_badge_new.svg"
-                          alt="klarna"
-                          width={70}
-                          height={29}
-                          loading="eager"
-                        />
-                      </div>
-                      <h1 className="color_white heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 max_w_480 m_max_100">
-                        <span>Tattoo now.</span>
-                        <span className="textBlock">Pay Later.</span>
-                      </h1>
-                      <p className="color_white mt_10 mb_40 m_mb_30 max_w_520 m_max_100">
-                      Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!
-                      </p>
-                      <button
-                        onClick={openApp}
-                        target="_blank"
-                        className="button_primary button_primary_white mob_hidden"
-                      >
-                        Get our mobile app
-                      </button>
-                      <Link href={appStoreLink} target="_blank">
-                        <Image
-                          priority
-                          src={imageSrc}
-                          alt={
-                            appStoreLink === APP_LINK_APPLE
-                              ? "App store"
-                              : "GooglePlay"
-                          }
-                          width={134}
-                          height={41}
-                          placeholder="blur"
-                          blurDataURL={BLUR_URL}
-                          className="custom_download_icons desk_hidden"
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+       <Banner
+         bannerImage="/banner_klarna_web.png"
+         mobileBanner="/banner_klarna_mob.png"
+         altText="Book your tattoo now"
+        title={{
+          firstPart:"Tattoo now.",
+          part2:"Pay later.",
+        }}
+        description="Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!
+        "
+        buttonText="Get our mobile app"
+        titleWidth="max_w_480"
+        descriptionWidth="max_w_520"
+        buttonBg="button_primary_white"
+        theme="blackTheme"
+      />
 
       <section className="container_full pt_40 pb_40 m_pb_20"> 
         <div className="row">
