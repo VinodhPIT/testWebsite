@@ -20,7 +20,6 @@ import TattooJournal from "@/components/homeScreen/tattooJournal";
 import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
 import Modal from "@/components/modalPopup/comingSoon";
 
-import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 import jsonData from "@/data/journal.json";
 
 export default function Home({}) {
@@ -76,7 +75,7 @@ export default function Home({}) {
 
       <Banner
         bannerImage="/home_banner.png"
-        mobileBanner="/home_banner.png"
+        mobileBanner="/m_home_banner.png"
         altText="Book your tattoo now"
         title={{
           firstPart:"Book your",
@@ -86,8 +85,9 @@ export default function Home({}) {
         buttonText="Get our mobile app"
         titleWidth="max_w_480"
         descriptionWidth="max_w_440"
-        buttonBg="button_primary_white"
-        theme="blackTheme"
+        buttonBg=""
+        textColor="color_black_h"
+        isBadge={false}
       />
 
       <TattooIdea></TattooIdea>
@@ -114,15 +114,6 @@ export default function Home({}) {
           description=""
           data={styleList}
       />
-
-      {/* <PaymentTypes
-        title1={t("common:homePage.Verified tattoo artists")}
-        content1={t("common:homePage.We curate a selection")}
-        title2={t("common:homePage.User-Friendly Interface")}
-        content2={t("common:homePage.Navigate inckd effortlessly")}
-        title3={t("common:homePage.Secure Transactions")}
-        content3={t("common:homePage.Rest easy knowing")}
-      /> */}
 
        <ListAppFeature />
 

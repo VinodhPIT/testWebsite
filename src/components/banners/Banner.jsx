@@ -14,7 +14,7 @@ export default function Banner({
   buttonText,
   titleWidth,
   descriptionWidth,buttonBg,
-  theme,
+  textColor,isBadge ,badge
 }) {
     
   const { openApp } = useOpenApp();
@@ -52,8 +52,20 @@ export default function Banner({
                 </div>
                 <div className="banner_caption">
                   <div className="d_inline_block">
+                {isBadge &&
+                     <div className="klarna_badge">
+                        <Image
+                          src={badge}
+                          alt="klarna"
+                          width={70}
+                          height={29}
+                          loading="eager"
+                        />
+                      </div>
+}
+
                     <div className="banner_content">
-                      <h1 className={`color_black_h heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 ${titleWidth} m_max_100`}>
+                      <h1 className={`custom_fs_80 fw_800 custom_fs_m_60 mt_0 ${titleWidth} ${textColor} m_max_100`}>
                        {Object.values(title).map((part, index) => (
                           <span key={index} className="textBlock">
                             {part}
@@ -61,13 +73,13 @@ export default function Banner({
                         ))}
                       </h1>
 
-                      <p className={`color_black_h mt_10 mb_40 m_mb_30 ${descriptionWidth} max_w_440 m_max_100`}>
+                      <p className={`mt_10 mb_40 m_mb_30 ${descriptionWidth} ${textColor}  m_max_100`}>
                         {description}
                       </p>
 
                       <button
                         onClick={openApp}
-                        className="button_primary mob_hidden"
+                        className={`${buttonBg} button_primary mob_hidden`}
                       >
                         {buttonText}
                       </button>
