@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
   function getHeaderComponent(locale, pathname) {
     switch ((locale, pathname)) {
       case "/":
-      case "/for-tattoo-artists":
+      
       case "/tattoo-dictionary":
       case "/tattoo-styleguide":
       case "/explore/[[...slug]]":
@@ -85,6 +85,7 @@ function MyApp({ Component, pageProps }) {
           />
         );
         case "/klarna":
+          case "/for-tattoo-artists":
           return (
             <Header
               logo={"/inckd-logo.svg"}
