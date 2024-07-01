@@ -27,8 +27,9 @@ export default function Header({
   const { isMobileView } = useWindowResize();
 
   const { t } = useTranslation();
+  const [isFixed, setIsFixed] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const linkComponent = generateLinkComponent(router, theme, t);
+  const linkComponent = generateLinkComponent(router, theme, t ,isFixed );
 
   useEffect(() => {
     if (toggle) {
@@ -53,7 +54,7 @@ export default function Header({
     router.push(`/${router.locale}/for-tattoo-artists`);
   };
 
-  const [isFixed, setIsFixed] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
