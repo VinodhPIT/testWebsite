@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -454,12 +454,7 @@ function KlarnaNew({}) {
         description=""
         data={allListing.artists}
       />
-
-<div className="mb_40 m_mb_0">
 <ListAppFeature />
-</div>
-
-
     </>
   );
 }

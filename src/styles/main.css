@@ -131,7 +131,7 @@
     position: relative;
 }
 
-.banner_grad_lft_mob_btm:before {    
+/* .banner_grad_lft_mob_btm:before {    
     content: "";
     background: linear-gradient(90deg, #F8F8FF 10.46%, rgba(255, 255, 255, 0.85) 60.09%, rgba(255, 255, 255, 0.60) 73.11%, rgba(255, 255, 255, 0.00) 100%);
     position: absolute;
@@ -139,7 +139,7 @@
     height: 100%;
     width: 53.26%;
     z-index: 0;
-}
+} */
 
 .banner_caption h1 {
     text-align: left;

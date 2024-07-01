@@ -14,7 +14,7 @@ export default function DownloadApps() {
   const { appStoreLink, imageSrc } = useAppStoreLink();
 
   return (
-    <section className="container_full m_pb_40">
+    <section className="container_full pb_40">
       <div className="row g-0">
         <div className="col-md-6 col-sm-12 col-xs-12 offset-md-right-1 m_order_2">
           <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content m_pt_10 block_bg_gray_250">
