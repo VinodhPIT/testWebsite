@@ -53,6 +53,8 @@ export default function Tattooartists({}) {
                   <Image
                     src="/pexels-outurhead-907596-2.png"
                     alt="Banner"
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
                     fill
                     className="object_fit_cover object_center_top mob_hidden"
                   />
@@ -60,6 +62,8 @@ export default function Tattooartists({}) {
                     src="/pexels-outurhead-907596-2-m.png"
                     alt="Banner"
                     loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
                     fill                    
                     className="object_fit_cover object_center_top desk_hidden"
                   />

@@ -3980,7 +3980,7 @@ form.form_floating .form_group.radio_block > label {
   position: relative;
   width: 50%;
   display: inline-flex;
-  border-radius: 16px 0px 0px 16px;
+  border-radius: 0;
 }
 
 .popup_wrap .popup_box_inner .popup_right {
@@ -3991,7 +3991,7 @@ form.form_floating .form_group.radio_block > label {
   align-items: flex-start;
   position: relative;
   background-color: #fff;
-  border-radius: 0px 16px 16px 0px;
+  border-radius: 0px;
 }
 
 .popup_wrap .popup_box_inner .popup_right_content {
@@ -7491,13 +7491,11 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
 
   .popup_wrap .popup_box_inner .popup_left {
-    width: 100%;
-    border-radius: 16px 16px 0 0;
+    width: 100%;    
   }
 
   .popup_wrap .popup_box_inner .popup_right {
     width: 100%;
-    border-radius: 0 0 16px 16px;
   }
 
   .popup_wrap .popup_box_inner .popup_logo {
@@ -7505,7 +7503,8 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
 
   .popup_wrap .popup_box_inner .popup_right_content {
-    padding: 30px 16px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .popup_wrap .popup_box_inner .popup_content_wrap h2 {
@@ -8185,12 +8184,23 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     clear: left;
     display: block;
     width: 278px;
-  }
-  .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
-    border-radius: 16px;
-  }
+  }  
   .join_artist_popup .popup_container {
     max-width: 375px;
+  }
+  .join_artist_popup.popup_wrap .close_button {
+    right: 8px;
+    top: 8px;
+  }
+  .join_artist_popup ul.progressbar .progressbar_block {
+    padding-bottom: 25px;
+  }
+  .join_artist_popup ul.progressbar li h4 {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .join_artist_popup ul.progressbar li p {
+    font-weight: 400;
   }
   .header_right button.btn_tattoo_art {
     margin-right: 15px!important;
@@ -8759,16 +8769,14 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     top: 16px;
   }
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right_content {
-    padding: 80px 40px;
+    padding: 70px 40px;
   }
   .join_artist_popup.popup_wrap .popup_box_inner .popup_left {
-    border-radius: 16px 0px 0px 16px;
     overflow: hidden;
     max-width: 398px;
     width: 100%;
   }
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right {
-    border-radius: 0px 16px 16px 0px;
     max-width: 423px;
     width: 100%;
   }
@@ -8785,14 +8793,14 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     left: 16px;
   }
   .join_artist_popup ul.progressbar li h4 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 22px;
     line-height: 26px;
     max-width: 100%;
     margin-bottom: 4px;
   }
   .join_artist_popup ul.progressbar li p {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
   }
