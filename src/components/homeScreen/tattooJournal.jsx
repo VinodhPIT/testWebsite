@@ -7,8 +7,8 @@ import useTranslation from "next-translate/useTranslation";
 
 import useWindowResize from "@/hooks/useWindowSize";
 
-import { BLUR_URL } from "@/constants/constants";
-import { JournalSliderSettings } from "@/utils/sliderUtils";
+import { BLUR_URL  ,SLIDES_TO_SHOW_ALTERNATE ,SINGLE_ITEM_SCROLL} from "@/constants/index";
+import { UseSliderSettings } from "@/utils/sliderUtils";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -25,7 +25,7 @@ export default function ListingPage({ data}) {
     totalDots,
     activeIndex,
     transformValue,
-  } = JournalSliderSettings(isSmallDevice, data);
+  } = UseSliderSettings(isSmallDevice, data  ,SLIDES_TO_SHOW_ALTERNATE ,SINGLE_ITEM_SCROLL);
 
   const router = useRouter();
   
@@ -33,7 +33,7 @@ export default function ListingPage({ data}) {
       <section className="container_full">
         <div className="row">        
           <div className="col-md-12">
-            <div className="d_inline_block w_100pc pt_40">
+            <div className="d_inline_block w_100pc">
               <div className="d_inline_block w_100pc">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 pr_90 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0">              
                   <span className="position_relative">

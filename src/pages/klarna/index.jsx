@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -9,17 +9,17 @@ import useWindowResize from "@/hooks/useWindowSize";
 import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
+import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 import usePath from "@/store/setPath/setPath";
-import DownloadApps from "@/components/klarnaComponent/DownloadApps/DownloadApps";
-import FiveColumnCarousel from "@/components/klarnaScreen/fiveColumnCarousel";
-import TattooSlider from "@/components/homeScreen/artistSlider";
- 
+import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
+import TextsCarousel from "@/components/carousel/TextsCarosuel";
+
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
   KLARNA_LINK,
-} from "@/constants/constants";
+} from "@/constants/index";
  
 import {
   Accordion,
@@ -37,13 +37,8 @@ function KlarnaNew({}) {
   const { openApp } = useOpenApp();
   const { isMobileView } = useWindowResize();
   const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { allListing } = useDisplayAll();
 
-  const [openIndex, setOpenIndex] = useState(0); // Initially open the first item
- 
-  const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index); 
-  };
- 
   const klarnaOptions = [
     {
       id: "1",
@@ -161,18 +156,18 @@ function KlarnaNew({}) {
                         />
                       </div>
                       <h1 className="color_white heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 max_w_480 m_max_100">
-                        <span>Tattoo now.</span>
-                        <span className="textBlock">Pay Later.</span>
+                        <span>{"Tattoo now."}</span>
+                        <span className="textBlock">{"Pay Later."}</span>
                       </h1>
-                      <p className="color_white mt_10 mb_40 m_mb_30 max_w_520 m_max_100">
-                      Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!
-                      </p>
+                       <p className="color_white mt_10 mb_40 m_mb_30 max_w_520 m_max_100">
+                        {"Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!"}
+                        </p>
                       <button
                         onClick={openApp}
                         target="_blank"
                         className="button_primary button_primary_white mob_hidden"
                       >
-                        Get our mobile app
+                        {"Get our mobile app"}
                       </button>
                       <Link href={appStoreLink} target="_blank">
                         <Image
@@ -225,7 +220,8 @@ function KlarnaNew({}) {
                       <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">              
                         <span className="position_relative">
                           <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">AVAILABLE</span>
-                          Payment Options</span>                      
+                          {"Payment Options"}
+                          </span>                      
                       </h2>              
                     </div>
                     <Accordion allowZeroExpanded={true} preExpanded={['1']}>
@@ -267,7 +263,7 @@ function KlarnaNew({}) {
                       <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">              
                         <span className="position_relative">
                           <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">AVAILABLE</span>
-                          Payment Options</span>                      
+                          {"Payment Options"}</span>                      
                       </h2>
                     </div>
                     <div className="klarna_pay_opt_grid">
@@ -375,6 +371,8 @@ function KlarnaNew({}) {
               </div>
             </div>
           </div>
+
+
         </div>
       </section>
 
@@ -408,8 +406,8 @@ function KlarnaNew({}) {
               <div className="d_inline_block w_100pc pb_40 m_pb_0">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">              
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">UNDERSTAND</span>
-                    How it works</span>                      
+                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{"UNDERSTAND"}</span>
+                    {"How it works"}</span>                      
                 </h2>              
               </div>
               <div className="klarna_works_block mob_hidden">
@@ -444,28 +442,19 @@ function KlarnaNew({}) {
                     </AccordionItem>
                   ))}
                 </Accordion>
-              </div>
-
-
-
+              </div>  
             </div>
           </div>
         </div>
       </section>
 
-      <TattooSlider
-        title={t("common:homePage.ArtistSliderTitle")}
-        content={t("common:homePage.ArtistSliderContent")}
+        <TextsCarousel
+        title="EXPLORE"
+        subTitle="Tattoo Artists"
+        description=""
+        data={allListing.artists}
       />
-
- 
-      <FiveColumnCarousel
-        title={t("common:homePage.ArtistSliderTitle")}
-        content_sub={t("common:homePage.ArtistSliderContent")}
-      />     
- 
-      <DownloadApps />
-
+<ListAppFeature />
     </>
   );
 }

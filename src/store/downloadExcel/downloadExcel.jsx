@@ -20,10 +20,10 @@ const useDownloadExcel = create((set) => ({
         window.URL.revokeObjectURL(downloadUrl);
         document.body.removeChild(link); // Clean up
       } else {
-        console.error('Unexpected response status:', response.status);
+        ///console.error('Unexpected response status:', response.status);
       }
     } catch (error) {
-      console.error('Error downloading file:', error);
+      //console.error('Error downloading file:', error);
     }
   },
 }));

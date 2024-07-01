@@ -56,7 +56,6 @@ function MyApp({ Component, pageProps }) {
     switch ((locale, pathname)) {
       case "/":
       case "/for-tattoo-artists":
-      case "/klarna":
       case "/tattoo-dictionary":
       case "/tattoo-styleguide":
       case "/explore/[[...slug]]":
@@ -79,11 +78,22 @@ function MyApp({ Component, pageProps }) {
         return (
           <Header
             logo={"/Inckd_logo_black.svg"}
-            theme={"white"}
+            theme={"light"}
             imgWidth="105"
             imgHeight="31"
+           
           />
         );
+        case "/klarna":
+          return (
+            <Header
+              logo={"/inckd-logo.svg"}
+              theme={"dark"}
+              imgWidth="105"
+              imgHeight="31"
+            
+            />
+          );
       default:
         return null;
     }

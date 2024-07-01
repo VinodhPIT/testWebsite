@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from 'next/link'
 import useTranslation from "next-translate/useTranslation";
 
-import useWindowResize from "@/hooks/useWindowSize";
 import useOpenApp from '@/hooks/useOpenApp';
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
@@ -12,7 +11,6 @@ import {BLUR_URL,APP_LINK_APPLE} from "@/constants/constants";
 
 export default function PaymentTypes({  title1, title2, title3}) {
     const { t } = useTranslation();
-    const { isMobileView } = useWindowResize();
     const { openApp } = useOpenApp();
     const { appStoreLink, imageSrc } = useAppStoreLink();
     return (
