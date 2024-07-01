@@ -5,6 +5,8 @@ import Head from "next/head";
 
 import { useNavigation } from "@/hooks/useRouter";
 import { useModal } from "@/utils/modalUtils";
+import useOpenApp from "@/hooks/useOpenApp";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import useTranslation from "next-translate/useTranslation";
 import ArtistPickerModel from "@/components/modalPopup/joinArtistPopup";
@@ -21,6 +23,8 @@ import {
 export default function Tattooartists({}) {
   //Constants
   const { router } = useNavigation();
+  const { openApp } = useOpenApp();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
@@ -38,421 +42,417 @@ export default function Tattooartists({}) {
         />
       </Head>
 
-      <main>
-        <div className="page-wrapper fortattoo_artists_new">
-          <section className="img_text_banner_box">
-            <div className="col_full">
-              <div className="img_text_box_wrapper exciting_offer_wrap">
-                <div class="text_box_wrap right">
-                  <div class="img_text_box_inner custom_two_col_banner m_switcher">
-                    <div class="text_box_content justify_content_center m_min_h_reset m_pt_25 m_pb_25">
-                      <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">
-                        <div className="tiny_payment_block pr_0">
-                          <h1 className="color_gray_550 heading_h1 custom_fs_63 custom_fs_50 custom_fs_m_38 mt_0">
-                            <span>
-                              {" "}
-                              {t("common:forArtistPage.bannerTitle")}                              
-                              {/* {t("common:forArtistPage.bannerSubtitle")} 
-                              {t("common:forArtistPage.bannerSubtitle3")} */}
-                            </span>
-                          </h1>
-                          <p className="m_mt_15 m_mb_0 custom_fs_m_14">
-                            {t("common:forArtistPage.bannerContent")}
-                          </p>
-                          <div class="text_box_content_inner w_100pc pr_0 dictionary_explore">
-                            <ul class="download_app ml_0 w_100pc max_w_100pc mt_25 m_mt_20 text_left d_inline_block">
-                              <li class="download_app_title mb_10">
-                                {t(
-                                  "common:forArtistPage.Download our app from"
-                                )}
-                              </li>
-                              <li>
-                                <Link href={APP_LINK_APPLE} target="_blank">
-                                  <Image
-                                    priority
-                                    src="/app-store-new.svg"
-                                    alt="App store"
-                                    width={134}
-                                    height={41}
-                                    placeholder="blur"
-                                    blurDataURL={BLUR_URL}
-                                    className="custom_download_icons"
-                                  />
-                                </Link>
-                              </li>
-                              <li>
-                                <Link href={APP_LINK_GOOGLE} target="_blank">
-                                  <Image
-                                    priority
-                                    src="/g-play-new.svg"
-                                    alt="Play store"
-                                    width={134}
-                                    height={41}
-                                    placeholder="blur"
-                                    blurDataURL={BLUR_URL}
-                                    className="custom_download_icons"
-                                  />
-                                </Link>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="img_box_wrap custom_download_shadow no_shadow_before">
-                      <Image
-                        priority
-                        src="/alan-king-cz6mWKVLTfM-unsplash-1_n.png"
-                        alt="Book your dream tattoo now!"
-                        fill
-                        objectFit="cover"
-                        objectPosition="center"
-                        placeholder="blur"
-                        blurDataURL={BLUR_URL}
-                        className="mob_hidden"
-                      />
-                      <Image
-                        priority
-                        src="/alan-king-cz6mWKVLTfM-unsplash1_mob_1.png"
-                        alt="Book your dream tattoo now!"
-                        fill
-                        objectFit="cover"
-                        objectPosition="center"
-                        placeholder="blur"
-                        blurDataURL={BLUR_URL}
-                        className="desk_hidden"
-                      />
-                    </div>
-                  </div>
+
+
+      <section className="full_block_banner">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div className="banner_block m_min_h_698">
+              <div className="banner_col">
+                <div className="banner_img_wrap">
+                  <Image
+                    src="/pexels-outurhead-907596-2.png"
+                    alt="Banner"
+                    fill
+                    className="object_fit_cover object_center_top mob_hidden"
+                  />
+                  <Image
+                    src="/pexels-outurhead-907596-2-m.png"
+                    alt="Banner"
+                    loading="lazy"
+                    fill                    
+                    className="object_fit_cover object_center_top desk_hidden"
+                  />
                 </div>
-              </div>
-            </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="img_text_box_wrapper fortattoo_artists">
-              <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
+                <div className="banner_caption">
+                  <div className="d_inline_block">
+                    <div className="banner_content">                     
+                      <h1 className="color_white heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 max_w_480 m_max_100">
+                        <span>
+                        {t("common:forArtistPage.bannerTitle")}
+                        </span>
+                      </h1>
+                      <p className="color_white mt_10 mb_40 m_mb_30 max_w_480 m_max_100">
+                      {t("common:forArtistPage.bannerContent")}
+                      </p>
+                      <button
+                        onClick={openApp}
+                        target="_blank"
+                        className="button_primary button_primary_white mob_hidden"
+                      >
+                        Get our mobile app
+                      </button>
+                      <Link href={appStoreLink} target="_blank">
                         <Image
                           priority
-                          src="/artist_0_01.png"
-                          alt={t("common:forArtistPage.title1")}
-                          fill
-                          objectFit="contain"
-                          objectPosition="bottom"
-                          blurDataURL={BLUR_URL}
-                          className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
+                          src={imageSrc}
+                          alt={
+                            appStoreLink === APP_LINK_APPLE
+                              ? "App store"
+                              : "GooglePlay"
+                          }
+                          width={134}
+                          height={41}
                           placeholder="blur"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
-                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
-                          <h2 className="d_max_550 m_max_410 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
-                            {t("common:forArtistPage.title1")}
-                          </h2>
-                          <ul class="custom-listing">
-                            <li>
-                              <Image
-                                priority
-                                src="/heart_icon_b.svg"
-                                alt="Free to use & no subscriptions"
-                                width={24}
-                                height={24}                              
-                              />
-                              {t("common:forArtistPage.nosubscriptions")}
-                            </li>
-                            <li>
-                              <Image
-                                priority
-                                src="/hourglass_b.svg"
-                                alt="Easy to set up and manage"
-                                width={24}
-                                height={24}                                
-                              />
-                              {t("common:forArtistPage.set-up-and-manage")}
-                            </li>
-                            <li>
-                              <Image
-                                priority
-                                src="/shield_check_b.svg"
-                                alt="Verified users"
-                                width={24}
-                                height={24}                               
-                              />
-                              {t("common:forArtistPage.verified-users")}
-                            </li>
-                            <li>
-                              <Image
-                                priority
-                                src="/card_b.svg"
-                                alt="Easy payments"
-                                width={24}
-                                height={24}                               
-                              />
-                              {t("common:forArtistPage.easy-payments")}
-                            </li>
-                          </ul>
-                          <button
-                            onClick={openPopup}
-                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                          >
-                            {t("common:forArtistPage.button")}                            
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="img_text_box_wrapper fortattoo_artists">
-              <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
-                  <div class="row justify-content-between">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
-                          <h2 className="d_max_420 m_max_270 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
-                            {t("common:forArtistPage.title2")}
-                          </h2>
-                          <p className="m_mt_15 custom_fs_m_14">
-                            {t("common:forArtistPage.content2")}
-                          </p>
-                          <button
-                            onClick={openPopup}
-                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                          >
-                            {t("common:forArtistPage.button")}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
-                        <Image
-                          priority
-                          alt={t("common:forArtistPage.title2")}
-                          src="/artist_02.png"
-                          fill
-                          objectFit="contain"
-                          objectPosition="bottom"
                           blurDataURL={BLUR_URL}
-                          className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
-                          placeholder="blur"
+                          className="custom_download_icons desk_hidden"
                         />
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="img_text_box_wrapper fortattoo_artists">
-              <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
-                        <Image
-                          priority
-                          src="/artist_03.png"
-                          alt={t("common:forArtistPage.title3")}
-                          fill
-                          objectFit="contain"
-                          objectPosition="bottom"
-                          blurDataURL={BLUR_URL}
-                          className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
-                          placeholder="blur"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
-                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
-                          <h2 className="d_max_420 m_max_270 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
-                            {t("common:forArtistPage.title3")}
-                          </h2>
-                          <p className="m_mt_15 custom_fs_m_14">
-                            {t("common:forArtistPage.content3")}
-                          </p>
-                          <button
-                           onClick={openPopup}
-                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                          >
-                            {t("common:forArtistPage.button")}                            
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="col_full">
-              <div className="img_text_box_wrapper fortattoo_artists">
-                <div className="text_box_wrap full-block-wrap block_bg_aero_blue">
-                  <div className="img_text_box_inner">
-                    <div className="justify_content_start container w_100pc text_center">
-                      <div className="text_box_content_inner m_pr_0 pt_40 pb_40 m_pt_30 m_pb_30 max_w_100pc">
-                        <h3 className="m_m_auto custom_fs_40 custom_fs_m_28 mb_35 m_mb_25">
-                          {t("common:forArtistPage.title4")}
-                          <span class="textBlock">
-                            {t("common:forArtistPage.title8")}
-                          </span>
-                        </h3>
-                        <button
-                           onClick={openPopup}
-                          className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                        >
-                          {t("common:forArtistPage.button")}                          
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="img_text_box_wrapper fortattoo_artists">
-              <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
-                  <div class="row justify-content-between">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
-                          <h2 className="custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
-                            {t("common:forArtistPage.title5")}
-                          </h2>
-                          <p className="m_mt_15 custom_fs_m_14">
-                            {t("common:forArtistPage.content5")}
-                          </p>
-                          <button
-                            onClick={openPopup}
-                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                          >
-                            {t("common:forArtistPage.button")}
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
-                        <Image
-                          priority
-                          alt={t("common:forArtistPage.title5")}
-                          src="/artist_04.png"
-                          fill
-                          objectFit="contain"
-                          objectPosition="bottom"
-                          blurDataURL={BLUR_URL}
-                          className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
-                          placeholder="blur"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="img_text_box_wrapper fortattoo_artists">
-              <div className="text_box_wrap left block_bg_gray_150">
-                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
-                  <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 m_order_2">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc">
-                        <Image
-                          priority
-                          src="/artist_05.png"
-                          alt={t("common:forArtistPage.title6")}
-                          fill
-                          objectFit="contain"
-                          objectPosition="bottom"
-                          blurDataURL={BLUR_URL}
-                          className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
-                          placeholder="blur"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-1 offset-md-1 m_order_1">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
-                        <div className="text_box_content_inner pr_0 max_w_100pc w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
-                          <h2 className="custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
-                            {t("common:forArtistPage.title6")}
-                          </h2>
-                          <p className="m_mt_15 custom_fs_m_14">
-                            {t("common:forArtistPage.content6")}
-                          </p>
-                          <button
-                            onClick={openPopup}
-                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                          >
-                            {t("common:forArtistPage.button")}                           
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="img_text_banner_box">
-            <div className="img_text_box_wrapper fortattoo_artists">
-              <div className="text_box_wrap left block_bg_white">
-                <div className="img_text_box_inner container flex_direction_column pt_80 m_md_pt_40 m_pt_30">
-                  <div class="row justify-content-between">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <div className="text_box_content justify_content_start align_item_center m_align_item_start p_0 w_100pc h_100pc m_min_h_reset">
-                        <div className="text_box_content_inner pr_0 max_w_100pc tattoo_art_mgt_mob w_100pc pt_50 pb_50 m_pt_0 m_pb_40">
-                          <h2 className="d_max_420 m_max_100 custom_fs_63 lh_72 custom_fs_50 custom_fs_m_38 color_gray_550 fw_700">
-                            {t("common:forArtistPage.title7")}
-                          </h2>
-                          <p className="m_mt_15 custom_fs_m_14">
-                            {t("common:forArtistPage.content7")}
-                          </p>
-                          <button
-                           onClick={openPopup}
-                            className="btn_secondary btn_cutom_new btn_cutom_new_mob bdr_rad_16"
-                          >
-                            {t("common:forArtistPage.button")}                            
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                      <div className="img_box_wrap m_md_min_h_reset w_100pc h_100pc justify_content_end m_justify_content_center">
-                        <Image
-                          priority
-                          alt={t("common:forArtistPage.title7")}
-                          src="/artist_0_06.png"
-                          fill
-                          objectFit="contain"
-                          objectPosition="bottom"
-                          blurDataURL={BLUR_URL}
-                          className="max_w_100pc m_w_inherit w_auto top_inherit md_pos_rel"
-                          placeholder="blur"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-      </main>
+      </section>
+
+
+      <section className="container_full mt_40 overlap_first">
+        <div className="row g-0">
+          <div className="col-md-6 col-sm-12 col-xs-12 m_order_2">
+            <div className="position_relative w_100pc h_100pc artist_mid_img_block block_bg_gray_250">
+              <Image
+                priority
+                src="/artist_01.png"
+                alt={t("common:forArtistPage.title1")}
+                width={399}
+                height={581}
+                blurDataURL={BLUR_URL}
+                className="max_w_100pc"
+                placeholder="blur"
+              />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12 col-xs-12 m_order_1">
+            <div className="position_relative w_100pc h_100pc pl_75 m_pl_0">
+              <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_30 m_mb_15 d_max_420">
+                  <span className="position_relative">
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">MANAGEMENT</span>
+                    {t("common:forArtistPage.title1")}</span>
+                </h2>
+                <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_15">
+                  <div className="d_flex align_item_center">
+                    <Image
+                      src="/icon_heart.svg"
+                      width={33}
+                      height={33}
+                      alt="Free to use & no subscriptions"
+                      priority
+                      placeholder="blur"
+                      blurDataURL={BLUR_URL}
+                      className="m_w_24 m_h_24 mr_15"
+                    />
+                    <div className="d_flex flex_direction_column">
+                      <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
+                      {t("common:forArtistPage.nosubscriptions")}</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="d_flex flex_direction_column mb_25 m_mb_15">
+                  <div className="d_flex align_item_center">
+                    <Image
+                      src="/icon_hourglass.svg"
+                      width={33}
+                      height={33}
+                      alt="Easy to set up and manage"
+                      priority
+                      placeholder="blur"
+                      blurDataURL={BLUR_URL}
+                      className="m_w_24 m_h_24 mr_15"
+                    />
+                    <div className="d_flex flex_direction_column">
+                      <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
+                      {t("common:forArtistPage.set-up-and-manage")}</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="d_flex flex_direction_column mb_25 m_mb_15">
+                  <div className="d_flex align_item_center">
+                    <Image
+                      src="/icon_verified.svg"
+                      width={33}
+                      height={33}
+                      alt="Verified users"
+                      priority
+                      placeholder="blur"
+                      blurDataURL={BLUR_URL}
+                      className="m_w_24 m_h_24 mr_15"
+                    />
+                    <div className="d_flex flex_direction_column">
+                      <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
+                      {t("common:forArtistPage.verified-users")}</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="d_flex flex_direction_column mb_0">
+                  <div className="d_flex align_item_center">
+                    <Image
+                      src="/icon_card.svg"
+                      width={33}
+                      height={33}
+                      alt="Easy payments"
+                      priority
+                      placeholder="blur"
+                      blurDataURL={BLUR_URL}
+                      className="m_w_24 m_h_24 mr_15"
+                    />
+                    <div className="d_flex flex_direction_column">
+                      <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
+                      {t("common:forArtistPage.easy-payments")}</h4>
+                    </div>
+                  </div>
+                </div>
+
+                <button onClick={openPopup} className="button_primary align_self mt_40 m_mt_25">
+                  {t("common:forArtistPage.button")}
+                </button>               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="container_full mt_40">
+        <div className="row g-0 overlap_second">
+          <div className="col-md-6 col-sm-12 col-xs-12">
+            <div className="position_relative w_100pc h_100pc pr_75 m_pr_0">
+              <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_15 d_max_320">
+                  <span className="position_relative">
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">ALL iN ONE</span>
+                    {t("common:forArtistPage.title2")}</span>
+                </h2>
+                <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
+                  {t("common:forArtistPage.content2")}
+                </p>
+                <button onClick={openPopup} className="button_primary align_self mt_40 m_mt_25">
+                  {t("common:forArtistPage.button")}
+                </button>
+               
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12 col-xs-12">
+            <div className="position_relative w_100pc h_100pc artist_mid_img_block block_bg_gray_250">
+              <Image
+                priority
+                src="/artist_02.png"
+                alt={t("common:forArtistPage.title2")}
+                width={399}
+                height={581}
+                blurDataURL={BLUR_URL}
+                className="max_w_100pc"
+                placeholder="blur"
+              />
+            </div>            
+          </div>
+        </div>
+      </section>
+
+      <section className="container_full mt_40 overlap_first">
+        <div className="row g-0">
+          <div className="col-md-6 col-sm-12 col-xs-12 m_order_2">
+            <div className="position_relative w_100pc h_100pc artist_mid_img_block block_bg_gray_250">
+              <Image
+                priority
+                src="/artist_03.png"
+                alt={t("common:forArtistPage.title3")}
+                width={399}
+                height={581}
+                blurDataURL={BLUR_URL}
+                className="max_w_100pc"
+                placeholder="blur"
+              />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12 col-xs-12 m_order_1">
+            <div className="position_relative w_100pc h_100pc pl_75 m_pl_0">
+              <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_30 m_mb_15 max_w_260">
+                  <span className="position_relative">
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">COMMUNICATION</span>
+                    {t("common:forArtistPage.title3")}</span>
+                </h2>
+                <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
+                  {t("common:forArtistPage.content3")}
+                </p>
+                <button onClick={openPopup} className="button_primary align_self mt_40 m_mt_25">
+                  {t("common:forArtistPage.button")}
+                </button>                            
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="container_full mt_40">
+        <div className="row g-0">        
+          <div className="col-md-12">
+            <div className=" w_100pc text_center position_relative d_flex justify_content_center align_item_center block_bg_aero_blue m_mt_10 pl_20 pr_20 m_pl_10 m_pr_10">  
+              <div className="pt_60 pb_60 m_pt_30 m_pb_30">
+                <div className="">                 
+                  <h2 className="color_gray_550 custom_fs_60 custom_fs_m_28 fw_800 mb_40 m_mb_25">
+                    {t("common:forArtistPage.title4")}
+                    <span class="textBlock">
+                      {t("common:forArtistPage.title8")}
+                    </span>
+                  </h2>
+                  <button onClick={openPopup} className="button_primary align_self">
+                    {t("common:forArtistPage.button")}
+                  </button>
+                </div>
+              </div>
+            </div>          
+          </div>
+        </div>
+      </section>
+
+      <section className="container_full mt_40">
+        <div className="row g-0 overlap_second">
+          <div className="col-md-6 col-sm-12 col-xs-12">
+            <div className="position_relative w_100pc h_100pc pr_75 m_pr_0">
+              <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_15">
+                  <span className="position_relative">
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">BOOKINGS</span>
+                    {t("common:forArtistPage.title5")}
+                    </span>
+                </h2>
+                <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
+                  {t("common:forArtistPage.content5")}
+                </p>
+                <button onClick={openPopup} className="button_primary align_self mt_40 m_mt_25">
+                  {t("common:forArtistPage.button")}
+                </button>
+               
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12 col-xs-12">
+            <div className="position_relative w_100pc h_100pc artist_mid_img_block block_bg_gray_250">
+              <Image
+                priority
+                src="/artist_04.png"
+                alt={t("common:forArtistPage.title1")}
+                width={399}
+                height={581}
+                blurDataURL={BLUR_URL}
+                className="max_w_100pc"
+                placeholder="blur"
+              />
+            </div>            
+          </div>
+        </div>
+      </section>
+
+      <section className="container_full mt_40 overlap_first">
+        <div className="row g-0">
+          <div className="col-md-6 col-sm-12 col-xs-12 m_order_2">
+            <div className="position_relative w_100pc h_100pc artist_mid_img_block block_bg_gray_250">
+              <Image
+                priority
+                src="/artist_05.png"
+                alt={t("common:forArtistPage.title5")}
+                width={399}
+                height={581}
+                blurDataURL={BLUR_URL}
+                className="max_w_100pc"
+                placeholder="blur"
+              />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12 col-xs-12 m_order_1">
+            <div className="position_relative w_100pc h_100pc pl_75 m_pl_0">
+              <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_30 m_mb_15">
+                  <span className="position_relative">
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">PAYMENTS</span>
+                    {t("common:forArtistPage.title6")}</span>
+                </h2>
+                <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
+                  {t("common:forArtistPage.content6")}
+                </p>
+                <button onClick={openPopup} className="button_primary align_self mt_40 m_mt_25">
+                  {t("common:forArtistPage.button")}
+                </button>                            
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container_full mt_40">
+        <div className="row g-0">        
+          <div className="col-md-12">
+            <div className=" w_100pc text_center position_relative d_flex justify_content_center align_item_center block_bg_pink_50">  
+              <div className="pt_80 pb_80 m_pt_40 m_pb_40">
+                <div className="">
+                  <div className="klarna_banner_button">
+                    <Image
+                      src="/logo_klarna.svg"
+                      alt="Klarna marketing badge"
+                      width={116}
+                      height={29}
+                      loading="eager"
+                    />
+                  </div>
+                  <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 fw_800 mt_10 mb_40 m_mb_25 m_max_270">
+                    <span>Tattoo now. Pay Later.</span>
+                  </h2>                
+                  <Link
+                    href={`/${router.locale}/klarna`}
+                    className="button_primary_outline w_min_245"
+                  >
+                    {t("common:learnMore")}
+                  </Link>
+                </div>
+              </div>
+            </div>          
+          </div>
+        </div>
+      </section>
+
+      <section className="container_full mt_40 mb_40">
+        <div className="row g-0 overlap_second">
+          <div className="col-md-6 col-sm-12 col-xs-12">
+            <div className="position_relative w_100pc h_100pc pr_75 m_pr_0">
+              <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_15 max_w_420">
+                  <span className="position_relative">
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">STUDIO</span>
+                      {t("common:forArtistPage.title7")}
+                    </span>
+                </h2>
+                <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
+                  {t("common:forArtistPage.content7")}
+                </p>
+                <button onClick={openPopup} className="button_primary align_self mt_40 m_mt_25">
+                  {t("common:forArtistPage.button")}
+                </button>
+               
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-12 col-xs-12">
+            <div className="position_relative w_100pc h_100pc artist_mid_img_block block_bg_gray_250">
+              <Image
+                priority
+                src="/artist_06.png"
+                alt={t("common:forArtistPage.title6")}
+                width={399}
+                height={581}
+                blurDataURL={BLUR_URL}
+                className="max_w_100pc"
+                placeholder="blur"
+              />
+            </div>            
+          </div>
+        </div>
+      </section>     
 
       <ArtistPickerModel
         className="custom-modal"
