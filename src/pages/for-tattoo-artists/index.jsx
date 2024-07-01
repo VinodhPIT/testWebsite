@@ -36,15 +36,14 @@ export default function Tattooartists({}) {
       <Banner
         bannerImage="/pexels-outurhead-907596-2.png"
         mobileBanner="/pexels-outurhead-907596-2-m.png"
-        altText="Boost your business with inckd."
-       
+        altText={`${t("common:forArtistPage.boostYourBusiness.part1")} ${t("common:forArtistPage.boostYourBusiness.part2")}`}
         title={{
-          firstPart:"Boost your",
-          part2:"business",
-          part3:"with inckd.",
+          firstPart:t("common:forArtistPage.boostYourBusiness.part1"),
+          part2:t("common:forArtistPage.boostYourBusiness.part2"),
+          part3:t("common:forArtistPage.boostYourBusiness.part3"),
         }}
-        description="Grow your tattoo business by fulfilling your customers tattoo vision and offering them flexible payment options."
-        buttonText="Get our mobile app"
+        description={t("common:forArtistPage.bannerContent")}
+        buttonText={t("common:getApp")}
         titleWidth="max_w_480"
         descriptionWidth="max_w_480"
         buttonBg="button_primary_white"
@@ -74,7 +73,7 @@ export default function Tattooartists({}) {
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_30 m_mb_15 d_max_420">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">MANAGEMENT</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.management")}</span>
                     {t("common:forArtistPage.title1")}</span>
                 </h2>
                 <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_15">
@@ -159,7 +158,7 @@ export default function Tattooartists({}) {
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_15 d_max_320">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">ALL iN ONE</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.allInOne")}</span>
                     {t("common:forArtistPage.title2")}</span>
                 </h2>
                 <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
@@ -210,7 +209,7 @@ export default function Tattooartists({}) {
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_30 m_mb_15 max_w_260">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">COMMUNICATION</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.communication")}</span>
                     {t("common:forArtistPage.title3")}</span>
                 </h2>
                 <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
@@ -255,7 +254,7 @@ export default function Tattooartists({}) {
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_15">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">BOOKINGS</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.bookings")}</span>
                     {t("common:forArtistPage.title5")}
                     </span>
                 </h2>
@@ -307,7 +306,7 @@ export default function Tattooartists({}) {
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_30 m_mb_15">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">PAYMENTS</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.payments")}</span>
                     {t("common:forArtistPage.title6")}</span>
                 </h2>
                 <p className="color_gray_550 custom_fs_18 fw_400 custom_fs_m_14 mb_0 max_w_455 m_max_100">
@@ -331,14 +330,15 @@ export default function Tattooartists({}) {
                   <div className="klarna_banner_button">
                     <Image
                       src="/logo_klarna.svg"
-                      alt="Klarna marketing badge"
+                      alt={t("common:tattooPayLater")}
                       width={116}
                       height={29}
                       loading="eager"
                     />
                   </div>
+                 
                   <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 fw_800 mt_10 mb_40 m_mb_25 m_max_270">
-                    <span>Tattoo now. Pay Later.</span>
+                    <span>{t("common:tattooPayLater")}</span>
                   </h2>                
                   <Link
                     href={`/${router.locale}/klarna`}
@@ -353,6 +353,8 @@ export default function Tattooartists({}) {
         </div>
       </section>
 
+      
+
       <section className="container_full mt_40 mb_40">
         <div className="row g-0 overlap_second">
           <div className="col-md-6 col-sm-12 col-xs-12">
@@ -360,7 +362,7 @@ export default function Tattooartists({}) {
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_15 max_w_420">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">STUDIO</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.studio")}</span>
                       {t("common:forArtistPage.title7")}
                     </span>
                 </h2>

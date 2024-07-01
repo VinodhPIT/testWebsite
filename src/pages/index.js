@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import useOpenApp from "@/hooks/useOpenApp";
-import useAppStoreLink from "@/hooks/useAppStoreLink";
 import useTranslation from "next-translate/useTranslation";
 
 import { useGlobalState } from "@/context/Context";
@@ -26,8 +24,6 @@ export default function Home({}) {
   const router = useRouter();
   const { allListing } = useDisplayAll();
   const { styleList } = useStyleListing();
-  const { openApp } = useOpenApp();
-  const { appStoreLink, imageSrc } = useAppStoreLink();
   const {
     getAddress,
     clearStyleId,
@@ -76,13 +72,13 @@ export default function Home({}) {
       <Banner
         bannerImage="/home_banner.png"
         mobileBanner="/m_home_banner.png"
-        altText="Book your tattoo now"
+        altText={`${t("common:homePage.bannerTitle.part1")} ${t("common:homePage.bannerTitle.part2")}`}
         title={{
-          firstPart:"Book your",
-          part2:"tattoo now.",
+          firstPart:t("common:homePage.bannerTitle.part1"),
+          part2:t("common:homePage.bannerTitle.part2"),
         }}
         description={t("common:homePage.bannerContent")}
-        buttonText="Get our mobile app"
+        buttonText= {t("common:getApp")}
         titleWidth="max_w_480"
         descriptionWidth="max_w_440"
         buttonBg=""
@@ -93,8 +89,8 @@ export default function Home({}) {
       <TattooIdea></TattooIdea>
 
       <TextsCarousel
-        title="EXPLORE"
-        subTitle="Tattoo Artists"
+        title={t("common:explore")}
+        subTitle={t("common:tattooArtists")}
         description=""
         data={allListing.artists}
       />
@@ -102,20 +98,20 @@ export default function Home({}) {
       <KlarnaBanner />
 
       <ImageCarosuel
-       title="EXPLORE"
-       subTitle="Tattoos"
+        title={t("common:explore")}
+        subTitle={t("common:tattoos")}
         description=""
         data={allListing.tattoo_images}
       />
 
-       <CaptionImageCarosuel
-         title="EXPLORE"
-         subTitle="Tattoo Styles"
-          description=""
-          data={styleList}
+      <CaptionImageCarosuel
+        title={t("common:explore")}
+        subTitle={t("common:tattooStyles")}
+        description=""
+        data={styleList}
       />
 
-       <ListAppFeature />
+      <ListAppFeature />
 
       {SwitchJournal(router.locale)}
 

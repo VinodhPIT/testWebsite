@@ -2,12 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+
 import useTranslation from "next-translate/useTranslation";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from "react-accessible-accordion";
+import "react-accessible-accordion/dist/fancy-example.css";
 
 import { useNavigation } from "@/hooks/useRouter";
 import useWindowResize from "@/hooks/useWindowSize";
-import useOpenApp from "@/hooks/useOpenApp";
-import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 import usePath from "@/store/setPath/setPath";
@@ -21,22 +28,12 @@ import {
   KLARNA_LINK,
 } from "@/constants/index";
 
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
-import "react-accessible-accordion/dist/fancy-example.css";
 
 function KlarnaNew({ }) {
   const { t } = useTranslation();
   const { router } = useNavigation();
   const { setPathname } = usePath();
-  const { openApp } = useOpenApp();
   const { isMobileView } = useWindowResize();
-  const { appStoreLink, imageSrc } = useAppStoreLink();
   const { allListing } = useDisplayAll();
 
   const klarnaOptions = [
@@ -120,14 +117,13 @@ function KlarnaNew({ }) {
       <Banner
         bannerImage="/banner_klarna_web.png"
         mobileBanner="/banner_klarna_mob.png"
-        altText="Tattoo now. Pay Later."
-       
+        altText={`${t("common:klarnaPage.bannerTitle1")} ${t("common:klarnaPage.bannerTitle1-Sub")}`}
         title={{
-          firstPart:"Tattoo now.",
-          part2:"Pay Later.",
+          firstPart:t("common:klarnaPage.bannerTitle1"),
+          part2:t("common:klarnaPage.bannerTitle1-Sub"),
         }}
-        description="Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!"
-        buttonText="Get our mobile app"
+        description={t("common:klarnaPage.bannerContent")} 
+        buttonText= {t("common:getApp")}
         titleWidth="max_w_480"
         descriptionWidth="max_w_520"
         buttonBg="button_primary_white"
@@ -145,7 +141,7 @@ function KlarnaNew({ }) {
                 <Image
                   priority={true}
                   src="/payment_opt_img.png"
-                  alt="banner"
+                  alt={t("common:klarnaPage.paymentOption")}
                   width={650}
                   height={945}
                   placeholder="blur"
@@ -164,8 +160,8 @@ function KlarnaNew({ }) {
                     <div className="d_inline_block w_100pc pt_20 pb_40">
                       <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">
                         <span className="position_relative">
-                          <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">AVAILABLE</span>
-                          {"Payment Options"}
+                          <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:klarnaPage.available")}</span>
+                          {t("common:klarnaPage.paymentOption")}
                         </span>
                       </h2>
                     </div>
@@ -206,8 +202,8 @@ function KlarnaNew({ }) {
                     <div className="d_inline_block w_100pc mb_15">
                       <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">
                         <span className="position_relative">
-                          <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">AVAILABLE</span>
-                          {"Payment Options"}</span>
+                          <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:klarnaPage.available")}</span>
+                          {t("common:klarnaPage.paymentOption")}</span>
                       </h2>
                     </div>
                     <div className="klarna_pay_opt_grid">
@@ -311,8 +307,6 @@ function KlarnaNew({ }) {
               </div>
             </div>
           </div>
-
-
         </div>
       </section>
 
@@ -330,7 +324,7 @@ function KlarnaNew({ }) {
                     onClick={() => setPathname(router.pathname)}
                     className="button_primary w_min_245"
                   >
-                    {t("common:homePage.CreateATattooRequest")}
+                    {t("common:homePage.startRequest")}
                   </Link>
                 </div>
               </div>
@@ -346,8 +340,8 @@ function KlarnaNew({ }) {
               <div className="d_inline_block w_100pc pb_40 m_pb_0">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{"UNDERSTAND"}</span>
-                    {"How it works"}</span>
+                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:klarnaPage.understand")}</span>
+                    {t("common:klarnaPage.howorks")}</span>
                 </h2>
               </div>
               <div className="klarna_works_block mob_hidden">
@@ -389,8 +383,8 @@ function KlarnaNew({ }) {
       </section>
 
       <TextsCarousel
-        title="EXPLORE"
-        subTitle="Tattoo Artists"
+        title={t("common:explore")}
+        subTitle={t("common:tattooArtists")}
         description=""
         data={allListing.artists}
       />
@@ -399,3 +393,4 @@ function KlarnaNew({ }) {
   );
 }
 export default KlarnaNew;
+

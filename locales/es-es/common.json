@@ -30,34 +30,25 @@
    },
 
 
-  "homePage": {
-    "bannerTitle": "Book your tattoo now!",
+   "homePage": {
+
+    "bannerTitle": {
+      "part1": "Book your",
+      "part2": "tattoo now."
+    },
     "bannerContent": "Connect with verified artists, secure your appointment and enjoy flexible payment options.",
-    "Download the inckd": "Descarga nuestra aplicación, es gratis!",
-    "Share your tattoo idea": "Share your tattoo idea",
-    "TattooIdeaDesc": "Get free customized offers from multiple artists",
-    "ArtistSliderTitle": "Explore tattoo artists",
-    "ArtistSliderContent": "Discover the perfect tattoo artist for every project, tailored to your unique vision.",
-    "tattooNow": "Tattoo now, Pay later",
-    "financeInk": "Nuestra aplicación ofrece verificación de crédito, opciones de financiamiento y planes de pago flexibles, asegurando que todos puedan costear su tatuaje soñado.",
-    "FullWidthCarouselTitle": "Explora tatuajes",
-    "worldOfInk": "Explore the World of Ink: Discover Tattoos in Every Style, From Timeless to Trendsetting",
-    "exploreStyle": "Explore tattoo styles",
-    "Tattoo Journal": "Journal de Tatuajes",
-    "journalContent": "Mantente informado con nuestro Journal de Tatuajes. Obtén actualizaciones sobre las últimas tendencias, pautas de salud y seguridad legalmente requeridas, y consejos internos de la industria del tatuaje.",
-    "CreateATattooRequest": "Start a request",
-    "Verified tattoo artists": "Artistas de tatuajes verificados",
-    "We curate a selection": "Seleccionamos cuidadosamente una variedad de artistas de tatuajes de primer nivel, garantizando un estándar de excelencia tanto en habilidad como en profesionalismo.",
-    "User-Friendly Interface": "Interfaz fácil de usar",
-    "Navigate inckd effortlessly": "Navega inckd. sin esfuerzo. Nuestra aplicación está diseñada pensando en ti, brindando una experiencia sin problemas desde la exploración hasta la reserva.",
-    "Secure Transactions": "Transacciones seguras",
-    "Rest easy knowing": "Descansa tranquilo sabiendo que tus pagos son seguros. inckd. emplea tecnología de encriptación para transacciones seguras y sin preocupaciones.",
-    "forButterflyTattoo": "450 for butterfly tattoo",
-    "yourProject": "I would love to do your project"
+    "Verified tattoo artists": "Verified tattoo artists",
+    "User-Friendly Interface": "User-friendly interface",
+    "secureTransactions": "Secure transactions",
+    "startRequest": "Start a request",
+    "shareIdea": "Share your tattoo idea",
+    "compareOffers":"Compare different offers",
+    "sendOneRequest":"Send one request to multiple artists",
+    "bookYourTattooEasily":"Book your tattoo easily and quickly",
+    "shareYour" :"SHARE YOUR",
+    "tattooIdea" :"Tattoo Idea"
   },
-
   
-
   "styleDetail": {
     "bannerTattooRequestBtn": "Create tattoo request",
     "artistSliderTitle": "{{ tattooStyle }} tattoo artists",
@@ -75,32 +66,18 @@
   "klarnaPage": {
     "bannerTitle1": "Tattoo now.",
     "bannerTitle1-Sub": "Pay Later.",
-    "bannerContent": "Exciting news: We've teamed up with Klarna to offer you the flexibility of installment payments for tattoos by the tattoo artist of your choice. Your dream tattoo is now more accessible than ever!",
-    "MainTitle1": "Here's how it works:",
+    "bannerContent":"Yes, you heard right! We've teamed up with Klarna to offer installment payments for tattoos by your favorite artist. Your dream tattoo is now more accessible than ever!",
 
-    "Download App": "Descargar la aplicación",
-    "Seamlessly download": "Descarga nuestra aplicación fácil de usar sin problemas, es gratuito",
-    "Accept an offer": "Aceptar una oferta",
-    "Effortlessly accept": "Aceptar sin esfuerzo tu oferta de tatuaje preferida",
-    "Select Klarna": "Selecciona Klarna",
-    "Select Klarna for a smooth and safe payment": "Selecciona Klarna para una experiencia de pago segura y sin problemas",
-    "Get your tattoo done": "Hazte tu tatuaje",
-    "Enjoy superior tattoo skills": "Disfruta de habilidades superiores de tatuaje con tu artista preferido",
-    "Pay later": "Paga después o en cuotas",
-    "Enjoy convenient": "Disfruta de términos de pago convenientes y flexibles para tu tatuaje",
+    "MainTitle2": "You choose how you want to pay!",
+    "heading1": "Pay Later",
+    "heading2": "Pay in 3",
+    "heading3": "Pay in 4",
+    "heading4": "Financing",
 
-    "MainTitle2": "¡Tú eliges cómo quieres pagar!",
-    "heading1": "Pagar después",
-    "heading2": "Pagar en 3",
-    "heading3": "Pagar en 4",
-    "heading4": "Financiamiento",
-
-    "Text1": "Tatúate ahora y paga hasta 30 días después. Sin intereses. Sin comisiones, si pagas a tiempo.",
-    "Text2": "Distribuye el costo de tu compra en 3 cuotas sin intereses. El primer pago se realiza en el día de la cita para el tatuaje, con las cuotas restantes programadas automáticamente cada 30 días.",
-    "Text3": "Distribuye el costo de tu compra en 4 cuotas sin intereses. El primer pago se realiza en el día de la cita para el tatuaje, con las cuotas restantes programadas automáticamente cada 2 semanas.",
-    "Text4": "Estas opciones de financiamiento son planes de crédito con términos de pago de hasta 36 meses. El primer pago se realiza en el día de la cita para el tatuaje, con las cuotas restantes programadas automáticamente cada 30 días.",
-
-    "availablePayment": "Available payment options:",
+    "Text1": "Tattoo now and pay up to 30 days later. No interest. No fees, when you pay on time.",
+    "Text2": "Spread the cost of your purchase into 3 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
+    "Text3": "Spread the cost of your purchase into 4 interest-free instalments. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 2 weeks.",
+    "Text4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
 
     "tag1": "Pay in 30 days",
     "optionTitle-1": "Get an extra 30 days to pay.",
@@ -139,139 +116,60 @@
 
     "workingStep6": "Pay Later",
     "workingStepContent-6": "Congratulations on Your New Tattoo! Now, seamlessly manage payments over time with your chosen plan. Enjoy the art without any immediate financial strain",
-
     "klarnaTerms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.",
     "ts&amp;cs": "Ts&Cs",
-    "lateFeesApply": " and late fees apply."
-  },
+    "lateFeesApply": " and late fees apply.",
 
-  "dictionaryPage": {
-    "expoloreMore": "Explora más",
-    "expoloreMore-Sub": "en la aplicación",
-    "bannerTitle": "Tatuaje",
-    "bannerTitle-Sub": "Diccionario",
-    "bannerContent": "Sumérgete en el lenguaje de los tatuajes. Desde estilos clásicos hasta las últimas tendencias, nuestro diccionario de tatuajes asegura que entiendas el arte antes de elegir tu tinta.",
+    "available":"AVAILABLE", 
+    "paymentOption":"Payment Options",
 
-    "Find your Tattoo": "Encuentra tu tatuaje",
-    "based on Emotions": "basado en Emociones",
-    "enlighenment": "Iluminación",
-    "love": "Amor",
-    "transformation": "Transformación",
-    "explore-more-emotions": "Explora más de 500 emociones...",
-    "animals": "Animales",
-    "flowers": "Flores",
-    "norseMythology": "Mitología nórdica",
-    "remembrance": "Recuerdo",
-    "trust": "Confianza",
-    "reliability": "Fiabilidad",
-    "sensuality": "Sensualidad",
-    "nurturing": "Crianza",
-    "protection": "Protección",
-    "intensity": "Intensidad",
-    "passion": "Pasión",
-    "independence": "Independencia",
-    "open-mindedness": "Mente abierta",
-    "pleasure": "Placer",
-    "festivity": "Festividad",
-    "power": "Poder",
-    "inspiration": "Inspiración",
-    "family": "Familia",
-    "connection": "Conexión",
-    "fate": "Destino",
-    "valor": "Valor",
-    "transmutation": "Transmutación",
-    "change": "Cambio",
-    "fun": "Diversión",
-    "creativity": "Creatividad",
-
-    "title2": "Zodiaco",
-    "title2-Sub": "Signos",
-    "content2": "Obtén más información sobre los signos del zodiaco y encuentra el tatuaje con el significado adecuado para ti en la aplicación",
-    "ZodiacCarousel": {
-      "title1": "Tauro",
-      "content1": "Tauro es el segundo signo del zodiaco y es el símbolo del toro. El símbolo consiste en un...",
-      "title2": "Cáncer",
-      "content2": "Cáncer es el cuarto signo del zodiaco y es el símbolo del cangrejo. El símbolo consiste en dos círculos...",
-
-      "title3": "Escorpio",
-      "content3": "Escorpio es el octavo signo del zodiaco. Es el símbolo del escorpión. El símbolo consiste en...",
-
-      "title4": "Acuario",
-      "content4": "Acuario es el undécimo signo del zodiaco. Es el símbolo del portador de agua. El símbolo consiste en..."
-    },
-
-    "MythologyCarousel": {
-      "title1": "Dionisio",
-      "content1": "Dionisio era el dios del vino, la vegetación, el placer, la festividad, la locura y el frenesí salvaje. Generalmente...",
-
-      "title2": "Poseidón",
-      "content2": "Poseidón era el dios del mar, los terremotos, las inundaciones, la sequía y los caballos. A menudo se lo representa como un...",
-
-      "title3": "Tetis",
-      "content3": "Tetis era uno de los descendientes de los Titanes Urano y Gea. Ella es la diosa del agua dulce y la crianza...",
-
-      "title4": "Zeus",
-      "content4": "Zeus era el Rey de los Dioses y el dios del cielo, el clima, la ley y el orden, el destino y el destino, y..."
-    },
-
-    "AztecCarousel": {
-      "title1": "Itzcuintli",
-      "content1": "Itzcuintli, que significa 'perro', es el día en el calendario azteca asociado con el dios Mictlantecuhtli...",
-
-      "title2": "Ocelotl",
-      "content2": "Ocelotl, que significa 'jaguar', es el día en el calendario azteca asociado con el dios Tezcatlipoca...",
-
-      "title3": "Ollin",
-      "content3": "Ollin, que significa 'movimiento', es el día del calendario azteca asociado con Xolotl. Él es el dios del cambio...",
-
-      "title4": "Ozomahtli",
-      "content4": "Ozomahtli, que significa 'mono', es el día en el calendario azteca asociado con el dios Xochipili..."
-    },
-
-    "title3": "Azteca",
-    "title3-Sub": "Símbolos",
-
-    "content3": "Aprende más sobre los símbolos aztecas y encuentra el tatuaje con el significado adecuado para ti en la aplicación.",
-
-    "title4": "Mitología",
-    "title4-Sub": "Griega",
-
-    "content4": "Aprende más sobre la mitología griega y encuentra el tatuaje con el significado adecuado para ti en la aplicación."
+    "understand":"UNDERSTAND",
+    "howorks":"How it works"
   },
 
   "forArtistPage": {
-    "button": "Empezar",
-    "bannerTitle": "Impulsa tu negocio con inckd.",
-    "bannerSubtitle": "negocio",
-    "bannerSubtitle3": "con inckd.",
-    "bannerContent": "Haz crecer tu negocio de tatuajes al cumplir la visión de tatuaje de tus clientes y ofrecerles opciones de pago flexibles.",
+    "button": "Get started",
+    "boostYourBusiness": {
+      "part1": "Boost your",
+      "part2": "business",
+      "part3": "with inckd."
+    },
+    "bannerSubtitle": "business",
+    "bannerSubtitle3": "with inckd.",
+    "bannerContent": "Grow your tattoo business by fulfilling your customers tattoo vision and offering them flexible payment options.",
 
-    "title1": "Gestiona tu negocio",
-    "Download our app from": "Descarga nuestra aplicación desde",
-    "easySetup": "Configuración fácil",
-    "free-to-use": "Gratis para usar",
-    "easy-payments": "Pagos fáciles",
-    "nosubscriptions": "Gratis para usar y sin subscriptions",
-    "set-up-and-manage": "Fácil de configurar y gestionar",
-    "verified-users": "Usuarios verificados",
+    "management":"MANAGEMENT",
+    "title1": "Manage your business with inckd.",
 
-    "title2": "Tu aliado para negocios de tatuajes",
-    "content2": "inckd. es tu aliado en la creación de un próspero negocio de tatuajes centrado en el cliente. Muestra tu portafolio con orgullo para atraer clientes que aprecien tu estilo único. Expande tu base de clientes sin esfuerzo a través de una comunicación fluida y una gestión de pagos sin complicaciones, todo dentro de una plataforma fácil de usar.",
+    "easySetup": "Easy setup",
+    "free-to-use": "Free to use",
+    "easy-payments": "Easy payments",
+    "nosubscriptions": "Free to use & no subscriptions",
+    "set-up-and-manage": "Easy to set up and manage",
+    "verified-users": "Verified users",
 
-    "title3": "Mantén a los clientes informados",
-    "content3": "Participa en chats en tiempo real para comprender las preferencias de tus clientes de primera mano. Maneja eficientemente las citas y mantente preparado para satisfacer las necesidades de tus clientes. Discute ofertas y proporciona actualizaciones de progreso con inckd, asegurando que su visión de tatuaje se convierta en realidad en cada etapa.",
+    "allInOne":"ALL IN ONE",
+    "title2": "Your tattoo business ally",
+    "content2": "inckd. helps you create a thriving, client-focused tattoo business. Showcase your portfolio, attract clients, and manage communication and payments seamlessly, all on one platform.",
 
-    "title4": "¡Consigue clientes de inckd. tatuándote ahora!",
-    "title8": "¿Estás listo?",
+    "communication":"COMMUNICATION",
+    "title3": "Keep clients in the Loop",
+    "content3": "Engage in real-time chats to understand client preferences. Manage appointments, discuss offers, and provide updates with inckd, ensuring their tattoo vision becomes a reality.",
 
-    "title5": "Tu compañero de reservas",
-    "content5": "inckd. te pone al mando de tu horario de negocio de tatuajes, proporcionando una visión general completa de todas las reservas a través de un panel en tiempo real al alcance de tus dedos. Define tu disponibilidad y facilita que los clientes programen citas según sus preferencias.",
+    "title4": "Get inckd. customers tattooing with you now.",
+    "title8": "Are you ready?",
 
-    "title6": "Gestiona los pagos",
-    "content6": "Asegura pagos rápidos, monitoréalos en tiempo real e incentiva negocios recurrentes con atractivos descuentos. Apoyamos métodos de pago populares, incluyendo tarjetas de crédito, y nos hemos asociado con Klarna para planes de pago convenientes en proyectos más grandes, asegurando flexibilidad financiera para tus clientes.",
+    "bookings":"BOOKINGS",
+    "title5": "Your booking buddy",
+    "content5": "inckd. gives you control of your tattoo schedule with a real-time dashboard. Setting your availability and managing your bookings has never been this easy. Let clients book appointments effortlessly.",
 
-    "title7": "Gestiona tus estudios de tatuajes",
-    "content7": "Expande tu alcance fácilmente añadiendo y gestionando múltiples estudios en nuestra plataforma versátil. Maneja sin problemas los pagos divididos directamente dentro de la aplicación, o otorga a los estudios la autonomía para manejar clientes y reservas. Experimenta una comodidad incomparable en la gestión de estudios, todo consolidado dentro de una aplicación fácil de usar."
+    "payments":"PAYMENTS",
+    "title6": "Manage Payments",
+    "content6": "Secure swift payments, monitor in real-time, and encourage repeat business. We support popular payment methods, including credit cards, and partner with Klarna for installment plans, ensuring financial flexibility for your clients.",
+
+    "studio":"STUDIO",
+    "title7": "Manage your tattoo studios",
+    "content7": "Effortlessly expand your reach by managing multiple studios on our platform. Handle split payments or let studios manage clients and bookings independently. Enjoy unparalleled convenience in studio management with one user-friendly app."
   },
 
   "joinartistPage": {
@@ -409,15 +307,20 @@
     "YourVoucher": "tu cupón por correo al terminar"
   },
 
-  "Download the inckd": "Descarga la app inckd. ahora - ¡Es gratis!",
-  "MyStyleis": "Mi estilo es",
-  "ExploreMoreArtist": "Explora más artistas",
-  "ExploreMoreTattoos": "Explora más tatuajes",
+  "getApp":"Get our mobile app",
+  "download_app":"Get the app",
+  "Download the inckd": "Download our app, its free!",
+  "explore":"EXPLORE",
+  "tattooArtists":"Tattoo Artists",
+  "tattoos":"Tattoos",
+  "tattooStyles":"Tattoo Styles",
+  "tattooJournal":"Tattoo Journal",
+  "seeAll":"SEE ALL",
+
 
   "downloadOurApp": "Descarga nuestra app desde",
   "downloadApp": "Descarga la",
   "downloadApp-Sub1": "app y explora más!",
-  "explore": "Explora más",
   "explore-the": "Explora el",
   "featuresApp": "Funciones en la App",
   "download-app-forMore": "Descarga la App",
