@@ -82,8 +82,6 @@ export default function DownloadApps() {
                     height={33}
                     alt="Verified tattoo artists"
                     priority
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
                     className="m_w_24 m_h_24 mr_15"
                   />
                   <div className="d_flex flex_direction_column">
@@ -100,8 +98,6 @@ export default function DownloadApps() {
                     height={33}
                     alt="User-Friendly Interface"
                     priority
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
                     className="m_w_24 m_h_24 mr_15"
                   />
                   <div className="d_flex flex_direction_column">
@@ -118,8 +114,6 @@ export default function DownloadApps() {
                     height={33}
                     alt="Secure Transactions"
                     priority
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
                     className="m_w_24 m_h_24 mr_15"
                   />
                   <div className="d_flex flex_direction_column">

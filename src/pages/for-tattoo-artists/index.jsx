@@ -5,26 +5,17 @@ import Head from "next/head";
 
 import { useNavigation } from "@/hooks/useRouter";
 import { useModal } from "@/utils/modalUtils";
-import useOpenApp from "@/hooks/useOpenApp";
-import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import useTranslation from "next-translate/useTranslation";
+
+import Banner from "@/components/banners/Banner";
 import ArtistPickerModel from "@/components/modalPopup/joinArtistPopup";
 
-import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  BLUR_URL,
-} from "@/constants/constants";
-
-
-
-
+import { BLUR_URL} from "@/constants/index";
+ 
 export default function Tattooartists({}) {
-  //Constants
+
   const { router } = useNavigation();
-  const { openApp } = useOpenApp();
-  const { appStoreLink, imageSrc } = useAppStoreLink();
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
@@ -42,75 +33,25 @@ export default function Tattooartists({}) {
         />
       </Head>
 
-
-
-      <section className="full_block_banner">
-        <div class="row g-0">
-          <div class="col-md-12">
-            <div className="banner_block m_min_h_698">
-              <div className="banner_col">
-                <div className="banner_img_wrap">
-                  <Image
-                    src="/pexels-outurhead-907596-2.png"
-                    alt="Banner"
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
-                    fill
-                    className="object_fit_cover object_center_top mob_hidden"
-                  />
-                  <Image
-                    src="/pexels-outurhead-907596-2-m.png"
-                    alt="Banner"
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
-                    fill                    
-                    className="object_fit_cover object_center_top desk_hidden"
-                  />
-                </div>
-                <div className="banner_caption">
-                  <div className="d_inline_block">
-                    <div className="banner_content">                     
-                      <h1 className="color_white heading_h1 custom_fs_80 fw_800 custom_fs_m_60 mt_0 max_w_480 m_max_100">
-                        <span>
-                        {t("common:forArtistPage.bannerTitle")}
-                        </span>
-                      </h1>
-                      <p className="color_white mt_10 mb_40 m_mb_30 max_w_480 m_max_100">
-                      {t("common:forArtistPage.bannerContent")}
-                      </p>
-                      <button
-                        onClick={openApp}
-                        target="_blank"
-                        className="button_primary button_primary_white mob_hidden"
-                      >
-                        Get our mobile app
-                      </button>
-                      <Link href={appStoreLink} target="_blank">
-                        <Image
-                          priority
-                          src={imageSrc}
-                          alt={
-                            appStoreLink === APP_LINK_APPLE
-                              ? "App store"
-                              : "GooglePlay"
-                          }
-                          width={134}
-                          height={41}
-                          placeholder="blur"
-                          blurDataURL={BLUR_URL}
-                          className="custom_download_icons desk_hidden"
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Banner
+        bannerImage="/pexels-outurhead-907596-2.png"
+        mobileBanner="/pexels-outurhead-907596-2-m.png"
+        altText="Boost your business with inckd."
+       
+        title={{
+          firstPart:"Boost your",
+          part2:"business",
+          part3:"with inckd.",
+        }}
+        description="Grow your tattoo business by fulfilling your customers tattoo vision and offering them flexible payment options."
+        buttonText="Get our mobile app"
+        titleWidth="max_w_480"
+        descriptionWidth="max_w_480"
+        buttonBg="button_primary_white"
+        textColor="color_white"
+        isBadge={false}
+    
+      />
 
       <section className="container_full mt_40 overlap_first">
         <div className="row g-0">
@@ -144,8 +85,6 @@ export default function Tattooartists({}) {
                       height={33}
                       alt="Free to use & no subscriptions"
                       priority
-                      placeholder="blur"
-                      blurDataURL={BLUR_URL}
                       className="m_w_24 m_h_24 mr_15"
                     />
                     <div className="d_flex flex_direction_column">
@@ -162,8 +101,6 @@ export default function Tattooartists({}) {
                       height={33}
                       alt="Easy to set up and manage"
                       priority
-                      placeholder="blur"
-                      blurDataURL={BLUR_URL}
                       className="m_w_24 m_h_24 mr_15"
                     />
                     <div className="d_flex flex_direction_column">
@@ -180,8 +117,6 @@ export default function Tattooartists({}) {
                       height={33}
                       alt="Verified users"
                       priority
-                      placeholder="blur"
-                      blurDataURL={BLUR_URL}
                       className="m_w_24 m_h_24 mr_15"
                     />
                     <div className="d_flex flex_direction_column">
@@ -198,8 +133,6 @@ export default function Tattooartists({}) {
                       height={33}
                       alt="Easy payments"
                       priority
-                      placeholder="blur"
-                      blurDataURL={BLUR_URL}
                       className="m_w_24 m_h_24 mr_15"
                     />
                     <div className="d_flex flex_direction_column">
@@ -467,3 +400,4 @@ export default function Tattooartists({}) {
     </>
   );
 }
+

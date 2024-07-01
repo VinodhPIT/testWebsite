@@ -8,15 +8,19 @@ import useAppStoreLink from "@/hooks/useAppStoreLink";
 import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 
 export default function Banner({
-    bannerImage ,mobileBanner,altText,
+  bannerImage,
+  mobileBanner,
+  altText,
   title,
   description,
   buttonText,
   titleWidth,
-  descriptionWidth,buttonBg,
-  textColor,isBadge ,badge
+  descriptionWidth,
+  buttonBg,
+  textColor,
+  isBadge,
+  badge,
 }) {
-    
   const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
 
@@ -32,11 +36,9 @@ export default function Banner({
                     src={bannerImage}
                     alt={altText}
                     fill
-                    objectFit="cover"
-                    objectPosition="center top"
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
-                    className="mob_hidden"
+                    className="object_fit_cover object_center_top mob_hidden"
                   />
                   <Image
                     src={mobileBanner}
@@ -45,15 +47,13 @@ export default function Banner({
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
                     fill
-                    objectFit="cover"
-                    objectPosition="center top"
-                    className="desk_hidden "
+                    className="object_fit_cover object_center_top desk_hidden"
                   />
                 </div>
                 <div className="banner_caption">
                   <div className="d_inline_block">
-                {isBadge &&
-                     <div className="klarna_badge">
+                    {isBadge && (
+                      <div className="klarna_badge">
                         <Image
                           src={badge}
                           alt="klarna"
@@ -62,18 +62,22 @@ export default function Banner({
                           loading="eager"
                         />
                       </div>
-}
+                    )}
 
                     <div className="banner_content">
-                      <h1 className={`custom_fs_80 fw_800 custom_fs_m_60 mt_0 ${titleWidth} ${textColor} m_max_100`}>
-                       {Object.values(title).map((part, index) => (
+                      <h1
+                        className={`custom_fs_80 fw_800 custom_fs_m_60 mt_0 ${titleWidth} ${textColor} m_max_100`}
+                      >
+                        {Object.values(title).map((part, index) => (
                           <span key={index} className="textBlock">
                             {part}
                           </span>
                         ))}
                       </h1>
 
-                      <p className={`mt_10 mb_40 m_mb_30 ${descriptionWidth} ${textColor}  m_max_100`}>
+                      <p
+                        className={`mt_10 mb_40 m_mb_30 ${descriptionWidth} ${textColor}  m_max_100`}
+                      >
                         {description}
                       </p>
 

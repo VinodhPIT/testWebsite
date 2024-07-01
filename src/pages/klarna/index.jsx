@@ -17,7 +17,6 @@ import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
 import TextsCarousel from "@/components/carousel/TextsCarosuel";
 
 import {
-  APP_LINK_APPLE,
   BLUR_URL,
   KLARNA_LINK,
 } from "@/constants/index";
@@ -181,8 +180,7 @@ function KlarnaNew({ }) {
                                   alt="klarna"
                                   width={50}
                                   height={21}
-                                  placeholder="blur"
-                                  blurDataURL={BLUR_URL}
+                               
                                 />
                                 <span className="klarna_pay_opt_label">
                                   {el.tag}
@@ -220,8 +218,7 @@ function KlarnaNew({ }) {
                             alt="klarna"
                             width={50}
                             height={21}
-                            placeholder="blur"
-                            blurDataURL={BLUR_URL}
+                          
                           />
                           <span className="klarna_pay_opt_label">
                             {t("common:klarnaPage.tag1")}
@@ -242,8 +239,7 @@ function KlarnaNew({ }) {
                             alt="klarna"
                             width={50}
                             height={21}
-                            placeholder="blur"
-                            blurDataURL={BLUR_URL}
+                      
                           />
                           <span className="klarna_pay_opt_label">
                             {t("common:klarnaPage.tag2")}
@@ -264,8 +260,7 @@ function KlarnaNew({ }) {
                             alt="klarna"
                             width={50}
                             height={21}
-                            placeholder="blur"
-                            blurDataURL={BLUR_URL}
+                      
                           />
                           <span className="klarna_pay_opt_label">
                             {t("common:klarnaPage.tag3")}
@@ -286,8 +281,7 @@ function KlarnaNew({ }) {
                             alt="klarna"
                             width={50}
                             height={21}
-                            placeholder="blur"
-                            blurDataURL={BLUR_URL}
+                      
                           />
                           <span className="klarna_pay_opt_label">
                             {t("common:klarnaPage.tag4")}
