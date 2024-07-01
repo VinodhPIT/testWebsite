@@ -1,14 +1,20 @@
 
 import Link from 'next/link';
 
-const generateLinkComponent = (router, theme, t) => {
+const generateLinkComponent = (router, theme, t ,isFixed) => {
   switch (router.locale) {
     case "gb-en":
     case "de-de":
       return (
         <Link
           href={`/${router.locale}/journal`}
-          className= {`${theme==="dark" ? "textWhite":"textBlack"}`}
+          className={`${
+            isFixed
+              ? "sticky-menu"
+              : theme === "dark"
+              ? "textWhite"
+              : "textBlack"
+          }`}
         >
           {t("common:menus.journal")}
         </Link>

@@ -1,14 +1,17 @@
 import React from "react";
 import Modal from "react-modal";
-import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  blurDataURL,
-} from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import figtree from "@/helpers/fontHelper";
 import Link from "next/link";
+import useOpenApp from "@/hooks/useOpenApp";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import {
+  APP_LINK_APPLE,
+  APP_LINK_GOOGLE,
+  BLUR_URL,
+} from "@/constants/index";
 
 const customStyles = {
   overlay: {
@@ -34,6 +37,8 @@ const customStyles = {
 };
 const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
   const { t } = useTranslation();
+  const { openApp } = useOpenApp();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
 
   return (
     <Modal
@@ -66,7 +71,7 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                 />
               </button>
               <div className="popup_right_content">
-                <h1 className="color_gray_550 custom_fs_34 fw_600 fw_m_700 mb_15 m_mt_15">
+                <h1 className="color_gray_550 custom_fs_38 fw_800 mb_15 m_mt_0">
                   {t("common:joinartistPage.title1")}
                 </h1>
                 <section className="progress_block">
@@ -75,32 +80,31 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                       <div className="progressbar_block">
                         <h4>{t("common:joinartistPage.downloadTheApp")}</h4>
                         <p>{t("common:joinartistPage.getStartedDownload")}</p>
-                        <div className="mt_15 app_dwld_img_wrap">
-                          <Link href={APP_LINK_APPLE} target="_blank">
-                            <Image
-                              priority
-                              src="/app-store-new.svg"
-                              alt={t("common:appStoreDownload")}
-                              width={134}
-                              height={41}
-                              placeholder="blur"
-                              blurDataURL={blurDataURL}
-                              className="custom_download_icons w_auto"
-                            />
-                          </Link>{" "}
-                          <Link href={APP_LINK_GOOGLE} target="_blank">
-                            <Image
-                              priority
-                              src="/g-play-new.svg"
-                              alt={t("common:playStoreDownload")}
-                              width={134}
-                              height={41}
-                              placeholder="blur"
-                              blurDataURL={blurDataURL}
-                              className="custom_download_icons w_auto"
-                            />
-                          </Link>
-                        </div>
+
+                        <button
+                          onClick={openApp}
+                          target="_blank"
+                          className="button_primary button_primary mob_hidden mt_15"
+                        >
+                          Get the app
+                        </button>
+                        <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+                          <Image
+                            priority
+                            src={imageSrc}
+                            alt={
+                              appStoreLink === APP_LINK_APPLE
+                                ? "App store"
+                                : "GooglePlay"
+                            }
+                            width={134}
+                            height={41}
+                            placeholder="blur"
+                            blurDataURL={BLUR_URL}
+                            className="custom_download_icons desk_hidden"
+                          />
+                        </Link>
+                      
                       </div>
                     </li>
                     <li className="create-account-step">

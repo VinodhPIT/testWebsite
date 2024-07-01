@@ -82,12 +82,10 @@ export default function DownloadApps() {
                     height={33}
                     alt="Verified tattoo artists"
                     priority
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
                     className="m_w_24 m_h_24 mr_15"
                   />
                   <div className="d_flex flex_direction_column">
-                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
                     Verified tattoo artists</h4>
                   </div>
                 </div>
@@ -100,12 +98,10 @@ export default function DownloadApps() {
                     height={33}
                     alt="User-Friendly Interface"
                     priority
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
                     className="m_w_24 m_h_24 mr_15"
                   />
                   <div className="d_flex flex_direction_column">
-                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
                     User-Friendly Interface</h4>
                   </div>
                 </div>
@@ -118,12 +114,10 @@ export default function DownloadApps() {
                     height={33}
                     alt="Secure Transactions"
                     priority
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
                     className="m_w_24 m_h_24 mr_15"
                   />
                   <div className="d_flex flex_direction_column">
-                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 custom_fs_m_24 d_flex align_item_center mb_0">
+                    <h4 className="color_gray_550 custom_fs_22 lh_27 custom_fs_m_16 m_lh_20 fw_600 d_flex align_item_center mb_0">
                     Secure Transactions</h4>
                   </div>
                 </div>
