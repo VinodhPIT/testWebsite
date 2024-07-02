@@ -328,7 +328,7 @@ function KlarnaNew({ }) {
                   <Link
                     href={`/${router.locale}/createRequest`}
                     onClick={() => setPathname(router.pathname)}
-                    className="button_primary w_min_245"
+                    className="button_primary"
                   >
                     {t("common:homePage.CreateATattooRequest")}
                   </Link>

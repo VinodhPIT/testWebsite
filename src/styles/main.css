@@ -9,7 +9,7 @@
     border-radius: 0px;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
     border: 0;
     background: var(--black);
@@ -87,7 +87,7 @@
     height: 100%;
     position: relative;
     transition-property: transform;
-    min-height: 670px;
+    min-height: 714px;
     padding: 0;
 }
 
@@ -463,6 +463,10 @@ ul.custom_list_view li img {
   object-position: bottom;
 }
 
+.main_slider.slider_rectangle_shape .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col img {
+  aspect-ratio: 7 / 8;
+  height: auto !important;
+}
 /* responsive */
 @media only screen and (min-device-width: 768px) and (max-device-width:991px) and (orientation:portrait) {
   .klarna_payment_img_col {
@@ -479,9 +483,9 @@ ul.custom_list_view li img {
   }  
 }
 @media screen and (min-width: 1480px) {
-  .banner_col {       
+ /* .banner_col {       
     min-height: 76vh;
-  }
+  }*/
 }
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
   .klarna_works_block {
@@ -530,9 +534,14 @@ ul.custom_list_view li img {
   }
 }
 @media screen and (max-width: 767.98px) {  
-  .banner_col {       
+  /*.banner_col {       
     min-height: 698px;
-  }      
+  }   */
+  .banner_mob_fit {
+    height: calc(100vh - 110px) !important;
+    max-height: 742px !important;
+
+  }
   .banner_caption {
     align-items: flex-end;
     padding: 0 15px 58px 15px;
@@ -652,12 +661,12 @@ ul.custom_list_view li img {
   .mob_slider_left_none .custom_slider .slick-track .slick-slide .listing_gridItem a {
     padding-right: 0px;
   }
-  .mob_slider_left_none .custom_slider .slick-track .slick-slide:first-child.slick-active.slick-current .listing_gridItem {
+  /*.mob_slider_left_none .custom_slider .slick-track .slick-slide:first-child.slick-active.slick-current .listing_gridItem {
     padding-left: 15px!important;
   }
   .main_slider .custom_slider.custom_m_single_slider .slick-slide:first-child.slick-active.slick-current .listing_gridItem {
     padding-left: 0!important;
-  }
+  }*/
   .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem {
     padding-right: 0;
   }

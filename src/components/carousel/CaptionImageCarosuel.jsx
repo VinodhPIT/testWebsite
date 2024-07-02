@@ -40,7 +40,7 @@ export default function CaptionImageCarosuel({title, subTitle, description, data
 
             <div
               className={
-                "mt_20 mb_40 m_mt_5 m_mb_0 main_slider mob_slider_left_none slider_nav_arrows"
+                "mt_20 mb_40 m_mt_5 m_mb_0 main_slider mob_slider_left_none slider_nav_arrows slider_rectangle_shape"
               }
             >
             {data.length !== 0 ? (
@@ -48,7 +48,7 @@ export default function CaptionImageCarosuel({title, subTitle, description, data
                   <Slider
                     ref={sliderRef}
                     {...sliderSettings}
-                    className="m_xs_ml_n_15 m_xs_mr_n_15 custom_slider"
+                    className="m_xs_mr_n_15 custom_slider"
                   >
                     {
                       data.map((el, index) => (

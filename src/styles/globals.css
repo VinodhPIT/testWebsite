@@ -210,21 +210,29 @@ header.header_wrapper {
   left: 0;
   right: 0;
   z-index: 1;
-  border-bottom: 1px solid #fff;
 }
 header.header_wrapper:after {
-  content: "";
-  /* background: linear-gradient(180deg, #FFF 12.03%, rgba(255, 255, 255, 0.00) 87.59%); */
+  content: ""; 
   position: absolute;
   top: 0;
   height: 100%;
   width: 100%;
   z-index: -1;
 }
-
+header.header_wrapper:before {
+  content: "";
+  width: 100%;
+  background-color: #fff;
+  height: 1px;
+  position: absolute;
+  top: inherit;
+  bottom: 0;
+  opacity: 0.4;
+}
 header.header_wrapper.fixed:after {
   background: #fff;
 }
+
 header.fixed {
   position: fixed;
   top: 0;
@@ -234,6 +242,9 @@ header.fixed {
   transform: translateY(0);
   animation: fadeIn 0.1s ease-in-out forwards;
   border-bottom: 0;
+}
+header.fixed:before {
+  display: none;
 }
 
 header.fixed .sticky-menu{
@@ -6102,6 +6113,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     margin-top: 10px;
     margin-bottom: 20px;
   }
+  .footer .footer_block .footer_logo a img {
+    width: 90px;
+  }
 
   .footer .footer_block ul.footer_list {
     margin-top: 25px;
@@ -7398,7 +7412,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
   .header_cookies .header_cookie_txt .header_cookie_mob a {
     font-size: 16px;    
-  }
+  } 
 
   .text_box_wrap.right .m_switcher .img_box_wrap {
     order: 1;

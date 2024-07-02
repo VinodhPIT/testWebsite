@@ -29,8 +29,8 @@ export default function Banner({
       <section className="full_block_banner">
         <div class="row g-0">
           <div class="col-md-12">
-            <div className="banner_block m_min_h_698">
-              <div className="banner_col banner_grad_lft_mob_btm">
+            <div className="banner_block banner_mob_fit">
+              <div className="banner_col m_min_h_inherit">
                 <div className="banner_img_wrap">
                   <Image
                     src={bannerImage}
@@ -47,13 +47,13 @@ export default function Banner({
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
                     fill
-                    className="object_fit_cover object_center_top desk_hidden"
+                    className="object_fit_cover desk_hidden"
                   />
                 </div>
                 <div className="banner_caption">
                   <div className="d_inline_block">
                     {isBadge && (
-                      <div className="klarna_badge">
+                      <div className="klarna_badge mb_8 m_mb_15">
                         <Image
                           src={badge}
                           alt="klarna"

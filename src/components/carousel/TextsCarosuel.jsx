@@ -55,7 +55,7 @@ export default function TextsCarosuel({title ,subTitle ,description,data}){
                     <Slider
                       ref={sliderRef}
                       {...sliderSettings}
-                      className="m_xs_ml_n_15 m_xs_mr_n_15 custom_slider"
+                      className="m_xs_mr_n_15 custom_slider"
                     >
                       
                         {data.map((el, index) => (
