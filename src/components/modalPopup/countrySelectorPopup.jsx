@@ -20,16 +20,16 @@ const customStyles = {
   content: {
     border: "none",
     background: "transparent",
-    maxWidth: "1386px",
-    margin: "0 auto",
-    padding: "0px",
+    maxWidth: "1288px",
+    margin: "auto auto",
+    padding: "15px 15px",
     top: "0",
     bottom: "0px",
     right: "0px",
     left: "0px",
     overflow: "inherit",
     maxHeight: "inherit",
-    borderRadius: "8px",
+    borderRadius: "0",
   },
 };
 const CountrySelectorModel = ({ isOpen, closeModal }) => {
@@ -61,27 +61,23 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     >
       
         <div className={`popup_wrap ${figtree.className}`}>
-          <div className={`${"popup_container"} ${styles.popup_container}`}>
-            <button
-              className={`${"close_button"} ${styles.close_button}`}
-              onClick={closeModal}
-            >
-              <Image
-                width={25}
-                height={25}
-                src="/popup-close.svg"
-                alt="close"
-              />
-            </button>
-
-            <div className={styles.language_popup}>
+          <div className={`${"popup_container"} ${styles.popup_container}`}> 
+            <div className="language_popup">
+              <button
+                className="close_button"
+                onClick={closeModal}
+              >
+                <Image
+                  width={25}
+                  height={25}
+                  src="/popup-close.svg"
+                  alt="close"
+                />
+              </button>
               <h3>{t("common:Choose your region and language")}</h3>
               <p>{t("common:LanguagePopup-subText")}</p>
               <div
-                className={`${"language_popup_block"} ${
-                  styles.language_popup_block
-                }`}
-              >
+                className="language_popup_block">
                 <ul>
                   {country.map((e) => {
                     return (
