@@ -9,7 +9,6 @@ import useTranslation from "next-translate/useTranslation";
 import {APP_LINK_APPLE ,APP_LINK_GOOGLE} from '@/constants/constants'
 import { getOs } from "../lib/os-detector";
 
-
 const Custom404 = () => {
 
   const { t } = useTranslation();

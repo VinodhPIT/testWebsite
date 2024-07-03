@@ -2,17 +2,20 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import useTranslation from "next-translate/useTranslation";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
 import { BLUR_URL,SLIDES_TO_SHOW_ALTERNATE ,SLIDE_MOBILE_TO_SCROLL} from "@/constants/index";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function CaptionImageCarosuel({title, subTitle, description, data}) {
+  const { t } = useTranslation();
   const { isVisible, isSmallDevice } = useWindowResize();
   const { router } = useNavigation();
 
@@ -32,9 +35,9 @@ export default function CaptionImageCarosuel({title, subTitle, description, data
                   </span>
                   {subTitle}
                 </span>
-                <Link href="" className="more_link">
-                  SEE ALL
-                </Link>
+                {/* <Link href="" className="more_link">
+                 {t("common:seeAll")} 
+                </Link> */}
               </h2>
             </div>
 

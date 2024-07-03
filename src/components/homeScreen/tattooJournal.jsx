@@ -37,13 +37,13 @@ export default function ListingPage({ data}) {
               <div className="d_inline_block w_100pc">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 pr_90 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0">              
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
-                    Tattoo Journal</span>
+                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:explore")}</span>
+                    {t("common:tattooJournal")}</span>
                   <Link
                     href={`/${router.locale}/journal`}
                     className="more_link"
                   >
-                  SEE ALL
+                  {t("common:seeAll")} 
                   </Link>  
                 </h2>              
               </div>
@@ -87,9 +87,9 @@ export default function ListingPage({ data}) {
                           <h6 className={`${"fw_600"} ${styles.listing_grid_profile_title}`}>
                             {el.title}
                           </h6>
-                          <p className={styles.listing_grid_content_date}>
+                          {/* <p className={styles.listing_grid_content_date}>
                             POSTED ON 14/05/2024
-                          </p>
+                          </p> */}
                           <p className={styles.listing_grid_content_disc}>
                             {el.desc}
                           </p>
