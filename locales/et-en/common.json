@@ -1,10 +1,8 @@
 {
   
   "menus": {
-    "home": "Home",
     "tattooSearch": "Explore tattoos",
-    "styleGuide": "Styleguide",
-    "dictionary": "Dictionary",
+     "exploreArtists":"Explore artists",
     "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
     "klarna": "Klarna",

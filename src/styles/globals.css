@@ -160,7 +160,7 @@ button:disabled {
 }
 
 #nprogress .bar {
-  background: var(--black-200);
+  background: var(--green-dark-400);
   height: 4px;
   position: fixed;
   z-index: 1031;

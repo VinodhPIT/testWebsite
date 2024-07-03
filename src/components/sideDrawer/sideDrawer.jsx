@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import styles from "./sideDrawer.module.css";
 import Image from "next/image";
-import useTranslation from "next-translate/useTranslation";
-import { useNavigation } from "@/hooks/useRouter";
-import OutsideClickHandler from "react-outside-click-handler";
-export default function SideDrawer({ onCloseToggle }) {
 
+import useTranslation from "next-translate/useTranslation";
+import OutsideClickHandler from "react-outside-click-handler";
+
+import { useNavigation } from "@/hooks/useRouter";
+import useOpenApp from "@/hooks/useOpenApp";
+
+export default function SideDrawer({ onCloseToggle, isFixed }) {
   const { t } = useTranslation();
   const { router } = useNavigation();
   const links = [
@@ -71,30 +73,55 @@ export default function SideDrawer({ onCloseToggle }) {
     }
     return true;
   });
- 
+
+  const { openApp } = useOpenApp();
+
+
   return (
     <OutsideClickHandler onOutsideClick={() => onCloseToggle()}>
-      <div className={styles.sideDrawer}>
-        <div className={styles.closeWrapper}>
+      <div className={`${"sideDrawer"} ${isFixed ? "drawer-sticky" : ""}`}>
+        <div className="d-flex justify_space_between align_item_center  drawer-header">
+          <Image
+            src={"/Inckd_logo_black.svg"}
+            alt="Logo"
+            priority
+            width={99}
+            height={28}
+          />
           <Image
             onClick={() => onCloseToggle()}
             src="/close.png"
-            width={50}
-            height={50}
-            alt="close"
+            width={32}
+            height={32}
+            alt="close-sideDrawer"
             priority
+            className={"closeWrapper"}
           />
         </div>
 
-        <ul className={styles.menuList}>
-          {filteredLinks.map((link) => (
-            <li key={link.id}>
-              <Link href={link.url} onClick={() => onCloseToggle()}>
-                {link.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="menuList">
+          <ul >
+            {filteredLinks.map((link) => (
+              <li key={link.id}>
+                <Link href={link.url} onClick={() => onCloseToggle()}>
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          </div>
+          <div class="drawerBottom">
+            <button
+              onClick={openApp}
+              target="_blank"
+              className="button_primary button_primary "
+            >
+              Get the app
+            </button>
+          </div>
+        
+
+
       </div>
     </OutsideClickHandler>
   );

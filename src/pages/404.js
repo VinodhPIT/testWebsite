@@ -15,15 +15,22 @@ const Custom404 = () => {
   const router = useRouter();
   const os = getOs();
   
+  // useEffect(() => {
+  //   const { asPath } = router;
+  //   const link = (os === 'iOS' || os === 'Mac OS') ? APP_LINK_APPLE : APP_LINK_GOOGLE;
+  //   if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard")) {
+  //     window.location.href = link; // Redirect to external link
+  //   }
+  // }, [router]);
+
   useEffect(() => {
     const { asPath } = router;
     const link = (os === 'iOS' || os === 'Mac OS') ? APP_LINK_APPLE : APP_LINK_GOOGLE;
     if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard")) {
-      window.location.href = link; // Redirect to external link
+      window.location.replace(link);
     }
-  }, [router]);
+  }, [router.asPath, os]);
 
-  
   return (
     <>
       <main>

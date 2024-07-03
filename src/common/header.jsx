@@ -199,7 +199,7 @@ export default function Header({
                   </button>
                 )}
                 <RxHamburgerMenu
-                  onClick={() => onToggle(true)}
+                  onClick={onToggle}
                   size={32}
                   cursor={"pointer"}
                   className={`${
@@ -211,7 +211,11 @@ export default function Header({
           </div>
         </div>
       </header>
-      {toggle === true ? <SideDrawer onCloseToggle={onCloseToggle} /> : null}
+
+
+     {toggle && <SideDrawer onCloseToggle={onCloseToggle} isFixed={isFixed} /> }
+
+
 
       <CountryPickerModel
         className="custom-modal"
