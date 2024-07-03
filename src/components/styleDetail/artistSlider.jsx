@@ -74,7 +74,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                   <Slider
                     {...sliderSettings}
                     ref={sliderRef}
-                    className="custom_content_slick_slider m_xs_ml_n_15 m_xs_mr_n_15"
+                    className="custom_content_slick_slider m_xs_mr_n_15"
                   >
                     {data &&
                       data.map((el, index) => (

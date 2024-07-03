@@ -81,7 +81,7 @@ export default function ExploreTattoos({ data, styleName, slug }) {
                   <Slider
                     ref={sliderRef}
                     {...sliderSettings}
-                    className="custom_slick_slider custom_slick_container m_xs_ml_n_15 m_xs_mr_n_15"
+                    className="custom_slick_slider custom_slick_container m_xs_mr_n_15"
                   >
                     {data &&
                       data.map((el, index) => (
