@@ -626,7 +626,6 @@ ul.custom_list_view li img {
 }
 
 .language_popup ul li button {
-  /*padding: 11px 40px 11px 10px;*/
   margin: 0;
   width: 100%;
   border: 1px solid #E1E4E8;
@@ -675,7 +674,134 @@ ul.custom_list_view li img {
   right: 10px;
 }
 
+/* Join Artist */
+ul.progressbar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
 
+ul.progressbar li {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  position: relative;
+  margin: 0;
+  text-align: left;
+  padding: 0;
+}
+
+ul.progressbar li .progressbar_block {
+  padding: 0 0 38px 80px;
+  position: relative;
+}
+
+ul.progressbar li:last-child .progressbar_block {
+  padding-bottom: 0;
+}
+
+ul.progressbar li .progressbar_block:before {
+  content: "";
+  width: 2px;
+  display: inline-block;
+  position: absolute;
+  left: 23px;
+  margin-top: 10px;
+  z-index: 0;
+  background: url("/dashed-border.svg") no-repeat;
+  height: 100%;
+}
+
+ul.progressbar li:last-child .progressbar_block:before {
+  display: none;
+}
+
+ul.progressbar li h4 {
+  color: var(--black-500);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 31px;
+  height: 100%;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  margin: 0 0 8px 0;
+}
+
+ul.progressbar li p {
+  color: var(--black-500);
+  margin: 0 !important;
+  padding: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+ul.progressbar li:before {
+  content: none;
+  background: rgba(195, 195, 195, 0.2);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+}
+
+ul.progressbar li:after {
+  content: "";
+  background: #f8f8f8 url("/dwld_icon.svg") no-repeat;
+  background-size: 19px;
+  background-position: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #e1e4e8;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: -5px;
+}
+
+ul.progressbar li.dwld-app-step:after {
+  background-image: url("/dwld_icon.svg");
+}
+ul.progressbar li.create-account-step:after {
+  background-image: url("/create_user.svg");
+}
+ul.progressbar li.boost-account-step:after {
+  background-image: url("/boostt.svg");
+}
+
+ul.progressbar li.active:before {
+  background: rgba(76, 175, 80, 0.2);
+}
+
+ul.progressbar li.active:after {
+  background: var(--green-800);
+}
+
+ul.progressbar li.completed:before {
+  background: rgba(76, 175, 80, 0.2);
+}
+
+ul.progressbar li.completed:after {
+  background: var(--green-800);
+}
+ul.progressbar li .progressbar_block .app_dwld_img_wrap {
+  margin-bottom: 6px;
+}
 
 /* responsive */
 @media only screen and (min-device-width: 768px) and (max-device-width:991px) and (orientation:portrait) {
@@ -705,6 +831,10 @@ ul.custom_list_view li img {
     border-right: 0;
     padding-right: 0px;
   }
+  ul.progressbar li .progressbar_block:before {
+    padding-left: 50px;
+  }
+
   /* popup design */
   .popup_wrap.explore_feature_app_popup {
     padding-left: 15px;
@@ -750,7 +880,7 @@ ul.custom_list_view li img {
   }
   .overlap_second .col-md-6:last-child {
     width: 52%;
-  }
+  } 
 
   /* popup */
   .join_artist_popup.popup_wrap {
@@ -785,14 +915,11 @@ ul.custom_list_view li img {
     left: 16px;
   }
   .join_artist_popup ul.progressbar li h4 {
-    font-weight: 700;
     font-size: 22px;
     line-height: 26px;
-    max-width: 100%;
     margin-bottom: 4px;
   }
   .join_artist_popup ul.progressbar li p {
-    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
   }
@@ -897,6 +1024,29 @@ ul.custom_list_view li img {
   .artist_mid_img_block img {
     max-height: 285px;
     width: auto;
+  }
+
+  ul.progressbar li .progressbar_block:before {
+    padding-left: 34px;
+    left: 16px;
+  }
+  ul.progressbar li:after {
+    background-size: 16px;
+    width: 32px;
+    height: 32px;
+    top: 0px;
+  }
+  ul.progressbar li .progressbar_block {
+    padding: 0px 0 38px 48px;
+    position: relative;
+  }
+  ul.progressbar li h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  ul.progressbar li p {
+    font-size: 14px !important;
+    line-height: 21px !important;
   }
 
   /* popup design */ 
@@ -1044,3 +1194,8 @@ ul.custom_list_view li img {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  section.progress_block {
+    max-width: 475px;
+  }
+}
