@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import { useModal } from '@/context/ModalContext';
 
 import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 
@@ -21,9 +22,8 @@ export default function Banner({
   isBadge,
   badge,
 }) {
-  const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
-
+  const { openModal } = useModal();
   return (
     <div>
       <section className="full_block_banner">
@@ -82,7 +82,7 @@ export default function Banner({
                       </p>
 
                       <button
-                        onClick={openApp}
+                        onClick={openModal}
                         className={`${buttonBg} button_primary mob_hidden`}
                       >
                         {buttonText}

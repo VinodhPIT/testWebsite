@@ -967,6 +967,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 .color_gray_150 {
   color: var(--gray-light-150);
 }
+.color_gray_400 {
+  color: var(--gray-400);
+}
 
 .color_gray_550 {
   color: var(--black-500);

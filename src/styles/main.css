@@ -860,6 +860,33 @@ ul.progressbar li .progressbar_block .app_dwld_img_wrap {
 
 /* Side Drawer */
 
+
+.qr-model{
+  width: 666px;
+  height: 536px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:var(--white);
+  padding: 40px 75px;
+}
+.qrimage-wrapper{
+  border: 1px solid #E1E4E8;
+  width: 238px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9.15px;
+  height: 238px;
+}
+.qr-model .close_button{
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
 /* Side Drawer Responsive */
 
 @media screen and (max-width: 991.98px) {
@@ -916,31 +943,7 @@ ul.progressbar li .progressbar_block .app_dwld_img_wrap {
 
 /* Side Drawer Responsive */
 
-.qr-model{
-  width: 666px;
-  height: 536px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color:var(--white);
-  padding: 40px 75px;
-}
-.qrimage-wrapper{
-  border: 1px solid #E1E4E8;
-  width: 238px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9.15px;
-  height: 238px;
-}
-.qr-model .close_button{
-  position: absolute;
-  right: 0;
-  top: 5px;
-}
+
 
 /* responsive */
 @media only screen and (min-device-width: 768px) and (max-device-width:991px) and (orientation:portrait) {

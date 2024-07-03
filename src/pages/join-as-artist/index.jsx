@@ -5,21 +5,20 @@ import Link from "next/link";
 
 import useTranslation from "next-translate/useTranslation";
 
-import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import { useModal } from '@/context/ModalContext';
 
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/index";
 
 
 export default function JoinArtist() {
   const { t } = useTranslation();
-  const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
-
+  const { openModal } = useModal();
   return (
     <>
       <Head>
@@ -78,7 +77,7 @@ export default function JoinArtist() {
                           </h4>
                           <p>{t("common:joinartistPage.getStarted")}</p>
                           <button
-                            onClick={openApp}
+                            onClick={openModal}
                             target="_blank"
                             className="button_primary button_primary mob_hidden mt_15"
                           >

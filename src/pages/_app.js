@@ -1,25 +1,32 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+
 import { Figtree } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
-import UseLayout from "@/hooks/useLayout";
 import NProgress from "nprogress";
+
+import UseLayout from "@/hooks/useLayout";
+
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 import { GlobalStateProvider } from "@/context/Context";
+import { ModalProvider } from "@/context/ModalContext";
 import loadGoogleMapsAPI from "@/utils/google-maps";
+import { AxiosProvider } from '@/apiConfig/axios.instance'; 
+
 
 import Header from "@/common/header";
 import Footer from "@/common/footer";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
 import "@/styles/main.css";
-import { AxiosProvider } from '@/apiConfig/axios.instance'; // Adjust the import path as needed
+
 
 
 NProgress.configure({ showSpinner: false });
@@ -111,22 +118,23 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+
      <AxiosProvider>
       <SessionProvider session={pageProps.session}>
+      <ModalProvider>
         <GlobalStateProvider>
           <div className={figtree.className}>
-            
             {getHeaderComponent(router.locale, router.pathname)}
-
             <UseLayout pathname={router.pathname}>
               <Component {...pageProps} />
             </UseLayout>
-
             <Footer />
           </div>
         </GlobalStateProvider>
+        </ModalProvider>
       </SessionProvider>
       </AxiosProvider>
+
     </>
   );
 }
