@@ -20,6 +20,7 @@ export const ModalProvider = ({ children }) => {
   return (
     <ModalContext.Provider value={{ isOpen, openModal, closeModal }}>
       <QrCodeDownloadModal isOpen={isOpen} onClose={closeModal} />
+      
       {children}
     </ModalContext.Provider>
   );

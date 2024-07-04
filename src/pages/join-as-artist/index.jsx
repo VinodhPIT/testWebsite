@@ -81,7 +81,7 @@ export default function JoinArtist() {
                             target="_blank"
                             className="button_primary button_primary mob_hidden mt_15"
                           >
-                            Get the app
+                           {t("common:getApp")}
                           </button>
                           <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                             <Image

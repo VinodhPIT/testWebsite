@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
 
 import figtree from "@/helpers/fontHelper";
+import { BLUR_URL } from "@/constants/index";
 
 const customStyles = {
   overlay: {
@@ -49,6 +50,9 @@ const QrCodeDownloadModal = ({ isOpen, onClose }) => {
             width={215}
             height={215}
             className="mt_40 mb_40"
+            alt="QR"
+            placeholder="blur"
+            blurDataURL={BLUR_URL}
           />
         </div>
         <p

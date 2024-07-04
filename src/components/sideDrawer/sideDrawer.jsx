@@ -120,7 +120,7 @@ export default function SideDrawer({ onCloseToggle, isFixed }) {
               target="_blank"
               className="button_primary button_primar mob_hidden"
             >
-              Get the app
+             {t("common:download_app")}
             </button>
 
                        <Link href={appStoreLink} target="_blank">
