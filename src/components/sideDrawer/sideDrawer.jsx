@@ -6,11 +6,18 @@ import useTranslation from "next-translate/useTranslation";
 import OutsideClickHandler from "react-outside-click-handler";
 
 import { useNavigation } from "@/hooks/useRouter";
-import useOpenApp from "@/hooks/useOpenApp";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import { useModal } from '@/context/ModalContext';
+
+import { APP_LINK_APPLE,BLUR_URL} from "@/constants/constants";
+
 
 export default function SideDrawer({ onCloseToggle, isFixed }) {
   const { t } = useTranslation();
   const { router } = useNavigation();
+  const { openModal } = useModal();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
   const links = [
     {
       id: 1,
@@ -74,9 +81,6 @@ export default function SideDrawer({ onCloseToggle, isFixed }) {
     return true;
   });
 
-  const { openApp } = useOpenApp();
-
-
   return (
     <OutsideClickHandler onOutsideClick={() => onCloseToggle()}>
       <div className={`${"sideDrawer"} ${isFixed ? "drawer-sticky" : ""}`}>
@@ -112,16 +116,30 @@ export default function SideDrawer({ onCloseToggle, isFixed }) {
           </div>
           <div class="drawerBottom">
             <button
-              onClick={openApp}
+               onClick={openModal}
               target="_blank"
-              className="button_primary button_primary "
+              className="button_primary button_primar mob_hidden"
             >
               Get the app
             </button>
+
+                       <Link href={appStoreLink} target="_blank">
+                        <Image
+                          priority
+                          src={imageSrc}
+                          alt={
+                            appStoreLink === APP_LINK_APPLE
+                              ? "App store"
+                              : "GooglePlay"
+                          }
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={BLUR_URL}
+                          className="custom_download_icons desk_hidden"
+                        />
+                      </Link>
           </div>
-        
-
-
       </div>
     </OutsideClickHandler>
   );
