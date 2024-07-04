@@ -42,6 +42,11 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const { openModal } = useQrModal();
 
+  function handleClick() {
+    openModal();
+    closeModal();
+  }
+  
   return (
     <Modal
       isOpen={isOpen}
@@ -82,7 +87,7 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                         <p>{t("common:joinartistPage.getStartedDownload")}</p>
 
                         <button
-                          onClick={openModal}
+                          onClick={handleClick}
                           target="_blank"
                           className="button_primary button_primary mob_hidden mt_15"
                         >
