@@ -8,7 +8,7 @@ import OutsideClickHandler from "react-outside-click-handler";
 import { useNavigation } from "@/hooks/useRouter";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
-import { useModal } from '@/context/ModalContext';
+import { useQrModal } from '@/context/ModalContext';
 
 import { APP_LINK_APPLE,BLUR_URL} from "@/constants/constants";
 
@@ -16,7 +16,7 @@ import { APP_LINK_APPLE,BLUR_URL} from "@/constants/constants";
 export default function SideDrawer({ onCloseToggle, isFixed }) {
   const { t } = useTranslation();
   const { router } = useNavigation();
-  const { openModal } = useModal();
+  const { openModal } = useQrModal();
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const links = [
     {

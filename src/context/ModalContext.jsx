@@ -4,7 +4,7 @@ import QrCodeDownloadModal from '@/components/QrCodeScanModal/QrCodeDownloadModa
 
 const ModalContext = createContext();
 
-export const useModal = () => useContext(ModalContext);
+export const useQrModal = () => useContext(ModalContext);
 
 export const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);

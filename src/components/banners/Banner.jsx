@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
-import { useModal } from '@/context/ModalContext';
+import { useQrModal } from '@/context/ModalContext';
 
 import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 
@@ -23,7 +23,7 @@ export default function Banner({
   badge,
 }) {
   const { appStoreLink, imageSrc } = useAppStoreLink();
-  const { openModal } = useModal();
+  const { openModal } = useQrModal();
   return (
     <div>
       <section className="full_block_banner">

@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
-import { useModal } from '@/context/ModalContext';
+import { useQrModal } from '@/context/ModalContext';
 
 import {
   APP_LINK_APPLE,
@@ -18,7 +18,7 @@ import {
 export default function JoinArtist() {
   const { t } = useTranslation();
   const { appStoreLink, imageSrc } = useAppStoreLink();
-  const { openModal } = useModal();
+  const { openModal } = useQrModal();
   return (
     <>
       <Head>
