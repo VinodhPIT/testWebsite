@@ -153,7 +153,7 @@ export default function LocationSearch({ onToggleLoc }) {
             <button
               onClick={() => clearCurrentLocation()}
               disabled={!isChecked}
-              className="btn_outline_base w_100pc"
+              className="button_primary_outline w_min_125 w_100pc"
             >
               {t("common:Clear All")}
             </button>
@@ -161,7 +161,7 @@ export default function LocationSearch({ onToggleLoc }) {
             <button
               onClick={() => clear()}
               disabled={location === ""}
-              className="btn_outline_base w_100pc"
+              className="button_primary_outline w_min_125 w_100pc"
             >
               {t("common:Clear All")}
             </button>
@@ -170,7 +170,7 @@ export default function LocationSearch({ onToggleLoc }) {
           <button
             onClick={() => searchLocation()}
             disabled={address === ""}
-            className="btn_defult_base w_100pc"
+            className="button_primary w_min_125 w_100pc"
           >
             {t("common:Show Results")}
           </button>
