@@ -114,7 +114,7 @@ export default function SideDrawer({ onCloseToggle, isFixed }) {
             <button
               onClick={openApp}
               target="_blank"
-              className="button_primary button_primary "
+              className="button_primary "
             >
               Get the app
             </button>
