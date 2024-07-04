@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import useOpenApp from '@/hooks/useOpenApp';
+import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
@@ -9,8 +11,13 @@ import useTranslation from "next-translate/useTranslation";
 import { useResetRequestFormState } from "@/store/requestManagement/requestForm";
 
 import figtree from "@/helpers/fontHelper";
-import { APP_LINK_APPLE, APP_LINK_GOOGLE } from "@/constants/constants";
 
+
+import {
+  APP_LINK_APPLE,
+  APP_LINK_GOOGLE,
+  BLUR_URL,
+} from "@/constants/constants";
 
 const customStyles = {
   overlay: {
@@ -21,20 +28,23 @@ const customStyles = {
     border: "none",
     background: "transparent",
     maxWidth: "800px",
-    margin: "0 auto",
+    margin: "auto auto",
     padding: "0px",
     top: "0",
     bottom: "0px",
     right: "0px",
     left: "0px",
     overflow: "inherit",
-    maxHeight: "inherit",
-    borderRadius: "8px",
+    maxHeight: "500px",
+    borderRadius: "0",
+    paddingLeft: "15px",
+    paddingRight: "15px"
   },
 };
 const TattooSearchModal1Popup = ({}) => {
   const { t } = useTranslation();
   const { openApp } = useOpenApp();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
   
   return (
     <Modal
@@ -84,14 +94,32 @@ const TattooSearchModal1Popup = ({}) => {
                       <h5 class="color_gray_550 mb_0">
                         {t("common:stepper.ideaForTattoo")}
                       </h5>
-                      <p class="custom_fs_16 custom_fs_m_15 fw_300 color_gray_550 mb_0 mt_10">
+                      <p class="custom_fs_16 text_fs_m_14 fw_400 color_gray_550 mb_0 mt_10">
                         {t("common:stepper.Login with your existing account")}
-                      </p>
+                      </p>  
                       <button
                         onClick={openApp}
-                        class="  btn_outline_base btn_base_lg  mt_30 w_100pc d_max_248 m_mt_15 custom_fs_16 m_max_100">
-                        {t("common:stepper.openApp")}
+                        target="_blank"
+                        className="button_primary_outline mt_30 w_100pc d_max_248 mob_hidden"
+                      >
+                        Get the app
                       </button>
+                      <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+                        <Image
+                          priority
+                          src={imageSrc}
+                          alt={
+                            appStoreLink === APP_LINK_APPLE
+                              ? "App store"
+                              : "GooglePlay"
+                          }
+                          width={134}
+                          height={41}
+                          placeholder="blur"
+                          blurDataURL={BLUR_URL}
+                          className="custom_download_icons desk_hidden"
+                        />
+                      </Link>
                     </div>
                   </div>
                 </div>

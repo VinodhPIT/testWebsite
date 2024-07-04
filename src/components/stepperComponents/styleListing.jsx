@@ -76,14 +76,14 @@ export default function StyleDropdown({ onToggle }) {
         <button
           disabled={selectedIds.length === 0}
           onClick={() => clearAll()}
-          className="btn_outline_base w_100pc"
+          className="button_primary_outline w_min_125 w_100pc"
         >
           {t("common:Clear All")}
         </button>
         <button
           disabled={selectedIds.length === 0}
           onClick={() => onSearchStyle()}
-          className="btn_defult_base w_100pc"
+          className="button_primary w_min_125 w_100pc"
         >
           {t("common:Show Results")}
         </button>

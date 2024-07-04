@@ -32,7 +32,7 @@ const customStyles = {
     left: "0px",
     overflow: "inherit",
     maxHeight: "564px",
-    borderRadius: "8px",
+    borderRadius: "0",
     paddingLeft: "15px",
     paddingRight: "15px"
   },

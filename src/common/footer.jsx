@@ -7,6 +7,7 @@ import {
   LINKEDIN_PROFILE_LINK,
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
+  BLUR_URL
 } from "@/constants/constants";
 import { useRouter } from "next/router";
 import { useModal } from "@/utils/modalUtils";
@@ -14,11 +15,16 @@ import useTranslation from "next-translate/useTranslation";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 import {pagesWithoutFooter ,pagesWithoutSwitcher} from "@/config/index";
 
+import useOpenApp from '@/hooks/useOpenApp';
+import useAppStoreLink from "@/hooks/useAppStoreLink";
+
 
 export default function Footer() {
   const { t } = useTranslation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
+  const { openApp } = useOpenApp();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
 
   const bookLinks = [
     {
@@ -130,6 +136,30 @@ export default function Footer() {
                   </div>
 
                   {renderSwitcher(router.pathname, router.locale, openPopup)}
+
+                  <button
+                    onClick={openApp}
+                    target="_blank"
+                    className="button_primary_outline mt_15 w_100pc mob_hidden"
+                  >
+                    Get the app
+                  </button>
+                  <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+                    <Image
+                      priority
+                      src={imageSrc}
+                      alt={
+                        appStoreLink === APP_LINK_APPLE
+                          ? "App store"
+                          : "GooglePlay"
+                      }
+                      width={134}
+                      height={41}
+                      placeholder="blur"
+                      blurDataURL={BLUR_URL}
+                      className="custom_download_icons desk_hidden"
+                    />
+                  </Link>
 
                   <ul className="footer_list">
                     <li className="footer_title hidden">
