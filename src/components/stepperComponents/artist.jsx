@@ -300,7 +300,7 @@ const Artist = () => {
                   <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_15">
                         <button
                           onClick={prevPage}
-                          className="btn_outline_base mt_15 m_mt_0 m_w_50pc"
+                          className="button_primary_outline w_min_125 mt_15 m_mt_0 m_w_50pc"
                         >
                           {t("common:goBack")}
                         </button>
@@ -308,7 +308,7 @@ const Artist = () => {
                         {!isMobileView && <SelectedArtistsInfo />}
                           <button
                             onClick={nextPage}
-                            className="btn_defult_base mt_15 m_mt_0 pull_right align_self_end m_w_50pc"
+                            className="button_primary w_min_125 mt_15 m_mt_0 pull_right align_self_end m_w_50pc"
                             disabled={selectedArtists.length== 0}
                           >
                             {t("common:next")}
