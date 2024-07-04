@@ -9315,7 +9315,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 .drawer-header{padding: 18px 40px 0px 40px;}
 
 .sideDrawer {
-  background: #fff;
+  background: red;
   position: fixed;
   height: 100%;
   z-index: 99;
@@ -9359,7 +9359,8 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 .drawerBottom {
   position: fixed;
   bottom: 0px;
-  padding: 32px 40px 24px 40px;
+  padding: 32px 40px 24px 40px; 
+  background-color: var(--white);
   float: left;
   width: 100%;
   border-top: 1px solid #F2F5F6;}
@@ -9389,6 +9390,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   font-size: 22px;
   line-height: 22px;
 }
+.menuList{padding-bottom: 89px;}
 
 }
 @media screen and (min-width: 768px) {
