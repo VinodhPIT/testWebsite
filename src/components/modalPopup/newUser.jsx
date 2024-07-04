@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
-import { useResetRequestFormState } from "@/store/requestManagement/requestForm";
+import { UseResetRequestFormState } from "@/store/requestManagement/requestForm";
 
 import { useQrModal } from '@/context/ModalContext';
 import useAppStoreLink from "@/hooks/useAppStoreLink";
@@ -46,7 +46,7 @@ const SucessModal = ({}) => {
   
   function handleClick() {
     openModal();
-    useResetRequestFormState()
+    UseResetRequestFormState()
   }
 
   return (
@@ -72,7 +72,7 @@ const SucessModal = ({}) => {
               <div className="popup_right">
                 <button
                   className="close_button"
-                  onClick={useResetRequestFormState}
+                  onClick={UseResetRequestFormState}
                 >
                   <Image
                     width={25}

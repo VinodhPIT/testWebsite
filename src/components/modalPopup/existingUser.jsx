@@ -8,7 +8,7 @@ import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
 
 import { useQrModal } from '@/context/ModalContext';
-import { useResetRequestFormState } from "@/store/requestManagement/requestForm";
+import { UseResetRequestFormState } from "@/store/requestManagement/requestForm";
 
 import figtree from "@/helpers/fontHelper";
 
@@ -44,7 +44,7 @@ const TattooSearchModal1Popup = ({}) => {
   
   function handleClick() {
     openModal();
-    useResetRequestFormState()
+    UseResetRequestFormState()
   }
 
   return (
@@ -69,7 +69,7 @@ const TattooSearchModal1Popup = ({}) => {
               <div className="popup_right">
                 <button
                   className="close_button"
-                  onClick={useResetRequestFormState}
+                  onClick={UseResetRequestFormState}
                 >
                   <Image
                     width={25}

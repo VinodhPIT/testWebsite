@@ -78,10 +78,9 @@ export default function JoinArtist() {
                           <p>{t("common:joinartistPage.getStarted")}</p>
                           <button
                             onClick={openModal}
-                            target="_blank"
                             className="button_primary button_primary mob_hidden mt_15"
                           >
-                           {t("common:getApp")}
+                           {t("common:download_app")}
                           </button>
                           <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                             <Image
