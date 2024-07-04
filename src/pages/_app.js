@@ -61,45 +61,52 @@ function MyApp({ Component, pageProps }) {
 
   function getHeaderComponent(locale, pathname) {
     switch ((locale, pathname)) {
-      case "/":
-      
-      case "/tattoo-dictionary":
-      case "/tattoo-styleguide":
       case "/explore/[[...slug]]":
       case "/artists/[detail]":
       case `/explore/tattoos/[detail]`:
       case "/explore/flash-tattoos/[detail]":
       case "/404":
-      case "/journal":
-      case "/contact":
-      case "/join-as-artist":
-      case "/faq":
       case "/privacy_policy":
       case "/terms&conditions":
       case "/impressum":
       case "/user_data_policy":
       case "/privacy-policy":
-      case "/download/[[...download]]":
-      case "/comingSoon":
-      case "/explore-style":
+       case "/faq":
         return (
           <Header
             logo={"/Inckd_logo_black.svg"}
             theme={"light"}
             imgWidth="105"
             imgHeight="31"
+            isPosition={false}
            
           />
         );
-        case "/klarna":
+        case "/":
+      case "/download/[[...download]]":
+      case "/comingSoon":
+      case "/explore-style":
+      case "/contact":
+      case "/join-as-artist":
+        return (
+          <Header
+            logo={"/Inckd_logo_black.svg"}
+            theme={"light"}
+            imgWidth="105"
+            imgHeight="31"
+            isPosition={true}
+          />
+        );
+          case "/klarna":
           case "/for-tattoo-artists":
+          case "/journal":
           return (
             <Header
               logo={"/inckd-logo.svg"}
               theme={"dark"}
               imgWidth="105"
               imgHeight="31"
-            
+              isPosition={true}
             />
           );
       default:
