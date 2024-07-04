@@ -17,15 +17,17 @@ const customStyles = {
     border: 'none', 
     background: 'transparent', 
     maxWidth: '800px', 
-    margin: '0 auto', 
+    margin: 'auto auto', 
     padding: '0px',
     top:'0',
     bottom: '0px',
     right:'0px',
     left: '0px',
     overflow: 'inherit',
-    maxHeight: 'inherit',
-    borderRadius: '8px'
+    maxHeight: '500px',
+    borderRadius: '0',
+    paddingLeft: "15px",
+    paddingRight: "15px"
   },
 };
 const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
