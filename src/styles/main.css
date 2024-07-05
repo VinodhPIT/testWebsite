@@ -286,6 +286,39 @@ ul.custom_list_view li img {
   height: 100%;
 }
 
+.slider_nav_arrows .slick-arrow {
+  position: absolute;
+}
+.slider_nav_arrows .slick-arrow.slick-next,
+.slider_nav_arrows .slick-arrow.slick-prev {
+  width: 24px;
+  height: 24px;
+  left: auto;
+}
+.slider_nav_arrows .slick-arrow.slick-next {
+  right: 16px;
+  top: -30px;
+}
+.slider_nav_arrows .slick-arrow.slick-prev {
+  right: 46px;
+  top: -30px;
+}
+.slider_nav_arrows .slick-arrow.slick-next:before,
+.slider_nav_arrows .slick-arrow.slick-prev:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("/icon_arrow_right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.slider_nav_arrows .slick-arrow.slick-prev:before {
+  background-image: url("/icon_arrow_left.svg");
+  background-repeat: no-repeat;
+}
+
 .main_slider .custom_slider .slick-track {
   margin-left: 0;
   margin-right: 0;
@@ -293,10 +326,10 @@ ul.custom_list_view li img {
 }
 
 .main_slider .custom_slider .slick-track .slick-slide {
-  display: flex;
-  flex-flow: column;
-  padding-bottom: 0;
-  height: auto;
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 0;
+    height: auto;    
 }
 
 .main_slider .custom_slider .slick-track .slick-slide > div {
@@ -305,17 +338,16 @@ ul.custom_list_view li img {
 }
 
 .main_slider .custom_slider .slick-track .slick-slide  .listing_gridItem {
-  padding-left: 0;    
-  padding-right: 21px;
-  position: relative;    
-  height: 100%;
+    padding-left: 0; 
+    position: relative;    
+    height: 100%;
 }
 
 .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem a {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 100%;    
 }
 .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col {
   width: 100%;
@@ -324,14 +356,17 @@ ul.custom_list_view li img {
 }
 
 .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col img {
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-  width: 100% !important;
-  height: revert-layer!important;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    /*height: revert-layer!important;*/
 }
 .main_slider .custom_slider.custom_square_slider .slick-slide .listing_gridItem .listing_grid_img_col img {
   height: 100% !important;
 }
+/* main slider end */
+
+
 .list_title {
   padding: 20px 0 0 0;
   text-align: left;    
@@ -516,17 +551,15 @@ min-height: 625px;
 max-height: 625px;
 }
 .artist_mid_img_block img {
-position: absolute;
-left: 0;
-right: 0;
-margin: 0 auto;
-bottom: 0;
-padding-left: 20px;
-padding-right: 20px;
-height: auto;
-max-height: 581px;
-object-fit: contain;
-object-position: bottom;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+  height: auto;
+  max-height: 581px;
+  object-fit: contain;
+  object-position: bottom;
 }
 
 .main_slider.slider_rectangle_shape .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col img {
@@ -933,7 +966,12 @@ top: 5px;
   padding-top: 60px;
 }  
 }
-
+@media screen and (min-width: 768px) and (max-width: 940px) {
+  .artist_mid_img_block img {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
 .klarna_works_block {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -965,40 +1003,43 @@ ul.progressbar li .progressbar_block:before {
 
 }
 @media screen and (min-width: 768px) {
-.sideDrawer {
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
-}
-.main_slider .custom_slider {
-  margin-right: -20px;
-}
-.klarna_works_accordion .klarna_works_items .accordion__button {   
-  flex-direction: column;
-  padding-top: 0;
-  margin-top: 32px;
-  padding-right: 27px;
-}
-.klarna_works_accordion .accordion__item:first-child .klarna_works_items .accordion__button {
-  padding-top: 0;
-  margin-top: 0;
-}
-.klarna_works_accordion .klarna_works_items .accordion__button:after {   
-  top: 45px;
-}
-.klarna_works_accordion .accordion .accordion__panel {
-  padding: 0;
-}
-.overlap_first .col-md-6:first-child {
-  width: 52%;
-}
-.overlap_first .col-md-6:last-child {
-  width: 48%;
-}  
-.overlap_second .col-md-6:first-child {
-  width: 48%;
-}
-.overlap_second .col-md-6:last-child {
-  width: 52%;
-} 
+  .sideDrawer {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+  }
+  .main_slider .custom_slider {
+    margin-right: -16px;
+  }
+  .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem {
+    padding-right: 16px;
+  }
+  .klarna_works_accordion .klarna_works_items .accordion__button {   
+    flex-direction: column;
+    padding-top: 0;
+    margin-top: 32px;
+    padding-right: 27px;
+  }
+  .klarna_works_accordion .accordion__item:first-child .klarna_works_items .accordion__button {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .klarna_works_accordion .klarna_works_items .accordion__button:after {   
+    top: 45px;
+  }
+  .klarna_works_accordion .accordion .accordion__panel {
+    padding: 0;
+  }
+  .overlap_first .col-md-6:first-child {
+    width: 52%;
+  }
+  .overlap_first .col-md-6:last-child {
+    width: 48%;
+  }  
+  .overlap_second .col-md-6:first-child {
+    width: 48%;
+  }
+  .overlap_second .col-md-6:last-child {
+    width: 52%;
+  } 
 
 /* popup */
 .join_artist_popup.popup_wrap {
@@ -1045,148 +1086,145 @@ ul.progressbar li .progressbar_block:before {
   height: 32px;
 }
 }
-@media screen and (max-width: 767.98px) {
-.home .sideDrawer {
-  top: 41px;
-}
-.home .drawer-sticky {
-  top: 0!important
-}
-.sideDrawer {
-  max-width: 100%;
-  width: 100%;
-}
-
-.closeWrapper img {
-  width: 24px;
-  height: 24px;
-}
-
-.drawer-header {
-  padding: 18px 15px 15px 15px;
-}
-
-.drawerBottom {
-  padding: 20px 15px;
-  bottom: 0px;
-}
-
-.menuList {
-  padding-bottom: 89px;
-  height: calc(100% - 155px);
-  overflow-y: auto;
-}
-
-.menuList ul {
-  padding: 0px 15px 0 15px;
-  padding: 0px 15px 15px 15px;
-  margin-top: 50px;
-  gap: 24px;
-}
-
-.menuList li a {
-  font-size: 22px;
-  line-height: 22px;
-}
-
-
-.banner_mob_fit {
-  height: calc(100vh - 110px) !important;
-  max-height: 742px !important;
-}
-.banner_caption {
-  align-items: flex-end;
-  padding: 0 15px 58px 15px;
-}
-.banner_caption p {
-  font-size: 14px;
-  line-height: 21px;
-}
-.banner_caption:before {       
-  display: none;        
-}  
-.main_slider .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col img {        
-  height: 100%!important;
-}
-ul.custom_list_view {
-  justify-content: flex-start;
-  flex-direction: column;
-}
-ul.custom_list_view li:after {
-  display: none;
-}
-ul.custom_list_view li {
-  margin-right: 0;
-  text-align: left;
-  font-size: 16px;    
-  line-height: 19px;
-  padding-right: 0;
-  width: 100%;
-  margin-bottom: 15px;
-}
-ul.custom_list_view li img {
-  width: 24px;
-  height: 24px;
-}
-.more_link {
-  margin-bottom: 10px;
-}
-.klarna_banner_button img {
-  width: 70px;
-  height: auto;
-}
-.klarna_pay_opt_grid {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  grid-column-gap: 0;
-  grid-row-gap: 0;
-  margin-bottom: 0;
-}
-.klarna_pay_opt_items {
-  padding: 24px 0;
-  min-height: inherit;
-  border: 0;
-  border-bottom: 1px solid var(--gray-light-300);
-}
-.klarna_pay_opt_grid .klarna_pay_opt_items:last-child {
-  border-bottom: 0;
-}
-.klarna_pay_opt_label {
-  font-size: 14px;
-  line-height: 21px;
-}
-.klarna_pay_terms p {
-  font-size: 12px;
-  line-height: 18px;
-}
-.klarna_works_accordion .accordion .accordion__item {
-  padding-bottom: 24px;
-}
-.klarna_works_accordion .accordion__item .accordion__panel {
-  padding: 8px 0 0 26px;
-}
-.klarna_works_accordion .accordion__item .accordion__panel p {
-  margin: 0;
-  font-weight: 400;
-}
-.klarna_works_accordion .klarna_works_items .klarna_num_count {
-  width: 18px;
-  height: 18px;
-  padding: 0px 4px;
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: 600;
-}
-.klarna_works_accordion .klarna_works_items .accordion__button {
-  align-items: center;
-}
-.artist_mid_img_block {
-  min-height: 307px;
-  max-height: 307px;
-}
-.artist_mid_img_block img {
-  max-height: 285px;
-  width: auto;
-}
+@media screen and (max-width: 767.98px) {   
+  .home .sideDrawer {
+    top: 41px;
+  }
+  .home .drawer-sticky {
+    top: 0!important
+  }
+  .sideDrawer {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .closeWrapper img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .drawer-header {
+    padding: 18px 15px 15px 15px;
+  }
+  
+  .drawerBottom {
+    padding: 20px 15px;
+    bottom: 0px;
+  }
+  
+  .menuList {
+    padding-bottom: 89px;
+    height: calc(100% - 155px);
+    overflow-y: auto;
+  }
+  
+  .menuList ul {
+    padding: 0px 15px 15px 15px;
+    margin-top: 50px;
+    gap: 24px;
+  }
+  
+  .menuList li a {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .banner_mob_fit {
+    height: calc(100vh - 110px) !important;
+    max-height: 742px !important;
+  }
+  .banner_caption {
+    align-items: flex-end;
+    padding: 0 15px 58px 15px;
+  }
+  .banner_caption p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .banner_caption:before {       
+    display: none;        
+  }  
+  .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col img {        
+    height: 100%!important;
+  }
+  ul.custom_list_view {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  ul.custom_list_view li:after {
+    display: none;
+  }
+  ul.custom_list_view li {
+    margin-right: 0;
+    text-align: left;
+    font-size: 16px;    
+    line-height: 19px;
+    padding-right: 0;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  ul.custom_list_view li img {
+    width: 24px;
+    height: 24px;
+  }
+  .more_link {
+    margin-bottom: 10px;
+  }
+  .klarna_banner_button img {
+    width: 70px;
+    height: auto;
+  }
+  .klarna_pay_opt_grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    margin-bottom: 0;
+  }
+  .klarna_pay_opt_items {
+    padding: 24px 0;
+    min-height: inherit;
+    border: 0;
+    border-bottom: 1px solid var(--gray-light-300);
+  }
+  .klarna_pay_opt_grid .klarna_pay_opt_items:last-child {
+    border-bottom: 0;
+  }
+  .klarna_pay_opt_label {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .klarna_pay_terms p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .klarna_works_accordion .accordion .accordion__item {
+    padding-bottom: 24px;
+  }
+  .klarna_works_accordion .accordion__item .accordion__panel {
+    padding: 8px 0 0 26px;
+  }
+  .klarna_works_accordion .accordion__item .accordion__panel p {
+    margin: 0;
+    font-weight: 400;
+  }
+  .klarna_works_accordion .klarna_works_items .klarna_num_count {
+    width: 18px;
+    height: 18px;
+    padding: 0px 4px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 600;
+  }
+  .klarna_works_accordion .klarna_works_items .accordion__button {
+    align-items: center;
+  }
+  .artist_mid_img_block {
+    min-height: 307px;
+    max-height: 307px;
+  }
+  .artist_mid_img_block img {
+    max-height: 285px;
+    width: auto;
+  }
 
 ul.progressbar li .progressbar_block:before {
   padding-left: 34px;
@@ -1319,9 +1357,9 @@ ul.progressbar li p {
 }
 
 @media screen and (min-width: 601px) and (max-width: 767.98px) {
-.main_slider .custom_slider {
-  margin-right: -15px;
-}
+  .main_slider .custom_slider {
+    margin-right: -12px;
+  }
 }
 @media screen and (max-width: 600px) {
 .main_slider .custom_slider .slick-track {

@@ -38,7 +38,7 @@ export default function JoinArtist() {
         <div class="row g-0">
           <div class="col-md-6">
             <div className="banner_block">
-              <div className="banner_col h_100_vh m_h_inherit min_h_reset">
+              <div className="banner_col h_100_vh min_h_100_pc m_h_inherit min_h_reset">
                 <div className="banner_img_wrap m_pos_relative">                  
                   <Image
                     src="/pexels-jasmin-chew-web.png"
