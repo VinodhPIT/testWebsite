@@ -85,7 +85,7 @@ const Review = () => {
       <div className="full_col_block h_126_vh m_h_60_vh">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 ">
+            <div className="col-md-12 align_content m_align_content">
               <section className="request_landing_content pt_30 m_pt_10">
                 <div className="request_landing_content_col align_self_stretch">
                   <h2>{t("common:stepper.title7")}</h2>
@@ -211,13 +211,13 @@ const Review = () => {
                   <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
                     <button
                       onClick={() => prevPage()}
-                      className="btn_outline_base mt_10 align_self m_w_50pc m_mt_0"
+                      className="button_primary_outline w_min_125 mt_10 align_self m_w_50pc m_mt_0"
                       >
                       {t("common:goBack")}
                     </button>
 
                     <button
-                      className="btn_defult_base mt_10 pull_right align_self_end m_w_50pc m_mt_0"
+                      className="button_primary w_min_125 mt_10 pull_right align_self_end m_w_50pc m_mt_0"
                       onClick={() => uploadDataToAPI()}
                     >
                       {t("common:submit")}
@@ -238,9 +238,7 @@ const Review = () => {
 
       {success && !userExists && <Modal />}
       {success && userExists && <Modal1 />}
-
     </>
   );
 };
-
 export default Review;

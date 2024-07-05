@@ -1,7 +1,7 @@
 .filter_container {
   float: left;
   width: 100%;
-  margin-top: 23px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: nowrap;
 }
@@ -216,13 +216,6 @@
 .placeholder {
   height: 50px;
 }
-.sticky {
-  position: fixed;
-  top: -5px;
-  z-index: 2;
-  left: 0;
-  right: 0;
-}
 
 @media screen and (max-width: 640px) {
   .tabSection ul > li {
@@ -281,8 +274,15 @@
   }
   .sticky {
     width: calc(100% + 18px);
-    top: 46px;
   }
+  .sticky {
+    position: fixed;
+    top: 46px;
+    z-index: 2;
+    left: 0;
+    right: 0;
+  }
+  
 }
 
 @media screen and (max-width: 490px) {

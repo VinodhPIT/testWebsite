@@ -141,7 +141,7 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
               <div className="d_flex justify_space_between m_gap_16">
                 <button
                   onClick={handleClose}
-                  className="btn_outline_base m_w_50pc"
+                  className="button_primary_outline w_min_125 m_w_50pc"
                 >
                   {t("common:cancel")}
                 </button>
@@ -151,8 +151,8 @@ const SelectedArtist = ({ toggleModel, onCloseModel }) => {
                   disabled={!anyDeselected}
                   className={
                     anyDeselected
-                      ? "btn_defult_base m_w_50pc"
-                      : "btn_defult_base m_w_50pc"
+                      ? "button_primary w_min_125 m_w_50pc"
+                      : "button_primary w_min_125 m_w_50pc"
                   }
                 >
                   {t("common:stepper.save")}

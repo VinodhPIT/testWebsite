@@ -465,6 +465,6 @@ revertCheckBox:()=>{// Set all artists to true
 
 }));
 
-export const useResetRequestFormState = () => {
+export const UseResetRequestFormState = () => {
   useRequestForm.getState().resetState();
 };

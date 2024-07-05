@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 import { getOs } from "../lib/os-detector";
-import {
-    APP_LINK_APPLE,
-    APP_LINK_GOOGLE,
-  } from "@/constants/constants";
-
-
+import { APP_LINK_APPLE, APP_LINK_GOOGLE, } from "@/constants/index";
+   
+  
 const useAppStoreLink = () => {
   const [appStoreLink, setAppStoreLink] = useState('');
   const [imageSrc, setImageSrc] = useState('');

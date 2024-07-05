@@ -130,7 +130,7 @@ export default function DownloadApps() {
               </div>
 
               <button onClick={openApp} className="button_primary align_self mt_30 mob_hidden">
-                Get the app
+              {t("common:download_app")}
               </button>
               <Link href={appStoreLink} target="_blank" className="m_mt_25 desk_hidden">
                 <Image

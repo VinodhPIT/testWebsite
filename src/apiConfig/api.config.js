@@ -80,13 +80,8 @@ const API_URL = {
         : ""
       }`,
   },
-
-
   GET_CONTENT: "/v2/api/cms/list"
-
-
-
-
 };
 
 export default API_URL;
+

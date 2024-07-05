@@ -2,8 +2,7 @@
   "menus": {
     "home": "Inicio",
     "tattooSearch": "Explorar tatuajes",
-    "styleGuide": "Styleguide",
-    "dictionary": "Diccionario",
+    "exploreArtists":"Explore artists",
     "forTattooArtists": "Para Artistas de Tatuajes",
     "forArtists": "Para artistas",
     "klarna": "Klarna",
@@ -16,7 +15,6 @@
     "journal": "Journal",
     "joinArtist": "Join as artist"
   },
-
 
   "sideDrawerMenus":{
     "home": "Home",

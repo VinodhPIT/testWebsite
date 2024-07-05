@@ -1,24 +1,35 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+import useTranslation from "next-translate/useTranslation";
+
+import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import { useModal } from "@/utils/modalUtils";
+import { useQrModal } from '@/context/ModalContext';
+
+import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
+
+import {pagesWithoutFooter ,pagesWithoutSwitcher} from "@/config/index";
 import {
   INSTAGRAM_PROFILE_LINK,
   FACEBOOK_PROFILE_LINK,
   LINKEDIN_PROFILE_LINK,
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
+  BLUR_URL
 } from "@/constants/constants";
-import { useRouter } from "next/router";
-import { useModal } from "@/utils/modalUtils";
-import useTranslation from "next-translate/useTranslation";
-import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
-import {pagesWithoutFooter ,pagesWithoutSwitcher} from "@/config/index";
 
 
 export default function Footer() {
   const { t } = useTranslation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
+
   const router = useRouter();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
+
+  const { openModal } = useQrModal();
 
   const bookLinks = [
     {
@@ -59,9 +70,6 @@ export default function Footer() {
       title: t("common:menus.joinArtist"),
       url: `/${router.locale}/join-as-artist`,
     },
-
-
-
   ];
 
   const links = [
@@ -131,33 +139,29 @@ export default function Footer() {
 
                   {renderSwitcher(router.pathname, router.locale, openPopup)}
 
-                  <ul className="footer_list">
-                    <li className="footer_title hidden">
-                      <h6>{t("common:download-app-on")}</h6>
-                    </li>
-                    <li>
-                      <Link href={APP_LINK_APPLE} target="_blank">
-                        <Image
-                          src={"/app-store-new.svg"}
-                          alt="AppStore"
-                          width={134}
-                          height={41}
-                          priority
-                        />
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href={APP_LINK_GOOGLE} target="_blank">
-                        <Image
-                          src={"/g-play-new.svg"}
-                          alt="GooglePlay"
-                          width={134}
-                          height={41}
-                          priority
-                        />
-                      </Link>
-                    </li>
-                  </ul>
+                  <button
+                    onClick={openModal}
+                    target="_blank"
+                    className="button_primary_outline mt_15 w_100pc mob_hidden"
+                  >
+                  {t("common:download_app")}
+                  </button>
+                  <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+                    <Image
+                      priority
+                      src={imageSrc}
+                      alt={
+                        appStoreLink === APP_LINK_APPLE
+                          ? "App store"
+                          : "GooglePlay"
+                      }
+                      width={134}
+                      height={41}
+                      placeholder="blur"
+                      blurDataURL={BLUR_URL}
+                      className="custom_download_icons desk_hidden"
+                    />
+                  </Link>
                 </div>
 
                 <div className="footer_right">
