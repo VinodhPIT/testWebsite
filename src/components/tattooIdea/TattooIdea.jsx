@@ -3,21 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { useRequestPath } from '@/hooks/useRequestPath';
-import useWindowResize from "@/hooks/useWindowSize";
-
 import useTranslation from "next-translate/useTranslation";
+
 import usePath from'@/store/setPath/setPath'
 
 import { blurDataURL } from "@/constants/constants";
 
 export default function TattooIdea() {
+  
   const { t } = useTranslation();
   const router = useRouter();
-  const { isMobileView  ,isSmallDevice} = useWindowResize();
-  const requestPath = useRequestPath(isSmallDevice);
   const {setPathname} = usePath()
-
 
   return (
     <section className="container_full">
@@ -25,54 +21,53 @@ export default function TattooIdea() {
         <div className="col-md-12">
           <div className="w_100pc text_center m_text_left pt_60 pb_60 m_pt_40 m_pb_40">
             <h2 className="custom_fs_60 fw_800 mb_25 mob_hidden">
-              {" "} 
-              {t("common:homePage.Share your tattoo idea")}
+              {t("common:homePage.shareIdea")}
             </h2>
             <h2 className="color_gray_550 text_left custom_fs_m_32 fw_900 m_mb_15 desk_hidden">              
               <span className="position_relative">
-                <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">SHARE YOUR</span>
-                Tattoo Idea</span>           
+                <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:homePage.shareYour")}</span>
+                {t("common:homePage.tattooIdea")}</span>           
             </h2>                 
             <ul class="custom_list_view">
               <li className="">
                 <Image
                   priority
                   src="/compare_offer_icon.svg"
-                  alt="Compare different offers"
+                  alt= {t("common:homePage.compareOffers")}
                   width={32}
                   height={32}
                   className="mr_8"
                 />
-                Compare different offers
+                {t("common:homePage.compareOffers")}
               </li>
               <li className="">
                 <Image
                   priority
                   src="/user_artist_icon.svg"
-                  alt="Send one request to multiple artists"
+                  alt={t("common:homePage.sendOneRequest")}
                   width={32}
                   height={32}
                   className="mr_8"
                 />
-                Send one request to multiple artists
+              {t("common:homePage.sendOneRequest")}
               </li>
               <li className="">
                 <Image
                   priority
                   src="/calender_icon.svg"
-                  alt="Book your tattoo easily and quickly"
+                  alt={t("common:homePage.bookYourTattooEasily")}
                   width={32}
                   height={32}
                   className="mr_8"
                 />
-                Book your tattoo easily and quickly
+               {t("common:homePage.bookYourTattooEasily")}
               </li>  
             </ul>
             <Link
               href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
               className="button_primary w_min_230 m_w_100pc m_mt_10"
             >
-              {t("common:homePage.CreateATattooRequest")}
+              {t("common:homePage.startRequest")}
             </Link>
           </div>
         </div>

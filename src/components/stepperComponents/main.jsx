@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,21 +7,13 @@ import { useNavigation } from "@/hooks/useRouter";
 import useTranslation from "next-translate/useTranslation";
 import usePath from  '@/store/setPath/setPath'
 
-
-
-import {
-  BLUR_URL,
-} from "@/constants/index";
-
-
-
+import { BLUR_URL} from "@/constants/index";
+ 
 export default function Main() {
   const { t } = useTranslation();
   const { router } = useNavigation();
-
   const {pathname} =usePath()
   
-
   return (
     <>
       <section className="full_block_banner">
@@ -120,23 +112,14 @@ export default function Main() {
                       </Link>
                     </div>
                   </div>
-
-
-
-
-
-
-
-
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
     </>
   );
 }
+
+

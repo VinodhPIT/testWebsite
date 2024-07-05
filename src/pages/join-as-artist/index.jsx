@@ -5,21 +5,20 @@ import Link from "next/link";
 
 import useTranslation from "next-translate/useTranslation";
 
-import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import { useQrModal } from '@/context/ModalContext';
 
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/index";
 
 
 export default function JoinArtist() {
   const { t } = useTranslation();
-  const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
-
+  const { openModal } = useQrModal();
   return (
     <>
       <Head>
@@ -39,7 +38,7 @@ export default function JoinArtist() {
         <div class="row g-0">
           <div class="col-md-6">
             <div className="banner_block">
-              <div className="banner_col h_100_vh m_h_inherit min_h_reset">
+              <div className="banner_col h_100_vh min_h_100_pc m_h_inherit min_h_reset">
                 <div className="banner_img_wrap m_pos_relative">                  
                   <Image
                     src="/pexels-jasmin-chew-web.png"
@@ -78,11 +77,10 @@ export default function JoinArtist() {
                           </h4>
                           <p>{t("common:joinartistPage.getStarted")}</p>
                           <button
-                            onClick={openApp}
-                            target="_blank"
+                            onClick={openModal}
                             className="button_primary button_primary mob_hidden mt_15"
                           >
-                            Get the app
+                           {t("common:download_app")}
                           </button>
                           <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                             <Image

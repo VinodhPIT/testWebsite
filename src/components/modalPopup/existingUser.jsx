@@ -2,23 +2,18 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import useOpenApp from '@/hooks/useOpenApp';
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
 
-import { useResetRequestFormState } from "@/store/requestManagement/requestForm";
+import { useQrModal } from '@/context/ModalContext';
+import { UseResetRequestFormState } from "@/store/requestManagement/requestForm";
 
 import figtree from "@/helpers/fontHelper";
 
-
-import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  BLUR_URL,
-} from "@/constants/constants";
-
+import {APP_LINK_APPLE,BLUR_URL} from "@/constants/constants";
+  
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(6, 6, 6, 0.78)",
@@ -42,10 +37,16 @@ const customStyles = {
   },
 };
 const TattooSearchModal1Popup = ({}) => {
-  const { t } = useTranslation();
-  const { openApp } = useOpenApp();
-  const { appStoreLink, imageSrc } = useAppStoreLink();
   
+  const { t } = useTranslation();
+  const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { openModal } = useQrModal();
+  
+  function handleClick() {
+    openModal();
+    UseResetRequestFormState()
+  }
+
   return (
     <Modal
       isOpen={true}
@@ -53,7 +54,6 @@ const TattooSearchModal1Popup = ({}) => {
       style={customStyles}
       ariaHideApp={false}
     >
-
       <div className={`popup_wrap custom_popup_design ${figtree.className}`}>
           <div className="popup_container">
             <div className="popup_box_inner">
@@ -69,7 +69,7 @@ const TattooSearchModal1Popup = ({}) => {
               <div className="popup_right">
                 <button
                   className="close_button"
-                  onClick={useResetRequestFormState}
+                  onClick={UseResetRequestFormState}
                 >
                   <Image
                     width={25}
@@ -98,11 +98,10 @@ const TattooSearchModal1Popup = ({}) => {
                         {t("common:stepper.Login with your existing account")}
                       </p>  
                       <button
-                        onClick={openApp}
-                        target="_blank"
+                        onClick={handleClick}
                         className="button_primary_outline mt_30 w_100pc d_max_248 mob_hidden"
                       >
-                        Get the app
+                        {t("common:download_app")}
                       </button>
                       <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                         <Image
@@ -127,9 +126,10 @@ const TattooSearchModal1Popup = ({}) => {
             </div>
           </div>
         </div>
-      
     </Modal>
   );
 };
 
 export default TattooSearchModal1Popup;
+
+

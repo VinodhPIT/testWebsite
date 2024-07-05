@@ -238,9 +238,7 @@ const Review = () => {
 
       {success && !userExists && <Modal />}
       {success && userExists && <Modal1 />}
-
     </>
   );
 };
-
 export default Review;

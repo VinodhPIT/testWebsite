@@ -4,20 +4,17 @@ import Link from "next/link";
 
 import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
-import { useResetRequestFormState } from "@/store/requestManagement/requestForm";
+import { UseResetRequestFormState } from "@/store/requestManagement/requestForm";
 
-import useOpenApp from '@/hooks/useOpenApp';
+import { useQrModal } from '@/context/ModalContext';
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/constants";
 
 import figtree from "@/helpers/fontHelper";
-
-
 
 const customStyles = {
   overlay: {
@@ -43,8 +40,15 @@ const customStyles = {
 };
 const SucessModal = ({}) => {
   const { t } = useTranslation();
-  const { openApp } = useOpenApp();
+
   const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { openModal } = useQrModal();
+  
+  function handleClick() {
+    openModal();
+    UseResetRequestFormState()
+  }
+
   return (
     <Modal
       isOpen={true}
@@ -68,7 +72,7 @@ const SucessModal = ({}) => {
               <div className="popup_right">
                 <button
                   className="close_button"
-                  onClick={useResetRequestFormState}
+                  onClick={UseResetRequestFormState}
                 >
                   <Image
                     width={25}
@@ -97,11 +101,10 @@ const SucessModal = ({}) => {
                         {t("common:stepper.bringYouridea")}
                       </p>
                       <button
-                        onClick={openApp}
-                        target="_blank"
+                        onClick={handleClick}
                         className="button_primary_outline mt_30 w_100pc d_max_248 mob_hidden"
                       >
-                        Get the app
+                         {t("common:download_app")}
                       </button>
                       <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                         <Image

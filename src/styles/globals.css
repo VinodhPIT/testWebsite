@@ -162,7 +162,7 @@ button:disabled {
 }
 
 #nprogress .bar {
-  background: var(--black-200);
+  background: var(--green-dark-400);
   height: 4px;
   position: fixed;
   z-index: 1031;
@@ -208,7 +208,6 @@ header.header_wrapper {
   padding: 0;
   width: 100%;
   margin: 0;
-  position: fixed;
   left: 0;
   right: 0;
   z-index: 1;
@@ -224,19 +223,26 @@ header.header_wrapper:after {
 header.header_wrapper:before {
   content: "";
   width: 100%;
-  background-color: #fff;
   height: 1px;
   position: absolute;
-  top: inherit;
-  bottom: 0;
+  bottom: -1px;
   opacity: 0.4;
 }
+
+header.border-bottom-white:before {
+  background-color:var(--white);  
+}
+
+header.border-bottom-grey:before {
+  background-color: var(--gray-300);
+}
+
 header.header_wrapper.fixed:after {
   background: #fff;
 }
 
 header.fixed {
-  position: fixed;
+  position: fixed!important;
   top: 0;
   left: 0;
   right: 0;
@@ -653,55 +659,6 @@ footer {
 .footer .footer_secondary .social_icons ul li a:hover svg {
   fill: var(--red-600);
 }
-/*
-body.theme_dark footer {
-  background: var(--black-150);
-}
-
-body.theme_dark footer .footer_block .footer_logo {
-  width: 169px;
-  height: 135px;
-  margin: 0;
-}
-
-body.theme_dark footer .footer_block .footer_logo a {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-end;
-  padding-bottom: 34px;
-}
-
-body.theme_dark footer .footer_block .footer_logo a svg {
-  position: absolute;
-  left: -20px;
-  z-index: 0;
-}
-
-body.theme_dark footer .footer_block .footer_logo a img {
-  position: relative;
-}
-
-body.theme_dark footer .footer_block ul.footer_list li a {
-  color: var(--white);
-}
-
-body.theme_dark footer .footer_block ul.footer_list li a:hover {
-  color: var(--white);
-  text-decoration: none;
-}
-
-body.theme_dark footer .footer_block .footer_left ul.footer_list {
-  margin: 2px 0 0 0;
-}
-
-body.theme_dark footer .foot_links ul.links li a {
-  color: var(--white);
-}
-
-body.theme_dark footer .foot_links ul.links li a:hover {
-  color: var(--white);
-  text-decoration: none;
-}*/
 
 /*  cookies */
 .header_cookies {
@@ -968,6 +925,9 @@ body.theme_dark footer .foot_links ul.links li a:hover {
 
 .color_gray_150 {
   color: var(--gray-light-150);
+}
+.color_gray_400 {
+  color: var(--gray-400);
 }
 
 .color_gray_550 {
@@ -5757,6 +5717,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
+  .nav_open {
+    overflow: hidden!important;
+  }
   .container_full {
     padding-right: 15px;
     padding-left: 15px;
