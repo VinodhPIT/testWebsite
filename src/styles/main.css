@@ -222,6 +222,39 @@ ul.custom_list_view li img {
     height: 100%;
 }
 
+.slider_nav_arrows .slick-arrow {
+  position: absolute;
+}
+.slider_nav_arrows .slick-arrow.slick-next,
+.slider_nav_arrows .slick-arrow.slick-prev {
+  width: 24px;
+  height: 24px;
+  left: auto;
+}
+.slider_nav_arrows .slick-arrow.slick-next {
+  right: 16px;
+  top: -30px;
+}
+.slider_nav_arrows .slick-arrow.slick-prev {
+  right: 46px;
+  top: -30px;
+}
+.slider_nav_arrows .slick-arrow.slick-next:before,
+.slider_nav_arrows .slick-arrow.slick-prev:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url("/icon_arrow_right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.slider_nav_arrows .slick-arrow.slick-prev:before {
+  background-image: url("/icon_arrow_left.svg");
+  background-repeat: no-repeat;
+}
+
 .main_slider .custom_slider .slick-track {
     margin-left: 0;
     margin-right: 0;
@@ -232,7 +265,7 @@ ul.custom_list_view li img {
     display: flex;
     flex-flow: column;
     padding-bottom: 0;
-    height: auto;
+    height: auto;    
 }
 
 .main_slider .custom_slider .slick-track .slick-slide > div {
@@ -241,8 +274,7 @@ ul.custom_list_view li img {
 }
 
 .main_slider .custom_slider .slick-track .slick-slide  .listing_gridItem {
-    padding-left: 0;    
-    padding-right: 21px;
+    padding-left: 0; 
     position: relative;    
     height: 100%;
 }
@@ -251,7 +283,7 @@ ul.custom_list_view li img {
     display: flex;
     flex-direction: column;
     padding: 0;
-    height: 100%;
+    height: 100%;    
 }
 .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col {
     width: 100%;
@@ -263,11 +295,14 @@ ul.custom_list_view li img {
     object-fit: cover;
     aspect-ratio: 1 / 1;
     width: 100% !important;
-    height: revert-layer!important;
+    /*height: revert-layer!important;*/
 }
 .main_slider .custom_slider.custom_square_slider .slick-slide .listing_gridItem .listing_grid_img_col img {
     height: 100% !important;
 }
+/* main slider end */
+
+
 .list_title {
     padding: 20px 0 0 0;
     text-align: left;    
@@ -457,8 +492,6 @@ ul.custom_list_view li img {
   right: 0;
   margin: 0 auto;
   bottom: 0;
-  padding-left: 20px;
-  padding-right: 20px;
   height: auto;
   max-height: 581px;
   object-fit: contain;
@@ -843,7 +876,12 @@ ul.progressbar li .progressbar_block .app_dwld_img_wrap {
     padding-top: 60px;
   }  
 }
-
+@media screen and (min-width: 768px) and (max-width: 940px) {
+  .artist_mid_img_block img {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
   .klarna_works_block {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -876,7 +914,10 @@ ul.progressbar li .progressbar_block .app_dwld_img_wrap {
 }
 @media screen and (min-width: 768px) {
   .main_slider .custom_slider {
-    margin-right: -20px;
+    margin-right: -16px;
+  }
+  .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem {
+    padding-right: 16px;
   }
   .klarna_works_accordion .klarna_works_items .accordion__button {   
     flex-direction: column;
@@ -967,9 +1008,18 @@ ul.progressbar li .progressbar_block .app_dwld_img_wrap {
   }
   .banner_caption:before {       
     display: none;        
-  }  
+  }
+  .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem {
+    padding-right: 12px;
+  }
   .main_slider .custom_slider .slick-track .slick-slide .listing_gridItem .listing_grid_img_col img {        
     height: 100%!important;
+  }
+  .slider_nav_arrows .slick-arrow.slick-next {
+    right: 12px;
+  }
+  .slider_nav_arrows .slick-arrow.slick-prev {
+    right: 42px;
   }
   ul.custom_list_view {
     justify-content: flex-start;
@@ -1183,7 +1233,7 @@ ul.progressbar li .progressbar_block .app_dwld_img_wrap {
 
 @media screen and (min-width: 601px) and (max-width: 767.98px) {
   .main_slider .custom_slider {
-    margin-right: -15px;
+    margin-right: -12px;
   }
 }
 @media screen and (max-width: 600px) {

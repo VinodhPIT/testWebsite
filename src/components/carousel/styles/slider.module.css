@@ -27,8 +27,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: self-start;
-    padding: 0 10px 0 0;
-    width: calc(100% - 48px);
+    padding: 0;
+    width: calc(100% - 58px);
 }
 
 .listing_grid_profile_title {   
