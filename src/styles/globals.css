@@ -208,7 +208,6 @@ header.header_wrapper {
   padding: 0;
   width: 100%;
   margin: 0;
-  position: fixed;
   left: 0;
   right: 0;
   z-index: 1;
@@ -224,19 +223,26 @@ header.header_wrapper:after {
 header.header_wrapper:before {
   content: "";
   width: 100%;
-  background-color: #fff;
   height: 1px;
   position: absolute;
-  top: inherit;
-  bottom: 0;
+  bottom: -1px;
   opacity: 0.4;
 }
+
+header.border-bottom-white:before {
+  background-color:var(--white);  
+}
+
+header.border-bottom-grey:before {
+  background-color: var(--gray-300);
+}
+
 header.header_wrapper.fixed:after {
   background: #fff;
 }
 
 header.fixed {
-  position: fixed;
+  position: fixed!important;
   top: 0;
   left: 0;
   right: 0;
@@ -919,6 +925,9 @@ footer {
 
 .color_gray_150 {
   color: var(--gray-light-150);
+}
+.color_gray_400 {
+  color: var(--gray-400);
 }
 
 .color_gray_550 {

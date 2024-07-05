@@ -9,7 +9,6 @@ import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import countriesData from "@/data/countries.json";
-import styles from "./style.module.css";
 import figtree from "@/helpers/fontHelper";
 
 const customStyles = {
@@ -61,7 +60,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     >
       
         <div className={`popup_wrap ${figtree.className}`}>
-          <div className={`${"popup_container"} ${styles.popup_container}`}> 
+          <div className="popup_container"> 
             <div className="language_popup">
               <button
                 className="close_button"
@@ -85,8 +84,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                         <button
                           className={
                             router.locale === e.set
-                              ? styles.activeCountry
-                              : styles.inActivecountry
+                              ? "activeCountry"
+                              : "inActivecountry"
                           }
                           onClick={() => chooseLanguage(e.countryCode, e.lng)}
                         >

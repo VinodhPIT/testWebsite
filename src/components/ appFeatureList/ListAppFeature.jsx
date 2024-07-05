@@ -4,15 +4,16 @@ import Image from "next/image";
 
 import useTranslation from "next-translate/useTranslation";
 
-import useOpenApp from "@/hooks/useOpenApp";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import { useQrModal } from '@/context/ModalContext';
 
 import {APP_LINK_APPLE, BLUR_URL, } from "@/constants/constants";
 
 export default function DownloadApps() {
   const { t } = useTranslation();
-  const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { openModal } = useQrModal();
 
   return (
     <section className="container_full pb_40">
@@ -124,7 +125,7 @@ export default function DownloadApps() {
                 </div>
               </div>
 
-              <button onClick={openApp} className="button_primary align_self mt_30 mob_hidden">
+              <button onClick={openModal} className="button_primary align_self mt_30 mob_hidden">
               {t("common:download_app")}
               </button>
               <Link href={appStoreLink} target="_blank" className="m_mt_25 desk_hidden">

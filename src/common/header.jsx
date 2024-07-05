@@ -19,7 +19,7 @@ export default function Header({
   logo,
   theme,
   imgWidth,
-  imgHeight
+  imgHeight,isPosition
 }) {
   const router = useRouter();
   const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
@@ -128,7 +128,7 @@ export default function Header({
         </>
       )}
 
-      <header className={`${"header_wrapper"} ${isFixed ? "fixed" : ""}`}>
+       <header className={`header_wrapper ${isFixed ? "fixed" : ""} ${isPosition  ? "border-bottom-white" : "border-bottom-grey"}`}         style={isPosition === true ? { position: "fixed" } : {position:"relative"}}>
         <div>
           <div className={"container_full pl_60 pr_60 m_pl_15 m_pr_15"}>
             <nav className="header_navigation">

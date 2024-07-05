@@ -1,25 +1,32 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+
 import { Figtree } from 'next/font/google'
 import { SessionProvider } from "next-auth/react";
-import UseLayout from "@/hooks/useLayout";
 import NProgress from "nprogress";
+
+import UseLayout from "@/hooks/useLayout";
+
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
+
 import { GlobalStateProvider } from "@/context/Context";
+import { ModalProvider } from "@/context/ModalContext";
 import loadGoogleMapsAPI from "@/utils/google-maps";
+import { AxiosProvider } from '@/apiConfig/axios.instance'; 
+
 
 import Header from "@/common/header";
 import Footer from "@/common/footer";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
 import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
 import "@/styles/main.css";
-import { AxiosProvider } from '@/apiConfig/axios.instance'; // Adjust the import path as needed
+
 
 
 NProgress.configure({ showSpinner: false });
@@ -54,45 +61,52 @@ function MyApp({ Component, pageProps }) {
 
   function getHeaderComponent(locale, pathname) {
     switch ((locale, pathname)) {
-      case "/":
-      
-      case "/tattoo-dictionary":
-      case "/tattoo-styleguide":
       case "/explore/[[...slug]]":
       case "/artists/[detail]":
       case `/explore/tattoos/[detail]`:
       case "/explore/flash-tattoos/[detail]":
       case "/404":
-      case "/journal":
-      case "/contact":
-      case "/join-as-artist":
-      case "/faq":
       case "/privacy_policy":
       case "/terms&conditions":
       case "/impressum":
       case "/user_data_policy":
       case "/privacy-policy":
-      case "/download/[[...download]]":
-      case "/comingSoon":
-      case "/explore-style":
+       case "/faq":
         return (
           <Header
             logo={"/Inckd_logo_black.svg"}
             theme={"light"}
             imgWidth="105"
             imgHeight="31"
+            isPosition={false}
            
           />
         );
-        case "/klarna":
+        case "/":
+      case "/download/[[...download]]":
+      case "/comingSoon":
+      case "/explore-style":
+      case "/contact":
+      case "/join-as-artist":
+        return (
+          <Header
+            logo={"/Inckd_logo_black.svg"}
+            theme={"light"}
+            imgWidth="105"
+            imgHeight="31"
+            isPosition={true}
+          />
+        );
+          case "/klarna":
           case "/for-tattoo-artists":
+          case "/journal":
           return (
             <Header
               logo={"/inckd-logo.svg"}
               theme={"dark"}
               imgWidth="105"
               imgHeight="31"
-            
+              isPosition={true}
             />
           );
       default:
@@ -111,22 +125,23 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+
      <AxiosProvider>
       <SessionProvider session={pageProps.session}>
+      <ModalProvider>
         <GlobalStateProvider>
           <div className={figtree.className}>
-            
             {getHeaderComponent(router.locale, router.pathname)}
-
             <UseLayout pathname={router.pathname}>
               <Component {...pageProps} />
             </UseLayout>
-
             <Footer />
           </div>
         </GlobalStateProvider>
+        </ModalProvider>
       </SessionProvider>
       </AxiosProvider>
+
     </>
   );
 }

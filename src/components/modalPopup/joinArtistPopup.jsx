@@ -1,15 +1,17 @@
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
 import Modal from "react-modal";
 import useTranslation from "next-translate/useTranslation";
-import Image from "next/image";
-import figtree from "@/helpers/fontHelper";
-import Link from "next/link";
-import useOpenApp from "@/hooks/useOpenApp";
+
+import { useQrModal } from '@/context/ModalContext';
 import useAppStoreLink from "@/hooks/useAppStoreLink";
+
+import figtree from "@/helpers/fontHelper";
 
 import {
   APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
   BLUR_URL,
 } from "@/constants/index";
 
@@ -37,9 +39,14 @@ const customStyles = {
 };
 const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
   const { t } = useTranslation();
-  const { openApp } = useOpenApp();
   const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { openModal } = useQrModal();
 
+  function handleClick() {
+    openModal();
+    closeModal();
+  }
+  
   return (
     <Modal
       isOpen={isOpen}
@@ -47,8 +54,6 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
       style={customStyles}
       ariaHideApp={false}
     >
-
-
       <div className={`popup_wrap join_artist_popup ${figtree.className}`}>
         <div className="popup_container">
           <div className="popup_box_inner m_justify_content_center">
@@ -82,11 +87,11 @@ const TattooSearchModalPopup = ({ isOpen, closeModal }) => {
                         <p>{t("common:joinartistPage.getStartedDownload")}</p>
 
                         <button
-                          onClick={openApp}
+                          onClick={handleClick}
                           target="_blank"
                           className="button_primary button_primary mob_hidden mt_15"
                         >
-                          Get the app
+                        {t("common:download_app")}
                         </button>
                         <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                           <Image
