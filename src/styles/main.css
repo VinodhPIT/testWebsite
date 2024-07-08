@@ -479,12 +479,24 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 border-radius: 100px;
-border: 2px solid var(--gray-light-300);
 background: #fff;
 font-size: 24px;
 font-weight: 800;
 line-height: 29px;
 }
+
+.active_numCount{
+  border: 0.67px solid var(--black);
+  background-color:var(--black-200);
+  color:var(--white)
+}
+.inactive_count{
+  border: 0.67px solid var(--gray-light-300);
+}
+.klarna_works_block .kl_count{
+  border: 1px solid var(--gray-light-300);
+} 
+
 .klarna_works_accordion .accordion {
 border: 0;
 padding: 0;

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -9,7 +9,7 @@ import {
   AccordionItem,
   AccordionItemHeading,
   AccordionItemButton,
-  AccordionItemPanel,
+  AccordionItemPanel
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
 
@@ -36,6 +36,7 @@ function KlarnaNew({ }) {
   const { isMobileView } = useWindowResize();
   const { allListing } = useDisplayAll();
 
+  
   const klarnaOptions = [
     {
       id: "1",
@@ -102,6 +103,11 @@ function KlarnaNew({ }) {
       num: "6",
     },
   ];
+  const [expandedItems, setExpandedItems] = useState(['1']); // Initial expanded item
+
+  const handleChange = (uuids) => {
+    setExpandedItems(uuids);
+  };
 
   return (
     <>
@@ -348,7 +354,7 @@ function KlarnaNew({ }) {
                 {list.map((el, index) => {
                   return (
                     <div className="klarna_works_items" key={index}>
-                      <span className="klarna_num_count">{el.num}</span>
+                      <span className="klarna_num_count kl_count">{el.num}</span>
                       <h4 className="color_gray_550 custom_fs_28 fw_700 mt_15 mb_8">
                         {el.title}
                       </h4>
@@ -361,21 +367,27 @@ function KlarnaNew({ }) {
               </div>
 
               <div className="klarna_works_accordion desk_hidden">
-                <Accordion allowZeroExpanded={true} preExpanded={['1']}>
-                  {list.map((el, index) => (
-                    <AccordionItem key={index} uuid={el.num}>
-                      <AccordionItemHeading className="klarna_works_items">
-                        <AccordionItemButton>
-                          <span className="klarna_num_count">{el.num}</span>
-                          <h4 className="color_gray_550">{el.title}</h4>
-                        </AccordionItemButton>
-                      </AccordionItemHeading>
-                      <AccordionItemPanel>
-                        <p className="color_gray_550">{el.content}</p>
-                      </AccordionItemPanel>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+              <Accordion allowZeroExpanded={true} preExpanded={expandedItems} onChange={handleChange}>
+      {list.map((el, index) => (
+        <AccordionItem key={index} uuid={el.num}>
+          <AccordionItemHeading className="klarna_works_items">
+            <AccordionItemButton>
+              <span
+                className={`klarna_num_count ${
+                  expandedItems.includes(el.num) ? 'active_numCount' : 'inactive_count'
+                }`}
+              >
+                {el.num}
+              </span>
+              <h4 className="color_gray_550">{el.title}</h4>
+            </AccordionItemButton>
+          </AccordionItemHeading>
+          <AccordionItemPanel>
+            <p className="color_gray_550">{el.content}</p>
+          </AccordionItemPanel>
+        </AccordionItem>
+      ))}
+    </Accordion>
               </div>
             </div>
           </div>
