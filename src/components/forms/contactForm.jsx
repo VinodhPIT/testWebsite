@@ -38,12 +38,12 @@ const _Form = () => {
                 validationSchema={schemaValidator(t)}
                 onSubmit={(values, { resetForm }) => {
                   fetch(
-                    `https://us-central1-inckd-9a593.cloudfunctions.net/openZendeskTicket`,
+                    // `https://us-central1-inckd-9a593.cloudfunctions.net/openZendeskTicket`,
                     {
                       method: "POST",
                       body: JSON.stringify({
                         ticket: {
-                          assignee_email: "roland@inckd.com",
+                          // assignee_email: "roland@inckd.com",
                           subject: "[CONTACT FORM] New contact form message",
                           comment: {
                             body: values.message,
