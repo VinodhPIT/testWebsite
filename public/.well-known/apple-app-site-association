@@ -1,3 +1,4 @@
+
 {
   "applinks": {
     "apps": [],
@@ -5,7 +6,13 @@
       {
         "appID": "5JPKVQN9NH.com.inckd.inckdapp",
         "paths": [
-          "*"
+          "/chat",
+          "/chat/*",
+          "/tattoo/*",
+          "/session/*",
+          "/onboard/*",
+          "/artists/*",
+          "/a/*"
         ]
       }
     ]
