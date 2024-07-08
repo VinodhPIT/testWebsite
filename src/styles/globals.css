@@ -899,6 +899,10 @@ footer {
   color: var(--yellow-400);
 }
 
+.color_black_450 {
+  color: var(--black-450);
+}
+
 .color_black {
   color: var(--black-550);
 }
@@ -1089,12 +1093,14 @@ footer {
 .letter_spacing_02 {
   letter-spacing: -2px !important;
 }
-
+.letter_spacing_024 {
+  letter-spacing: -2.4px !important;
+}
 .letter_spacing_025 {
   letter-spacing: -2.5px !important;
 }
 
-.letter_spacing_03 {
+.letter_spacing_032 {
   letter-spacing: -3.2px !important;
 }
 
@@ -1244,6 +1250,10 @@ footer {
 .v_align_top {
   vertical-align: top !important;
 }
+.word_break {
+  word-break: break-word;
+}
+
 .ml_auto {
   margin-left: auto !important;
 }
@@ -6156,10 +6166,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .default_form_block {
     padding-top: 100px;
   }
-
+/*
   .form_submit_block {
     min-height: 45vh;
-  }
+  }*/
 
   .default_form_block h1.page_title {
     margin: 0;
@@ -6377,6 +6387,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 
   .m_pt_80 {
     padding-top: 80px !important;
+  }
+  .m_pt_85 {
+    padding-top: 85px !important;
   }
   .m_pb_10 {
     padding-bottom: 10px !important;
@@ -6925,7 +6938,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .m_min_h_225 {
     min-height: 225px !important;
   }
-
+  .m_min_h_300 {
+    min-height: 300px !important;
+  }
   .m_min_h_425 {
     min-height: 425px !important;
   }
@@ -6997,6 +7012,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 
   .m_gap_16 {
     gap: 16px!important;
+  }
+
+  .letter_spacing_m_024 {
+    letter-spacing: -2.4px !important;
   }
 
   .btn_outline_base {
