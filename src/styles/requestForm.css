@@ -1211,6 +1211,7 @@ button.btn_view_more:hover {
     width: auto;
     min-height: inherit;
     max-width: calc(33.33% - 6.66px);
+    border-radius: 9px;
   }
 
   .request_upload_img .request_upload_close {
