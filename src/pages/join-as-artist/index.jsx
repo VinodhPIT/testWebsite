@@ -46,7 +46,7 @@ export default function JoinArtist() {
                     fill
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
-                    className="object_fit_cover object_center_top mob_hidden"
+                    className="object_fit_cover object_position mob_hidden"
                   />
                   <Image
                     src="/pexels-jasmin-chew-mob.png"

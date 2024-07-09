@@ -33,7 +33,7 @@ NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
   style: ["normal"],
-  weight: ["300", "400", "700", "900", "500", "600"],
+  weight: ["300", "400", "700", "900", "500", "600","800"],
   subsets: ["latin"],
 });
 
@@ -82,8 +82,8 @@ function MyApp({ Component, pageProps }) {
            
           />
         );
-        case "/":
-      case "/download/[[...download]]":
+        
+        case "/":      
       case "/comingSoon":
       case "/explore-style":
       case "/contact":
@@ -100,6 +100,7 @@ function MyApp({ Component, pageProps }) {
           case "/klarna":
           case "/for-tattoo-artists":
           case "/journal":
+          case "/download/[[...download]]":
           return (
             <Header
               logo={"/inckd-logo.svg"}

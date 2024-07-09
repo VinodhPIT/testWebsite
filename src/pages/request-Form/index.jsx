@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import dynamic from "next/dynamic";
 import TattooSize from "@/components/stepperComponents/tattooSize";
 import BodyPart from "@/components/stepperComponents/bodyPart";
@@ -30,7 +31,6 @@ export default function Requestform() {
   ];
 
   const components = [
-    
     <TattooSize key="tattooSize" />,
     <BodyPart key="bodyPart" />,
     <Description key="description" />,
@@ -38,8 +38,6 @@ export default function Requestform() {
     <Artist key="artist" />,
     <Contact key="contact" />,
     <Review key="review" />,
-
-    
   ];
 
   const getPageComponent = (pageNo) => {
@@ -56,6 +54,12 @@ export default function Requestform() {
 
   return (
     <>
+       <Head>
+        <title>Request Form</title>
+       <meta http-equiv="x-ua-compatible" content="ie=edge" />
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+      </Head>
+
       <StepperComponent steps={steps} activeStep={stepNumber} />
 
       {getPageComponent(stepNumber)}

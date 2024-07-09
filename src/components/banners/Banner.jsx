@@ -31,14 +31,14 @@ export default function Banner({
           <div class="col-md-12">
             <div className="banner_block banner_mob_fit">
               <div className="banner_col m_min_h_inherit">
-                <div className="banner_img_wrap">
+                <div className="banner_img_wrap position_relative">
                   <Image
                     src={bannerImage}
                     alt={altText}
                     fill
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
-                    className="object_fit_cover object_center_top mob_hidden"
+                    className="object_fit_cover object_center_top position_relative mob_hidden"
                   />
                   <Image
                     src={mobileBanner}
@@ -50,7 +50,7 @@ export default function Banner({
                     className="object_fit_cover desk_hidden"
                   />
                 </div>
-                <div className="banner_caption">
+                <div className="banner_caption position_absolute h_100pc">
                   <div className="d_inline_block">
                     {isBadge && (
                       <div className="klarna_badge mb_8 m_mb_15">
