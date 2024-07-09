@@ -45,11 +45,7 @@ const TattooSearchModal1Popup = ({}) => {
   // const { openModal } = useQrModal();
   
   function handleClick() {
-    const os = detectOS();
-    let appLink = APP_LINK_GOOGLE; // Default to Google Play Store link
-    if (os === "iOS" || os === "MacOS" || os === "iPad" || os === "iPod") {
-      appLink = APP_LINK_APPLE; // Update to App Store link for iOS and macOS
-    }
+    let appLink = `/${"request"}`;
     window.open(appLink, "_blank");
   }
 
