@@ -82,8 +82,7 @@ function MyApp({ Component, pageProps }) {
            
           />
         );
-        case "/":
-      case "/download/[[...download]]":
+        case "/":      
       case "/comingSoon":
       case "/explore-style":
       case "/contact":
@@ -100,6 +99,7 @@ function MyApp({ Component, pageProps }) {
           case "/klarna":
           case "/for-tattoo-artists":
           case "/journal":
+          case "/download/[[...download]]":
           return (
             <Header
               logo={"/inckd-logo.svg"}

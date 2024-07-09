@@ -7,11 +7,10 @@ import useTranslation from "next-translate/useTranslation";
 import DownloadApps from "../DownloadApps-klarna/DownloadApps";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
 
-import {
-  APP_LINK_APPLE,
-  APP_LINK_GOOGLE,
-  BLUR_URL,
-} from "@/constants/constants";
+import useAppStoreLink from "@/hooks/useAppStoreLink";
+import { useQrModal } from '@/context/ModalContext';
+
+import { APP_LINK_APPLE, APP_LINK_GOOGLE, BLUR_URL } from "@/constants/index";
 
 import style from "./style.module.css";
 
@@ -21,107 +20,99 @@ function OfferPage({data}) {
   const currency =  data.currency && data.currency !== null ? data.currency : "EUR";
   const { t } = useTranslation();
 
+  const { appStoreLink, imageSrc } = useAppStoreLink();
+  const { openModal } = useQrModal();
+
   return (
-    <div>
-{data == "" ? (
+    <>
+    {data == "" ? (
                         <AppDownload/>
                       ) : 
-      <section className="img_text_banner_box">
-        <div className="col_full">
-          <div className="img_text_box_wrapper exciting_offer_wrap">
-            <div class="text_box_wrap right">
-              <div class="img_text_box_inner m_switcher">
-                <div class="text_box_content justify_content_center m_pt_15 m_pb_15">
-                  <div class="text_box_content_inner m_pr_0 w_100pc max_w_100pc">                    
-                    <div className="exciting_offer_block">                 
-                      <div className="exciting_offer_wrap">
-                        <span className={`${"d_inline_block"} ${style.refer_earn_block}`}>
-                          <p>{t("common:Downloadinckd")}</p>
-                        </span>                      
-                        <div className="exciting_offer_price">
-                          <h2 className="title_exciting_price"> {currency} {data.amount}</h2>
-                        </div>
-                        <div className="exciting_offer_coupon">
-                          <span>{t("common:Usecode")}</span>
-                          <div className="exciting_offer_coupon_code">
-                            {data.referral_code}
+
+      <section className="full_block_banner">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div className="banner_block banner_mob_fit">
+              <div className="banner_col m_min_h_inherit">
+                <div className="banner_img_wrap position_relative">
+                  <Image
+                    src="download_voucher.png"
+                    alt="Download the inckd app to get a voucher of"
+                    fill
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    className="object_fit_cover object_center_top position_relative mob_hidden"
+                  />
+                  <Image
+                    src="download_voucher-m.png"
+                    alt="Download the inckd app to get a voucher of"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={BLUR_URL}
+                    fill
+                    className="object_fit_cover object_center_t desk_hidden"
+                  />
+                </div>
+                <div className="banner_caption position_absolute h_100pc pt_120 pb_60 m_w_100pc m_pb_60 m_align_item_center">
+                  <div className="d_inline_block m_w_100pc">  
+                    <div className="banner_content">
+                      <div className="exciting_offer_block">
+                        <div className="exciting_offer_wrap">
+                          <h3>{t("common:Downloadinckd")}</h3>                                           
+                          <div className="exciting_offer_price">
+                            <h2 className="title_exciting_price"> {currency} {data.amount}</h2>
                           </div>
-                        </div>
-                        <div class="text_box_content_inner w_100pc exciting_offer_download">
-                          <h5>
+                          <div className="exciting_offer_coupon">
+                            <span>{t("common:Usecode")}</span>
+                            <div className="exciting_offer_coupon_code">
+                              {data.referral_code}
+                            </div>
+                          </div>
+                          <h6>
                             <span>{t("common:OfferDownload.Enterthiscode")}
                             <span class="textBlock">{t("common:OfferDownload.YourVoucher")}</span>
                             </span>
-                          </h5>
-                          <ul class="download_app w_100pc mt_0">
-                          <li>
-                            <Link href={APP_LINK_APPLE} target="_blank">                              
+                          </h6>
+                          <button
+                              onClick={openModal}
+                              className="button_primary mob_hidden"
+                            >
+                              Get our mobile app
+                            </button>
+                            <Link href={appStoreLink} target="_blank">
                               <Image
                                 priority
-                                src="/app-store-new.svg"
-                                alt="App store"
+                                src={imageSrc}
+                                alt={
+                                  appStoreLink === APP_LINK_APPLE
+                                    ? "App store"
+                                    : "GooglePlay"
+                                }
                                 width={134}
                                 height={41}
                                 placeholder="blur"
                                 blurDataURL={BLUR_URL}
-                                className="custom_download_icons"
+                                className="custom_download_icons desk_hidden"
                               />
                             </Link>
-                          </li>
-                          <li>
-                            <Link href={APP_LINK_GOOGLE} target="_blank">
-                              <Image
-                                priority
-                                src="/g-play-new.svg"
-                                alt="Play store"
-                                width={134}
-                                height={41}
-                                placeholder="blur"
-                                blurDataURL={BLUR_URL}
-                                className="custom_download_icons"
-                              />
-                            </Link>
-                          </li>
-                          </ul>
-                        </div>
-                      </div> 
-                    </div>                         
+                          
+                        </div> 
+                      </div>
+                     
+                    </div>
                   </div>
-                </div>
-                <div class="img_box_wrap custom_download_shadow desk_no_shadow">
-                  <Image
-                    priority
-                    src="/pexels-ozan-çulha-15020584.png"
-                    alt="Download the inckd app to get a voucher of"
-                    width={612}
-                    height={752}
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
-                    layout="responsive"
-                    className="mob_hidden"
-                  />
-                  <Image
-                    priority
-                    src="/pexels-ozan-çulha-15020584-m.png"
-                    alt="Download the inckd app to get a voucher of"
-                    width={375}
-                    height={220}
-                    placeholder="blur"
-                    blurDataURL={BLUR_URL}
-                    layout="responsive"
-                    className="desk_hidden"
-                  />
                 </div>
               </div>
             </div>
           </div>
-          <DownloadApps title={t("common:downloadApp")} subTitle={t("common:downloadApp-Sub1")}  bgColor='block_bg_white'/>
-
         </div>
-
       </section>
-       } 
-    </div>
+    
+    }
+
+   
+
+    </>
   )
 }
 export default OfferPage
