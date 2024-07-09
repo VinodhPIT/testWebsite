@@ -57,7 +57,7 @@ export default function ImageCarousel({ title, subTitle, description, data }) {
                   >
                     {data.map((el, index) => (
                       <div
-                        className={`${"listing_gridItem m_sm_pr_25"} `}
+                        className={`${"listing_gridItem"} `}
                         key={index}
                       >
                         <Link
