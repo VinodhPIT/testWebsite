@@ -99,13 +99,13 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                             <h4>{e.country}</h4>
                             <p>{e.language}</p>
                           </span>
-                          <Image
+                          {/* <Image
                             width={24}
                             height={25}
                             src="/icon_language_link.svg"
                             alt=""
                             className="icon_language_link"
-                          />
+                          /> */}
                         </button>
                       </li>
                     );

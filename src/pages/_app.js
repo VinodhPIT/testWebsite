@@ -59,61 +59,84 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
 
-  function getHeaderComponent(locale, pathname) {
-    switch ((locale, pathname)) {
-      case "/explore/[[...slug]]":
-      case "/artists/[detail]":
-      case `/explore/tattoos/[detail]`:
-      case "/explore/flash-tattoos/[detail]":
-      case "/404":
-      case "/privacy_policy":
-      case "/terms&conditions":
-      case "/impressum":
-      case "/user_data_policy":
-      case "/privacy-policy":
-       case "/faq":
+  function getHeaderComponent(locale, pathname, query) {
+    console.log(query,"cnklsncl")
+    const generalPaths = [
+        "/explore/[[...slug]]",
+        "/artists/[detail]",
+        "/explore/tattoos/[detail]",
+        "/explore/flash-tattoos/[detail]",
+        "/404",
+        "/privacy_policy",
+        "/terms&conditions",
+        "/impressum",
+        "/user_data_policy",
+        "/privacy-policy",
+        "/faq"
+    ];
+
+    const positionTruePaths = [
+        "/",
+        "/comingSoon",
+        "/explore-style",
+        "/contact",
+        "/join-as-artist"
+    ];
+
+    const darkThemePaths = [
+        "/klarna",
+        "/for-tattoo-artists",
+        "/journal",
+        "/download/[[...download]]"
+    ];
+
+    if (generalPaths.includes(pathname) ) {
         return (
-          <Header
-            logo={"/Inckd_logo_black.svg"}
-            theme={"light"}
-            imgWidth="105"
-            imgHeight="31"
-            isPosition={false}
-           
-          />
-        );
-        
-        case "/":      
-      case "/comingSoon":
-      case "/explore-style":
-      case "/contact":
-      case "/join-as-artist":
-        return (
-          <Header
-            logo={"/Inckd_logo_black.svg"}
-            theme={"light"}
-            imgWidth="105"
-            imgHeight="31"
-            isPosition={true}
-          />
-        );
-          case "/klarna":
-          case "/for-tattoo-artists":
-          case "/journal":
-          case "/download/[[...download]]":
-          return (
             <Header
-              logo={"/inckd-logo.svg"}
-              theme={"dark"}
+                logo={"/Inckd_logo_black.svg"}
+                theme={"light"}
+                imgWidth="105"
+                imgHeight="31"
+                isPosition={false}
+            />
+        );
+    }
+    
+    if (query.type === "general") {
+      return (
+          <Header
+              logo={"/Inckd_logo_black.svg"}
+              theme={"light"}
               imgWidth="105"
               imgHeight="31"
               isPosition={true}
+          />
+      );
+  }
+    else if (positionTruePaths.includes(pathname)) {
+        return (
+            <Header
+                logo={"/Inckd_logo_black.svg"}
+                theme={"light"}
+                imgWidth="105"
+                imgHeight="31"
+                isPosition={true}
             />
-          );
-      default:
+        );
+    } else if (darkThemePaths.includes(pathname)) {
+        return (
+            <Header
+                logo={"/inckd-logo.svg"}
+                theme={"dark"}
+                imgWidth="105"
+                imgHeight="31"
+                isPosition={true}
+            />
+        );
+    } else {
         return null;
     }
-  }
+}
 
   const { fetchAll } = useDisplayAll();
   const { fetchStyle } = useStyleListing();
@@ -132,7 +155,7 @@ function MyApp({ Component, pageProps }) {
       <ModalProvider>
         <GlobalStateProvider>
           <div className={figtree.className}>
-            {getHeaderComponent(router.locale, router.pathname)}
+            {getHeaderComponent(router.locale, router.pathname ,router.query)}
             <UseLayout pathname={router.pathname}>
               <Component {...pageProps} />
             </UseLayout>

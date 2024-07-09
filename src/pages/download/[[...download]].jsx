@@ -69,9 +69,9 @@ export async function getServerSideProps(context) {
     };
   } catch (error) {
     return {
-      props: {
-        noData: true,
-        data: "",
+      redirect: {
+        destination: '/download?type=general',
+        permanent: false,
       },
     };
   }
