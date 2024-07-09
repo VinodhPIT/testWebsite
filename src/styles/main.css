@@ -1895,8 +1895,53 @@ form.form_block .radio_block.radio_form_grid + div.error {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (orientation:portrait) {
+/*
+@media (min-device-width: 768px) and (orientation:portrait) {
   .tab_orie_portrait{
     height: calc(100vh - 356px)!important;
   }
+}
+*/
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1199px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .tab_orie_portrait{
+      height: calc(100vh - 356px)!important;
+    }
+}
+
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1199px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .tab_orie_portrait{
+      height: calc(100vh - 356px)!important;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1199px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .tab_orie_portrait{
+      height: calc(100vh - 356px)!important;
+    }
+}
+
+
+@media screen 
+  and (device-width: 768px) 
+  and (device-height: 1199px) 
+  and (-webkit-min-device-pixel-ratio: 1.331) 
+  and (-webkit-max-device-pixel-ratio: 1.332) 
+  and (orientation: portrait) {
+    .tab_orie_portrait{
+      height: calc(100vh - 356px)!important;
+    }
 }
