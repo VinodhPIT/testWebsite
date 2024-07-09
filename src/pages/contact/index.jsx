@@ -36,19 +36,19 @@ export default function Contact({}) {
       </Head>
 
 
-      <section className="full_block_banner">
-        <div class="row g-0">
+      <section className="full_block_banner tab_orie_portrait">
+        <div class="row g-0 h_100pc">
           <div class="col-md-6">
             <div className="banner_block">
-              <div className="banner_col h_100_vh min_h_100_pc m_h_inherit min_h_reset">
-                <div className="banner_img_wrap">                  
+              <div className="banner_col min_h_100_pc m_h_inherit min_h_reset">
+                <div className="banner_img_wrap position_relative m_min_h_380">                  
                   <Image
                     src="/contactus-bg.png"
                     alt={t("common:contactUsPage.title")}
                     fill
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
-                    className="object_fit_cover object_center_top mob_hidden"
+                    className="object_fit_cover object_center_top mob_hidden position_relative"
                   />
                   <Image
                     src="/contactus-bg-m.png"
@@ -57,11 +57,11 @@ export default function Contact({}) {
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
                     fill
-                    className="object_fit_cover desk_hidden"
+                    className="object_fit_cover desk_hidden position_relative m_object_position_left"
                   />
+                  
                 </div>
-
-                <div className="banner_caption m_pt_85 m_pb_30 m_min_h_300 m_align_item_center">
+                <div className="banner_caption m_pt_85 m_pb_30 m_min_h_300 m_align_item_center position_absolute h_100pc">
                   <div className="d_inline_block"> 
                     <div className="banner_content word_break">
                       <h1 class="color_white custom_fs_80 fw_800 custom_fs_m_60 mb_10 letter_spacing_032 letter_spacing_m_024">
