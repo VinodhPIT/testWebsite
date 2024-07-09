@@ -8,6 +8,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useNavigation } from "@/hooks/useRouter";
 
 import { useRequestForm } from "@/store/requestManagement/requestForm"; 
+import { useCountryCode } from "@/store/countryCode/getcountryCode";
 
 import Modal from "@/components/modalPopup/newUser";
 import Modal1 from "@/components/modalPopup/existingUser";
@@ -25,12 +26,13 @@ const Review = () => {
     tattooSize,
     message,
     email,
-    phone,
+    phone,countryCode,
     prevPage,
     images,
     selectedArtists,
     userExists,
   } = useRequestForm();
+  const { resetCountrycode } = useCountryCode();
 
   const array = selectedArtists.map((e) => e.artistId);
 
@@ -54,7 +56,7 @@ const Review = () => {
     formData.append("size", !isSizePresent ? "nil" : sizeKey);
     formData.append("comments", message);
     formData.append("customer_email", email);
-    formData.append("customer_phone_no", '+'+phone);
+    formData.append("customer_phone_no", '+'+countryCode+phone);
     formData.append("source", 'web');
     images.map((el) => {
       formData.append("secondary_images", el.File);
@@ -74,6 +76,7 @@ const Review = () => {
       .then((response) => {
         setLoading(false);
         setSuccess(true);
+        resetCountrycode()
       })
       .catch((error) => {
         setLoading(false);
@@ -118,7 +121,7 @@ const Review = () => {
                               height={16}
                               alt="Review call"
                             />
-                            <p>+{phone}</p>
+                            <p>+{countryCode+phone}</p>
                           </div>
                         )}
                         <div className="request_contact_info_col">

@@ -33,7 +33,7 @@ NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
   style: ["normal"],
-  weight: ["300", "400", "700", "900", "500", "600"],
+  weight: ["300", "400", "700", "900", "500", "600","800"],
   subsets: ["latin"],
 });
 

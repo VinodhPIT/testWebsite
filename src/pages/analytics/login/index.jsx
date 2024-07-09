@@ -48,6 +48,8 @@ const Login = () => {
     <>
       <Head>
         <title>{t("common:AnalyticLogin.Login")}</title>
+       <meta http-equiv="x-ua-compatible" content="ie=edge" />
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
       </Head>
 
       <div className="container">

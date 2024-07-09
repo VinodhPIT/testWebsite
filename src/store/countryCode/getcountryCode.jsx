@@ -1,14 +1,18 @@
 
 import { create } from "zustand";
 
-
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
 
-const useCountryCode = create((set) => ({
+const initialState = {
   getCountryCodeList: [],
   loading: false,
   countrycode:"DE +49",
+};
+
+export const useCountryCode = create((set) => ({
+  ...initialState,
+
   fetchCountryCodelists: async () => {
     try {
       set({ loading: true });
@@ -25,10 +29,7 @@ const useCountryCode = create((set) => ({
     });
   },
 
-
-
-
-
+  resetCountrycode: () => set(initialState),
 
 }));
-export default useCountryCode;
+

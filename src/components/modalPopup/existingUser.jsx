@@ -12,7 +12,8 @@ import { UseResetRequestFormState } from "@/store/requestManagement/requestForm"
 
 import figtree from "@/helpers/fontHelper";
 
-import {APP_LINK_APPLE,BLUR_URL} from "@/constants/constants";
+import {APP_LINK_APPLE,APP_LINK_GOOGLE} from "@/constants/index";
+import { detectOS } from "@/utils/detectOS";
   
 const customStyles = {
   overlay: {
@@ -39,12 +40,17 @@ const customStyles = {
 const TattooSearchModal1Popup = ({}) => {
   
   const { t } = useTranslation();
-  const { appStoreLink, imageSrc } = useAppStoreLink();
-  const { openModal } = useQrModal();
+
+  // const { appStoreLink, imageSrc } = useAppStoreLink();
+  // const { openModal } = useQrModal();
   
   function handleClick() {
-    openModal();
-    UseResetRequestFormState()
+    const os = detectOS();
+    let appLink = APP_LINK_GOOGLE; // Default to Google Play Store link
+    if (os === "iOS" || os === "MacOS" || os === "iPad" || os === "iPod") {
+      appLink = APP_LINK_APPLE; // Update to App Store link for iOS and macOS
+    }
+    window.open(appLink, "_blank");
   }
 
   return (
@@ -99,11 +105,11 @@ const TattooSearchModal1Popup = ({}) => {
                       </p>  
                       <button
                         onClick={handleClick}
-                        className="button_primary_outline mt_30 w_100pc d_max_248 mob_hidden"
+                        className="button_primary_outline mt_30 w_100pc d_max_248"
                       >
-                        {t("common:download_app")}
+                       Get the App
                       </button>
-                      <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+                      {/* <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                         <Image
                           priority
                           src={imageSrc}
@@ -118,7 +124,7 @@ const TattooSearchModal1Popup = ({}) => {
                           blurDataURL={BLUR_URL}
                           className="custom_download_icons desk_hidden"
                         />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </div>

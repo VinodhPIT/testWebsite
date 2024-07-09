@@ -1295,9 +1295,9 @@ ul.progressbar li p {
   padding-right: 15px;
 }
 
-.popup_wrap.custom_popup_design .popup_box_inner .popup_right {
+/* .popup_wrap.custom_popup_design .popup_box_inner .popup_right {
   border-radius: 16px;
-}
+} */
 .popup_wrap.custom_popup_design .popup_container {
   top: inherit;
 }

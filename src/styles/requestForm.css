@@ -207,7 +207,6 @@
   max-width: 750px;
   padding: 53px 89px 32px 89px;
   background-color: var(--white);
-  border-radius: 11px;
   position: relative;
   margin: 0 auto;
 }
@@ -269,11 +268,7 @@
   border: 1px solid var(--gray-light-300);
 }
 
-.request_list_item .inActiveRequest:hover {
-  border: 1px solid var(--black-200);
-  background: var(--black-200);
-  color: var(--white);
-}
+
 
 .request_list_item .requestActive {
   border: 1px solid var(--black-200);
@@ -379,6 +374,7 @@
   bottom: 0;
   margin: auto auto;
   background: url("/fileupload_add_square.svg") no-repeat;
+  background-size: contain;
 }
 
 .request_upload_img {
@@ -488,6 +484,7 @@
 
 .request_filter_profile_dtls a {
   position: absolute;
+  top: -1px;
 }
 
 .request_filter_profile_dtls h6.request_filter_profile_title {
@@ -563,7 +560,7 @@
 
 .request_review_block h6 {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 27px;
   color: var(--black-500);
   margin: 0;
@@ -1062,6 +1059,7 @@ button.btn_view_more:hover {
     max-height: 405px;
     overflow-y: auto;
   }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 810px) {
@@ -1105,6 +1103,11 @@ button.btn_view_more:hover {
   }
   .request_stepper_count {
       margin-right: 0;
+        font-size: 12px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+      
   }
 
   .request_landing_header .request_back_arrow {
@@ -1347,10 +1350,13 @@ button.btn_view_more:hover {
   }
 
   .selected_artistblock {
-    padding: 15px;
+    padding: 32px 15px 15px 15px;
     height: auto;
   }
 
+  .reqst_form_popup .popup_container .selected_artistblock .close_button {
+    right: 12px;
+}
   .request_header_container {
     min-height: 73px;
   }
@@ -1450,6 +1456,11 @@ button.btn_view_more:hover {
     max-height: calc(100vh - 300px);
     margin-bottom: 0;
   }  
+
+  .request_upload_field:after {
+    width: 18px;
+    height: 18px;
+  }
   
 }
 
