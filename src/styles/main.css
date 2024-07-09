@@ -1527,11 +1527,24 @@ form.form_block .radio_block.radio_form_grid + div.error {
     line-height: 21px !important;
   }
 
+
+/* .popup_wrap.custom_popup_design .popup_box_inner .popup_right {
+  border-radius: 16px;
+} */
+.popup_wrap.custom_popup_design .popup_container {
+  top: inherit;
+}
+.popup_wrap.custom_popup_design .popup_container .popup_box_inner {
+  justify-content: center;
+}
+.popup_wrap.custom_popup_design {
+  padding-left: 15px;
+  padding-right: 15px;
+}
   /* popup design */
   .popup_wrap .popup_box_inner {
     flex-direction: column;
   }
-
   .popup_wrap .popup_box_inner .popup_left {
     width: 100%;
   }

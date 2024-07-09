@@ -5,7 +5,8 @@
       {
         "appID": "5JPKVQN9NH.com.inckd.inckdapp",
         "paths": [
-          "*"
+          "*",
+          "/request"
         ]
       }
     ]

@@ -7,7 +7,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
 import { useRequestForm } from "@/store/requestManagement/requestForm";
-import useCountryCode from "@/store/countryCode/getcountryCode";
+import {useCountryCode} from "@/store/countryCode/getcountryCode";
 
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
@@ -19,6 +19,7 @@ const ContactForm = () => {
   const {
     setEmail,
     setPhone,
+    setCountryCode,
     nextPage,prevPage,
     email: storedEmail,
     phone: storedPhone,
@@ -46,15 +47,25 @@ const ContactForm = () => {
     }
   };
 
+
   const handleSubmit = async (values) => {
     setLoader(true);
+
+    const updatedValues = {
+      ...values,
+      phone: countrycode.split("+")[1].trim() + values.phone,
+    };
+ 
     setEmail(values.email);
-    setPhone(values.phone && countrycode.split("+")[1].trim() + values.phone);
-    const res = await axiosInstance.get(API_URL.SEARCH.REQUEST_CONTACT(values));
-    // Destructure 'exists' from res.data
+    setPhone(values.phone);
+    setCountryCode(countrycode.split("+")[1].trim())
+
+    const res = await axiosInstance.get(API_URL.SEARCH.REQUEST_CONTACT(updatedValues));
     const { exists } = res.data;
+
     setLoader(false);
     checkUserExists(exists);
+
     nextPage();
   };
 
