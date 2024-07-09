@@ -107,7 +107,7 @@ const TattooSearchModal1Popup = ({}) => {
                         onClick={handleClick}
                         className="button_primary_outline mt_30 w_100pc d_max_248"
                       >
-                       Get the App
+                       {t("common:stepper.openApp")}
                       </button>
                       {/* <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                         <Image
