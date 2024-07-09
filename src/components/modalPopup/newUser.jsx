@@ -100,13 +100,22 @@ const SucessModal = ({}) => {
                       <p class="custom_fs_16 text_fs_m_14 fw_400 color_gray_550 mb_0 mt_10">
                         {t("common:stepper.bringYouridea")}
                       </p>
+
+
+
                       <button
                         onClick={handleClick}
                         className="button_primary_outline mt_30 w_100pc d_max_248 mob_hidden"
                       >
-                         {t("common:download_app")}
+                         {t("common:getApp")}
                       </button>
-                      <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+
+                           <div className="desk_hidden mt_24">
+                           <h6 className="text_center custom_fs_14 fw_700 mb_8">
+                          {t("common:downloadOurApp")}
+                        </h6>
+                     
+                       <Link href={appStoreLink} target="_blank" className="d_inline_block ">
                         <Image
                           priority
                           src={imageSrc}
@@ -119,10 +128,10 @@ const SucessModal = ({}) => {
                           height={41}
                           placeholder="blur"
                           blurDataURL={BLUR_URL}
-                          className="custom_download_icons desk_hidden"
+                          className="custom_download_icons "
                         />
-                      </Link>
-
+                      </Link> 
+                      </div>
                     </div>                    
                   </div>
                 </div>

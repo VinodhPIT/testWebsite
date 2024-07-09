@@ -1,6 +1,9 @@
 import React from "react";
+import Head from "next/head";
+
+import { UseResetRequestFormState} from "@/store/requestManagement/requestForm";
+
 import Main from "@/components/stepperComponents/main";
-import { UseResetRequestFormState } from "@/store/requestManagement/requestForm";
 
 export default function Requestform() {
   
@@ -8,6 +11,10 @@ export default function Requestform() {
 
   return (
     <>
+     <Head>
+        <title>Create Request</title>
+      </Head>
+
       <Main />
     </>
   );

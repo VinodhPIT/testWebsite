@@ -69,6 +69,9 @@ export const useRequestForm = create((set, get) => ({
 
   setPhone: (value) => set({ phone: value }),
 
+  setCountryCode: (value) => set({ countryCode: value }),
+  
+
   addImage: (file, imageUrl, uuid) => {
     set((state) => {
       const newFileName = `${state.images.length}.jpg`;
