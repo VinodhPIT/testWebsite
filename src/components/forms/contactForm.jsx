@@ -27,8 +27,6 @@ const _Form = () => {
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const { openModal } = useQrModal();
 
-
-
   return (
     <div className="contact_form_block max_w_420 w_100pc m_max_100">
         {!state.isShown ? (

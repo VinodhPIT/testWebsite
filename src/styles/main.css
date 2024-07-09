@@ -1135,6 +1135,114 @@ form.form_block .radio_block.radio_form_grid + div.error {
 }
 /* contact form end */
 
+/* klarna donload page */
+.klarna_download_payment_col .klarna_pay_opt_items {
+  min-height: inherit;
+  padding: 0 0 24px 0;
+}
+
+.klarna_download_payment_col .klarna_pay_opt_grid {
+  grid-row-gap: 30px;
+  margin-bottom: 20px;
+}
+
+/* download voucher page */
+.exciting_offer_block {
+  display: flex;
+  padding: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: auto;
+  background: #fff;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.exciting_offer_block .exciting_offer_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex: 1 0 0;
+  align-self: stretch;
+  padding: 0;
+  text-align: center;
+}
+
+.exciting_offer_block h3 {
+  color: #212121;
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 45px;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+.exciting_offer_block .exciting_offer_price {
+  position: relative;
+  width: 100%;
+  max-width: 466px;
+  display: flex;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+.exciting_offer_block .exciting_offer_price h2.title_exciting_price {
+  font-size: 60px;
+  font-weight: 800;
+  line-height: 72px;
+  display: flex;
+  min-height: 60px;
+  justify-content: center;
+  align-items: center;
+  color: #212121;
+  margin: 0;
+  width: 100%;
+  letter-spacing: -2.4px;
+}
+.exciting_offer_coupon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 0 8px 0;
+}
+.exciting_offer_coupon > span {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--black-500);
+}
+.exciting_offer_coupon_code {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 1px dashed var(--black-450);
+  background: var(--gray-light-150);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  color: var(--black-500);
+  text-transform: uppercase;
+}
+.exciting_offer_block .exciting_offer_wrap h6 {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  color: var(--gray-400);
+  margin: 0 0 32px 0;
+}
+
+
+
 .qr-model {
   width: 100%;
   max-width: 666px;
@@ -1689,6 +1797,44 @@ form.form_block .radio_block.radio_form_grid + div.error {
     line-height: 24px;
   }
 
+  /* klarna donload page */
+  .klarna_download_payment_col .klarna_pay_opt_items {
+    padding: 24px 0;
+  }
+
+  .klarna_download_payment_col .klarna_pay_opt_grid {
+    grid-row-gap: 0;
+    margin-bottom: 0;
+  }
+
+  .exciting_offer_block {
+    padding: 20px 20px;
+    max-width: 100%;
+  }
+  .exciting_offer_block h3 {
+      font-size: 26px;
+      line-height: 31px;
+  }
+  .exciting_offer_block .exciting_offer_price {
+      margin-bottom: 16px;
+  }
+  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -1.6px;
+  }
+  .exciting_offer_coupon > span {
+      font-size: 14px;
+      line-height: 21px;
+  }
+  .exciting_offer_coupon_code {
+      font-size: 16px;
+      line-height: 24px;
+  }
+  .exciting_offer_block .exciting_offer_wrap h6 {
+      font-size: 12px;
+  }
+
 }
 
 @media screen and (min-width: 601px) and (max-width: 767.98px) {
@@ -1747,5 +1893,11 @@ form.form_block .radio_block.radio_form_grid + div.error {
 @media screen and (min-width: 1200px) {
   section.progress_block {
     max-width: 475px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (orientation:portrait) {
+  .tab_orie_portrait{
+    height: calc(100vh - 356px)!important;
   }
 }

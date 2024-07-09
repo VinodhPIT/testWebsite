@@ -1086,6 +1086,10 @@ footer {
 .max_w_520 {
   max-width: 520px !important;
 }
+.letter_spacing_016 {
+  letter-spacing: -1.6px !important;
+}
+
 .letter_spacing_01 {
   letter-spacing: -1.68px !important;
 }
@@ -1548,6 +1552,9 @@ footer {
 .pl_20 {
   padding-left: 20px !important;
 }
+.pl_25 {
+  padding-left: 25px !important;
+}
 .pl_30 {
   padding-left: 30px !important;
 }
@@ -1690,6 +1697,10 @@ footer {
   padding-top: 110px !important;
 }
 
+.pt_120 {
+  padding-top: 120px !important;
+}
+
 .pt_130 {
   padding-top: 130px !important;
 }
@@ -1807,6 +1818,9 @@ footer {
 .d_max_380 {
   max-width: 380px !important;
 }
+.d_max_400 {
+  max-width: 400px !important;
+}
 .d_max_420 {
   max-width: 420px !important;
 }
@@ -1874,6 +1888,10 @@ footer {
 
 .object_position_left {
   object-position: left !important;
+}
+
+.object_center_t {
+  object-position: top !important;
 }
 
 .object_center_top {
@@ -4945,58 +4963,7 @@ button.language_switcher img {
   margin-right: 0px;
 }
 
-.exciting_offer_block {
-  display: flex;
-  padding: 30px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
-  margin-right: 10%;
-  width: auto;
-  background: #c0ffd5;
-  max-width: 569px;
-  margin: 0 auto;
-}
-.exciting_offer_block h3 {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 90.5%;
-  letter-spacing: -1.44px;
-  margin: 16px 0 25px 0;
-  text-align: center;
-}
-.exciting_offer_block .exciting_offer_price {
-  position: relative;
-  width: 100%;
-  max-width: 466px;
-  display: flex;
-  text-align: center;
-}
-.exciting_offer_block .exciting_offer_price h2.title_exciting_price {
-  font-size: 68px !important;
-  font-weight: 700;
-  line-height: 60px;
-  display: flex;
-  min-height: 60px;
-  justify-content: center;
-  align-items: center;
-  color: #212121;
-  margin: 0;
-  width: 100%;
-}
-.exciting_offer_block .exciting_offer_wrap {
-  width: 100%;
-  border: 2px dashed #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
-  flex: 1 0 0;
-  align-self: stretch;
-  padding: 28px 10px;
-}
+
 .tiny_payment_block ul.download_app li.download_app_title h5 {
   font-size: 22px;
   font-weight: 400;
@@ -5014,44 +4981,6 @@ button.language_switcher img {
   position: absolute;
   height: 100%;
   width: 100%;
-}
-.exciting_offer_coupon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  max-width: 318px;
-}
-.exciting_offer_coupon > span {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 150%;
-  color: var(--black-500);
-}
-.exciting_offer_coupon_code {
-  display: flex;
-  width: 100%;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 12px;
-  border: 1px dashed var(--black-450);
-  background: var(--gray-light-150);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 150%;
-  color: var(--black-500);
-  text-transform: uppercase;
-}
-.exciting_offer_coupon .exciting_offer_coupon_msg {
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  color: var(--gray-400);
 }
 .exciting_offer_social {
   display: flex;
@@ -6678,6 +6607,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .m_max_w_312 {
     max-width: 312px !important;
   }
+  .m_max_w_340 {
+    max-width: 340px !important;
+  }
   .m_max_w_360 {
     max-width: 360px !important;
   }
@@ -6843,6 +6775,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     flex-direction: row !important;
   }
 
+  .m_justify_content_flex_start {
+    justify-content: flex-start !important;
+  }
+
   .m_justify_content_left {
     justify-content: left !important;
   }
@@ -6850,9 +6786,11 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .m_justify_content_center {
     justify-content: center !important;
   }
-
   .m_justify_content_right {
     justify-content: flex-end !important;
+  }
+  .m_object_position_left {
+    object-position: left !important;
   }
 
   .m_object_position_center {
@@ -6944,6 +6882,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .m_min_h_300 {
     min-height: 300px !important;
   }
+  .m_min_h_380 {
+    min-height: 380px !important;
+  }
   .m_min_h_425 {
     min-height: 425px !important;
   }
@@ -7015,6 +6956,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
 
   .m_gap_16 {
     gap: 16px!important;
+  }
+
+  .letter_spacing_m_016 {
+    letter-spacing: -1.6px !important;
   }
 
   .letter_spacing_m_024 {
@@ -7492,17 +7437,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     min-width: 290px;
     margin-right: 0px;
   }
-  .exciting_offer_block h3 {
-    font-size: 38px;
-  }
-  .exciting_offer_block .exciting_offer_price {
-    max-width: 100%;
-  }
-  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {
-    font-size: 50px !important;
-    line-height: 50px !important;
-    justify-content: center;
-  }
+  
   .img_text_banner_box
     .text_box_wrap.app_download_box_wrap.app_download_page
     .img_text_box_inner
@@ -7538,38 +7473,6 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
       rgba(13, 13, 13, 0) 100%
     );
     height: 45%;
-  }
-  .exciting_offer_block {
-    padding: 15px 15px;
-    max-width: 100%;
-  }
-  .exciting_offer_block .exciting_offer_wrap {
-    padding: 10px 10px;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  .exciting_offer_block .exciting_offer_wrap p {
-    text-align: center;
-  }
-  .exciting_offer_coupon {
-    align-items: center;
-    width: 100%;
-  }
-  .exciting_offer_coupon > span {
-    font-size: 14px;
-  }
-  .exciting_offer_coupon_code {
-    font-size: 20px;
-    padding: 6px;
-    gap: 5.683px;
-    border-radius: 6.82px;
-    border: 0.568px dashed #1c1c1c;
-    background: #f8f8f8;
-  }
-  .exciting_offer_coupon .exciting_offer_coupon_msg {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 150%;
   }
   .text_box_wrap.custom_left_img_block .m_switcher .img_box_wrap {
     order: 1;
@@ -8488,18 +8391,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
   .ready_embrace_download ul.ready_embrace_block {
     bottom: 30%;
-  }
-  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {
-    font-size: 55px !important;
-    line-height: 50px !important;
-  }
-  .exciting_offer_wrap .text_box_wrap .img_text_box_inner .text_box_content {
-    min-height: 60vh;
-    padding-top: 90px;
-  }
-  .exciting_offer_wrap .text_box_wrap .img_text_box_inner .img_box_wrap {
-    min-height: 60vh;
-  }
+  } 
   .custom_new_wrap .text_box_wrap .img_text_box_inner .text_box_content {
     padding-top: 190px;
   }
@@ -8944,11 +8836,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
   .available_list ul.custom-listing-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .exciting_offer_block .exciting_offer_price h2.title_exciting_price {
-    font-size: 55px !important;
-    line-height: 50px !important;
-  }
+  } 
 }
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .custom_carousel_wrap
