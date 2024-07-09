@@ -26,7 +26,7 @@ const Custom404 = () => {
   useEffect(() => {
     const { asPath } = router;
     const link = (os === 'iOS' || os === 'Mac OS') ? APP_LINK_APPLE : APP_LINK_GOOGLE;
-    if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard")) {
+    if (asPath.startsWith("/session") || asPath.startsWith("/chat") || asPath.startsWith("/onboard") || asPath.startsWith("/request")) {
       window.location.replace(link);
     }
   }, [router.asPath, os]);

@@ -45,11 +45,7 @@ const TattooSearchModal1Popup = ({}) => {
   // const { openModal } = useQrModal();
   
   function handleClick() {
-    const os = detectOS();
-    let appLink = APP_LINK_GOOGLE; // Default to Google Play Store link
-    if (os === "iOS" || os === "MacOS" || os === "iPad" || os === "iPod") {
-      appLink = APP_LINK_APPLE; // Update to App Store link for iOS and macOS
-    }
+    let appLink = `/${"request"}`;
     window.open(appLink, "_blank");
   }
 
@@ -107,7 +103,7 @@ const TattooSearchModal1Popup = ({}) => {
                         onClick={handleClick}
                         className="button_primary_outline mt_30 w_100pc d_max_248"
                       >
-                       Get the App
+                       {t("common:stepper.openApp")}
                       </button>
                       {/* <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
                         <Image

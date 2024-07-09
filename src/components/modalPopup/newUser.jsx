@@ -111,6 +111,9 @@ const SucessModal = ({}) => {
                       </button>
 
                            <div className="desk_hidden mt_24">
+                           <h6 className="text_center custom_fs_14 fw_700 mb_8">
+                          {t("common:downloadOurApp")}
+                        </h6>
                      
                        <Link href={appStoreLink} target="_blank" className="d_inline_block ">
                         <Image
