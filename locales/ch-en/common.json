@@ -1,6 +1,14 @@
 {
   
   "menus": {
+    "explore":"Explore",
+    "request":"Request",
+    "financing":"Financing",
+    "tattooArtists":"Tattoo Artists",
+    "tattoos":"Tattoos",
+    "flashTattos":"Flash Tattoos",
+
+    
     "tattooSearch": "Explore tattoos",
      "exploreArtists":"Explore artists",
     "forTattooArtists": "For tattoo artists",

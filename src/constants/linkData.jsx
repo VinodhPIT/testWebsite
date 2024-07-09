@@ -2,18 +2,18 @@
 export const Links = [
     {
       id: 1,
-      title: "common:menus.tattooSearch",
-      url: "/explore/tattoos",
+      title: "common:menus.explore",
+      url: "",
     },
     {
       id: 2,
-      title: "common:menus.exploreArtists",
+      title: "common:menus.request",
       url: "/explore/tattoo-artists",
     },
 
     {
       id:3,
-      title: "common:menus.klarna",
+      title: "common:menus.financing",
       url: "/klarna",
     },
     
