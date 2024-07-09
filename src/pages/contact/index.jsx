@@ -59,8 +59,8 @@ export default function Contact({}) {
                     fill
                     className="object_fit_cover desk_hidden position_relative m_object_position_left"
                   />
+                  
                 </div>
-
                 <div className="banner_caption m_pt_85 m_pb_30 m_min_h_300 m_align_item_center position_absolute h_100pc">
                   <div className="d_inline_block"> 
                     <div className="banner_content word_break">

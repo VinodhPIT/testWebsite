@@ -82,6 +82,7 @@ function MyApp({ Component, pageProps }) {
            
           />
         );
+        
         case "/":      
       case "/comingSoon":
       case "/explore-style":

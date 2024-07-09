@@ -39,7 +39,6 @@ function KlarnaPage() {
     },
   ];
   
-
   return (
     <>
       <section className="full_block_banner">

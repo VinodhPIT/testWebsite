@@ -94,11 +94,9 @@ function OfferPage({data}) {
                                 blurDataURL={BLUR_URL}
                                 className="custom_download_icons desk_hidden"
                               />
-                            </Link>
-                          
+                            </Link>                          
                         </div> 
-                      </div>
-                     
+                      </div>                     
                     </div>
                   </div>
                 </div>

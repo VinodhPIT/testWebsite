@@ -51,7 +51,8 @@ function Appdownload() {
                   </Link>         
                 </div>
               </div>
-            </div>                    
+            </div>  
+                              
           </div>
           <div class="col-md-6">
             <div className="banner_block">

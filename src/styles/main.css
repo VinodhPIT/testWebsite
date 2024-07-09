@@ -1883,9 +1883,6 @@ form.form_block .radio_block.radio_form_grid + div.error {
   }
 }
 
-
-
-
 @media only screen and (min-device-width: 768px) and (orientation:portrait) {
   .tab_orie_portrait{
     height: calc(100vh - 356px)!important;
