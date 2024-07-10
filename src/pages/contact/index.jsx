@@ -61,13 +61,13 @@ export default function Contact({}) {
                   />
                   
                 </div>
-                <div className="banner_caption m_pt_85 m_pb_30 m_min_h_300 m_align_item_center position_absolute h_100pc">
+                <div className="banner_caption m_pt_85 m_pb_30 m_min_h_300 m_align_item_center position_absolute h_100pc m_md_lg_pr_20">
                   <div className="d_inline_block"> 
                     <div className="banner_content word_break">
-                      <h1 class="color_white custom_fs_80 fw_800 custom_fs_m_60 mb_10 letter_spacing_032 letter_spacing_m_024">
+                      <h1 class="color_white custom_fs_80 fw_700 custom_md_lg_fs_60 custom_fs_m_60 mb_10 letter_spacing_032 letter_spacing_m_024">
                         {t("common:contactUsPage.title")}
                       </h1>
-                      <p className="color_white md_max_75 m_max_100 mb_0">
+                      <p className="color_white max_w_440 m_max_100 mb_0">
                         {t("common:contactUsPage.content")}
                       </p>                                        
                     </div>

@@ -8760,6 +8760,14 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     > .text_box_content_inner {
     min-height: calc(100vh - 88px);
   }
+
+  .custom_md_lg_fs_60 {
+    font-size: 60px !important;
+    line-height: 72px !important;
+  }
+  .m_md_lg_pr_20 {
+    padding-right: 20px!important;
+  }
 }
 @media screen and (min-width: 992px) and (max-width: 1024px) { 
   .header_right button.btn_tattoo_art {
