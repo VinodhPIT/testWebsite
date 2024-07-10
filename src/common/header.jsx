@@ -7,13 +7,12 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import useTranslation from "next-translate/useTranslation";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { TfiAngleDown } from "react-icons/tfi";
 
 import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
+import NavigationLinks from "@/components/navigationLinks/NavigationLinks";
 
 import { Links } from "@/constants/index";
-import generateLinkComponent from "@/routes/generateLinkComponent";
 import { useModal } from "@/utils/modalUtils";
 
 export default function Header({
@@ -24,14 +23,13 @@ export default function Header({
   isPosition,
 }) {
   const router = useRouter();
-  const { getCountryIcon} = require("@/utils/localeFunctions");
+  const { getCountryIcon } = require("@/utils/localeFunctions");
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
 
   const { t } = useTranslation();
   const [isFixed, setIsFixed] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const linkComponent = generateLinkComponent(router, theme, t, isFixed);
 
   useEffect(() => {
     if (toggle) {
@@ -152,46 +150,13 @@ export default function Header({
                   </Link>
                 </div>
                 <div className="nav_block">
-                  <ul className="nav main_nav navbar_collapse collapse">
-                    {Links.map((link) => (
-                      <li key={link.id} className="nav_item">
-                        <Link
-                          href={`/${router.locale}${link.url}`}
-                          className={`${
-                            isFixed
-                              ? "sticky-menu"
-                              : theme === "dark"
-                              ? "textWhite"
-                              : "textBlack"
-                          }`}
-                        >
-                          {t(link.title)}
-
-                          {link.subLinks && (
-                            <TfiAngleDown
-                              size={16}
-                              style={{ marginLeft: "3px" }}
-                            />
-                          )}
-                        </Link>
-                        {link.subLinks && (
-                          <ul className="sub_menu">
-                            {link.subLinks.map((subLink) => (
-                              <li key={subLink.id} className="nav_sub_item">
-                                <Link
-                                  href={`/${router.locale}${subLink.url}`}
-                                  className={"textBlack"}
-                                >
-                                  {t(subLink.title)}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                    <li>{linkComponent}</li>
-                  </ul>
+                  <NavigationLinks
+                    links={Links}
+                    isFixed={isFixed}
+                    theme={theme}
+                    t={t}
+                    onCloseToggle={onCloseToggle}
+                  />
                 </div>
               </div>
 

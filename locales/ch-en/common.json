@@ -1,6 +1,7 @@
 {
   
   "menus": {
+    "home": "Home",
     "explore":"Explore",
     "request":"Request",
     "financing":"Financing",
@@ -8,7 +9,6 @@
     "tattoos":"Tattoos",
     "flashTattos":"Flash Tattoos",
     "forTattooers":"For Tattooers",
-    
     "tattooSearch": "Explore tattoos",
      "exploreArtists":"Explore artists",
     "forArtists": "For artists",
@@ -23,21 +23,9 @@
     "joinArtist": "Join as artist"
   },
 
-   "sideDrawerMenus":{
-    "home": "Home",
-    "tattooRequest":"Tattoo Request",
-    "tattooFinancing":"Tattoo Financing",
-    "exploreTattoos":"Explore Tattoos",
-    "exploreTattooArtists":"Explore Tattoo Artists",
-    "tattooJournal":"Tattoo Journal",
-    "forTattooers":"For Tattooers",
-    "contactUs":"Contact us"
-   },
-
-   
-
+  
+  
   "homePage": {
-
     "bannerTitle": {
       "part1": "Book your",
       "part2": "tattoo now."
@@ -340,7 +328,7 @@
   "enterLocation": "Enter Location",
   "loadMore": "Load more",
 
-  "Downloadinckd": "Download the inckd app to get a voucher of",
+    "Downloadinckd": "Download the inckd. app to get a voucher of",
   "Usecode": "Use code",
   "Voucherends": "Voucher ends on",
   "Joinus": "Join us with",

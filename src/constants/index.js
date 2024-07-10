@@ -2,7 +2,7 @@ export { CustomerRequestSize ,BodyPart } from './customerRequestSize';
 
 export {GENDER_COUNT_KEYS_MAPPING ,GET_COLOR ,DISCOUNT_VARIATION ,LABEL ,Label2 ,MAX_RANDOM ,MIN_RANDOM ,OFFER_COUNT_KEYS_MAPPING } from './sharedConstants';
 
-export { Links} from './linkData';
+export { Links ,drawerLinks} from './linkData';
 export  {BLUR_URL ,APP_LINK_APPLE ,APP_LINK_GOOGLE ,KLARNA_LINK} from './constants'
 
 export { categoryMapping} from './categoryMappings';

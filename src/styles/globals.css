@@ -295,7 +295,8 @@ header ul.nav.main_nav > li {
   position: relative;
 }
 
-header ul.nav.main_nav > li > a {
+header ul.nav.main_nav li a,
+header ul.nav.main_nav li span {
   text-decoration: none;
   display: block;
   text-align: left;
@@ -304,11 +305,7 @@ header ul.nav.main_nav > li > a {
   line-height: 27px;
   padding: 0;
   margin: 0;
-
 }
-
-
-
 
 .navColor {
   color: #fff;
@@ -426,17 +423,23 @@ header .navbar_nav > li:last-child {
 img.nav_btn_toggle {
   cursor: pointer;
 }
+.main_submenu{
+  padding-top: 12px;
+  display: none; 
+  position: absolute;
+  right: -18px;
+  top: 100%;
+  min-width: 151px;
+  width: 100%;
+}
 
 .sub_menu {
-   display: none; 
-  position: absolute;
+  position: relative;
   padding: 0;
-  min-width: 151px;
   background: #fff;
   padding: 20px;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
-  margin-top: 12px;
-  left: -53px
+  margin: 0px;
 }
 
 .sub_menu:after{
@@ -450,7 +453,7 @@ img.nav_btn_toggle {
   transform: rotate(-90deg);
 }
 
-ul.nav .nav_item:hover .sub_menu {
+ul.nav .nav_item:hover .main_submenu {
   display: block;
 }
 
