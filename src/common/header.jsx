@@ -7,6 +7,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 
 import useTranslation from "next-translate/useTranslation";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { TfiAngleDown } from "react-icons/tfi";
 
 import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
@@ -19,17 +20,18 @@ export default function Header({
   logo,
   theme,
   imgWidth,
-  imgHeight,isPosition
+  imgHeight,
+  isPosition,
 }) {
   const router = useRouter();
-  const { getCountryIcon, getLanguage } = require("@/utils/localeFunctions");
+  const { getCountryIcon} = require("@/utils/localeFunctions");
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
 
   const { t } = useTranslation();
   const [isFixed, setIsFixed] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const linkComponent = generateLinkComponent(router, theme, t ,isFixed );
+  const linkComponent = generateLinkComponent(router, theme, t, isFixed);
 
   useEffect(() => {
     if (toggle) {
@@ -53,8 +55,6 @@ export default function Header({
   const handleClick = () => {
     router.push(`/${router.locale}/for-tattoo-artists`);
   };
-
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,7 +128,14 @@ export default function Header({
         </>
       )}
 
-       <header className={`header_wrapper ${isFixed ? "fixed" : ""} ${isPosition  ? "border-bottom-white" : "border-bottom-grey"}`}         style={isPosition === true ? { position: "fixed" } : {position:"relative"}}>
+      <header
+        className={`header_wrapper ${isFixed ? "fixed" : ""} ${
+          isPosition ? "border-bottom-white" : "border-bottom-grey"
+        }`}
+        style={
+          isPosition === true ? { position: "fixed" } : { position: "relative" }
+        }
+      >
         <div>
           <div className={"container_full pl_60 pr_60 m_pl_15 m_pr_15"}>
             <nav className="header_navigation">
@@ -147,7 +154,7 @@ export default function Header({
                 <div className="nav_block">
                   <ul className="nav main_nav navbar_collapse collapse">
                     {Links.map((link) => (
-                      <li key={link.id} className="nav_item ">
+                      <li key={link.id} className="nav_item">
                         <Link
                           href={`/${router.locale}${link.url}`}
                           className={`${
@@ -159,7 +166,28 @@ export default function Header({
                           }`}
                         >
                           {t(link.title)}
+
+                          {link.subLinks && (
+                            <TfiAngleDown
+                              size={16}
+                              style={{ marginLeft: "3px" }}
+                            />
+                          )}
                         </Link>
+                        {link.subLinks && (
+                          <ul className="sub_menu">
+                            {link.subLinks.map((subLink) => (
+                              <li key={subLink.id} className="nav_sub_item">
+                                <Link
+                                  href={`/${router.locale}${subLink.url}`}
+                                  className={"textBlack"}
+                                >
+                                  {t(subLink.title)}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </li>
                     ))}
                     <li>{linkComponent}</li>
@@ -173,7 +201,7 @@ export default function Header({
                   onClick={() => handleClick()}
                   className={`btn_tattoo_art `}
                 >
-                  {t("common:menus.forArtists")}
+                  {t("common:menus.forTattooers")}
                 </button>
 
                 {router.pathname === "/journal" ||
@@ -212,10 +240,7 @@ export default function Header({
         </div>
       </header>
 
-
-     {toggle && <SideDrawer onCloseToggle={onCloseToggle} isFixed={isFixed} /> }
-
-
+      {toggle && <SideDrawer onCloseToggle={onCloseToggle} isFixed={isFixed} />}
 
       <CountryPickerModel
         className="custom-modal"

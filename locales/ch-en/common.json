@@ -7,11 +7,10 @@
     "tattooArtists":"Tattoo Artists",
     "tattoos":"Tattoos",
     "flashTattos":"Flash Tattoos",
-
+    "forTattooers":"For Tattooers",
     
     "tattooSearch": "Explore tattoos",
      "exploreArtists":"Explore artists",
-    "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
@@ -34,6 +33,8 @@
     "forTattooers":"For Tattooers",
     "contactUs":"Contact us"
    },
+
+   
 
   "homePage": {
 

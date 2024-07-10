@@ -89,6 +89,9 @@ button:disabled:hover {
 .home .sideDrawer {
   top: 42px;
 }
+.sideDrawer .menuList li .active {
+ color: red;
+}
 
 .home .drawer-sticky {
   top: 0
@@ -127,7 +130,6 @@ button:disabled:hover {
   font-size: 26px;
   line-height: 31px;
   color: #000;
-  font-weight: 400;
 }
 
 .closeWrapper {
