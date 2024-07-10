@@ -71,12 +71,12 @@ export default function DownloadApps() {
         <div className="col-md-5 col-sm-12 col-xs-12 m_order_1">
           <div className="position_relative w_100pc h_100pc m_min_h_inherit">
             <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pt_40 m_pb_30">
-              <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_20 m_mb_15">
+              <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_20 m_mb_20">
                 <span className="position_relative">
                   <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
-                  inckd Mobile App</span>
+                  inckd. Mobile App</span>
               </h2>
-              <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_15">
+              <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_20">
                 <div className="d_flex align_item_center">
                   <Image
                     src="/icon_verified.svg"
@@ -92,7 +92,7 @@ export default function DownloadApps() {
                   </div>
                 </div>
               </div>
-              <div className="d_flex flex_direction_column mb_25 m_mb_15">
+              <div className="d_flex flex_direction_column mb_25 m_mb_20">
                 <div className="d_flex align_item_center">
                   <Image
                     src="/icon_user_friendly.svg"
