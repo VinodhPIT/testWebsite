@@ -22,6 +22,7 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
   const handleSpanClick = (e) => {
     e.preventDefault(); // Prevent default link behavior
     setSubMenuOpen(!subMenuOpen); 
+   
   };
 
 
@@ -70,6 +71,7 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
               {link.subLinks.map((subLink) => (
                 <li key={subLink.id} className="nav_sub_item">
                   <Link
+                  onClick={()=>onCloseToggle()}
                     href={`/${router.locale}${subLink.url}`}
                     className={`textBlack ${isActive(subLink.url) ? 'fw_700' : 'fw_400'}`}
                   >
