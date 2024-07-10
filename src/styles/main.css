@@ -1701,11 +1701,7 @@ form.form_block .radio_block.radio_form_grid + div.error {
     padding-right: 15px;
   }
 
-  .popup_wrap.custom_popup_design .popup_box_inner .popup_right {
-    border-radius: 16px;
-  }
-
-  .popup_wrap.custom_popup_design .popup_container {
+  /*.popup_wrap.custom_popup_design .popup_container {
     top: inherit;
   }
 
@@ -1716,7 +1712,7 @@ form.form_block .radio_block.radio_form_grid + div.error {
   .popup_wrap.custom_popup_design {
     padding-left: 15px;
     padding-right: 15px;
-  }
+  }*/
 
   .join_artist_popup.popup_wrap .close_button {
     right: 8px;

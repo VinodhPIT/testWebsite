@@ -584,7 +584,9 @@
   margin: 0;
   padding: 0;
 }
-
+.request_review_desc p {
+  font-style: italic;
+}
 .request_filter_opt:first-child:after {
   content: "";
   background: var(--gray-light-300);
@@ -1031,8 +1033,8 @@ button.btn_view_more {
   margin: 0;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
-  font-weight: 500;
+  border-radius: 0;
+  font-weight: 700;
   text-align: center;
   border: 0;
   background: var(--white);
@@ -1102,7 +1104,6 @@ button.btn_view_more:hover {
   .full_col_banner {
     top: 0;
   }
-
   .request_back_arrow {
     top: 12px;
     border: 0;
@@ -1497,6 +1498,9 @@ button.btn_view_more:hover {
     width: 18px;
     height: 18px;
   }
+  button.btn_view_more { 
+    text-decoration: underline;
+  }
 
 }
 
@@ -1543,6 +1547,12 @@ button.btn_view_more:hover {
     .request_landing_content .button_primary:hover,
     .reqst_form_popup .button_primary:hover {      
       background: var(--black);
+    }
+
+    .request_list_item .inActiveRequest:hover {
+      background: var(--white); 
+      color: var(--black-500);
+      border: 1px solid var(--gray-light-300);
     }
 
 

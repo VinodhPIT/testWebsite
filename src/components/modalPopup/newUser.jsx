@@ -57,9 +57,9 @@ const SucessModal = ({}) => {
       ariaHideApp={false}
     >
       
-        <div className={`popup_wrap custom_popup_design ${figtree.className}`}>
+        <div className={`popup_wrap ${figtree.className}`}>
           <div className="popup_container">
-            <div className="popup_box_inner">
+            <div className="popup_box_inner m_justify_content_center">
               <div className="popup_left justify_content_center block_bg_green_100 mob_hidden">
                 <Image
                   src="/Great-idea-tattoo!.png"
@@ -81,7 +81,7 @@ const SucessModal = ({}) => {
                     alt="close"
                   />
                 </button>
-                <div className="popup_right_content justify_content_center pl_16 pr_16 m_pb_15">
+                <div className="popup_right_content justify_content_center pl_16 pr_16 m_pb_30">
                   <div className="popup_content_wrap mt_0">
                     <div class="max_w_100pc text_center custom_text_with_icon">
                       <div class="icon mb_15">
