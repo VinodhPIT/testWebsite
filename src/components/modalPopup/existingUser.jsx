@@ -56,9 +56,9 @@ const TattooSearchModal1Popup = ({}) => {
       style={customStyles}
       ariaHideApp={false}
     >
-      <div className={`popup_wrap custom_popup_design ${figtree.className}`}>
+      <div className={`popup_wrap ${figtree.className}`}>
           <div className="popup_container">
-            <div className="popup_box_inner">
+            <div className="popup_box_inner m_justify_content_center">
               <div className="popup_left justify_content_center block_bg_green_100 mob_hidden">
                 <Image
                   src="/Great-idea-tattoo!.png"
@@ -101,7 +101,7 @@ const TattooSearchModal1Popup = ({}) => {
                       </p>  
                       <button
                         onClick={handleClick}
-                        className="button_primary_outline mt_30 w_100pc d_max_248"
+                        className="button_primary_outline mt_30 w_100pc d_max_248 m_mt_15"
                       >
                        {t("common:stepper.openApp")}
                       </button>

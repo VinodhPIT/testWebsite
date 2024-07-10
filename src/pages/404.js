@@ -33,34 +33,32 @@ const Custom404 = () => {
 
   return (
     <>
-      <main>
-        <div className="page-wrapper">
-          <section className="page_error_wrap">
-            <div className="container">
+      <section className="container_full">
+        <div class="row g-0">
+          <div class="col-md-12">
+            <div className="page_error_wrap">
               <div className="error_block">
                 <Image
                   src="/404_img.svg"
                   alt="404"
                   width={410}
-                  height={98}
+                  height={198}
                   priority
                 />
-
                 <h1 className="page_title">{t("common:pageNotfound")}</h1>
                 <p>{t("common:cantfind")}</p>
                 <Link
                   href="/"
                   alt="back to home"
-                  className="btn_secondary btn_custom_m"
+                  className="button_primary"
                 >
                   {t("common:backHome")}
-                </Link>
-              
+                </Link>              
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </main>
+      </section>
     </>
   );
 };
