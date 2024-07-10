@@ -3791,45 +3791,7 @@ form.form_floating .form_group.radio_block > label {
   overflow: hidden;
 }
 
-/* 404 page */
-.page_error_wrap {
-  min-height: 68vh;
-  padding-top: 24vh;
-  padding-bottom: 10vh;
-}
 
-.error_block {
-  text-align: center;
-}
-
-.error_block .img_404 {
-  max-width: 100%;
-}
-
-.error_block h1 {
-  margin: 0;
-  color: #212121;
-  font-size: 38px;
-  line-height: 57px;
-  font-weight: 700;
-}
-
-.error_block p {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: #000;
-  margin: 0;
-  padding: 15px 0 25px 0;
-}
-
-.error_block a.btn_secondary {
-  padding: 8px 16px;
-  height: 43px;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 27px;
-}
 
 /* tab */
 
@@ -7096,33 +7058,6 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     font-size: 16px;
     line-height: 24px;
   }
-
-  .page_error_wrap {
-    min-height: 68vh;
-    padding-top: 24vh;
-    padding-bottom: 10vh;
-  }
-
-  .error_block h1 {
-    font-size: 20px;
-    line-height: 30px;
-    margin-top: 15px;
-  }
-
-  .error_block p {
-    font-size: 14px;
-    line-height: 21px;
-    padding: 15px 0 20px 0;
-  }
-
-  .error_block a.btn_secondary {
-    height: 40px;
-    padding: 7px 14px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 21px;
-  }
-
   
 
   .faq_wrap {
