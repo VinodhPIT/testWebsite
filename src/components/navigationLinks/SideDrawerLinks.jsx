@@ -2,8 +2,7 @@
 import React,{useState} from 'react'
 import { useRouter } from "next/router";
 import Link from "next/link";
-
-import { TfiAngleDown } from "react-icons/tfi";
+import Image from 'next/image'
 
 const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
   const router = useRouter();
@@ -39,7 +38,13 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
               >
                 {t(link.title)}
 
-                {link.subLinks && <TfiAngleDown size={24} />}
+                {link.subLinks &&  <Image
+                src="/drop-down-arrow.svg"
+                width={24}
+                height={24}
+                alt="angleDown"
+                className="ml_4 fa_angle_mob"
+              />}
               </Link>
              
           
@@ -50,7 +55,13 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
               style={{ cursor: 'pointer' }} >
               {t(link.title)}
 
-              {link.subLinks && <TfiAngleDown size={24} />}
+              {link.subLinks &&  <Image
+                src="/drop-down-arrow.svg"
+                width={24}
+                height={24}
+                alt="angleDown"
+                className="ml_4  fa_angle_mob"
+              />}
             </Link>
           )}
 

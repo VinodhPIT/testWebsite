@@ -1306,6 +1306,9 @@ footer {
 .ml_0 {
   margin-left: 0px !important;
 }
+.ml_4 {
+  margin-left: 4px !important;
+}
 
 .ml_5 {
   margin-left: 5px !important;
@@ -1543,6 +1546,9 @@ footer {
   margin-right: 24px !important;
 }
 
+.mr_3 {
+  margin-right: 3px !important;
+}
 .mr_5 {
   margin-right: 5px !important;
 }

@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-
-import { TfiAngleDown } from "react-icons/tfi";
+import Image from 'next/image'
 
 import generateLinkComponent from "@/routes/generateLinkComponent";
 
@@ -28,7 +27,13 @@ const NavigationLinks = ({ links, isFixed, theme, t, onCloseToggle }) => {
               {t(link.title)}
 
               {link.subLinks && (
-                <TfiAngleDown size={16} style={{ marginLeft: "3px" }} />
+               <Image
+               src="/drop-down-arrow.svg"
+               width={10}
+               height={5}
+               alt="angleDown"
+               className="ml_4"
+             />
               )}
             </Link>
           ) : (
@@ -44,7 +49,13 @@ const NavigationLinks = ({ links, isFixed, theme, t, onCloseToggle }) => {
               {t(link.title)}
 
               {link.subLinks && (
-                <TfiAngleDown size={16} style={{ marginLeft: "3px" }} />
+                <Image
+                src="/drop-down-arrow.svg"
+                width={10}
+                height={5}
+                alt="angleDown"
+                className="ml_4"
+              />
               )}
             </span>
           )}

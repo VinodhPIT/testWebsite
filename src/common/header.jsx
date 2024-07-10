@@ -170,8 +170,7 @@ export default function Header({
                 </button>
 
                 {router.pathname === "/journal" ||
-                router.pathname === "/explore/[[...slug]]" ||
-                router.pathname === "/404" ? null : (
+                router.pathname === "/explore/[[...slug]]" ? null : (
                   <button
                     className={`${
                       isFixed
