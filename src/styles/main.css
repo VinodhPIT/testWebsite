@@ -129,8 +129,8 @@ button:disabled:hover {
   padding: 0;
 }
 
-.menuList > ul > li div  a ,
-.menuList li a {
+
+.menuList > ul > li > a {
   font-size: 26px;
   line-height: 31px;
   color: #000;
@@ -1507,6 +1507,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
 }
 
 @media screen and (max-width: 767.98px) {
+
   .home .sideDrawer {
     top: 41px;
   }
@@ -1540,16 +1541,16 @@ form.form_block .radio_block.radio_form_grid+div.error {
     overflow-y: auto;
   }
 
-  .menuList ul {
+  .menuList > ul {
     padding: 0px 15px 15px 15px;
-    margin-top: 50px;
+    margin-top: 42px;
     gap: 24px;
   }
 
-  .menuList li a {
+
+  .menuList > ul > li > a{
     font-size: 22px;
-    line-height: 22px;
-  }
+   }
 
   .banner_mob_fit {
     height: calc(100vh - 110px) !important;
@@ -1922,6 +1923,15 @@ form.form_block .radio_block.radio_form_grid+div.error {
     font-size: 14px;
     line-height: 21px;
   }
+  .drawer_submenu a {
+    font-size: 18px;
+}
+.drawer_submenu li {
+  margin-bottom: 20px;
+}
+.drawer_submenu {
+  margin-top: 24px;
+}
 
 }
 

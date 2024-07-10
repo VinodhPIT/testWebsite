@@ -31,16 +31,18 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
       {filteredLinks.map((link) => (
         <li key={link.id}>
           {link.url ? (
-            <div>
+        
               <Link
                 href={`/${router.locale}${link.url}`}
                 onClick={() => onCloseToggle()}
                 className={isActive(link.url) ? "fw_700" : "fw_400"}
               >
                 {t(link.title)}
+
+                {link.subLinks && <TfiAngleDown size={24} />}
               </Link>
-              {link.subLinks && <TfiAngleDown size={24} />}
-            </div>
+             
+          
           ) : (
             <Link className={"d_flex justify_space_between align_item_center"}
             href={"#"}
