@@ -60,7 +60,7 @@ function Appdownload() {
                 <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content pt_80 m_pt_40 block_bg_yellow">
                   <ul className="mobile_app_list pr_60 pl_40 m_pl_15 m_pr_15">                    
                     <li className="align_item_end justify_content_end m_justify_content_center">
-                    <Image
+                      <Image
                         priority
                         src="/download_img_01.png"
                         alt={t("Explore the Features in the Mobile App")}
@@ -68,18 +68,8 @@ function Appdownload() {
                         height={569}
                         blurDataURL={BLUR_URL}
                         placeholder="blur"
-                        className="object_position_bottom mob_hidden w_50pc h_auto pr_25 pb_90"
-                      />
-                      <Image
-                        priority
-                        src="/download_img_01.png"
-                        alt={t("Explore the Features in the Mobile App")}
-                        width={122}
-                        height={242}
-                        blurDataURL={BLUR_URL}
-                        placeholder="blur"
-                        className="object_position_center desk_hidden w_50pc h_auto m_pr_10 m_pb_40"
-                      />
+                        className="object_position_bottom m_object_position_center w_50pc h_auto pr_25 m_pr_10 pb_90 m_pb_40"
+                      />                     
                       <Image
                         priority
                         src="/download_img_02.png"
@@ -88,17 +78,7 @@ function Appdownload() {
                         height={550}
                         blurDataURL={BLUR_URL}
                         placeholder="blur"
-                        className="object_position_bottom mob_hidden w_50pc h_auto pl_25"
-                      />
-                      <Image
-                        priority
-                        src="/download_img_02.png"
-                        alt={t("Explore the Features in the Mobile App")}
-                        width={122}
-                        height={197}
-                        blurDataURL={BLUR_URL}
-                        placeholder="blur"
-                        className="object_position_bottom desk_hidden w_50pc h_auto m_pl_10"
+                        className="object_position_bottom w_50pc h_auto pl_25 m_pl_10"
                       />
                     </li>
                   </ul>

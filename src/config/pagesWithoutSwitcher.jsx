@@ -3,7 +3,6 @@
 export const pagesWithoutSwitcher = [
     "/journal",
     "/explore/[[...slug]]",
-    "/404",
     "/cover-up-tattoos",
     "/tattoos-fur-frauen",
     "/tattoo-Pflege",

@@ -64,8 +64,7 @@ function MyApp({ Component, pageProps }) {
       case "/explore/[[...slug]]":
       case "/artists/[detail]":
       case `/explore/tattoos/[detail]`:
-      case "/explore/flash-tattoos/[detail]":
-      case "/404":
+      case "/explore/flash-tattoos/[detail]":      
       case "/privacy_policy":
       case "/terms&conditions":
       case "/impressum":
@@ -88,6 +87,7 @@ function MyApp({ Component, pageProps }) {
       case "/explore-style":
       case "/contact":
       case "/join-as-artist":
+        case "/404":
         return (
           <Header
             logo={"/Inckd_logo_black.svg"}
