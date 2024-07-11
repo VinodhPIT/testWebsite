@@ -48,7 +48,7 @@ function KlarnaPage() {
               <div className="banner_col m_min_h_inherit">
                 <div className="banner_img_wrap position_relative">
                   <Image
-                    src="klarnaBanner.png"
+                    src="/klarnaBanner.png"
                     alt={`${t("common:klarnaPage.bannerTitle1")} ${t("common:klarnaPage.bannerTitle1-Sub")}`}
                     fill
                     placeholder="blur"
@@ -56,7 +56,7 @@ function KlarnaPage() {
                     className="object_fit_cover object_center_top position_relative mob_hidden"
                   />
                   <Image
-                    src="klarnaBanner_mob.png"
+                    src="/klarnaBanner_mob.png"
                     alt="Big Ink.Tiny Payments."
                     loading="lazy"
                     placeholder="blur"
@@ -69,7 +69,7 @@ function KlarnaPage() {
                   <div className="d_inline_block">
                     <div className="klarna_badge mb_8 m_mb_15">
                       <Image
-                        src="klarna_badge_new.svg"
+                        src="/klarna_badge_new.svg"
                         alt="klarna"
                         width={95}
                         height={40}

@@ -32,11 +32,11 @@ function OfferPage({data}) {
       <section className="full_block_banner">
         <div class="row g-0">
           <div class="col-md-12">
-            <div className="banner_block banner_mob_fit">
+            <div className="banner_block">
               <div className="banner_col m_min_h_inherit">
                 <div className="banner_img_wrap position_relative">
                   <Image
-                    src="download_voucher.png"
+                    src="/download_voucher.png"
                     alt="Download the inckd app to get a voucher of"
                     fill
                     placeholder="blur"
@@ -44,13 +44,13 @@ function OfferPage({data}) {
                     className="object_fit_cover object_center_top position_relative mob_hidden"
                   />
                   <Image
-                    src="download_voucher-m.png"
+                    src="/download_voucher-m.png"
                     alt="Download the inckd app to get a voucher of"
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={BLUR_URL}
                     fill
-                    className="object_fit_cover object_center_t desk_hidden"
+                    className="position_relative object_fit_cover object_center_t desk_hidden"
                   />
                 </div>
                 <div className="banner_caption position_absolute h_100pc pt_120 pb_60 m_w_100pc m_pb_60 m_align_item_center">

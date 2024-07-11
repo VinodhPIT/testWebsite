@@ -1144,7 +1144,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
   font-style: normal;
   font-weight: 400;
   line-height: 27px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #212121;
   padding: 0;
   margin: 0;
 }
@@ -1247,8 +1247,9 @@ form.form_block .radio_block.radio_form_grid+div.error {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border: 1px dashed var(--black-450);
-  background: var(--gray-light-150);
+  /*border: 1px dashed var(--black-450);*/
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%231C1C1CFF' stroke-width='1' stroke-dasharray='6%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  background-color: var(--gray-light-150);
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
@@ -1260,11 +1261,9 @@ form.form_block .radio_block.radio_form_grid+div.error {
   font-size: 12px;
   font-weight: 600;
   line-height: 18px;
-  color: var(--gray-400);
+  color: var(--black-500);
   margin: 0 0 32px 0;
 }
-
-
 
 .qr-model {
   width: 100%;
@@ -1553,6 +1552,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
     height: calc(100vh - 110px) !important;
     max-height: 742px !important;
   }
+  
 
   .banner_caption {
     align-items: flex-end;
