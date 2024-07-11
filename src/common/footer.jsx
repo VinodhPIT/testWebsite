@@ -142,11 +142,11 @@ export default function Footer() {
                   <button
                     onClick={openModal}
                     target="_blank"
-                    className="button_primary_outline mt_15 w_100pc mob_hidden"
+                    className="button_primary mt_15 mob_hidden"
                   >
-                  {t("common:download_app")}
+                  {"Get our mobile app"}
                   </button>
-                  <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_15">
+                  <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_25">
                     <Image
                       priority
                       src={imageSrc}
