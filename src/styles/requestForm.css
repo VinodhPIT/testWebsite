@@ -1223,7 +1223,7 @@ button.btn_view_more:hover {
   }
 
   .request_file_uploader {
-    gap: 10px;
+    gap: 18px;
     justify-content: center;
     align-items: stretch;
     flex-flow: wrap;
@@ -1235,7 +1235,7 @@ button.btn_view_more:hover {
     height: auto;
     width: auto;
     min-height: inherit;
-    max-width: calc(33.33% - 6.66px);
+    max-width: calc(33.33% - 18px);
     border-radius: 9px;
   }
 
