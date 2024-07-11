@@ -34,18 +34,18 @@ export default function Footer() {
   const bookLinks = [
     {
       id: 1,
-      title: t("common:menus.tattooSearch"),
-      url: `/${router.locale}/explore/tattoos`,
+      title: t("common:menus.tattooArtists"),
+      url: `/${router.locale}/explore/tattoo-artists`,
     },
 
     {
       id: 2,
-      title: t("common:menus.artistSearch"),
-      url: `/${router.locale}/explore/tattoo-artists`,
+      title: t("common:menus.tattoos"),
+      url: `/${router.locale}/explore/tattoos`,
     },
     {
       id: 3,
-      title: t("common:menus.flashSearch"),
+      title: t("common:menus.flashTattos"),
       url: `/${router.locale}/explore/flash-tattoos`,
     },
   ];
@@ -54,22 +54,32 @@ export default function Footer() {
  
     {
       id: 1,
-      title: t("common:menus.klarna"),
+      title: t("common:menus.request"),
+      url: `/${router.locale}/createRequest`,
+    },
+    {
+      id: 2,
+      title: t("common:menus.financing"),
       url: `/${router.locale}/klarna`,
+    },
+    {
+      id: 3,
+      title: t("common:menus.app"),
+      url: `/${router.locale}/download?type=general`,
     },
   ];
 
   const businesstLinks = [
     {
       id: 1,
-      title: t("common:menus.forTattooArtists"),
+      title: t("common:menus.forTattooers"),
       url: `/${router.locale}/for-tattoo-artists`,
     },
-    {
-      id: 2,
-      title: t("common:menus.joinArtist"),
-      url: `/${router.locale}/join-as-artist`,
-    },
+    // {
+    //   id: 2,
+    //   title: t("common:menus.joinArtist"),
+    //   url: `/${router.locale}/join-as-artist`,
+    // },
   ];
 
   const links = [
@@ -167,7 +177,7 @@ export default function Footer() {
                 <div className="footer_right">
                   <ul className="footer_list">
                     <li>
-                      <h4>{t("common:book")}</h4>
+                      <h4>{t("common:menus.explore")}</h4>
                     </li>
                     {bookLinks.map((link) => (
                       <li key={link.id}>

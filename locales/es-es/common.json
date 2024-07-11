@@ -1,23 +1,26 @@
 {
   "menus": {
-    "home": "Inicio",
-    "explore":"Explore",
-    "request":"Request",
-    "financing":"Financing",
-    "tattooSearch": "Explorar tatuajes",
-    "exploreArtists":"Explore artists",
-    "forTattooArtists": "Para Artistas de Tatuajes",
-    "forTattooers":"For Tattooers",
-    "forArtists": "Para artistas",
+    "home": "Home",
+    "explore": "Explore",
+    "request": "Request",
+    "financing": "Financing",
+    "tattooArtists": "Tattoo Artists",
+    "tattoos": "Tattoos",
+    "flashTattos": "Flash Tattoos",
+    "forTattooers": "For Tattooers",
+    "tattooSearch": "Explore tattoos",
+    "exploreArtists": "Explore artists",
+    "forArtists": "For artists",
     "klarna": "Klarna",
-    "contactUs": "Contáctanos",
-    "faq": "Preguntas Frecuentes",
-    "artistSearch": "Buscar Artistas",
-    "flashSearch": "Buscar Flash",
-    "search": "Buscar",
-    "privacypolicy": "Política de Privacidad",
+    "contactUs": "Contact us",
+    "faq": "FAQ",
+    "artistSearch": "Artist search",
+    "flashSearch": "Flash search",
+    "search": "Search",
+    "privacypolicy": "Privacy Policy",
     "journal": "Journal",
-    "joinArtist": "Join as artist"
+    "joinArtist": "Join as artist",
+    "app":"App"
   },
 
   "sideDrawerMenus":{
@@ -126,7 +129,9 @@
     "paymentOption":"Payment Options",
 
     "understand":"UNDERSTAND",
-    "howorks":"How it works:"
+    "howorks":"How it works:",
+    "downloadKlarna": "Download inckd app  to explore the klarna features",
+    "howTopay":"How you want to pay"
   },
 
   "forArtistPage": {

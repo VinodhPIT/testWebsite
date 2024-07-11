@@ -136,9 +136,13 @@ function KlarnaPage() {
                   <div className="d_inline_block w_100pc">
                     <div className="d_inline_block w_100pc text_center m_text_left mb_40 m_mb_15">
                       <h2 className="color_gray_550 custom_fs_60 custom_fs_m_32 fw_900 position_relative mb_0">
-                        <span className="position_relative">
-                          <span className="position_relative d_block fw_300 text_fs_m_14 text_transform_upper desk_hidden">YOU CHOOSE</span>
-                        {t("common:klarnaPage.MainTitle2")}</span>     
+                          <span className="position_relative mob_hidden">
+                           {t("common:klarnaPage.MainTitle2")}</span>  
+
+                           <span className="position_relative desk_hidden">
+                          <span className="position_relative d_block fw_300 text_fs_m_14 text_transform_upper">YOU CHOOSE</span>
+                           {t("common:klarnaPage.howTopay")}</span>  
+                           
                       </h2>
                     </div>
                     <div className="klarna_pay_opt_grid">

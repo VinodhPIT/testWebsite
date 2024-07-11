@@ -25,16 +25,6 @@ const NavigationLinks = ({ links, isFixed, theme, t, onCloseToggle }) => {
               onClick={onCloseToggle}
             >
               {t(link.title)}
-
-              {link.subLinks && (
-               <Image
-               src="/drop-down-arrow.svg"
-               width={10}
-               height={5}
-               alt="angleDown"
-               className="ml_4"
-             />
-              )}
             </Link>
           ) : (
             <span
@@ -50,7 +40,7 @@ const NavigationLinks = ({ links, isFixed, theme, t, onCloseToggle }) => {
 
               {link.subLinks && (
                 <Image
-                src="/drop-down-arrow.svg"
+                src={theme !== "dark" || isFixed ? "/drop-down-arrow.svg" : "/drop-angle-white.svg"}
                 width={10}
                 height={5}
                 alt="angleDown"
