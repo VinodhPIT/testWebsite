@@ -36,7 +36,7 @@ function OfferPage({data}) {
               <div className="banner_col m_min_h_inherit">
                 <div className="banner_img_wrap position_relative">
                   <Image
-                    src="download_voucher.png"
+                    src="/download_voucher.png"
                     alt="Download the inckd app to get a voucher of"
                     fill
                     placeholder="blur"
@@ -44,7 +44,7 @@ function OfferPage({data}) {
                     className="object_fit_cover object_center_top position_relative mob_hidden"
                   />
                   <Image
-                    src="download_voucher-m.png"
+                    src="/download_voucher-m.png"
                     alt="Download the inckd app to get a voucher of"
                     loading="lazy"
                     placeholder="blur"
