@@ -1,9 +1,16 @@
 {
   
   "menus": {
+    "home": "Home",
+    "explore":"Explore",
+    "request":"Request",
+    "financing":"Financing",
+    "tattooArtists":"Tattoo Artists",
+    "tattoos":"Tattoos",
+    "flashTattos":"Flash Tattoos",
+    "forTattooers":"For Tattooers",
     "tattooSearch": "Explore tattoos",
      "exploreArtists":"Explore artists",
-    "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
@@ -16,19 +23,9 @@
     "joinArtist": "Join as artist"
   },
 
-   "sideDrawerMenus":{
-    "home": "Home",
-    "tattooRequest":"Tattoo Request",
-    "tattooFinancing":"Tattoo Financing",
-    "exploreTattoos":"Explore Tattoos",
-    "exploreTattooArtists":"Explore Tattoo Artists",
-    "tattooJournal":"Tattoo Journal",
-    "forTattooers":"For Tattooers",
-    "contactUs":"Contact us"
-   },
-
+  
+  
   "homePage": {
-
     "bannerTitle": {
       "part1": "Book your",
       "part2": "tattoo now."
@@ -331,7 +328,7 @@
   "enterLocation": "Enter Location",
   "loadMore": "Load more",
 
-  "Downloadinckd": "Download the inckd app to get a voucher of",
+    "Downloadinckd": "Download the inckd. app to get a voucher of",
   "Usecode": "Use code",
   "Voucherends": "Voucher ends on",
   "Joinus": "Join us with",
@@ -341,7 +338,7 @@
 
   "Read more": "Read more",
   "Choose your region and language": "Choose your region and language",
-  "LanguagePopup-subText": "Tailor Your Experience by Choosing Region and Language",
+  "LanguagePopup-subText": "Tailor your experience by choosing region and language",
   "currency": "EUR",
   "Stripe payment": "Stripe payment",
   "Payment methods": "Payment methods",

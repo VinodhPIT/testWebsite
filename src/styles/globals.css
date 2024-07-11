@@ -289,12 +289,14 @@ header ul.nav.main_nav {
 
 header ul.nav.main_nav > li {
   padding: 0;
-  margin: 0 14px;
+  margin: 0px 32px 0px 0px;
   list-style-type: none;
   display: inline-block;
+  position: relative;
 }
 
-header ul.nav.main_nav > li > a {
+header ul.nav.main_nav li a,
+header ul.nav.main_nav li span {
   text-decoration: none;
   display: block;
   text-align: left;
@@ -421,6 +423,45 @@ header .navbar_nav > li:last-child {
 img.nav_btn_toggle {
   cursor: pointer;
 }
+.main_submenu{
+  padding-top: 12px;
+  display: none; 
+  position: absolute;
+  right: -18px;
+  top: 100%;
+  min-width: 151px;
+  width: 100%;
+}
+
+.sub_menu {
+  position: relative;
+  padding: 0;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+  margin: 0px;
+}
+
+.sub_menu:after{
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 16px;
+  border-width: 11px;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+  transform: rotate(-90deg);
+}
+
+ul.nav .nav_item:hover .main_submenu {
+  display: block;
+}
+
+
+.sub_menu li {margin-bottom: 16px;}
+.sub_menu li:last-child {margin-bottom:0px;}
+
+
 
 /* footer */
 footer {
@@ -1268,6 +1309,9 @@ footer {
 .ml_0 {
   margin-left: 0px !important;
 }
+.ml_4 {
+  margin-left: 4px !important;
+}
 
 .ml_5 {
   margin-left: 5px !important;
@@ -1505,6 +1549,9 @@ footer {
   margin-right: 24px !important;
 }
 
+.mr_3 {
+  margin-right: 3px !important;
+}
 .mr_5 {
   margin-right: 5px !important;
 }
@@ -2243,7 +2290,7 @@ footer {
 .btn_tattoo_art {
   display: inline-flex;
   height: 60px;
-  padding: 8px 20px;
+  padding: 8px 42px;
   margin: 0;
   justify-content: center;
   align-items: center;
