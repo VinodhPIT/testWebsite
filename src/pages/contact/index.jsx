@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import Head from "next/head";
+
 import _Form from "@/components/forms/contactForm";
 import useTranslation from "next-translate/useTranslation";
-import Head from "next/head";
-import Link from "next/link";
+
 
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 import { useQrModal } from '@/context/ModalContext';
 
 import {
-  APP_LINK_APPLE,
   BLUR_URL,
 } from "@/constants/index";
 
@@ -33,6 +33,8 @@ export default function Contact({}) {
           name="keywords"
           content={t("common:contactUsScreenSEO.keyword")}
         />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
       </Head>
 
 
