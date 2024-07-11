@@ -82,7 +82,8 @@ export default function Home({}) {
         titleWidth="max_w_480"
         descriptionWidth="max_w_440"
         buttonBg=""
-        textColor="color_black_h"
+        textColor="color_gray_550"
+        mob_textColor="color_white"
         isBadge={false}
       />
 

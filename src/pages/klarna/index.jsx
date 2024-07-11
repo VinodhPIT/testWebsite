@@ -134,6 +134,7 @@ function KlarnaNew({ }) {
         descriptionWidth="max_w_520"
         buttonBg="button_primary_white"
         textColor="color_white"
+        mob_textColor="color_white"
         isBadge={true}
         badge={'/klarna_badge_new.svg'}
       />

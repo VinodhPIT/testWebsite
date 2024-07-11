@@ -48,6 +48,7 @@ export default function Tattooartists({}) {
         descriptionWidth="max_w_480"
         buttonBg="button_primary_white"
         textColor="color_white"
+        mob_textColor="color_white"
         isBadge={false}
     
       />

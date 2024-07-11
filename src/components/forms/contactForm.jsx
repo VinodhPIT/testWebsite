@@ -20,7 +20,7 @@ const _Form = () => {
   const formData = contactFormFields(t);
 
   const [state, setState] = useState({
-    isShown: true,
+    isShown: false,
   });
   const router = useRouter();
 
@@ -165,7 +165,7 @@ const _Form = () => {
             </Link>
             <button
               onClick={openModal}
-              className="button_primary mob_hidden w_min_230 m_w_100pc mt_15"
+              className="button_primary mob_hidden w_min_230 max_w_375 w_100pc m_w_100pc max_m_w_100pc mt_15"
             >
               {"Get our mobile app"}
             </button>

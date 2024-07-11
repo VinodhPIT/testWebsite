@@ -17,7 +17,7 @@ export const Links = [
         },
 
         {
-          id: 2,
+          id: 3,
           title: "common:menus.flashTattos",
           url: "/explore/flash-tattoos",
         },

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import setLanguage from "next-translate/setLanguage";
+import _ from 'lodash';
+
 import useTranslation from "next-translate/useTranslation";
 import Modal from "react-modal";
 import useStyleListing from "@/store/styleListing/styleListing";
@@ -43,8 +45,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }, []);
 
   const chooseLanguage = async ( countryCode, lng) => {
-    await setLanguage(`${countryCode}-${lng}`);
     closeModal();
+    await setLanguage(`${countryCode}-${lng}`);
     const newUrl = `/${countryCode}-${lng}${router.asPath}`;
     router.replace(newUrl);
     fetchStyle();
