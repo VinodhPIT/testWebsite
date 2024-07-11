@@ -7816,7 +7816,11 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   .form_submit_block ul.download_app li a img {
     width: 105px;
   }  
+
 }
+
+
+
 @media screen and (max-width: 380px) {
   .mr_xs_0 {
     margin-right: 0px !important;

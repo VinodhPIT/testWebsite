@@ -66,7 +66,6 @@ function MyApp({ Component, pageProps }) {
         "/artists/[detail]",
         "/explore/tattoos/[detail]",
         "/explore/flash-tattoos/[detail]",
-        "/404",
         "/privacy_policy",
         "/terms&conditions",
         "/impressum",
@@ -80,7 +79,8 @@ function MyApp({ Component, pageProps }) {
         "/comingSoon",
         "/explore-style",
         "/contact",
-        "/join-as-artist"
+        "/join-as-artist",
+        "/404",
     ];
 
     const darkThemePaths = [

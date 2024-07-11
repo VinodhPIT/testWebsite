@@ -165,7 +165,8 @@ const _Form = () => {
             </Link>
             <button
               onClick={openModal}
-              className="button_primary mob_hidden w_min_230 mt_15 max_w_375 w_100pc m_w_100pc max_m_w_100pc"
+
+              className="button_primary mob_hidden w_min_230 max_w_375 w_100pc m_w_100pc max_m_w_100pc mt_15"
             >
               {"Get our mobile app"}
             </button>
