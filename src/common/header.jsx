@@ -203,7 +203,6 @@ export default function Header({
           </div>
         </div>
       </header>
-
       {toggle && <SideDrawer onCloseToggle={onCloseToggle} isFixed={isFixed} />}
 
       <CountryPickerModel

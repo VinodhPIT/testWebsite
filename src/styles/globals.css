@@ -262,7 +262,7 @@ header.fixed .sticky-menu{
  .bl_burgerIcon {color: var(--black-500);}
 
  header.fixed .wh_burgerIcon{
-color: var(--black);
+  color: var(--black);
  }
 
 
