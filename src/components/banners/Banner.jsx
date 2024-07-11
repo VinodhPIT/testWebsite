@@ -57,8 +57,8 @@ export default function Banner({
                         <Image
                           src={badge}
                           alt="klarna"
-                          width={70}
-                          height={29}
+                          width={95}
+                          height={40}
                           loading="eager"
                         />
                       </div>
