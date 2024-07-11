@@ -20,7 +20,7 @@ const _Form = () => {
   const formData = contactFormFields(t);
 
   const [state, setState] = useState({
-    isShown: false,
+    isShown: true,
   });
   const router = useRouter();
 
@@ -31,7 +31,7 @@ const _Form = () => {
     <div className="contact_form_block max_w_420 w_100pc m_max_100">
         {!state.isShown ? (
           <div>
-            <h1 className="color_gray_550 custom_fs_40 custom_fs_m_28 fw_800 mb_20 m_mb_15">{t("common:contactUsPage.Get in touch")}</h1>
+            <h1 className="color_gray_550 custom_fs_40 custom_fs_m_28 fw_700 mb_20 m_mb_15">{t("common:contactUsPage.Get in touch")}</h1>
             <h6 className="color_black_450 custom_fs_20 lh_22 custom_fs_m_18 fw_400 mb_10 m_mb_15">{t("common:contactUsPage.who-you-are")}</h6>
             <Formik
               initialValues={initialValues}
@@ -154,18 +154,18 @@ const _Form = () => {
               priority
               alt="Form submitted"
             />
-            <h1 className="color_gray_550 custom_fs_40 custom_fs_m_28 fw_800 mt_25 m_mt_15 mb_10 m_mb_10">{t("common:Form submitted")}</h1>
+            <h1 className="color_gray_550 custom_fs_40 custom_fs_m_28 fw_700 mt_25 m_mt_15 mb_10 m_mb_10">{t("common:Form submitted")}</h1>
             <p >{t("common:Thank you")}</p>
-            <p>{"dsfsdfsdf"}</p>
+            <p>{"We’ll get back to you soon.."}</p>
             <Link
               href="" 
-              className="button_primary_outline w_min_230 m_w_100pc mt_55 m_mt_25"
+              className="button_primary_outline w_min_230 mt_40 m_mt_25 max_w_375 w_100pc m_w_100pc max_m_w_100pc"
               >
               {"Ok. got it!"}
             </Link>
             <button
               onClick={openModal}
-              className="button_primary mob_hidden w_min_230 m_w_100pc mt_35"
+              className="button_primary mob_hidden w_min_230 m_w_100pc mt_15"
             >
               {"Get our mobile app"}
             </button>

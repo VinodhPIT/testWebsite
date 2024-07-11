@@ -89,6 +89,12 @@ button:disabled:hover {
 .home .sideDrawer {
   top: 42px;
 }
+.exploreScreens .sideDrawer {
+  top: 0px;
+}
+.sideDrawer .menuList li .active {
+ color: red;
+}
 
 .home .drawer-sticky {
   top: 0
@@ -108,9 +114,9 @@ button:disabled:hover {
   width: 100%;
 }
 
-.menuList ul {
+.menuList > ul {
   padding: 0px 40px;
-  margin: 82px 0 0 0;
+  margin: 70px 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -123,11 +129,11 @@ button:disabled:hover {
   padding: 0;
 }
 
-.menuList li a {
+
+.menuList > ul > li > a {
   font-size: 26px;
   line-height: 31px;
   color: #000;
-  font-weight: 400;
 }
 
 .closeWrapper {
@@ -146,6 +152,14 @@ button:disabled:hover {
   width: 100%;
   border-top: 1px solid #F2F5F6;
 }
+
+.drawer_submenu {
+  padding-left: 24px;
+  margin-top: 40px;
+}
+.drawer_submenu li{margin-bottom: 30px;}
+.drawer_submenu li:last-child{margin-bottom:0px;}
+.drawer_submenu a{font-size: 22px;}
 
 /* Side Drawer */
 
@@ -496,20 +510,31 @@ ul.custom_list_view li img {
 }
 
 .klarna_num_count {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100px;
-  border: 2px solid var(--gray-light-300);
-  background: #fff;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 29px;
+display: flex;
+width: 40px;
+height: 40px;
+padding: 10px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 100px;
+background: #fff;
+font-size: 24px;
+font-weight: 800;
+line-height: 29px;
 }
+
+.active_numCount{
+  border: 0.67px solid var(--black);
+  background-color:var(--black-200);
+  color:var(--white)
+}
+.inactive_count{
+  border: 0.67px solid var(--gray-light-300);
+}
+.klarna_works_block .kl_count{
+  border: 1px solid var(--gray-light-300);
+} 
 
 .klarna_works_accordion .accordion {
   border: 0;
@@ -1132,7 +1157,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
   font-style: normal;
   font-weight: 400;
   line-height: 27px;
-  color: rgba(0, 0, 0, 0.6);
+  color: #212121;
   padding: 0;
   margin: 0;
 }
@@ -1235,8 +1260,9 @@ form.form_block .radio_block.radio_form_grid+div.error {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border: 1px dashed var(--black-450);
-  background: var(--gray-light-150);
+  /*border: 1px dashed var(--black-450);*/
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%231C1C1CFF' stroke-width='1' stroke-dasharray='6%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  background-color: var(--gray-light-150);
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
@@ -1248,11 +1274,9 @@ form.form_block .radio_block.radio_form_grid+div.error {
   font-size: 12px;
   font-weight: 600;
   line-height: 18px;
-  color: var(--gray-400);
+  color: var(--black-500);
   margin: 0 0 32px 0;
 }
-
-
 
 .qr-model {
   width: 100%;
@@ -1493,6 +1517,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
 }
 
 @media screen and (max-width: 767.98px) {
+
   .home .sideDrawer {
     top: 41px;
   }
@@ -1526,21 +1551,22 @@ form.form_block .radio_block.radio_form_grid+div.error {
     overflow-y: auto;
   }
 
-  .menuList ul {
+  .menuList > ul {
     padding: 0px 15px 15px 15px;
-    margin-top: 50px;
+    margin-top: 42px;
     gap: 24px;
   }
 
-  .menuList li a {
+
+  .menuList > ul > li > a{
     font-size: 22px;
-    line-height: 22px;
-  }
+   }
 
   .banner_mob_fit {
     height: calc(100vh - 110px) !important;
     max-height: 742px !important;
   }
+  
 
   .banner_caption {
     align-items: flex-end;
@@ -1585,7 +1611,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
   }
 
   .more_link {
-    margin-bottom: 10px;
+    margin-bottom: 7px;
   }
 
   .klarna_banner_button img {
@@ -1908,6 +1934,16 @@ form.form_block .radio_block.radio_form_grid+div.error {
     font-size: 14px;
     line-height: 21px;
   }
+  .drawer_submenu a {
+    font-size: 18px;
+}
+.drawer_submenu li {
+  margin-bottom: 20px;
+}
+.drawer_submenu {
+  margin-top: 24px;
+}
+.fa_angle_mob{width:11px;}
 
 }
 

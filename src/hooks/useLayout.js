@@ -6,9 +6,9 @@ const UseLayout = ({ children, pathname }) => {
     if (pathname === "/") {
       document.body.style.backgroundColor = "#fff";
       document.body.className = "home";
-    } else if (pathname === "/dictionary") {
+    } else if (pathname === "/explore/[[...slug]]") {
       document.body.style.backgroundColor = "#fff";
-      document.body.className = "dictionary";
+      document.body.className = "exploreScreens";
     } else if (pathname === "/klarna") {
       document.body.style.backgroundColor = "#fff";
       document.body.className = "klarna";

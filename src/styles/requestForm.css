@@ -419,6 +419,7 @@
   width: 100%;
   margin: 16px 0;
   padding: 0;
+  margin-bottom: 0;
 }
 
 .request_filter_col {
@@ -1476,7 +1477,7 @@ button.btn_view_more:hover {
   }
 
   .request_ref_loadmore {
-    margin-bottom: 30px;
+    margin-bottom: 5px;
   }
 
   button.request_ref_selected {

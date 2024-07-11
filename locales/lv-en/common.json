@@ -1,8 +1,15 @@
 {
-  "menus": {
+   "menus": {
+    "home": "Home",
+    "explore":"Explore",
+    "request":"Request",
+    "financing":"Financing",
+    "tattooArtists":"Tattoo Artists",
+    "tattoos":"Tattoos",
+    "flashTattos":"Flash Tattoos",
+    "forTattooers":"For Tattooers",
     "tattooSearch": "Explore tattoos",
      "exploreArtists":"Explore artists",
-    "forTattooArtists": "For tattoo artists",
     "forArtists": "For artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
@@ -14,7 +21,6 @@
     "journal": "Journal",
     "joinArtist": "Join as artist"
   },
-
 
    "sideDrawerMenus":{
     "home": "Home",
@@ -119,7 +125,7 @@
     "paymentOption":"Payment Options",
 
     "understand":"UNDERSTAND",
-    "howorks":"How it works"
+    "howorks":"How it works:"
   },
 
 
@@ -330,7 +336,7 @@
   "enterLocation": "Enter Location",
   "loadMore": "Load more",
 
-  "Downloadinckd": "Download the inckd app to get a voucher of",
+    "Downloadinckd": "Download the inckd. app to get a voucher of",
   "Usecode": "Use code",
   "Voucherends": "Voucher ends on",
   "Joinus": "Join us with",

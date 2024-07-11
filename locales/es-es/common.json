@@ -1,9 +1,13 @@
 {
   "menus": {
     "home": "Inicio",
+    "explore":"Explore",
+    "request":"Request",
+    "financing":"Financing",
     "tattooSearch": "Explorar tatuajes",
     "exploreArtists":"Explore artists",
     "forTattooArtists": "Para Artistas de Tatuajes",
+    "forTattooers":"For Tattooers",
     "forArtists": "Para artistas",
     "klarna": "Klarna",
     "contactUs": "Contáctanos",
@@ -122,7 +126,7 @@
     "paymentOption":"Payment Options",
 
     "understand":"UNDERSTAND",
-    "howorks":"How it works"
+    "howorks":"How it works:"
   },
 
   "forArtistPage": {

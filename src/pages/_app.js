@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   function getHeaderComponent(locale, pathname, query) {
-    console.log(query,"cnklsncl")
+  
     const generalPaths = [
         "/explore/[[...slug]]",
         "/artists/[detail]",

@@ -101,7 +101,7 @@ const TattooSearchModal1Popup = ({}) => {
                       </p>  
                       <button
                         onClick={handleClick}
-                        className="button_primary_outline mt_30 w_100pc d_max_248 m_mt_15"
+                        className="button_primary_outline mt_30 w_100pc d_max_248 m_max_100 m_mt_15"
                       >
                        {t("common:stepper.openApp")}
                       </button>
