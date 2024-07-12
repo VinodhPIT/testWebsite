@@ -9,7 +9,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 import { useGlobalState } from "@/context/Context";
 
 import { UseSliderSettings } from "@/utils/sliderUtils";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL ,FIVE_ITEM_SCROLL ,SLIDE_MOBILE_TO_SCROLL } from "@/constants/index";
 import { getUrl } from "@/utils/getUrl";
 
 import Slider from "react-slick";
@@ -26,7 +26,10 @@ export default function ArtistSlider({ title, content, data, slug }) {
     totalDots,
     activeIndex,
     transformValue,
-  } = UseSliderSettings(isSmallDevice, data);
+  } = UseSliderSettings(isSmallDevice, data ,FIVE_ITEM_SCROLL ,SLIDE_MOBILE_TO_SCROLL);
+
+
+
 
   const router = useRouter();
   const { selectedIds, setSelectedIds } = useGlobalState();
@@ -101,7 +104,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                                 height={776}
                                 loading="lazy"
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 layout="responsive"
                                 style={{
                                   borderTopRightRadius: "9px",
@@ -124,7 +127,7 @@ export default function ArtistSlider({ title, content, data, slug }) {
                                   height={97}
                                   loading="lazy"
                                   placeholder="blur"
-                                  blurDataURL={blurDataURL}
+                                  blurDataURL={BLUR_URL}
                                   layout="responsive"
                                 />
                               </div>
