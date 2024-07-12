@@ -1665,7 +1665,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
     height: 18px;
     padding: 0px 4px;
     font-size: 12px;
-    line-height: 15px;
+    line-height: 16px;
     font-weight: 600;
   }
 
@@ -2078,7 +2078,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
     padding-bottom: 0;
   }
 }
-@media (min-device-height: 320px) and (max-device-height:950px) and (orientation:landscape) {  
+@media (min-device-height: 320px) and (max-device-height:860px) and (orientation:landscape) {  
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right_content {
     height: 100%;
     max-height: 320px;
