@@ -53,7 +53,7 @@ function OfferPage({data}) {
                     className="position_relative object_fit_cover object_center_t desk_hidden"
                   />
                 </div>
-                <div className="banner_caption position_absolute h_100pc pt_120 pb_60 m_w_100pc m_pb_60 m_align_item_center">
+                <div className="banner_caption position_absolute h_100pc pt_120 pb_60 m_pt_160 m_w_100pc m_pb_60 m_align_item_center">
                   <div className="d_inline_block m_w_100pc">  
                     <div className="banner_content">
                       <div className="exciting_offer_block">

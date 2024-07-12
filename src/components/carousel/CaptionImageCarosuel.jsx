@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
-import { BLUR_URL,SLIDES_TO_SHOW_ALTERNATE ,SLIDE_MOBILE_TO_SCROLL} from "@/constants/index";
+import { BLUR_URL,SLIDES_TO_SHOW_ALTERNATE ,SLIDE_MOBILE_TO_SCROLL_REC} from "@/constants/index";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 
 
@@ -20,7 +20,7 @@ export default function CaptionImageCarosuel({title, subTitle, description, data
   const { router } = useNavigation();
 
   const { sliderRef, sliderSettings, totalDots, activeIndex, transformValue } =
-  UseSliderSettings(isSmallDevice, data , SLIDES_TO_SHOW_ALTERNATE ,SLIDE_MOBILE_TO_SCROLL);
+  UseSliderSettings(isSmallDevice, data , SLIDES_TO_SHOW_ALTERNATE ,SLIDE_MOBILE_TO_SCROLL_REC);
 
   return (
     <section className="container_full">

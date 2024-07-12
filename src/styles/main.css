@@ -1818,8 +1818,12 @@ form.form_block .radio_block.radio_form_grid+div.error {
 
   .language_popup_block {
     max-height: calc(100% - 135px);
+    padding-right: 0;
   }
-
+  .language_popup ul {
+    padding-right: 10px;
+  }
+ 
   .popup_wrap .language_popup .close_button {
     top: 8px;
     right: 8px;
@@ -1894,10 +1898,11 @@ form.form_block .radio_block.radio_form_grid+div.error {
   .exciting_offer_block h3 {
     font-size: 26px;
     line-height: 31px;
+    margin-bottom: 0;
   }
 
   .exciting_offer_block .exciting_offer_price {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   .exciting_offer_block .exciting_offer_price h2.title_exciting_price {
@@ -1986,6 +1991,13 @@ form.form_block .radio_block.radio_form_grid+div.error {
   }
 }
 
+@media screen and (max-width: 350px) {
+  .exciting_offer_block h3 {
+    font-size: 23px;
+  }
+}
+
+
 @media only screen and (min-device-width: 320px) and (max-device-height:940px) and (orientation:landscape) {
   .language_popup {
     height: calc(100vh - 90px);
@@ -1993,7 +2005,8 @@ form.form_block .radio_block.radio_form_grid+div.error {
 
   .language_popup_block {
     max-height: calc(100% - 80px);
-  }
+  } 
+
 }
 
 @media only screen and (max-device-height:845px) and (orientation:landscape) {
@@ -2065,10 +2078,10 @@ form.form_block .radio_block.radio_form_grid+div.error {
     padding-bottom: 0;
   }
 }
-@media (min-width: 320px) and (max-height: 420px), screen and (orientation: landscape) {
+@media (min-device-height: 320px) and (max-device-height:950px) and (orientation:landscape) {  
   .join_artist_popup.popup_wrap .popup_box_inner .popup_right_content {
-    height: 320px;
-    overflow-y: auto;    
-  } 
+    height: 100%;
+    max-height: 320px;
+    overflow-y: auto;
+  }
 }
-
