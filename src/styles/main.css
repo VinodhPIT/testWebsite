@@ -1818,10 +1818,11 @@ form.form_block .radio_block.radio_form_grid+div.error {
 
   .language_popup_block {
     max-height: calc(100% - 135px);
-    padding-right: 0;
+    padding-right: 12px !important;
+    margin-right: -12px !important;
   }
   .language_popup ul {
-    padding-right: 10px;
+    padding-right: 0px;
   }
  
   .popup_wrap .language_popup .close_button {
@@ -1974,10 +1975,11 @@ form.form_block .radio_block.radio_form_grid+div.error {
   .mob_slider_left_none .custom_slider .slick-track .slick-slide .listing_gridItem a {
     padding-right: 0px;
   }
-
+  
+/*
   .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem {
     padding-right: 0;
-  }
+  }*/
 
   .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem .listing_grid_img_col img {
     max-height: 240px;
@@ -2084,6 +2086,26 @@ form.form_block .radio_block.radio_form_grid+div.error {
     max-height: 320px;
     overflow-y: auto;
   }
+}
+@media only screen and (min-device-width: 320px) and (max-device-height:940px) and (orientation:landscape) {
+  .language_popup_block {
+    padding-right: 28px;
+    margin-right: -28px;
+  } 
+ /* .popup_wrap .language_popup .close_button {
+    right: 10px;
+  }*/
+
+}
+@media only screen and (min-device-width: 768px) and (max-device-height:1366px) and (orientation:portrait) {
+  .language_popup_block {
+    padding-right: 28px;
+    margin-right: -28px;
+  } 
+ /* .popup_wrap .language_popup .close_button {
+    right: 10px;
+  }*/
+
 }
 
 @media screen and (min-width: 76.98px) {

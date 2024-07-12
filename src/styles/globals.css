@@ -8284,6 +8284,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     object-position: center !important;
     max-height: inherit !important;
   }
+
+  .min_h_580 {
+    min-height: 580px !important;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
@@ -9149,5 +9153,15 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     padding-left: 12px;
     padding-right: 12px;
   }
+
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 1366px) { 
+    .btn_tattoo_art:hover {
+      color: var(--black-500);
+      background: var(--white);
+    }
 
 }
