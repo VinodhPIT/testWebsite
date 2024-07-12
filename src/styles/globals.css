@@ -9151,3 +9151,13 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
 
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 1366px) { 
+    .btn_tattoo_art:hover {
+      color: var(--black-500);
+      background: var(--white);
+    }
+
+}

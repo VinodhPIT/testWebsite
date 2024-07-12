@@ -1818,10 +1818,11 @@ form.form_block .radio_block.radio_form_grid+div.error {
 
   .language_popup_block {
     max-height: calc(100% - 135px);
-    padding-right: 0;
+    padding-right: 12px !important;
+    margin-right: -12px !important;
   }
   .language_popup ul {
-    padding-right: 10px;
+    padding-right: 0px;
   }
  
   .popup_wrap .language_popup .close_button {
@@ -2084,6 +2085,26 @@ form.form_block .radio_block.radio_form_grid+div.error {
     max-height: 320px;
     overflow-y: auto;
   }
+}
+@media only screen and (min-device-width: 320px) and (max-device-height:940px) and (orientation:landscape) {
+  .language_popup_block {
+    padding-right: 28px;
+    margin-right: -28px;
+  } 
+ /* .popup_wrap .language_popup .close_button {
+    right: 10px;
+  }*/
+
+}
+@media only screen and (min-device-width: 768px) and (max-device-height:1366px) and (orientation:portrait) {
+  .language_popup_block {
+    padding-right: 28px;
+    margin-right: -28px;
+  } 
+ /* .popup_wrap .language_popup .close_button {
+    right: 10px;
+  }*/
+
 }
 
 @media screen and (min-width: 76.98px) {
