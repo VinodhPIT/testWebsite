@@ -1256,6 +1256,9 @@ footer {
 .pull_left {
   float: left;
 }
+.clear_left{
+  clear: left;
+}
 .dis_inline {
   display: inline !important;
 }
