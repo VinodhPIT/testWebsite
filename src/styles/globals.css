@@ -8284,6 +8284,10 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     object-position: center !important;
     max-height: inherit !important;
   }
+
+  .min_h_580 {
+    min-height: 580px !important;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991.98px) {

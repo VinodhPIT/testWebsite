@@ -55,7 +55,7 @@ export default function ListingPage({ data}) {
               <Slider ref={sliderRef} {...sliderSettings} className="custom_slider custom_m_single_slider">
                 {data.map((el, index) => (
                   <div
-                    className={`${"listing_gridItem m_sm_pr_18"} ${
+                    className={`${"listing_gridItem"} ${
                       styles.listing_gridItem
                     }`}
                     key={index}

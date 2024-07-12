@@ -75,7 +75,7 @@ export default function TattooIdea() {
 
       <div className="row g-0">
         <div className="col-md-6 col-sm-12 col-xs-12 block_bg_green_dark_400">              
-          <div className="position_relative w_100pc h_100pc min_h_67_vh m_min_h_inherit text_center align_content_flex_end m_pt_40">
+          <div className="position_relative w_100pc h_100pc min_h_67_vh m_min_h_inherit text_center align_content_flex_end m_pt_40 min_h_580">
             <Image
               priority
               src="/share_tattoo_idea_img_mobile.png"

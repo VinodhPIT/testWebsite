@@ -1975,10 +1975,11 @@ form.form_block .radio_block.radio_form_grid+div.error {
   .mob_slider_left_none .custom_slider .slick-track .slick-slide .listing_gridItem a {
     padding-right: 0px;
   }
-
+  
+/*
   .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem {
     padding-right: 0;
-  }
+  }*/
 
   .main_slider .custom_slider.custom_m_single_slider .slick-slide .listing_gridItem .listing_grid_img_col img {
     max-height: 240px;
