@@ -102,7 +102,7 @@ export default function Footer() {
       return null;
     }
     return (
-      <button className="footer_switcher" onClick={openPopup}>
+      <button className="footer_switcher m_mb_25" onClick={openPopup}>
         <Image
           src={getCountryIcon(locale)}
           alt="countries"
@@ -156,7 +156,8 @@ export default function Footer() {
                   >
                   {"Get our mobile app"}
                   </button>
-                  <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_25">
+                  
+                  <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_0 pull_left clear_left">
                     <Image
                       priority
                       src={imageSrc}

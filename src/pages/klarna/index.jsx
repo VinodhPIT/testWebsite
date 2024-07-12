@@ -121,8 +121,8 @@ function KlarnaNew({ }) {
       </Head>
 
       <Banner
-        bannerImage="/banner_klarna_web.png"
-        mobileBanner="/banner_klarna_mob.png"
+        bannerImage="/klarnaBanner.png"
+        mobileBanner="/klarnaBanner_mob.png"
         altText={`${t("common:klarnaPage.bannerTitle1")} ${t("common:klarnaPage.bannerTitle1-Sub")}`}
         title={{
           firstPart:t("common:klarnaPage.bannerTitle1"),
