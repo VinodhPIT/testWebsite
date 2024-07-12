@@ -76,6 +76,7 @@ const _Form = () => {
                   <div className="form_block">
                     <div className="form_group m_mb_0">
                       <div className="form_group radio_block radio_form_grid">
+                        
                         {formData.map((field, index) => {
                           return (
                               field.type === "radio" && (

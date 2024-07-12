@@ -202,9 +202,13 @@ const Search = ({
               collectionLength.length !== 0 &&
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
+
+                   {state.currentTab!=="artist" &&
                   <p>
                   {t("common:See out of")} {collectionLength.length}/{state.totalItems}
-                  </p>
+                  </p>}
+
+
                   <div className={style.btn_wrapper}>
                     <button
                       onClick={() => {

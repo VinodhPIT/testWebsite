@@ -47,11 +47,11 @@
     "secureTransactions": "Secure transactions",
     "startRequest": "Start a request",
     "shareIdea": "Share your tattoo idea",
-    "compareOffers":"Compare different offers",
+    "compareOffers":"Compare different quotes",
     "sendOneRequest":"Send one request to multiple artists",
     "bookYourTattooEasily":"Book your tattoo easily and quickly",
-    "shareYour" :"SHARE YOUR",
-    "tattooIdea" :"Tattoo Idea"
+    "shareYour": "RECEIVE",
+    "tattooIdea": "Free tattoo quotes"
 
   },
   
@@ -412,14 +412,14 @@
   "subText": "Neueste Tattoo-Trends, Tipps und Techniken",
   "See out of": "Aus dem Effeff",
   "Style": "Stil",
-  "Search by Location": "Suche nach Standort",
+  "Search by Location": "Standort",
   "Clear All": "Alle löschen",
   "Show Results": "Ergebnisse anzeigen",
   "Loading": "Laden...",
   "Search Location": "Standort suchen",
   "next": "Next",
   "goBack": "Back",
-  "currentLocation": " Use current location",
+  "currentLocation": " Use my location",
   "select an image file": "Please select an image file.",
   "deniedGeolocation": "User Denied Geolocation",
   "artistsSelected": "Artists Selected",

@@ -25,6 +25,9 @@ export default function LocationSearch({ onToggleLoc }) {
     locationDenied,
   } = useRequestForm(); // Zustand store and setter
 
+
+  console.log(address ,"cd",location ,"pkx[dkcp[d")
+
   const handleSelect = async (value) => {
     setAddress(value);
   };
@@ -39,7 +42,11 @@ export default function LocationSearch({ onToggleLoc }) {
     setIsChecked();
   };
   const clear = async () => {
-    sharedFunction();
+    if (address !== "") {
+      setAddress("");
+    } else {
+      sharedFunction();
+    }
   };
 
   const onError = (status, clearSuggestions) => {
@@ -159,17 +166,17 @@ export default function LocationSearch({ onToggleLoc }) {
             </button>
           ) : (
             <button
-              onClick={() => clear()}
-              disabled={location === ""}
-              className="button_primary_outline w_min_125 w_100pc"
-            >
-              {t("common:Clear All")}
-            </button>
+            onClick={clear}
+            disabled={address === "" && location === ""}
+            className="button_primary_outline w_min_125 w_100pc"
+          >
+           {t("common:Clear All")}
+          </button>
           )}
 
           <button
             onClick={() => searchLocation()}
-            disabled={address === ""}
+            disabled={!address}
             className="button_primary w_min_125 w_100pc"
           >
             {t("common:Show Results")}
