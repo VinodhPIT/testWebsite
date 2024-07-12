@@ -11,7 +11,7 @@ import useTranslation from "next-translate/useTranslation";
 import { UseSliderSettings } from "@/utils/sliderUtils";
 
 //import sliderSettings from "@/constants/homeSliderSettings";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL ,FIVE_ITEM_SCROLL ,SLIDE_MOBILE_TO_SCROLL } from "@/constants/index";
 import { getUrl } from "@/utils/getUrl";
 
 import styles from "./styles/style.module.css";
@@ -32,9 +32,7 @@ export default function ExploreTattoos({ data, styleName, slug }) {
     totalDots,
     activeIndex,
     transformValue,
-  } = UseSliderSettings(isSmallDevice, data);
-
- 
+  } = UseSliderSettings(isSmallDevice, data ,FIVE_ITEM_SCROLL,SLIDE_MOBILE_TO_SCROLL);
 
 
 
@@ -99,7 +97,7 @@ export default function ExploreTattoos({ data, styleName, slug }) {
                                 height={224}
                                 loading="lazy"
                                 placeholder="blur"
-                                blurDataURL={blurDataURL}
+                                blurDataURL={BLUR_URL}
                                 className="h_inherit"
                                 layout="responsive"
                                 style={{ borderRadius: "10px" }}

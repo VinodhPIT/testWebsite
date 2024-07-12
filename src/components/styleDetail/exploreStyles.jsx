@@ -7,7 +7,7 @@ import { useNavigation } from "@/hooks/useRouter";
 
 import useTranslation from "next-translate/useTranslation";
 import { UseSliderSettings } from "@/utils/sliderUtils";
-import { blurDataURL } from "@/constants/constants";
+import { BLUR_URL ,FIVE_ITEM_SCROLL ,SLIDE_MOBILE_TO_SCROLL } from "@/constants/index";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -23,7 +23,7 @@ export default function ExploreStyles({ data }) {
     totalDots,
     activeIndex,
     transformValue,
-  } = UseSliderSettings(isSmallDevice, data);
+  } = UseSliderSettings(isSmallDevice, data ,FIVE_ITEM_SCROLL ,SLIDE_MOBILE_TO_SCROLL);
   const { router } = useNavigation();
   const { t } = useTranslation();
 
@@ -73,7 +73,7 @@ export default function ExploreStyles({ data }) {
                             height={256}
                             loading="lazy"
                             placeholder="blur"
-                            blurDataURL={blurDataURL}
+                            blurDataURL={BLUR_URL}
                             className="h_inherit"
                             layout="responsive"
                             style={{ borderRadius: "10px" }}

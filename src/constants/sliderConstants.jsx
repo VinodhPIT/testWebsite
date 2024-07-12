@@ -7,3 +7,5 @@ export const SLIDE_MOBILE_TO_SCROLL = 1.3;
 export const SLIDE_MOBILE_TO_SCROLL_REC = 1.47; 
 export const SLIDE_MOBILE_TO_SCROLL_ALTERNATE = 1.3;
 export const SINGLE_ITEM_SCROLL = 1;
+
+export const FIVE_ITEM_SCROLL = 5;
