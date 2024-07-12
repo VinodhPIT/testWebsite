@@ -19,50 +19,50 @@ export default function DownloadApps() {
     <section className="container_full pb_40">
       <div className="row g-0">
         <div className="col-md-6 col-sm-12 col-xs-12 offset-md-right-1 m_order_2">
-          <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content m_pt_10 block_bg_gray_250">
+          <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content pt_30 m_pt_15 block_bg_gray_250">
             <ul className="mobile_app_list">
-              <li className="align_item_center justify_content_end">
+              <li className="align_item_center justify_content_end pb_30 m_pb_15">
                 <Image
                   priority
-                  src="/mob_app_01.png"
+                  src="/download_img_01.png"
                   alt={t("common:homePage.TattooFinancing")}
-                  width={277}
-                  height={549}
+                  width={287}
+                  height={569}
                   blurDataURL={BLUR_URL}
                   placeholder="blur"
                   className="object_position_center mob_hidden"
                 />
                 <Image
                   priority
-                  src="/mob_app_01.png"
+                  src="/download_img_01.png"
                   alt={t("common:homePage.TattooFinancing")}
                   width={122}
                   height={242}
                   blurDataURL={BLUR_URL}
                   placeholder="blur"
-                  className="object_position_center desk_hidden"
+                  className="object_position_center desk_hidden m_w_auto m_h_inherit"
                 />
               </li>
               <li className="align_item_end justify_content_start">
                 <Image
                   priority
-                  src="/mob_app_02.png"
+                  src="/download_img_02.png"
                   alt={t("common:homePage.TattooFinancing")}
                   width={278}
-                  height={448}
+                  height={550}
                   blurDataURL={BLUR_URL}
                   placeholder="blur"
                   className="object_position_bottom mob_hidden"
                 />
                 <Image
                   priority
-                  src="/mob_app_02.png"
+                  src="/download_img_02.png"
                   alt={t("common:homePage.TattooFinancing")}
                   width={122}
                   height={197}
                   blurDataURL={BLUR_URL}
                   placeholder="blur"
-                  className="object_position_bottom desk_hidden"
+                  className="object_position_bottom desk_hidden m_w_auto m_h_inherit"
                 />
               </li>
             </ul>

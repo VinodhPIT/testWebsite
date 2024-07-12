@@ -62,7 +62,7 @@ const SucessModal = ({}) => {
             <div className="popup_box_inner m_justify_content_center">
               <div className="popup_left justify_content_center block_bg_green_100 mob_hidden">
                 <Image
-                  src="/Great-idea-tattoo!.png"
+                  src="/Great-idea-tattoo.png"
                   alt="Manage your business"
                   className="w_auto max_w_100pc object_fit_contain object_position"
                   width={398}

@@ -2085,3 +2085,9 @@ form.form_block .radio_block.radio_form_grid+div.error {
     overflow-y: auto;
   }
 }
+
+@media screen and (min-width: 76.98px) {
+  .main_slider .custom_slider {
+    margin-right: -15px;
+  }
+}

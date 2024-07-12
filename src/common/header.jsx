@@ -192,7 +192,7 @@ export default function Header({
                 )}
                 <RxHamburgerMenu
                   onClick={onToggle}
-                  size={32}
+                  size={33}
                   cursor={"pointer"}
                   className={`${
                     theme === "dark" ? "wh_burgerIcon" : "bl_burgerIcon"
@@ -203,7 +203,6 @@ export default function Header({
           </div>
         </div>
       </header>
-
       {toggle && <SideDrawer onCloseToggle={onCloseToggle} isFixed={isFixed} />}
 
       <CountryPickerModel
