@@ -262,6 +262,8 @@
   },
 
   "stepper": {
+    "getPersonalizedtattoo":"Get personalized tattoo quotes.",
+    "followSteps":"Follow these steps to connect with top artists.",
     "tattooSize": "Choose tattoo size",
     "bodyPart": "Choose placement",
     "description": "Describe your tattoo",
