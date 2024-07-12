@@ -227,9 +227,9 @@ input.location_search_input {
     }
     .mobile_toggleBox .custom_toggleBox {
         overflow: auto;
-    display: inline-block;
-    width: 100%;
-    height: calc(100% - 60px);
+        display: inline-block;
+        width: 100%;
+        height: calc(100% - 60px);
     }
     .mobile_toggleBox .custom_toggleBox:before {
         content: "";

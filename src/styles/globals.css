@@ -1592,7 +1592,9 @@ footer {
 .pl_7pc {
   padding-left: 7% !important;
 }
-
+.pl_10 {
+  padding-left: 10px !important;
+}
 .pl_15 {
   padding-left: 15px !important;
 }
