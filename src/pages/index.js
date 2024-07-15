@@ -105,12 +105,7 @@ export default function Home({}) {
         data={allListing.tattoo_images}
       />
 
-      <CaptionImageCarosuel
-        title={t("common:explore")}
-        subTitle={t("common:tattooStyles")}
-        description=""
-        data={styleList}
-      />
+    
 
       <ListAppFeature />
 
