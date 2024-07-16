@@ -25,10 +25,8 @@ import {
 export default function Footer() {
   const { t } = useTranslation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
-
   const router = useRouter();
   const { appStoreLink, imageSrc } = useAppStoreLink();
-
   const { openModal } = useQrModal();
 
   const bookLinks = [
@@ -154,7 +152,7 @@ export default function Footer() {
                     target="_blank"
                     className="button_primary mt_15 mob_hidden"
                   >
-                  {"Get our mobile app"}
+                  {t("common:getApp")}
                   </button>
                   
                   <Link href={appStoreLink} target="_blank" className="d_inline_block m_mt_0 pull_left clear_left">

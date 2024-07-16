@@ -22,8 +22,6 @@ const _Form = () => {
   const [state, setState] = useState({
     isShown: false,
   });
-  const router = useRouter();
-
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const { openModal } = useQrModal();
 
@@ -159,17 +157,17 @@ const _Form = () => {
             <p >{t("common:Thank you")}</p>
             <p>{"We’ll get back to you soon.."}</p>
             <Link
-              href="" 
+              href={`/`} 
               className="button_primary_outline w_min_230 mt_40 m_mt_25 max_w_375 w_100pc m_w_100pc max_m_w_100pc"
               >
-              {"Ok. got it!"}
+             {t("common:gotIt")}
             </Link>
             <button
               onClick={openModal}
 
               className="button_primary mob_hidden w_min_230 max_w_375 w_100pc m_w_100pc max_m_w_100pc mt_15"
             >
-              {"Get our mobile app"}
+              {t("common:getApp")}
             </button>
 
             <Link href={appStoreLink} target="_blank" className="mt_25">

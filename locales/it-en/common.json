@@ -84,7 +84,7 @@
     "optionTitle-4": "Up to 36 months to pay for your tattoo.",
     "optionContent-4": "This Financing options are credit plans with repayment terms ranging up to 36 months. The first payment is made at point of the tattoo appointment day, with remaining instalments scheduled automatically every 30 days.",
 
-    "terms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.Ts&Cs and late fees apply.",
+    "terms": "Klarna's Pay in 3 and Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status.Ts&Cs and late fees apply.",
 
     "findArtists": "Need help to find the right tattoo artist?",
 
@@ -227,7 +227,7 @@
     "content10": "Instagram, Messenger, WhatsApp, Email... You do not have to stress about multiple apps. All clients can reach you via inckd. Just one place and peace of mind.",
 
     "title11": "How can I reach inckd. Support?",
-    "content11": "You can write us via the contact form on the webpage and on Instagram: inckd_support",
+    "content11": "You can write us via the contact form on the webpage and on Instagram: inckd.support",
 
     "title12": "Will I retain ownership of my images and designs?",
     "content12": "Of course, your art will always remain yours. What you post on inckd. might be featured in promotional material for the app, which will show you as the artist.",
@@ -371,7 +371,10 @@
   "location": "Location",
   "maximumLimit": "Maximum limit of 10 reached",
   "cancel": "Cancel",
+  "gotIt":"Ok. got it!",
+ 
 
+  
   "appStoreDownload": "App store download",
   "playStoreDownload": "Play store download",
   "getTattooNow": "Get tattoo now, Pay later.",
@@ -383,6 +386,13 @@
   },
 
   "stepper": {
+    "head":"Head",
+    "upperBody":"Upper Body",
+    "back":"Back",
+    "arm":"Arm",
+    "leg":"Leg",
+    "foot":"Foot",
+    "other":"Other",
     "getPersonalizedtattoo":"Get personalized tattoo quotes.",
     "followSteps":"Follow these steps to connect with top artists.",
     "tattooSize": "Choose tattoo size",

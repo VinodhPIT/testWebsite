@@ -73,8 +73,8 @@ export default function DownloadApps() {
             <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pt_40 m_pb_30">
               <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 mb_20 m_mb_20">
                 <span className="position_relative">
-                  <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">EXPLORE</span>
-                  inckd. Mobile App</span>
+                  <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:menus.explore")}</span>
+                  {t("common:inckdMobile")}</span>
               </h2>
               <div className="d_flex flex_direction_column mb_25 mt_0 m_mb_20">
                 <div className="d_flex align_item_center">
