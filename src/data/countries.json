@@ -8,8 +8,19 @@
     "lng": "en",
     "set": "ch-en"
   },
+
+
   {
     "id": 2,
+    "country": "Germany",
+    "language": "English",
+    "image": "/germany.svg",
+    "countryCode": "de",
+    "lng": "en",
+    "set": "de-en"
+  },
+  {
+    "id": 3,
     "country": "Germany",
     "language": "German",
     "image": "/germany.svg",
@@ -19,7 +30,7 @@
   },
 
   {
-    "id": 3,
+    "id": 4,
     "country": "United Kingdom",
     "language": "English",
     "image": "/united-kingdom.svg",
@@ -28,7 +39,7 @@
     "set": "gb-en"
   },
   {
-    "id": 4,
+    "id": 5,
     "country": "Hungary",
     "language": "English",
     "image": "/hungary.svg",
@@ -37,7 +48,7 @@
     "set": "hu-en"
   },
   {
-    "id": 5,
+    "id": 6,
     "country": "Czech Republic",
     "language": "English",
     "image": "/czech republic.svg",
@@ -46,7 +57,7 @@
     "set": "cz-en"
   },
   {
-    "id": 6,
+    "id": 7,
     "country": "Poland",
     "language": "English",
     "image": "/poland.svg",
@@ -55,7 +66,7 @@
     "set": "pl-en"
   },
   {
-    "id": 7,
+    "id": 8,
     "country": "Romania",
     "language": "English",
     "image": "/romania.svg",
@@ -64,7 +75,7 @@
     "set": "ro-en"
   },
   {
-    "id": 8,
+    "id": 9,
     "country": "Sweden",
     "language": "English",
     "image": "/sweden.svg",
@@ -74,7 +85,7 @@
   },
 
   {
-    "id": 9,
+    "id": 10,
     "country": "Austria",
     "language": "English",
     "image": "/austria.svg",
@@ -84,7 +95,7 @@
   },
 
   {
-    "id": 10,
+    "id": 11,
     "country": "Belgium",
     "language": "English",
     "image": "/belgium.svg",
@@ -94,7 +105,7 @@
   },
 
   {
-    "id": 11,
+    "id": 12,
     "country": "Denmark",
     "language": "English",
     "image": "/denmark.svg",
@@ -103,7 +114,7 @@
     "set": "dk-en"
   },
   {
-    "id": 12,
+    "id": 13,
     "country": "France",
     "language": "English",
     "image": "/france.svg",
@@ -112,7 +123,7 @@
     "set": "fr-en"
   },
   {
-    "id": 13,
+    "id": 14,
     "country": "Greece",
     "language": "English",
     "image": "/greece.svg",
@@ -121,7 +132,7 @@
     "set": "gr-en"
   },
   {
-    "id": 14,
+    "id": 15,
     "country": "Ireland",
     "language": "English",
     "image": "/ireland.svg",
@@ -130,7 +141,7 @@
     "set": "ie-en"
   },
   {
-    "id": 15,
+    "id": 16,
     "country": "Netherlands",
     "language": "English",
     "image": "/netherlands.svg",
@@ -139,7 +150,7 @@
     "set": "nl-en"
   },
   {
-    "id": 16,
+    "id": 17,
     "country": "Portugal",
     "language": "English",
     "image": "/portugal.svg",
@@ -148,7 +159,7 @@
     "set": "pt-en"
   },
   {
-    "id": 17,
+    "id": 18,
     "country": "Spain",
     "language": "Spanish",
     "image": "/spain.svg",
@@ -157,7 +168,7 @@
     "set": "es-es"
   },
   {
-    "id": 18,
+    "id": 19,
     "country": "Italy",
     "language": "English",
     "image": "/italy.svg",
@@ -166,7 +177,7 @@
     "set": "it-en"
   },
   {
-    "id": 19,
+    "id": 20,
     "country": "Bulgaria",
     "language": "English",
     "image": "/bulgaria.svg",
@@ -176,7 +187,7 @@
   },
 
   {
-    "id": 20,
+    "id": 21,
     "country": "Cyprus",
     "language": "English",
     "image": "/cyprus.svg",
@@ -186,7 +197,7 @@
   },
 
   {
-    "id": 21,
+    "id": 22,
     "country": "Estonia",
     "language": "English",
     "image": "/estonia.svg",
@@ -196,7 +207,7 @@
   },
 
   {
-    "id": 22,
+    "id": 23,
     "country": "Finland",
     "language": "English",
     "image": "/finland.svg",
@@ -206,7 +217,7 @@
   },
 
   {
-    "id": 23,
+    "id": 24,
     "country": "Latvia",
     "language": "English",
     "image": "/latvia.svg",
@@ -216,7 +227,7 @@
   },
 
   {
-    "id": 24,
+    "id": 25,
     "country": "Lithuania",
     "language": "English",
     "image": "/lithuania.svg",
@@ -226,7 +237,7 @@
   },
 
   {
-    "id": 25,
+    "id": 26,
     "country": "Luxembourg",
     "language": "English",
     "image": "/luxembourg.svg",
@@ -236,7 +247,7 @@
   },
 
   {
-    "id": 26,
+    "id": 27,
     "country": "Malta",
     "language": "English",
     "image": "/malta.svg",
@@ -245,7 +256,7 @@
     "set": "mt-en"
   },
   {
-    "id": 27,
+    "id": 28,
     "country": "Slovakia",
     "language": "English",
     "image": "/slovakia.svg",
@@ -254,7 +265,7 @@
     "set": "sk-en"
   },
   {
-    "id": 28,
+    "id": 29,
     "country": "Slovenia",
     "language": "English",
     "image": "/slovenia.svg",

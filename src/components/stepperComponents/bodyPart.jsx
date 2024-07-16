@@ -10,13 +10,13 @@ const BodyPart = () => {
   const { t } = useTranslation();
   
   const tattooValues = [
-    { id: 0, title: 'Head' ,key:"Head" },
-    { id: 1, title: 'Upper Body' ,key:"Upper Body"},
-    { id: 2, title: 'Back' ,key:"Back"},
-    { id: 3, title: 'Arm' ,key:"Arm"},
-    { id: 4, title: 'Leg'  ,key:"Leg"},
-    { id: 5, title: 'Foot' ,key:"Foot"},
-    { id: 6, title: 'Other'  ,key:"Other"},
+    { id: 0, title: t("common:stepper.head") ,key:"Head" },
+    { id: 1, title: t("common:stepper.upperBody") ,key:"Upper Body"},
+    { id: 2, title: t("common:stepper.back") ,key:"Back"},
+    { id: 3, title: t("common:stepper.arm") ,key:"Arm"},
+    { id: 4, title: t("common:stepper.leg") ,key:"Leg"},
+    { id: 5, title: t("common:stepper.foot") ,key:"Foot"},
+    { id: 6, title: t("common:stepper.other")  ,key:"Other"},
     { id: 7, title: t("common:stepper.dontKnowYet") ,key:"nil"}
   ]
 
@@ -37,8 +37,8 @@ const BodyPart = () => {
                     ))}
                   </div>
                   <div className="request_ref_btn rqst_btn_bottom request_mob_fixed m_gap_16 m_pb_15 m_pt_10">
-                    <button className="button_primary_outline w_min_125 m_w_50pc" onClick={prevPage}>Back</button>
-                    <button className="button_primary w_min_125 m_w_50pc"  onClick={nextPage}  disabled={bodyPart===""}>Next</button>
+                    <button className="button_primary_outline w_min_125 m_w_50pc" onClick={prevPage}>{t("common:goBack")}</button>
+                    <button className="button_primary w_min_125 m_w_50pc"  onClick={nextPage}  disabled={bodyPart===""}>{t("common:next")}</button>
                   </div>
                 </div>
               </section>

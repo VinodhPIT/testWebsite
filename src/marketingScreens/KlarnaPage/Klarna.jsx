@@ -93,14 +93,14 @@ function KlarnaPage() {
                       <p
                         className="color_white mt_10 mb_40 m_mb_30 m_max_100"
                       >
-                        Download inckd app  to explore the klarna features
+                        {t("common:klarnaPage.downloadKlarna")}
                       </p>
 
                       <button
                         onClick={openModal}
                         className="button_primary button_primary_white mob_hidden"
                       >
-                        Get our mobile app
+                         {t("common:getApp")}      
                       </button>
 
                       <Link href={appStoreLink} target="_blank">

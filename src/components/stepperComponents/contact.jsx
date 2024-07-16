@@ -177,7 +177,7 @@ const ContactForm = () => {
                               className="button_primary_outline w_min_125 m_w_50pc"
                               onClick={prevPage}
                             >
-                              Back
+                            {t("common:goBack")}
                             </button>
                             <button
                               className="button_primary w_min_125 pull_right align_self_end m_w_50pc"

@@ -5,6 +5,8 @@ import Link from "next/link";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useNavigation } from "@/hooks/useRouter";
 
+import useTranslation from "next-translate/useTranslation";
+
 import { UseSliderSettings } from "@/utils/sliderUtils";
 import { BLUR_URL ,SLIDE_MOBILE_TO_SCROLL ,SLIDES_TO_SHOW_DEFAULT } from "@/constants/index";
 
@@ -18,7 +20,7 @@ export default function TextsCarosuel({title ,subTitle ,description,data}){
 
   const { isVisible, isSmallDevice } = useWindowResize();
   const { router } = useNavigation();
-  
+  const { t } = useTranslation();
   const {
     sliderRef,
     sliderSettings,
@@ -41,7 +43,7 @@ export default function TextsCarosuel({title ,subTitle ,description,data}){
                   href={`/${router.locale}/explore/tattoo-artists`}
                   className="more_link"
                 >
-                 SEE ALL
+                {t("common:seeAll")}
                 </Link>
               </h2>              
             </div>

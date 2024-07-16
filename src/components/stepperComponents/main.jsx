@@ -62,9 +62,9 @@ export default function Main() {
                 <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center pr_40 m_pr_15 m_pl_15">
                   <div className="request_landing_caption m_align_item_flex_start m_mt_0">
                     <h1 className="mb_10 m_mb_20">
-                      <span>Get personalized tattoo quotes.</span>
+                      <span>{t("common:stepper.getPersonalizedtattoo")}</span>
                     </h1>                   
-                    <p className="">Follow these steps to connect with top artists.</p>
+                    <p>{t("common:stepper.followSteps")}</p>
                     <div class="request_stepper m_pb_75">
                       <div class="request_stepper_item">
                         <div class="request_stepper_counter"></div>

@@ -27,7 +27,7 @@ export default function KlarnaBanner() {
                   />
                 </div>
                 <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 fw_800 mt_10 mb_40 m_mb_25 m_max_270">
-                  <span>Tattoo now. Pay Later.</span>
+                  <span>{t("common:tattooPayLater")}</span>
                 </h2>                
                 <Link
                   href={`/${router.locale}/klarna`}
