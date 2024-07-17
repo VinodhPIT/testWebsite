@@ -26,7 +26,7 @@ export default function KlarnaBanner() {
                     loading="eager"
                   />
                 </div>
-                <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 fw_800 mt_10 mb_40 m_mb_25 m_max_270">
+                <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 m_lh_38 fw_800 mt_10 mb_40 m_mb_20 m_max_270">
                   <span>{t("common:tattooPayLater")}</span>
                 </h2>                
                 <Link

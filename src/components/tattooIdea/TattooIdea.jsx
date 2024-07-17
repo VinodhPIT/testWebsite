@@ -23,9 +23,9 @@ export default function TattooIdea() {
             <h2 className="custom_fs_60 fw_800 mb_25 mob_hidden">
               {t("common:homePage.shareIdea")}
             </h2>
-            <h2 className="color_gray_550 text_left custom_fs_m_32 fw_900 m_mb_15 desk_hidden">              
+            <h2 className="color_gray_550 text_left custom_fs_m_32 m_lh_38 fw_900 m_mb_20 desk_hidden">              
               <span className="position_relative">
-                <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:homePage.shareYour")}</span>
+                <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 m_lh_19 text_transform_upper">{t("common:homePage.shareYour")}</span>
                 {t("common:homePage.tattooIdea")}</span>           
             </h2>                 
             <ul class="custom_list_view">
