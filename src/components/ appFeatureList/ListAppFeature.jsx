@@ -25,7 +25,7 @@ export default function DownloadApps() {
                 <Image
                   priority
                   src="/download_img_01.png"
-                  alt={t("common:homePage.TattooFinancing")}
+                  alt={t("common:inckdMobile")}
                   width={287}
                   height={569}
                   blurDataURL={BLUR_URL}
@@ -35,7 +35,7 @@ export default function DownloadApps() {
                 <Image
                   priority
                   src="/download_img_01.png"
-                  alt={t("common:homePage.TattooFinancing")}
+                  alt={t("common:inckdMobile")}
                   width={122}
                   height={242}
                   blurDataURL={BLUR_URL}
@@ -47,7 +47,7 @@ export default function DownloadApps() {
                 <Image
                   priority
                   src="/download_img_02.png"
-                  alt={t("common:homePage.TattooFinancing")}
+                  alt={t("common:inckdMobile")}
                   width={278}
                   height={550}
                   blurDataURL={BLUR_URL}
@@ -57,7 +57,7 @@ export default function DownloadApps() {
                 <Image
                   priority
                   src="/download_img_02.png"
-                  alt={t("common:homePage.TattooFinancing")}
+                  alt={t("common:inckdMobile")}
                   width={122}
                   height={197}
                   blurDataURL={BLUR_URL}

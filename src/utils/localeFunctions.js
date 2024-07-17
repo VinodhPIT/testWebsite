@@ -87,16 +87,26 @@ function getCountryIcon(locale) {
 }
 
 function getLanguage(locale) {
-  let languageSplit = locale.split("-")[1];
-  switch (languageSplit) {
-    case "en":
-      return "English";
-    case "de":
-      return "German";
-    case "it":
-      return "Italy";
-      case "es":
-        return "Spanish";
+  switch (locale) {
+    case "au-en":
+      return "Austria";
+    case "bl-en":
+      return "Belgium";
+    case "bg-en":
+      return "Bulgaria";
+      case "cy-en":
+        return "Cyprus";
+
+    case "gb-en":
+      return "United Kingdom";
+    case "ch-en":
+      return "Switzerland";
+    case "ch-de":
+      return "Schweiz";
+    case "es-en":
+      return "Spain";
+    case "es-es":
+      return "España";
     default:
       return "English";
   }
@@ -106,5 +116,3 @@ module.exports = {
   getCountryIcon,
   getLanguage,
 };
-
-

@@ -241,7 +241,7 @@ export default function DrachenTattoos() {
         title="Der Prozess der Drachen Tätowierung"
         title_sub=""
         content="Das Drachen-Tattoo ist eine Reise in die Kunst und Selbstausdruck. Unsere Plattform verbindet dich mit erfahrenen Künstlern, die die Technik beherrschen und die Bedeutung der Drachen-Tattoos verstehen."
-        button="Explore more artists"
+        button="Entdecke mehr Artists"
         trendingArtist={trendingArtist}
         linkUrl={`/${router.locale}/explore/tattoo-artists?location=BerlinGermany`}
       />

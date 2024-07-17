@@ -53,8 +53,8 @@
   },
 
   "klarnaPage": {
-    "bannerTitle1": "Tattoo now.",
-    "bannerTitle1-Sub": "Pay Later.",
+    "bannerTitle1": "Tatúate ahora.",
+    "bannerTitle1-Sub": "Paga después.",
     "bannerContent": "¡Sí, escuchaste bien! Nos hemos asociado con Klarna para ofrecer pagos a plazos para tatuajes por tu artista favorito. ¡Tu tatuaje soñado ahora es más accesible que nunca!",
 
     "MainTitle2": "¡Tú eliges cómo quieres pagar!",
@@ -196,7 +196,8 @@
     "Email is required": "El email es obligatorio",
     "Message is required": "El mensaje es obligatorio",
     "Invalid email": "Email inválido",
-    "InvalidNumber": "Número de teléfono inválido"
+    "InvalidNumber": "Número de teléfono inválido",
+    "getBack":"Wir melden uns bald bei dir."
   },
 
   "faqScreen": {
@@ -316,7 +317,7 @@
   "business": "Negocio",
   "download-app-on": "Descarga la app de inckd. ahora - ¡Es gratis!",
   "findArtist": "¡Encuentra a tu artista ahora!",
-  "tattooPayLater": "Tattoo now. Pay Later.",
+  "tattooPayLater": "Tatúate ahora. Paga después.",
   "offers": "¡Obtén ofertas emocionantes!",
   "nextTattoo": "descuento en tu próximo tatuaje",
   "chf": "CHF 30",
@@ -372,11 +373,24 @@
   "maximumLimit": "Límite máximo de 10 alcanzado",
   "cancel": "Cancelar",
   "gotIt":"Ok. ¡Entendido!",
+
+  "getback-to-you": "Nos pondremos en contacto contigo pronto.",
+  "scanQR": "Escanea el código QR con la cámara de tu móvil para descargar la app de inckd.",
+  "getTheApp": "Descarga la app de inckd.",
+  "appStore": "App Store",
+  "playStore": "Play Store",
+  "exploreDragonTattoo": "Explora más tatuajes de dragón",
+  "exploreMoreArtists": "Explora más artistas",
+  "yourEmail": "Tu correo electrónico",
+  "yourPhoneNumber": "Tu número de teléfono",
+  "youChoose": "TÚ ELIGES",
   
   "appStoreDownload": "Descarga en App Store",
   "playStoreDownload": "Descarga en Play Store",
   "getTattooNow": "Get tattoo now, Pay later.",
 
+
+  
   "requestForm": {
     "landingTitle": "Describe tu idea de tatuaje y compártela con varios artistas.",
     "subText": "Obtén cotizaciones personalizadas y elige al artista que capture perfectamente tu visión.",
@@ -506,8 +520,8 @@
 
   "klarnaMarketingScreen": {
     "title": "Klarna-Download",
-    "bannerTitle1": "Big Ink.",
-    "bannerTitle1-Sub": "Tiny Payments."
+    "bannerTitle1": "Gran Tinta.",
+    "bannerTitle1-Sub": "Pequeños Pagos."
   },
 
   "VoucherScreen": {

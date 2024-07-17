@@ -140,7 +140,7 @@ function KlarnaPage() {
                            {t("common:klarnaPage.MainTitle2")}</span>  
 
                            <span className="position_relative desk_hidden">
-                          <span className="position_relative d_block fw_300 text_fs_m_14 text_transform_upper">YOU CHOOSE</span>
+                          <span className="position_relative d_block fw_300 text_fs_m_14 text_transform_upper">{t("common:youChoose")}</span>
                            {t("common:klarnaPage.howTopay")}</span>  
                            
                       </h2>

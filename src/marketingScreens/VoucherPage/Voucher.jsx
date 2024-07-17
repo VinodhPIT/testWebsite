@@ -77,7 +77,7 @@ function OfferPage({data}) {
                               onClick={openModal}
                               className="button_primary mob_hidden"
                             >
-                              Get our mobile app
+                            {t("common:getApp")}
                             </button>
                             <Link href={appStoreLink} target="_blank">
                               <Image

@@ -196,7 +196,8 @@
     "Email is required": "Email is required",
     "Message is required": "Message is required",
     "Invalid email": "Invalid email",
-    "InvalidNumber": "Invalid phone number"
+    "InvalidNumber": "Invalid phone number",
+    "getBack":"We’ll get back to you soon.."
   },
 
   "faqScreen": {
@@ -372,9 +373,19 @@
   "maximumLimit": "Maximum limit of 10 reached",
   "cancel": "Cancel",
   "gotIt":"Ok. got it!",
- 
 
-  
+  "getback-to-you": "We’ll get back to you soon..",
+  "scanQR": "Scan the QR code on your mobile phone camera to download the inckd. app",
+  "getTheApp": "Get the inckd. app",
+  "appStore": "App store",
+  "playStore": "Play store",
+   "exploreDragonTattoo":"Explore more dragon tattoos",
+   "exploreMoreArtists":"Explore more artists",
+   "yourEmail":"Your e-mail",
+   "yourPhoneNumber":"Your phone number",
+   "youChoose":"YOU CHOOSE",
+
+ 
   "appStoreDownload": "App store download",
   "playStoreDownload": "Play store download",
   "getTattooNow": "Get tattoo now, Pay later.",

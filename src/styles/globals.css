@@ -1127,6 +1127,9 @@ footer {
 .max_w_480 {
   max-width: 480px !important;
 }
+.max_w_540 {
+  max-width: 540px !important;
+}
 .max_w_520 {
   max-width: 520px !important;
 }

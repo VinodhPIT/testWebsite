@@ -10,7 +10,7 @@ import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
 
-function Download({ data, noData }) {
+function Download({data}) {
   const { router } = useNavigation();
   const { type, influencer, ...otherParams } = router.query;
 
@@ -22,7 +22,6 @@ function Download({ data, noData }) {
         return <AppDownload />;
       case "campaign":
         return <Voucher data={data} />;
-
       default:
         return <AppDownload />;
     }

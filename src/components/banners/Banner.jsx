@@ -5,7 +5,7 @@ import Link from "next/link";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 import useWindowResize from "@/hooks/useWindowSize";
 
-import { useQrModal } from '@/context/ModalContext';
+import { useQrModal } from "@/context/ModalContext";
 
 import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
 
@@ -26,7 +26,7 @@ export default function Banner({
 }) {
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const { openModal } = useQrModal();
-  const {isMobileView } = useWindowResize();
+  const { isMobileView } = useWindowResize();
 
   return (
     <div>
@@ -70,7 +70,9 @@ export default function Banner({
 
                     <div className="banner_content">
                       <h1
-                        className={`custom_fs_80 fw_800 custom_fs_m_60 mt_0 ${titleWidth} ${isMobileView? mob_textColor : textColor} m_max_100`}
+                        className={`custom_fs_80 fw_800 custom_fs_m_60 mt_0 ${titleWidth} ${
+                          isMobileView ? mob_textColor : textColor
+                        } m_max_100`}
                       >
                         {Object.values(title).map((part, index) => (
                           <span key={index} className="textBlock">
@@ -80,7 +82,9 @@ export default function Banner({
                       </h1>
 
                       <p
-                        className={`mt_10 mb_40 m_mb_30 ${descriptionWidth} ${isMobileView? mob_textColor : textColor}  m_max_100`}
+                        className={`mt_10 mb_40 m_mb_30 ${descriptionWidth} ${
+                          isMobileView ? mob_textColor : textColor
+                        }  m_max_100`}
                       >
                         {description}
                       </p>

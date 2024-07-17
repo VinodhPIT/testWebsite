@@ -154,8 +154,11 @@ const _Form = () => {
               alt="Form submitted"
             />
             <h1 className="color_gray_550 custom_fs_40 custom_fs_m_28 fw_800 mt_25 m_mt_15 mb_10 m_mb_10">{t("common:Form submitted")}</h1>
+
             <p >{t("common:Thank you")}</p>
-            <p>{"We’ll get back to you soon.."}</p>
+
+            <p>{t("common:getback-to-you")}</p>
+
             <Link
               href={`/`} 
               className="button_primary_outline w_min_230 mt_40 m_mt_25 max_w_375 w_100pc m_w_100pc max_m_w_100pc"
@@ -164,7 +167,6 @@ const _Form = () => {
             </Link>
             <button
               onClick={openModal}
-
               className="button_primary mob_hidden w_min_230 max_w_375 w_100pc m_w_100pc max_m_w_100pc mt_15"
             >
               {t("common:getApp")}

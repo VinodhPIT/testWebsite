@@ -79,7 +79,7 @@ export default function TattooIdea() {
             <Image
               priority
               src="/share_tattoo_idea_img_mobile.png"
-              alt={t("common:homePage.TattooFinancing")}               
+              alt={t("common:homePage.shareIdea")}               
               blurDataURL={blurDataURL}
               width={432}
               height={590}
@@ -89,7 +89,7 @@ export default function TattooIdea() {
             <Image
               priority
               src="/share_tattoo_idea_img_mobile.png"
-              alt={t("common:homePage.TattooFinancing")}               
+              alt={t("common:homePage.shareIdea")}              
               blurDataURL={blurDataURL}
               width={212}
               height={321}
@@ -104,7 +104,7 @@ export default function TattooIdea() {
               <Image
                 priority={true}
                 src="/share_tattoo_idea.png"
-                alt={t("common:homePage.TattooFinancing")}                  
+                alt={t("common:tattooArtists")}                  
                 width={700}
                 height={636}
                 placeholder="blur"
