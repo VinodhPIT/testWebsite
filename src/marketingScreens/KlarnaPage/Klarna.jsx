@@ -135,10 +135,9 @@ function KlarnaPage() {
               <div className="d_flex flex_direction_column justify_space_between h_100pc">
                   <div className="d_inline_block w_100pc">
                     <div className="d_inline_block w_100pc text_center m_text_left mb_40 m_mb_15">
-                      <h2 className="color_gray_550 custom_fs_60 custom_fs_m_32 fw_900 position_relative mb_0">
+                      <h2 className="color_gray_550 custom_fs_60 custom_fs_m_32 m_lh_38 fw_900 position_relative mb_0">
                           <span className="position_relative mob_hidden">
-                           {t("common:klarnaPage.MainTitle2")}</span>  
-
+                           {t("common:klarnaPage.MainTitle2")}</span>
                            <span className="position_relative desk_hidden">
                           <span className="position_relative d_block fw_300 text_fs_m_14 text_transform_upper">{t("common:youChoose")}</span>
                            {t("common:klarnaPage.howTopay")}</span>  
