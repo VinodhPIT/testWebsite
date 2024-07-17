@@ -1281,7 +1281,7 @@ form.form_block .radio_block.radio_form_grid+div.error {
 .qr-model {
   width: 100%;
   max-width: 666px;
-  height: 536px;
+  height: auto;
   position: absolute;
   top: 50%;
   left: 50%;

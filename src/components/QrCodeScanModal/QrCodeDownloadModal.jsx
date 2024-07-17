@@ -43,7 +43,7 @@ const QrCodeDownloadModal = ({ isOpen, onClose }) => {
           <Image width={32} height={32} src="/popup-close.svg" alt="close" />
         </button>
 
-        <h4 className="custom_fs_60 fw_800 text_center ">{"Get the inckd. app"}</h4>
+        <h4 className="custom_fs_60 fw_800 text_center ">{t("common:getTheApp")}</h4>
         <div className="qrimage-wrapper mt_40 mb_40">
           <Image
             src={"/onelinkto.png"}
@@ -56,9 +56,9 @@ const QrCodeDownloadModal = ({ isOpen, onClose }) => {
           />
         </div>
         <p
-          className="custom_fs_18 fw_600 text_center color_gray_400"
+          className="custom_fs_18 fw_600 text_center color_gray_400 mb_0"
         >
-         {"Scan the QR code on your mobile phone camera to download the inckd. app"}
+         {t("common:scanQR")}
         </p>
       </div>
     </Modal>

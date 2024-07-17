@@ -9,14 +9,3 @@ export const CustomerRequestSize = {
     nil: "I don't know yet",
   };
   
-  export const BodyPart = {
-    Head: "Head",
-    "Upper Body": "Upper Body",
-    Back: "Back",
-    Arm: "Arm",
-    Leg: "Leg",
-    Foot: "Foot",
-    Other: "Other",
-    nil: "I don't Know yet",
-  };
-  

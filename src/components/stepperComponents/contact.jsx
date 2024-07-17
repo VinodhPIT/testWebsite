@@ -114,7 +114,7 @@ const ContactForm = () => {
                               id="email"
                               name="email"
                               className="form_control"
-                              placeholder="Your e-mail"
+                              placeholder={t("common:yourEmail")}
                               innerRef={emailInputRef} // Assign the ref
                               onKeyPress={(e) => {
                                 if (e.key === 'Enter') {
@@ -154,7 +154,7 @@ const ContactForm = () => {
                                 id="phone"
                                 name="phone"
                                 className="form_control"
-                                placeholder="Your phone number"
+                                placeholder={t("common:yourPhoneNumber")}
                                 innerRef={phoneInputRef} // Assign the ref
                                 onKeyPress={(e) => {
                                   if (e.key === 'Enter') {

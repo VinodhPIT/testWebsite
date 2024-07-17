@@ -1,54 +1,43 @@
+
 [
   {
     "id": 1,
-    "country": "Switzerland",
+    "country": "Austria",
     "language": "English",
-    "image": "/switzerland.svg",
-    "countryCode": "ch",
+    "image": "/austria.svg",
+    "countryCode": "au",
     "lng": "en",
-    "set": "ch-en"
+    "set": "au-en"
   },
-
-
   {
     "id": 2,
-    "country": "Germany",
+    "country": "Belgium",
     "language": "English",
-    "image": "/germany.svg",
-    "countryCode": "de",
+    "image": "/belgium.svg",
+    "countryCode": "bl",
     "lng": "en",
-    "set": "de-en"
+    "set": "bl-en"
   },
   {
     "id": 3,
-    "country": "Germany",
-    "language": "German",
-    "image": "/germany.svg",
-    "countryCode": "de",
-    "lng": "de",
-    "set": "de-de"
+    "country": "Bulgaria",
+    "language": "English",
+    "image": "/bulgaria.svg",
+    "countryCode": "bg",
+    "lng": "en",
+    "set": "bg-en"
   },
-
   {
     "id": 4,
-    "country": "United Kingdom",
+    "country": "Cyprus",
     "language": "English",
-    "image": "/united-kingdom.svg",
-    "countryCode": "gb",
+    "image": "/cyprus.svg",
+    "countryCode": "cy",
     "lng": "en",
-    "set": "gb-en"
+    "set": "cy-en"
   },
   {
     "id": 5,
-    "country": "Hungary",
-    "language": "English",
-    "image": "/hungary.svg",
-    "countryCode": "hu",
-    "lng": "en",
-    "set": "hu-en"
-  },
-  {
-    "id": 6,
     "country": "Czech Republic",
     "language": "English",
     "image": "/czech republic.svg",
@@ -57,55 +46,7 @@
     "set": "cz-en"
   },
   {
-    "id": 7,
-    "country": "Poland",
-    "language": "English",
-    "image": "/poland.svg",
-    "countryCode": "pl",
-    "lng": "en",
-    "set": "pl-en"
-  },
-  {
-    "id": 8,
-    "country": "Romania",
-    "language": "English",
-    "image": "/romania.svg",
-    "countryCode": "ro",
-    "lng": "en",
-    "set": "ro-en"
-  },
-  {
-    "id": 9,
-    "country": "Sweden",
-    "language": "English",
-    "image": "/sweden.svg",
-    "countryCode": "sw",
-    "lng": "en",
-    "set": "sw-en"
-  },
-
-  {
-    "id": 10,
-    "country": "Austria",
-    "language": "English",
-    "image": "/austria.svg",
-    "countryCode": "au",
-    "lng": "en",
-    "set": "au-en"
-  },
-
-  {
-    "id": 11,
-    "country": "Belgium",
-    "language": "English",
-    "image": "/belgium.svg",
-    "countryCode": "bl",
-    "lng": "en",
-    "set": "bl-en"
-  },
-
-  {
-    "id": 12,
+    "id": 6,
     "country": "Denmark",
     "language": "English",
     "image": "/denmark.svg",
@@ -114,7 +55,25 @@
     "set": "dk-en"
   },
   {
-    "id": 13,
+    "id": 7,
+    "country": "Estonia",
+    "language": "English",
+    "image": "/estonia.svg",
+    "countryCode": "et",
+    "lng": "en",
+    "set": "et-en"
+  },
+  {
+    "id": 8,
+    "country": "Finland",
+    "language": "English",
+    "image": "/finland.svg",
+    "countryCode": "fi",
+    "lng": "en",
+    "set": "fi-en"
+  },
+  {
+    "id": 9,
     "country": "France",
     "language": "English",
     "image": "/france.svg",
@@ -123,7 +82,25 @@
     "set": "fr-en"
   },
   {
-    "id": 14,
+    "id": 10,
+    "country": "Germany",
+    "language": "English",
+    "image": "/germany.svg",
+    "countryCode": "de",
+    "lng": "en",
+    "set": "de-en"
+  },
+  {
+    "id":11,
+    "country": "Deutschland",
+    "language": "Deutsch",
+    "image": "/germany.svg",
+    "countryCode": "de",
+    "lng": "de",
+    "set": "de-de"
+  },
+  {
+    "id": 12,
     "country": "Greece",
     "language": "English",
     "image": "/greece.svg",
@@ -132,7 +109,16 @@
     "set": "gr-en"
   },
   {
-    "id": 15,
+    "id": 13,
+    "country": "Hungary",
+    "language": "English",
+    "image": "/hungary.svg",
+    "countryCode": "hu",
+    "lng": "en",
+    "set": "hu-en"
+  },
+  {
+    "id": 14,
     "country": "Ireland",
     "language": "English",
     "image": "/ireland.svg",
@@ -141,34 +127,7 @@
     "set": "ie-en"
   },
   {
-    "id": 16,
-    "country": "Netherlands",
-    "language": "English",
-    "image": "/netherlands.svg",
-    "countryCode": "nl",
-    "lng": "en",
-    "set": "nl-en"
-  },
-  {
-    "id": 17,
-    "country": "Portugal",
-    "language": "English",
-    "image": "/portugal.svg",
-    "countryCode": "pt",
-    "lng": "en",
-    "set": "pt-en"
-  },
-  {
-    "id": 18,
-    "country": "Spain",
-    "language": "Spanish",
-    "image": "/spain.svg",
-    "countryCode": "es",
-    "lng": "es",
-    "set": "es-es"
-  },
-  {
-    "id": 19,
+    "id": 15,
     "country": "Italy",
     "language": "English",
     "image": "/italy.svg",
@@ -177,47 +136,7 @@
     "set": "it-en"
   },
   {
-    "id": 20,
-    "country": "Bulgaria",
-    "language": "English",
-    "image": "/bulgaria.svg",
-    "countryCode": "bg",
-    "lng": "en",
-    "set": "bg-en"
-  },
-
-  {
-    "id": 21,
-    "country": "Cyprus",
-    "language": "English",
-    "image": "/cyprus.svg",
-    "countryCode": "cy",
-    "lng": "en",
-    "set": "cy-en"
-  },
-
-  {
-    "id": 22,
-    "country": "Estonia",
-    "language": "English",
-    "image": "/estonia.svg",
-    "countryCode": "et",
-    "lng": "en",
-    "set": "et-en"
-  },
-
-  {
-    "id": 23,
-    "country": "Finland",
-    "language": "English",
-    "image": "/finland.svg",
-    "countryCode": "fi",
-    "lng": "en",
-    "set": "fi-en"
-  },
-
-  {
-    "id": 24,
+    "id": 16,
     "country": "Latvia",
     "language": "English",
     "image": "/latvia.svg",
@@ -225,9 +144,8 @@
     "lng": "en",
     "set": "lv-en"
   },
-
   {
-    "id": 25,
+    "id": 17,
     "country": "Lithuania",
     "language": "English",
     "image": "/lithuania.svg",
@@ -235,9 +153,8 @@
     "lng": "en",
     "set": "lt-en"
   },
-
   {
-    "id": 26,
+    "id": 18,
     "country": "Luxembourg",
     "language": "English",
     "image": "/luxembourg.svg",
@@ -245,9 +162,8 @@
     "lng": "en",
     "set": "lu-en"
   },
-
   {
-    "id": 27,
+    "id": 19,
     "country": "Malta",
     "language": "English",
     "image": "/malta.svg",
@@ -256,7 +172,61 @@
     "set": "mt-en"
   },
   {
-    "id": 28,
+    "id": 20,
+    "country": "Netherlands",
+    "language": "English",
+    "image": "/netherlands.svg",
+    "countryCode": "nl",
+    "lng": "en",
+    "set": "nl-en"
+  },
+  {
+    "id": 21,
+    "country": "Poland",
+    "language": "English",
+    "image": "/poland.svg",
+    "countryCode": "pl",
+    "lng": "en",
+    "set": "pl-en"
+  },
+  {
+    "id": 22,
+    "country": "Portugal",
+    "language": "English",
+    "image": "/portugal.svg",
+    "countryCode": "pt",
+    "lng": "en",
+    "set": "pt-en"
+  },
+  {
+    "id": 23,
+    "country": "Romania",
+    "language": "English",
+    "image": "/romania.svg",
+    "countryCode": "ro",
+    "lng": "en",
+    "set": "ro-en"
+  },
+  {
+    "id": 24,
+    "country": "Schweiz",
+    "language": "Deutsch",
+    "image": "/switzerland.svg",
+    "countryCode": "ch",
+    "lng": "de",
+    "set": "ch-de"
+  },
+  {
+    "id": 25,
+    "country": "Switzerland",
+    "language": "English",
+    "image": "/switzerland.svg",
+    "countryCode": "ch",
+    "lng": "en",
+    "set": "ch-en"
+  },
+  {
+    "id": 26,
     "country": "Slovakia",
     "language": "English",
     "image": "/slovakia.svg",
@@ -265,13 +235,48 @@
     "set": "sk-en"
   },
   {
-    "id": 29,
+    "id": 27,
     "country": "Slovenia",
     "language": "English",
     "image": "/slovenia.svg",
     "countryCode": "sl",
     "lng": "en",
     "set": "sl-en"
+  },
+  {
+    "id": 28,
+    "country": "Spain",
+    "language": "English",
+    "image": "/spain.svg",
+    "countryCode": "es",
+    "lng": "en",
+    "set": "es-en"
+  },
+  {
+    "id": 29,
+    "country": "España",
+    "language": "Español",
+    "image": "/spain.svg",
+    "countryCode": "es",
+    "lng": "es",
+    "set": "es-es"
+  },
+  {
+    "id": 30,
+    "country": "Sweden",
+    "language": "English",
+    "image": "/sweden.svg",
+    "countryCode": "sw",
+    "lng": "en",
+    "set": "sw-en"
+  },
+  {
+    "id": 31,
+    "country": "United Kingdom",
+    "language": "English",
+    "image": "/united-kingdom.svg",
+    "countryCode": "gb",
+    "lng": "en",
+    "set": "gb-en"
   }
-
 ]

@@ -93,7 +93,7 @@ export default function PartnerTattoos({
                   href={btnLink}
                   className="btn_primary btn_img btn_xxl m_btn_custom_48"
                 >
-                  Explore more dragon tattoos
+                  Entdecke mehr Drachen Tattoos
                   <Image
                     src="/arow-white-right.svg"
                     width={24}

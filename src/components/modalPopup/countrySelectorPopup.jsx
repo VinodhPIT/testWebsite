@@ -3,10 +3,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import setLanguage from "next-translate/setLanguage";
-import _ from 'lodash';
-
 import useTranslation from "next-translate/useTranslation";
 import Modal from "react-modal";
+
 import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
@@ -34,17 +33,18 @@ const customStyles = {
   },
 };
 const CountrySelectorModel = ({ isOpen, closeModal }) => {
+
   const router = useRouter();
   const [country, setCountry] = useState([]);
   const { t } = useTranslation();
   const { fetchAll } = useDisplayAll();
   const { fetchStyle } = useStyleListing();
-
+ 
   useEffect(() => {
     setCountry(countriesData);
   }, []);
 
-  const chooseLanguage = async ( countryCode, lng) => {
+  const chooseLanguage = async ( countryCode, lng ,country) => {
     closeModal();
     await setLanguage(`${countryCode}-${lng}`);
     const newUrl = `/${countryCode}-${lng}${router.asPath}`;
@@ -80,26 +80,26 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
               <div
                 className="language_popup_block">
                 <ul>
-                  {country.map((e) => {
+                  {country.map((el) => {
                     return (
-                      <li key={e.id}>
+                      <li key={el.id}>
                         <button
                           className={
-                            router.locale === e.set
+                            router.locale === el.set
                               ? "activeCountry"
                               : "inActivecountry"
                           }
-                          onClick={() => chooseLanguage(e.countryCode, e.lng)}
+                          onClick={() => chooseLanguage(el.countryCode, el.lng  ,el.country)}
                         >
                           <Image
-                            alt={`${e.country}${"-"}${e.language}`}
-                            src={e.image}
+                            alt={`${el.country}${"-"}${el.language}`}
+                            src={el.image}
                             width={32}
                             height={32}
                           />
                           <span>
-                            <h4>{e.country}</h4>
-                            <p>{e.language}</p>
+                            <h4>{el.country}</h4>
+                            <p>{el.language}</p>
                           </span>
                           {/* <Image
                             width={24}

@@ -6,6 +6,7 @@ import axios from "axios";
 import useTranslation from "next-translate/useTranslation";
 
 import { useNavigation } from "@/hooks/useRouter";
+import useBodyPartTranslations from '@/hooks/useBodyPartTranslations';
 
 import { useRequestForm } from "@/store/requestManagement/requestForm"; 
 import { useCountryCode } from "@/store/countryCode/getcountryCode";
@@ -13,12 +14,10 @@ import { useCountryCode } from "@/store/countryCode/getcountryCode";
 import Modal from "@/components/modalPopup/newUser";
 import Modal1 from "@/components/modalPopup/existingUser";
 
-import API_URL from '@/apiConfig/api.config'
-
 import { getCountry } from "@/helpers/helper";
+import { CustomerRequestSize } from "@/constants/index";
 
-import { CustomerRequestSize, BodyPart } from "@/constants/index";
-
+import API_URL from '@/apiConfig/api.config'
 
 const Review = () => {
   const {
@@ -32,26 +31,28 @@ const Review = () => {
     selectedArtists,
     userExists,
   } = useRequestForm();
+
   const { resetCountrycode } = useCountryCode();
-
   const array = selectedArtists.map((e) => e.artistId);
-
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
   const { router } = useNavigation();
+  const { tattooValues}= useBodyPartTranslations()
 
+  
   const uploadDataToAPI = () => {
+
     setLoading(true);
     const formData = new FormData();
-
     const sizeKey = Object.keys(CustomerRequestSize).find(
       (key) => CustomerRequestSize[key] === tattooSize
     );
-
     const isSizePresent = Object.values(CustomerRequestSize).includes(tattooSize);
-    const isBodyPartPresent = Object.values(BodyPart).includes(bodyPart);
-    formData.append("body_part", !isBodyPartPresent ? "nil" : bodyPart);
+    const foundPart = tattooValues.find(part => part.title === bodyPart);
+    const key = foundPart ? foundPart.key : 'nil';
+
+    formData.append("body_part", key);
     formData.append("artist_uids", array.join(","));
     formData.append("size", !isSizePresent ? "nil" : sizeKey);
     formData.append("comments", message);
@@ -61,7 +62,6 @@ const Review = () => {
     images.map((el) => {
       formData.append("secondary_images", el.File);
     });
-
 
     axios
       .post(

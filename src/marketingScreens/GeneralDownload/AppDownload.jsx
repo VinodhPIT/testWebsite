@@ -31,7 +31,7 @@ function Appdownload() {
                     onClick={openModal}
                     className="button_primary align_self mob_hidden"
                   >
-                    Get the app
+                    {t("common:download_app")}
                   </button>
                   <Link href={appStoreLink} target="_blank">
                     <Image
@@ -63,7 +63,7 @@ function Appdownload() {
                       <Image
                         priority
                         src="/download_img_01.png"
-                        alt={t("Explore the Features in the Mobile App")}
+                        alt={t("common:inckdMobile")}
                         width={287}
                         height={569}
                         blurDataURL={BLUR_URL}
@@ -73,7 +73,7 @@ function Appdownload() {
                       <Image
                         priority
                         src="/download_img_02.png"
-                        alt={t("Explore the Features in the Mobile App")}
+                        alt={t("common:inckdMobile")}
                         width={278}
                         height={550}
                         blurDataURL={BLUR_URL}

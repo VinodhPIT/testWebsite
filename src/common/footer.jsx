@@ -9,6 +9,7 @@ import useAppStoreLink from "@/hooks/useAppStoreLink";
 
 import { useModal } from "@/utils/modalUtils";
 import { useQrModal } from '@/context/ModalContext';
+import {useCountryCode} from "@/store/countryCode/getcountryCode";
 
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 
@@ -28,6 +29,7 @@ export default function Footer() {
   const router = useRouter();
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const { openModal } = useQrModal();
+  const { countryName} = useCountryCode();
 
   const bookLinks = [
     {
@@ -109,6 +111,7 @@ export default function Footer() {
           priority
         />
         <span className={"textBlack"}>{getLanguage(locale)}</span>
+
         <Image
           src="/arrow-right-lang.svg"
           alt="countries"
