@@ -143,7 +143,7 @@ function KlarnaNew({ }) {
       <section className="container_full pt_40 pb_40 m_pb_20"> 
         <div className="row">
           <div className="col-md-6 col-sm-12 col-xs-12 klarna_payment_img_col mob_hidden">
-            <div className="position_relative w_100pc h_100pc min_h_945 max_h_945 m_min_h_inherit">
+            <div className="position_relative w_100pc h_100pc min_h_945 m_min_h_inherit">
               <div className="w_100pc h_100pc">
                 <Image
                   priority={true}
@@ -207,9 +207,9 @@ function KlarnaNew({ }) {
 
                   <div className="d_inline_block w_100pc">
                     <div className="d_inline_block w_100pc mb_15">
-                      <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">
+                      <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 position_relative mb_0">
                         <span className="position_relative">
-                          <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:klarnaPage.available")}</span>
+                          <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 m_lh_19 text_transform_upper">{t("common:klarnaPage.available")}</span>
                           {t("common:klarnaPage.paymentOption")}</span>
                       </h2>
                     </div>
@@ -345,9 +345,9 @@ function KlarnaNew({ }) {
           <div className="col-md-12">
             <div className="position_relative d_inline_block w_100pc">
               <div className="d_inline_block w_100pc pb_40 m_pb_0">
-                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 fw_900 position_relative mb_0">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 position_relative mb_0 m_mb_5">
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 text_transform_upper">{t("common:klarnaPage.understand")}</span>
+                    <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 m_lh_19 text_transform_upper">{t("common:klarnaPage.understand")}</span>
                     {t("common:klarnaPage.howorks")}</span>
                 </h2>
               </div>
