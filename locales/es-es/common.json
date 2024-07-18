@@ -7,7 +7,7 @@
     "tattooArtists": "Tatuadores",
     "tattoos": "Tatuajes",
     "flashTattos": "Tatuajes Flash",
-    "forTattooers": "Para Tatuadores",
+    "forTattooers": "Tatuadores",
     "tattooSearch": "Explorar tatuajes",
     "exploreArtists": "Explorar artistas",
     "forArtists": "Para artistas",
@@ -252,7 +252,7 @@
     "flash": "Flash",
     "artist": "Artistas",
     "info": "Información",
-    "tattooLovers": "Amantes de Tatuajes",
+    "tattooLovers": "Clientes",
     "general": "General"
   },
 
@@ -301,7 +301,7 @@
   "you-might-like": "También te podría gustar",
   "image-tattoo-style": "Estilo de tatuaje de imagen",
   "locations": "Ubicaciones",
-  "getIntouch": "Ponte en contacto",
+  "getIntouch": "Contactar",
   "viewProfile": "Ver Perfil",
   "fixed-price": "Precio Fijo",
   "flexible-price": "Precio Flexible",
@@ -356,7 +356,7 @@
   "Style": "Estilo",
   "Search by Location": "Ubicación",
   "Clear All": "Limpiar todo",
-  "Show Results": "Mostrar resultados",
+  "Show Results": "Resultados",
   "Loading": "Cargando...",
   "Search Location": "Buscar ubicación",
 
@@ -387,7 +387,7 @@
   
   "appStoreDownload": "Descarga en App Store",
   "playStoreDownload": "Descarga en Play Store",
-  "getTattooNow": "Tatúate ahora, paga después.",
+  "getTattooNow": "Get tattoo now, Pay later.",
 
 
   
@@ -432,12 +432,12 @@
     "enterEmail": "Ingresa tu correo electrónico",
     "enterPhone": "Ingresa tu número de teléfono (opcional)",
     "save": "Guardar",
-    "tatooPosition": "Posición del tatuaje",
+    "tatooPosition": "Posición",
     "ideaForTattoo": "¡Gran idea para un tatuaje!",
     "bringYouridea": "Ahora, vamos a hacer realidad tu idea con la app de inckd. Descarga y regístrate con tu correo/número de teléfono existente para seguir fácilmente tu progreso.",
     "Login with your existing account": "Ahora, vamos a hacer realidad tu idea con la app de inckd. Inicia sesión con tu correo/número de teléfono existente para seguir fácilmente tu progreso.",
     "openApp": "Abre la app",
-    "reviewSize": "Tamaño del tatuaje",
+    "reviewSize": "Tamaño",
     "reviewDescription": "Descripción"
   },
 
