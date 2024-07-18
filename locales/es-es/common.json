@@ -12,7 +12,7 @@
     "exploreArtists": "Explorar artistas",
     "forArtists": "Para artistas",
     "klarna": "Klarna",
-    "contactUs": "Contáctanos",
+    "contactUs": "Contacto",
     "faq": "FAQ",
     "artistSearch": "Búsqueda de artistas",
     "flashSearch": "Búsqueda de Flash",
@@ -33,12 +33,12 @@
     "User-Friendly Interface": "Interfaz fácil de usar",
     "secureTransactions": "Transacciones seguras",
     "startRequest": "Inicia una solicitud",
-    "shareIdea": "Recibe cotizaciones gratuitas",
+    "shareIdea": "Recibe Ofertas gratuitas",
     "compareOffers": "Compara diferentes cotizaciones",
     "sendOneRequest": "Envía una solicitud a varios artistas",
     "bookYourTattooEasily": "Reserva tu tatuaje fácil y rápido",
     "shareYour": "RECIBE",
-    "tattooIdea": "Cotizaciones gratuitas"
+    "tattooIdea": "Ofertas gratuitas"
   },
 
   "styleDetail": {
@@ -72,13 +72,13 @@
     "optionTitle-1": "Obtén 30 días adicionales para pagar.",
     "optionContent-1": "Tómate tu tiempo para decidir el tatuaje perfecto. Te ofrecemos 30 días adicionales para completar tu pago, sin intereses.",
 
-    "tag2": "Cuotas",
-    "optionTitle-2": "Disfruta de 3 cuotas sin intereses.",
-    "optionContent-2": "Experimenta una manera moderna de comprometerte con tu próximo tatuaje con la opción de pagar en 3 cuotas iguales y sin intereses.",
+    "tag2": "Plazos",
+    "optionTitle-2": "3 pequeños plazos, sin intereses.",
+    "optionContent-2": "Experimenta una manera moderna de comprometerte con tu próximo tatuaje con la opción de pagar en 3 plazos iguales y sin intereses.",
 
-    "tag3": "Cuotas",
-    "optionTitle-3": "Disfruta de 4 cuotas sin intereses.",
-    "optionContent-3": "Divide el costo en 4 cuotas sin intereses. El primer pago se realiza el día de la cita, con las cuotas restantes programadas automáticamente cada 2 semanas.",
+    "tag3": "Plazos",
+    "optionTitle-3": "4 pequeños plazos, sin intereses.",
+    "optionContent-3": "Divide el costo en 4 plazos sin intereses. El primer pago se realiza el día de la cita, con las plazos restantes programadas automáticamente cada 2 semanas.",
 
     "tag4": "Financiamiento",
     "optionTitle-4": "Hasta 36 meses para pagar tu tatuaje.",
@@ -141,14 +141,14 @@
     "verified-users": "Usuarios verificados",
 
     "allInOne": "TODO EN UNO",
-    "title2": "Tu aliado de business de tatuajes",
+    "title2": "Tu aliado de tattoo business",
     "content2": "inckd. te ayuda a crear un business de tatuajes próspero y centrado en el cliente. Muestra tu portafolio, atrae clientes y gestiona la comunicación y los pagos sin problemas, todo en una plataforma.",
 
     "communication": "COMUNICACIÓN",
     "title3": "Mantén a los clientes informados",
     "content3": "Participa en chats en tiempo real para entender las preferencias de los clientes. Gestiona citas, discute ofertas y proporciona actualizaciones con inckd, asegurando que la visión de su tatuaje se haga realidad.",
 
-    "title4": "Consigue que los clientes de inckd. se tatúen contigo ahora.",
+    "title4": "Consigue que los clientes de inckd. se tatúen contigo.",
     "title8": "¿Estás listo?",
 
     "bookings": "RESERVAS",
@@ -314,7 +314,7 @@
   "followus": "Síguenos en",
   "book": "Reservar",
   "product": "Producto",
-  "business": "Negocio",
+  "business": "Business",
   "download-app-on": "Descarga la app de inckd. ahora - ¡Es gratis!",
   "findArtist": "¡Encuentra a tu artista ahora!",
   "tattooPayLater": "Tatúate ahora. Paga después.",
@@ -387,7 +387,7 @@
   
   "appStoreDownload": "Descarga en App Store",
   "playStoreDownload": "Descarga en Play Store",
-  "getTattooNow": "Get tattoo now, Pay later.",
+  "getTattooNow": "Tatúate ahora, paga después.",
 
 
   
@@ -406,7 +406,7 @@
     "foot":"Pie",
     "other":"Otro",
 
-    "getPersonalizedtattoo":"Obtén cotizaciones personalizadas de tatuajes.",
+    "getPersonalizedtattoo":"Recibe ofertas personalizadas de tatuajes.",
     "followSteps":"Sigue estos pasos para conectarte con los mejores artistas.",
     "tattooSize": "Elige el tamaño del tatuaje",
     "bodyPart": "Elige la ubicación",
@@ -520,8 +520,8 @@
 
   "klarnaMarketingScreen": {
     "title": "Klarna-Download",
-    "bannerTitle1": "Gran Tinta.",
-    "bannerTitle1-Sub": "Pequeños Pagos."
+    "bannerTitle1": "Tatúate ahora.",
+    "bannerTitle1-Sub": "Paga después."
   },
 
   "VoucherScreen": {
