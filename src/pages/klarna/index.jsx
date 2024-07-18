@@ -130,7 +130,7 @@ function KlarnaNew({ }) {
         }}
         description={t("common:klarnaPage.bannerContent")} 
         buttonText= {t("common:getApp")}
-        titleWidth="max_w_540"
+        //titleWidth="max_w_540"
         descriptionWidth="max_w_520"
         buttonBg="button_primary_white"
         textColor="color_white"

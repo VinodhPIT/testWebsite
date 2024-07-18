@@ -15,7 +15,7 @@ export default function KlarnaBanner() {
         <div className="col-md-12">
 
         <div className=" w_100pc text_center position_relative d_flex justify_content_center align_item_center block_bg_pink_50 m_mt_40">  
-            <div className="pt_80 pb_80 m_pt_40 m_pb_40">
+            <div className="pt_80 pb_80 m_pt_40 m_pb_40 pl_20 pr_20">
               <div className="">
                 <div className="klarna_banner_button">
                   <Image
@@ -26,7 +26,7 @@ export default function KlarnaBanner() {
                     loading="eager"
                   />
                 </div>
-                <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 m_lh_38 fw_800 mt_10 mb_40 m_mb_20 m_max_270">
+                <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 m_lh_38 fw_800 mt_10 mb_40 m_mb_20">
                   <span>{t("common:tattooPayLater")}</span>
                 </h2>                
                 <Link
