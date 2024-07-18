@@ -5,6 +5,7 @@ import Link from "next/link";
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 import useWindowResize from "@/hooks/useWindowSize";
 
+
 import { useQrModal } from "@/context/ModalContext";
 
 import { APP_LINK_APPLE, BLUR_URL } from "@/constants/constants";
@@ -26,7 +27,8 @@ export default function Banner({
 }) {
   const { appStoreLink, imageSrc } = useAppStoreLink();
   const { openModal } = useQrModal();
-  const { isMobileView } = useWindowResize();
+  const { isMobileView ,isMobileToTablet } = useWindowResize();
+
 
   return (
     <div>
@@ -88,30 +90,31 @@ export default function Banner({
                       >
                         {description}
                       </p>
-
-                      <button
-                        onClick={openModal}
-                        className={`${buttonBg} button_primary mob_hidden`}
-                      >
-                        {buttonText}
-                      </button>
-
-                      <Link href={appStoreLink} target="_blank">
-                        <Image
-                          priority
-                          src={imageSrc}
-                          alt={
-                            appStoreLink === APP_LINK_APPLE
-                              ? "App store"
-                              : "GooglePlay"
-                          }
-                          width={134}
-                          height={41}
-                          placeholder="blur"
-                          blurDataURL={BLUR_URL}
-                          className="custom_download_icons desk_hidden"
-                        />
-                      </Link>
+                      {isMobileToTablet ? (
+                        <Link href={appStoreLink} target="_blank">
+                          <Image
+                            priority
+                            src={imageSrc}
+                            alt={
+                              appStoreLink === APP_LINK_APPLE
+                                ? "App store"
+                                : "GooglePlay"
+                            }
+                            width={134}
+                            height={41}
+                            placeholder="blur"
+                            blurDataURL={BLUR_URL}
+                            className="custom_download_icons"
+                          />
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={openModal}
+                          className={`${buttonBg} button_primary`}
+                        >
+                          {buttonText}
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

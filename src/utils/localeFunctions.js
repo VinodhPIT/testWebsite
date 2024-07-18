@@ -87,26 +87,13 @@ function getCountryIcon(locale) {
 }
 
 function getLanguage(locale) {
-  switch (locale) {
-    case "au-en":
-      return "Austria";
-    case "bl-en":
-      return "Belgium";
-    case "bg-en":
-      return "Bulgaria";
-      case "cy-en":
-        return "Cyprus";
-
-    case "gb-en":
-      return "United Kingdom";
-    case "ch-en":
-      return "Switzerland";
-    case "ch-de":
-      return "Schweiz";
-    case "es-en":
-      return "Spain";
-    case "es-es":
-      return "España";
+  switch (locale.split("-")[1]) {
+    case "en":
+      return "English";
+      case "es":
+        return "Español";
+       case "de":
+      return "Deutsch";
     default:
       return "English";
   }
