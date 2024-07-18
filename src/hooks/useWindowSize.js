@@ -8,10 +8,11 @@ function useWindowResize() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobileView(window.innerWidth <= 767.98);
-      setSmallDevice(window.innerWidth <= 875)
-      setVisible(window.innerWidth <= 600)
-      setisMobileToTablet(window.innerWidth <= 1024)
+      const width = window.innerWidth;
+      setIsMobileView(width <= 767.98);
+      setSmallDevice(width <= 875)
+      setVisible(width <= 600)
+      setisMobileToTablet(width <= 1024)
     };
 
     handleResize();
