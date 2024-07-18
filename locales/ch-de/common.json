@@ -1,13 +1,13 @@
 {
   "menus": {
     "home": "Start",
-    "explore": "Entdecken",
+    "explore": "Erkunde",
     "request": "Anfrage",
     "financing": "Finanzierung",
     "tattooArtists": "Tattoo Artists",
     "tattoos": "Tattoos",
     "flashTattos": "Flash Tattoos",
-    "forTattooers": "Für Tätowierer",
+    "forTattooers": "Für Tätowierer/innen",
     "tattooSearch": "Tattoos entdecken",
     "exploreArtists": "Artists entdecken",
     "forArtists": "Für Artists",
@@ -35,7 +35,7 @@
     "startRequest": "Anfrage starten",
     "shareIdea": "Kostenlose Tattoo Angebote erhalten",
     "compareOffers": "Verschiedene Angebote vergleichen",
-    "sendOneRequest": "Eine Anfrage an mehrere Artists senden",
+    "sendOneRequest": "Sende eine Anfrage an mehrere Artists",
     "bookYourTattooEasily": "Buche dein Tattoo einfach und schnell",
     "shareYour": "ERHALTE",
     "tattooIdea": "Kostenlose Tattoo Angebote"
@@ -53,8 +53,8 @@
   },
 
   "klarnaPage": {
-    "bannerTitle1": "Tattoo now.",
-    "bannerTitle1-Sub": "Pay Later.",
+    "bannerTitle1": "Jetzt tätowieren.",
+    "bannerTitle1-Sub": "Später bezahlen.",
     "bannerContent": "Ja, du hast richtig gehört! Wir haben uns mit Klarna zusammengetan, um Ratenzahlungen für Tattoos von deinem Lieblingsartist anzubieten. Dein Traumtattoo ist jetzt zugänglicher denn je!",
 
     "MainTitle2": "Du entscheidest, wie du bezahlen möchtest!",
@@ -101,10 +101,10 @@
     "workingStepContent-4": "Wähle Klarna beim Checkout. Das ermöglicht dir, einen Zahlungsplan zu wählen, der deinem finanziellen Komfort entspricht.",
 
     "workingStep5": "Tattoo Tag",
-    "workingStepContent-5": "Jetzt, da die Details geklärt sind, freu dich auf eine spannende Sitzung mit deinem gewählten Artist. Es ist Zeit, sich zu entspannen, Spaß zu haben und zuzusehen, wie dein Tattoo zum Leben erwacht.",
+    "workingStepContent-5": "Jetzt, da die Details geklärt sind, freu dich auf eine spannende Sitzung mit deinem gewählten Artist. Es ist Zeit, sich zu entspannen, Spass zu haben und zuzusehen, wie dein Tattoo zum Leben erwacht.",
 
     "workingStep6": "Später bezahlen",
-    "workingStepContent-6": "Herzlichen Glückwunsch zu deinem neuen Tattoo! Jetzt kannst du die Zahlungen mit deinem gewählten Plan über die Zeit hinweg verwalten. Genieße die Kunst ohne sofortige finanzielle Belastung.",
+    "workingStepContent-6": "Herzlichen Glückwunsch zu deinem neuen Tattoo! Jetzt kannst du die Zahlungen mit deinem gewählten Plan über die Zeit hinweg verwalten. Geniesse die Kunst ohne sofortige finanzielle Belastung.",
     "klarnaTerms": "Klarna's 'Pay in 3' und 'Pay in 30 days' sind unregulierte Kreditvereinbarungen. Mehr zu leihen, als du dir leisten kannst, oder verspätete Zahlungen können sich negativ auf deinen finanziellen Status und deine Kreditwürdigkeit auswirken. Nur für UK-Bewohner ab 18 Jahren. Vorbehaltlich des Status.",
     "ts&amp;cs": "AGB",
     "lateFeesApply": " und Verspätungsgebühren gelten.",
@@ -114,7 +114,7 @@
 
     "understand": "VERSTEHE",
     "howorks": "Wie es funktioniert:",
-    "downloadKlarna": "Lade die inckd. App herunter, um die Klarna-Funktionen zu erkunden",
+    "downloadKlarna": "Lade die inckd. App herunter, um die Klarna-Funktionen zu entdecken",
     "howTopay": "Wie du zahlen möchtest"
 
   },
@@ -141,14 +141,14 @@
     "verified-users": "Verifizierte Nutzer",
 
     "allInOne": "ALLES IN EINEM",
-    "title2": "Dein Tattoo Geschäftsverbündeter",
+    "title2": "Dein Partner im Tattoo Business",
     "content2": "inckd. hilft dir, ein florierendes, kundenorientiertes Tattoo Business aufzubauen. Zeige dein Portfolio, ziehe Kunden an und verwalte Kommunikation und Zahlungen nahtlos, alles auf einer Plattform.",
 
     "communication": "KOMMUNIKATION",
-    "title3": "Halte Kunden auf dem Laufenden",
+    "title3": "Bleib mit Kunden in Kontakt",
     "content3": "Führe Echtzeit Chats, um die Wünsche der Kunden zu verstehen. Verwalte Termine, besprich Angebote und gib Updates mit inckd, um sicherzustellen, dass ihre Tattoo Vision Realität wird.",
 
-    "title4": "Lass inckd. Kunden jetzt bei dir tätowieren.",
+    "title4": "Gewinne neue Kunden für dein Tattoo Business.",
     "title8": "Bist du bereit?",
 
     "bookings": "BUCHUNGEN",
@@ -161,7 +161,7 @@
 
     "studio": "STUDIO",
     "title7": "Verwalte dein Tattoo Studio",
-    "content7": "Erweitere deinen Einfluss mühelos, indem du mehrere Studios auf unserer Plattform verwaltest. Handhabe geteilte Zahlungen oder lasse Studios Kunden und Buchungen unabhängig verwalten. Geniesse unvergleichlichen Komfort in der Studiomanagement mit einer benutzerfreundlichen App."
+    "content7": "Erweitere mühelos deine Reichweite, indem du mehrere Studios auf unserer Plattform hinterlegst. Verwalte Einnahmenaufteilungen oder lasse Studios eigenständig Kunden und Buchungen verwalten. Geniesse unvergleichliche Bequemlichkeit in der Studioverwaltung mit einer benutzerfreundlichen App."
   },
 
   "joinartistPage": {
@@ -178,7 +178,7 @@
     "easyVerificationProcess": "Durchlaufe unseren schnellen und einfachen Verifizierungsprozess, um die Genehmigung des inckd. Teams zu erhalten.",
     "getStartedDownload": "Lade unsere App herunter, um loszulegen",
     "CompleteYourProfileByUpdate": "Vervollständige dein Profil, indem du deine Basisdaten aktualisierst.",
-    "easyVerificationAccountProcess": "Werde verifiziert, aktiviere dein Konto und verbinde dich mit deinen idealen Kunden."
+    "easyVerificationAccountProcess": "Werde verifiziert, aktiviere dein Konto und verbinde dich mit deinen Kunden."
   },
 
   "contactUsPage": {
@@ -257,7 +257,7 @@
   },
 
   "GeneralAppDownload": {
-    "Explore the Features": "Erkunde die Funktionen in der mobilen App"
+    "Explore the Features": "Entdecke die Funktionen in der mobilen App"
   },
 
   "OfferDownload": {
@@ -315,9 +315,9 @@
   "book": "Buchen",
   "product": "Produkt",
   "business": "Business",
-  "download-app-on": "Lade die inckd. App jetzt herunter – sie ist kostenlos!",
+  "download-app-on": "Lade jetzt die inckd. App herunter - sie ist kostenlos!",
   "findArtist": "Finde jetzt deinen Artist!",
-  "tattooPayLater": "Tattoo now. Pay Later.",
+  "tattooPayLater": "Jetzt tätowieren. Später bezahlen.",
   "offers": "Erhalte aufregende Angebote!",
   "nextTattoo": "Rabatt auf dein nächstes Tattoo",
   "chf": "CHF 30",
@@ -387,7 +387,7 @@
   
   "appStoreDownload": "App Store Download",
   "playStoreDownload": "Play Store Download",
-  "getTattooNow": "Get tattoo now, Pay later.",
+  "getTattooNow": "Jetzt tätowieren. Später bezahlen.",
 
   "requestForm": {
     "landingTitle": "Beschreibe deine Tattoo Idee und teile sie mit mehreren Artists.",
@@ -398,7 +398,7 @@
   "stepper": {
     "head":"Kopf",
     "upperBody":"Oberkörper",
-    "back":"Rückseite",
+    "back":"Rücken",
     "arm":"Arm",
     "leg":"Bein",
     "foot":"Füsse",
@@ -518,8 +518,8 @@
 
   "klarnaMarketingScreen": {
     "title": "Klarna-Download",
-    "bannerTitle1": "Viel Tinte.",
-    "bannerTitle1-Sub": "Kleine Zahlungen."
+    "bannerTitle1": "Jetzt tätowieren.",
+    "bannerTitle1-Sub": "Später bezahlen."
   },
 
   "VoucherScreen": {

@@ -72,7 +72,7 @@ export default function Tattooartists({}) {
           <div className="col-md-6 col-sm-12 col-xs-12 m_order_1">
             <div className="position_relative w_100pc h_100pc pl_75 m_pl_0">
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
-                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_30 m_mb_20 d_max_420">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_30 m_mb_20 d_max_420 m_max_100">
                   <span className="position_relative">
                     <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.management")}</span>
                     {t("common:forArtistPage.title1")}</span>
@@ -157,7 +157,7 @@ export default function Tattooartists({}) {
           <div className="col-md-6 col-sm-12 col-xs-12">
             <div className="position_relative w_100pc h_100pc pr_75 m_pr_0">
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
-                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_20 max_w_260">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_20 max_w_300 m_max_100">
                   <span className="position_relative">
                     <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.allInOne")}</span>
                     {t("common:forArtistPage.title2")}</span>
@@ -208,7 +208,7 @@ export default function Tattooartists({}) {
           <div className="col-md-6 col-sm-12 col-xs-12 m_order_1">
             <div className="position_relative w_100pc h_100pc pl_75 m_pl_0">
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
-                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_30 m_mb_20 max_w_260">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_30 m_mb_20 max_w_330 m_max_100">
                   <span className="position_relative">
                     <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.communication")}</span>
                     {t("common:forArtistPage.title3")}</span>
@@ -326,7 +326,7 @@ export default function Tattooartists({}) {
         <div className="row g-0">        
           <div className="col-md-12">
             <div className=" w_100pc text_center position_relative d_flex justify_content_center align_item_center block_bg_pink_50">  
-              <div className="pt_80 pb_80 m_pt_40 m_pb_40">
+              <div className="pt_80 pb_80 m_pt_40 m_pb_40 pl_20 pr_20">
                 <div className="">
                   <div className="klarna_banner_button">
                     <Image
@@ -338,7 +338,7 @@ export default function Tattooartists({}) {
                     />
                   </div>
                  
-                  <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 m_lh_38 fw_800 mt_10 mb_40 m_mb_20 m_max_270">
+                  <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 m_lh_38 fw_800 mt_10 mb_40 m_mb_20">
                     <span>{t("common:tattooPayLater")}</span>
                   </h2>                
                   <Link
@@ -361,7 +361,7 @@ export default function Tattooartists({}) {
           <div className="col-md-6 col-sm-12 col-xs-12">
             <div className="position_relative w_100pc h_100pc pr_75 m_pr_0">
               <div className="w_100pc h_100pc d_flex flex_direction_column justify_content_center m_pb_20">
-                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_20 max_w_420">
+                <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 mb_20 max_w_300 m_max_100">
                   <span className="position_relative">
                     <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:forArtistPage.studio")}</span>
                       {t("common:forArtistPage.title7")}

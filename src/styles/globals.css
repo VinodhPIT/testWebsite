@@ -1106,6 +1106,9 @@ footer {
 .max_w_260 {
   max-width: 260px !important;
 }
+.max_w_300 {
+  max-width: 300px !important;
+}
 .max_w_330 {
   max-width: 330px !important;
 }
@@ -6631,6 +6634,9 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
   }
   .m_max_h_inherit {
     max-height: inherit !important;
+  }
+  .m_max_w_290 {
+    max-width: 290px !important;
   }
   .m_max_w_312 {
     max-width: 312px !important;
