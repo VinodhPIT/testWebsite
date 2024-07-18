@@ -12,7 +12,7 @@ const API_URL = {
     GET_ARTIST_GALLERY: (params) => `/web/api/tattoo/artist?artist_uid=${params}`,
     ARTIST_FORM: "/api/profile/artist/verification/request",
     ARTIST_LISTING :'/web/api/customer-request/artist/list',
-    REQUEST_CONTACT : (params) =>`/web/api/customer-request/user-exists?customer_email=${params.email}&customer_phone_no=${params.phone}`,
+    REQUEST_CONTACT : (params) =>`/web/api/customer-request/user-exists?customer_email=${params.email.toLowerCase()}&customer_phone_no=${params.phone}`,
      REQUEST_SAVE :`/web/api/customer-request/save`,
      CUSTOMER_REQUEST:`/web/api/customer-request/detail?artist_uid=${1}`,
      STYLE_LIST:"/web/api/style/detail",

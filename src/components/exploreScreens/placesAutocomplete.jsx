@@ -25,7 +25,7 @@ export default function LocationSearch({
  
   const clear = async () => {
     setAddress("");
-    getAddress("Location");
+     getAddress("");
     await getUrl(currentTab, searchKey, selectedStyle, "", router);
   };
 
@@ -127,7 +127,7 @@ export default function LocationSearch({
         <div className={styles.custom_dropdown_btn}>
           <button
             onClick={() => clear()}
-            disabled={state.location === "" ? true : false}
+            disabled={state.address === ""}
             className="btn_outline_secondary w_100pc"
           >
             {t("common:Clear All")}
@@ -136,7 +136,7 @@ export default function LocationSearch({
           <button
             onClick={() => searchLocation()}
             disabled={address === ""}
-            className="btn_secondary w_100pc"
+            className="btn_secondary w_100pc bdr_rad_4"
           >
             {t("common:Show Results")}
           </button>
