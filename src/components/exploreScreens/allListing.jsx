@@ -20,7 +20,13 @@ export default function All({ data }) {
   return (
     <>
       <Head>
-        <title>{t("common:exploreAllScreenSEO.title")}</title>
+      <title>{t("common:exploreAll_Meta.title")}</title>
+        <meta
+          name="description"
+          content={t("common:exploreAll_Meta.description")}
+        />
+        <meta name="keywords" content={t("common:exploreAll_Meta.keyword")} />
+
       </Head>
 
       <div className={styles.pageContainer}>

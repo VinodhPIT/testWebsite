@@ -101,17 +101,12 @@ export default function Detail({ data }) {
   return (
     <>
       <Head>
-        <title>{t("common:artistDetailScreen.title")}</title>
+         <title>{t("common:artistDetailScreen.title")}</title>
         <meta
           name="description"
-          content={`${t("common:artistDetailScreen.description")}-${
-            data?.first_name
-          } ${data?.last_name}`}
+          content={t("common:artistDetailScreen.description")}
         />
-        <meta
-          name="keywords"
-          content={t("common:artistDetailScreen.keyword")}
-        />
+        <meta name="keywords" content={t("common:artistDetailScreen.keyword")} />
       </Head>
 
       <main>

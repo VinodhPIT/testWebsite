@@ -439,81 +439,128 @@
     "reviewDescription": "Beschreibung"
   },
 
-  "homeScreenSEO": {
-    "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
-    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
-    "keyword": "Tattoo, Tattoo artist,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Tattoo"
+  "customerRequest":{
+    "title":"Erhalte personalisierte Tattoo Angebote | inckd.",  
+    "description":"Teile deine Tattoo-Idee mit Top Artists und erhalte maßgeschneiderte Angebote. Wähle die Tattoo-Größe, Platzierung, lade Referenzbilder hoch und beschreibe dein Wunschdesign. Finde den perfekten Artist für deine Vision. Jetzt mit inckd. starten!",
+    "keyword":"Tattoo Angebote, personalisierte Tattoos, Tattoo Artists, Tattoo Grösse, Tattoo Platzierung, Tattoo Referenzbilder, Tattoo Design, Top Tattoo Artists, inckd. App, Tattoo Beschreibung, Tattoo Kontaktinformationen"
+   },
+
+    "homeScreen_Meta": {
+      "title": "Buche jetzt dein Tattoo | Verifizierte Artists & Sichere Transaktionen",
+      "description": "Verbinde dich mit verifizierten Tattoo Artists und buche deinen Termin einfach und sicher. Nutze flexible Zahlungsmöglichkeiten und eine benutzerfreundliche Oberfläche. Starte deine Anfrage, erhalte kostenlose Angebote und vergleiche verschiedene Tattoo-Designs. Buche jetzt dein Tattoo mit inckd.",
+      "keyword": "Tattoo buchen, verifizierte Tattoo Artists, Tattoo Termin, sichere Transaktionen, flexible Zahlungsmöglichkeiten, benutzerfreundliche Oberfläche, Tattoo Anfrage, kostenlose Tattoo Angebote, Tattoo Designs vergleichen, inckd."
+    },
+  
+    "klarnascreen_Meta": {
+      "title": "Tattoo jetzt - Später bezahlen mit Klarna | Flexible Zahlungsoptionen",
+      "description": "Ermögliche dir dein Traumtattoo mit flexiblen Zahlungsoptionen von Klarna. Zahle später oder in Raten, bis zu 36 Monate. Verbinde dich mit verifizierten Artists und buche sicher und einfach. Lade die inckd. App herunter und entdecke die Vorteile der Klarna-Zahlungsmöglichkeiten.",
+      "keyword": "Tattoo jetzt zahlen später, Klarna Tattoo Finanzierung, Tattoo Ratenzahlung, verifizierte Tattoo Artists, flexible Zahlungsoptionen, Tattoo Kreditpläne, inckd. App, Tattoo Termin buchen, zinsfreie Ratenzahlungen, Tattoo Zahlung planen, Tattoo Angebote vergleichen, Klarna Zahlungsoptionen"
+    },
+    "forTattooers_Meta": {
+      "title": "Booste dein Tattoo Business mit inckd. | Flexible Verwaltung & Zahlungen",
+      "description": "Erweitere dein Tattoo Business mit inckd. Verwalte Kunden, Termine und Zahlungen nahtlos auf einer Plattform. Biete flexible Zahlungsmöglichkeiten inklusive Ratenzahlungen an. Kostenlos und einfach einzurichten. Entdecke die Vorteile jetzt!",
+      "keyword": "Tattoo Business erweitern, Tattoo Business verwalten, inckd. für Künstler, flexible Tattoo Zahlungen, Tattoo Termine verwalten, Echtzeit Chats, Tattoo Studio Management, Tattoo Buchungen, Tattoo Portfolio, verifizierte Nutzer, Klarna Ratenzahlungen, Tattoo Künstler Plattform, kostenlose Tattoo Business App"
+    },
+  
+    "contactUs_Meta": {
+      "title": "Kontaktiere uns | inckd. Support und Anfragen",
+      "description": "Hast du Fragen oder Anfragen? Kontaktiere uns bei inckd. Wir sind hier, um dir zu helfen und die Informationen bereitzustellen, die du benötigst. Dein Feedback ist uns wichtig. Tattoo-Liebhaber, Studios und Artists sind willkommen!",
+      "keyword": "Kontaktiere uns, inckd. Support, Kundenservice, Tattoo Anfragen, Tattoo Unterstützung, Feedback, Tattoo-Liebhaber, Tattoo Studios, Tattoo Artists, E-Mail Kontakt, Hilfe und Unterstützung, inckd. Kontaktformular"
+    },
+  
+    "faqScreen_Meta": {
+      "title": "FAQ | Finde Antworten auf deine Fragen zu inckd.",
+      "description": "Erhalte Antworten auf häufig gestellte Fragen zu inckd. Entdecke, warum du die App nutzen solltest, Informationen zu Kosten, Verfügbarkeit, Zahlungsmethoden und mehr. Finde heraus, wie inckd. Tattoo-Liebhabern und Artists hilft und wie du mit unserem Support-Team in Kontakt treten kannst.",
+      "keyword": "inckd FAQ, häufig gestellte Fragen, inckd. App nutzen, Tattoo Artists, Tattoo-Liebhaber, kostenlose Tattoo App, Zahlungsmethoden, Klarna Ratenzahlung, Tattoo Studio Management, Künstler Eigentum, inckd. Support, verifizierte Tattoo Artists, Tattoo Buchungen, Tattoo Verwaltung, Tattoo Design Eigentum, inckd. Team kontaktieren"
+    },
+  
+    "exploreAll_Meta": {
+      "title": "Entdecke Tattoos, Flash-Designs und Künstlerportfolios | Lass dich inspirieren",
+      "description":"Erkunde eine Vielfalt an Tattoos, Flash-Designs und Portfolios von Künstlern. Lass dich von verschiedenen Stilen für dein nächstes Tattoo-Meisterwerk inspirieren und finde den perfekten Artist für deine Vision.", 
+      "keyword":"Tattoos entdecken, Flash-Designs, Künstlerportfolios, Tattoo-Inspiration, verschiedene Tattoo-Stile, Tattoo-Meisterwerk, Tattoo Artist finden, Tattoo Ideen, Tattoo Kunst, inckd."
+    },
+    "exploreTattoosScreen_Meta": {
+      "title": "Entdecke zahlreiche Tattoo-Bilder | Finde Inspiration für dein nächstes Tattoo",
+      "description":"Durchstöbere eine Vielzahl von Tattoo-Bildern und lass dich für dein nächstes Tattoo inspirieren. Entdecke verschiedene Stile und finde das perfekte Design, das zu deiner Vision passt.",
+      "keyword":"Tattoo Bilder, Tattoo Inspiration, Tattoo Stile, Tattoo Designs, nächstes Tattoo, Tattoo Galerie, Tattoo Ideen, Tattoo Kunst, Tattoo Vielfalt, Tattoo Bilder entdecken"
+    },
+  
+    "exploreFlashScreen_Meta": {
+      "title": "Finde Flash Tattoo Ideen | Entdecke eine Vielfalt an schnellen, stilvollen Designs",
+      "description":"Entdecke eine breite Auswahl an Flash Tattoo Ideen und lass dich von schnellen, stilvollen Designs für dein nächstes Tattoo inspirieren. Finde das perfekte Flash Tattoo, das zu deinem Stil passt.",
+      "keyword":"Flash Tattoo Ideen, Flash Tattoos, schnelle Tattoo Designs, stilvolle Tattoo Designs, Tattoo Inspiration, Flash Tattoo Galerie, Tattoo Ideen, Tattoo Kunst, nächstes Tattoo, Flash Tattoo finden"
+    },
+  
+    "exploreArtistScreen_Meta": {
+      "title": "Triff talentierte Tattoo Artists | Durchstöbere einzigartige Stile und Werke für deine nächste Tattoo-Inspiration",
+      "description":"Lerne talentierte Tattoo Artists kennen und entdecke ihre einzigartigen Stile und Werke. Lass dich für dein nächstes Tattoo inspirieren und finde den perfekten Künstler, der deine Vision zum Leben erweckt.",
+      "keyword":"talentierte Tattoo Artists, Tattoo Künstler entdecken, einzigartige Tattoo Stile, Tattoo Inspiration, Künstlerportfolios, Tattoo Werke, Tattoo Künstler finden, nächste Tattoo Idee, Tattoo Kunst, inckd."
+    },
+  
+    "tattooDetailScreen": {
+      "title": "Erkunde Tattoo-Bilder und Designs | Finde Tattoo-Künstler mit Leichtigkeit",
+      "description": "Entdecke faszinierende Tattoo-Bilder und Designs und finde mühelos talentierte Tattoo-Künstler. Lass dich inspirieren und finde das perfekte Tattoo und den passenden Künstler, um deine Vision zu verwirklichen.",
+      "keyword": "Tattoo Bilder, Tattoo Designs, Tattoo Künstler finden, Tattoo Inspiration, Tattoo Galerie, Tattoo Kunst, Tattoo Ideen, Tattoo Stile, inckd., Tattoo Details entdecken"
+    },
+    "flashDetailScreen": {
+      "title": "Durchstöbere einzigartige Tattoo-Designs von talentierten Tattoo-Künstlern",
+      "description": "Entdecke einzigartige Tattoo-Designs, kreiert von talentierten Tattoo-Künstlern. Lass dich inspirieren und finde das perfekte Design für dein nächstes Tattoo. Erkunde verschiedene Stile und finde deinen Favoriten.",
+      "keyword": "einzigartige Tattoo-Designs, talentierte Tattoo-Künstler, Tattoo-Inspiration, Tattoo-Galerie, Tattoo-Kunst, Tattoo-Ideen, Tattoo-Stile, nächstes Tattoo, inckd., Tattoo-Designs durchsuchen"
+    },
+  
+    "artistDetailScreen": {
+      "title": "Finde Tattoo-Künstler nach Stadt und Land",
+      "description": "Entdecke Tattoo-Künstler in deiner Stadt und deinem Land. Durchstöbere Künstlerprofile, erfahre mehr über ihre Stile und finde den perfekten Künstler für dein nächstes Tattoo.",
+      "keyword": "Tattoo-Künstler finden, Tattoo-Künstler nach Stadt, Tattoo-Künstler nach Land, Tattoo-Künstler entdecken, Künstlerprofile, Tattoo-Stile, Tattoo-Inspiration, lokaler Tattoo-Künstler, inckd., Tattoo-Künstler suchen"
+    },
+
+
+"campiagnPages":{
+ 
+  "klarna":{ 
+
+    "title": "Lade die inckd. App herunter | Flexible Klarna-Zahlungsoptionen" ,
+    "description": "Lade die inckd. App herunter und entdecke flexible Zahlungsoptionen mit Klarna. Bezahle dein Tattoo später oder in Raten. Verbinde dich mit verifizierten Tattoo-Künstlern und buche deinen Termin einfach und sicher.", 
+    "keyword": "inckd. App herunterladen, Klarna Zahlungsoptionen, Tattoo später bezahlen, Tattoo in Raten bezahlen, Tattoo-App, verifizierte Tattoo-Künstler, Tattoo-Termin buchen, Tattoo-Zahlungen, flexible Tattoo-Zahlungen, inckd. Klarna" 
   },
 
-  "styleGuideScreenSEO": {
-    "title": "Explore a variety of unique tattoo styles and trends",
-    "description": "Dive into a world of tattoo artistry with our diverse collection of unique tattoo styles and tattoo trends. Find your tattoo inspiration",
-    "keyword": "Tattoo, Tattoo, Tattoo booking, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Flash, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Finleine Tattoo, Blackwork Tattoo, Traditional Tattoo, Tattoo Search, Tattoo Finder"
+  "generalDownload":{
+  
+    "title": "Lade die inckd. App herunter | Verbinde dich mit Tattoo-Künstlern" ,
+    "description": "Lade die inckd. App herunter und entdecke eine Welt voller Tattoo-Möglichkeiten. Nutze flexible Zahlungsoptionen mit Klarna und finde den perfekten Tattoo-Künstler für deine Vision. Buche deinen Termin einfach und sicher.", 
+    "keyword": "inckd. App herunterladen, Tattoo-Künstler finden, Tattoo-Termin buchen, Klarna Zahlungsoptionen, Tattoo in Raten bezahlen, Tattoo später bezahlen, flexible Tattoo-Zahlungen, Tattoo-App, verifizierte Tattoo-Künstler, Tattoo-Inspiration" 
   },
 
-  "dictionarycreenSEO": {
-    "title": "5000+ Tattoo Motives, Your Ultimate Tattoo Dictionary",
-    "description": "Explore our extensive tattoo dictionary with 5000+ unique motives, each with meanings and emotions. Find your perfect tattoo inspiration here",
-    "keyword": "Tattoo, Tattoo Emotions, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Dictonary, Tattoo Meanings Tattoo Finder, Tattoo"
+  "voucher":{ 
+
+    "title": "Lade die inckd-App herunter - Hol dir deinen Gutschein und mach mit",
+    "description": "Lade die inckd-App herunter, um einen Gutschein mit dem angegebenen Code zu erhalten. Schließe dich uns für exklusive Tattoo-Angebote an, verbinde dich mit Top-Künstlern und entdecke einzigartige Designs. Gutschein gültig bis zum angegebenen Enddatum. Sende jetzt dein Formular ab und wir melden uns bald bei dir!", 
+    "keyword": "inckd App herunterladen, Gutscheinangebot, Code verwenden, Ablaufdatum des Gutscheins, inckd beitreten, exklusive Tattoo-Angebote, mit Tattoo-Künstlern verbinden, einzigartige Tattoo-Designs, Formular einreichen, Tattoo-App-Funktionen" 
+  }
+},
+
+    "terms-conditions": { 
+    "title": "Terms and Conditions" ,
+    "description": " ", 
+    "keyword": " "    
   },
 
-  "klarnascreenSEO": {
-    "title": "Flexible tattoo payments with customized installment plans",
-    "description": "Get your dream tattoo with ease! Pay for tattoos in convenient installments, tailored to your budget with our individual payment plans",
-    "keyword": "Tattoo, Tattoos, Tattoo Payment, Tattoo Installments, Tattoo paymentplan, Tattoo budget, Tattooartist, Tattoo Klarna, Klarna"
-  },
-  "fortattooArtistScreenSEO": {
-    "title": "Empower Tattoo artists with our comprehensive business management tool",
-    "description": "Elevate your tattoo business with our all-in-one business management tool, designed to empower tattoo artists and enhance efficiency",
-    "keyword": "Tattoo artist software, Tattoo studio management tool, Tattoo business management, Tattoo shop software, Artist scheduling tool, Ink business management, Tattoo artist productivity, Tattoo parlor software, Tattoo shop organization, Ink studio software"
+    "privacy-policy": { 
+      "title": "Privacy-Policy",
+      "description": "", 
+      "keyword": "" 
   },
 
-  "contactUsScreenSEO": {
-    "title": "Get in touch with us",
-    "description": "Contact us for tattoo inquiries or any questions. We're here to help you with all your tattoo-related queries and concerns",
-    "keyword": "Tattoo inquiry form, Ink-related queries, Get in touch with tattooist"
+    "Impressum": { 
+    "title": "Impressum" ,
+    "description": "", 
+    "keyword": " " 
   },
 
-  "joinArtistScreenSEO": {
-    "title": "Discover opportunities: Join our tattoo artist platform",
-    "description": "Find exciting opportunities in the tattoo industry. Join our platform for tattoo artists and kick-start your creative journey today",
-    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answer"
-  },
-  "faqScreenSEO": {
-    "title": "Tattoo FAQ: Your questions qnswered",
-    "description": "Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey",
-    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
-  },
-  "exploreAllScreenSEO": {
-    "title": "Explore tattoos, flash designs, and artist portfolios. Get inspired by a variety of styles for your next ink masterpiece"
-  },
-  "exploreTattoosScreenSEO": {
-    "title": "Discover many tattoo pictures. Find inspiration for your next tattoo in a variety of styles."
-  },
-
-  "exploreFlashScreenSEO": {
-    "title": "Find flash tattoo ideas. Explore a range of quick, stylish designs for your next tattoo."
-  },
-
-  "exploreArtistScreenSEO": {
-    "title": "Meet talented tattoo artists. Browse their unique styles and work for your next tattoo inspiration."
-  },
-
-  "tattooDetailScreen": {
-    "title": "Explore Tattoo images, designs, and find tattoo artists with ease.",
-    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
-    "keyword": "Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
-  },
-  "flashDetailScreen": {
-    "title": "Browse unique tattoo designs by talented tattoo artists.",
-    "description": "Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection",
-    "keyword": "Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
-  },
-
-  "artistDetailScreen": {
-    "title": "Locate tattoo artists by city and country",
-    "description": "Discover tattoo artists in your city and across countries. Search, connect, and tattoo with the best artists near you",
-    "keyword": "Tattooartist, Tattooartist Location, Tattooist search by city, City tattoo artist search, Local tattoo artists, Find tattoo artist near me, Tattooers"
+    "User Data Policy": {
+    "title": "User Data Policy",
+    "description": " ", 
+    "keyword": " "
   },
 
   "klarnaMarketingScreen": {
@@ -529,11 +576,6 @@
   "GeneralAppdownloadScreen": {
     "title": "General App Download"
   },
-
-  "terms-conditions": { "title": "Terms and Conditions" },
-  "privacy-policy": { "title": "Privacy-Policy" },
-  "Impressum": { "title": "Impressum" },
-  "User Data Policy": { "title": "User Data Policy" },
 
   "AnalyticLogin": {
     "User name is required": "User name is required",

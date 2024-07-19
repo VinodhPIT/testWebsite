@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 import { useQrModal } from '@/context/ModalContext';
@@ -41,6 +42,15 @@ function KlarnaPage() {
   
   return (
     <>
+         <Head>
+         <title>{t("common:campiagnPages.klarna.title")}</title>
+        <meta
+          name="description"
+          content={t("common:campiagnPages.klarna.description")}
+        />
+        <meta name="keywords" content={t("common:campiagnPages.klarna.keyword")} />
+      </Head>
+
       <section className="full_block_banner">
         <div class="row g-0">
           <div class="col-md-12">

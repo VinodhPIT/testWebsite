@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 
 import { useNavigation } from "@/hooks/useRouter";
 
@@ -29,13 +28,6 @@ function Download({data}) {
 
   return (
     <>
-      <Head>
-        <title>Download the inckd. app</title>
-        <meta
-          name="description"
-          content="Explore the Features in the Mobile App"
-        />
-      </Head>
 
       {getMarketingpage(type)}
     </>

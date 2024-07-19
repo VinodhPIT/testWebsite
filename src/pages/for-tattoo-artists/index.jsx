@@ -22,14 +22,14 @@ export default function Tattooartists({}) {
   return (
     <>
       <Head>
-        <title>{t("common:fortattooArtistScreenSEO.title")}</title>
+        <title>{t("common:forTattooers_Meta.title")}</title>
         <meta
           name="description"
-          content={t("common:fortattooArtistScreenSEO.description")}
+          content={t("common:forTattooers_Meta.description")}
         />
         <meta
           name="keywords"
-          content={t("common:fortattooArtistScreenSEO.keywords")}
+          content={t("common:forTattooers_Meta.keywords")}
         />
       </Head>
 

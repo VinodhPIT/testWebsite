@@ -112,12 +112,12 @@ function KlarnaNew({ }) {
   return (
     <>
       <Head>
-        <title>{t("common:klarnascreenSEO.title")}</title>
+        <title>{t("common:klarnascreen_Meta.title")}</title>
         <meta
           name="description"
-          content={t("common:klarnascreenSEO.description")}
+          content={t("common:klarnascreen_Meta.description")}
         />
-        <meta name="keywords" content={t("common:klarnascreenSEO.keyword")} />
+        <meta name="keywords" content={t("common:klarnascreen_Meta.keyword")} />
       </Head>
 
       <Banner

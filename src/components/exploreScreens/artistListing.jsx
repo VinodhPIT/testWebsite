@@ -20,7 +20,12 @@ export default function Artist({ data }) {
   return (
     <>
       <Head>
-        <title>{t("common:exploreArtistScreenSEO.title")}</title>
+      <title>{t("common:exploreArtistScreen_Meta.title")}</title>
+        <meta
+          name="description"
+          content={t("common:exploreArtistScreen_Meta.description")}
+        />
+        <meta name="keywords" content={t("common:exploreArtistScreen_Meta.keyword")} />
       </Head>
 
       <div className={styles.pageContainer}>

@@ -2,18 +2,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 import useTranslation from "next-translate/useTranslation";
-import DownloadApps from "../DownloadApps-klarna/DownloadApps";
 import AppDownload from "@/marketingScreens/GeneralDownload/AppDownload";
 
 import useAppStoreLink from "@/hooks/useAppStoreLink";
 import { useQrModal } from '@/context/ModalContext';
 
-import { APP_LINK_APPLE, APP_LINK_GOOGLE, BLUR_URL } from "@/constants/index";
-
-import style from "./style.module.css";
-
+import { APP_LINK_APPLE, BLUR_URL } from "@/constants/index";
 
 function OfferPage({data}) {
   
@@ -25,9 +22,18 @@ function OfferPage({data}) {
 
   return (
     <>
+      <Head>
+         <title>{t("common:campiagnPages.voucher.title")}</title>
+        <meta
+          name="description"
+          content={t("common:campiagnPages.voucher.description")}
+        />
+        <meta name="keywords" content={t("common:campiagnPages.voucher.keyword")} />
+      </Head>
+
     {data == "" ? (
-                        <AppDownload/>
-                      ) : 
+      <AppDownload/>
+     ) : 
 
       <section className="full_block_banner">
         <div class="row g-0">

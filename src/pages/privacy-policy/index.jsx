@@ -1,7 +1,13 @@
 import React from "react";
 import style from "./style.module.css";
+
+import style from "./style.module.css";
 export default function Privacy() {
   return (
+<>
+    <Head>
+    <title>{t("common:privacy-policy.title")}</title>
+  </Head>
     <div className={style.mainWrapper}>
       <div className="container">
         
@@ -406,5 +412,6 @@ export default function Privacy() {
         </p>
       </div>
     </div>
+    </>
   );
 }

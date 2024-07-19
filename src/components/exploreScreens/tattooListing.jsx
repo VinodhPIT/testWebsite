@@ -18,7 +18,12 @@ export default function Tattoo({ data }) {
   return (
     <>
       <Head>
-        <title>{t("common:exploreTattoosScreenSEO.title")}</title>
+      <title>{t("common:exploreTattoosScreen_Meta.title")}</title>
+        <meta
+          name="description"
+          content={t("common:exploreTattoosScreen_Meta.description")}
+        />
+        <meta name="keywords" content={t("common:exploreTattoosScreen_Meta.keyword")} />
       </Head>
 
       <div className={styles.pageContainer}>

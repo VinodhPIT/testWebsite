@@ -112,15 +112,12 @@ export default function Detail({ data, locale }) {
   return (
     <>
       <Head>
-        <title>{t("common:tattooDetailScreen.title")}</title>
+      <title>{t("common:tattooDetailScreen.title")}</title>
         <meta
           name="description"
           content={t("common:tattooDetailScreen.description")}
         />
-        <meta
-          name="keywords"
-          content={t("common:tattooDetailScreen.keyword")}
-        />
+        <meta name="keywords" content={t("common:tattooDetailScreen.keyword")} />
       </Head>
 
       <main>

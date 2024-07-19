@@ -61,12 +61,12 @@ export default function Home({}) {
   return (
     <>
       <Head>
-        <title>{t("common:homeScreenSEO.title")}</title>
+        <title>{t("common:homeScreen_Meta.title")}</title>
         <meta
           name="description"
-          content={t("common:homeScreenSEO.description")}
+          content={t("common:homeScreen_Meta.description")}
         />
-        <meta name="keywords" content={t("common:homeScreenSEO.keyword")} />
+        <meta name="keywords" content={t("common:homeScreen_Meta.keyword")} />
       </Head>
 
       <Banner
