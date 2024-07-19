@@ -103,7 +103,7 @@ export default function Detail({ data}) {
   return (
     <>
       <Head>
-        <title>{t("common:flashDetailScreen.title")}</title>
+      <title>{t("common:flashDetailScreen.title")}</title>
         <meta
           name="description"
           content={t("common:flashDetailScreen.description")}

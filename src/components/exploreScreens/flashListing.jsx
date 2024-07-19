@@ -20,9 +20,12 @@ export default function Flash({ data }) {
   return (
     <>
       <Head>
-      <title>
-        {t("common:exploreFlashScreenSEO.title")}
-        </title>
+       <title>{t("common:exploreFlashScreen_Meta.title")}</title>
+        <meta
+          name="description"
+          content={t("common:exploreFlashScreen_Meta.description")}
+        />
+        <meta name="keywords" content={t("common:exploreFlashScreen_Meta.keyword")} />
       </Head>
 
       <div className={styles.pageContainer}>

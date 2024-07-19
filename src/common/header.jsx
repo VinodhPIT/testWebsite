@@ -130,9 +130,7 @@ export default function Header({
         className={`header_wrapper ${isFixed ? "fixed" : ""} ${
           isPosition ? "border-bottom-white" : "border-bottom-grey"
         }`}
-        style={
-          isPosition === true ? { position: "fixed" } : { position: "relative" }
-        }
+        style={{ position: isPosition ? "fixed" : "relative" }}
       >
         <div>
           <div className={"container_full pl_60 pr_60 m_pl_15 m_pr_15"}>
@@ -164,7 +162,8 @@ export default function Header({
                 <button
                   type="button"
                   onClick={() => handleClick()}
-                  className={`btn_tattoo_art `}
+
+                  className={ !isPosition ? "tattoo_art"  : `btn_tattoo_art`}
                 >
                   {t("common:menus.forTattooers")}
                 </button>

@@ -1,7 +1,19 @@
 import React from "react";
+import Head from "next/head";
+
+import useTranslation from "next-translate/useTranslation";
+
 import style from "./style.module.css";
+
 export default function Privacy() {
+
+  const { t } = useTranslation();
+
   return (
+<>
+    <Head>
+    <title>{t("common:privacy-policy.title")}</title>
+  </Head>
     <div className={style.mainWrapper}>
       <div className="container">
         
@@ -406,5 +418,6 @@ export default function Privacy() {
         </p>
       </div>
     </div>
+    </>
   );
 }

@@ -24,14 +24,14 @@ export default function Contact({}) {
   return (
     <>
       <Head>
-        <title>{t("common:contactUsScreenSEO.title")}</title>
+        <title>{t("common:contactUs_Meta.title")}</title>
         <meta
           name="description"
-          content={t("common:contactUsScreenSEO.description")}
+          content={t("common:contactUs_Meta.description")}
         />
         <meta
           name="keywords"
-          content={t("common:contactUsScreenSEO.keyword")}
+          content={t("common:contactUs_Meta.keyword")}
         />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>

@@ -152,15 +152,12 @@ export default function FAQ({ locale }) {
   return (
     <>
       <Head>
-        <title>Tattoo FAQ: Your questions qnswered</title>
+      <title>{t("common:faqScreen_Meta.title")}</title>
         <meta
           name="description"
-          content="Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey"
+          content={t("common:faqScreen_Meta.description")}
         />
-        <meta
-          name="keywords"
-          content="Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
-        />
+        <meta name="keywords" content={t("common:faqScreen_Meta.keyword")} />
       </Head>
 
       <main>

@@ -439,81 +439,124 @@
     "reviewDescription": "Description"
   },
 
-  "homeScreenSEO": {
-    "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
-    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
-    "keyword": "Tattoo, Tattoo artist,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Tattoo"
+  "customerRequest":{
+    "title":"Get personalized tattoo quotes and connect with top artists - inckd",  
+    "description":"Describe your tattoo idea and share it with multiple artists using inckd. Get personalized quotes, choose your preferred artists, and bring your tattoo vision to life. Easily follow steps to choose tattoo size, placement, and upload reference images.",
+    "keyword":"personalized tattoo quotes, inckd tattoo platform, connect with tattoo artists, describe tattoo idea, choose tattoo size, select tattoo placement, upload tattoo reference images, preferred tattoo artists, tattoo design description, tattoo contact information, tattoo request process"
+   },
+   
+    "homeScreen_Meta": {
+      "title": "inckd. - Find the right artist for your next tattoo and book it through inckd. Make your mark.",
+      "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
+      "keyword": "Tattoo, Tattoo artist,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Tattoo"
+    },
+  
+    "klarnascreen_Meta": {
+      "title": "Flexible tattoo payments with customized installment plans",
+      "description": "Get your dream tattoo with ease! Pay for tattoos in convenient installments, tailored to your budget with our individual payment plans",
+      "keyword": "Tattoo, Tattoos, Tattoo Payment, Tattoo Installments, Tattoo paymentplan, Tattoo budget, Tattooartist, Tattoo Klarna, Klarna"
+    },
+    "forTattooers_Meta": {
+      "title": "Grow your tattoo business with inckd - easy setup, free to use, and all-in-one management",
+      "description": "Boost your tattoo business with inckd. Easily manage bookings, payments, and client communications with our free-to-use, all-in-one platform. Showcase your portfolio, attract clients, and expand your reach effortlessly.",
+      "keyword": "tattoo business management, inckd tattoo platform, easy tattoo bookings, secure tattoo payments, manage tattoo studio, client communication, free tattoo business tools, flexible payment options, tattoo portfolio showcase, real-time tattoo scheduling, tattoo artist app"
+    },
+  
+    "contactUs_Meta": {
+      "title": "Get in touch with us",
+      "description": "Contact us for tattoo inquiries or any questions. We're here to help you with all your tattoo-related queries and concerns",
+      "keyword": "Tattoo inquiry form, Ink-related queries, Get in touch with tattooist"
+    },
+  
+    "faqScreen_Meta": {
+      "title": "Tattoo FAQ: Your questions answered",
+      "description": "Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey",
+      "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
+    },
+  
+    "exploreAll_Meta": {
+      "title": "Explore tattoos, flash designs, and artist portfolios. Get inspired by a variety of styles for your next ink masterpiece",
+      "description":"Discover a wide range of tattoo styles, flash designs, and artist portfolios on inckd. Get inspired for your next ink masterpiece, connect with top artists, and explore personalized tattoo quotes. Easily find and share your tattoo ideas.", 
+      "keyword":"tattoo styles, flash designs, artist portfolios, tattoo inspiration, inckd tattoo platform, personalized tattoo quotes, connect with tattoo artists, tattoo ideas, ink masterpiece, tattoo design exploration"
+    },
+    "exploreTattoosScreen_Meta": {
+      "title": "Discover many tattoo pictures. Find inspiration for your next tattoo in a variety of styles.",
+      "description":"Explore an extensive collection of tattoo pictures on inckd. Find inspiration for your next tattoo in a variety of styles, connect with talented artists, and get personalized quotes. Discover unique designs and ideas to bring your tattoo vision to life.",
+      "keyword":"tattoo pictures, tattoo inspiration, variety of tattoo styles, inckd tattoo platform, connect with tattoo artists, personalized tattoo quotes, unique tattoo designs, tattoo ideas, tattoo galleries, next tattoo inspiration"
+    },
+  
+    "exploreFlashScreen_Meta": {
+      "title": "Find flash tattoo ideas. Explore a range of quick, stylish designs for your next tattoo.",
+      "description":"Discover a variety of flash tattoo ideas on inckd. Explore quick and stylish designs for your next tattoo, connect with talented artists, and get personalized quotes. Find the perfect flash design to express your unique style.",
+      "keyword":"flash tattoo ideas, stylish tattoo designs, quick tattoo ideas, inckd tattoo platform, connect with tattoo artists, personalized tattoo quotes, flash tattoo inspiration, tattoo design gallery, next tattoo ideas, unique flash tattoos"
+    },
+  
+    "exploreArtistScreen_Meta": {
+      "title": "Meet talented tattoo artists. Browse their unique styles and work for your next tattoo inspiration.",
+      "description":"Discover and connect with talented tattoo artists on inckd. Browse their unique styles and portfolios to find inspiration for your next tattoo. Get personalized quotes, explore various designs, and bring your tattoo vision to life.",
+      "keyword":"talented tattoo artists, unique tattoo styles, tattoo artist portfolios, next tattoo inspiration, inckd tattoo platform, connect with tattoo artists, personalized tattoo quotes, tattoo design inspiration, discover tattoo artists, tattoo ideas"
+    },
+  
+    "tattooDetailScreen": {
+      "title": "Explore Tattoo images, designs, and find tattoo artists with ease.",
+      "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
+      "keyword": "Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
+    },
+    "flashDetailScreen": {
+      "title": "Browse unique tattoo designs by talented tattoo artists.",
+      "description": "Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection",
+      "keyword": "Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
+    },
+  
+    "artistDetailScreen": {
+      "title": "Locate tattoo artists by city and country",
+      "description": "Discover tattoo artists in your city and across countries. Search, connect, and tattoo with the best artists near you",
+      "keyword": "Tattooartist, Tattooartist Location, Tattooist search by city, City tattoo artist search, Local tattoo artists, Find tattoo artist near me, Tattooers"
+    },
+
+
+"campiagnPages":{
+  "klarna":{ 
+    "title": "Tattoo now, pay later - explore flexible payment options with inckd" ,
+    "description": "Discover flexible payment options for your next tattoo with inckd. Enjoy interest-free instalments, pay later options, and financing plans up to 36 months. Download the inckd app to explore these features and find your perfect tattoo with ease.", 
+    "keyword": "tattoo now pay later, flexible tattoo payment options, inckd app, interest-free instalments, pay later tattoos, tattoo financing, klarna tattoo payments, tattoo payment plans, download inckd app, tattoo financing options" 
   },
 
-  "styleGuideScreenSEO": {
-    "title": "Explore a variety of unique tattoo styles and trends",
-    "description": "Dive into a world of tattoo artistry with our diverse collection of unique tattoo styles and tattoo trends. Find your tattoo inspiration",
-    "keyword": "Tattoo, Tattoo, Tattoo booking, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Flash, Tattooers, Tattoo app, Tattoo lovers, Tattoos, Finleine Tattoo, Blackwork Tattoo, Traditional Tattoo, Tattoo Search, Tattoo Finder"
+  "generalDownload":{
+    "title": "Download the inckd App - your ultimate tattoo companion" ,
+    "description": "Download the inckd app to explore a world of tattoo inspiration. Connect with top artists, browse unique designs, and enjoy flexible payment options. Whether you're looking for flash tattoos or custom designs, inckd has everything you need.", 
+    "keyword": "inckd app download, tattoo inspiration, connect with tattoo artists, browse tattoo designs, flexible payment options, flash tattoos, custom tattoo designs, tattoo app, tattoo artist platform, inckd features" 
   },
 
-  "dictionarycreenSEO": {
-    "title": "5000+ Tattoo Motives, Your Ultimate Tattoo Dictionary",
-    "description": "Explore our extensive tattoo dictionary with 5000+ unique motives, each with meanings and emotions. Find your perfect tattoo inspiration here",
-    "keyword": "Tattoo, Tattoo Emotions, Tattoo styles, Tattoo Designs, Tattooing, Tattoo Dictonary, Tattoo Meanings Tattoo Finder, Tattoo"
+  "voucher":{
+    "title": "Download the inckd app - get your voucher and join us today",
+    "description": "Download the inckd app to receive a voucher using the provided code. Join us for exclusive tattoo offers, connect with top artists, and explore unique designs. Voucher valid until the specified end date. Submit your form now and we’ll get back to you soon!", 
+    "keyword": "inckd app download, voucher offer, use code, voucher end date, join inckd, exclusive tattoo offers, connect with tattoo artists, unique tattoo designs, form submission, tattoo app features" 
+  }
+},
+
+    "terms-conditions": { 
+    "title": "Terms and Conditions" ,
+    "description": " ", 
+    "keyword": " "    
   },
 
-  "klarnascreenSEO": {
-    "title": "Flexible tattoo payments with customized installment plans",
-    "description": "Get your dream tattoo with ease! Pay for tattoos in convenient installments, tailored to your budget with our individual payment plans",
-    "keyword": "Tattoo, Tattoos, Tattoo Payment, Tattoo Installments, Tattoo paymentplan, Tattoo budget, Tattooartist, Tattoo Klarna, Klarna"
-  },
-  "fortattooArtistScreenSEO": {
-    "title": "Empower Tattoo artists with our comprehensive business management tool",
-    "description": "Elevate your tattoo business with our all-in-one business management tool, designed to empower tattoo artists and enhance efficiency",
-    "keyword": "Tattoo artist software, Tattoo studio management tool, Tattoo business management, Tattoo shop software, Artist scheduling tool, Ink business management, Tattoo artist productivity, Tattoo parlor software, Tattoo shop organization, Ink studio software"
+    "privacy-policy": { 
+      "title": "Privacy-Policy",
+      "description": "", 
+      "keyword": "" 
   },
 
-  "contactUsScreenSEO": {
-    "title": "Get in touch with us",
-    "description": "Contact us for tattoo inquiries or any questions. We're here to help you with all your tattoo-related queries and concerns",
-    "keyword": "Tattoo inquiry form, Ink-related queries, Get in touch with tattooist"
+    "Impressum": { 
+    "title": "Impressum" ,
+    "description": "", 
+    "keyword": " " 
   },
 
-  "joinArtistScreenSEO": {
-    "title": "Discover opportunities: Join our tattoo artist platform",
-    "description": "Find exciting opportunities in the tattoo industry. Join our platform for tattoo artists and kick-start your creative journey today",
-    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answer"
-  },
-  "faqScreenSEO": {
-    "title": "Tattoo FAQ: Your questions qnswered",
-    "description": "Visit our comprehensive Tattoo FAQ page for answers to your questions. Get informed and make confident decisions for your tattoo journey",
-    "keyword": "Tattooing FAQs, Tattoo information hub, Tattoo advice and guidance, Tattoo facts and answers"
-  },
-  "exploreAllScreenSEO": {
-    "title": "Explore tattoos, flash designs, and artist portfolios. Get inspired by a variety of styles for your next ink masterpiece"
-  },
-  "exploreTattoosScreenSEO": {
-    "title": "Discover many tattoo pictures. Find inspiration for your next tattoo in a variety of styles."
-  },
-
-  "exploreFlashScreenSEO": {
-    "title": "Find flash tattoo ideas. Explore a range of quick, stylish designs for your next tattoo."
-  },
-
-  "exploreArtistScreenSEO": {
-    "title": "Meet talented tattoo artists. Browse their unique styles and work for your next tattoo inspiration."
-  },
-
-  "tattooDetailScreen": {
-    "title": "Explore Tattoo images, designs, and find tattoo artists with ease.",
-    "description": "Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience.",
-    "keyword": "Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
-  },
-  "flashDetailScreen": {
-    "title": "Browse unique tattoo designs by talented tattoo artists.",
-    "description": "Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection",
-    "keyword": "Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
-  },
-
-  "artistDetailScreen": {
-    "title": "Locate tattoo artists by city and country",
-    "description": "Discover tattoo artists in your city and across countries. Search, connect, and tattoo with the best artists near you",
-    "keyword": "Tattooartist, Tattooartist Location, Tattooist search by city, City tattoo artist search, Local tattoo artists, Find tattoo artist near me, Tattooers"
+    "User Data Policy": {
+    "title": "User Data Policy",
+    "description": " ", 
+    "keyword": " "
   },
 
   "klarnaMarketingScreen": {
@@ -530,10 +573,7 @@
     "title": "General App Download"
   },
 
-  "terms-conditions": { "title": "Terms and Conditions" },
-  "privacy-policy": { "title": "Privacy-Policy" },
-  "Impressum": { "title": "Impressum" },
-  "User Data Policy": { "title": "User Data Policy" },
+
 
   "AnalyticLogin": {
     "User name is required": "User name is required",

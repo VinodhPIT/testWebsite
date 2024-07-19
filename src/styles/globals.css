@@ -326,7 +326,8 @@ header ul.nav.main_nav > li > a:hover {
   position: relative;
 }
 
-.header_right button.btn_tattoo_art {
+.header_right button.btn_tattoo_art,
+.header_right .tattoo_art {
   margin-right: 40px;
 }
 
@@ -2319,6 +2320,27 @@ footer {
   background: var(--white);
   min-width: 180px;
 }
+
+.tattoo_art{
+display: inline-flex;
+height: 60px;
+padding: 8px 0px;
+margin: 0;
+justify-content: center;
+align-items: center;
+border-radius: 0;
+font-size: 16px;
+line-height: 24px;
+font-weight: 700;
+text-align: center;
+border: 0;
+text-decoration: none;
+position: relative;
+cursor: pointer;
+color: var(--white);
+background: var(--black-500);
+min-width: 180px;}
+
 
 .btn_tattoo_art:hover {
   color: var(--white);
@@ -7732,12 +7754,13 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     width: 278px;
   }  
   
-  .header_right button.btn_tattoo_art {
+  .header_right button.btn_tattoo_art ,.header_right .tattoo_art {
     margin-right: 15px!important;
     height: 52px;
     padding: 6px 10px;
     min-width: inherit;
   } 
+
   button.language_switcher {
     margin-right: 15px!important;
   }
