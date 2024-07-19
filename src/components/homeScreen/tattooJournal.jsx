@@ -37,7 +37,7 @@ export default function ListingPage({ data}) {
               <div className="d_inline_block w_100pc">
                 <h2 className="color_gray_550 custom_fs_38 custom_fs_m_32 m_lh_38 fw_900 pr_90 m_xs_pr_0 position_relative d_flex justify_space_between align_item_end mb_0 m_mb_5">              
                   <span className="position_relative">
-                    <span className="position_relative d_block custom_fs_16 custom_fs_16 lh_19 fw_300 text_transform_upper">{t("common:explore")}</span>
+                    <span className="position_relative d_block custom_fs_16 lh_19 text_fs_m_14 m_lh_19 fw_300 text_transform_upper">{t("common:explore")}</span>
                     {t("common:tattooJournal")}</span>
                   <Link
                     href={`/${router.locale}/journal`}

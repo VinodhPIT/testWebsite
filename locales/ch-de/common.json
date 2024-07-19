@@ -7,7 +7,7 @@
     "tattooArtists": "Tattoo Artists",
     "tattoos": "Tattoos",
     "flashTattos": "Flash Tattoos",
-    "forTattooers": "Für Tätowierer/innen",
+    "forTattooers": "Tätowierer/innen",
     "tattooSearch": "Tattoos entdecken",
     "exploreArtists": "Artists entdecken",
     "forArtists": "Für Artists",
@@ -252,7 +252,7 @@
     "flash": "Flash",
     "artist": "Artists",
     "info": "Information",
-    "tattooLovers": "Tattoo-Liebhaber",
+    "tattooLovers": "Kunden",
     "general": "Allgemein"
   },
 
@@ -274,7 +274,7 @@
   "tattoos": "Tattoos",
   "tattooStyles": "Tattoo Stile",
   "tattooJournal": "Tattoo Journal",
-  "seeAll": "ALLE ANZEIGEN",
+  "seeAll": "ALLE",
 
   "downloadOurApp": "Lade unsere App herunter von",
   "downloadApp": "Lade die ",
@@ -301,7 +301,7 @@
   "you-might-like": "Das könnte dir auch gefallen",
   "image-tattoo-style": "Bild Tattoo Stil",
   "locations": "Standorte",
-  "getIntouch": "Kontakt aufnehmen",
+  "getIntouch": "Kontaktieren",
   "viewProfile": "Profil anzeigen",
   "fixed-price": "Festpreis",
   "flexible-price": "Flexibler Preis",
@@ -328,8 +328,8 @@
   "enterLocation": "Standort eingeben",
   "loadMore": "Mehr laden",
 
-  "Downloadinckd": "Lade die inckd. App herunter, um einen Gutschein von",
-  "Usecode": "Benutze den Code",
+  "Downloadinckd": "Lade die inckd. App herunter und erhalte einen Gutschein von",
+  "Usecode": "Benutze diesen Code",
   "Voucherends": "Gutschein endet am",
   "Joinus": "Tritt uns bei mit",
   "Form submitted": "Formular eingereicht",
@@ -356,7 +356,7 @@
   "Style": "Stil",
   "Search by Location": "Ort",
   "Clear All": "Alles löschen",
-  "Show Results": "Ergebnisse anzeigen",
+  "Show Results": "Ergebnisse",
   "Loading": "Lädt...",
   "Search Location": "Ort suchen",
 
@@ -387,7 +387,7 @@
   
   "appStoreDownload": "App Store Download",
   "playStoreDownload": "Play Store Download",
-  "getTattooNow": "Jetzt tätowieren. Später bezahlen.",
+  "getTattooNow": "Get tattoo now, Pay later.",
 
   "requestForm": {
     "landingTitle": "Beschreibe deine Tattoo Idee und teile sie mit mehreren Artists.",
@@ -432,8 +432,8 @@
     "save": "Speichern",
     "tatooPosition": "Tattoo Position",
     "ideaForTattoo": "Tolle Idee für ein Tattoo!",
-    "bringYouridea": "Lass uns jetzt deine Idee mit der inckd. App zum Leben erwecken. Lade die App herunter und registriere dich mit deiner bestehenden E-Mail/Telefonnummer, um deinen Fortschritt einfach zu verfolgen.",
-    "Login with your existing account": "Lass uns jetzt deine Idee mit der inckd. App zum Leben erwecken. Melde dich mit deiner bestehenden E-Mail/Telefonnummer an, um deinen Fortschritt einfach zu verfolgen.",
+    "bringYouridea": "Lass uns jetzt deine Idee mit der inckd. App zum Leben erwecken. Lade die App herunter und registriere dich mit deiner bestehenden Mail/Telefonnummer, um deinen Fortschritt einfach zu verfolgen.",
+    "Login with your existing account": "Lass uns jetzt deine Idee mit der inckd. App zum Leben erwecken. Melde dich mit deiner bestehenden Mail/Telefonnummer an, um deinen Fortschritt einfach zu verfolgen.",
     "openApp": "App öffnen",
     "reviewSize": "Tattoo Grösse",
     "reviewDescription": "Beschreibung"

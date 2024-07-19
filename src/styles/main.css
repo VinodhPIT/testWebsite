@@ -92,10 +92,6 @@ button:disabled:hover {
 .exploreScreens .sideDrawer {
   top: 0px;
 }
-.sideDrawer .menuList li .active {
- color: red;
-}
-
 .home .drawer-sticky {
   top: 0
 }
@@ -118,8 +114,9 @@ button:disabled:hover {
   padding: 0px 40px;
   margin: 70px 0 0 0;
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
-  gap: 40px;
+  /*gap: 40px;*/
 }
 
 .menuList li {
@@ -128,7 +125,13 @@ button:disabled:hover {
   text-align: left;
   padding: 0;
 }
+.menuList > ul > li {
+  padding: 0 0 40px 0;
+}
 
+.menuList > ul > li:last-child {
+  padding-bottom: 0;
+}
 
 .menuList > ul > li > a {
   font-size: 26px;
@@ -1554,7 +1557,14 @@ form.form_block .radio_block.radio_form_grid+div.error {
   .menuList > ul {
     padding: 0px 15px 15px 15px;
     margin-top: 42px;
-    gap: 24px;
+    /*gap: 24px;*/
+  }
+  .menuList > ul > li {
+    padding: 0 0 24px 0;
+  }
+  
+  .menuList > ul > li:last-child {
+    padding-bottom: 0;
   }
 
 
@@ -2111,5 +2121,13 @@ form.form_block .radio_block.radio_form_grid+div.error {
 @media screen and (min-width: 76.98px) {
   .main_slider .custom_slider {
     margin-right: -15px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (orientation:landscape) {
+  .menuList {
+      padding-bottom: 105px;
+      height: calc(100% - 155px);
+      overflow-y: auto;
   }
 }
