@@ -7,8 +7,6 @@ import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 
-
-
 export default function LocationSearch({
   currentTab,
   searchKey,
@@ -20,12 +18,11 @@ export default function LocationSearch({
   const { isMobileView } = useWindowResize();
   const [address, setAddress] = useState("");
   const { t } = useTranslation();
+  const isAddressEmpty = state.address === "";
 
-
- 
   const clear = async () => {
     setAddress("");
-    getAddress("Location");
+     getAddress("");
     await getUrl(currentTab, searchKey, selectedStyle, "", router);
   };
 
@@ -127,7 +124,7 @@ export default function LocationSearch({
         <div className={styles.custom_dropdown_btn}>
           <button
             onClick={() => clear()}
-            disabled={state.location === "" ? true : false}
+            disabled={isAddressEmpty}
             className="btn_outline_secondary w_100pc"
           >
             {t("common:Clear All")}
@@ -135,8 +132,8 @@ export default function LocationSearch({
 
           <button
             onClick={() => searchLocation()}
-            disabled={address === ""}
-            className="btn_secondary w_100pc"
+            disabled={!address}
+            className="btn_secondary w_100pc bdr_rad_4"
           >
             {t("common:Show Results")}
           </button>

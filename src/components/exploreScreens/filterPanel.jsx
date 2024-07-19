@@ -1,14 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import StyleDropdown from "@/components/exploreScreens/styleListing";
-import useWindowResize from "@/hooks/useWindowSize";
+
 import { useToggle } from "@/hooks/useToggle";
-import style from "@/pages/explore/search.module.css";
+import useWindowResize from "@/hooks/useWindowSize";
+
 import useTranslation from "next-translate/useTranslation";
+import OutsideClickHandler from "react-outside-click-handler";
+
+import StyleDropdown from "@/components/exploreScreens/styleListing";
+import style from "@/pages/explore/search.module.css";
 import LocationSearch from "@/components/exploreScreens/placesAutocomplete";
+
 import { useGlobalState } from "@/context/Context";
 import { formatText } from "@/utils/textUtils";
-import OutsideClickHandler from "react-outside-click-handler";
 
 export default function FilterPanel({
   searchKey,
@@ -19,11 +23,12 @@ export default function FilterPanel({
   router,
   isDetail,
 }) {
+
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
   const { state, selectedIds } = useGlobalState();
   const { isMobileView } = useWindowResize();
-
   const { t } = useTranslation();
+  const addressText = state.address === "" ? t("common:location") : formatText(state.address);
 
   return (
     <div>
@@ -77,7 +82,8 @@ export default function FilterPanel({
                   priority
                 />
 
-                <span>{formatText(state.address)}</span>
+                <span>{addressText}</span>
+
               </button>
 
               {toggleLocation && (

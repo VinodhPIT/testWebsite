@@ -49,7 +49,7 @@ export default function Home({}) {
     router.replace(`/${router.locale}${router.asPath}`);
     clearStyleId("");
     setSelectedIds([]);
-    getAddress("Location");
+    getAddress("");
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: "",

@@ -100,7 +100,7 @@ const Search = ({
 
   useEffect(() => {
     if (lat === "") {
-      getAddress("Location");
+      getAddress("");
     }
   }, [lat]);
 

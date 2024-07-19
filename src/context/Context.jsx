@@ -16,7 +16,7 @@ import {axiosInstance} from "@/apiConfig/axios.instance";
 import { searchParam, fetchMulticategory } from "@/helpers/helper";
 
 const initialState = {
-  address: "Location",
+  address: "",
   categoryCollection: [],
   currentTab: "",
   errorMessage: false,
@@ -58,7 +58,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         address: action.payload,
-        location: action.payload === "Location" ? "" : action.payload,
       };
 
     case "GET_LOCALE":
