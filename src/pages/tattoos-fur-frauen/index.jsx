@@ -164,6 +164,23 @@ export default function TattooIdeen() {
           name="description"
           content="Herzlich willkommen auf unserer umfassenden Seite, die sich leidenschaftlich der faszinierenden Welt der Tattoos für Frauen widmet. Hier möchten wir nicht nur den künstlerischen Aspekt von Tätowierungen betonen, sondern auch die vielfältige Symbolik, die jede Tätowierung einzigartig macht. Die Beliebtheit von Tattoos bei Frauen ist in den vergangenen Jahren erheblich gestiegen. Unsere Seite ist keine Plattform nur für Frauen, sondern eine Ressource für alle, die sich für die Vielfalt und Symbolik femininer Tätowierungen interessieren."
         />
+
+         <meta property="og:image" content={`${process.env.LIVE_URL}/Tattoos-für-Fraue.jpg`} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/tattoos-fur-frauen`}
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Tattoos für Frauen: Vielfalt und Symbolik bei weiblichen Tätowierungen"
+        />
+        <meta
+          name="twitter:description"
+          content="Herzlich willkommen auf unserer umfassenden Seite, die sich leidenschaftlich der faszinierenden Welt der Tattoos für Frauen widmet. Hier möchten wir nicht nur den künstlerischen Aspekt von Tätowierungen betonen, sondern auch die vielfältige Symbolik, die jede Tätowierung einzigartig macht. Die Beliebtheit von Tattoos bei Frauen ist in den vergangenen Jahren erheblich gestiegen. Unsere Seite ist keine Plattform nur für Frauen, sondern eine Ressource für alle, die sich für die Vielfalt und Symbolik femininer Tätowierungen interessieren."
+        />
+        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/Tattoos-für-Fraue.jpg`} />
       </Head>
 
       <Banner

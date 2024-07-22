@@ -2,12 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Head from "next/head";
 
+import { useNavigation } from "@/hooks/useRouter";
+
 import _Form from "@/components/forms/contactForm";
 import useTranslation from "next-translate/useTranslation";
-
-
-import useAppStoreLink from "@/hooks/useAppStoreLink";
-import { useQrModal } from '@/context/ModalContext';
 
 import {
   BLUR_URL,
@@ -15,11 +13,8 @@ import {
 
 export default function Contact({}) {
 
-  //Constants
-  
+  const { router } = useNavigation();
   const { t } = useTranslation();
-  const { appStoreLink, imageSrc } = useAppStoreLink();
-  const { openModal } = useQrModal();
 
   return (
     <>
@@ -33,8 +28,35 @@ export default function Contact({}) {
           name="keywords"
           content={t("common:contactUs_Meta.keyword")}
         />
+         <meta
+          property="og:title"
+          content={t("common:contactUs_Meta.title")}
+        />
+        <meta
+          property="og:description"
+          content= {t("common:contactUs_Meta.description")}
+        />
+        <meta property="og:image" content={`${process.env.LIVE_URL}/metaContact.png`} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/contact`}
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={t("common:contactUs_Meta.title")}
+        />
+        <meta
+          name="twitter:description"
+          content={t("common:contactUs_Meta.description")}
+        />
+        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaContact.png`} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+       
       </Head>
 
 

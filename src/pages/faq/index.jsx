@@ -158,6 +158,32 @@ export default function FAQ({ locale }) {
           content={t("common:faqScreen_Meta.description")}
         />
         <meta name="keywords" content={t("common:faqScreen_Meta.keyword")} />
+
+        <meta
+          property="og:title"
+          content={t("common:faqScreen_Meta.title")}
+        />
+        <meta
+          property="og:description"
+          content= {t("common:faqScreen_Meta.description")}
+        />
+        <meta property="og:image" content={`${process.env.LIVE_URL}/metaFAQ.png`} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/faq`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={t("common:faqScreen_Meta.title")}
+        />
+        <meta
+          name="twitter:description"
+          content={t("common:faqScreen_Meta.description")}
+        />
+        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaFAQ.png`} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        
       </Head>
 
       <main>

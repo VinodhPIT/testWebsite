@@ -5,14 +5,12 @@ import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
 import { useGlobalState } from "@/context/Context";
-import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import Banner from "@/components/banners/Banner";
 import KlarnaBanner from "@/components/klarnaBanner/KlarnaBanner";
 import TextsCarousel from "@/components/carousel/TextsCarosuel";
 import ImageCarosuel from "@/components/carousel/ImageCarosuel";
-import CaptionImageCarosuel from "@/components/carousel//CaptionImageCarosuel";
 import TattooIdea from "@/components/tattooIdea/TattooIdea";
 import TattooJournal from "@/components/homeScreen/tattooJournal";
 import ListAppFeature from "@/components/ appFeatureList/ListAppFeature";
@@ -20,10 +18,9 @@ import Modal from "@/components/modalPopup/comingSoon";
 
 import jsonData from "@/data/journal.json";
 
-export default function Home({}) {
+export default function Home({imageUrl}) {
   const router = useRouter();
   const { allListing } = useDisplayAll();
-  const { styleList } = useStyleListing();
   const {
     getAddress,
     clearStyleId,
@@ -67,6 +64,30 @@ export default function Home({}) {
           content={t("common:homeScreen_Meta.description")}
         />
         <meta name="keywords" content={t("common:homeScreen_Meta.keyword")} />
+        <meta
+          property="og:title"
+          content={t("common:homeScreen_Meta.title")}
+        />
+        <meta
+          property="og:description"
+          content= {t("common:homeScreen_Meta.description")}
+        />
+        <meta property="og:image" content={`${process.env.LIVE_URL}/metaHOME.png`} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={t("common:homeScreen_Meta.title")}
+        />
+        <meta
+          name="twitter:description"
+          content={t("common:homeScreen_Meta.description")}
+        />
+        <meta name="twitter:image" content={`${process.env.LIVE_URL}/metaHOME.png`} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
       </Head>
 
       <Banner

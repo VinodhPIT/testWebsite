@@ -109,6 +109,30 @@ export default function Detail({ data}) {
           content={t("common:flashDetailScreen.description")}
         />
         <meta name="keywords" content={t("common:flashDetailScreen.keyword")} />
+        <meta
+          property="og:title"
+          content={t("common:flashDetailScreen.title")}
+        />
+        <meta
+          property="og:description"
+          content= {t("common:flashDetailScreen.description")}
+        />
+        <meta property="og:image" content={currentBigImage} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/explore/flash-tattoos/${router.query.detail}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={t("common:flashDetailScreen.title")}
+        />
+        <meta
+          name="twitter:description"
+          content={t("common:flashDetailScreen.description")}
+        />
+        <meta name="twitter:image"  content={currentBigImage} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
       </Head>
       <main>
         <div className="page_wrapper">

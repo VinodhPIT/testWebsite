@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { persist, createJSONStorage } from 'zustand/middleware'
 
 const usePath = create(
   persist(
@@ -11,7 +11,7 @@ const usePath = create(
     }),
     {
       name: "path-storage", 
-      getStorage: () => localStorage, // Storage method
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

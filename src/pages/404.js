@@ -69,7 +69,7 @@ const Custom404 = () => {
             </div>  
                               
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <div className="banner_block">
               <div className="banner_col min_h_100_pc m_h_inherit min_h_reset">
                 <div className="position_relative w_100pc h_100pc m_min_h_inherit text_center align_content pt_80 m_pt_40 block_bg_yellow">
