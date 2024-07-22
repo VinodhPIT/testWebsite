@@ -23,7 +23,6 @@ import Loader from "@/components/loading/loader";
 import styles from "../tattoodetail.module.css";
 import style from "@/pages/explore/search.module.css";
 
-
 export default function Detail({ data, locale }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
@@ -112,12 +111,36 @@ export default function Detail({ data, locale }) {
   return (
     <>
       <Head>
-      <title>{t("common:tattooDetailScreen.title")}</title>
+       <title>{t("common:tattooDetailScreen.title")}</title>
         <meta
           name="description"
           content={t("common:tattooDetailScreen.description")}
         />
         <meta name="keywords" content={t("common:tattooDetailScreen.keyword")} />
+        <meta
+          property="og:title"
+          content={t("common:tattooDetailScreen.title")}
+        />
+        <meta
+          property="og:description"
+          content= {t("common:tattooDetailScreen.description")}
+        />
+        <meta property="og:image" content={currentBigImage} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/explore/tattoos/${router.query.detail}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={t("common:tattooDetailScreen.title")}
+        />
+        <meta
+          name="twitter:description"
+          content={t("common:tattooDetailScreen.description")}
+        />
+        <meta name="twitter:image"  content={currentBigImage} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
       </Head>
 
       <main>
@@ -197,9 +220,6 @@ export default function Detail({ data, locale }) {
                     <div className={styles.search_profile_content}>
                       <div className={styles.search_profile_name}>
                         {data.artist.artist_name}
-                      </div>
-                      <div className={styles.search_profile_details}>
-                        Switzerland, Germany
                       </div>
                     </div>
                     <div className={styles.search_profile_link}>
@@ -355,13 +375,11 @@ export default function Detail({ data, locale }) {
 export async function getServerSideProps(context) {
   try {
     const res = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(context.query.detail))
-
     if (!res.data) {
       return {
         notFound: true,
       };
     }
-
     return {
       props: {
         data: res.data.data,

@@ -7,9 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useNavigation } from "@/hooks/useRouter";
 import { BLUR_URL } from "@/constants/constants";
 
-
 import NoData from "@/components/noDatafound/noData";
-
 
 import styles from "@/components/styles/listing.module.css";
 
@@ -26,7 +24,30 @@ export default function All({ data }) {
           content={t("common:exploreAll_Meta.description")}
         />
         <meta name="keywords" content={t("common:exploreAll_Meta.keyword")} />
-
+        <meta
+          property="og:title"
+          content={t("common:exploreAll_Meta.title")}
+        />
+        <meta
+          property="og:description"
+          content= {t("common:exploreAll_Meta.description")}
+        />
+        <meta property="og:image" content={`${process.env.LIVE_URL}/metaAll.png`} />
+        <meta
+          property="og:url"
+          content={`${process.env.LIVE_URL}/${router.locale}/explore/all`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content={t("common:exploreAll_Meta.title")}
+        />
+        <meta
+          name="twitter:description"
+          content={t("common:exploreAll_Meta.description")}
+        />
+        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaAll.png`} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
       </Head>
 
       <div className={styles.pageContainer}>

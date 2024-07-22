@@ -38,7 +38,7 @@ export default function TattooPflege() {
           property="og:description"
           content="Erfahre, wie du dein frisch gestochenes Tattoo optimal pflegen kannst. Tipps zur richtigen Nachsorge mit ph-neutraler Seife, Feuchtigkeitscreme und UV-Schutz. Langfristige Pflegehinweise für brillante Tattoos über die Jahre hinweg."
         />
-        <meta property="og:image" content="URL des Vorschaubilds" />
+        <meta property="og:image" content={`${process.env.LIVE_URL}/tattoo-Pflege.jpg`} />
         <meta
           property="og:url"
           content={`${process.env.LIVE_URL}/${router.locale}/tattoo-Pflege`}
@@ -55,6 +55,9 @@ export default function TattooPflege() {
         />
         <meta name="twitter:image"  content={`${process.env.LIVE_URL}/tattoo-Pflege.jpg`} />
         <meta name="twitter:site" content="@DeinTwitterHandle" />
+
+
+
       </Head>
 
       <Banner
