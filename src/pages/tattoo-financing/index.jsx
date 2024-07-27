@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 
+import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
+
+
 import useTranslation from "next-translate/useTranslation";
 import {
   Accordion,
@@ -35,7 +38,7 @@ function KlarnaNew({ }) {
   const { setPathname } = usePath();
   const { isMobileView } = useWindowResize();
   const { allListing } = useDisplayAll();
-
+  const canonicalUrl = useCanonicalUrl();
   
   const klarnaOptions = [
     {
@@ -109,10 +112,17 @@ function KlarnaNew({ }) {
     setExpandedItems(uuids);
   };
 
+
+
+
   return (
     <>
       <Head>
+
         <title>{t("common:klarnascreen_Meta.title")}</title>
+
+        <link rel="canonical" href={canonicalUrl}  />
+
         <meta
           name="description"
           content={t("common:klarnascreen_Meta.description")}
@@ -130,7 +140,7 @@ function KlarnaNew({ }) {
         <meta property="og:image" content={`${process.env.LIVE_URL}/metaKlarna.png`} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/klarna`}
+          content={canonicalUrl}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -352,7 +362,7 @@ function KlarnaNew({ }) {
                     {t("common:klarnaPage.findArtists")}
                   </h2>
                   <Link
-                    href={`/${router.locale}/createRequest`}
+                    href={`/${router.locale}/${t("common:routes.tattoo-request")}`}
                     onClick={() => setPathname(router.pathname)}
                     className="button_primary"
                   >

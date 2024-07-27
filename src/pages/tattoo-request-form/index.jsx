@@ -1,5 +1,8 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+
+import useCanonicalUrl from "@/hooks/useCanonicalUrl";
 
 import TattooSize from "@/components/stepperComponents/tattooSize";
 import BodyPart from "@/components/stepperComponents/bodyPart";
@@ -11,7 +14,6 @@ import Review from "@/components/stepperComponents/review";
 import { useRequestForm } from "@/store/requestManagement/requestForm";
 import useTranslation from "next-translate/useTranslation";
 
-
 const StepperComponent = dynamic(
   () => import("@/components/stepperComponents/stepper"),
   {
@@ -21,13 +23,15 @@ const StepperComponent = dynamic(
 
 export default function Requestform() {
   const { t } = useTranslation();
+  const canonicalUrl = useCanonicalUrl();
+
   const steps = [
-    { title: t("common:stepper.tattooSize")},
-    { title:  t("common:stepper.bodyPart") },
-    { title: t("common:stepper.description")},
+    { title: t("common:stepper.tattooSize") },
+    { title: t("common:stepper.bodyPart") },
+    { title: t("common:stepper.description") },
     { title: t("common:stepper.reference") },
-    { title: t("common:stepper.artists")},
-    { title: t("common:stepper.contact")},
+    { title: t("common:stepper.artists") },
+    { title: t("common:stepper.contact") },
   ];
 
   const components = [
@@ -50,10 +54,16 @@ export default function Requestform() {
 
   const { stepNumber } = useRequestForm();
 
-
-
   return (
     <>
+      <Head>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta
+          property="og:url"
+          content={canonicalUrl}
+        />
+
+      </Head>
 
       <StepperComponent steps={steps} activeStep={stepNumber} />
 

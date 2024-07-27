@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+
+import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
+
 import useTranslation from "next-translate/useTranslation";
 import {
   Accordion,
@@ -9,13 +12,16 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
+
 import Search from "@/components/exploreScreens/searchField";
 import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-export default function FAQ({ locale }) {
-  // Constants and arrays
+export default function FAQ({ }) {
+
+const canonicalUrl =useCanonicalUrl()
+
   const router = useRouter();
   const [state, setState] = useState("general");
   const { t } = useTranslation();
@@ -153,6 +159,7 @@ export default function FAQ({ locale }) {
     <>
       <Head>
       <title>{t("common:faqScreen_Meta.title")}</title>
+      <link rel="canonical" href={canonicalUrl}  />
         <meta
           name="description"
           content={t("common:faqScreen_Meta.description")}
@@ -170,7 +177,7 @@ export default function FAQ({ locale }) {
         <meta property="og:image" content={`${process.env.LIVE_URL}/metaFAQ.png`} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/faq`}
+          content={canonicalUrl}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

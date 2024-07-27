@@ -6,9 +6,16 @@ import Image from "next/image";
 
 import useTranslation from "next-translate/useTranslation";
 
+
+import usePathTranslation from '@/hooks/usePathTranslation';
+
+
 export default function KlarnaBanner() {
   const router = useRouter();
   const { t } = useTranslation();
+
+  const translatedPath = usePathTranslation("tattoo-financing");
+
   return (
     <section className="container_full">
       <div className="row g-0">        
@@ -29,12 +36,17 @@ export default function KlarnaBanner() {
                 <h2 className="color_gray_550 custom_fs_60 custom_fs_m_38 m_lh_38 fw_800 mt_10 mb_40 m_mb_20">
                   <span>{t("common:tattooPayLater")}</span>
                 </h2>                
-                <Link
-                  href={`/${router.locale}/klarna`}
-                  className="button_primary_outline w_min_245"
+                {/* <Link
+                  href={`/${router.locale}/${t("common:routes.klarna")}`}
+                  
                 >
                   {t("common:learnMore")}
-                </Link>
+                </Link> */}
+
+                <Link href={`${router.locale}/${translatedPath}`} className="button_primary_outline w_min_245">
+                {t("common:learnMore")}
+               </Link>
+
               </div>
             </div>
           </div>

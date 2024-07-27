@@ -51,7 +51,7 @@ export default function Header({
   };
 
   const handleClick = () => {
-    router.push(`/${router.locale}/for-tattoo-artists`);
+    router.push(`/${router.locale}/${t("common:routes.for-tattoo-artists")}`);
   };
 
   useEffect(() => {

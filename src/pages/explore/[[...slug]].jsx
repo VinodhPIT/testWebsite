@@ -1,16 +1,22 @@
-import React, { useEffect  } from "react";
-import Image from 'next/image';
+import React, { useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 import useTranslation from "next-translate/useTranslation";
+import loadTranslation from "next-translate/loadNamespaces";
 
-import useSticky from '@/hooks/useSticky';
+import { getMetaTags } from "@/utils/metaUtils";
+import { getUrl } from "@/utils/getUrl";
+import useSticky from "@/hooks/useSticky";
+import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
 
 import { useGlobalState } from "@/context/Context";
 import { Parameters } from "@/constants/index";
-import { getUrl } from "@/utils/getUrl";
+
 import { getPlaceDetails } from "@/lib/googlePlaces";
-import { categoryMapping} from "@/constants/index";
+import { categoryMapping } from "@/constants/index";
+
 import { getRandomSeed, getMatchingStyles } from "@/helpers/helper";
 import { searchParam, fetchMulticategory } from "@/helpers/helper";
 
@@ -23,58 +29,48 @@ import FilterPanel from "@/components/exploreScreens/filterPanel";
 
 import style from "@/pages/explore/search.module.css";
 
+const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyle, lat, lon, locale, seed,slugIds,translations, metaTags}) => {
 
-const Search = ({
-  data,
-  currentTab,
-  pageNo,
-  totalItems,
-  searchKey,
-  selectedStyle,
-  lat,
-  lon,
-  locale,
-  seed,
-  slugIds,
-}) => {
-  const {
-    state,
-    fetchServerlData,
-    loadMore,
-    styleCollection,
-    getAddress,
-    setSearchState,
-  } = useGlobalState();
+  const { state, fetchServerlData,loadMore,styleCollection,getAddress,setSearchState} = useGlobalState();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
+  
   const { isSticky, elementRef, topRef } = useSticky();
+
+  const canonicalUrl = useCanonicalUrl();
+
   const categoryTab = [
     {
       id: "all",
       label: t("common:tabs.all"),
       image: "/all.svg",
       activeImage: "/all-active.svg",
+      url:t("common:routes.all"),
+      
     },
     {
       id: "tattoo",
       label: t("common:tabs.tattoo"),
       image: "/flame-new.svg",
       activeImage: "/Flame-active.svg",
+      url:t("common:routes.explore-tattoos"),
     },
     {
       id: "flash",
       label: t("common:tabs.flash"),
       image: "/bolt-new.svg",
       activeImage: "/bolt-active.svg",
+      url:t("common:routes.explore-flash"),
     },
     {
       id: "artist",
       label: t("common:tabs.artist"),
       image: "/colour-palette-new.svg",
       activeImage: "/colour-palette-active.svg",
+      url:t("common:routes.tattoo-artists"),
+      isArtist:true
     },
   ];
-
 
   useEffect(() => {
     try {
@@ -94,9 +90,19 @@ const Search = ({
         slugIds,
       });
     } catch (error) {}
-  }, [data, currentTab, pageNo, totalItems, searchKey, selectedStyle, lat, lon, locale, seed, slugIds,]);
-
-
+  }, [
+    data,
+    currentTab,
+    pageNo,
+    totalItems,
+    searchKey,
+    selectedStyle,
+    lat,
+    lon,
+    locale,
+    seed,
+    slugIds,
+  ]);
 
   useEffect(() => {
     if (lat === "") {
@@ -104,9 +110,7 @@ const Search = ({
     }
   }, [lat]);
 
-
   useEffect(() => {
-   
     if (searchKey === "") {
       setSearchState((prevSearchState) => ({
         ...prevSearchState,
@@ -115,21 +119,37 @@ const Search = ({
     }
   }, [searchKey]);
 
-
-
-
   const collectionLength = state.categoryCollection.filter(
     (e) => e._index !== "ad"
   );
 
   const router = useRouter();
 
-  const updateTab = async (tab) => {
-    await getUrl(tab, searchKey, selectedStyle, state.location, router);
+  const updateTab = async (url ,isArtist) => {
+    await getUrl(url ,searchKey, selectedStyle, state.location, router);
   };
 
   return (
     <>
+      <Head>
+        <title>{t(metaTags.title)}</title>
+        <link rel="canonical" href={canonicalUrl}/>
+        <meta name="description" content={t(metaTags.description)} />
+        <meta name="keywords" content={t(metaTags.keyword)} />
+        <meta property="og:title" content={t(metaTags.title)} />
+        <meta property="og:description" content={t(metaTags.description)} />
+        <meta property="og:image" content={metaTags.og_image} />
+        <meta
+          property="og:url"
+          content={canonicalUrl}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t(metaTags.title)} />
+        <meta name="twitter:description" content={t(metaTags.description)} />
+        <meta name="twitter:image" content={metaTags.og_image} />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+      </Head>
+
       <main>
         <div className={style.page_search_wrapper}>
           <div className="container">
@@ -155,14 +175,19 @@ const Search = ({
                 currentTab={currentTab}
                 selectedStyle={selectedStyle}
                 lat={lat}
-                lon={lon} 
+                lon={lon}
                 router={router}
                 isDetail={false}
               />
             </div>
             <div ref={topRef}></div>
-            <div className={isSticky ? style.placeholder : ''}></div>
-            <div className={`${style.tab_container} ${isSticky ? style.sticky : ''}`} ref={elementRef}>
+            <div className={isSticky ? style.placeholder : ""}></div>
+            <div
+              className={`${style.tab_container} ${
+                isSticky ? style.sticky : ""
+              }`}
+              ref={elementRef}
+            >
               <div className={style.tabSection}>
                 <ul>
                   {categoryTab.map((tab) => (
@@ -176,9 +201,11 @@ const Search = ({
                     >
                       <button
                         className={style.tabBox}
-                        onClick={() => updateTab(tab.id)}
+                        onClick={() => updateTab(tab.url ,tab.isArtist)}
                       >
-                        <Image width={25} height={25}
+                        <Image
+                          width={25}
+                          height={25}
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
@@ -202,12 +229,12 @@ const Search = ({
               collectionLength.length !== 0 &&
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
-
-                   {state.currentTab!=="artist" &&
-                  <p>
-                  {t("common:See out of")} {collectionLength.length}/{state.totalItems}
-                  </p>}
-
+                  {state.currentTab !== "artist" && (
+                    <p>
+                      {t("common:See out of")} {collectionLength.length}/
+                      {state.totalItems}
+                    </p>
+                  )}
 
                   <div className={style.btn_wrapper}>
                     <button
@@ -230,26 +257,39 @@ const Search = ({
 
 export default Search;
 
-
-
 export async function getServerSideProps(context) {
   const { query, locale } = context;
   const { slug } = query;
+  console.log(slug," dcdcdcdc  d")
+
   const category = categoryMapping[slug[0]] || null;
+
+
+  console.log(category ,"sxsxsxs")
+
+
+  // Load Meta Tags from the server
+
+  const translations = await loadTranslation("common", locale);
+  const metaTags = getMetaTags(category);
+
   try {
     const placeDetails = await getPlaceDetails(query.location ?? "");
 
-    const styleId = query.style !== undefined
-      ? (await getMatchingStyles(query.style.split(","))).filter(id => id !== null)
-      : [];
+    const styleId =
+      query.style !== undefined
+        ? (await getMatchingStyles(query.style.split(","))).filter(
+            (id) => id !== null
+          )
+        : [];
 
     const fetchParams = {
       ...Parameters,
       category,
       style: styleId,
       search_key: query.keyword ?? "",
-      latitude: placeDetails?.latitude ?? '0.00',
-      longitude: placeDetails?.longitude ?? '0.00',
+      latitude: placeDetails?.latitude ?? "0.00",
+      longitude: placeDetails?.longitude ?? "0.00",
       seed: getRandomSeed(),
     };
 
@@ -259,34 +299,38 @@ export async function getServerSideProps(context) {
     if (category === "all") {
       try {
         const [tattooFetch, flashFetch] = await Promise.all([
-          axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('tattoo'), fetchMulticategory({
-            ...fetchParams,
-            category: "tattoo",
-          })),
-          axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY('flash'), fetchMulticategory({
-            ...fetchParams,
-            category: "flash",
-          }))
+          axiosInstance.post(
+            API_URL.SEARCH.SEARCH_BY_CATRGORY("tattoo"),
+            fetchMulticategory({
+              ...fetchParams,
+              category: "tattoo",
+            })
+          ),
+          axiosInstance.post(
+            API_URL.SEARCH.SEARCH_BY_CATRGORY("flash"),
+            fetchMulticategory({
+              ...fetchParams,
+              category: "flash",
+            })
+          ),
         ]);
 
         const tattooRes = tattooFetch.data;
         const flashRes = flashFetch.data;
 
-        const shuffledResults = [
-          ...tattooRes.rows.hits,
-          ...flashRes.rows.hits,
-        ];
+        const shuffledResults = [...tattooRes.rows.hits, ...flashRes.rows.hits];
         response = shuffledResults;
         totalItems = tattooRes.rows.total.value + flashRes.rows.total.value;
-      } catch (error) {
-      }
+      } catch (error) {}
     } else {
       try {
-        const res = await axiosInstance.post(API_URL.SEARCH.SEARCH_BY_CATRGORY(category), searchParam(fetchParams));
+        const res = await axiosInstance.post(
+          API_URL.SEARCH.SEARCH_BY_CATRGORY(category),
+          searchParam(fetchParams)
+        );
         response = res.data.rows.hits;
         totalItems = res.data.rows.total.value;
-      } catch (error) {
-      }
+      } catch (error) {}
     }
 
     return {
@@ -297,11 +341,13 @@ export async function getServerSideProps(context) {
         totalItems,
         searchKey: query.keyword ?? "",
         selectedStyle: query.style ?? "",
-        lat: placeDetails?.latitude ?? '0.00',
-        lon: placeDetails?.longitude ?? '0.00',
+        lat: placeDetails?.latitude ?? "0.00",
+        lon: placeDetails?.longitude ?? "0.00",
         locale,
         seed: fetchParams.seed,
         slugIds: styleId,
+        translations,
+        metaTags,
       },
     };
   } catch (error) {
@@ -313,8 +359,8 @@ export async function getServerSideProps(context) {
         totalItems: 0,
         searchKey: query.keyword ?? "",
         selectedStyle: query.style ?? "",
-        lat: '0.00',
-        lon: '0.00',
+        lat: "0.00",
+        lon: "0.00",
         locale,
         seed: getRandomSeed(),
         slugIds: [],

@@ -23,6 +23,13 @@
     "app":"App"
   },
 
+  "routes":{
+    "klarna":"tattoo-financing",
+    "contact" :"contact",
+    "for-tattoo-artists":"for-tattoo-artists"
+   
+   },
+
   "homePage": {
     "bannerTitle": {
       "part1": "Book your",

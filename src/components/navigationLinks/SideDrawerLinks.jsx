@@ -25,15 +25,17 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
    
   };
 
+ 
 
   return (
     <ul>
       {filteredLinks.map((link) => (
         <li key={link.id}>
           {link.url ? (
+           
         
               <Link
-                href={`/${router.locale}${link.url}`}
+                href={`${router.locale}/${t(link.url)}`}
                 onClick={() => onCloseToggle()}
                 className={isActive(link.url) ? "fw_700" : "fw_400"}
               >

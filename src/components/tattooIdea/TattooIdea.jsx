@@ -28,7 +28,7 @@ export default function TattooIdea() {
                 <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 m_lh_19 text_transform_upper">{t("common:homePage.shareYour")}</span>
                 {t("common:homePage.tattooIdea")}</span>           
             </h2>                 
-            <ul class="custom_list_view">
+            <ul className="custom_list_view">
               <li className="">
                 <Image
                   priority
@@ -64,7 +64,7 @@ export default function TattooIdea() {
               </li>  
             </ul>
             <Link
-              href={`/${router.locale}/createRequest`}  onClick={()=>setPathname(router.pathname)}
+              href={`/${router.locale}/tattoo-request`}  onClick={()=>setPathname(router.pathname)}
               className="button_primary w_min_230 m_w_100pc m_mt_10"
             >
               {t("common:homePage.startRequest")}

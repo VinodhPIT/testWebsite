@@ -17,39 +17,6 @@ export default function All({ data }) {
 
   return (
     <>
-      <Head>
-      <title>{t("common:exploreAll_Meta.title")}</title>
-        <meta
-          name="description"
-          content={t("common:exploreAll_Meta.description")}
-        />
-        <meta name="keywords" content={t("common:exploreAll_Meta.keyword")} />
-        <meta
-          property="og:title"
-          content={t("common:exploreAll_Meta.title")}
-        />
-        <meta
-          property="og:description"
-          content= {t("common:exploreAll_Meta.description")}
-        />
-        <meta property="og:image" content={`${process.env.LIVE_URL}/metaAll.png`} />
-        <meta
-          property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/explore/all`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={t("common:exploreAll_Meta.title")}
-        />
-        <meta
-          name="twitter:description"
-          content={t("common:exploreAll_Meta.description")}
-        />
-        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaAll.png`} />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
-      </Head>
-
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>

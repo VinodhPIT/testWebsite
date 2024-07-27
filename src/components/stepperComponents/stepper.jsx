@@ -57,8 +57,7 @@ const currentStep = stepNumber === 0 ? 1 : (stepNumber === 6 ? 6 : stepNumber + 
     const baseUrl = `${router.locale}/`;
   
     // Defined the target URL based on the step number and view mode
-    let targetUrl;
-     targetUrl = stepNumber === 0 ? `${baseUrl}createRequest` : null;  
+     const targetUrl = stepNumber === 0 ? `${baseUrl}${t("common:routes.tattoo-request")}` : null;
     // Navigate to the target URL or go back to stepper 
     if (targetUrl) {
       navigateTo(targetUrl);

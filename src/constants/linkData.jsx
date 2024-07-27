@@ -8,30 +8,30 @@ export const Links = [
         {
           id: 1,
           title: "common:menus.tattooArtists",
-          url: "/explore/tattoo-artists",
+          url: "common:routes.tattoo-artists",
         },
         {
           id: 2,
           title: "common:menus.tattoos",
-          url: "/explore/tattoos",
+          url: "common:routes.explore-tattoos",
         },
 
         {
           id: 3,
           title: "common:menus.flashTattos",
-          url: "/explore/flash-tattoos",
+          url: "common:routes.explore-flash",
         },
       ],
     },
     {
       id: 2,
       title: "common:menus.request",
-      url: "/createRequest",
+      url: "common:routes.tattoo-request",
     },
     {
       id:3,
       title: "common:menus.financing",
-      url: "/klarna",
+      url:"common:routes.klarna",
     },
     
   ];
@@ -41,7 +41,7 @@ export const Links = [
     {
       id: 1,
       title: "common:menus.home",
-      url: `/`,
+      url:"/",
     },
     {
       id: 2,
@@ -69,12 +69,12 @@ export const Links = [
     {
       id: 3,
       title: "common:menus.request",
-      url: "/createRequest",
+      url: "common:routes.tattoo-request",
     },
     {
       id: 4,
       title:"common:menus.financing",
-      url: "/klarna",
+      url:"common:routes.klarna",
     },
     {
       id: 5,
@@ -84,11 +84,12 @@ export const Links = [
     {
       id: 6,
       title: "common:menus.forTattooers",
-      url: `/for-tattoo-artists`,
+      url:"common:routes.for-tattoo-artists",
     },
     {
       id: 7,
       title: "common:menus.contactUs",
-      url: `/contact`,
+      url:  "common:routes.contact",
+      
     },
   ];

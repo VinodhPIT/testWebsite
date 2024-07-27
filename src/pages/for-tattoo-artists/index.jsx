@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 
+import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
 import { useNavigation } from "@/hooks/useRouter";
 import { useModal } from "@/utils/modalUtils";
 
@@ -17,11 +18,14 @@ export default function Tattooartists({}) {
   const { router } = useNavigation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
+  const canonicalUrl = useCanonicalUrl();
 
   return (
     <>
       <Head>
         <title>{t("common:forTattooers_Meta.title")}</title>
+
+        <link rel="canonical" href={canonicalUrl}  />
         <meta
           name="description"
           content={t("common:forTattooers_Meta.description")}
@@ -45,7 +49,7 @@ export default function Tattooartists({}) {
         />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/for-tattoo-artists`}
+          content={canonicalUrl}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

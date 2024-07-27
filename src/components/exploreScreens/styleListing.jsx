@@ -12,6 +12,9 @@ export default function StyleDropdown({
   onToggle,
 }) {
   const { state, selectedIds, setSelectedIds, onSearch, clearStyleId } = useGlobalState();
+
+
+console.log(state.currentTab ,"onSearchStyleonSearchStyleonSearchStyle")
    
     const { t } = useTranslation();
 
@@ -31,6 +34,7 @@ export default function StyleDropdown({
   };
 
   const onSearchStyle = async () => {
+  
     await onSearch(
       state.currentTab,
       state.searchKey,

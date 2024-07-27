@@ -62,7 +62,7 @@ export default function SideDrawer({ onCloseToggle, isFixed }) {
             t={t}
           />
         </div>
-        <div class="drawerBottom">
+        <div className="drawerBottom">
           <button
             onClick={openModal}
             target="_blank"

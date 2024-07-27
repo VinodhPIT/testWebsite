@@ -106,7 +106,7 @@ export default function Main() {
                     <div className="d_inline_block w_100pc btn_rqst_desc_mob">
                       <Link
                         className="button_primary align_self mt_40 m_mt_0 w_100pc max_w_330 m_max_100"
-                        href={`/${router.locale}/request-Form`}
+                        href={`/${router.locale}/${t("common:routes.tattoo-request-form")}`}
                       >
                         {t("common:stepper.startDescribe")}
                       </Link>

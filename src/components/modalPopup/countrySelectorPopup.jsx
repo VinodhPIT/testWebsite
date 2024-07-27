@@ -12,6 +12,10 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 import countriesData from "@/data/countries.json";
 import figtree from "@/helpers/fontHelper";
 
+import usePathTranslation from '@/hooks/useee';
+
+
+
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(6, 6, 6, 0.78)",
@@ -44,13 +48,23 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     setCountry(countriesData);
   }, []);
 
-  const chooseLanguage = async ( countryCode, lng ,country) => {
-    closeModal();
+  const chooseLanguage = async ( countryCode, lng ) => { 
+
+
+     closeModal()
     await setLanguage(`${countryCode}-${lng}`);
-    const newUrl = `/${countryCode}-${lng}${router.asPath}`;
+    const currentPath = router.asPath;
+    const translatedPath = usePathTranslation(currentPath, `${countryCode}-${lng}`);
+    const newUrl = `${countryCode}-${lng}${translatedPath}`;
+
     router.replace(newUrl);
+
     fetchStyle();
     fetchAll(countryCode);
+
+
+
+
   };
 
   return (
