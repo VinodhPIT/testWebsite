@@ -7,13 +7,8 @@ import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 
-export default function LocationSearch({
-  currentTab,
-  searchKey,
-  selectedStyle,
-  router,
-  onToggle,
-}) {
+export default function LocationSearch({currentTab,  searchKey,  selectedStyle,  router,  onToggle}) {
+  
   const { getAddress, state } = useGlobalState();
   const { isMobileView } = useWindowResize();
   const [address, setAddress] = useState("");

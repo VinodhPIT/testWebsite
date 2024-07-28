@@ -1,10 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
-import useTranslation from "next-translate/useTranslation";
 
-import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
+import useTranslation from "next-translate/useTranslation";
+ 
 import { useNavigation } from "@/hooks/useRouter";
 
 import { BLUR_URL } from "@/constants/constants";
@@ -15,22 +14,20 @@ import styles from "@/components/styles/listing.module.css";
 export default function Tattoo({ data }) {
   const { router } = useNavigation();
   const { t } = useTranslation();
-  const canonicalUrl = useCanonicalUrl();
 
   return (
     <>
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            {" "}
-            <NoData category={"tattoos"} />{" "}
+            <NoData category={t("common:routes.explore-tattoos")} />
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
             {data &&  data.map((item, idx) => {
               return (
                 <Link
-                  href={`/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`}
+                  href={`/${router.locale}/${t("common:routes.explore-tattoos")}/${item._source.tattoo_uid}`}
                   className={styles.listing_gridItem}
                   key={idx}
                 >

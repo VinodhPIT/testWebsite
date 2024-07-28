@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
+import usePath from '@/hooks/usePath'
 
 import { useGlobalState } from "@/context/Context";
 import { TattooSearchModal } from "@/utils/modalUtils";
@@ -38,6 +39,8 @@ export default function Detail({ data}) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+  const { getTranslatedUrl } = usePath();
+  const translatedUrl = getTranslatedUrl(state.currentTab);
 
   useScrollToTop();
 
@@ -91,7 +94,7 @@ export default function Detail({ data}) {
       return updatedIds;
     });
     await onSearch(
-      "flash",
+      t("common:routes.explore-flash"),
       state.searchKey,
       updatedIds,
       state.location,
@@ -145,6 +148,7 @@ export default function Detail({ data}) {
                       currentTab={"flash"}
                       router={router}
                       isDetail={true}
+                      pathTranslations={translatedUrl}
                     />
                   </div>
                 </div>
@@ -158,6 +162,7 @@ export default function Detail({ data}) {
                 lon={""}
                 router={router}
                 isDetail={true}
+                pathTranslations={translatedUrl}
               />
             </div>
 
@@ -216,7 +221,7 @@ export default function Detail({ data}) {
                     </div>
                     <div className={styles.search_profile_link}>
                       <Link
-                        href={`/${router.locale}/artists/${data.artist.slug}`}
+                        href={`/${router.locale}/${t("common:artistDetail.tattoo-artists")}/${data.artist.slug}`}
                         className={styles.profile_getin}
                       >
                         {t("common:viewProfile")}
@@ -377,7 +382,7 @@ export default function Detail({ data}) {
 
                 {tattoo.map((item) => (
                   <Link
-                    href={`/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`}
+                    href={`/${router.locale}/${t("common:routes.explore-flash")}/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch

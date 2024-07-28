@@ -1,12 +1,16 @@
 import React from "react";
-import styles from "@/pages/artists/style.module.css";
-import useTranslation from "next-translate/useTranslation";
-import Link from "next/link";
-import { useNavigation } from "@/hooks/useRouter";
-import { useGlobalState } from "@/context/Context";
 import Image from "next/image";
 
+import useTranslation from "next-translate/useTranslation";
+
+import { useNavigation } from "@/hooks/useRouter";
+
+import { useGlobalState } from "@/context/Context";
+
+import styles from "@/pages/artists/style.module.css";
+
 const ArtistInfo = ({ data }) => {
+
   const { state, setSelectedIds, onSearch } = useGlobalState();
 
   const { t } = useTranslation();
@@ -23,7 +27,7 @@ const ArtistInfo = ({ data }) => {
       return updatedIds;
     });
     await onSearch(
-      "artist",
+     t("common:routes.explore-all"),
       state.searchKey,
       updatedIds,
       state.location,

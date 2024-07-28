@@ -9,7 +9,7 @@ export default function NoData({ category }) {
   const router = useRouter();
 
   const onClear = () => {
-    router.push(`/${router.locale}/explore/${category}`);
+    router.push(`/${router.locale}/${category}`);
   };
 
   return (

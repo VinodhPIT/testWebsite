@@ -23,17 +23,23 @@
     "app":"App"
   },
 "routes":{
- "klarna":"tattoo-financing",
- "contact":"contact",
- "for-tattoo-artists":"for-tattoo-artists",
+  "klarna":"tattoo-financing",
+  "contact":"contact",
+  "for-tattoo-artists":"for-tattoo-artists",
  "tattoo-request":"tattoo-request",
  "tattoo-request-form":"tattoo-request-form",
  "tattoo-artists":"explore/tattoo-artists",
  "explore-tattoos":"explore/tattoos",
-  "explore-flash":"explore/flash-tattoos"
-
-  
+  "explore-flash":"explore/flash-tattoos",
+  "explore-all":"explore/all"
 },
+
+"artistDetail":{
+  "tattoo-artists":"artists"
+},
+
+
+
 
 
   "homePage": {

@@ -20,7 +20,7 @@ export default function All({ data }) {
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            <NoData category={"all"} />
+            <NoData category={t("common:routes.explore-all")} />
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
@@ -31,9 +31,9 @@ export default function All({ data }) {
                   key={idx}
                   href={
                     item._source.tattoo_type === "normal"
-                      ? `/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`
+                      ? `/${router.locale}/${t("common:routes.explore-tattoos")}/${item._source.tattoo_uid}`
                       : item._source.tattoo_type === "flash"
-                      ? `/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`
+                      ? `/${router.locale}/${t("common:routes.explore-flash")}/${item._source.tattoo_uid}`
                       : `/${router.locale}/artists/${item._source.slug}`
                   }
                 >

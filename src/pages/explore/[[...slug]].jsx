@@ -6,10 +6,9 @@ import Head from "next/head";
 import useTranslation from "next-translate/useTranslation";
 import loadTranslation from "next-translate/loadNamespaces";
 
-import { getMetaTags } from "@/utils/metaUtils";
-import { getUrl } from "@/utils/getUrl";
 import useSticky from "@/hooks/useSticky";
 import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
+import usePath from '@/hooks/usePath'
 
 import { useGlobalState } from "@/context/Context";
 import { Parameters } from "@/constants/index";
@@ -22,6 +21,8 @@ import { searchParam, fetchMulticategory } from "@/helpers/helper";
 
 import API_URL from "@/apiConfig/api.config";
 import { axiosInstance } from "@/apiConfig/axios.instance";
+import { getMetaTags } from "@/utils/metaUtils";
+import { getUrl } from "@/utils/getUrl";
 
 import { renderCategoryComponent } from "@/components/exploreScreens/tab";
 import SearchField from "@/components/exploreScreens/searchField";
@@ -39,14 +40,18 @@ const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyl
 
   const canonicalUrl = useCanonicalUrl();
 
+  const { getTranslatedUrl } = usePath();
+
+  const translatedUrl = getTranslatedUrl(currentTab);
+
+
   const categoryTab = [
     {
       id: "all",
-      label: t("common:tabs.all"),
+      label:t("common:tabs.all"),
       image: "/all.svg",
       activeImage: "/all-active.svg",
-      url:t("common:routes.all"),
-      
+      url:t("common:routes.explore-all"),
     },
     {
       id: "tattoo",
@@ -75,34 +80,10 @@ const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyl
   useEffect(() => {
     try {
       styleCollection();
-
-      fetchServerlData({
-        data,
-        currentTab,
-        pageNo,
-        totalItems,
-        searchKey,
-        selectedStyle,
-        lat,
-        lon,
-        locale,
-        seed,
-        slugIds,
-      });
+      fetchServerlData({data,currentTab, pageNo,totalItems, searchKey, selectedStyle,  lat,lon, locale, seed, slugIds});
     } catch (error) {}
-  }, [
-    data,
-    currentTab,
-    pageNo,
-    totalItems,
-    searchKey,
-    selectedStyle,
-    lat,
-    lon,
-    locale,
-    seed,
-    slugIds,
-  ]);
+  }, [ data, currentTab,  pageNo, totalItems,searchKey, selectedStyle, lat,lon,locale,seed,slugIds]);
+
 
   useEffect(() => {
     if (lat === "") {
@@ -128,6 +109,7 @@ const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyl
   const updateTab = async (url ,isArtist) => {
     await getUrl(url ,searchKey, selectedStyle, state.location, router);
   };
+
 
   return (
     <>
@@ -164,7 +146,7 @@ const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyl
                       lat={lat}
                       lon={lon}
                       router={router}
-                      isDetail={false}
+                      pathTranslations={translatedUrl}
                     />
                   </div>
                 </div>
@@ -178,6 +160,7 @@ const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyl
                 lon={lon}
                 router={router}
                 isDetail={false}
+                pathTranslations={translatedUrl}
               />
             </div>
             <div ref={topRef}></div>
@@ -260,13 +243,8 @@ export default Search;
 export async function getServerSideProps(context) {
   const { query, locale } = context;
   const { slug } = query;
-  console.log(slug," dcdcdcdc  d")
 
   const category = categoryMapping[slug[0]] || null;
-
-
-  console.log(category ,"sxsxsxs")
-
 
   // Load Meta Tags from the server
 

@@ -31,8 +31,14 @@
     "tattoo-request-form":"formulario-solicitud-de-tatuaje",
     "tattoo-artists":"explorar/tatuadores",
     "explore-tattoos":"explorar/tatuajes",
-    "explore-flash":"explorar/flash-tatuajes"
+    "explore-flash":"explorar/flash-tatuajes",
+    "explore-all":"explorar/todos"
    },
+
+
+   "artistDetail":{
+    "tattoo-artists":"explorar/tatuadores"
+  },
 
 
 

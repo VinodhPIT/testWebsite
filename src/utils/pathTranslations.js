@@ -81,10 +81,6 @@ const pathTranslations = {
     de: "/tattoo-anfrage",
   },
 
-
-
-
-
   "/tattoo-request-form": {
     de: "/tattoo-anfrage-formular",
     es: "/formulario-solicitud-de-tatuaje",
@@ -105,6 +101,29 @@ const pathTranslations = {
 
 
 
+
+
+
+
+  "/explore/all": {
+    de: "/entdecke/alle",
+    es: "/explorar/tatuajes",
+    en: "/explorar/todos",
+  },
+
+  "/entdecke/alle": {
+    //de
+    en: "/explorar/all",
+    es: "/explorar/todos",
+  },
+
+  "/explorar/tatuajes": {
+    //es
+    en: "/explore/all",
+    de: "/entdecke/alle",
+  },
+
+
   "/explore/tattoos": {
     de: "/entdecke/tattoos",
     es: "/explorar/tatuajes",
@@ -122,9 +141,6 @@ const pathTranslations = {
     en: "/explore/tattoos",
     de: "/entdecke/tattoos",
   },
-
-
-
 
     "/explore/tattoo-artists": {
     de: "/entdecke/tatowierer",
@@ -162,6 +178,79 @@ const pathTranslations = {
     en: "/explore/flash-tattoos",
     de: "/entdecke/flash-tattoos",
   },
+
+
+
+  "/explorar/tatuajes": {
+    //es
+    en: "/explore/all",
+    de: "/entdecke/alle",
+  },
+  
+
+
+
+  "/explore/tattoos/:slug*": {
+    de: "/entdecke/tattoos/:slug*",
+    es:"/explorar/tatuajes/:slug*",
+  },
+
+
+  "/entdecke/tattoos/:slug*": {
+    en: "/explore/tattoos/:slug*",
+    es:"/explorar/tatuajes/:slug*"
+  },
+
+  "/explorar/tatuajes/:slug*": {
+    de: "/entdecke/tattoos/:slug*",
+    en: "/explore/tattoos/:slug*",
+  },
+
+
+
+  "/explore/flash-tattoos/:slug*": {
+    de: "/entdecke/flash-tattoos/:slug*",
+    es:"/explorar/flash-tatuajes/:slug*",
+  },
+
+
+  "/entdecke/flash-tattoos/:slug*": {
+    en: "/explore/flash-tattoos/:slug*",
+    es:"/explorar/flash-tatuajes/:slug*"
+  },
+
+  "/explorar/flash-tatuajes/:slug*": {
+    de: "/entdecke/flash-tattoos/:slug*",
+    en: "/explore/flash-tattoos/:slug*",
+  },
+
+
+
+
+
+
+
+   "/artists/:slug*": {
+    de: "/entdecke/tatowierer/:slug*",
+    es:"/explorar/tatuadores/:slug*",
+  },
+
+
+  "/entdecke/tatowierer/:slug*": {
+    en: "/artists/:slug*",
+    es:"/explorar/tatuadores/:slug*"
+  },
+
+  "/explorar/tatuadores/:slug*": {
+    de: "/entdecke/tatowierer/:slug*",
+    en: "/artists/:slug*",
+  },
+
+
+
+
+
+
 
 
 

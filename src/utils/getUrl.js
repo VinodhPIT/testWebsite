@@ -3,7 +3,7 @@
 
 
 export const getUrl = (catgy, term, style, address, router) => {
-  console.log(catgy,"catgycatgycatgy")
+  console.log(catgy,"catgycatgycatgy" ,"address", address)
 
   return new Promise((resolve, reject) => {
     let url = `/${router.locale}/${catgy}/`;
@@ -17,9 +17,10 @@ export const getUrl = (catgy, term, style, address, router) => {
       queryParams.style = style;
     }
 
-    // if (category === "tattoo-artists" && address !== "") {
-    //   queryParams.location = address;
-    // }
+    if (address !== "") {
+      queryParams.location = address;
+    }
+
     const queryString = Object.keys(queryParams)
       .map((key) => `${key}=${encodeURIComponent(queryParams[key])}`)
       .join("&");

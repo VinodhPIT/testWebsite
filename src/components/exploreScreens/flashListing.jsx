@@ -22,13 +22,13 @@ export default function Flash({ data }) {
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            <NoData category={"flash-tattoos"} />
+            <NoData category={t("common:routes.explore-flash")} />
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
             {data.map((item, idx) => {
               return   <Link
-                  href={`/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`}
+                  href={`/${router.locale}/${t("common:routes.explore-flash")}/${item._source.tattoo_uid}`}
                   className={styles.listing_gridItem}
                   key={idx}
                 >

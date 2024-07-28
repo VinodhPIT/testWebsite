@@ -8,14 +8,14 @@ import { useGlobalState } from "@/context/Context";
 
 import style from "./styles/searchField.module.css";
 
-function SearchBar({ searchKey, currentTab, selectedStyle, router}) {
+function SearchBar({ searchKey,  selectedStyle, router ,pathTranslations}) {
   const { state, setSearchState, searchState } = useGlobalState();
   const { t } = useTranslation();
 
   const clearText = async () => {
     setSearchState({ query: "" });
     if (searchKey !== "") {
-      await getUrl(currentTab, "", selectedStyle, state.location, router);
+      await getUrl(pathTranslations, "", selectedStyle, state.location, router);
     }
   };
   
@@ -30,7 +30,7 @@ function SearchBar({ searchKey, currentTab, selectedStyle, router}) {
     e.preventDefault();
   
     await getUrl(
-      currentTab,
+      pathTranslations,
       searchState.query,
       selectedStyle,
       state.location,

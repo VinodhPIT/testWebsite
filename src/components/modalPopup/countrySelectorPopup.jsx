@@ -49,22 +49,21 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }, []);
 
   const chooseLanguage = async ( countryCode, lng ) => { 
-
-
      closeModal()
-    await setLanguage(`${countryCode}-${lng}`);
-    const currentPath = router.asPath;
-    const translatedPath = usePathTranslation(currentPath, `${countryCode}-${lng}`);
-    const newUrl = `${countryCode}-${lng}${translatedPath}`;
-
-    router.replace(newUrl);
-
+     const newLocale = `${countryCode}-${lng}`;
+     await setLanguage(newLocale);
+   
+     const currentPath = router.asPath;
+     const translatedPath = usePathTranslation(currentPath, newLocale);
+     
+     // Construct the new URL with the new locale and the translated path
+     const newUrl = `/${newLocale}${translatedPath}`;
+     console.log(newUrl ,"cnsdlkcnsldnclsdknclskdnckls")
+   
+     router.replace(newUrl);
+   
     fetchStyle();
     fetchAll(countryCode);
-
-
-
-
   };
 
   return (
@@ -102,7 +101,9 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                             router.locale === el.set
                               ? "activeCountry"
                               : "inActivecountry"
+                              
                           }
+                          disabled={router.locale === el.set}
                           onClick={() => chooseLanguage(el.countryCode, el.lng  ,el.country)}
                         >
                           <Image

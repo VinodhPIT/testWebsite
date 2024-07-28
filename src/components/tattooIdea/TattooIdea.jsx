@@ -64,7 +64,7 @@ export default function TattooIdea() {
               </li>  
             </ul>
             <Link
-              href={`/${router.locale}/tattoo-request`}  onClick={()=>setPathname(router.pathname)}
+              href={`/${router.locale}/${t("common:routes.tattoo-request")}`}  onClick={()=>setPathname(router.pathname)}
               className="button_primary w_min_230 m_w_100pc m_mt_10"
             >
               {t("common:homePage.startRequest")}

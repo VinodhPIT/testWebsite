@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
+import usePath from '@/hooks/usePath'
 
 import { TattooSearchModal } from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
@@ -26,7 +27,10 @@ import style from "@/pages/explore/search.module.css";
 export default function Detail({ data }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
-  const { styleCollection } = useGlobalState();
+  const { state,  styleCollection } = useGlobalState();
+
+  const { getTranslatedUrl } = usePath();
+  const translatedUrl = getTranslatedUrl(state.currentTab);
 
   const router = useRouter();
   const goBack = () => {
@@ -131,6 +135,7 @@ export default function Detail({ data }) {
         />
         <meta name="twitter:image"  content={data.image} />
         <meta name="twitter:site" content="@YourTwitterHandle" />
+        
       </Head>
 
       <main>
@@ -144,6 +149,7 @@ export default function Detail({ data }) {
                       currentTab={"artist"}
                       router={router}
                       isDetail={true}
+                      pathTranslations={translatedUrl}
                     />
                   </div>
                 </div>
@@ -157,6 +163,7 @@ export default function Detail({ data }) {
                 lon={""}
                 router={router}
                 isDetail={true}
+                pathTranslations={translatedUrl}
               />
             </div>
 

@@ -14,15 +14,7 @@ import LocationSearch from "@/components/exploreScreens/placesAutocomplete";
 import { useGlobalState } from "@/context/Context";
 import { formatText } from "@/utils/textUtils";
 
-export default function FilterPanel({
-  searchKey,
-  currentTab,
-  selectedStyle,
-  lat,
-  lon,
-  router,
-  isDetail,
-}) {
+export default function FilterPanel({searchKey, currentTab,selectedStyle, lat, lon, router,  isDetail ,pathTranslations}) {
 
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
   const { state, selectedIds } = useGlobalState();
@@ -90,7 +82,7 @@ export default function FilterPanel({
                 <OutsideClickHandler onOutsideClick={onToggleLoc}>
                   <LocationSearch
                     searchKey={searchKey}
-                    currentTab={currentTab}
+                    currentTab={pathTranslations}
                     selectedStyle={selectedStyle}
                     router={router}
                     onToggle={onToggleLoc}
@@ -125,7 +117,7 @@ export default function FilterPanel({
               <OutsideClickHandler onOutsideClick={onToggle}>
                 <StyleDropdown
                   searchKey={searchKey}
-                  currentTab={currentTab}
+                  currentTab={pathTranslations}
                   lat={lat}
                   lon={lon}
                   router={router}
@@ -142,7 +134,7 @@ export default function FilterPanel({
         <div>
           <LocationSearch
             searchKey={searchKey}
-            currentTab={currentTab}
+            currentTab={pathTranslations}
             selectedStyle={selectedStyle}
             router={router}
             onToggle={onToggleLoc}
@@ -154,7 +146,7 @@ export default function FilterPanel({
         <div>
           <StyleDropdown
             searchKey={searchKey}
-            currentTab={currentTab}
+            currentTab={pathTranslations}
             lat={lat}
             lon={lon}
             router={router}

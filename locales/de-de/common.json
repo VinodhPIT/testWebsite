@@ -31,9 +31,13 @@
     "tattoo-request-form":"tattoo-anfrage-formular",
     "explore-tattoos":"entdecke/tattoos",
     "explore-flash":"entdecke/flash-tattoos",
-    "tattoo-artists":"entdecke/tatowierer"
+    "tattoo-artists":"entdecke/tatowierer",
+    "explore-all":"/entdecke/alle"
    },
 
+   "artistDetail":{
+    "tattoo-artists":"entdecke/tatowierer"
+  },
 
 
 
