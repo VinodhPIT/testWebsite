@@ -107,6 +107,9 @@ export default function Detail({ data}) {
     <>
       <Head>
       <title>{t("common:flashDetailScreen.title")}</title>
+
+      <link rel="canonical" href={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.explore-flash")}/${router.query.detail}`}/>
+
         <meta
           name="description"
           content={t("common:flashDetailScreen.description")}
@@ -123,7 +126,7 @@ export default function Detail({ data}) {
         <meta property="og:image" content={currentBigImage} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/explore/flash-tattoos/${router.query.detail}`}
+          content={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.explore-flash")}/${router.query.detail}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

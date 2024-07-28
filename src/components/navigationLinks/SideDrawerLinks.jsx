@@ -35,7 +35,7 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
            
         
               <Link
-                href={`${router.locale}/${t(link.url)}`}
+                href={`/${router.locale}/${t(link.url)}`}
                 onClick={() => onCloseToggle()}
                 className={isActive(link.url) ? "fw_700" : "fw_400"}
               >

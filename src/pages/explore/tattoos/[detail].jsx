@@ -112,6 +112,7 @@ export default function Detail({ data, locale }) {
     <>
       <Head>
        <title>{t("common:tattooDetailScreen.title")}</title>
+       <link rel="canonical" href={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.explore-tattoos")}/${router.query.detail}`}/>
         <meta
           name="description"
           content={t("common:tattooDetailScreen.description")}
@@ -128,7 +129,7 @@ export default function Detail({ data, locale }) {
         <meta property="og:image" content={currentBigImage} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/explore/tattoos/${router.query.detail}`}
+          content={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.explore-tattoos")}/${router.query.detail}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

@@ -409,7 +409,7 @@ export default function Tattooartists({}) {
                     <span>{t("common:tattooPayLater")}</span>
                   </h2>
                   <Link
-                    href={`/${router.locale}/klarna`}
+                    href={`/${router.locale}/${t("common:routes.klarna")}`}
                     className="button_primary_outline w_min_245"
                   >
                     {t("common:learnMore")}

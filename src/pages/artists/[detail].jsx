@@ -106,6 +106,7 @@ export default function Detail({ data }) {
     <>
       <Head>
          <title>{t("common:artistDetailScreen.title")}</title>
+         <link rel="canonical" href={`${process.env.LIVE_URL}/${router.locale}/${t("common:artistDetail.tattoo-artists")}/${router.query.detail}`}/>
         <meta
           name="description"
           content={t("common:artistDetailScreen.description")}
@@ -122,7 +123,7 @@ export default function Detail({ data }) {
         <meta property="og:image" content={data.image} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/artists/${router.query.detail}`}
+          content={`${process.env.LIVE_URL}/${router.locale}/${t("common:artistDetail.tattoo-artists")}/${router.query.detail}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

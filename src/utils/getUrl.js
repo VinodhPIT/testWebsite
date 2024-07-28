@@ -3,8 +3,6 @@
 
 
 export const getUrl = (catgy, term, style, address, router) => {
-  console.log(catgy,"catgycatgycatgy" ,"address", address)
-
   return new Promise((resolve, reject) => {
     let url = `/${router.locale}/${catgy}/`;
     const queryParams = {};
