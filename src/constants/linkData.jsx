@@ -40,7 +40,7 @@ export const Links = [
   export const drawerLinks = [
     {
       id: 1,
-      title: "common:menus.home",
+      title:"common:menus.home",
       url:"/",
     },
     {
@@ -51,18 +51,18 @@ export const Links = [
         {
           id: 1,
           title: "common:menus.tattooArtists",
-          url: "/explore/tattoo-artists",
+          url: "common:routes.tattoo-artists",
         },
         {
           id: 2,
           title: "common:menus.tattoos",
-          url: "/explore/tattoos",
+          url: "common:routes.explore-tattoos",
         },
 
         {
           id: 3,
           title: "common:menus.flashTattos",
-          url: "/explore/flash-tattoos",
+          url: "common:routes.explore-flash",
         },
       ],
     },
