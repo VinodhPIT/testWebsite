@@ -23,6 +23,25 @@
     "app": "App"
   },
 
+  "routes":{
+    "klarna":"financiacion-de-tatuajes",
+    "contact":"contacto",
+    "for-tattoo-artists":"explorar/negocio-de-tatuajes",
+    "tattoo-request":"solicitud-de-tatuaje",
+    "tattoo-request-form":"formulario-solicitud-de-tatuaje",
+    "tattoo-artists":"explorar/tatuadores",
+    "explore-tattoos":"explorar/tatuajes",
+    "explore-flash":"explorar/flash-tatuajes",
+    "explore-all":"explorar/todos"
+   },
+
+
+   "artistDetail":{
+    "tattoo-artists":"explorar/tatuadores"
+  },
+
+
+
   "homePage": {
     "bannerTitle": {
       "part1": "Reserva tu",

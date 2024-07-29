@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 
 import { useNavigation } from "@/hooks/useRouter";
+import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
 
 import useTranslation from "next-translate/useTranslation";
 
@@ -12,13 +13,17 @@ export default function Requestform() {
 
   const { router } = useNavigation();
   const { t } = useTranslation();
-  
+  const canonicalUrl = useCanonicalUrl();
+
   UseResetRequestFormState();
 
   return (
     <>
         <Head>
          <title>{t("common:customerRequest.title")}</title>
+
+         <link rel="canonical" href={canonicalUrl}/>
+
         <meta
           name="description"
           content={t("common:customerRequest.description")}
@@ -36,7 +41,7 @@ export default function Requestform() {
         <meta property="og:image" content={`${process.env.LIVE_URL}/metaCreateRequest.png`} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/createRequest`}
+          content={canonicalUrl}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

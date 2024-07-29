@@ -10,9 +10,6 @@ import ArtistAll from '@/components/artistGallery/all'
 import ArtistFlash from '@/components/artistGallery/flash'
 import ArtistInfo from '@/components/artistGallery/info'
 import ArtistTattoo from '@/components/artistGallery/tattoo'
-import ErrorBoundary from "../errorBoundary/errrorBoundary";
-
-
 
 
 export   function renderCategoryComponent(tab, categoryCollection) {
@@ -31,7 +28,6 @@ export   function renderCategoryComponent(tab, categoryCollection) {
       return null;
   }
 }
-
 
 
 

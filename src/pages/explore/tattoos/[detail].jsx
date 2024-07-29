@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
+import usePath from '@/hooks/usePath'
+
 
 import { useGlobalState } from "@/context/Context";
 import { TattooSearchModal, useModal } from "@/utils/modalUtils";
@@ -24,15 +26,13 @@ import styles from "../tattoodetail.module.css";
 import style from "@/pages/explore/search.module.css";
 
 export default function Detail({ data, locale }) {
+  
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
-  const {
-    state,
-    getLocale,
-    styleCollection,
-    setSelectedIds,
-    onSearch,
-  } = useGlobalState();
+  const { state,  getLocale,  styleCollection,  setSelectedIds,  onSearch,} = useGlobalState();
+  
+  const { getTranslatedUrl } = usePath();
+  const translatedUrl = getTranslatedUrl(state.currentTab);
 
   const { t } = useTranslation();
 
@@ -100,7 +100,7 @@ export default function Detail({ data, locale }) {
       return updatedIds;
     });
     await onSearch(
-      "tattoo",
+      t("common:routes.explore-tattoos"),
       state.searchKey,
       updatedIds,
       state.location,
@@ -112,6 +112,7 @@ export default function Detail({ data, locale }) {
     <>
       <Head>
        <title>{t("common:tattooDetailScreen.title")}</title>
+       <link rel="canonical" href={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.explore-tattoos")}/${router.query.detail}`}/>
         <meta
           name="description"
           content={t("common:tattooDetailScreen.description")}
@@ -128,7 +129,7 @@ export default function Detail({ data, locale }) {
         <meta property="og:image" content={currentBigImage} />
         <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/explore/tattoos/${router.query.detail}`}
+          content={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.explore-tattoos")}/${router.query.detail}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -154,6 +155,7 @@ export default function Detail({ data, locale }) {
                       currentTab={"tattoo"}
                       router={router}
                       isDetail={true}
+                      pathTranslations={translatedUrl}
                     />
                   </div>
                 </div>
@@ -167,6 +169,7 @@ export default function Detail({ data, locale }) {
                 lon={""}
                 router={router}
                 isDetail={true}
+                pathTranslations={translatedUrl}
               />
             </div>
 
@@ -224,7 +227,7 @@ export default function Detail({ data, locale }) {
                     </div>
                     <div className={styles.search_profile_link}>
                       <Link
-                        href={`/${router.locale}/artists/${data.artist.slug}`}
+                        href={`/${router.locale}/${t("common:artistDetail.tattoo-artists")}/${data.artist.slug}`}
                         className={styles.profile_getin}
                       >
                         {t("common:viewProfile")}
@@ -340,7 +343,7 @@ export default function Detail({ data, locale }) {
               <div className={styles.grid_wrapper_tattoo}>
                 {tattoo.map((item) => (
                   <Link
-                    href={`/${router.locale}/explore/tattoos/${item.tattoo_uid}`}
+                    href={`/${router.locale}/${t("common:routes.explore-tattoos")}/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch

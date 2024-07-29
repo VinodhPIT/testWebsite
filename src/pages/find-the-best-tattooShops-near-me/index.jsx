@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import { useNavigation } from "@/hooks/useRouter";
 
+
 import Banner from "@/landing-1/Banner/Banner";
 import OrangeTwoRowBlock from "@/landing-1/orangeTwoRowBlock/orangeTwoRowBlock";
 import DownloadApps from "@/landing-3/DownloadApps/DownloadApps";
@@ -100,6 +101,7 @@ export default function TattooIdeasForMen() {
     <>
       <Head>
         <title>Find the Finest Tattoo Shops Near Me for Exceptional Ink</title>
+        
         <meta
           name="description"
           content="Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art."
@@ -142,18 +144,12 @@ export default function TattooIdeasForMen() {
           name="twitter:description"
           content="Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art."
         />
-
         <meta
           name="twitter:image"
           content={`${process.env.LIVE_URL}/tattooShop.jpg`}
         />
         <meta name="twitter:site" content="@YourTwitterHandle" />
         <meta name="twitter:creator" content="@YourTwitterHandle" />
-
-        
-
-
-        
       </Head>
 
       <div>

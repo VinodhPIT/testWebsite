@@ -37,7 +37,7 @@ export default function ImageCarousel({ title, subTitle, description, data }) {
                   {subTitle}
                 </span>
                 <Link
-                  href={`/${router.locale}/explore/tattoos`}
+                  href={`/${router.locale}/${t("common:routes.explore-tattoos")}`}
                   className="more_link"
                 >
                  {t("common:seeAll")} 
@@ -61,7 +61,7 @@ export default function ImageCarousel({ title, subTitle, description, data }) {
                         key={index}
                       >
                         <Link
-                          href={`/${router.locale}/explore/tattoos/${el.tattoo_uid}`}
+                          href={`/${router.locale}/${t("common:routes.explore-tattoos")}/${el.tattoo_uid}`}
                         >
                           <div className={`${"listing_grid_img_col"}`}>
                             <Image

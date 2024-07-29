@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 
 import useTranslation from "next-translate/useTranslation";
 
+import useCanonicalUrl from "@/hooks/useCanonicalUrl";
+
 import { useGlobalState } from "@/context/Context";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
@@ -18,9 +20,11 @@ import Modal from "@/components/modalPopup/comingSoon";
 
 import jsonData from "@/data/journal.json";
 
-export default function Home({imageUrl}) {
+export default function Home({ }) {
+  const canonicalUrl = useCanonicalUrl();
   const router = useRouter();
   const { allListing } = useDisplayAll();
+
   const {
     getAddress,
     clearStyleId,
@@ -59,24 +63,24 @@ export default function Home({imageUrl}) {
     <>
       <Head>
         <title>{t("common:homeScreen_Meta.title")}</title>
+
+        <link rel="canonical" href={canonicalUrl} />
+
         <meta
           name="description"
           content={t("common:homeScreen_Meta.description")}
         />
         <meta name="keywords" content={t("common:homeScreen_Meta.keyword")} />
-        <meta
-          property="og:title"
-          content={t("common:homeScreen_Meta.title")}
-        />
+        <meta property="og:title" content={t("common:homeScreen_Meta.title")} />
         <meta
           property="og:description"
-          content= {t("common:homeScreen_Meta.description")}
+          content={t("common:homeScreen_Meta.description")}
         />
-        <meta property="og:image" content={`${process.env.LIVE_URL}/metaHOME.png`} />
         <meta
-          property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}`}
+          property="og:image"
+          content={`${process.env.LIVE_URL}/metaHOME.png`}
         />
+        <meta property="og:url" content={canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -86,20 +90,25 @@ export default function Home({imageUrl}) {
           name="twitter:description"
           content={t("common:homeScreen_Meta.description")}
         />
-        <meta name="twitter:image" content={`${process.env.LIVE_URL}/metaHOME.png`} />
+        <meta
+          name="twitter:image"
+          content={`${process.env.LIVE_URL}/metaHOME.png`}
+        />
         <meta name="twitter:site" content="@YourTwitterHandle" />
       </Head>
 
       <Banner
         bannerImage="/home_banner.png"
         mobileBanner="/m_home_banner.png"
-        altText={`${t("common:homePage.bannerTitle.part1")} ${t("common:homePage.bannerTitle.part2")}`}
+        altText={`${t("common:homePage.bannerTitle.part1")} ${t(
+          "common:homePage.bannerTitle.part2"
+        )}`}
         title={{
-          firstPart:t("common:homePage.bannerTitle.part1"),
-          part2:t("common:homePage.bannerTitle.part2"),
+          firstPart: t("common:homePage.bannerTitle.part1"),
+          part2: t("common:homePage.bannerTitle.part2"),
         }}
         description={t("common:homePage.bannerContent")}
-        buttonText= {t("common:getApp")}
+        buttonText={t("common:getApp")}
         titleWidth="max_w_480"
         descriptionWidth="max_w_440"
         buttonBg=""
@@ -126,13 +135,11 @@ export default function Home({imageUrl}) {
         data={allListing.tattoo_images}
       />
 
-    
-
       <ListAppFeature />
 
       {SwitchJournal(router.locale)}
 
-       {/* <Modal />  */}
+      {/* <Modal />  */}
     </>
   );
 }

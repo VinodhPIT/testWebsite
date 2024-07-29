@@ -17,43 +17,10 @@ export default function All({ data }) {
 
   return (
     <>
-      <Head>
-      <title>{t("common:exploreAll_Meta.title")}</title>
-        <meta
-          name="description"
-          content={t("common:exploreAll_Meta.description")}
-        />
-        <meta name="keywords" content={t("common:exploreAll_Meta.keyword")} />
-        <meta
-          property="og:title"
-          content={t("common:exploreAll_Meta.title")}
-        />
-        <meta
-          property="og:description"
-          content= {t("common:exploreAll_Meta.description")}
-        />
-        <meta property="og:image" content={`${process.env.LIVE_URL}/metaAll.png`} />
-        <meta
-          property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/explore/all`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={t("common:exploreAll_Meta.title")}
-        />
-        <meta
-          name="twitter:description"
-          content={t("common:exploreAll_Meta.description")}
-        />
-        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaAll.png`} />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
-      </Head>
-
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            <NoData category={"all"} />
+            <NoData category={t("common:routes.explore-all")} />
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>
@@ -64,9 +31,9 @@ export default function All({ data }) {
                   key={idx}
                   href={
                     item._source.tattoo_type === "normal"
-                      ? `/${router.locale}/explore/tattoos/${item._source.tattoo_uid}`
+                      ? `/${router.locale}/${t("common:routes.explore-tattoos")}/${item._source.tattoo_uid}`
                       : item._source.tattoo_type === "flash"
-                      ? `/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`
+                      ? `/${router.locale}/${t("common:routes.explore-flash")}/${item._source.tattoo_uid}`
                       : `/${router.locale}/artists/${item._source.slug}`
                   }
                 >

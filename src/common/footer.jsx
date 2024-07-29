@@ -35,18 +35,18 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.tattooArtists"),
-      url: `/${router.locale}/explore/tattoo-artists`,
+      url: `/${router.locale}/${t("common:routes.tattoo-artists")}`,
     },
 
     {
       id: 2,
       title: t("common:menus.tattoos"),
-      url: `/${router.locale}/explore/tattoos`,
+      url:`/${router.locale}/${t("common:routes.explore-tattoos")}`,
     },
     {
       id: 3,
       title: t("common:menus.flashTattos"),
-      url: `/${router.locale}/explore/flash-tattoos`,
+      url:`/${router.locale}/${t("common:routes.explore-flash")}`,
     },
   ];
 
@@ -55,12 +55,12 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.request"),
-      url: `/${router.locale}/createRequest`,
+      url: `/${router.locale}/${t("common:routes.tattoo-request")}`,
     },
     {
       id: 2,
       title: t("common:menus.financing"),
-      url: `/${router.locale}/klarna`,
+      url: `/${router.locale}/${t("common:routes.klarna")}`,
     },
     {
       id: 3,
@@ -73,7 +73,7 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.forTattooers"),
-      url: `/${router.locale}/for-tattoo-artists`,
+      url: `/${router.locale}/${t("common:routes.for-tattoo-artists")}`
     },
     // {
     //   id: 2,
@@ -86,7 +86,7 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.contactUs"),
-      url: `/${router.locale}/contact`,
+      url: `/${router.locale}/${t("common:routes.contact")}`,
     },
     {
       id: 2,
@@ -183,7 +183,7 @@ export default function Footer() {
                     </li>
                     {bookLinks.map((link) => (
                       <li key={link.id}>
-                        <Link href={link.url}>{link.title}</Link>
+                        <Link href={t(link.url)}>{link.title}</Link>
                       </li>
                     ))}
                   </ul>

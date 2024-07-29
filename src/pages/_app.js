@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps }) {
     ];
 
     const darkThemePaths = [
-        "/klarna",
+        "/tattoo-financing",
         "/for-tattoo-artists",
         "/journal",
         "/download/[[...download]]"

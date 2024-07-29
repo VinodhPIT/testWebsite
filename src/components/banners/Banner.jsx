@@ -33,8 +33,8 @@ export default function Banner({
   return (
     <div>
       <section className="full_block_banner">
-        <div class="row g-0">
-          <div class="col-md-12">
+        <div className="row g-0">
+          <div className="col-md-12">
             <div className="banner_block banner_mob_fit">
               <div className="banner_col m_min_h_inherit">
                 <div className="banner_img_wrap position_relative">

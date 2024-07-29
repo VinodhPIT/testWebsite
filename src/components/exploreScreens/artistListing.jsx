@@ -18,44 +18,11 @@ export default function Artist({ data }) {
 
   return (
     <>
-      <Head>
-      <title>{t("common:exploreArtistScreen_Meta.title")}</title>
-        <meta
-          name="description"
-          content={t("common:exploreArtistScreen_Meta.description")}
-        />
-        <meta name="keywords" content={t("common:exploreArtistScreen_Meta.keyword")}/>
-        <meta
-          property="og:title"
-          content={t("common:exploreArtistScreen_Meta.title")}
-        />
-        <meta
-          property="og:description"
-          content= {t("common:exploreArtistScreen_Meta.description")}
-        />
-        <meta property="og:image" content={`${process.env.LIVE_URL}/metaArtist.png`} />
-        <meta
-          property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/explore/tattoo-artists`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={t("common:exploreArtistScreen_Meta.title")}
-        />
-        <meta
-          name="twitter:description"
-          content={t("common:exploreArtistScreen_Meta.description")}
-        />
-        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaArtist.png`} />
-        <meta name="twitter:site" content="@YourTwitterHandle" />
-      </Head>
-
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
             {" "}
-            <NoData category={"tattoo-artists"} />{" "}
+            <NoData category={t("common:routes.tattoo-artists")}/>
           </div>
         ) : (
           <div className={styles.grid_wrapper}>

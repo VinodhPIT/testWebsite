@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+
+import useCanonicalUrl from "@/hooks/useCanonicalUrl";
+import usePath from "@/hooks/usePath";
+
 import useTranslation from "next-translate/useTranslation";
 import {
   Accordion,
@@ -9,15 +13,17 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
+
 import Search from "@/components/exploreScreens/searchField";
 import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-export default function FAQ({ locale }) {
-  // Constants and arrays
+export default function FAQ() {
+
+  const canonicalUrl = useCanonicalUrl();
   const router = useRouter();
-  const [state, setState] = useState("general");
+  const [stateTab, setState] = useState("general");
   const { t } = useTranslation();
 
   const changeTab = (id) => {
@@ -152,44 +158,41 @@ export default function FAQ({ locale }) {
   return (
     <>
       <Head>
-      <title>{t("common:faqScreen_Meta.title")}</title>
+        <title>{t("common:faqScreen_Meta.title")}</title>
+        <link rel="canonical" href={canonicalUrl} />
         <meta
           name="description"
           content={t("common:faqScreen_Meta.description")}
         />
         <meta name="keywords" content={t("common:faqScreen_Meta.keyword")} />
 
-        <meta
-          property="og:title"
-          content={t("common:faqScreen_Meta.title")}
-        />
+        <meta property="og:title" content={t("common:faqScreen_Meta.title")} />
         <meta
           property="og:description"
-          content= {t("common:faqScreen_Meta.description")}
+          content={t("common:faqScreen_Meta.description")}
         />
-        <meta property="og:image" content={`${process.env.LIVE_URL}/metaFAQ.png`} />
         <meta
-          property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}/faq`}
+          property="og:image"
+          content={`${process.env.LIVE_URL}/metaFAQ.png`}
         />
+        <meta property="og:url" content={canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content={t("common:faqScreen_Meta.title")}
-        />
+        <meta name="twitter:title" content={t("common:faqScreen_Meta.title")} />
         <meta
           name="twitter:description"
           content={t("common:faqScreen_Meta.description")}
         />
-        <meta name="twitter:image"  content={`${process.env.LIVE_URL}/metaFAQ.png`} />
+        <meta
+          name="twitter:image"
+          content={`${process.env.LIVE_URL}/metaFAQ.png`}
+        />
         <meta name="twitter:site" content="@YourTwitterHandle" />
-        
       </Head>
 
       <main>
         <div className="faq_search_wrap">
           <div className="container">
-            <Search currentTab={"all"} router={router} isDetail={true} />
+            <Search currentTab={"all"} router={router} isDetail={true} pathTranslations={t("common:routes.explore-all")} />
           </div>
         </div>
 
@@ -204,14 +207,18 @@ export default function FAQ({ locale }) {
                   {faqTab.map((tab) => (
                     <li
                       key={tab.id}
-                      className={state === tab.id ? "activeTab" : "inActivetab"}
+                      className={
+                        stateTab === tab.id ? "activeTab" : "inActivetab"
+                      }
                       onClick={() => changeTab(tab.id)}
                     >
                       <div className={style.tabBox}>
                         <Image
                           width={25}
                           height={25}
-                          src={state === tab.id ? tab.activeImage : tab.image}
+                          src={
+                            stateTab === tab.id ? tab.activeImage : tab.image
+                          }
                           alt={tab.id}
                         />
                         <p style={{ margin: "0" }}>{tab.label}</p>
@@ -226,10 +233,10 @@ export default function FAQ({ locale }) {
           <div className="faq_accordion_wrap">
             <div className="container">
               <Accordion allowZeroExpanded={true}>
-                {state === "general" &&
+                {stateTab === "general" &&
                   FAQ_GENERAL.map((e, index) => (
                     <AccordionItem
-                      expanded={state === "general" && index === 0}
+                      expanded={stateTab === "general" && index === 0}
                       key={e.id}
                     >
                       <AccordionItemHeading>
@@ -240,10 +247,10 @@ export default function FAQ({ locale }) {
                       </AccordionItemPanel>
                     </AccordionItem>
                   ))}
-                {state === "artist" &&
+                {stateTab === "artist" &&
                   FAQ_ARTISTS.map((e, index) => (
                     <AccordionItem
-                      expanded={state === "artist" && index === 0}
+                      expanded={stateTab === "artist" && index === 0}
                       key={e.id}
                     >
                       <AccordionItemHeading>
@@ -254,10 +261,10 @@ export default function FAQ({ locale }) {
                       </AccordionItemPanel>
                     </AccordionItem>
                   ))}
-                {state === "tattoo" &&
+                {stateTab === "tattoo" &&
                   FAQ_CUSTOMERS.map((e, index) => (
                     <AccordionItem
-                      expanded={state === "tattoo" && index === 0}
+                      expanded={stateTab === "tattoo" && index === 0}
                       key={e.id}
                     >
                       <AccordionItemHeading>

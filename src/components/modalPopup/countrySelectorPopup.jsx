@@ -12,6 +12,10 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 import countriesData from "@/data/countries.json";
 import figtree from "@/helpers/fontHelper";
 
+import usePathTranslation from '@/hooks/useee';
+
+
+
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(6, 6, 6, 0.78)",
@@ -44,11 +48,20 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     setCountry(countriesData);
   }, []);
 
-  const chooseLanguage = async ( countryCode, lng ,country) => {
-    closeModal();
-    await setLanguage(`${countryCode}-${lng}`);
-    const newUrl = `/${countryCode}-${lng}${router.asPath}`;
-    router.replace(newUrl);
+  const chooseLanguage = async ( countryCode, lng ) => { 
+     closeModal()
+     const newLocale = `${countryCode}-${lng}`;
+     await setLanguage(newLocale);
+   
+     const currentPath = router.asPath;
+     const translatedPath = usePathTranslation(currentPath, newLocale);
+     
+     // Construct the new URL with the new locale and the translated path
+     const newUrl = `/${newLocale}${translatedPath}`;
+     console.log(newUrl ,"cnsdlkcnsldnclsdknclskdnckls")
+   
+     router.replace(newUrl);
+   
     fetchStyle();
     fetchAll(countryCode);
   };
@@ -88,7 +101,9 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                             router.locale === el.set
                               ? "activeCountry"
                               : "inActivecountry"
+                              
                           }
+                          disabled={router.locale === el.set}
                           onClick={() => chooseLanguage(el.countryCode, el.lng  ,el.country)}
                         >
                           <Image

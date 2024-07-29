@@ -40,7 +40,7 @@ export default function TextsCarosuel({title ,subTitle ,description,data}){
                   <span className="position_relative d_block custom_fs_16 lh_19 fw_300 text_fs_m_14 m_lh_19 text_transform_upper">{title}</span>
                   {subTitle}</span>
                 <Link
-                  href={`/${router.locale}/explore/tattoo-artists`}
+                  href={`/${router.locale}/${t("common:routes.tattoo-artists")}`}
                   className="more_link"
                 >
                 {t("common:seeAll")}

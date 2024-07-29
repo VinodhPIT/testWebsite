@@ -5,19 +5,16 @@ import Link from "next/link";
 import Image from 'next/image'
 
 const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
+
   const router = useRouter();
   const [subMenuOpen, setSubMenuOpen] = useState(false); 
 
-  // const stripLocale = (url) => {
-  //   const localePattern = new RegExp(`^/${router.locale}`);
-  //   return url.replace(localePattern, "");
-  // };
-
   const isActive = (linkUrl) => {
     const currentPath = router.asPath;
-    const linkPath = linkUrl;
-    return currentPath === linkPath;
+    const linkPath = linkUrl.replace(/^\/+/, ''); // Remove leading slashes
+    return currentPath === `/${linkPath}`;
   };
+  
 
   const handleSpanClick = (e) => {
     e.preventDefault(); // Prevent default link behavior
@@ -25,17 +22,15 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
    
   };
 
-
   return (
     <ul>
       {filteredLinks.map((link) => (
         <li key={link.id}>
           {link.url ? (
-        
               <Link
-                href={`/${router.locale}${link.url}`}
+                href={`/${router.locale}/${t(link.url)}`}
                 onClick={() => onCloseToggle()}
-                className={isActive(link.url) ? "fw_700" : "fw_400"}
+                className={isActive(t(link.url)) ? "fw_700" : "fw_400"}
               >
                 {t(link.title)}
 
@@ -47,8 +42,6 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
                 className="ml_4 fa_angle_mob"
               />}
               </Link>
-             
-          
           ) : (
             <Link className={"d_flex justify_space_between align_item_center"}
             href={"#"}
@@ -72,8 +65,8 @@ const SideDrawerLinks = ({ filteredLinks, onCloseToggle, t }) => {
                 <li key={subLink.id} className="nav_sub_item">
                   <Link
                   onClick={()=>onCloseToggle()}
-                    href={`/${router.locale}${subLink.url}`}
-                    className={`textBlack ${isActive(subLink.url) ? 'fw_700' : 'fw_400'}`}
+                    href={`/${router.locale}/${t(subLink.url)}`}
+                    className={`textBlack ${isActive(t(subLink.url)) ? 'fw_700' : 'fw_400'}`}
                   >
                     {t(subLink.title)}
                   </Link>
