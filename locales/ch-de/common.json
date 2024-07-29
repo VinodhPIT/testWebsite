@@ -23,16 +23,24 @@
     "app": "App"
   },
 
-
   "routes":{
     "klarna":"tattoofinanzierung",
     "contact" :"kontakt",
     "for-tattoo-artists":"tattoo-business",
     "tattoo-request":"tattoo-anfrage",
-    "tattoo-request-form":"tattoo-anfrage-formular"
+    "tattoo-request-form":"tattoo-anfrage-formular",
+    "explore-tattoos":"entdecke/tattoos",
+    "explore-flash":"entdecke/flash-tattoos",
+    "tattoo-artists":"entdecke/tatowierer",
+    "explore-all":"/entdecke/alle"
    },
 
-   
+   "artistDetail":{
+    "tattoo-artists":"entdecke/tatowierer"
+  },
+
+
+
   "homePage": {
     "bannerTitle": {
       "part1": "Buche jetzt",

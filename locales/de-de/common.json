@@ -25,7 +25,7 @@
 
   "routes":{
     "klarna":"tattoofinanzierung",
-    "contact" :"entdecke/kontakt",
+    "contact" :"kontakt",
     "for-tattoo-artists":"tattoo-business",
     "tattoo-request":"tattoo-anfrage",
     "tattoo-request-form":"tattoo-anfrage-formular",
