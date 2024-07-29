@@ -18,28 +18,24 @@ const pathTranslations = {
   },
 
   "/contact": {
-    de: "/entdecke/kontakt",
-    es: "/explorar/contacto",
-    en: "/explore/contact",
+    de: "/kontakt",
+    es: "/contacto",
+    en: "/contact",
   },
 
-  "/entdecke/kontakt": {
+  "/kontakt": {
     //de
-    en: "/explore/contact",
-    es: "/explorar/contacto",
+    en: "/contact",
+    es: "/contacto",
   },
 
-  "/explorar/contacto": {
+  "/contacto": {
     //es
-    en: "/explore/contact",
-    de: "/entdecke/kontakt",
+    en: "/contact",
+    de: "/kontakt",
   },
 
-  "/explore/contact": {
-    //es
-    de: "/entdecke/kontakt",
-    es: "/explorar/contacto",
-  },
+ 
 
   "/for-tattoo-artists": {
     de: "/tattoo-business",
@@ -202,20 +198,9 @@ const pathTranslations = {
     en: "/explore/flash-tattoos/:slug*",
   },
 
-  "/artists/:slug*": {
-    de: "/entdecke/tatowierer/:slug*",
-    es: "/explorar/tatuadores/:slug*",
-  },
+ 
 
-  "/entdecke/tatowierer/:slug*": {
-    en: "/artists/:slug*",
-    es: "/explorar/tatuadores/:slug*",
-  },
 
-  "/explorar/tatuadores/:slug*": {
-    de: "/entdecke/tatowierer/:slug*",
-    en: "/artists/:slug*",
-  },
 };
 
 module.exports = pathTranslations;

@@ -30,7 +30,7 @@ export default function Artist({ data }) {
               const key = item._index === "ad" ? `ad-${idx}` : item._id;
               return item._index === "ad" ? null : (
                 <Link
-                  href={`/${router.locale}/${t("common:artistDetail.tattoo-artists")}/${item._source.slug}`}
+                  href={`/${router.locale}/artists/${item._source.slug}`}
                   className={styles.listing_gridItem}
                   key={key}
                 >

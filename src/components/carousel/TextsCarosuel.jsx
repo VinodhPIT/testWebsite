@@ -67,7 +67,7 @@ export default function TextsCarosuel({title ,subTitle ,description,data}){
                             }`}
                             key={index}
                           >
-                            <Link href={`${router.locale}/${t("common:artistDetail.tattoo-artists")}/${el.slug}`}>
+                            <Link href={`${router.locale}/artists/${el.slug}`}>
                               <div
                                 className={`${"listing_grid_img_col"} ${
                                   styles.listing_grid_img_col
