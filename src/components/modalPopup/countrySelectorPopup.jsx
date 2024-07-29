@@ -12,7 +12,7 @@ import useDisplayAll from "@/store/exploreAll/exploreAll";
 import countriesData from "@/data/countries.json";
 import figtree from "@/helpers/fontHelper";
 
-import usePathTranslation from '@/hooks/useee';
+import UsePathTranslation from '@/hooks/useee';
 
 
 
@@ -54,7 +54,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
      await setLanguage(newLocale);
    
      const currentPath = router.asPath;
-     const translatedPath = usePathTranslation(currentPath, newLocale);
+     const translatedPath = UsePathTranslation(currentPath, newLocale);
      
      // Construct the new URL with the new locale and the translated path
      const newUrl = `/${newLocale}${translatedPath}`;
