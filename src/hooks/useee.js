@@ -1,8 +1,8 @@
-import { useRouter } from 'next/router';
+
 import pathTranslations from '@/utils/pathTranslations';
 
-const usePathTranslation = (path, newLocale) => {
-  const locale = newLocale || useRouter().locale;
+const   UsePathTranslation = (path, newLocale) => {
+  const locale = newLocale 
   const lng = locale.split('-')[1];
 
   // Split the path to identify base and dynamic segments
@@ -27,4 +27,4 @@ const usePathTranslation = (path, newLocale) => {
   return path;
 };
 
-export default usePathTranslation;
+export default UsePathTranslation;
