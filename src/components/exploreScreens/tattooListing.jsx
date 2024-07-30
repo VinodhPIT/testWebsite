@@ -20,7 +20,7 @@ export default function Tattoo({ data }) {
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            <NoData category={t("common:routes.explore-tattoos")} />
+            <NoData  category={"tattoos"}   path={t("common:routes.explore-tattoos")} />
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>

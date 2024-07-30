@@ -22,7 +22,7 @@ export default function Artist({ data }) {
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
             {" "}
-            <NoData category={t("common:routes.tattoo-artists")}/>
+            <NoData category={"tattoo-artists"} path={t("common:routes.tattoo-artists")}/>
           </div>
         ) : (
           <div className={styles.grid_wrapper}>

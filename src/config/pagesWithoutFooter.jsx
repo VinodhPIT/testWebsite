@@ -5,8 +5,8 @@ export const pagesWithoutFooter = [
     "/analytics/artists",
     "/analytics/offer",
     "/500",
-    "/createRequest",
-    "/request-Form",
+    "/tattoo-request",
+    "/tattoo-request-form",
     "/analytics/profile", "/analytics/artist/detail/[slug]",
     
   ];

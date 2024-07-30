@@ -12,5 +12,6 @@ export const pagesWithoutSwitcher = [
     "/find-the-best-tattooShops-near-me",
     "/book-tattoo-artists",
     "/tattoo-after-care",
+    "/404"
   ];
   

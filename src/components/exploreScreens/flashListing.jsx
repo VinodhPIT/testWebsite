@@ -22,7 +22,8 @@ export default function Flash({ data }) {
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            <NoData category={t("common:routes.explore-flash")} />
+            <NoData category={"flash-tattoos"} path={t("common:routes.explore-flash")} />
+
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>

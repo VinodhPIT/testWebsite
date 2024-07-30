@@ -4,12 +4,12 @@ import Image from "next/image";
 import styles from "./style.module.css";
 import useTranslation from "next-translate/useTranslation";
 
-export default function NoData({ category }) {
+export default function NoData({ category ,path }) {
   const { t } = useTranslation();
   const router = useRouter();
 
   const onClear = () => {
-    router.push(`/${router.locale}/${category}`);
+    router.push(`/${router.locale}/${path}`);
   };
 
   return (
@@ -20,7 +20,7 @@ export default function NoData({ category }) {
       <p className={styles.d}>{t("common:notFoundMessage")}</p>
 
       <button onClick={() => onClear()} className={styles.button}>
-        {t("common:exploreAll")} {category}
+      {t("common:exploreAll")} {category}
       </button>
     </div>
   );
