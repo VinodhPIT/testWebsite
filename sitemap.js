@@ -42,6 +42,8 @@ const Urls = [
   "/explore/tattoo-artists",
   "/explore/tattoos",
   "/explore/flash-tattoos",
+  "/explore/all"
+
 ];
 
 // Specific URLs for es-es locale
@@ -67,11 +69,11 @@ const commonUrls = [
   "/tattoofinanzierung",
   "/tattoo-business",
   "/kontakt",
-  "/entdecke/alle",
   "/entdecke/tattoos",
   "/entdecke/tätowierer",
   "/entdecke/flash-tattoos",
   "/faq",
+  "/entdecke/alle"
 ];
 
 // URLs with low priority
