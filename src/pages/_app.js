@@ -7,14 +7,12 @@ import NProgress from "nprogress";
 
 import UseLayout from "@/hooks/useLayout";
 
-import useStyleListing from "@/store/styleListing/styleListing";
 import useDisplayAll from "@/store/exploreAll/exploreAll";
 
 import { GlobalStateProvider } from "@/context/Context";
 import { ModalProvider } from "@/context/ModalContext";
 import loadGoogleMapsAPI from "@/utils/google-maps";
 import { AxiosProvider } from '@/apiConfig/axios.instance'; 
-
 
 import Header from "@/common/header";
 import Footer from "@/common/footer";
@@ -26,7 +24,6 @@ import "@/styles/analytics.css";
 import "@/styles/requestForm.css";
 import "@/styles/cms.css";
 import "@/styles/main.css";
-
 
 
 NProgress.configure({ showSpinner: false });
@@ -137,22 +134,16 @@ function MyApp({ Component, pageProps }) {
         return null;
     }
 }
-
-  const { fetchAll } = useDisplayAll();
-  const { fetchStyle } = useStyleListing();
-  
+  const { fetchAll } = useDisplayAll(); 
   useEffect(() => {
-    // if (router.pathname.startsWith(`/${router.locale}`)) {
-    //   router.replace(`/${router.locale}${router.asPath}`);
-    // }
-    fetchStyle(router.locale.split("-")[1]);
+    if (router.pathname!=="/404") {
+      router.replace(`/${router.locale}${router.asPath}`);
+    }
     fetchAll(router.locale.split("-")[0]);
-
   }, []);
 
   return (
     <>
-
      <AxiosProvider>
       <SessionProvider session={pageProps.session}>
       <ModalProvider>
