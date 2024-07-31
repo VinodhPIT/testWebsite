@@ -169,6 +169,16 @@ module.exports = nextTranslate({
       // },
 
       {
+        source: "/explore/tattoos/:slug*",
+        destination: "/explore/tattoos/:slug*",
+      },
+      {
+        source: "/entdecke/tattoos/:slug*",
+        destination: "/explore/tattoos/:slug*",
+      },
+
+
+      {
         source: "/entdecke/tattoos/:slug*",
         destination: "/explore/tattoos/:slug*",
       },
