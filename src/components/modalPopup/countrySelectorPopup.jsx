@@ -60,7 +60,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
     
     // Construct the new URL with the new locale and the translated path
     const newUrl = `/${newLocale}${translatedPath}`; 
-    router.replace(newUrl);
+    router.replace(newUrl, undefined, { shallow: true }); // Use shallow routing if needed
+
 
    fetchAll(countryCode);
   };
