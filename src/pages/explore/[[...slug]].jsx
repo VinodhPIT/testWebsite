@@ -34,7 +34,7 @@ const Search = ({ data, currentTab, pageNo, totalItems, searchKey,  selectedStyl
 
   const { state, fetchServerlData,loadMore,styleCollection,getAddress,setSearchState} = useGlobalState();
 
-  const { t } = useTranslation('common'); // Specify namespace if using i18n
+  const { t } = useTranslation("common", { i18n: translations });
   
   const { isSticky, elementRef, topRef } = useSticky();
 

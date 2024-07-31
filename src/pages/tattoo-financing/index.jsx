@@ -2,9 +2,9 @@ import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+
 import loadTranslation from "next-translate/loadNamespaces";
 import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
-
 
 import useTranslation from "next-translate/useTranslation";
 import {
@@ -40,10 +40,7 @@ function KlarnaNew({ translations}) {
   const { allListing } = useDisplayAll();
   const canonicalUrl = useCanonicalUrl();
   
-
-  const { t } = useTranslation('common'); // Specify namespace if using i18n
-
-
+  const { t } = useTranslation("common", { i18n: translations });
 
   const klarnaOptions = [
     {
@@ -450,3 +447,22 @@ function KlarnaNew({ translations}) {
 export default KlarnaNew;
 
 
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
+}
