@@ -41,7 +41,8 @@ function KlarnaNew({ translations}) {
   const canonicalUrl = useCanonicalUrl();
   
 
-  const { t } = useTranslation("common", { i18n: translations });
+  const { t } = useTranslation('common'); // Specify namespace if using i18n
+
 
 
   const klarnaOptions = [
@@ -449,18 +450,3 @@ function KlarnaNew({ translations}) {
 export default KlarnaNew;
 
 
-export async function getServerSideProps(context) {
-  const { locale } = context;
-  console.log(locale ,"cldcn")
-  try {
-    // Load Meta Tags from the server
-    const translations = await loadTranslation("common", locale);
-    return {
-      props: {
-        translations,
-      },
-    };
-  } catch (error) {
-    return null
-  }
-}

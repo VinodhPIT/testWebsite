@@ -34,7 +34,7 @@ export default function Detail({ data, locale ,translations }) {
   const { getTranslatedUrl } = usePath();
   const translatedUrl = getTranslatedUrl(state.currentTab);
 
-  const { t } = useTranslation("common", { i18n: translations });
+  const { t } = useTranslation('common'); // Specify namespace if using i18n
 
   const [loading, setLoading] = useState(false);
   const [tattoo, setTattoo] = useState([]);
