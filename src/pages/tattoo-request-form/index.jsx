@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 
 import useCanonicalUrl from "@/hooks/useCanonicalUrl";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import TattooSize from "@/components/stepperComponents/tattooSize";
 import BodyPart from "@/components/stepperComponents/bodyPart";
@@ -21,8 +22,9 @@ const StepperComponent = dynamic(
   }
 );
 
-export default function Requestform() {
-  const { t } = useTranslation();
+export default function Requestform({translations}) {
+  
+  const { t } = useTranslation("common", { i18n: translations });
   const canonicalUrl = useCanonicalUrl();
 
   const steps = [
@@ -70,4 +72,24 @@ export default function Requestform() {
       {getPageComponent(stepNumber)}
     </>
   );
+}
+
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
 }

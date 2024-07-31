@@ -13,6 +13,7 @@ function Download({data}) {
   const { router } = useNavigation();
   const { type, influencer, ...otherParams } = router.query;
 
+
   function getMarketingpage(type) {
     switch (type) {
       case "klarna":
