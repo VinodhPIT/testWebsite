@@ -451,11 +451,10 @@ export default KlarnaNew;
 
 export async function getServerSideProps(context) {
   const { locale } = context;
-
+  console.log(locale ,"cldcn")
   try {
     // Load Meta Tags from the server
     const translations = await loadTranslation("common", locale);
-
     return {
       props: {
         translations,
