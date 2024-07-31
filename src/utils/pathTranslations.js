@@ -173,6 +173,9 @@ const pathTranslations = {
     es: "/explorar/tatuajes/:slug*",
   },
 
+
+
+
   "/entdecke/tattoos/:slug*": {
     en: "/explore/tattoos/:slug*",
     es: "/explorar/tatuajes/:slug*",
