@@ -142,6 +142,9 @@ function MyApp({ Component, pageProps }) {
   const { fetchStyle } = useStyleListing();
   
   useEffect(() => {
+    // if (router.pathname.startsWith(`/${router.locale}`)) {
+    //   router.replace(`/${router.locale}${router.asPath}`);
+    // }
     fetchStyle(router.locale.split("-")[1]);
     fetchAll(router.locale.split("-")[0]);
 

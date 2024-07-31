@@ -90,15 +90,15 @@ export default function Header({
                 <span>{t("common:getTattooNow")}</span>
                 <span className="header_cookie_desktop">
                   {t("common:payLater")}
-                  <Link href={`/${router.locale}/klarna`}>
+                  <Link href={`/${router.locale}/${t("common:routes.klarna")}`}>
                     {t("common:learnmore")}
                   </Link>
                 </span>
 
                 {isMobileView && (
                   <span className="header_cookie_mob">
-                    <Link href={`/${router.locale}/klarna`}>
-                      {t("common:learnmore")}
+                    <Link href={`/${router.locale}/${t("common:routes.klarna")}`}>
+                    {t("common:learnmore")}
                     </Link>
                   </span>
                 )}
@@ -117,7 +117,7 @@ export default function Header({
             </div>
             <span className="custom_fs_14">{t("common:getTattooNow")}</span>
             <Link
-              href={`/${router.locale}/klarna`}
+              href={`/${router.locale}/${t("common:routes.klarna")}`}
               className="head_paylater_link"
             >
               {t("common:learnmore")}
@@ -168,7 +168,7 @@ export default function Header({
                   {t("common:menus.forTattooers")}
                 </button>
 
-                {router.pathname === "/journal" ||
+                {router.pathname === "/journal" ||router.pathname === "/404" ||
                 router.pathname === "/explore/[[...slug]]" ? null : (
                   <button
                     className={`${

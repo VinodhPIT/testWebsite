@@ -31,15 +31,13 @@
     "tattoo-request-form":"tattoo-anfrage-formular",
     "explore-tattoos":"entdecke/tattoos",
     "explore-flash":"entdecke/flash-tattoos",
-    "tattoo-artists":"entdecke/tatowierer",
+    "tattoo-artists":"entdecke/t%C3%A4towierer",
     "explore-all":"/entdecke/alle"
    },
 
    "artistDetail":{
     "tattoo-artists":"entdecke/tatowierer"
   },
-
-
 
   "homePage": {
     "bannerTitle": {
@@ -369,7 +367,7 @@
   "Percentage": "Prozent",
 
   "journalTitle": "inckd. Tattoo Journal:",
-  "subText": "Neueste Tattoo Trends, Tipps und Techniken",
+  "subText": "Neueste tattoo trends, tipps und techniken",
   "See out of": "Schau dir an",
   "Style": "Stil",
   "Search by Location": "Ort",

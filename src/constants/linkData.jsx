@@ -79,7 +79,7 @@ export const Links = [
     {
       id: 5,
       title: "common:menus.journal",
-      url: `/journal`,
+      url: `journal`,
     },
     {
       id: 6,

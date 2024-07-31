@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import setLanguage from "next-translate/setLanguage";
+
 import useTranslation from "next-translate/useTranslation";
+import setLanguage from "next-translate/setLanguage";
 import Modal from "react-modal";
 
 import useStyleListing from "@/store/styleListing/styleListing";
@@ -49,22 +50,22 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }, []);
 
   const chooseLanguage = async ( countryCode, lng ) => { 
-     closeModal()
-     const newLocale = `${countryCode}-${lng}`;
-     await setLanguage(newLocale);
-   
-     const currentPath = router.asPath;
-     const translatedPath = UsePathTranslation(currentPath, newLocale);
-     
-     // Construct the new URL with the new locale and the translated path
-     const newUrl = `/${newLocale}${translatedPath}`;
-     console.log(newUrl ,"cnsdlkcnsldnclsdknclskdnckls")
-   
-     router.replace(newUrl);
-   
-    fetchStyle();
-    fetchAll(countryCode);
+    
+    closeModal()
+    const newLocale = `${countryCode}-${lng}`;
+    await setLanguage(newLocale);
+  
+    const currentPath = router.asPath;
+    const translatedPath = UsePathTranslation(currentPath, newLocale);
+    
+    // Construct the new URL with the new locale and the translated path
+    const newUrl = `/${newLocale}${translatedPath}`; 
+    router.replace(newUrl);
+  
+   fetchStyle();
+   fetchAll(countryCode);
   };
+
 
   return (
     <Modal

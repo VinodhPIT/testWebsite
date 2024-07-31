@@ -32,6 +32,7 @@ import {
 } from "@/constants/index";
 
 
+
 function KlarnaNew({ }) {
   const { t } = useTranslation();
   const { router } = useNavigation();
@@ -111,6 +112,8 @@ function KlarnaNew({ }) {
   const handleChange = (uuids) => {
     setExpandedItems(uuids);
   };
+
+
 
 
 

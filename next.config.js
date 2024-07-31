@@ -1,5 +1,5 @@
 const nextTranslate = require("next-translate-plugin");
-const pathTranslations = require("./src/utils/pathTranslations");
+
 
 // const generateRewrites = () => {
 //   const rewrites = [];
@@ -32,6 +32,7 @@ const nextConfig = {
 
   i18n: {
     localeDetection: false,
+    defaultLocale: "ch-en",
   },
 };
 
@@ -40,8 +41,11 @@ module.exports = nextTranslate({
     return { ...nextConfig, ...nextConfig };
   },
   ...nextConfig,
+
   async rewrites() {
     return [
+
+
       {
         source: "/tattoo-financing",
         destination: "/tattoo-financing",
@@ -151,7 +155,7 @@ module.exports = nextTranslate({
         destination: "/explore/tattoo-artists",
       },
       {
-        source: "/entdecke/tatowierer",
+        source: "/entdecke/t%C3%A4towierer",
         destination: "/explore/tattoo-artists",
       },
       {

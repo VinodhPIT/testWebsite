@@ -128,12 +128,12 @@ const pathTranslations = {
   },
 
   "/explore/tattoo-artists": {
-    de: "/entdecke/tatowierer",
+    de: "/entdecke/t%C3%A4towierer",
     es: "/explorar/tatuadores",
     en: "/explore/tattoo-artists",
   },
 
-  "/entdecke/tatowierer": {
+  "/entdecke/t%C3%A4towierer": {
     en: "/explore/tattoo-artists",
     es: "/explorar/tatuadores",
   },
@@ -141,7 +141,7 @@ const pathTranslations = {
   "/explorar/tatuadores": {
     //es
     en: "/explore/tattoo-artists",
-    de: "/entdecke/tatowierer",
+    de: "/entdecke/t%C3%A4towierer",
   },
 
   "/explore/flash-tattoos": {

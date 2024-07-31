@@ -20,7 +20,7 @@ export default function All({ data }) {
       <div className={styles.pageContainer}>
         {data.length === 0 ? (
           <div className={styles.blockCenter}>
-            <NoData category={t("common:routes.explore-all")} />
+            <NoData  category={"all"} path={t("common:routes.explore-all")} />
           </div>
         ) : (
           <div className={styles.grid_wrapper_tattoo}>

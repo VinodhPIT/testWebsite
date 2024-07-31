@@ -7772,7 +7772,7 @@ ul.download_qr_mob_app .download_qr_mob_app_title {
     color: var(--white);
   }
   .head_paylater_link:hover{
-    color: var(--black-200);
+    color: var(--white);
   }
   .header_logo .navbar_brand img {
     width: 78px;
