@@ -64,7 +64,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   
   //  fetchStyle();
   //  fetchAll(countryCode);
-
+"wdwdwd"
 
 
 
@@ -73,7 +73,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   const newUrl =`/${countryCode}-${lng}${router.asPath}`;
   router.replace(newUrl);
 
-  
+
   };
 
 
