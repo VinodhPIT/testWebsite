@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-
+import loadTranslation from "next-translate/loadNamespaces";
 import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
 
 
@@ -33,14 +33,17 @@ import {
 
 
 
-function KlarnaNew({ }) {
-  const { t } = useTranslation();
+function KlarnaNew({ translations}) {
   const { router } = useNavigation();
   const { setPathname } = usePath();
   const { isMobileView } = useWindowResize();
   const { allListing } = useDisplayAll();
   const canonicalUrl = useCanonicalUrl();
   
+
+  const { t } = useTranslation("common", { i18n: translations });
+
+
   const klarnaOptions = [
     {
       id: "1",
@@ -445,3 +448,20 @@ function KlarnaNew({ }) {
 }
 export default KlarnaNew;
 
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    // Load Meta Tags from the server
+    const translations = await loadTranslation("common", locale);
+
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return null
+  }
+}

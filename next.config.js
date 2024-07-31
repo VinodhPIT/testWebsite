@@ -50,9 +50,9 @@ module.exports = nextTranslate({
         destination: "/tattoo-financing",
       },
       {
-        source: "/de-de/tattoofinanzierung",
+        source: "/tattoofinanzierung",
         destination: "/tattoo-financing",
-        locale: false,
+       
       },
       {
         source: "/financiacion-de-tatuajes",
