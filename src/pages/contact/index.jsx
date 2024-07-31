@@ -3,19 +3,18 @@ import Image from "next/image";
 import Head from "next/head";
 
 import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
-import { useNavigation } from "@/hooks/useRouter";
 
 import _Form from "@/components/forms/contactForm";
 import useTranslation from "next-translate/useTranslation";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import {
   BLUR_URL,
 } from "@/constants/index";
 
-export default function Contact({}) {
+export default function Contact({translations}) {
 
-  const { router } = useNavigation();
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
   const canonicalUrl = useCanonicalUrl();
 
   return (
@@ -117,4 +116,23 @@ export default function Contact({}) {
       </section>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
 }

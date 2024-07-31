@@ -1,18 +1,17 @@
 import React from "react";
 import Head from "next/head";
 
-import { useNavigation } from "@/hooks/useRouter";
 import useCanonicalUrl from '@/hooks/useCanonicalUrl'; 
 
 import useTranslation from "next-translate/useTranslation";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import { UseResetRequestFormState} from "@/store/requestManagement/requestForm";
 import Main from "@/components/stepperComponents/main";
 
-export default function Requestform() {
+export default function Requestform({translations}) {
 
-  const { router } = useNavigation();
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
   const canonicalUrl = useCanonicalUrl();
 
   UseResetRequestFormState();
@@ -58,4 +57,23 @@ export default function Requestform() {
       <Main />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
 }

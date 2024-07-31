@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import useTranslation from "next-translate/useTranslation";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
 import usePath from '@/hooks/usePath'
@@ -23,10 +24,10 @@ import API_URL from "@/apiConfig/api.config";
 import styles from "./style.module.css";
 import style from "@/pages/explore/search.module.css";
 
+export default function Detail({ data ,translations }) {
 
-export default function Detail({ data }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
   const { state,  styleCollection } = useGlobalState();
 
   const { getTranslatedUrl } = usePath();
@@ -293,7 +294,10 @@ export default function Detail({ data }) {
 
 export async function getServerSideProps(context) {
   try {
+    const {locale } = context;
     const res = await axiosInstance.get(API_URL.SEARCH.GET_ARTIST_DETAIL(context.query.detail));
+    const translations = await loadTranslation("common", locale);
+
     if (!res.data) {
       return {
         notFound: true,
@@ -303,6 +307,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         data: res.data.data,
+        translations
       },
     };
   } catch (error) {

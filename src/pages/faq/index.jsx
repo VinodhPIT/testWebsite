@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 
 import useCanonicalUrl from "@/hooks/useCanonicalUrl";
-import usePath from "@/hooks/usePath";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import useTranslation from "next-translate/useTranslation";
 import {
@@ -19,12 +19,12 @@ import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-export default function FAQ() {
-
+export default function FAQ({translations}) {
+  
   const canonicalUrl = useCanonicalUrl();
   const router = useRouter();
   const [stateTab, setState] = useState("general");
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
 
   const changeTab = (id) => {
     setState(id);
@@ -283,3 +283,23 @@ export default function FAQ() {
     </>
   );
 }
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
+}
+

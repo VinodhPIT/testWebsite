@@ -8,16 +8,17 @@ import { useNavigation } from "@/hooks/useRouter";
 import { useModal } from "@/utils/modalUtils";
 
 import useTranslation from "next-translate/useTranslation";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import Banner from "@/components/banners/Banner";
 import ArtistPickerModel from "@/components/modalPopup/joinArtistPopup";
 
 import { BLUR_URL } from "@/constants/index";
 
-export default function Tattooartists({}) {
+export default function Tattooartists({translations}) {
   const { router } = useNavigation();
   const { isPopupOpen, openPopup, closePopup } = useModal();
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
   const canonicalUrl = useCanonicalUrl();
 
   return (
@@ -470,4 +471,25 @@ export default function Tattooartists({}) {
       />
     </>
   );
+}
+
+
+
+export async function getServerSideProps(context) {
+  const { locale } = context;
+
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
 }

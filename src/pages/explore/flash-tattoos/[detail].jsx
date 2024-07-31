@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import useTranslation from "next-translate/useTranslation";
+import loadTranslation from "next-translate/loadNamespaces";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
 import usePath from '@/hooks/usePath'
@@ -26,13 +27,13 @@ import styles from "../tattoodetail.module.css";
 import style from "@/pages/explore/search.module.css";
 
 
-export default function Detail({ data}) {
+export default function Detail({ data ,translations}) {
 
   const router = useRouter();
   const { state, styleCollection, setSelectedIds, onSearch } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
   const [loading, setLoading] = useState(false);
   const [tattoo, setTattoo] = useState([]);
   const [getStyle, setStyle] = useState([]);
@@ -422,8 +423,9 @@ export default function Detail({ data}) {
 
 export async function getServerSideProps(context) {
   try {
-    
+    const {locale } = context;
     const res = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(context.query.detail))
+    const translations = await loadTranslation("common", locale);
 
     if (!res.data) {
       return {
@@ -436,6 +438,7 @@ export async function getServerSideProps(context) {
         data: res.data.data,
         status: true,
         locale: context.locale,
+        translations
       },
     };
   } catch (error) {
