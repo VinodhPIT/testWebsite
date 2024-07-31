@@ -50,6 +50,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }, []);
 
   const chooseLanguage = async ( countryCode, lng ) => { 
+
+    console.log(router.asPath ,'cdcdc')
     
   //   closeModal()
   //   const newLocale = `${countryCode}-${lng}`;
