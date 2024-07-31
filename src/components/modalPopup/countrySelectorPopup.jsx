@@ -51,19 +51,29 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
   const chooseLanguage = async ( countryCode, lng ) => { 
     
-    closeModal()
-    const newLocale = `${countryCode}-${lng}`;
-    await setLanguage(newLocale);
+  //   closeModal()
+  //   const newLocale = `${countryCode}-${lng}`;
+  //   await setLanguage(newLocale);
   
-    const currentPath = router.asPath;
-    const translatedPath = UsePathTranslation(currentPath, newLocale);
+  //   const currentPath = router.asPath;
+  //   const translatedPath = UsePathTranslation(currentPath, newLocale);
     
-    // Construct the new URL with the new locale and the translated path
-    const newUrl = `/${newLocale}${translatedPath}`; 
-    router.replace(newUrl);
+  //   // Construct the new URL with the new locale and the translated path
+  //   const newUrl = `/${newLocale}${translatedPath}`; 
+  //   router.replace(newUrl);
   
-   fetchStyle();
-   fetchAll(countryCode);
+  //  fetchStyle();
+  //  fetchAll(countryCode);
+
+
+
+
+  await setLanguage(`${countryCode}-${lng}`);
+  closeModal();
+  const newUrl =`/${countryCode}-${lng}${router.asPath}`;
+  router.replace(newUrl);
+
+  
   };
 
 
