@@ -23,10 +23,9 @@ const nextConfig = {
     unoptimized: true,
   },
   env: {
-    apiDomain: process.env.VERCEL
-      ? "https://apiadmin.inckd.com"
-      : "https://admin.inckd.com",
-    googlePlacesApiKey: "AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
+    apiDomain: 
+       "https://admin.inckd.com",
+   
     LIVE_URL: "https://inckd.dev.displayme.net",
   },
 
@@ -51,8 +50,9 @@ module.exports = nextTranslate({
         destination: "/tattoo-financing",
       },
       {
-        source: "/tattoofinanzierung",
+        source: "/de-de/tattoofinanzierung",
         destination: "/tattoo-financing",
+        locale: false,
       },
       {
         source: "/financiacion-de-tatuajes",
