@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
+import loadTranslation from "next-translate/loadNamespaces";
 import useTranslation from "next-translate/useTranslation";
 
 import useScrollToTop from "@/hooks/useScrollToTop";
@@ -25,7 +25,7 @@ import Loader from "@/components/loading/loader";
 import styles from "../tattoodetail.module.css";
 import style from "@/pages/explore/search.module.css";
 
-export default function Detail({ data, locale }) {
+export default function Detail({ data, locale ,translations }) {
   
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
@@ -34,7 +34,7 @@ export default function Detail({ data, locale }) {
   const { getTranslatedUrl } = usePath();
   const translatedUrl = getTranslatedUrl(state.currentTab);
 
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
 
   const [loading, setLoading] = useState(false);
   const [tattoo, setTattoo] = useState([]);
@@ -376,9 +376,15 @@ export default function Detail({ data, locale }) {
 }
 
 export async function getServerSideProps(context) {
+  
   try {
+    const {locale } = context;
     const res = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(context.query.detail))
+    const translations = await loadTranslation("common", locale);
+
     if (!res.data) {
+
+
       return {
         notFound: true,
       };
@@ -388,6 +394,7 @@ export async function getServerSideProps(context) {
         data: res.data.data,
         status: true,
         locale: context.locale,
+        translations
       },
     };
   } catch (error) {
