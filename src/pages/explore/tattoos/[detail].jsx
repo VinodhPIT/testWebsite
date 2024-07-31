@@ -379,7 +379,9 @@ export async function getServerSideProps(context) {
   
   try {
     const {locale } = context;
+    
     const res = await axiosInstance.get(API_URL.SEARCH.GET_TATTOO_DETAIL(context.query.detail))
+
     const translations = await loadTranslation("common", locale);
 
     if (!res.data) {
