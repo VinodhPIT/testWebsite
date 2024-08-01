@@ -40,7 +40,7 @@ function KlarnaNew({ translations}) {
   const { allListing } = useDisplayAll();
   const canonicalUrl = useCanonicalUrl();
   
-  const { t } = useTranslation();
+  const { t } = useTranslation("common", { i18n: translations });
 
   const klarnaOptions = [
     {
@@ -146,7 +146,7 @@ function KlarnaNew({ translations}) {
 
          <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}${router.asPath}`}
+          content={`${process.env.LIVE_URL}/${router.locale}${t("common:routes.klarna")}`}
         />
 
 
@@ -452,21 +452,21 @@ export default KlarnaNew;
 
 
 
-// export async function getServerSideProps(context) {
-//   const { locale } = context;
+export async function getServerSideProps(context) {
+  const { locale } = context;
 
-//   try {
-//     const translations = await loadTranslation("common", locale);
-//     return {
-//       props: {
-//         translations,
-//       },
-//     };
-//   } catch (error) {
-//     return {
-//       props: {
-//         translations: {}, 
-//       },
-//     };
-//   }
-// }
+  try {
+    const translations = await loadTranslation("common", locale);
+    return {
+      props: {
+        translations,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        translations: {}, 
+      },
+    };
+  }
+}
