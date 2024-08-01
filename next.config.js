@@ -193,10 +193,18 @@ module.exports = nextTranslate({
         destination: "/explore/tattoos/:slug*",
       },
 
+
+      {
+        source: "/explore/flash-tattoos/:slug*",
+        destination: "/explore/flash-tattoos/:slug*",
+      },
+
       {
         source: "/entdecke/flash-tattoos/:slug*",
         destination: "/explore/flash-tattoos/:slug*",
       },
+
+
 
       {
         source: "/explorar/flash-tatuajes/:slug*",
