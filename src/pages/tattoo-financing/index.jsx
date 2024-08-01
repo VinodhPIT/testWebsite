@@ -142,10 +142,14 @@ function KlarnaNew({ translations}) {
           content= {t("common:klarnascreen_Meta.description")}
         />
         <meta property="og:image" content={`${process.env.LIVE_URL}/metaKlarna.png`} />
-        <meta
+     
+
+         <meta
           property="og:url"
-          content={canonicalUrl}
+          content={`${process.env.LIVE_URL}/${router.locale}${router.asPath}`}
         />
+
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
