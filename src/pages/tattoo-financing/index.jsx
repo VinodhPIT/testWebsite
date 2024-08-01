@@ -125,7 +125,11 @@ function KlarnaNew({ translations}) {
 
         <title>{t("common:klarnascreen_Meta.title")}</title>
 
-        <link rel="canonical" href={canonicalUrl}  />
+        <link
+  rel="canonical"
+  href={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.klarna")}`}
+/>
+
 
         <meta
           name="description"
