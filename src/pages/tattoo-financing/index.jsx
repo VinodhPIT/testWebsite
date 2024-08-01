@@ -146,7 +146,7 @@ function KlarnaNew({ translations}) {
 
          <meta
           property="og:url"
-          content={`${process.env.LIVE_URL}/${router.locale}${t("common:routes.klarna")}`}
+          content={`${process.env.LIVE_URL}/${router.locale}/${t("common:routes.klarna")}`}
         />
 
 
