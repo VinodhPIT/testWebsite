@@ -1,5 +1,5 @@
 const nextTranslate = require("next-translate-plugin");
-
+///
 //
 // const generateRewrites = () => {
 //   const rewrites = [];
