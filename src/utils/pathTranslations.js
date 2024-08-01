@@ -171,9 +171,8 @@ const pathTranslations = {
   "/explore/tattoos/:slug*": {
     de: "/entdecke/tattoos/:slug*",
     es: "/explorar/tatuajes/:slug*",
+    en: "/explore/tattoos/:slug*",
   },
-
-
 
 
   "/entdecke/tattoos/:slug*": {
@@ -189,6 +188,7 @@ const pathTranslations = {
   "/explore/flash-tattoos/:slug*": {
     de: "/entdecke/flash-tattoos/:slug*",
     es: "/explorar/flash-tatuajes/:slug*",
+    en:"/explore/flash-tattoos/:slug*"
   },
 
   "/entdecke/flash-tattoos/:slug*": {
